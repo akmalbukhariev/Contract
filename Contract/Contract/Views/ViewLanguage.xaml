@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contract.Views.ViewLanguage">
+
+    <Grid ColumnDefinitions="Auto,*">
+       <Image Source="uzb_flag"
+              Aspect="AspectFit"
+              Margin="20,0,10,0"
+              WidthRequest="120"/>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     Margin="10,0,20,0"
+                     Grid.Column="1">
+            <Label Text="O'zbekcha"
+                   FontSize="25"
+                   FontFamily="Nunito_Bold"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+            <Line BackgroundColor="Gray"
+                  HeightRequest="3"/>
+            <Label Text="O'zbek (lotin) tilida davom etish."
+                   FontFamily=""
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </Grid>
+    
+</ContentView>
