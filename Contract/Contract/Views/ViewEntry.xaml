@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Contract.Control"
+             x:Class="Contract.Views.EntryView">
+
+    <Grid x:Name="grMain" 
+          ColumnDefinitions="*">
+        <BoxView x:Name="backBoxView" BackgroundColor="White"/> 
+        <BoxView x:Name="frontBoxView" Margin="2,2,2,2"/>
+ 
+        <control:CustomEntry x:Name="entry"
+                             PlaceholderColor="White"
+                             TextColor="White"
+                             FontSize="15" 
+                             HorizontalTextAlignment="Center"/> 
+    </Grid>
+
+</ContentView>

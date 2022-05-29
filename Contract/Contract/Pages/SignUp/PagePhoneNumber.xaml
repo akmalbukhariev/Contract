@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            x:Class="Contract.Pages.SignUp.PagePhoneNumber">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Grid RowDefinitions="*,Auto,*,Auto"
+              Grid.Column="1">
+            <Frame BackgroundColor="#3F6C6C"
+                   CornerRadius="10"
+                   HasShadow="True"
+                   WidthRequest="80"
+                   HeightRequest="80"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand">
+                <Label Text="M"
+                       TextColor="White"
+                       FontSize="50"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+            </Frame>
+            <StackLayout Spacing="20"
+                         Margin="0,-30,0,30"
+                         Grid.Row="1">
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="lbStyle" TargetType="Label">
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                            <Setter Property="VerticalTextAlignment" Value="Center"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+                <Label Text="Assalomu alaykum hurmatli mijoz!"
+                       Style="{StaticResource lbStyle}"/>
+                <Label Text="Tizimdan foydalanish uchun avtorizasiya qiling."
+                       Style="{StaticResource lbStyle}"/>
+            </StackLayout>
+            <StackLayout Spacing="10"
+                         VerticalOptions="StartAndExpand"
+                         Grid.Row="2">
+                <view:EntryView PlaceHoldingText="Telfon raqamingizni kiriting"
+                                TextColor="Black"
+                                PlaceHolderTextColor="Gray"
+                                BorderColor="Gray"
+                                BorderWidth="1"
+                                HeightEntryView="60"
+                                BackgroundColorOfEntry="White"
+                                CornerRadius="5"/>
+                <Label Text="Yoki"
+                       TextColor="Black"
+                       FontSize="15"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"/>
+                <Button Text="Ro'yxatdan o'ting"
+                        TextColor="White"
+                        FontSize="15"
+                        BackgroundColor="#3F6C6C"
+                        HeightRequest="60"
+                        CornerRadius="5"/>
+            </StackLayout>
+            <Label Text="Shartnoma maker v.1.0.0"
+                   FontSize="10"
+                   TextColor="Gray"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="End"
+                   Margin="0,0,0,10"
+                   Grid.Row="3"/>
+        </Grid>
+    </Grid>
+     
+</page:IPage>

@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.PageLanguage();
+            MainPage = new Pages.SignUp.PageAuthorization();
         }
 
         protected override void OnStart()
