@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:page="clr-namespace:Contract.Pages"
+             x:Class="Contract.Pages.SignUp.PageIntroduction">
+
+    <AbsoluteLayout>
+        <CarouselView ItemsSource="{Binding Images}" 
+                      AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      AbsoluteLayout.LayoutFlags="All"
+                      IndicatorView="indicatorview">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="*,*">
+                        <Image Source="{Binding ImagePath}"  
+                               Aspect="AspectFit" 
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand" />
+                        <StackLayout Spacing="10" 
+                                     Grid.Row="1">
+                            <Label Text="{Binding Text1}"
+                                   FontSize="25"
+                                   TextColor="Black"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding Text2}"
+                                   FontSize="17"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                        <Label x:Name="lbSkipt" 
+                               Text="O'tkazib yuborish"
+                               FontSize="18"
+                               Margin="0,20,20,0"
+                               TextColor="#B3B3B3"
+                               HorizontalOptions="EndAndExpand"
+                               VerticalOptions="StartAndExpand"
+                               Grid.RowSpan="2">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      Tapped="LabelSkip_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="indicatorview" 
+                       AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       IndicatorColor="LightGray"
+                       IndicatorSize="10"
+                       SelectedIndicatorColor="#3F6C6C"/>
+    </AbsoluteLayout>
+
+</page:IPage>

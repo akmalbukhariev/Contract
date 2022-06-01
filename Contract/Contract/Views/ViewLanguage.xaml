@@ -4,22 +4,23 @@
              x:Class="Contract.Views.ViewLanguage">
 
     <Grid ColumnDefinitions="Auto,*">
-       <Image Source="uzb_flag"
+       <Image x:Name="image" 
               Aspect="AspectFit"
               Margin="20,0,10,0"
               WidthRequest="120"/>
         <StackLayout VerticalOptions="CenterAndExpand"
                      Margin="10,0,20,0"
                      Grid.Column="1">
-            <Label Text="O'zbekcha"
+            <Label x:Name="label" 
                    FontSize="25"
+                   FontAttributes="Bold"
                    FontFamily="Nunito_Bold"
                    TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
             <Line BackgroundColor="Gray"
                   HeightRequest="3"/>
-            <Label Text="O'zbek (lotin) tilida davom etish."
+            <Label x:Name="labelInfo"
                    FontFamily=""
                    TextColor="Gray"
                    HorizontalTextAlignment="Center"/>

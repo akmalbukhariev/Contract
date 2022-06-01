@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contract.Views.ViewNavigationBar">
+
+    <Grid ColumnDefinitions="Auto,*">
+        <Image x:Name="image" 
+               Source="back_left_gray"
+               Aspect="AspectFit"
+               WidthRequest="40"
+               HorizontalOptions="Start"
+               Margin="0,10,0,0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
+    
+</ContentView>

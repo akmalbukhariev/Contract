@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.SignUp.PageAuthorization();
+            MainPage = new NavigationPage(new Pages.SignUp.PageIntroduction());
         }
 
         protected override void OnStart()
