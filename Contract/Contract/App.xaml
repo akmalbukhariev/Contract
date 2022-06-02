@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contract.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="btnSignNext" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#3F6C6C"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

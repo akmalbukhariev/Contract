@@ -2,7 +2,7 @@
 <page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:page="clr-namespace:Contract.Pages"
-             x:Class="Contract.Pages.SignUp.PageIntroduction">
+             x:Class="Contract.Pages.Introduction.PageIntroduction">
 
     <AbsoluteLayout>
         <CarouselView ItemsSource="{Binding Images}" 

@@ -1,5 +1,6 @@
 ﻿
 using Contract.Model;
+using Contract.Pages.Introduction;
 using Contract.Pages.SignUp;
 using System;
 using System.Collections.Generic;

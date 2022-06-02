@@ -11,28 +11,78 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Nunito_Black.ttf" />
+    <None Remove="Resources\Fonts\Nunito_BlackItalic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Bold.ttf" />
+    <None Remove="Resources\Fonts\Nunito_BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Nunito_ExtraBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Nunito_ExtraLightItalic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Italic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Light.ttf" />
+    <None Remove="Resources\Fonts\Nunito_LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Medium.ttf" />
+    <None Remove="Resources\Fonts\Nunito_MediumItalic.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Regular.ttf" />
+    <None Remove="Resources\Fonts\Nunito_SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Nunito_SemiBoldItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Black.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_BlackItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_BoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Italic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_LightItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_MediumItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_SemiBoldItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.2.0.562" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\Login\PagePhone.xaml.cs">
+      <DependentUpon>PagePhone.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\PageM.xaml.cs">
+      <DependentUpon>PageM.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ViewEntry.xaml.cs">
       <DependentUpon>ViewEntry.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Pages\Login\PagePassword.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\PageLanguage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SignUp\PageAuthorization.xaml">
+    <EmbeddedResource Update="Pages\Login\PagePhone.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SignUp\PageIntroduction.xaml">
+    <EmbeddedResource Update="Pages\Introduction\PageIntroduction.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SignUp\PageLoginInfo.xaml">
+    <EmbeddedResource Update="Pages\Introduction\PageLoginInfo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\PageM.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\SignUp\PagePhoneNumber.xaml">

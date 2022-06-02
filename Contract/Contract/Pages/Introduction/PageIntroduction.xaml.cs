@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.SignUp
+namespace Contract.Pages.Introduction
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageIntroduction : IPage

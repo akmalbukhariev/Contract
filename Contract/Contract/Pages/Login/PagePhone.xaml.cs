@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.SignUp
+namespace Contract.Pages.Login
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageAuthorization : IPage
+    public partial class PagePhone : IPage
     {
-        public PageAuthorization()
+        public PagePhone()
         {
             InitializeComponent();
         }

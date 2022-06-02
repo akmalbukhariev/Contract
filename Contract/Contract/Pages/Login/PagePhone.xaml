@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            x:Class="Contract.Pages.Login.PagePhone">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Grid RowDefinitions="Auto,*,Auto"
+              Grid.Column="1">
+            <view:ViewNavigationBar/>
+            <StackLayout Spacing="10" 
+                         VerticalOptions="CenterAndExpand"
+                         Grid.Row="1">
+                <Label Text="Avtorizasiya" 
+                       TextColor="Black"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center"/>
+                <StackLayout>
+                    <Label Text="Ush bu telfon raqami"
+                           TextColor="Gray"
+                           FontSize="15"
+                           HorizontalTextAlignment="Center"/>
+                    <Label HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="+998 123456789 " FontAttributes="Bold" TextColor="Gray"/>
+                                <Span Text="ro'yxatdan o'tmagan" TextColor="Gray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <view:EntryView PlaceHoldingText="+998_ __ __ __"
+                                TextColor="Black"
+                                PlaceHolderTextColor="Gray"
+                                BorderColor="Gray"
+                                BorderWidth="1"
+                                HeightEntryView="60"
+                                BackgroundColorOfEntry="White"
+                                CornerRadius="5"/>
+                <Label Text="* Telfon raqamingizni tog'rililigiga e'tibor bering."
+                       TextColor="Black"
+                       FontSize="15"
+                       Margin="10,0,0,0"/>
+            </StackLayout>
+            <Button Text="Keyingisi"
+                    TextColor="White"
+                    FontSize="15"
+                    BackgroundColor="#3F6C6C"
+                    HeightRequest="60"
+                    CornerRadius="5"
+                    VerticalOptions="End"
+                    Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>
