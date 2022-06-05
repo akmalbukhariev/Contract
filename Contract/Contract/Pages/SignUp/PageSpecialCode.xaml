@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            x:Class="Contract.Pages.SignUp.PageSpecialCode">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Source="background1"
+               Aspect="Fill" 
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*,*,Auto,Auto" 
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"
+                                    UseWhite="True"/>
+            <StackLayout VerticalOptions="EndAndExpand" 
+                         Spacing="15"
+                         Grid.Row="1">
+                <Label Text="Maxsus kodni kiriting"
+                       FontSize="17"
+                       TextColor="Black"
+                       FontFamily="Nunito_SemiBold"
+                       HorizontalTextAlignment="Center"/>
+                <Grid RowDefinitions="*,2"
+                      ColumnDefinitions="*,*,*,*"
+                      Margin="20,0,20,0">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="lbStyle" TargetType="control:CustomEntry">
+                                <Setter Property="FontSize" Value="17"/>
+                                <Setter Property="TextColor" Value="Black"/>
+                                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <control:CustomEntry Text="1"
+                                         Style="{StaticResource lbStyle}"/>
+                    <Line BackgroundColor="Black"
+                          Grid.Row="1"/>
+                    <control:CustomEntry Text="0" 
+                                         Style="{StaticResource lbStyle}"
+                                         Grid.Column="1"/>
+                    <Line BackgroundColor="Black"
+                          Grid.Row="1"
+                          Grid.Column="1"/>
+                    <control:CustomEntry Text="0" 
+                                         Style="{StaticResource lbStyle}"
+                                         Grid.Column="2"/>
+                    <Line BackgroundColor="Black"
+                          Grid.Row="1"
+                          Grid.Column="2"/>
+                    <control:CustomEntry Text="0" 
+                                         Style="{StaticResource lbStyle}"
+                                         Grid.Column="3"/>
+                    <Line BackgroundColor="Black"
+                          Grid.Row="1"
+                          Grid.Column="3"/>
+                </Grid>
+                <Label Text="Kutish vaqti 0:59"
+                       TextColor="Gray"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <view:ViewExplanation Text="Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting."
+                                  Grid.Row="2"/> 
+            <Label x:Name="lbSendCodeAgain" 
+                   Text="Kodni qayta yuvorish"
+                   FontSize="20"
+                   TextColor="{StaticResource AppColor}"
+                   FontFamily="Nunito_Regular"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="EndAndExpand"
+                   Margin="0,0,0,40"
+                   Grid.Row="3">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SendCodeaAgain_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Button Text="Keyingisi"
+                    Style="{StaticResource btnSignNext}"
+                    Margin="0,0,0,50"
+                    Grid.Row="4"/>
+        </Grid>
+    </Grid>
+ 
+</page:IPage>

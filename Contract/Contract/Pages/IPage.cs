@@ -21,12 +21,12 @@ namespace Contract.Pages
             await view.ScaleTo(1, 200, Easing.SpringOut);
         }
 
-        protected async void ChangeClickBackColor(Label label)
+        protected async void ChangeClickBackColor(Label label, Color changeColor, Color orgColor)
         {
-            label.TextColor = Color.Gray;
+            label.TextColor = changeColor;
             await Task.Delay(100);
 
-            label.TextColor = Color.White;
+            label.TextColor = orgColor;
             await Task.Delay(200);
         }
     }

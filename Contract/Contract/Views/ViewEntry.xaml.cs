@@ -308,6 +308,78 @@ namespace Contract.Views
         }
         #endregion
 
+        #region Vertical TextAlignment
+        public static readonly BindableProperty VerticalTextAlignmentProperty =
+            BindableProperty.Create(nameof(VerticalTextAlignment),
+                                    typeof(TextAlignment),
+                                    typeof(EntryView),
+                                    null,
+                                    propertyChanged: VerticalTextAlignmentPropertyChanged);
+
+        public TextAlignment VerticalTextAlignment
+        {
+            get { return (TextAlignment)GetValue(VerticalTextAlignmentProperty); }
+            set { SetValue(VerticalTextAlignmentProperty, value); }
+        }
+
+        private static void VerticalTextAlignmentPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (EntryView)bindable;
+            if (newValue != null)
+            {
+                control.entry.VerticalTextAlignment = (TextAlignment)newValue;
+            }
+        }
+        #endregion
+
+        #region Horizontal TextAlignment
+        public static readonly BindableProperty HorizontalTextAlignmentProperty =
+            BindableProperty.Create(nameof(HorizontalTextAlignment),
+                                    typeof(TextAlignment),
+                                    typeof(EntryView),
+                                    null,
+                                    propertyChanged: HorizontalTextAlignmentPropertyChanged);
+
+        public TextAlignment HorizontalTextAlignment
+        {
+            get { return (TextAlignment)GetValue(HorizontalTextAlignmentProperty); }
+            set { SetValue(HorizontalTextAlignmentProperty, value); }
+        }
+
+        private static void HorizontalTextAlignmentPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (EntryView)bindable;
+            if (newValue != null)
+            {
+                control.entry.HorizontalTextAlignment = (TextAlignment)newValue;
+            }
+        }
+        #endregion
+
+        #region Is Password
+        public static readonly BindableProperty IsPasswordProperty =
+            BindableProperty.Create(nameof(IsPassword),
+                                    typeof(bool),
+                                    typeof(EntryView),
+                                    null,
+                                    propertyChanged: IsPasswordPropertyChanged);
+
+        public bool IsPassword
+        {
+            get { return (bool)GetValue(IsPasswordProperty); }
+            set { SetValue(IsPasswordProperty, value); }
+        }
+
+        private static void IsPasswordPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (EntryView)bindable;
+            if (newValue != null)
+            {
+                control.entry.IsPassword = (bool)newValue;
+            }
+        }
+        #endregion
+
         public Entry Entry => entry;
           
         public EntryView()

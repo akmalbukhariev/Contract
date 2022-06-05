@@ -1,14 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:Contract.Views"
              x:Class="Contract.App">
     <Application.Resources>
+        <Color x:Key="AppColor">#3F6C6C</Color>
         <ResourceDictionary>
+            <Style x:Key="lbStar" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="lbBoldTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="Nunito_SemiBold"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="lbRegularTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
             <Style x:Key="btnSignNext" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#3F6C6C"/>
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+            <Style x:Key="viewEntryStyle" TargetType="view:EntryView">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                <Setter Property="BorderColor" Value="Gray"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                <Setter Property="HeightEntryView" Value="50"/>
+                <Setter Property="CornerRadius" Value="5"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

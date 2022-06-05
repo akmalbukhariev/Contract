@@ -24,7 +24,7 @@ namespace Contract.Pages.Introduction
 
         private async void LabelSkip_Tapped(object sender, EventArgs e)
         {
-            ChangeClickBackColor((Label)sender);
+            ChangeClickBackColor((Label)sender, Color.White, Color.White);
             await Navigation.PushAsync(new PageLoginInfo());
         }
     }

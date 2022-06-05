@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
-            x:Class="Contract.Pages.SignUp.PagePhoneNumber">
+            x:Class="Contract.Pages.SignUp.PageSkippedTime">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Source="background1"
@@ -14,17 +14,18 @@
             <view:ViewNavigationBar BackImage="back_left_white"
                                     UseWhite="True"/>
             <StackLayout VerticalOptions="CenterAndExpand"
-                         Spacing="10"
+                         Spacing="15"
                          Grid.Row="1">
-                <Label Text="Telfon raqamingizni kiriting"
+                <Image Source="error"
+                       Aspect="AspectFit"
+                       WidthRequest="160"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label Text="Siz kutish vaqtini o'tkazib yubordingiz. Iltimos kodni qayta yuvorish tugmasini bosing"
+                       HorizontalTextAlignment="Center"
+                       FontFamily="Nunito_Regular"
                        TextColor="Black"
-                       FontSize="17"
-                       FontFamily="Nunito_SemiBold"
-                       HorizontalOptions="CenterAndExpand"/>
-                <view:EntryView PlaceHoldingText="+998-- --- ---"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource viewEntryStyle}"/>
-                <view:ViewExplanation Text="Biz sizga telegram tarmog'i orqali maxsus kod yuvoramiz. Shu bois, telfon raqam telegram tarmog'iga ulangan bo'lishi lozim."/>
+                       FontSize="16"/>
             </StackLayout>
             <Button Text="Keyingisi"
                     Style="{StaticResource btnSignNext}"

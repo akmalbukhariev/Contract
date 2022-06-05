@@ -12,8 +12,7 @@
         <control:CustomEntry x:Name="entry"
                              PlaceholderColor="White"
                              TextColor="White"
-                             FontSize="15" 
-                             HorizontalTextAlignment="Center"/> 
+                             FontSize="15"/> 
     </Grid>
 
 </ContentView>

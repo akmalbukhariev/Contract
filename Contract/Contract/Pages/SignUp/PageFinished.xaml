@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            BackgroundColor="#F3F3F3"
+            x:Class="Contract.Pages.SignUp.PageFinished">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Source="background2"
+               Aspect="AspectFill"
+               VerticalOptions="Start"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*,Auto" 
+                  VerticalOptions="FillAndExpand"
+                  RowSpacing="25"
+                  Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"
+                                    Title="Ro'yxatdan o'tish"
+                                    TitleColor="White"
+                                    FontSize="21"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.Row="1"
+                     Grid.RowSpan="2"/>
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         Spacing="20"
+                         Grid.Row="1">
+                <Grid RowDefinitions="Auto,Auto,Auto">
+                    <Label Text="Tabriklaymiz!"
+                           Style="{StaticResource lbBoldTitle}"/>
+                    <Label Text="Siz ro'yxatdan o'tishni"
+                           Style="{StaticResource lbBoldTitle}"
+                           Grid.Row="1"/>
+                    <Label Text="muvaffaqiyatli yakunladingiz."
+                           Style="{StaticResource lbBoldTitle}"
+                           Grid.Row="2"/>
+                </Grid> 
+                <Grid RowDefinitions="Auto, Auto">
+                    <Label Text="Sizning ID raqamingiz"
+                           Style="{StaticResource lbBoldTitle}"/>
+                    <Label Text="1234567"
+                           Style="{StaticResource lbBoldTitle}"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           Grid.Row="1"/>
+                </Grid>
+                <Label LineBreakMode="WordWrap"
+                       HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Iltimos " TextColor="Gray"/>
+                            <Span Text="Davom ettirish" TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text=" tugmasini                    bosing" TextColor="Gray"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <Button Text="Davom ettirish"
+                    Style="{StaticResource btnSignNext}"
+                    Margin="15,0,15,50"
+                    Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

@@ -1,8 +1,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-[assembly: ExportFont("NanumSquare_acB.ttf", Alias = "NanumSquare_acB")]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)] 
 [assembly: ExportFont("Nunito_Black.ttf", Alias = "Nunito_Black")]
 [assembly: ExportFont("Nunito_BlackItalic.ttf", Alias = "Nunito_BlackItalic")]
 [assembly: ExportFont("Nunito_Bold.ttf", Alias = "Nunito_Bold")]
