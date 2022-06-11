@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:page="clr-namespace:Contract.Pages"
-             x:Class="Contract.Pages.MainPage">
- 
-</page:IPage>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:page="clr-namespace:Contract.Pages" 
+                  x:Class="Contract.Pages.MainPage">
+
+    <MasterDetailPage.Master>
+        <page:PageMenu Title="Test"/>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <page:PageLanguage/>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

@@ -4,18 +4,21 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
+            BackgroundColor="#F3F3F3"
             x:Class="Contract.Pages.SignUp.PageSpecialCode">
 
     <Grid ColumnDefinitions="20,*,20">
-        <Image Source="background1"
-               Aspect="Fill" 
+        <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,*,*,Auto,Auto" 
+        <Grid RowDefinitions="Auto,*,Auto,Auto" 
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
                                     UseWhite="True"/>
-            <StackLayout VerticalOptions="EndAndExpand" 
-                         Spacing="15"
+            <BoxView Style="{StaticResource boxFrame}"
+                     Grid.Row="1"
+                     Grid.RowSpan="3"/>
+            <StackLayout Style="{StaticResource stackFrame}"
                          Grid.Row="1">
                 <Label Text="Maxsus kodni kiriting"
                        FontSize="17"
@@ -62,26 +65,24 @@
                 <Label Text="Kutish vaqti 0:59"
                        TextColor="Gray"
                        HorizontalTextAlignment="Center"/>
+                <view:ViewExplanation Text="Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting."
+                                  VerticalOptions="Start"/>
             </StackLayout>
-            <view:ViewExplanation Text="Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting."
-                                  Grid.Row="2"/> 
             <Label x:Name="lbSendCodeAgain" 
                    Text="Kodni qayta yuvorish"
                    FontSize="20"
                    TextColor="{StaticResource AppColor}"
                    FontFamily="Nunito_Regular"
                    HorizontalTextAlignment="Center"
-                   VerticalOptions="EndAndExpand"
+                   VerticalOptions="End"
                    Margin="0,0,0,40"
-                   Grid.Row="3">
+                   Grid.Row="2">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SendCodeaAgain_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
-            <Button Text="Keyingisi"
-                    Style="{StaticResource btnSignNext}"
-                    Margin="0,0,0,50"
-                    Grid.Row="4"/>
+            <Button Style="{StaticResource btnSignNext}" 
+                    Grid.Row="3"/>
         </Grid>
     </Grid>
  

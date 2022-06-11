@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Pages.SignUp.PageFinished());
+            MainPage = new Pages.PageMenu();
         }
 
         protected override void OnStart()

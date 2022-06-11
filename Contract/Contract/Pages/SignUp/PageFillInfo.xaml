@@ -8,19 +8,15 @@
             x:Class="Contract.Pages.SignUp.PageFillInfo">
 
     <Grid ColumnDefinitions="20,*,20">
-        <Image Source="background2"
-               Aspect="AspectFill"
-               VerticalOptions="Start"
+        <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto, Auto,*,Auto" 
               VerticalOptions="FillAndExpand"
               RowSpacing="25"
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"
-                                        Title="Ro'yxatdan o'tish"
-                                        TitleColor="White"
-                                        FontSize="21"
-                                        UseWhite="True"/>
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    UseWhite="True"/>
             <Label Text="Iltimos, korxonangizning rekvizitlarini kiriting."
                    TextColor="White"
                    HorizontalTextAlignment="Center"
@@ -29,7 +25,7 @@
                    Grid.Row="1"/>
             <Grid Grid.Row="2">
                 <BoxView BackgroundColor="White"
-                             CornerRadius="10"/>
+                         CornerRadius="10"/>
                 <ScrollView VerticalOptions="FillAndExpand">
                     <StackLayout Spacing="20" 
                                  Margin="15,20,15,0">
@@ -131,8 +127,7 @@
                 </ScrollView>
             </Grid>
             <Button Text="Yakunlash"
-                    Style="{StaticResource btnSignNext}"
-                    Margin="0,0,0,50"
+                    Style="{StaticResource btnSignNext}" 
                     Grid.Row="3"/>
         </Grid>
     </Grid>

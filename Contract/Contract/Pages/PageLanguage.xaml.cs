@@ -21,6 +21,7 @@ namespace Contract.Pages
         private void Item_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((ViewLanguage)sender);
+            //(App.Current.MainPage as MasterDetailPage).IsPresented = true;
         }
     }
 }

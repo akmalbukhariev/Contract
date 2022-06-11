@@ -28,6 +28,8 @@
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="VerticalOptions" Value="End"/>
                 <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="15,0,15,50"/>
+                <Setter Property="Text" Value="Keyingisi"/>
             </Style>
             <Style x:Key="viewEntryStyle" TargetType="view:EntryView">
                 <Setter Property="TextColor" Value="Black"/>
@@ -37,6 +39,26 @@
                 <Setter Property="BackgroundColorOfEntry" Value="White"/>
                 <Setter Property="HeightEntryView" Value="50"/>
                 <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+            <Style x:Key="boxFrame" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="0,10,0,20"/>
+            </Style>
+            <Style x:Key="naviBarSignUp" TargetType="view:ViewNavigationBar">
+                <Setter Property="Title" Value="Ro'yxatdan o'tish"/>
+                <Setter Property="TitleColor" Value="White"/>
+                <Setter Property="FontSize" Value="21"/>
+            </Style>
+            <Style x:Key="imBackground2" TargetType="Image">
+                <Setter Property="Source" Value="background2"/>
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+            </Style>
+            <Style x:Key="stackFrame" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="20"/>
+                <Setter Property="Margin" Value="15,20,15,0"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

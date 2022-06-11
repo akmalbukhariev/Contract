@@ -20,6 +20,7 @@
                FontFamily="Nunito_SemiBold"
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
+               Margin="0,15,0,0"
                Grid.Column="1"/>
     </Grid>
     

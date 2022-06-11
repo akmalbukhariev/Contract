@@ -8,11 +8,12 @@ using Xamarin.Forms;
 
 namespace Contract.Pages
 {
-    public partial class MainPage : IPage
+    public partial class MainPage : MasterDetailPage
     {
         public MainPage()
         {
             InitializeComponent();
+             
         }
     }
 }

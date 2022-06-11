@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contract.Pages.PageMenu">
+
+    <ListView HasUnevenRows="True"
+              SeparatorVisibility="None" 
+              ItemsSource="{Binding MenuList}"
+              ItemTapped="ListView_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid RowDefinitions="Auto,Auto">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding HImage}"
+                                   Aspect="AspectFill"
+                                   WidthRequest="30"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding HText}"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Image Source="{Binding HShowImage}"
+                                   Aspect="AspectFit"
+                                   WidthRequest="20"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                        <ListView ItemsSource="{Binding ChildMenuList}" 
+                                  IsVisible="{Binding IsVisible}"
+                                  VerticalOptions="Start"
+                                  HeightRequest="{Binding MenuHeight}"
+                                  Margin="35,0,0,0"
+                                  Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Label Text="{Binding Name}"
+                                               TextColor="Black"
+                                               FontSize="15"
+                                               FontFamily="Nunito_Regular"
+                                               HorizontalTextAlignment="Start"
+                                               VerticalTextAlignment="Center"/>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid> 
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate> 
+    </ListView> 
+    
+</ContentPage>
