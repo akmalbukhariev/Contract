@@ -31,11 +31,20 @@ namespace Contract.Pages
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            var tListView = sender as ListView;
+            tListView.SelectedItem = null;
+
             var item = e.Item as Model.Menu;
 
             if (item.ChildMenuList == null || item.ChildMenuList.Count == 0) return;
 
             model.HodeOrShowMenu(item);
+        }
+
+        private void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var tListView = sender as ListView;
+            tListView.SelectedItem = null; 
         }
     }
 }

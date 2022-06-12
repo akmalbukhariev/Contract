@@ -2,14 +2,14 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:page="clr-namespace:Contract.Pages" 
-                  x:Class="Contract.Pages.MainPage">
+                  x:Class="Contract.Pages.PageMasterDetail">
 
     <MasterDetailPage.Master>
         <page:PageMenu Title="Test"/>
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
-        <page:PageLanguage/>
+        <page:PageMain/>
     </MasterDetailPage.Detail>
 
 </MasterDetailPage>

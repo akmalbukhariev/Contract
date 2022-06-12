@@ -58,6 +58,9 @@
     <Compile Update="Pages\Login\PagePhone.xaml.cs">
       <DependentUpon>PagePhone.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\PageMasterDetail.xaml.cs">
+      <DependentUpon>PageMasterDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\PageM.xaml.cs">
       <DependentUpon>PageM.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\PageM.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\PageMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\PageMenu.xaml">
@@ -113,6 +119,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewNavigationBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewShowContractCount.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace Contract.Pages
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class PageMasterDetail : MasterDetailPage
     {
-        public MainPage()
+        public PageMasterDetail()
         {
             InitializeComponent();
              

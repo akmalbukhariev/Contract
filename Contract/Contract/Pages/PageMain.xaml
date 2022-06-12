@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            BackgroundColor="#F3F3F3"
+            x:Class="Contract.Pages.PageMain">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,Auto,Auto,*,50,Auto,*,10"
+              Margin="0,20,0,0"
+              RowSpacing="20"
+              Grid.Column="1">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="showAllMenu1"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Start"
+                       WidthRequest="35">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Mening korxonam"
+                       TextColor="White"
+                       Margin="0,0,20,0"
+                       Style="{StaticResource lbRegularTitle}"
+                       FontSize="18"
+                       HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <Label Text="Korxona nomi MCHJ"
+                   TextColor="White"
+                   FontSize="18"
+                   Style="{StaticResource lbBoldTitle}"
+                   Grid.Row="1"/>
+            <StackLayout Spacing="-3" Grid.Row="2">
+                <Label Text="ID raqamingiz"
+                       TextColor="White"
+                       FontSize="18"
+                       Style="{StaticResource lbRegularTitle}"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Label Text="1234567"
+                       TextColor="White"
+                       Style="{StaticResource lbBoldTitle}"/>
+            </StackLayout>
+            <Grid ColumnDefinitions="*,*"
+                  Grid.Row="3">
+                <view:ViewShowContractCount ImageSource="check1"
+                                            Text="{Binding TextCount1}"
+                                            TextCount="15"/>
+                <view:ViewShowContractCount ImageSource="check2"
+                                            Text="{Binding TextCount2}"
+                                            TextCount="15"
+                                            Grid.Column="1"/>
+            </Grid>
+            <Button Text="Shartnoma tuzish"
+                    TextColor="White"
+                    BackgroundColor="#EF8057"
+                    CornerRadius="5"
+                    Grid.Row="4"/>
+            <Label Text="Shartnomalar"
+                   TextColor="Black"
+                   FontSize="20"
+                   FontFamily="Nunito_SemiBold"
+                   HorizontalOptions="StartAndExpand"
+                   Grid.Row="5"/> 
+            <ListView ItemsSource="{Binding MenuList}" 
+                      BackgroundColor="White"
+                      HeightRequest="150"
+                      ItemTapped="ListView_ItemTapped"
+                      VerticalOptions="CenterAndExpand"
+                      Grid.Row="6">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="20"
+                                         VerticalOptions="CenterAndExpand"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding Name}"
+                                       TextColor="#326262"
+                                       FontFamily="Nunito_Regular"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="EndAndExpand"/>
+                                <Image Source="right"
+                                       Aspect="AspectFit"
+                                       WidthRequest="7"
+                                       HorizontalOptions="StartAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+
+</page:IPage>

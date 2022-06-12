@@ -18,6 +18,8 @@ namespace Contract.Model
         public string HText { get => GetValue<string>(); set => SetValue(value); }
         public string HShowImage { get => GetValue<string>(); set => SetValue(value); }
 
+        public ChildMenuItem SelectedChildItem { get => GetValue<ChildMenuItem>(); set => SetValue(value); }
+
         public ObservableCollection<ChildMenuItem> ChildMenuList { get => GetValue<ObservableCollection<ChildMenuItem>>(); set => SetValue(value); }
 
         public Menu()

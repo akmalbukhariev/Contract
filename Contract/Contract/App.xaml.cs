@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.PageMenu();
+            MainPage = new Pages.PageMasterDetail();
         }
 
         protected override void OnStart()

@@ -8,9 +8,15 @@ namespace Contract.ViewModel
 {
     public class PageMenuViewModel : BaseModel
     {
+        public string CompanyName { get => GetValue<string>(); set => SetValue(value); }
+        public string IDNumber { get => GetValue<string>(); set => SetValue(value); }
+         
         public ObservableCollection<Menu> MenuList { get => GetValue<ObservableCollection<Menu>>(); set => SetValue(value); }
+
         public PageMenuViewModel()
         {
+            CompanyName = "\"Korxona nomi\" MCHJ";
+            IDNumber = "ID Raqamingiz \n 1234567";
             MenuList = new ObservableCollection<Menu>();
         }
 
@@ -21,7 +27,7 @@ namespace Contract.ViewModel
                 MenuHeight = 205,
                 HImage = "contracts",
                 HText = "Shartnomalar",
-                HShowImage = "show",
+                HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
                     new ChildMenuItem(){Name = "Tastiqlanmagan shartnomalar"},
@@ -48,7 +54,7 @@ namespace Contract.ViewModel
                 MenuHeight = 190,
                 HImage = "templates",
                 HText = "Shablonlar",
-                HShowImage = "show",
+                HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
                     new ChildMenuItem(){Name = "Shartnoma shablonlari"},
@@ -63,7 +69,7 @@ namespace Contract.ViewModel
                 MenuHeight = 160,
                 HImage = "profile",
                 HText = "Shaxsiy kabinet",
-                HShowImage = "show",
+                HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
                     new ChildMenuItem(){Name = "Rekvizit ma'lumotlarini tahrirlash"},
@@ -110,7 +116,7 @@ namespace Contract.ViewModel
         internal void HodeOrShowMenu(Menu item)
         {
             item.IsVisible = !item.IsVisible;
-            item.HShowImage = item.HShowImage == "hide"? "show" : "hide";
+            item.HShowImage = item.HShowImage == "hideMenu"? "showMenu" : "hideMenu";
 
             var index = MenuList.IndexOf(item);
             MenuList.Remove(item);
