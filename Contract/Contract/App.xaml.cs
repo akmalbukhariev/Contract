@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.PageMasterDetail();
+            MainPage = new Pages.UnapprovedContracts.PageCancelContract();
         }
 
         protected override void OnStart()

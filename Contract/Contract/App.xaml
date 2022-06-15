@@ -5,6 +5,7 @@
              x:Class="Contract.App">
     <Application.Resources>
         <Color x:Key="AppColor">#3F6C6C</Color>
+        <Color x:Key="BackColor">#F3F3F3</Color>
         <ResourceDictionary>
             <Style x:Key="lbStar" TargetType="Label">
                 <Setter Property="FontSize" Value="20"/>
