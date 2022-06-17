@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            BackgroundColor="#F3F3F3"
+            x:Class="Contract.Pages.UnapprovedContracts.PageTable">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Tasdiqlanmagan shartnomalar"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.Row="1"/>
+            <ScrollView Orientation="Horizontal" 
+                        VerticalOptions="FillAndExpand" 
+                        Grid.Row="1">
+                <ListView WidthRequest="800" ItemsSource="{Binding DataList}" >
+                    <ListView.Header>
+                        <Grid ColumnDefinitions="30,100,150,300,150,150,100,150,150,100">
+                            <Label Text="№" Style="{StaticResource lbHeader}"/>
+                            <Label Text="Tayyorlovchi" Style="{StaticResource lbHeader}" Grid.Column="1"/>
+                            <Label Text="Shartnoma raqami" Style="{StaticResource lbHeader}" Grid.Column="2"/>
+                            <Label Text="Korxona (kontragent) nomi" Style="{StaticResource lbHeader}" Grid.Column="3"/>
+                            <Label Text="Shartnoma sanasi" Style="{StaticResource lbHeader}" Grid.Column="4"/>
+                            <Label Text="Shartnoma Narxi" Style="{StaticResource lbHeader}" Grid.Column="5"/>
+                            <Label Text="Ko'rish" Style="{StaticResource lbHeader}" Grid.Column="6"/>
+                            <Label Text="Tasdiqlash" Style="{StaticResource lbHeader}" Grid.Column="7"/>
+                            <Label Text="Jo'natish" Style="{StaticResource lbHeader}" Grid.Column="8"/>
+                            <Label Text="Bekor qilish" Style="{StaticResource lbHeader}" Grid.Column="9"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*"
+                                      BackgroundColor="{Binding ItemColor}">
+                                    <Label Text="{Binding No}" Style="{StaticResource lbItem}"/>
+                                    <BoxView BackgroundColor="{Binding PreparerColor}" Grid.Column="1"/>
+                                    <Label Text="{Binding Preparer}" Style="{StaticResource lbItem}" Grid.Column="1"/>
+                                    <Label Text="{Binding ContractNnumber}" Style="{StaticResource lbItem}" Grid.Column="2"/>
+                                    <Label Text="{Binding CompanyName}" Style="{StaticResource lbItem}" Grid.Column="3"/>
+                                    <Label Text="{Binding ContractDate}" Style="{StaticResource lbItem}" Grid.Column="4"/>
+                                    <Label Text="{Binding ContractPrice}" Style="{StaticResource lbItem}" Grid.Column="5"/>
+                                    <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="6"/>
+                                    <Image Source="check" Style="{StaticResource imItem}" Grid.Column="7"/>
+                                    <Image Source="send" Style="{StaticResource imItem}" Grid.Column="8"/>
+                                    <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="9"/>
+                                </Grid>    
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</page:IPage>

@@ -61,6 +61,24 @@
                 <Setter Property="Margin" Value="15,20,15,0"/>
                 <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
             </Style>
+            <Style x:Key="lbHeader" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="Nunito_SemiBold"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="lbItem" TargetType="Label" BasedOn="{StaticResource lbHeader}">
+                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                <Setter Property="FontAttributes" Value="None"/>
+            </Style>
+            <Style x:Key="imItem" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
