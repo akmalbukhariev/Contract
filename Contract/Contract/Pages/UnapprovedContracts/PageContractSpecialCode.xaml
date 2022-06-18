@@ -5,11 +5,11 @@
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.SignUp.PageSpecialCode">
+            x:Class="Contract.Pages.UnapprovedContracts.PageContractSpecialCode">
 
     <Grid ColumnDefinitions="20,*,20">
-        <Image Style="{StaticResource imBackground2}"
-               Grid.ColumnSpan="3"/>
+            <Image Style="{StaticResource imBackground2}"
+                   Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,*,Auto,Auto" 
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
@@ -20,6 +20,22 @@
                      Grid.RowSpan="3"/>
             <StackLayout Style="{StaticResource stackFrame}"
                          Grid.Row="1">
+                <Grid RowDefinitions="Auto,Auto">
+                    <Label FontSize="17" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="22-001-12345 " FontAttributes="Bold" TextColor="Black" FontSize="17"/>
+                                <Span Text="sonli shartnomani" TextColor="Black"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="Maxsus kod orqali tasdiqlash" 
+                           TextColor="Black"
+                           FontFamily="Nunito_Regular"
+                           HorizontalTextAlignment="Center"
+                           FontSize="17"
+                           Grid.Row="1"/>
+                </Grid> 
                 <Label Text="Maxsus kodni kiriting"
                        FontSize="17"
                        TextColor="Black"
@@ -66,7 +82,7 @@
                        TextColor="Gray"
                        HorizontalTextAlignment="Center"/>
                 <view:ViewExplanation Text="Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting."
-                                  VerticalOptions="Start"/>
+                                      VerticalOptions="Start"/>
             </StackLayout>
             <Label x:Name="lbSendCodeAgain" 
                    Text="Kodni qayta yuvorish"
@@ -82,8 +98,8 @@
                 </Label.GestureRecognizers>
             </Label>
             <Button Style="{StaticResource btnSignNext}" 
-                    Grid.Row="3"/>
+                    Grid.Row="3"/>  
         </Grid>
     </Grid>
- 
+
 </page:IPage>

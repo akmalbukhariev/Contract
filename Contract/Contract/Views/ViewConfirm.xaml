@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contract.Views.ViewConfirm">
+
+    <Grid RowDefinitions="*,*"
+          WidthRequest="250"
+          HeightRequest="100">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style x:Key="imStyle" TargetType="Image">
+                    <Setter Property="Aspect" Value="AspectFit"/>
+                    <Setter Property="WidthRequest" Value="30"/>
+                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                </Style>
+                <Style x:Key="lbStyle" TargetType="Label">
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <BoxView BackgroundColor="White"
+                 CornerRadius="15"
+                 Grid.RowSpan="2"/>
+        <Grid ColumnDefinitions="Auto,*"
+              Margin="10,5,5,0">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Eye_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Image Source="code"
+                   Style="{StaticResource imStyle}"/>
+            <Label Text="Maxsus kod orqali tasdiqlash"
+                   Style="{StaticResource lbStyle}"
+                   Grid.Column="1"/>
+        </Grid>
+        <Grid ColumnDefinitions="Auto,*"
+              Margin="10,5,5,5"
+              Grid.Row="1">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Finger_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Image Source="fingerprint"
+                   Style="{StaticResource imStyle}"/>
+            <Label Text="ERI kaliti orqali tasdiqlash"
+                   Style="{StaticResource lbStyle}"
+                   Grid.Column="1"/>
+        </Grid>
+    </Grid>
+    
+</ContentView>

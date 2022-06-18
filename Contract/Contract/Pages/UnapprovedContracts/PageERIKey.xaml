@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.UnapprovedContracts.PageERIKey">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,Auto,*" 
+              RowSpacing="25"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    UseWhite="True"/>
+            <Grid RowDefinitions="Auto,Auto" 
+                  Grid.Row="1">
+                <Label HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="22-001-12345 " FontAttributes="Bold" TextColor="White"/>
+                            <Span Text="sonli shartnomani" TextColor="White"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="elektron raqamli imzo kaliti orqali tasdiqlash" Style="{StaticResource lbWhiteStyle}" 
+                       Grid.Row="1"/>
+            </Grid>
+            <BoxView Style="{StaticResource boxFrame}"
+                     Grid.Row="2"/>
+            <Grid RowDefinitions="Auto,Auto,*"
+                  Grid.Row="2">
+                <StackLayout Spacing="10"
+                             Margin="10,20,10,0">
+                    <Label Text="ERI kalitini tanlang"
+                           FontFamily="Nunito_Regular"
+                           TextColor="Black"
+                           FontSize="17"
+                           HorizontalTextAlignment="Start"/>
+                    <control:CustomPicker Image="show"
+                                          ChartSyle="True"
+                                          TitleColor="Gray"
+                                          BackgroundColor="White"/>
+                </StackLayout>
+                <Grid Margin="30,10,10,0" 
+                      RowSpacing="30"
+                      Grid.Row="1">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="lbTitleStyle" TargetType="Label">
+                                <Setter Property="TextColor" Value="{StaticResource AppColor}"/>
+                                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                                <Setter Property="FontSize" Value="16"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <StackLayout>
+                        <Label Text="Korxona nomi:" Style="{StaticResource lbTitleStyle}"/>
+                        <Label Text="Korxona nomi MCHJ" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <Label Text="Rahbar F.I.O:" Style="{StaticResource lbTitleStyle}"/>
+                        <Label Text="Name" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2">
+                        <Label Text="Korxona STIRi:" Style="{StaticResource lbTitleStyle}"/>
+                        <Label Text="123 456 789" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
+                    </StackLayout>
+                </Grid>
+                <Button Style="{StaticResource btnSignNext}"
+                        Text="Tasdiqlash"
+                        VerticalOptions="End"
+                        Grid.Row="2"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</page:IPage>

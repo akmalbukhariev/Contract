@@ -62,6 +62,7 @@
                 <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
             </Style>
             <Style x:Key="lbHeader" TargetType="Label">
+                <Setter Property="FontSize" Value="15"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="FontFamily" Value="Nunito_SemiBold"/>
@@ -71,6 +72,7 @@
             </Style>
             <Style x:Key="lbItem" TargetType="Label" BasedOn="{StaticResource lbHeader}">
                 <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="FontAttributes" Value="None"/>
             </Style>
             <Style x:Key="imItem" TargetType="Image">
@@ -78,6 +80,11 @@
                 <Setter Property="WidthRequest" Value="30"/>
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
                 <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+            <Style x:Key="lbWhiteStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

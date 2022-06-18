@@ -22,9 +22,11 @@
             <ScrollView Orientation="Horizontal" 
                         VerticalOptions="FillAndExpand" 
                         Grid.Row="1">
-                <ListView WidthRequest="800" ItemsSource="{Binding DataList}" >
+                <ListView x:Name="listView" 
+                          ItemsSource="{Binding DataList}" >
                     <ListView.Header>
-                        <Grid ColumnDefinitions="30,100,150,300,150,150,100,150,150,100">
+                        <Grid x:Name="grHeader" 
+                              ColumnDefinitions="31,100,150,220,150,150,70,80,70,70">
                             <Label Text="№" Style="{StaticResource lbHeader}"/>
                             <Label Text="Tayyorlovchi" Style="{StaticResource lbHeader}" Grid.Column="1"/>
                             <Label Text="Shartnoma raqami" Style="{StaticResource lbHeader}" Grid.Column="2"/>
@@ -40,19 +42,35 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*"
+                                <Grid ColumnDefinitions="30,100,150,220,150,150,70,80,70,70"
                                       BackgroundColor="{Binding ItemColor}">
-                                    <Label Text="{Binding No}" Style="{StaticResource lbItem}"/>
+                                    <Label Text="{Binding No}" Style="{StaticResource lbItem}" FontAttributes="Bold" FontSize="17"/>
                                     <BoxView BackgroundColor="{Binding PreparerColor}" Grid.Column="1"/>
                                     <Label Text="{Binding Preparer}" Style="{StaticResource lbItem}" Grid.Column="1"/>
                                     <Label Text="{Binding ContractNnumber}" Style="{StaticResource lbItem}" Grid.Column="2"/>
                                     <Label Text="{Binding CompanyName}" Style="{StaticResource lbItem}" Grid.Column="3"/>
                                     <Label Text="{Binding ContractDate}" Style="{StaticResource lbItem}" Grid.Column="4"/>
                                     <Label Text="{Binding ContractPrice}" Style="{StaticResource lbItem}" Grid.Column="5"/>
-                                    <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="6"/>
-                                    <Image Source="check" Style="{StaticResource imItem}" Grid.Column="7"/>
-                                    <Image Source="send" Style="{StaticResource imItem}" Grid.Column="8"/>
-                                    <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="9"/>
+                                    <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="6">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Eye_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="check" Style="{StaticResource imItem}" Grid.Column="7">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Check_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="send" Style="{StaticResource imItem}" Grid.Column="8">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="9">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Cancel_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
                                 </Grid>    
                             </ViewCell>
                         </DataTemplate>
@@ -60,6 +78,16 @@
                 </ListView>
             </ScrollView>
         </Grid>
+        <BoxView x:Name="backBox" 
+                 IsVisible="False"
+                 BackgroundColor="Black"
+                 Opacity="0.5"
+                 Grid.ColumnSpan="3"/>
+        <view:ViewConfirm x:Name="viewConfirm"
+                          IsVisible="False"
+                          Grid.ColumnSpan="3"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"/>
     </Grid>
 
 </page:IPage>
