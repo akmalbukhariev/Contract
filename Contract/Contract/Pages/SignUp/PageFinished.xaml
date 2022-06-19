@@ -53,7 +53,7 @@
                 </Label>
             </StackLayout>
             <Button Text="Davom ettirish"
-                    Style="{StaticResource btnSignNext}"
+                    Style="{StaticResource btnNext}"
                     Margin="15,0,15,50"
                     Grid.Row="2"/>
         </Grid>

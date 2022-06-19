@@ -127,7 +127,7 @@
                 </ScrollView>
             </Grid>
             <Button Text="Yakunlash"
-                    Style="{StaticResource btnSignNext}" 
+                    Style="{StaticResource btnNext}" 
                     Grid.Row="3"/>
         </Grid>
     </Grid>

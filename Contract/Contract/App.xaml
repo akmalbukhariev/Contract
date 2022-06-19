@@ -23,7 +23,7 @@
                 <Setter Property="FontFamily" Value="Nunito_Regular"/>
                 <Setter Property="FontSize" Value="15"/>
             </Style>
-            <Style x:Key="btnSignNext" TargetType="Button">
+            <Style x:Key="btnNext" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#3F6C6C"/>
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="TextColor" Value="White"/>

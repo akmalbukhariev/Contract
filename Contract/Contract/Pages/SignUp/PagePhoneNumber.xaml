@@ -29,7 +29,7 @@
                                 Style="{StaticResource viewEntryStyle}"/>
                 <view:ViewExplanation Text="Biz sizga telegram tarmog'i orqali maxsus kod yuvoramiz. Shu bois, telfon raqam telegram tarmog'iga ulangan bo'lishi lozim."/>
             </StackLayout>
-            <Button Style="{StaticResource btnSignNext}"
+            <Button Style="{StaticResource btnNext}"
                     Grid.Row="2"/>
         </Grid>
     </Grid>

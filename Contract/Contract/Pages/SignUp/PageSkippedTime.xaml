@@ -30,7 +30,7 @@
                        TextColor="Black"
                        FontSize="16"/>
             </StackLayout>
-            <Button Style="{StaticResource btnSignNext}" 
+            <Button Style="{StaticResource btnNext}" 
                     Grid.Row="2"/>
         </Grid>
     </Grid>

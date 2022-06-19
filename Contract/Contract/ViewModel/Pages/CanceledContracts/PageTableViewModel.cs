@@ -12,29 +12,25 @@ namespace Contract.ViewModel.Pages.CanceledContracts
 { 
     public class PageTableViewModel : BaseModel
     {
-        public bool ShowConfirmBox { get => GetValue<bool>(); set => SetValue(value); }
+        public bool ShowExplanationBox { get => GetValue<bool>(); set => SetValue(value); }
+        public string ExplanationText { get => GetValue<string>(); set => SetValue(value); }
 
         public ObservableCollection<CanceledContract> DataList { get; set; }
 
         public PageTableViewModel()
         { 
             DataList = new ObservableCollection<CanceledContract>();
+
+            ExplanationText = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
         }
 
         #region Commands
-        public ICommand CommandCode => new Command(ClickCode);
-        public ICommand CommandERI => new Command(ClickERI);
-
-        private async void ClickCode()
+        
+        public ICommand CommandExplanationOK => new Command(ExplanationOK);
+ 
+        private void ExplanationOK()
         {
-            await Task.Delay(100);
-            ShowConfirmBox = false;
-        }
-
-        private async void ClickERI()
-        {
-            await Task.Delay(100);
-            ShowConfirmBox = false;
+            ShowExplanationBox = false;
         }
         #endregion
 

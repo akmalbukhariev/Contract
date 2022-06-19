@@ -81,7 +81,7 @@
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SendCodeaAgain_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
-            <Button Style="{StaticResource btnSignNext}" 
+            <Button Style="{StaticResource btnNext}" 
                     Grid.Row="3"/>
         </Grid>
     </Grid>

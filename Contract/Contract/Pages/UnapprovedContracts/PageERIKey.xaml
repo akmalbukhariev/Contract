@@ -70,7 +70,7 @@
                         <Label Text="123 456 789" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
                     </StackLayout>
                 </Grid>
-                <Button Style="{StaticResource btnSignNext}"
+                <Button Style="{StaticResource btnNext}"
                         Text="Tasdiqlash"
                         VerticalOptions="End"
                         Grid.Row="2"/>

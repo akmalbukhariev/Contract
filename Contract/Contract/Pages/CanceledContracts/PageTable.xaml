@@ -76,20 +76,32 @@
                 </ListView>
             </ScrollView>
         </Grid>
-        <BoxView IsVisible="{Binding ShowConfirmBox}"
+        <BoxView IsVisible="{Binding ShowExplanationBox}"
                  BackgroundColor="Black"
                  Opacity="0.5"
                  Grid.ColumnSpan="3"/>
         <Frame BorderColor="LightGray"
-               IsVisible="{Binding ShowConfirmBox}"
+               IsVisible="{Binding ShowExplanationBox}"
                CornerRadius="10"
+               WidthRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
                Grid.ColumnSpan="3">
-            <control:CustomEditor Text=""
-                                  IsReadOnly="True"
-                                  PlaceholderColor="Gray"
-                                  BackgroundColor="White" 
-                                  HeightRequest="150"
-                                  Margin="1"/>
+            <StackLayout Padding="-8">
+                <control:CustomEditor Text="{Binding ExplanationText}"
+                                      IsReadOnly="True"
+                                      PlaceholderColor="Gray"
+                                      BackgroundColor="White" 
+                                      HeightRequest="150"/>
+                <Button Text="Ok"
+                        FontSize="12"
+                        WidthRequest="60"
+                        HeightRequest="37"
+                        TextColor="White"
+                        Command="{Binding CommandExplanationOK}"
+                        HorizontalOptions="End"
+                        BackgroundColor="{StaticResource AppColor}"/>
+            </StackLayout>
         </Frame>
      </Grid>
 

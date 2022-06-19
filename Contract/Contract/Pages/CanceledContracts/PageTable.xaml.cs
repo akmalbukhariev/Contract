@@ -48,6 +48,7 @@ namespace Contract.Pages.CanceledContracts
 
         private void Edit_Tapped(object sender, EventArgs e)
         {
+            model.ShowExplanationBox = true;
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
         }
