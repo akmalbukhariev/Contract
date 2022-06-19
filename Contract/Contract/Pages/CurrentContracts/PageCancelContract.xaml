@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            BackgroundColor="#F3F3F3"
+            x:Class="Contract.Pages.CurrentContracts.PageCancelContract">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,Auto,*,Auto" 
+              RowSpacing="20"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Amaldagi shartnomalar"
+                                    UseWhite="True"/>
+            <Label HorizontalTextAlignment="Center" 
+                   Grid.Row="1">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Amaldagi"
+                              TextColor="White"
+                              FontSize="15"
+                              FontFamily="Nunito_Regular"/>
+                        <Span Text=" 22-001-12345"
+                              TextColor="White"
+                              FontAttributes="Bold"
+                              FontSize="15"/>
+                        <Span Text=" sonli shartnomani bekor qilish"
+                              TextColor="White"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.Row="2"
+                     Grid.RowSpan="2"/>
+            <StackLayout VerticalOptions="StartAndExpand" 
+                         Margin="10,10,10,0"
+                         Spacing="20"
+                         Grid.Row="2">
+                <Label Text="Bekor qilishga asoslangan izoxni kiriting"
+                       TextColor="Black"
+                       FontSize="15"
+                       Style="{StaticResource lbBoldTitle}"/>
+                <Frame BorderColor="LightGray"
+                       CornerRadius="10">
+                    <control:CustomEditor Placeholder="Izoh"
+                                          PlaceholderColor="Gray"
+                                          BackgroundColor="White" 
+                                          HeightRequest="150"
+                                          Margin="1"/>
+                </Frame>
+            </StackLayout>
+            <Button Text="Bekor qilish"
+                    TextColor="White"
+                    FontFamily=""
+                    BackgroundColor="{StaticResource AppColor}"
+                    CornerRadius="5"
+                    VerticalOptions="End"
+                    Margin="20,0,20,40"
+                    Grid.Row="3"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

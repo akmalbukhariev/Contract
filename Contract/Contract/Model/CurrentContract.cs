@@ -7,7 +7,7 @@ namespace Contract.Model
 {
     public class CurrentContract : BaseContract
     {
-        public string PricePercent { get => GetValue<string>(); set => SetValue(value); }
-        public Color PricePercentColor { get => GetValue<Color>(); set => SetValue(value); }
+        public string ContractPayment { get => GetValue<string>(); set => SetValue(value); }
+        public Color ContractPaymentColor { get => GetValue<Color>(); set => SetValue(value); }
     }
 }

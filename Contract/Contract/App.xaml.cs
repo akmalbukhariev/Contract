@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.UnapprovedContracts.PageTable();
+            MainPage = new Pages.CanceledContracts.PageTable();
         }
 
         protected override void OnStart()

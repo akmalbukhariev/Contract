@@ -70,6 +70,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Pages\CanceledContracts\PageTable.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CurrentContracts\PageCancelContract.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CurrentContracts\PageTable.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\Login\PagePassword.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -121,10 +130,13 @@
     <EmbeddedResource Update="Pages\UnapprovedContracts\PageERIKey.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\UnapprovedContracts\PageMessage.xaml">
+    <EmbeddedResource Update="Pages\PageMessage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\UnapprovedContracts\PageTable.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewCancelExplanation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewConfirm.xaml">
@@ -146,5 +158,7 @@
 
   <ItemGroup>
     <Folder Include="Control\" />
+    <Folder Include="ViewModel\Pages\CurrentContracts\" />
+    <Folder Include="ViewModel\Pages\CanceledContracts\" />
   </ItemGroup>
 </Project>

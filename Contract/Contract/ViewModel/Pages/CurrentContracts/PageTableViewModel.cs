@@ -8,17 +8,17 @@ using System.Windows.Input;
 using Contract.Model;
 using Xamarin.Forms;
 
-namespace Contract.ViewModel.Pages.UnapprovedContracts
+namespace Contract.ViewModel.Pages.CurrentContracts
 { 
     public class PageTableViewModel : BaseModel
     {
         public bool ShowConfirmBox { get => GetValue<bool>(); set => SetValue(value); }
 
-        public ObservableCollection<UnapprovedContract> DataList { get; set; }
+        public ObservableCollection<CurrentContract> DataList { get; set; }
 
         public PageTableViewModel()
         { 
-            DataList = new ObservableCollection<UnapprovedContract>(); 
+            DataList = new ObservableCollection<CurrentContract>(); 
         }
 
         #region Commands
@@ -40,7 +40,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
 
         public void Init()
         {
-            UnapprovedContract item1 = new UnapprovedContract()
+            CurrentContract item1 = new CurrentContract()
             {
                 No = "1.",
                 Preparer = "Men",
@@ -48,10 +48,12 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                 CompanyName = "Korxona nomi",
                 ContractDate = "06.04.2022",
                 ContractPrice = "100,000 sum",
+                ContractPayment = "100 %",
+                ContractPaymentColor = Color.FromHex("#C5E0B3"),
                 ItemColor = Color.FromHex("#DEEAF6"),
                 PreparerColor = Color.FromHex("#BDD6EE")
             };
-            UnapprovedContract item2 = new UnapprovedContract()
+            CurrentContract item2 = new CurrentContract()
             {
                 No = "2.",
                 Preparer = "Kontragent",
@@ -59,10 +61,12 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                 CompanyName = "Korxona nomi",
                 ContractDate = "06.04.2022",
                 ContractPrice = "100 $",
+                ContractPayment = "90 %",
+                ContractPaymentColor = Color.FromHex("#F7CAAC"),
                 ItemColor = Color.FromHex("#FFFFFF"),
                 PreparerColor = Color.FromHex("#FFF2CC")
             };
-            UnapprovedContract item3 = new UnapprovedContract()
+            CurrentContract item3 = new CurrentContract()
             {
                 No = "3.",
                 Preparer = "Kontragent",
@@ -70,8 +74,10 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                 CompanyName = "Korxona nomi",
                 ContractDate = "06.04.2022",
                 ContractPrice = "100 $",
+                ContractPayment = "100 %",
+                ContractPaymentColor = Color.FromHex("#538135"),
                 ItemColor = Color.FromHex("#DEEAF6"),
-                PreparerColor = Color.FromHex("#BDD6EE")
+                PreparerColor = Color.FromHex("#FFF2CC")
             };
 
             Add(item1);
@@ -79,7 +85,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
             Add(item3);
         }
 
-        public void Add(UnapprovedContract item)
+        public void Add(CurrentContract item)
         {
             DataList.Add(item);
         }

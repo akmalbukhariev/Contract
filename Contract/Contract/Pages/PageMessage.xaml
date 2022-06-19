@@ -4,7 +4,7 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.UnapprovedContracts.PageMessage">
+            x:Class="Contract.Pages.PageMessage">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"

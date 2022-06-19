@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.UnapprovedContracts
+namespace Contract.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageMessage : IPage

@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using Contract.ViewModel.Pages.UnapprovedContracts;
+﻿using Contract.ViewModel.Pages.CurrentContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.UnapprovedContracts
+namespace Contract.Pages.CurrentContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageTable : IPage
@@ -18,7 +17,7 @@ namespace Contract.Pages.UnapprovedContracts
         public PageTable()
         {
             InitializeComponent();
-
+            
             model = new PageTableViewModel();
             BindingContext = model;
         }
@@ -40,15 +39,7 @@ namespace Contract.Pages.UnapprovedContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
         }
-
-        private void Check_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((Image)sender); 
-            ControlApp.Vibrate();
-            
-            model.ShowConfirmBox = true;
-        }
-
+         
         private void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);

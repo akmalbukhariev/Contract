@@ -9,6 +9,7 @@ namespace Contract.Pages
 {
     public class IPage : ContentPage
     {
+        public Control.ControlApp ControlApp => Control.ControlApp.Instance;
         public IPage()
         {
             NavigationPage.SetHasBackButton(this, false);
