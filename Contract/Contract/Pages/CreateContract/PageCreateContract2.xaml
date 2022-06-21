@@ -3,8 +3,9 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.CreateContract.PageCreateContract1">
+            x:Class="Contract.Pages.CreateContract.PageCreateContract2">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
@@ -25,32 +26,65 @@
                        HeightRequest="30"
                        VerticalOptions="CenterAndExpand"/>
             </StackLayout>
-            <Grid RowDefinitions="Auto,*" 
+            <Grid RowDefinitions="Auto,Auto,Auto,*" 
+                  RowSpacing="20"
                   Grid.Row="2">
                 <BoxView BackgroundColor="White"
                          CornerRadius="10"
                          Margin="0,0,0,20"
-                         Grid.RowSpan="2"/>
+                         Grid.RowSpan="4"/>
                 <StackLayout Orientation="Horizontal"
                              Margin="10,10,10,0">
-                    <Label x:Name="lbYesNo"
+                    <Label x:Name="lbYesNo1"
                            Style="{StaticResource lbWhiteStyle}"
                            TextColor="Black"
                            HorizontalOptions="StartAndExpand"/>
-                    <Image x:Name="imYesNo" 
+                    <Image x:Name="imYesNo1" 
+                           Source="uz_No"
+                           WidthRequest="60"
+                           Aspect="AspectFit"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo1_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="10,10,10,0"
+                             Grid.Row="1">
+                    <Label x:Name="lbYesNo2"
+                           Style="{StaticResource lbWhiteStyle}"
+                           TextColor="Black"
+                           HorizontalOptions="StartAndExpand"/>
+                    <Image x:Name="imYesNo2" 
                            Source="uz_Yes"
                            WidthRequest="60"
                            Aspect="AspectFit"
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="End">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo_Tapped"/>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo2_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
+                <StackLayout Spacing="10"
+                             Margin="10,10,10,0"
+                             Grid.Row="2">
+                    <Label Text="Mijozlar ro'yxati"
+                           Style="{StaticResource lbWhiteStyle}"
+                           TextColor="Black"
+                           HorizontalOptions="StartAndExpand"/>
+                    <control:CustomPicker Title="Korxona nomi"
+                                          HorizontalTextAlignment="Start"
+                                          Image="show"
+                                          ChartSyle="True"
+                                          TitleColor="Gray"
+                                          BackgroundColor="White"/>
+                </StackLayout>
                 <Button Style="{StaticResource btnNext}"
                         VerticalOptions="EndAndExpand"
-                        Grid.Row="1"/>
+                        Grid.Row="3"/>
             </Grid>
         </Grid>
     </Grid>

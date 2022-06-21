@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.CreateContract.PageCreateContract4">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,Auto,Auto,100"
+              RowSpacing="20"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Shartnoma tuzish"
+                                    UseWhite="True"/>
+            <StackLayout Spacing="-5" 
+                         Grid.Row="1">
+                <Label Text="Bosqich #1"
+                       Style="{StaticResource lbWhiteStyle}"/>
+                <Image Source="step1"
+                       Aspect="AspectFit"
+                       HeightRequest="30"
+                       VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.RowSpan="3"
+                     Grid.Row="2"/>
+            <ScrollView VerticalOptions="FillAndExpand" 
+                        Margin="0,0,0,-20"
+                        Grid.Row="2">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,2,Auto,Auto,Auto,Auto,Auto,2,Auto,Auto,Auto" 
+                      RowSpacing="15"
+                      Margin="10,10,10,0">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="entryStyle" TargetType="view:EntryView">
+                                <Setter Property="TextColor" Value="Black"/>
+                                <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                                <Setter Property="BorderColor" Value="Gray"/>
+                                <Setter Property="BorderWidth" Value="1"/>
+                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="HeightEntryView" Value="60"/>
+                                <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                            </Style>
+                            <Style x:Key="imStyle" TargetType="Image">
+                                <Setter Property="WidthRequest" Value="60"/>
+                                <Setter Property="Aspect" Value="AspectFit"/>
+                                <Setter Property="HorizontalOptions" Value="End"/>
+                                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <Grid RowDefinitions="Auto,Auto"
+                          ColumnDefinitions="*,*">
+                        <Label Text="Shartnoma maqsadi"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <RadioButton Content="Xizmat"
+                                     HorizontalOptions="StartAndExpand"
+                                     Grid.Row="1"/>
+                        <RadioButton Content="Tovar"
+                                     HorizontalOptions="StartAndExpand"
+                                     Grid.Row="1"
+                                     Grid.Column="1"/>
+                    </Grid>
+                    <StackLayout Spacing="10"
+                                 Grid.Row="1">
+                        <Label Text="Xizmat turishablonini belgilang"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="Odatiy"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <Label Text="Iltimos,xizmat ma'lumotlarini kiriting"
+                           Style="{StaticResource lbBlackStyle}"
+                           Grid.Row="2"/>
+                    <StackLayout Grid.Row="3">
+                        <Label Text="Shartnoma raqami" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="22-01-1234"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout Spacing="10"
+                                 Grid.Row="4">
+                        <Label Text="Shartnomaning pul birligi"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="Sum"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout Spacing="10"
+                                 Grid.Row="5">
+                        <Label Text="QQS miqdori"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="15%"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" 
+                                 Grid.Row="6">
+                        <Label Text="Aksiya solig'i stavkasi bormi?"
+                               Style="{StaticResource lbBlackStyle}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Image x:Name="imYesNo1" 
+                               Source="uz_Yes"
+                               Style="{StaticResource imStyle}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo1_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <view:EntryView PlaceHoldingText="-- %"
+                                    Style="{StaticResource entryStyle}"
+                                    Grid.Row="7"/>
+                    <Line BackgroundColor="Gray"
+                          Grid.Row="8"/>
+                    <StackLayout Grid.Row="9">
+                        <Label Text="Xizmat turi nomi" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="Xizmat turi nomi"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout Spacing="10"
+                                 Grid.Row="10">
+                        <Label Text="O'lchov birligi"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="dona"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <Grid ColumnDefinitions="*,Auto" Grid.Row="11">
+                        <Label Text="Soni"
+                               Style="{StaticResource lbBlackStyle}"
+                               VerticalTextAlignment="Center"/>
+                        <Grid ColumnDefinitions="Auto,*,Auto" 
+                              ColumnSpacing="0"
+                              Grid.Column="1">
+                            <BoxView BackgroundColor="White"
+                                     CornerRadius="5"
+                                     Grid.ColumnSpan="3"/>
+                            <Button Text="-" 
+                                    BackgroundColor="#E6E6E6"
+                                    CornerRadius="5"/>
+                            <BoxView BackgroundColor="White"
+                                     Grid.Column="1"/>
+                            <Label Text="1"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Margin="1"
+                                   Grid.Column="1"/>
+                            <Button Text="+" 
+                                    BackgroundColor="#E6E6E6"
+                                    CornerRadius="5"
+                                    Grid.Column="2"/>
+                        </Grid>
+                    </Grid>
+                    <StackLayout Grid.Row="12">
+                        <Label Text="Narxi bir o'lchov birligi uchun" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="sum"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <Grid ColumnDefinitions="75,*,75,*,75"
+                          RowDefinitions="70"
+                          HorizontalOptions="CenterAndExpand"
+                          ColumnSpacing="15"
+                          Grid.Row="13">
+                        <Grid.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="lbEdStyle" TargetType="Label">
+                                    <Setter Property="TextColor" Value="White"/>
+                                    <Setter Property="FontSize" Value="8"/>
+                                    <Setter Property="Margin" Value="0,0,0,5"/>
+                                    <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                </Style>
+                                <Style x:Key="imEdStyle" TargetType="Image">
+                                    <Setter Property="Aspect" Value="AspectFit"/>
+                                    <Setter Property="WidthRequest" Value="35"/>
+                                    <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                                </Style>
+                            </ResourceDictionary>
+                        </Grid.Resources>
+                        <BoxView BackgroundColor="#3E8799" CornerRadius="10"/>
+                        <StackLayout Spacing="-5">
+                            <Image Source="Add" Style="{StaticResource imEdStyle}"/>
+                            <Label Text="Yangi qo'shish (nusxa)" Style="{StaticResource lbEdStyle}"/>
+                        </StackLayout>
+                        <BoxView BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
+                        <StackLayout Spacing="-5" 
+                                     Grid.Column="2">
+                            <Image Source="Copy" Style="{StaticResource imEdStyle}"/>
+                            <Label Text="Yangi qo'shish (bo'sh)" Style="{StaticResource lbEdStyle}"/>
+                        </StackLayout>
+                        <BoxView BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
+                        <StackLayout Spacing="-5"
+                                     Grid.Column="4">
+                            <Image Source="Delete" Style="{StaticResource imEdStyle}"/>
+                            <Label Text="O'chirish" Style="{StaticResource lbEdStyle}"/>
+                        </StackLayout>
+                    </Grid>
+                    <Line BackgroundColor="Gray"
+                          Grid.Row="14"/>
+                    <StackLayout Grid.Row="15">
+                        <Label Text="Xizmatning jami narxi:"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <Label Text="123.000 So'm"
+                               TextColor="Black"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Start"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="16">
+                        <Label Text="Ommaviy oferataga rozimisiz?"/>
+                        <control:MyCheckbox Text="roziman!" />
+                    </StackLayout>
+                    <view:ViewExplanation Text="Xizmat ko'rsatish ma'lumotlari to'g'riligiga e'tibor bering. Ushbuma'lumotlar shartnomada bajaruvchi tomonidan amalga oshiriladigan asosiy ish sifatida foydalaniladi" 
+                                          Grid.Row="17"/>
+                </Grid>
+            </ScrollView>
+            <Button Style="{StaticResource btnNext}"
+                    Margin="5,0,5,20"
+                    Grid.Row="3"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

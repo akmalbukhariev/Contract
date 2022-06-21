@@ -76,6 +76,15 @@
     <EmbeddedResource Update="Pages\CreateContract\PageCreateContract1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CreateContract\PageCreateContract2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CreateContract\PageCreateContract3.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CreateContract\PageCreateContract4.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\CurrentContracts\PageCancelContract.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -160,7 +169,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Control\" />
     <Folder Include="ViewModel\Pages\CurrentContracts\" />
     <Folder Include="ViewModel\Pages\CanceledContracts\" />
   </ItemGroup>

@@ -86,6 +86,10 @@
                 <Setter Property="FontFamily" Value="Nunito_Regular"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
+            <Style x:Key="lbBlackStyle" TargetType="Label" BasedOn="{StaticResource lbWhiteStyle}">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
