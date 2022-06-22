@@ -31,5 +31,42 @@ namespace Contract.Pages.CreateContract
                 yes1 = true;
             }
         }
+         
+        private void Minus_Clicked(object sender, EventArgs e)
+        {
+            ChangeBoxColor(boxMinus);
+        }
+
+        private void Plus_Clicked(object sender, EventArgs e)
+        {
+            ChangeBoxColor(boxPlus);
+        }
+
+        private void Add_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(boxAdd);
+            ClickAnimationView(stackAdd);
+        }
+
+        private void Copy_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(boxCopy);
+            ClickAnimationView(stackCopy);
+        }
+
+        private void Delete_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(boxDelete);
+            ClickAnimationView(stackDelete);
+        }
+
+        async void ChangeBoxColor(BoxView boxView)
+        {
+            boxView.BackgroundColor = Color.White;
+            await Task.Delay(100);
+
+            boxView.BackgroundColor = Color.FromHex("#E6E6E6");
+            await Task.Delay(200);
+        }
     }
 }

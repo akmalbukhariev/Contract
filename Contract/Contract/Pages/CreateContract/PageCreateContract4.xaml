@@ -19,9 +19,9 @@
                                     UseWhite="True"/>
             <StackLayout Spacing="-5" 
                          Grid.Row="1">
-                <Label Text="Bosqich #1"
+                <Label Text="Bosqich #2"
                        Style="{StaticResource lbWhiteStyle}"/>
-                <Image Source="step1"
+                <Image Source="step2"
                        Aspect="AspectFit"
                        HeightRequest="30"
                        VerticalOptions="CenterAndExpand"/>
@@ -34,7 +34,7 @@
             <ScrollView VerticalOptions="FillAndExpand" 
                         Margin="0,0,0,-20"
                         Grid.Row="2">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,2,Auto,Auto,Auto,Auto,Auto,2,Auto,Auto,Auto" 
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,1,Auto,Auto,Auto,Auto,Auto,1,Auto,Auto,Auto" 
                       RowSpacing="15"
                       Margin="10,10,10,0">
                     <Grid.Resources>
@@ -149,25 +149,35 @@
                         <Label Text="Soni"
                                Style="{StaticResource lbBlackStyle}"
                                VerticalTextAlignment="Center"/>
-                        <Grid ColumnDefinitions="Auto,*,Auto" 
+                        <Grid ColumnDefinitions="65,70,65" 
                               ColumnSpacing="0"
                               Grid.Column="1">
-                            <BoxView BackgroundColor="White"
+                            <BoxView BackgroundColor="#E6E6E6"
                                      CornerRadius="5"
                                      Grid.ColumnSpan="3"/>
-                            <Button Text="-" 
-                                    BackgroundColor="#E6E6E6"
-                                    CornerRadius="5"/>
-                            <BoxView BackgroundColor="White"
-                                     Grid.Column="1"/>
-                            <Label Text="1"
-                                   VerticalOptions="CenterAndExpand"
-                                   HorizontalOptions="CenterAndExpand"
-                                   Margin="1"
+                            <BoxView x:Name="boxMinus" 
+                                     BackgroundColor="#E6E6E6"
+                                     CornerRadius="5,0,5,0"/> 
+                            <Button Text="-"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    BackgroundColor="Transparent"
+                                    Clicked="Minus_Clicked"/>
+                            <Label Text="1" 
+                                   Margin="0,0.5,0,0.5"
+                                   BackgroundColor="White"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
                                    Grid.Column="1"/>
-                            <Button Text="+" 
-                                    BackgroundColor="#E6E6E6"
-                                    CornerRadius="5"
+                            <BoxView x:Name="boxPlus" 
+                                     BackgroundColor="#E6E6E6"
+                                     CornerRadius="0,5,0,5"
+                                     Grid.Column="2"/>
+                            <Button Text="+"
+                                    FontSize="20"
+                                    TextColor="Black"
+                                    BackgroundColor="Transparent"
+                                    Clicked="Plus_Clicked"
                                     Grid.Column="2"/>
                         </Grid>
                     </Grid>
@@ -199,20 +209,27 @@
                                 </Style>
                             </ResourceDictionary>
                         </Grid.Resources>
-                        <BoxView BackgroundColor="#3E8799" CornerRadius="10"/>
-                        <StackLayout Spacing="-5">
+                        <BoxView x:Name="boxAdd" BackgroundColor="#3E8799" CornerRadius="10"/>
+                        <StackLayout x:Name="stackAdd" Spacing="-5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Tapped"/>
+                            </StackLayout.GestureRecognizers>
                             <Image Source="Add" Style="{StaticResource imEdStyle}"/>
                             <Label Text="Yangi qo'shish (nusxa)" Style="{StaticResource lbEdStyle}"/>
                         </StackLayout>
-                        <BoxView BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
-                        <StackLayout Spacing="-5" 
-                                     Grid.Column="2">
+                        <BoxView x:Name="boxCopy" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
+                        <StackLayout x:Name ="stackCopy" Spacing="-5" Grid.Column="2">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Tapped"/>
+                            </StackLayout.GestureRecognizers>
                             <Image Source="Copy" Style="{StaticResource imEdStyle}"/>
                             <Label Text="Yangi qo'shish (bo'sh)" Style="{StaticResource lbEdStyle}"/>
                         </StackLayout>
-                        <BoxView BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
-                        <StackLayout Spacing="-5"
-                                     Grid.Column="4">
+                        <BoxView x:Name="boxDelete" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
+                        <StackLayout x:Name="stackDelete" Spacing="-5" Grid.Column="4">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
+                            </StackLayout.GestureRecognizers>
                             <Image Source="Delete" Style="{StaticResource imEdStyle}"/>
                             <Label Text="O'chirish" Style="{StaticResource lbEdStyle}"/>
                         </StackLayout>
@@ -230,7 +247,13 @@
                     </StackLayout>
                     <StackLayout Grid.Row="16">
                         <Label Text="Ommaviy oferataga rozimisiz?"/>
-                        <control:MyCheckbox Text="roziman!" />
+                        <Grid ColumnDefinitions="Auto,*">
+                            <CheckBox/>
+                            <Label Text="Roziman"
+                                   TextColor="Black"
+                                   VerticalTextAlignment="Center"
+                                   Grid.Column="1"/>
+                        </Grid>
                     </StackLayout>
                     <view:ViewExplanation Text="Xizmat ko'rsatish ma'lumotlari to'g'riligiga e'tibor bering. Ushbuma'lumotlar shartnomada bajaruvchi tomonidan amalga oshiriladigan asosiy ish sifatida foydalaniladi" 
                                           Grid.Row="17"/>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.CreateContract.PageCreateContract5">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*,Auto"
+              RowSpacing="20"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Shartnoma tuzish"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.RowSpan="2"
+                     Grid.Row="1"/>
+            <Grid RowDefinitions="Auto,Auto,Auto"
+                  VerticalOptions="CenterAndExpand"
+                  RowSpacing="30"
+                  Grid.Row="1">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="lbFinishStyle" TargetType="Label">
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        </Style>
+                        <Style x:Key="lbFinishBoldStyle" TargetType="Label">
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="FontSize" Value="30"/>
+                            <Setter Property="FontAttributes" Value="Bold"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <StackLayout>
+                    <Label Text="Tabriklaymiz!" Style="{StaticResource lbStyle}"/>
+                    <Label Text="Siz shartnoma tuzishni" Style="{StaticResource lbStyle}"/>
+                    <Label Text="muvaffaqiyatli yakunladingiz" Style="{StaticResource lbStyle}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Label Text="Shartnoma raqami" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="22-01-1234" Style="{StaticResource lbFinishBoldStyle}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2">
+                    <Label Text="Shartnoma summasi" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="123,000" Style="{StaticResource lbFinishBoldStyle}"/>
+                </StackLayout>
+            </Grid>
+            <Grid ColumnDefinitions="80,*,80,*,80"
+                  RowDefinitions="70"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="End"
+                  ColumnSpacing="10"
+                  Margin="0,0,0,50"
+                  Grid.Row="2">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="lbEdStyle" TargetType="Label">
+                            <Setter Property="TextColor" Value="White"/>
+                            <Setter Property="FontSize" Value="8"/>
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                            <Setter Property="VerticalTextAlignment" Value="Center"/>
+                        </Style>
+                        <Style x:Key="imEdStyle" TargetType="Image">
+                            <Setter Property="Aspect" Value="AspectFit"/>
+                            <Setter Property="WidthRequest" Value="35"/>
+                            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <BoxView x:Name="boxView" BackgroundColor="#3E8799" CornerRadius="10"/>
+                <StackLayout x:Name="stackView" Spacing="-5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="View_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="view_1" Style="{StaticResource imEdStyle}"/>
+                    <Label Text="Ko'rish" Style="{StaticResource lbEdStyle}"/>
+                </StackLayout>
+                <BoxView x:Name="boxSend" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
+                <StackLayout x:Name ="stackSend" Spacing="-5" Grid.Column="2">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="send_1" Style="{StaticResource imEdStyle}"/>
+                    <Label Text="Jo'natish" Style="{StaticResource lbEdStyle}"/>
+                </StackLayout>
+                <BoxView x:Name="boxCancel" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
+                <StackLayout x:Name="stackCancel" Spacing="-5" Grid.Column="4">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Cancel_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="Cancel_1" Style="{StaticResource imEdStyle}"/>
+                    <Label Text="Bekor qilish" Style="{StaticResource lbEdStyle}"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</page:IPage>
