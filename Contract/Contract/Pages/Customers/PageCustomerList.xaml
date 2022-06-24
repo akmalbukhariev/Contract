@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.Customers.PageCustomerList">
+
+    <Grid RowDefinitions="70,*,Auto" 
+          ColumnDefinitions="20,*,20"
+          RowSpacing="20">
+            <BoxView BackgroundColor="{StaticResource AppColor}"
+                     Grid.ColumnSpan="3"/>
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Mijozlar"
+                                    UseWhite="True"
+                                    Grid.Column="1"/>
+            <ListView ItemsSource="{Binding DataList}"
+                      ItemSelected="ListView_ItemSelected"
+                      SelectedItem="{Binding SelectedCustomer}" 
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None" 
+                      Grid.Row="1"
+                      Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="Auto,*,Auto"
+                              RowDefinitions="100"
+                              Margin="0">
+                            <BoxView BackgroundColor="White" 
+                                     CornerRadius="7"
+                                     Grid.ColumnSpan="3"
+                                     Margin="5"/>
+                            <control:CircleImage Source="{Binding UserImage}" 
+                                                 Aspect="AspectFill"
+                                                 WidthRequest="55"
+                                                 HeightRequest="55"
+                                                 Margin="20">
+                            </control:CircleImage> 
+                            <StackLayout Spacing="10" 
+                                         VerticalOptions="CenterAndExpand"
+                                         Grid.Column="1">
+                                <Label Text="{Binding UserTitle}"
+                                       LineBreakMode="TailTruncation"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding UserStir}"
+                                       TextColor="#ACB4C1"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                            <Image Source="edit"
+                                   Aspect="AspectFit"
+                                   WidthRequest="30"
+                                   Margin="0,0,20,0"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Grid.Column="2"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+            <Button Style="{StaticResource btnNext}"
+                    Text="Yangi mijoz qo'shish"
+                    VerticalOptions="End"
+                    Margin="0,30,0,30"
+                    Grid.Row="2"
+                    Grid.Column="1"/>
+    </Grid>
+
+</page:IPage>

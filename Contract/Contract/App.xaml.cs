@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.CreateContract.PageCreateContract5();
+            MainPage = new Pages.Customers.PageCustomerList();
         }
 
         protected override void OnStart()

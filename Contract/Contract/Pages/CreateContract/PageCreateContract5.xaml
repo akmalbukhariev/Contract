@@ -42,9 +42,9 @@
                     </ResourceDictionary>
                 </Grid.Resources>
                 <StackLayout>
-                    <Label Text="Tabriklaymiz!" Style="{StaticResource lbStyle}"/>
-                    <Label Text="Siz shartnoma tuzishni" Style="{StaticResource lbStyle}"/>
-                    <Label Text="muvaffaqiyatli yakunladingiz" Style="{StaticResource lbStyle}"/>
+                    <Label Text="Tabriklaymiz!" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="Siz shartnoma tuzishni" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="muvaffaqiyatli yakunladingiz" Style="{StaticResource lbFinishStyle}"/>
                 </StackLayout>
                 <StackLayout Grid.Row="1">
                     <Label Text="Shartnoma raqami" Style="{StaticResource lbFinishStyle}"/>
@@ -52,7 +52,7 @@
                 </StackLayout>
                 <StackLayout Grid.Row="2">
                     <Label Text="Shartnoma summasi" Style="{StaticResource lbFinishStyle}"/>
-                    <Label Text="123,000" Style="{StaticResource lbFinishBoldStyle}"/>
+                    <Label Text="123,000" Style="{StaticResource lbFinishBoldStyle}"/> 
                 </StackLayout>
             </Grid>
             <Grid ColumnDefinitions="80,*,80,*,80"
@@ -84,7 +84,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="View_Tapped"/>
                     </StackLayout.GestureRecognizers>
-                    <Image Source="view_1" Style="{StaticResource imEdStyle}"/>
+                    <Image Source="send_1" Style="{StaticResource imEdStyle}"/>
                     <Label Text="Ko'rish" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
                 <BoxView x:Name="boxSend" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
@@ -92,7 +92,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
                     </StackLayout.GestureRecognizers>
-                    <Image Source="send_1" Style="{StaticResource imEdStyle}"/>
+                    <Image Source="send_2" Style="{StaticResource imEdStyle}"/>
                     <Label Text="Jo'natish" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
                 <BoxView x:Name="boxCancel" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
