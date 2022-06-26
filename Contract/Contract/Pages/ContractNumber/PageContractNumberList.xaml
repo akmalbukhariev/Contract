@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.ContractNumber.PageContractNumberList">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Tasdiqlanmagan shartnomalar"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.Row="1"/>
+            <ScrollView Orientation="Horizontal" 
+                        VerticalOptions="FillAndExpand" 
+                        Grid.Row="1">
+                <ListView x:Name="listView" 
+                          ItemsSource="{Binding DataList}" >
+                    <ListView.Header>
+                        <Grid x:Name="grHeader" 
+                              ColumnDefinitions="31,220,80,80,70">
+                            <Label Text="№" Style="{StaticResource lbHeader}"/>
+                            <Label Text="Shartnoma raqamlari" Style="{StaticResource lbHeader}" Grid.Column="1"/>
+                            <Label Text="Jo'natish" Style="{StaticResource lbHeader}" Grid.Column="2"/>
+                            <Label Text="Tahrirlash" Style="{StaticResource lbHeader}" Grid.Column="3"/>
+                            <Label Text="Bekor qilish" Style="{StaticResource lbHeader}" Grid.Column="4"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="31,220,80,80,70"
+                                      BackgroundColor="{Binding ItemColor}">
+                                    <Label Text="{Binding No}" Style="{StaticResource lbItem}" FontAttributes="Bold" FontSize="17"/>
+                                    <Label Text="{Binding ContractNumberText}" Style="{StaticResource lbItem}" Grid.Column="1"/>
+                                    <Image Source="send" Style="{StaticResource imItem}" Grid.Column="2">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="edit" Style="{StaticResource imItem}" Grid.Column="3">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Edit_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="4">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Cancel_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</page:IPage>

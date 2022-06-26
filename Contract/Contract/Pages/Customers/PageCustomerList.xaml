@@ -22,6 +22,7 @@
                       SelectedItem="{Binding SelectedCustomer}" 
                       HasUnevenRows="True"
                       SeparatorVisibility="None" 
+                      VerticalScrollBarVisibility="Never"
                       Grid.Row="1"
                       Grid.Column="1">
             <ListView.ItemTemplate>

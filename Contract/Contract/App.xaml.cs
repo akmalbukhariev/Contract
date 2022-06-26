@@ -10,11 +10,12 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.Customers.PageCustomerList();
+            MainPage = new Pages.ChangePassword.PageChangePassword();
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()

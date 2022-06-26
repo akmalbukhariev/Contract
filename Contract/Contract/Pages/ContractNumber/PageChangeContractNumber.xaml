@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.ContractNumber.PageChangeContractNumber">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*,100"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Shartnoma tuzish"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.RowSpan="2"
+                     Grid.Row="1"/>
+            <ScrollView VerticalOptions="FillAndExpand" 
+                        Margin="20,10,20,20"
+                        Grid.Row="1">
+                <Grid RowDefinitions="Auto,*,Auto,Auto,Auto">
+                    <Label Text="Identifikasion belgilar"
+                           FontSize="20"
+                           FontFamily="Nunito_Regular"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"/>
+                    <StackLayout Grid.Row="1">
+                        <StackLayout.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="lbContratNumber" TargetType="Label">
+                                    <Setter Property="TextColor" Value="Black"/>
+                                    <Setter Property="FontFamily" Value="Italic"/>
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                                </Style>
+                                <Style x:Key="lbContratNumberUnderLine" TargetType="Label">
+                                    <Setter Property="TextColor" Value="Black"/>
+                                    <Setter Property="FontAttributes" Value="Italic"/>
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="TextDecorations" Value="Underline"/>
+                                </Style>
+                                <Style x:Key="lbContratNumberBold" TargetType="Label">
+                                    <Setter Property="TextColor" Value="Black"/>
+                                    <Setter Property="FontFamily" Value="Nunito_SemiBold"/>
+                                    <Setter Property="FontSize" Value="17"/>
+                                    <Setter Property="FontAttributes" Value="Bold"/>
+                                    <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                                </Style>
+                            </ResourceDictionary>
+                        </StackLayout.Resources>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Y - " Style="{StaticResource Key=lbContratNumberBold}"/>
+                                    <Span Text="Yil" Style="{StaticResource Key=lbContratNumber}"/>
+                                    <Span Text=" (Faqat ikki yoki to'rt katakdan iborat bo'lsin)" Style="{StaticResource Key=lbContratNumberUnderLine}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="O - " Style="{StaticResource Key=lbContratNumberBold}"/>
+                                    <Span Text="Oy" Style="{StaticResource Key=lbContratNumber}"/>
+                                    <Span Text=" (Faqat ikki katakdan iborat bo'lsin)" Style="{StaticResource Key=lbContratNumberUnderLine}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="K - " Style="{StaticResource Key=lbContratNumberBold}"/>
+                                    <Span Text="Kun" Style="{StaticResource Key=lbContratNumber}"/>
+                                    <Span Text=" (Faqat ikki katakdan iborat bo'lsin)" Style="{StaticResource Key=lbContratNumberUnderLine}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="X -" Style="{StaticResource Key=lbContratNumberBold}"/>
+                                    <Span Text=" Ketma-ket sanoq tizimi" Style="{StaticResource Key=lbContratNumber}"/>
+                                    <Span Text=" (Kamida uchta katakdan iborat bo'lsin)" Style="{StaticResource Key=lbContratNumberUnderLine}"/>
+                                    <Span Text="Ushbu identifikatsion belgi bo'lishi shart" Style="{StaticResource Key=lbContratNumberBold}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <view:ViewExplanation Text="Barcha kataklarga ixtiyoriy belgilarni qo'yish mumkin"/>
+                        <view:ViewExplanation Text="Bo'sh qolgan kataklar inobatga olinmaydi"/>
+                    </StackLayout>
+                    <ScrollView Orientation="Horizontal" 
+                                Grid.Row="2">
+                        <Grid ColumnDefinitions="30,30,30,30,30,30,30,30,30,30,30,30"
+                              RowDefinitions="Auto,1"
+                              RowSpacing="0">
+                            <control:CustomEntry Placeholder="Y" HorizontalTextAlignment="Center"/>
+                            <control:CustomEntry Placeholder="Y" HorizontalTextAlignment="Center" Grid.Column="1"/>
+                            <control:CustomEntry Placeholder="-" IsReadOnly="True" HorizontalTextAlignment="Center" Grid.Column="2"/>
+                            <control:CustomEntry Placeholder="O" HorizontalTextAlignment="Center" Grid.Column="3"/>
+                            <control:CustomEntry Placeholder="O" HorizontalTextAlignment="Center" Grid.Column="4"/>
+                            <control:CustomEntry Placeholder="-" HorizontalTextAlignment="Center" IsReadOnly="True" Grid.Column="5"/>
+                            <control:CustomEntry Placeholder="X" HorizontalTextAlignment="Center" Grid.Column="6"/>
+                            <control:CustomEntry Placeholder="X" HorizontalTextAlignment="Center" Grid.Column="7"/>
+                            <control:CustomEntry Placeholder="X" HorizontalTextAlignment="Center" Grid.Column="8"/>
+                            <control:CustomEntry Placeholder="X" HorizontalTextAlignment="Center" Grid.Column="9"/>
+                            <control:CustomEntry Placeholder="-" HorizontalTextAlignment="Center" Grid.Column="10"/>
+                            <control:CustomEntry Placeholder="-" HorizontalTextAlignment="Center" Grid.Column="11"/>
+                            <Line BackgroundColor ="Gray" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="1" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="2" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="3" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="4" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="5" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="6" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="7" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="8" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="9" Grid.Row = "1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="10" Grid.Row="1"/>
+                            <Line BackgroundColor ="Gray" Grid.Column="11" Grid.Row="1"/>
+                        </Grid>
+                    </ScrollView>
+                    <view:ViewExplanation Text="Kataklarga kiritilgan identifikatsion belgilarning to'g'riligiga va yoriqnoma asosan to'ldirilganiga e'tibor bering. Ushbu raqamlar yaratilgan shartnomalarning ajralmas qismi bo'lib qoladi." 
+                                          Grid.Row="3"/>
+                    <view:ViewExplanation Text="Raqamlar ketma ketligining maksimal miqdori 12 ta simvolni tashkil etadi."
+                                          Grid.Row="4"/>
+                </Grid>
+            </ScrollView>
+            <Button Style="{StaticResource btnNext}"
+                    Text="Saqlash"
+                    VerticalOptions="End"
+                    Margin="20,0,20,40"
+                    Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>
