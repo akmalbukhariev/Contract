@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.Customers
+namespace Contract.Pages.TemplateContract
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageContractTemplate : IPage

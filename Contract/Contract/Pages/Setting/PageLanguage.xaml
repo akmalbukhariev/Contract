@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
-            x:Class="Contract.Pages.PageLanguage">
+            x:Class="Contract.Pages.Setting.PageLanguage">
 
     <Grid RowDefinitions="*,*,*,*,50">
         <view:ViewLanguage FlagImage="uzb_flag"

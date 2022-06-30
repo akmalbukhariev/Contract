@@ -13,10 +13,10 @@
         <Grid RowDefinitions="Auto,Auto,Auto,100"
               RowSpacing="20"
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
-                                    Style="{StaticResource naviBarSignUp}"
-                                    Title="Shartnoma tuzish"
-                                    UseWhite="True"/>
+                <view:ViewNavigationBar BackImage="back_left_white"  
+                                        Style="{StaticResource naviBarSignUp}"
+                                        Title="Shartnoma tuzish"
+                                        UseWhite="True"/>
             <StackLayout Spacing="-5" 
                          Grid.Row="1">
                 <Label Text="Bosqich #2"

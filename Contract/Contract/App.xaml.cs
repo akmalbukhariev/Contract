@@ -10,7 +10,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.ChangePassword.PageChangePassword();
+            MainPage = new Pages.TemplateContract.PageEditTemplateContract();
         }
 
         protected override void OnStart()

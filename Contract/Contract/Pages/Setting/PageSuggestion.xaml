@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.Setting.PageSuggestion">
+
+    <Grid RowDefinitions="70,*"
+          ColumnDefinitions="20,*,20"
+          RowSpacing="20">
+        <BoxView BackgroundColor="{StaticResource AppColor}"
+                 Grid.ColumnSpan="3"/>
+        <view:ViewNavigationBar BackImage="back_left_white"  
+                                Style="{StaticResource naviBarSignUp}"
+                                Title="Mijozlar"
+                                UseWhite="True"
+                                Grid.Column="1"/>
+        <BoxView BackgroundColor="White" 
+                 CornerRadius="10"
+                 Margin="0,0,0,20"
+                 Grid.Row="1"
+                 Grid.Column="1"/>
+        <Grid RowDefinitions="Auto,*,100"
+              RowSpacing="20"
+              Margin="20,20,20,0"
+              Grid.Row="1"
+              Grid.Column="1">
+            <StackLayout Spacing="10">
+                <Label Text="Murojat turi"
+                       Style="{StaticResource lbBlackStyle}"/>
+                <control:CustomPicker Title="Taklif"
+                                      HorizontalTextAlignment="Start"
+                                      Image="show"
+                                      ChartSyle="True"
+                                      TitleColor="Gray"
+                                      BackgroundColor="White"/>
+            </StackLayout>
+            <Grid x:Name="grMain"
+                  VerticalOptions="StartAndExpand"
+                  Grid.Row="1">
+                <BoxView x:Name="frontBoxView" 
+                         BackgroundColor="Gray"/>
+                <control:CustomEditor Placeholder="Murojat turi" 
+                                      BackgroundColor="White" 
+                                      HeightRequest="200"
+                                      Margin="0.5"/>
+            </Grid>
+            <Button Style="{StaticResource btnNext}"
+                    Text="Yuborish"
+                    Margin="5,0,5,20"
+                    Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

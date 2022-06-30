@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.Setting.PageAbout">
+
+    <Grid RowDefinitions="70,*"
+          ColumnDefinitions="20,*,20"
+          RowSpacing="20">
+        <BoxView BackgroundColor="{StaticResource AppColor}"
+                 Grid.ColumnSpan="3"/>
+        <view:ViewNavigationBar BackImage="back_left_white"  
+                                Style="{StaticResource naviBarSignUp}"
+                                Title="Mijozlar"
+                                UseWhite="True"
+                                Grid.Column="1"/>
+        <BoxView BackgroundColor="White" 
+                 CornerRadius="10"
+                 Margin="0,0,0,20"
+                 Grid.Row="1"
+                 Grid.Column="1"/>
+        <Grid RowDefinitions="*,Auto,2,*"
+              RowSpacing="20"
+              Grid.Row="1"
+              Grid.Column="1">
+            <Image Source="logo"
+                   WidthRequest="200"
+                   Aspect="AspectFit"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Grid.Row="1">
+                <Label x:Name="lbVersionText"
+                       TextColor="Black"
+                       FontSize="17"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label x:Name="lbVersion"
+                       TextColor="Black"
+                       FontSize="17"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+            <Line BackgroundColor="LightGray"
+                  Margin="20,0,20,0"
+                  Grid.Row="2"/>
+            <WebView x:Name="webInfo"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Margin="20,0,20,0"
+                     Grid.Row="3"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

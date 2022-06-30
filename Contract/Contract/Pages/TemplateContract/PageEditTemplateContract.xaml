@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            x:Class="Contract.Pages.TemplateContract.PageEditTemplateContract">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*,100"
+              RowSpacing="20"
+              Grid.Column="1">
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="entryStyle" TargetType="view:EntryView">
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                        <Setter Property="BorderColor" Value="Gray"/>
+                        <Setter Property="BorderWidth" Value="1"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                        <Setter Property="HeightEntryView" Value="60"/>
+                        <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                    </Style>
+                </ResourceDictionary>
+            </Grid.Resources> 
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="Shartnoma shablonlarini tahrirlash"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.Row="1"
+                     Grid.RowSpan="2"/>
+            <ListView x:Name="MyItems" 
+                      ItemsSource="{Binding DataList}"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="Default" 
+                      Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <DropGestureRecognizer AllowDrop="True"
+                                                           DragLeaveCommand="{Binding BindingContext.ItemDragLeave, Source={x:Reference MyItems}}"
+                                                           DragLeaveCommandParameter="{Binding}"
+                                                           DragOverCommand="{Binding BindingContext.ItemDraggedOver, Source={x:Reference MyItems}}"
+                                                           DragOverCommandParameter="{Binding}"
+                                                           Drop="DropGestureRecognizer_Drop_Collection"
+                                                           DropCommand="{Binding BindingContext.ItemDropped, Source={x:Reference MyItems}}"
+                                                           DropCommandParameter="{Binding}" />
+                                </StackLayout.GestureRecognizers>
+                                <Grid BackgroundColor="Red"
+                                      HeightRequest="50"
+                                      IsVisible="{Binding IsBeingDraggedOver}" />
+                                <StackLayout BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
+                                             Orientation="Horizontal" 
+                                             Spacing="20"
+                                             Margin="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <DragGestureRecognizer CanDrag="True"
+                                                               DragStarting="DragGestureRecognizer_DragStarting_Collection"
+                                                               DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
+                                                               DragStartingCommandParameter="{Binding}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="{Binding image}"
+                                           Aspect="AspectFit"
+                                           WidthRequest="50"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="{Binding text}"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout> 
+                            </StackLayout> 
+                        </ViewCell> 
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<ScrollView Grid.Row="1">
+                <Grid RowDefinitions="Auto,Auto,Auto,1,Auto,*,Auto,*,Auto,1"
+                      Margin="10,10,10,0"
+                      RowSpacing="20"> 
+                    <Label Text="Asosiy qisim"
+                           TextColor="Black"
+                           FontSize="19"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout Spacing="10"
+                                 Grid.Row="1">
+                        <Label Text="Shartnoma raqam ketma-ketligi"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="YY-OO-XXXX"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2">
+                        <Label Text="Shartnoma manzili" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="Toshkent"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <Line BackgroundColor="LightGray"
+                          Margin="10,0,10,0"
+                          Grid.Row="3"/>
+                    <Label Text="Band"
+                           TextColor="Black"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           HorizontalOptions="StartAndExpand"
+                           Grid.Row="4"/>
+                    <ListView Grid.Row="5">
+                       
+                    </ListView>
+                    <BoxView BackgroundColor="Gray"
+                             Grid.Row="6"/>
+                    <ListView Grid.Row="7">
+                        
+                    </ListView>
+                    <BoxView BackgroundColor="Gray"
+                             Grid.Row="8"/>
+                    <Line BackgroundColor="LightGray"
+                          Margin="10,0,10,0"
+                          Grid.Row="9"/>
+                </Grid>
+            </ScrollView>--> 
+            <Button Style="{StaticResource btnNext}"
+                    Text="Tahrirlash"
+                    Margin="5,0,5,40"
+                    Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>
