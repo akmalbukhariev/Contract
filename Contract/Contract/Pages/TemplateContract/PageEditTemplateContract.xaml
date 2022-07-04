@@ -33,16 +33,18 @@
                      CornerRadius="10"
                      Margin="0,0,0,20"
                      Grid.Row="1"
-                     Grid.RowSpan="2"/>
-            <ListView x:Name="MyItems" 
+                     Grid.RowSpan="2"/> 
+            <ListView x:Name="MyItems"
                       ItemsSource="{Binding DataList}"
                       HasUnevenRows="True"
-                      SeparatorVisibility="Default" 
+                      HorizontalScrollBarVisibility="Never"
+                      SeparatorVisibility="None" 
+                      ItemSelected="MyItems_ItemSelected"
                       Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand">
                                 <StackLayout.GestureRecognizers>
                                     <DropGestureRecognizer AllowDrop="True"
                                                            DragLeaveCommand="{Binding BindingContext.ItemDragLeave, Source={x:Reference MyItems}}"
@@ -53,30 +55,35 @@
                                                            DropCommand="{Binding BindingContext.ItemDropped, Source={x:Reference MyItems}}"
                                                            DropCommandParameter="{Binding}" />
                                 </StackLayout.GestureRecognizers>
-                                <Grid BackgroundColor="Red"
-                                      HeightRequest="50"
-                                      IsVisible="{Binding IsBeingDraggedOver}" />
-                                <StackLayout BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
-                                             Orientation="Horizontal" 
-                                             Spacing="20"
-                                             Margin="10">
-                                    <StackLayout.GestureRecognizers>
+                                <Grid BackgroundColor="Orange"
+                                      HeightRequest="100"
+                                      IsVisible="{Binding IsBeingDraggedOver}" /> 
+                                <view:ViewEditTemplateContract Title="{Binding Title}"
+                                                               Description="{Binding Description}"
+                                                               HorizontalOptions="CenterAndExpand"
+                                                               BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
+                                                               IsVisible="{Binding IsVisibleItemClause}"
+                                                               Margin="5">
+                                    <view:ViewEditTemplateContract.GestureRecognizers>
                                         <DragGestureRecognizer CanDrag="True"
                                                                DragStarting="DragGestureRecognizer_DragStarting_Collection"
                                                                DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
                                                                DragStartingCommandParameter="{Binding}" />
-                                    </StackLayout.GestureRecognizers>
-                                    <Image Source="{Binding image}"
-                                           Aspect="AspectFit"
-                                           WidthRequest="50"
-                                           VerticalOptions="CenterAndExpand"
-                                           HorizontalOptions="Start"/>
-                                    <Label Text="{Binding text}"
-                                           FontSize="20"
-                                           FontAttributes="Bold"
-                                           VerticalTextAlignment="Center"
-                                           HorizontalOptions="CenterAndExpand"/>
-                                </StackLayout> 
+                                    </view:ViewEditTemplateContract.GestureRecognizers>
+                                </view:ViewEditTemplateContract>
+                                <view:ViewEditContractButton TextAdd="{Binding ButtonText}" 
+                                                             ButtonBackgroundColor="{Binding ButtonColor}"
+                                                             BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
+                                                             IsVisible="{Binding IsVisibleButton}"
+                                                             Margin="5">
+                                    <view:ViewEditContractButton.GestureRecognizers>
+                                        <DragGestureRecognizer CanDrag="True"
+                                                               DragStarting="DragGestureRecognizer_DragStarting_Collection"
+                                                               DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
+                                                               DragStartingCommandParameter="{Binding}" />
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                                    </view:ViewEditContractButton.GestureRecognizers>
+                                </view:ViewEditContractButton>
                             </StackLayout> 
                         </ViewCell> 
                     </DataTemplate>

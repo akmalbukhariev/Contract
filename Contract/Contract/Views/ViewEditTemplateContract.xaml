@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Contract.Control"
+             x:Class="Contract.Views.ViewEditTemplateContract">
+
+    <Grid RowDefinitions="35,1,150"
+          ColumnDefinitions="230,1,45"
+          ColumnSpacing="0"
+          RowSpacing="0"
+          Margin="0">
+        <BoxView BackgroundColor="LightGray" 
+                 CornerRadius="10"
+                 Grid.RowSpan="3"
+                 Grid.ColumnSpan="3"/>
+        <BoxView BackgroundColor="White" 
+                 CornerRadius="10"
+                 Margin="1"
+                 Grid.RowSpan="3"
+                 Grid.ColumnSpan="3"/>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+            </Grid.GestureRecognizers>
+            <BoxView x:Name="boxViewTitle" 
+                     BackgroundColor="#F7F6F6"
+                     CornerRadius="10,0,0,0"
+                     Margin="1,1,1,0"/>
+            <Label x:Name="lbTitle" 
+                   Text="1"
+                   FontSize="17"
+                   TextColor="Gray"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+        </Grid>
+        <BoxView BackgroundColor="#F7F6F6" 
+                 CornerRadius="0,10,0,0"
+                 Margin="0,1,1,0"
+                 Grid.Column="2"/>
+        <Label Text="..."
+               TextColor="Gray"
+               FontAttributes="Bold"
+               FontSize="20"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               Margin="0,0,5,5"
+               Grid.Column="2"/>
+        <Line BackgroundColor="LightGray"
+              Grid.Column="1"/>
+        <Line BackgroundColor="LightGray"
+              Grid.Row="1"
+              Grid.ColumnSpan="3"/>
+        <control:CustomEditor x:Name="edDescription" 
+                              Text="Shartnoma mazmuni vaishlarning narxi."
+                              PlaceholderColor="Gray"
+                              BackgroundColor="White"
+                              Margin="5,5,5,0.5"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2"/>
+    </Grid>
+    
+</ContentView>

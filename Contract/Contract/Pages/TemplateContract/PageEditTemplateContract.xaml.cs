@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.TemplateContract;
+﻿using Contract.Model;
+using Contract.ViewModel.Pages.TemplateContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,32 +26,42 @@ namespace Contract.Pages.TemplateContract
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            model.IsBeingDraggedOver = false;
 
-            TestDragAndDrop item1 = new TestDragAndDrop()
+            EditTemplate item1 = new EditTemplate()
             {
-                image = "Add",
-                text = "add image"
+                Title = "1",
+                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
             };
-            TestDragAndDrop item2 = new TestDragAndDrop()
+            EditTemplate item2 = new EditTemplate()
             {
-                image = "cancel",
-                text = "cancel image"
+                Title = "1.1",
+                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
             };
-            TestDragAndDrop item3 = new TestDragAndDrop()
+            EditTemplate item3 = new EditTemplate()
             {
-                image = "check",
-                text = "check image"
+                ButtonText = "Shartnomaning xizmat \n ma'lumotlarini qo'shish",
+                IsVisibleItemClause = false,
+                IsVisibleButton = true,
+                IsVisibleAddContractInfoButton = true
             };
-            TestDragAndDrop item4 = new TestDragAndDrop()
+            EditTemplate item4 = new EditTemplate()
             {
-                image = "code",
-                text = "code image"
+                ButtonText = "Band qo'shish",
+                IsVisibleItemClause = false,
+                IsVisibleButton = true,
+                IsVisibleAddClauseButton = true
             };
-            TestDragAndDrop item5 = new TestDragAndDrop()
+            EditTemplate item5 = new EditTemplate()
             {
-                image = "edit",
-                text = "edit image"
+                Title = "2",
+                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+            };
+            EditTemplate item6 = new EditTemplate()
+            {
+                ButtonText = "Kelishuvchilarning rekvizit \n ma'lumotlarini qo'shish",
+                IsVisibleItemClause = false,
+                IsVisibleButton = true,
+                IsVisibleAddDetailOfNegotiatorButton = true
             };
 
             model.DataList.Add(item1);
@@ -58,6 +69,7 @@ namespace Contract.Pages.TemplateContract
             model.DataList.Add(item3);
             model.DataList.Add(item4);
             model.DataList.Add(item5);
+            model.DataList.Add(item6);
         }
 
         private void DragGestureRecognizer_DragStarting_Collection(System.Object sender, Xamarin.Forms.DragStartingEventArgs e)
@@ -69,6 +81,29 @@ namespace Contract.Pages.TemplateContract
         {
             // We handle reordering login in our view model
             e.Handled = true;
+        }
+
+        private void MyItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            MyItems.SelectedItem = null;
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            //ClickAnimationView((View)sender);
+            Views.ViewEditContractButton vButton = (Views.ViewEditContractButton)sender;
+            await vButton.ScaleTo(0.8, 200);
+            if (vButton.IsAddVisible)
+            {
+                vButton.IsDeleteVisible = true;
+                vButton.IsAddVisible = false;
+            }
+            else
+            {
+                vButton.IsDeleteVisible = false;
+                vButton.IsAddVisible = true;
+            }
+            await vButton.ScaleTo(1, 200, Easing.SpringOut);
         }
     }
 }

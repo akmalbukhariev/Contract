@@ -11,7 +11,7 @@ namespace Contract.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var isBeingDragged = (bool?)value;
-            var result = (isBeingDragged ?? false) ? Color.LightGray : Color.Azure;
+            var result = (isBeingDragged ?? false) ? Color.LightGray : Color.White;
             return result;
         }
 

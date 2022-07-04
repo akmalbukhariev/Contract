@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contract.Views.ViewEditContractButton">
+
+    <Grid>
+        <Grid x:Name="gridAdd"
+              ColumnDefinitions="60,1,215" 
+              RowDefinitions="60"
+              HorizontalOptions="CenterAndExpand">
+            <BoxView x:Name="boxView"
+                     CornerRadius="10"
+                     HorizontalOptions="FillAndExpand"
+                     Grid.ColumnSpan="3"/>
+            <Image Source="Add"
+                   Aspect="AspectFit"
+                   WidthRequest="30"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Line BackgroundColor="White"
+                  Grid.Column="1"/>
+            <Label x:Name="lbTextAdd"
+                   TextColor="White"
+                   FontSize="14"
+                   FontFamily="Nunito_Regular"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Column="2"/>
+        </Grid>
+        <Grid x:Name="gridDelete"
+              IsVisible="False"
+              ColumnDefinitions="196,80"
+              RowDefinitions="60"
+              ColumnSpacing="0"
+              HorizontalOptions="CenterAndExpand">
+            <BoxView BackgroundColor="Gray"
+                     CornerRadius="10,0,10,0"/>  
+            <BoxView BackgroundColor="White"
+                     Margin="1"
+                     CornerRadius="10,0,10,0"/>
+            <Label x:Name="lbTextDelete"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            <BoxView BackgroundColor="#D75555"
+                     CornerRadius="0,10,0,10"
+                     Grid.Column="1"/>
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="2"
+                         Spacing="0"
+                         Grid.Column="1">
+                <Image Source="Delete"
+                       Aspect="AspectFit"
+                       WidthRequest="30"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Label Text="O'chirish"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+
+</ContentView>
