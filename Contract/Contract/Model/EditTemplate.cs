@@ -12,6 +12,10 @@ namespace Contract.Model
         public bool IsBeingDraggedOver { get => GetValue<bool>(); set => SetValue(value); }
 
         public bool IsVisibleItemClause { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsVisibleDeleteButton { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsVisibleAddButton { get => GetValue<bool>(); set => SetValue(value); }
+
+        public bool IsThisAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }
 
         public bool IsVisibleAddContractInfoButton { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsVisibleAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }  
@@ -28,6 +32,7 @@ namespace Contract.Model
         public EditTemplate()
         {
             IsVisibleItemClause = true;
+            IsThisAddClauseButton = false;
             IsVisibleAddContractInfoButton = false;
             IsVisibleAddClauseButton = false;
             IsVisibleAddDetailOfNegotiatorButton = false;

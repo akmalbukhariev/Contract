@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.PageMessage">
 
@@ -25,7 +26,7 @@
                 <Image Source="error"
                        Aspect="AspectFit"
                        WidthRequest="160"/>
-                <Label Text="Ayni damda tadiqlanmagan shartnomalar mavjud emas."
+                <Label Text="{x:Static resource:AppResource.Message1}"
                        Style="{StaticResource lbRegularTitle}"
                        HorizontalTextAlignment="Center"/>
             </StackLayout>

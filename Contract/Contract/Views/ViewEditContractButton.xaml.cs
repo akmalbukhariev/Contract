@@ -52,6 +52,34 @@ namespace Contract.Views
         }
         #endregion
 
+        #region Is visible add button
+        public static readonly BindableProperty IsVisibleAddProperty =
+            BindableProperty.Create(nameof(IsVisibleAdd),
+                                    typeof(bool),
+                                    typeof(ViewEditContractButton),
+                                    defaultBindingMode: BindingMode.TwoWay);
+
+        public bool IsVisibleAdd
+        {
+            get { return (bool)GetValue(IsVisibleAddProperty); }
+            set { SetValue(IsVisibleAddProperty, value); }
+        }
+        #endregion
+
+        #region Is visible delete button
+        public static readonly BindableProperty IsVisibleDeleteProperty =
+            BindableProperty.Create(nameof(IsVisibleDelete),
+                                    typeof(bool),
+                                    typeof(ViewEditContractButton),
+                                    defaultBindingMode: BindingMode.TwoWay);
+
+        public bool IsVisibleDelete
+        {
+            get { return (bool)GetValue(IsVisibleDeleteProperty); }
+            set { SetValue(IsVisibleDeleteProperty, value); }
+        }
+        #endregion
+
         public ViewEditContractButton()
         {
             InitializeComponent();
@@ -59,24 +87,8 @@ namespace Contract.Views
             this.lbTextAdd.SetBinding(Label.TextProperty, new Binding(nameof(TextAdd), source: this));
             this.lbTextDelete.SetBinding(Label.TextProperty, new Binding(nameof(TextDelete), source: this));
             this.boxView.SetBinding(BoxView.BackgroundColorProperty, new Binding(nameof(ButtonBackgroundColor), source: this));
-        }
-
-        public bool IsAddVisible
-        {
-            get { return gridAdd.IsVisible; }
-            set
-            {
-                gridAdd.IsVisible = value;
-            }
-        }
-
-        public bool IsDeleteVisible
-        {
-            get { return gridDelete.IsVisible; }
-            set
-            {
-                gridDelete.IsVisible = value;
-            }
+            this.gridAdd.SetBinding(Grid.IsVisibleProperty, new Binding(nameof(IsVisibleAdd), source: this));
+            this.gridDelete.SetBinding(Grid.IsVisibleProperty, new Binding(nameof(IsVisibleDelete), source: this));
         } 
     }
 }

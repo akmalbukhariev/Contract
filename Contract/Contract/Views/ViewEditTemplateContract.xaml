@@ -20,7 +20,9 @@
                  Grid.ColumnSpan="3"/>
         <Grid Grid.ColumnSpan="2">
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" 
+                                      NumberOfTapsRequired="1"
+                                      Command="{Binding CommandClickTitle}"/>
             </Grid.GestureRecognizers>
             <BoxView x:Name="boxViewTitle" 
                      BackgroundColor="#F7F6F6"

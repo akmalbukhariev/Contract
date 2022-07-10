@@ -16,8 +16,8 @@ namespace Contract.Pages.Introduction
         {
             InitializeComponent();
 
-            lbText1.Text = "FOYDA VA ZARARLARNI \n TAHLIL QILISH";
-            lbText2.Text = "Barcha bajarilgan amalyotlar bo'yicha \n kirim-chimlarni foyda va zararlarga \n ajrating";
+            lbText1.Text = RSC.LoginInfo1_1;
+            lbText2.Text = RSC.LoginInfo1_2;
         }
 
         private void Enter_Tapped(object sender, EventArgs e)

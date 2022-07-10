@@ -139,5 +139,13 @@ namespace Contract.Control
                 // Other error has occurred.
             }
         } 
+
+        public string AppVersion
+        {
+            get
+            {
+                return VersionTracking.CurrentVersion;
+            }
+        }
     }
 }

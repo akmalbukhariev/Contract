@@ -65,6 +65,11 @@
     <Compile Update="Pages\PageM.xaml.cs">
       <DependentUpon>PageM.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Resources\AppResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResource.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\ViewEntry.xaml.cs">
       <DependentUpon>ViewEntry.xaml</DependentUpon>
     </Compile>
@@ -185,6 +190,10 @@
     <EmbeddedResource Update="Pages\UnapprovedContracts\PageTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\AppResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewCancelExplanation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -217,5 +226,6 @@
   <ItemGroup>
     <Folder Include="ViewModel\Pages\CurrentContracts\" />
     <Folder Include="ViewModel\Pages\CanceledContracts\" />
+    <Folder Include="ViewModel\SignUp\" />
   </ItemGroup>
 </Project>

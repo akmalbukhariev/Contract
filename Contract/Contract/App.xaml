@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:Contract.Views"
              xmlns:converters="clr-namespace:Contract.Converters"
+             xmlns:resource="clr-namespace:Contract.Resources"
              x:Class="Contract.App">
     <Application.Resources>
         <Color x:Key="AppColor">#3F6C6C</Color>
@@ -31,8 +32,9 @@
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="VerticalOptions" Value="End"/>
                 <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="Nunito_Regular"/>
                 <Setter Property="Margin" Value="15,0,15,50"/>
-                <Setter Property="Text" Value="Keyingisi"/>
+                <Setter Property="Text" Value="{x:Static resource:AppResource.ButtonNext}"/>
             </Style>
             <Style x:Key="viewEntryStyle" TargetType="view:EntryView">
                 <Setter Property="TextColor" Value="Black"/>

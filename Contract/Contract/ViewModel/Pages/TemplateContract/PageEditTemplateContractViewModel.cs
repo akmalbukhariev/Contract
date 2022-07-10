@@ -13,6 +13,8 @@ namespace Contract.ViewModel.Pages.TemplateContract
 { 
     public class PageEditTemplateContractViewModel : BaseModel
     {
+        public bool ShowClauseBox { get => GetValue<bool>(); set => SetValue(value); }
+        public EditTemplate SelectedItem { get => GetValue<EditTemplate>(); set => SetValue(value); }
         public ObservableCollection<EditTemplate> DataList { get; set; }
         
         public PageEditTemplateContractViewModel()
@@ -32,7 +34,10 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public ICommand ItemDragLeave { get; }
 
         public ICommand ItemDropped { get; }
-         
+
+        public ICommand CommandShowClauseBox => new Command(ClickEditItem);
+        public ICommand CommandCloseClauseBox => new Command(ClickBoxViewBack);
+
         private void OnItemDragged(EditTemplate item)
         { 
             DataList.ForEach(i => i.IsBeingDragged = item == i);
@@ -62,6 +67,15 @@ namespace Contract.ViewModel.Pages.TemplateContract
             DataList.Insert(insertAtIndex, itemToMove);
             itemToMove.IsBeingDragged = false;
             itemToInsertBefore.IsBeingDraggedOver = false;
+        }
+
+        void ClickEditItem()
+        {
+            ShowClauseBox = true;
+        }
+        void ClickBoxViewBack()
+        {
+            ShowClauseBox = false;
         }
     }
 }

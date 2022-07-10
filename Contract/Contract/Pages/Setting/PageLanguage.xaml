@@ -37,7 +37,7 @@
                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
             </view:ViewLanguage.GestureRecognizers>
         </view:ViewLanguage>
-        <Label Text="Shartnoma maker v. 1.1.1" 
+        <Label x:Name="lbAppVersion" 
                VerticalOptions="CenterAndExpand" 
                HorizontalTextAlignment="Center"
                Margin="0,0,0,10"

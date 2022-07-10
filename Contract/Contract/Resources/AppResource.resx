@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppVersion" xml:space="preserve">
+    <value>Shartnoma maker</value>
+    <comment>Language</comment>
+  </data>
+  <data name="ButtonNext" xml:space="preserve">
+    <value>Keyingisi</value>
+    <comment>SpecialCode</comment>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Shaxsiy parolni kiriting</value>
+    <comment>NewPassword</comment>
+  </data>
+  <data name="EnterPasswordAgain" xml:space="preserve">
+    <value>Shaxsiy parolni qayta kiriting</value>
+    <comment>NewPassword</comment>
+  </data>
+  <data name="EnterSpecialCode" xml:space="preserve">
+    <value>Maxsus kodni kiriting</value>
+    <comment>SpecialCode</comment>
+  </data>
+  <data name="Intro1_1" xml:space="preserve">
+    <value>ISTALGAN JOYDA 
+ SHARTNOMA TUZISH</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro1_2" xml:space="preserve">
+    <value>Ofisda bo'lmang, bug'galterni kutmang.  
+O'zingizga qulay vaqtda, qulay joyda 
+shartnomalarni tuzing.</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro2_1" xml:space="preserve">
+    <value>TAYYOR SHARTNOMANI ONSON 
+ JO'NATISH</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro2_2" xml:space="preserve">
+    <value>Shartnomalarni qo'lda olib borish 
+ shart emas. Ularni istalgan messenjer 
+ orqali PDF formatida yuvorish.</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro3_1" xml:space="preserve">
+    <value>QISQA MUDDATDA 
+ SHARTNOMA TUZISH</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro3_2" xml:space="preserve">
+    <value>Endi shartnoma tuzish ko'p vaqt olmaydi. 
+ Shunchaki asosiy ma'lumotlarni 
+ to'ldiring va shartnoma tayyor.</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro4_1" xml:space="preserve">
+    <value>QULAY SHABLONLAR 
+ YARATISH</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro4_2" xml:space="preserve">
+    <value>Shartnoma tuzish uchu o'z huquqlar, 
+ talablar va imidjingizga mos 
+ shablonlarni yaratib, 
+ ulardan onson foydalaning.</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="LoginInfo1_1" xml:space="preserve">
+    <value>FOYDA VA ZARARLARNI 
+ TAHLIL QILISH</value>
+    <comment>LoginInfo</comment>
+  </data>
+  <data name="LoginInfo1_2" xml:space="preserve">
+    <value>Barcha bajarilgan amalyotlar bo'yicha 
+ kirim-chimlarni foyda va zararlarga 
+ ajrating</value>
+    <comment>LoginInfo</comment>
+  </data>
+  <data name="LoginSystem" xml:space="preserve">
+    <value>Tizimga kirish</value>
+    <comment>LoginInfo</comment>
+  </data>
+  <data name="Message1" xml:space="preserve">
+    <value>Ayni damda tadiqlanmagan shartnomalar mavjud emas.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="M_EnterPhoneNumber" xml:space="preserve">
+    <value>Telfon raqamingizni kiriting</value>
+    <comment>M</comment>
+  </data>
+  <data name="M_Or" xml:space="preserve">
+    <value>Yoki</value>
+    <comment>M</comment>
+  </data>
+  <data name="M_SignUp" xml:space="preserve">
+    <value>Ro'yxatdan o'ting</value>
+    <comment>M</comment>
+  </data>
+  <data name="M_Title1" xml:space="preserve">
+    <value>Assalomu alaykum hurmatli mijoz!</value>
+    <comment>M</comment>
+  </data>
+  <data name="M_Title2" xml:space="preserve">
+    <value>Tizimdan foydalanish uchun avtorizasiya qiling.</value>
+    <comment>M</comment>
+  </data>
+  <data name="PasswordDescription" xml:space="preserve">
+    <value>Iltimos, o'zingizga qulay bo'lgan murakkab parolni kiriting va unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
+    <comment>NewPassword</comment>
+  </data>
+  <data name="SendSpecialCode" xml:space="preserve">
+    <value>Kodni qayta yuborish</value>
+    <comment>SpecialCode</comment>
+  </data>
+  <data name="SignUpDescription" xml:space="preserve">
+    <value>Biz sizga telegram tarmog'i orqali maxsus kod yuvoramiz. Shu bois, telfon raqam telegram tarmog'iga ulangan bo'lishi lozim.</value>
+    <comment>SignUp</comment>
+  </data>
+  <data name="SignUpTitle" xml:space="preserve">
+    <value>Telfon raqamingizni kiriting</value>
+    <comment>SignUp</comment>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>O'tkazib yuborish</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="SpecialCodeDescription" xml:space="preserve">
+    <value>Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting.</value>
+    <comment>SpecialCode</comment>
+  </data>
+  <data name="WaitingTime" xml:space="preserve">
+    <value>Kutish vaqti</value>
+    <comment>SpecialCode</comment>
+  </data>
+</root>

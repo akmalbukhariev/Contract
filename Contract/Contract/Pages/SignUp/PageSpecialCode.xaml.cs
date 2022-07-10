@@ -15,6 +15,8 @@ namespace Contract.Pages.SignUp
         public PageSpecialCode()
         {
             InitializeComponent();
+
+            lbWaiting.Text = RSC.WaitingTime + " 0:59";
         }
 
         private void SendCodeaAgain_Tapped(object sender, EventArgs e)

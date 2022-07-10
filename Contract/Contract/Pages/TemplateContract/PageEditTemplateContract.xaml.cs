@@ -20,7 +20,7 @@ namespace Contract.Pages.TemplateContract
             InitializeComponent();
 
             model = new PageEditTemplateContractViewModel();
-            BindingContext = model;
+            BindingContext = model; 
         }
 
         protected override void OnAppearing()
@@ -42,13 +42,16 @@ namespace Contract.Pages.TemplateContract
                 ButtonText = "Shartnomaning xizmat \n ma'lumotlarini qo'shish",
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
+                IsVisibleAddButton = true,
                 IsVisibleAddContractInfoButton = true
             };
             EditTemplate item4 = new EditTemplate()
             {
                 ButtonText = "Band qo'shish",
+                IsThisAddClauseButton = true,
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
+                IsVisibleAddButton = true,
                 IsVisibleAddClauseButton = true
             };
             EditTemplate item5 = new EditTemplate()
@@ -61,6 +64,7 @@ namespace Contract.Pages.TemplateContract
                 ButtonText = "Kelishuvchilarning rekvizit \n ma'lumotlarini qo'shish",
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
+                IsVisibleAddButton = true,
                 IsVisibleAddDetailOfNegotiatorButton = true
             };
 
@@ -89,21 +93,38 @@ namespace Contract.Pages.TemplateContract
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            //ClickAnimationView((View)sender);
+        {   
             Views.ViewEditContractButton vButton = (Views.ViewEditContractButton)sender;
+            EditTemplate item = (EditTemplate)vButton.BindingContext;
+
             await vButton.ScaleTo(0.8, 200);
-            if (vButton.IsAddVisible)
+            if (item.IsVisibleAddButton)
             {
-                vButton.IsDeleteVisible = true;
-                vButton.IsAddVisible = false;
+                if (!item.IsThisAddClauseButton)
+                {
+                    item.IsVisibleDeleteButton = true;
+                    item.IsVisibleAddButton = false;
+                }
             }
             else
             {
-                vButton.IsDeleteVisible = false;
-                vButton.IsAddVisible = true;
+                item.IsVisibleDeleteButton = false;
+                item.IsVisibleAddButton = true;
             }
             await vButton.ScaleTo(1, 200, Easing.SpringOut);
         }
+
+        private async void EditBox_Tapped(object sender, EventArgs e)
+        {
+            BoxView box = (BoxView)sender;
+
+            box.BackgroundColor = Color.Gray;
+            await Task.Delay(100);
+
+            box.BackgroundColor = Color.Transparent;
+            await Task.Delay(100);
+
+            model.ShowClauseBox = false;
+        } 
     }
 }

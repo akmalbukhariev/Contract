@@ -1,16 +1,22 @@
-﻿using System;
+﻿using Contract.Resources;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Contract
 {
-    public partial class App : Application
+    internal class RSC : AppResource
     {
+
+    }
+
+    public partial class App : Application
+    { 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new Pages.TemplateContract.PageEditTemplateContract();
+            MainPage = new Pages.SignUp.PageNewPassword();
         }
 
         protected override void OnStart()

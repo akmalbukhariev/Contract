@@ -16,5 +16,12 @@ namespace Contract.Pages
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            lbVersion.Text = RSC.AppVersion + " " + ControlApp.AppVersion;
+        }
     }
 }

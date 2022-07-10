@@ -4,6 +4,7 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.SignUp.PageSpecialCode">
 
@@ -20,7 +21,7 @@
                      Grid.RowSpan="3"/>
             <StackLayout Style="{StaticResource stackFrame}"
                          Grid.Row="1">
-                <Label Text="Maxsus kodni kiriting"
+                <Label Text="{x:Static resource:AppResource.EnterSpecialCode}"
                        FontSize="17"
                        TextColor="Black"
                        FontFamily="Nunito_SemiBold"
@@ -62,14 +63,14 @@
                           Grid.Row="1"
                           Grid.Column="3"/>
                 </Grid>
-                <Label Text="Kutish vaqti 0:59"
+                <Label x:Name="lbWaiting"
                        TextColor="Gray"
                        HorizontalTextAlignment="Center"/>
-                <view:ViewExplanation Text="Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting."
-                                  VerticalOptions="Start"/>
+                <view:ViewExplanation Text="{x:Static resource:AppResource.SpecialCodeDescription}"
+                                      VerticalOptions="Start"/>
             </StackLayout>
             <Label x:Name="lbSendCodeAgain" 
-                   Text="Kodni qayta yuvorish"
+                   Text="{x:Static resource:AppResource.SendSpecialCode}"
                    FontSize="20"
                    TextColor="{StaticResource AppColor}"
                    FontFamily="Nunito_Regular"

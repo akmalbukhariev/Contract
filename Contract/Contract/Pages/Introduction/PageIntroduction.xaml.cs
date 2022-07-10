@@ -1,4 +1,4 @@
-﻿using Contract.ViewModel.SignUp;
+﻿using Contract.ViewModel.Introduction;
 using System;
 using System.Collections.Generic;
 using System.Linq;

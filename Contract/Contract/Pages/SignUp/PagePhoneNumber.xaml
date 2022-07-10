@@ -3,7 +3,8 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
-            BackgroundColor="#F3F3F3"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.SignUp.PagePhoneNumber">
 
     <Grid ColumnDefinitions="20,*,20">
@@ -19,15 +20,12 @@
                      Grid.RowSpan="2"/>
             <StackLayout Style="{StaticResource stackFrame}"
                          Grid.Row="1">
-                <Label Text="Telfon raqamingizni kiriting"
-                       TextColor="Black"
-                       FontSize="17"
-                       FontFamily="Nunito_SemiBold"
-                       HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{x:Static resource:AppResource.SignUpTitle}"
+                       Style="{StaticResource lbBoldTitle}"/>
                 <view:EntryView PlaceHoldingText="+998-- --- ---"
                                 HorizontalTextAlignment="Start"
                                 Style="{StaticResource viewEntryStyle}"/>
-                <view:ViewExplanation Text="Biz sizga telegram tarmog'i orqali maxsus kod yuvoramiz. Shu bois, telfon raqam telegram tarmog'iga ulangan bo'lishi lozim."/>
+                <view:ViewExplanation Text="{x:Static resource:AppResource.SignUpDescription}"/>
             </StackLayout>
             <Button Style="{StaticResource btnNext}"
                     Grid.Row="2"/>

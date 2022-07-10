@@ -41,8 +41,8 @@ namespace Contract.Views
         #endregion
 
         #region Command
-        public static readonly BindableProperty CommandTitleProperty =
-            BindableProperty.Create(nameof(CommandTitle),
+        public static readonly BindableProperty CommandClickTitleProperty =
+            BindableProperty.Create(nameof(CommandClickTitle),
                                     typeof(ICommand),
                                     typeof(ViewEditTemplateContract),
                                     null);
@@ -53,10 +53,10 @@ namespace Contract.Views
                                     typeof(ViewConfirm),
                                     null);
 
-        public ICommand CommandTitle
+        public ICommand CommandClickTitle
         {
-            get { return (ICommand)GetValue(CommandTitleProperty); }
-            set { SetValue(CommandTitleProperty, value); }
+            get { return (ICommand)GetValue(CommandClickTitleProperty); }
+            set { SetValue(CommandClickTitleProperty, value); }
         }
          
         public object CommandParameter
@@ -74,6 +74,15 @@ namespace Contract.Views
             this.edDescription.SetBinding(Editor.TextProperty, new Binding(nameof(Description), source: this));
         }
 
+        public static void Execute(ICommand command)
+        {
+            if (command == null) return;
+            if (command.CanExecute(null))
+            {
+                command.Execute(null);
+            }
+        }
+
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             boxViewTitle.BackgroundColor = Color.Gray;
@@ -82,9 +91,9 @@ namespace Contract.Views
             boxViewTitle.BackgroundColor = Color.FromHex("#F7F6F6");
             await Task.Delay(200);
              
-            if (CommandTitle != null && CommandTitle.CanExecute(CommandParameter))
+            if (CommandClickTitle != null && CommandClickTitle.CanExecute(CommandParameter))
             {
-                CommandTitle.Execute(CommandParameter);
+                CommandClickTitle.Execute(CommandParameter);
             }
         }
     }

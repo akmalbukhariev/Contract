@@ -36,6 +36,7 @@
                      Grid.RowSpan="2"/> 
             <ListView x:Name="MyItems"
                       ItemsSource="{Binding DataList}"
+                      SelectedItem="{Binding SelectedItem}"
                       HasUnevenRows="True"
                       HorizontalScrollBarVisibility="Never"
                       SeparatorVisibility="None" 
@@ -63,6 +64,7 @@
                                                                HorizontalOptions="CenterAndExpand"
                                                                BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                                IsVisible="{Binding IsVisibleItemClause}"
+                                                               CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
                                                                Margin="5">
                                     <view:ViewEditTemplateContract.GestureRecognizers>
                                         <DragGestureRecognizer CanDrag="True"
@@ -75,6 +77,8 @@
                                                              ButtonBackgroundColor="{Binding ButtonColor}"
                                                              BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                              IsVisible="{Binding IsVisibleButton}"
+                                                             IsVisibleDelete="{Binding IsVisibleDeleteButton}"
+                                                             IsVisibleAdd="{Binding IsVisibleAddButton}"
                                                              Margin="5">
                                     <view:ViewEditContractButton.GestureRecognizers>
                                         <DragGestureRecognizer CanDrag="True"
@@ -88,62 +92,90 @@
                         </ViewCell> 
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-            <!--<ScrollView Grid.Row="1">
-                <Grid RowDefinitions="Auto,Auto,Auto,1,Auto,*,Auto,*,Auto,1"
-                      Margin="10,10,10,0"
-                      RowSpacing="20"> 
-                    <Label Text="Asosiy qisim"
-                           TextColor="Black"
-                           FontSize="19"
-                           FontAttributes="Bold"
-                           HorizontalOptions="CenterAndExpand"/>
-                    <StackLayout Spacing="10"
-                                 Grid.Row="1">
-                        <Label Text="Shartnoma raqam ketma-ketligi"
-                               Style="{StaticResource lbBlackStyle}"/>
-                        <control:CustomPicker Title="YY-OO-XXXX"
-                                              HorizontalTextAlignment="Start"
-                                              Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
-                                              BackgroundColor="White"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2">
-                        <Label Text="Shartnoma manzili" 
-                               Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="Toshkent"
-                                        Style="{StaticResource entryStyle}"/>
-                    </StackLayout>
-                    <Line BackgroundColor="LightGray"
-                          Margin="10,0,10,0"
-                          Grid.Row="3"/>
-                    <Label Text="Band"
-                           TextColor="Black"
-                           FontSize="17"
-                           FontAttributes="Bold"
-                           HorizontalOptions="StartAndExpand"
-                           Grid.Row="4"/>
-                    <ListView Grid.Row="5">
-                       
-                    </ListView>
-                    <BoxView BackgroundColor="Gray"
-                             Grid.Row="6"/>
-                    <ListView Grid.Row="7">
-                        
-                    </ListView>
-                    <BoxView BackgroundColor="Gray"
-                             Grid.Row="8"/>
-                    <Line BackgroundColor="LightGray"
-                          Margin="10,0,10,0"
-                          Grid.Row="9"/>
-                </Grid>
-            </ScrollView>--> 
+            </ListView> 
             <Button Style="{StaticResource btnNext}"
                     Text="Tahrirlash"
                     Margin="5,0,5,40"
                     Grid.Row="2"/>
         </Grid>
+        <BoxView BackgroundColor="Black"
+                 Opacity="0.5"
+                 IsVisible="{Binding ShowClauseBox}"
+                 Grid.ColumnSpan="3">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandCloseClauseBox}"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <Frame CornerRadius="10" 
+               IsVisible="{Binding ShowClauseBox}"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               Grid.ColumnSpan="3">
+            <Grid ColumnDefinitions="30,*"
+                  RowDefinitions="30,30,30,30,30"
+                  RowSpacing="10"
+                  ColumnSpacing="10">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="imEditTemplateBox" TargetType="Image">
+                            <Setter Property="Aspect" Value="AspectFit"/>
+                            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                        </Style>
+                        <Style x:Key="lbEditTemplateBox" TargetType="Label">
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                            <Setter Property="Margin" Value="5"/>
+                        </Style>
+                        <Style x:Key="boxEditTemplateBox" TargetType="BoxView">
+                            <Setter Property="BackgroundColor" Value="Transparent"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="Grid.Column" Value="1"/>
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <Image Source="plus_big_up" Style="{StaticResource imEditTemplateBox}"/>
+                <Image Source="plus_little_up" Style="{StaticResource imEditTemplateBox}" Grid.Row="1"/>
+                <Image Source="Delete_2" Style="{StaticResource imEditTemplateBox}" Grid.Row="2"/>
+                <Image Source="plus_little_down" Style="{StaticResource imEditTemplateBox}" Grid.Row="3"/>
+                <Image Source="plus_big_down" Style="{StaticResource imEditTemplateBox}" Grid.Row="4"/>
+
+                <Label Text="Yuqoriga katta band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Column="1"/>
+                <Label Text="Yuqoriga kichik band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Bandni o'chirish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Pastga kichik band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Pastga katta band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="4" Grid.Column="1"/>
+                
+                <BoxView x:Name="box1" Style="{StaticResource boxEditTemplateBox}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EditBox_Tapped"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <BoxView x:Name="box2" Style="{StaticResource boxEditTemplateBox}" Grid.Row="1">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EditBox_Tapped"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <BoxView x:Name="box3" Style="{StaticResource boxEditTemplateBox}" Grid.Row="2">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EditBox_Tapped"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <BoxView x:Name="box4" Style="{StaticResource boxEditTemplateBox}" Grid.Row="3">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EditBox_Tapped"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <BoxView x:Name="box5" Style="{StaticResource boxEditTemplateBox}" Grid.Row="4">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EditBox_Tapped"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+        </Frame>
     </Grid>
 
 </page:IPage>

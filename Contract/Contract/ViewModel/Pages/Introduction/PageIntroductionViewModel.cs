@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Contract.ViewModel.SignUp
+namespace Contract.ViewModel.Introduction
 {
     public class PageIntroductionViewModel : BaseModel
     {
@@ -23,26 +23,26 @@ namespace Contract.ViewModel.SignUp
             IntroductionInfo intro1 = new IntroductionInfo()
             {
                 ImagePath = "intro_1",
-                Text1 = "ISTALGAN JOYDA \n SHARTNOMA TUZISH",
-                Text2 = "Ofisda bo'lmang, bug'galterni kutmang. \n O'zingizga qulay vaqtda, qulay joyda \n shartnomalarni tuzing."
+                Text1 = RSC.Intro1_1,
+                Text2 = RSC.Intro1_2
             };
             IntroductionInfo intro2 = new IntroductionInfo()
             {
                 ImagePath = "intro_2",
-                Text1 = "TAYYOR SHARTNOMANI ONSON \n JO'NATISH",
-                Text2 = "Shartnomalarni qo'lda olib borish \n shart emas. Ularni istalgan messenjer \n orqali PDF formatida yuvorish."
+                Text1 = RSC.Intro2_1,
+                Text2 = RSC.Intro2_2
             };
             IntroductionInfo intro3 = new IntroductionInfo()
             {
                 ImagePath = "intro_3",
-                Text1 = "QISQA MUDDATDA \n SHARTNOMA TUZISH",
-                Text2 = "Endi shartnoma tuzish ko'p vaqt olmaydi. \n Shunchaki asosiy ma'lumotlarni \n to'ldiring va shartnoma tayyor."
+                Text1 = RSC.Intro3_1,
+                Text2 = RSC.Intro3_2
             };
             IntroductionInfo intro4 = new IntroductionInfo()
             {
                 ImagePath = "intro_4",
-                Text1 = "QULAY SHABLONLAR \n YARATISH",
-                Text2 = "Shartnoma tuzish uchu o'z huquqlar, \n talablar va imidjingizga mos \n shablonlarni yaratib, \n ulardan onson foydalaning."
+                Text1 = RSC.Intro4_1,
+                Text2 = RSC.Intro4_2
             };
 
             Images.Add(intro1);
