@@ -16,7 +16,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.SignUp.PageNewPassword();
+            MainPage = new Pages.PageMasterDetail();
         }
 
         protected override void OnStart()

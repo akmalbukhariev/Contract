@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.SignUp.PageFinished">
 
@@ -23,17 +24,17 @@
                          Spacing="20"
                          Grid.Row="1">
                 <Grid RowDefinitions="Auto,Auto,Auto">
-                    <Label Text="Tabriklaymiz!"
+                    <Label Text="{x:Static resource:AppResource.Congratulations}"
                            Style="{StaticResource lbBoldTitle}"/>
-                    <Label Text="Siz ro'yxatdan o'tishni"
+                    <Label Text="{x:Static resource:AppResource.ToRegister}"
                            Style="{StaticResource lbBoldTitle}"
                            Grid.Row="1"/>
-                    <Label Text="muvaffaqiyatli yakunladingiz."
+                    <Label Text="{x:Static resource:AppResource.SuccessfullyCompleted}"
                            Style="{StaticResource lbBoldTitle}"
                            Grid.Row="2"/>
                 </Grid> 
                 <Grid RowDefinitions="Auto, Auto">
-                    <Label Text="Sizning ID raqamingiz"
+                    <Label Text="{x:Static resource:AppResource.YourIdNumber}"
                            Style="{StaticResource lbBoldTitle}"/>
                     <Label Text="1234567"
                            Style="{StaticResource lbBoldTitle}"
@@ -45,14 +46,14 @@
                        HorizontalTextAlignment="Center">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Iltimos " TextColor="Gray"/>
-                            <Span Text="Davom ettirish" TextColor="Black" FontAttributes="Bold"/>
-                            <Span Text=" tugmasini                    bosing" TextColor="Gray"/>
+                            <Span Text="{x:Static resource:AppResource.Please}" TextColor="Gray"/>
+                            <Span Text="{x:Static resource:AppResource.Continue}" TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text="{x:Static resource:AppResource.PressTheButton}" TextColor="Gray"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
             </StackLayout>
-            <Button Text="Davom ettirish"
+            <Button Text="{x:Static resource:AppResource.Continue}"
                     Style="{StaticResource btnNext}"
                     Margin="15,0,15,50"
                     Grid.Row="2"/>

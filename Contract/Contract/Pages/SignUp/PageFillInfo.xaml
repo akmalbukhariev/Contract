@@ -4,7 +4,8 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
-            BackgroundColor="#F3F3F3"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.SignUp.PageFillInfo">
 
     <Grid ColumnDefinitions="20,*,20">
@@ -17,7 +18,7 @@
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     UseWhite="True"/>
-            <Label Text="Iltimos, korxonangizning rekvizitlarini kiriting."
+            <Label Text="{x:Static resource:AppResource.FillInfoTitle}"
                    TextColor="White"
                    HorizontalTextAlignment="Center"
                    FontSize="18"
@@ -29,38 +30,38 @@
                 <ScrollView VerticalOptions="FillAndExpand">
                     <StackLayout Spacing="20" 
                                  Margin="15,20,15,0">
-                        <Label Text="Korxona nomi"
-                                       Style="{StaticResource lbBoldTitle}"
-                                       HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="Korxona nomini kiriting"
-                                                Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Korxona manzili"
-                                   Style="{StaticResource lbBoldTitle}"
-                                   HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="Korxona manzilini kiriting"
-                                            Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Xisob raqami"
-                                       Style="{StaticResource lbBoldTitle}"
-                                       HorizontalTextAlignment="Start"/>
+                        <Label Text="{x:Static resource:AppResource.CompanyName}"
+                               Style="{StaticResource lbBoldTitle}"
+                               HorizontalTextAlignment="Start"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.EnterCompanyName}"
+                                        Style="{StaticResource viewEntryStyle}"/>
+                        <Label Text="{x:Static resource:AppResource.AddressOfCompany}"
+                               Style="{StaticResource lbBoldTitle}"
+                               HorizontalTextAlignment="Start"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.EnterAddressOfCompany}"
+                                        Style="{StaticResource viewEntryStyle}"/>
+                        <Label Text="{x:Static resource:AppResource.AccountNumber}"
+                               Style="{StaticResource lbBoldTitle}"
+                               HorizontalTextAlignment="Start"/>
                         <view:EntryView PlaceHoldingText="---- ---- ---- ----"
-                                            Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Korxona CTIRi"
-                                       Style="{StaticResource lbBoldTitle}"
-                                       HorizontalTextAlignment="Start"/>
+                                        Style="{StaticResource viewEntryStyle}"/>
+                        <Label Text="{x:Static resource:AppResource.CTRiOfCompany}"
+                               Style="{StaticResource lbBoldTitle}"
+                               HorizontalTextAlignment="Start"/>
                         <view:EntryView PlaceHoldingText="---- ---- ----"
-                                            Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Bank nomi"
-                                   Style="{StaticResource lbBoldTitle}"
-                                   HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="Bank nomini kiriting"
-                                            Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Bank kodi"
-                                   Style="{StaticResource lbBoldTitle}"
-                                   HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="Bank kodini kiriting"
-                                            Style="{StaticResource viewEntryStyle}"/>
+                                        Style="{StaticResource viewEntryStyle}"/>
+                        <Label Text="{x:Static resource:AppResource.NameOfBank}"
+                               Style="{StaticResource lbBoldTitle}"
+                               HorizontalTextAlignment="Start"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.EnterNameOfBank}"
+                                        Style="{StaticResource viewEntryStyle}"/>
+                        <Label Text="{x:Static resource:AppResource.BankCode}"
+                               Style="{StaticResource lbBoldTitle}"
+                               HorizontalTextAlignment="Start"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.EnterBankCode}"
+                                        Style="{StaticResource viewEntryStyle}"/>
                         <Grid ColumnDefinitions="*, Auto">
-                            <Label Text="Siz QQS to'lovchimisiz?"
+                            <Label Text="{x:Static resource:AppResource.AreYou_QQS_Payer}"
                                    Style="{StaticResource lbBoldTitle}"
                                    HorizontalTextAlignment="Start"/>
                             <Image Source="button_on"
@@ -69,17 +70,17 @@
                                    VerticalOptions="CenterAndExpand"
                                    HorizontalOptions="EndAndExpand"/>
                         </Grid>
-                        <Label Text="QQS Raqami"
+                        <Label Text="{x:Static resource:AppResource.QQS_Code}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
                         <view:EntryView PlaceHoldingText="---- ---- ---- ----"
                                         Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Korxona telfon raqami"
+                        <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
                         <view:EntryView PlaceHoldingText="+998-- --- -- --"
                                         Style="{StaticResource viewEntryStyle}"/>
-                        <Label Text="Shartnoma imzolovchinning lavozimi"
+                        <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
                         <control:CustomPicker Title="Lavozim"
@@ -87,13 +88,13 @@
                                               ChartSyle="True"
                                               TitleColor="Gray"
                                               BackgroundColor="White"/>
-                        <Label Text="Shartnoma imzolovchining F.I.O"
+                        <Label Text="{x:Static resource:AppResource.NameOfSignator}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FistAndLastName}"
                                         Style="{StaticResource viewEntryStyle}"/>
                         <Grid ColumnDefinitions="*, Auto">
-                            <Label Text="Hisobchi ko'zda tutilganmi?"
+                            <Label Text="{x:Static resource:AppResource.IsCounterProvided}"
                                    Style="{StaticResource lbBoldTitle}"
                                    HorizontalTextAlignment="Start"/>
                             <Image Source="button_on"
@@ -102,13 +103,13 @@
                                    VerticalOptions="CenterAndExpand"
                                    HorizontalOptions="EndAndExpand"/>
                         </Grid>
-                        <Label Text="Bosh hisobchi F.I.O"
+                        <Label Text="{x:Static resource:AppResource.ChiefAccountantName}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FistAndLastName}"
                                         Style="{StaticResource viewEntryStyle}"/>
                         <Grid ColumnDefinitions="*, Auto">
-                            <Label Text="Yurist konsultant ko'zda tutilganmi?"
+                            <Label Text="{x:Static resource:AppResource.IsLegalCounselProvided}"
                                    Style="{StaticResource lbBoldTitle}"
                                    HorizontalTextAlignment="Start"/>
                             <Image Source="button_on"
@@ -117,17 +118,17 @@
                                    VerticalOptions="CenterAndExpand"
                                    HorizontalOptions="EndAndExpand"/>
                         </Grid>
-                        <Label Text="Yurist konsultant F.I.O"
+                        <Label Text="{x:Static resource:AppResource.LegalConsultantName}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FistAndLastName}"
                                         Style="{StaticResource viewEntryStyle}"/>
-                        <view:ViewExplanation Text="Rekvizit ma'lumotlar to'g'irligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi"/>
+                        <view:ViewExplanation Text="{x:Static resource:AppResource.FillInfoDescription}"/>
                     </StackLayout>
                 </ScrollView>
             </Grid>
-            <Button Text="Yakunlash"
-                    Style="{StaticResource btnNext}" 
+            <Button Style="{StaticResource btnNext}" 
+                    Text="{x:Static resource:AppResource.ButtonFinished}"
                     Grid.Row="3"/>
         </Grid>
     </Grid>

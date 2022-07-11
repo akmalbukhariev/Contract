@@ -8,21 +8,24 @@ namespace Contract.ViewModel
 {
     public class PageMainViewModel : BaseModel
     {
+        public string IDNumber { get => GetValue<string>(); set => SetValue(value); }
         public string TextCount1 { get => GetValue<string>(); set => SetValue(value); }
         public string TextCount2 { get => GetValue<string>(); set => SetValue(value); }
         public ObservableCollection<ChildMenuItem> MenuList { get => GetValue<ObservableCollection<ChildMenuItem>>(); set => SetValue(value); }
         public PageMainViewModel()
         {
             MenuList = new ObservableCollection<ChildMenuItem>();
-            TextCount1 = "Amaldagi \n shartnomalar";
-            TextCount2 = "Tasdiqlanmagan \n shartnomalar";
+
+            IDNumber = "1234567";
+            TextCount1 = RSC.ApplicableContracts2;
+            TextCount2 = RSC.UnconfirmedContracts2;
         }
 
         public void Init()
         {
-            MenuList.Add(new ChildMenuItem() { Name = "Tasdiqlanmagan shartnomalar" });
-            MenuList.Add(new ChildMenuItem() { Name = "Amaldagi shartnomalar" });
-            MenuList.Add(new ChildMenuItem() { Name = "Bekor qilingan shartnomalar" });
+            MenuList.Add(new ChildMenuItem() { Name = RSC.UnconfirmedContracts1 });
+            MenuList.Add(new ChildMenuItem() { Name = RSC.ApplicableContracts1 });
+            MenuList.Add(new ChildMenuItem() { Name = RSC.CanceledContracts });
         }
     }
 }

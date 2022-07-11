@@ -3,7 +3,8 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
-            BackgroundColor="#F3F3F3"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.SignUp.PageSkippedTime">
 
     <Grid ColumnDefinitions="20,*,20">
@@ -24,7 +25,7 @@
                        WidthRequest="160"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand"/>
-                <Label Text="Siz kutish vaqtini o'tkazib yubordingiz. Iltimos kodni qayta yuvorish tugmasini bosing"
+                <Label Text="{x:Static resource:AppResource.SkippedTimeText}"
                        HorizontalTextAlignment="Center"
                        FontFamily="Nunito_Regular"
                        TextColor="Black"

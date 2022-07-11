@@ -51,7 +51,7 @@
                 <Setter Property="Margin" Value="0,10,0,20"/>
             </Style>
             <Style x:Key="naviBarSignUp" TargetType="view:ViewNavigationBar">
-                <Setter Property="Title" Value="Ro'yxatdan o'tish"/>
+                <Setter Property="Title" Value="{x:Static resource:AppResource.SignUp}"/>
                 <Setter Property="TitleColor" Value="White"/>
                 <Setter Property="FontSize" Value="21"/>
             </Style>

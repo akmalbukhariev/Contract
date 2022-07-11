@@ -26,41 +26,41 @@ namespace Contract.ViewModel
             {
                 MenuHeight = 205,
                 HImage = "contracts",
-                HText = "Shartnomalar",
+                HText = RSC.AllContracts,
                 HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
-                    new ChildMenuItem(){Name = "Tastiqlanmagan shartnomalar"},
-                    new ChildMenuItem(){Name = "Amaldagi shartnomalar"},
-                    new ChildMenuItem(){Name = "Bekor qilingan shartnomalar"},
-                    new ChildMenuItem(){Name = "Shartnoma tuzish"}
+                    new ChildMenuItem(){Name = RSC.UnconfirmedContracts1},
+                    new ChildMenuItem(){Name = RSC.ApplicableContracts1},
+                    new ChildMenuItem(){Name = RSC.CanceledContracts},
+                    new ChildMenuItem(){Name = RSC.CreateContract}
                 }
             };
 
             Menu menu2 = new Menu()
             {
                 HImage = "statistics",
-                HText = "Foyda va zarar"
+                HText = RSC.ProfitAndLoss
             };
 
             Menu menu3 = new Menu()
             {
                 HImage = "clients",
-                HText = "Mijozlar"
+                HText = RSC.Customers
             };
 
             Menu menu4 = new Menu() 
             {
                 MenuHeight = 190,
                 HImage = "templates",
-                HText = "Shablonlar",
+                HText = RSC.Templates,
                 HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
-                    new ChildMenuItem(){Name = "Shartnoma shablonlari"},
-                    new ChildMenuItem(){Name = "Shartnoma shablonini yaratish"},
-                    new ChildMenuItem(){Name = "Shartnoma raqam ketma-ketligi"},
-                    new ChildMenuItem(){Name = "Shartnoma raqamini yaratish"}
+                    new ChildMenuItem(){Name = RSC.ContractTemplates},
+                    new ChildMenuItem(){Name = RSC.CreatingContractTemplate},
+                    new ChildMenuItem(){Name = RSC.ContractNumberSequence},
+                    new ChildMenuItem(){Name = RSC.CreateContractNumber}
                 }
             };
 
@@ -68,38 +68,38 @@ namespace Contract.ViewModel
             {
                 MenuHeight = 160,
                 HImage = "profile",
-                HText = "Shaxsiy kabinet",
+                HText = RSC.PersonalCabinet,
                 HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
-                    new ChildMenuItem(){Name = "Rekvizit ma'lumotlarini tahrirlash"},
-                    new ChildMenuItem(){Name = "Akkaunt parolini tahrirlash"},
-                    new ChildMenuItem(){Name = "Korxona logotipi"}
+                    new ChildMenuItem(){Name = RSC.EditRequisiteInformation},
+                    new ChildMenuItem(){Name = RSC.EditAccountPassword},
+                    new ChildMenuItem(){Name = RSC.CompanyLogo}
                 }
             };
 
             Menu menu6 = new Menu()
             {
                 HImage = "settings",
-                HText = "Sozlamalar"
+                HText = RSC.Settings
             };
 
             Menu menu7 = new Menu()
             {
                 HImage = "info",
-                HText = "Dasturiy ta'minot haqida"
+                HText = RSC.AboutSoftware
             };
 
             Menu menu8 = new Menu()
             {
                 HImage = "support",
-                HText = "Taklif va e'tirozlar"
+                HText = RSC.ProposalsAndObjections
             };
 
             Menu menu9 = new Menu()
             {
                 HImage = "exit",
-                HText = "Tizimdan chiqish"
+                HText = RSC.SignOut
             };
 
             MenuList.Add(menu1);
