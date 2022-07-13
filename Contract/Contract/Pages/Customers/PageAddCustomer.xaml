@@ -4,6 +4,7 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.Customers.PageAddCustomer">
 
@@ -14,7 +15,7 @@
                      Grid.ColumnSpan="3"/>
         <view:ViewNavigationBar BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
-                                Title="Mijozlar"
+                                Title="{x:Static resource:AppResource.Customers}"
                                 UseWhite="True"
                                 Grid.Column="1"/>
         <Grid RowDefinitions="*, 100"
@@ -49,44 +50,44 @@
                         </ResourceDictionary>
                     </Grid.Resources> 
                     <StackLayout>
-                        <Label Text="Korxona nomi" 
+                        <Label Text="{x:Static resource:AppResource.CompanyName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="Korxona nomi" 
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
-                        <Label Text="Korxona manzili" 
+                        <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="Korxona manzili"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
-                        <Label Text="Xisob raqami" 
+                        <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:EntryView PlaceHoldingText="---- ---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="3">
-                        <Label Text="Korxona STIRi" 
+                        <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:EntryView PlaceHoldingText="---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="4">
-                        <Label Text="Bank nomi" 
+                        <Label Text="{x:Static resource:AppResource.NameOfBank}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="Bank nomi"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="5">
-                        <Label Text="Bank kodi" 
+                        <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="Bank kodi"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
                                  Grid.Row="6">
-                        <Label Text="QQS to'lovchimi?"
+                        <Label Text="{x:Static resource:AppResource.AreYou_QQS_Payer}"
                                Style="{StaticResource lbBlackStyle}"
                                HorizontalOptions="StartAndExpand"/>
                         <Image x:Name="imYesNo1" 
@@ -98,22 +99,22 @@
                         </Image>
                     </StackLayout>
                     <StackLayout Grid.Row="7">
-                        <Label Text="QQS raqami" 
+                        <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:EntryView PlaceHoldingText="---- ---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="8">
-                        <Label Text="Korxona telfon raqami" 
+                        <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:EntryView PlaceHoldingText="+998 ---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
                                  Grid.Row="9">
-                        <Label Text="Shartnoma imzovlovchining lavozimi"
+                        <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBlackStyle}"/>
-                        <control:CustomPicker Title="Lavozim"
+                        <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -121,14 +122,14 @@
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout Grid.Row="10">
-                        <Label Text="Shartnoma imzolovchining F.I.O" 
+                        <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
                                  Grid.Row="11">
-                        <Label Text="Bosh xisobchi ko'zda tutilganmi?"
+                        <Label Text="{x:Static resource:AppResource.Question4}"
                                Style="{StaticResource lbBlackStyle}"
                                HorizontalOptions="StartAndExpand"/>
                         <Image x:Name="imYesNo2" 
@@ -140,14 +141,14 @@
                         </Image>
                     </StackLayout>
                     <StackLayout Grid.Row="12">
-                        <Label Text="Bosh xisobchi F.I.O" 
+                        <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
                                  Grid.Row="13">
-                        <Label Text="Yuriskonsultant ko'zda tutilganmi?"
+                        <Label Text="{x:Static resource:AppResource.Question5}"
                                Style="{StaticResource lbBlackStyle}"
                                HorizontalOptions="StartAndExpand"/>
                         <Image x:Name="imYesNo3" 
@@ -159,13 +160,13 @@
                         </Image>
                     </StackLayout>
                     <StackLayout Grid.Row="14">
-                        <Label Text="Yuriskonsultant F.I.O" 
+                        <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="15">
-                        <Label Text="Logotip"
+                        <Label Text="{x:Static resource:AppResource.Logotip}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <Image Source="plus"
                                Aspect="AspectFit"
@@ -177,11 +178,12 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <view:ViewExplanation Text="Rekvizit ma'lumotlar to'g'riligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi" 
+                    <view:ViewExplanation Text="{x:Static resource:AppResource.Info1}" 
                                           Grid.Row="16"/>
                 </Grid>
             </ScrollView>
             <Button Style="{StaticResource btnNext}"
+                    Text="{x:Static resource:AppResource.Add}"
                     Margin="5,0,5,40"
                     Grid.Row="1"/>
         </Grid>

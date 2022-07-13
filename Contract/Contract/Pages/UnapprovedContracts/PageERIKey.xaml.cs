@@ -16,5 +16,14 @@ namespace Contract.Pages.UnapprovedContracts
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            lbCompanyName.Text = RSC.CompanyName + " :";
+            lbChiefName.Text = RSC.ChiefName + " :";
+            lbCompanySTIRi.Text = RSC.CompanySTIRi + " :";
+        }
     }
 }

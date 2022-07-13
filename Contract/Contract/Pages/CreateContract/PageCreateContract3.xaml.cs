@@ -21,9 +21,16 @@ namespace Contract.Pages.CreateContract
         {
             InitializeComponent();
 
-            lbYesNo1.Text = "Mijozning (kontragent) \n rekvizitlari ochiq qolsinmi?";
-            lbYesNo2.Text = "Saqlangan mijozlar \n ro'yxatidan izlaysizmi?";
-            lbTitleBold.Text = "Iltimos, mijoz (kontragent) \n rekvizitlarini kiriting";
+            lbYesNo1.Text = RSC.Question1;
+            lbYesNo2.Text = RSC.Question2;
+            lbTitleBold.Text = RSC.Question3;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            lbStep.Text = RSC.Step + " #1";
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)

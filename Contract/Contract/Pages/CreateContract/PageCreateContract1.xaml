@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.CreateContract.PageCreateContract1">
 
@@ -14,11 +15,11 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="Shartnoma tuzish"
+                                    Title="{x:Static resource:AppResource.CreateContract}"
                                     UseWhite="True"/>
             <StackLayout Spacing="-5" 
                          Grid.Row="1">
-                <Label Text="Bosqich #1"
+                <Label x:Name="lbStep"
                        Style="{StaticResource lbWhiteStyle}"/>
                 <Image Source="step1"
                        Aspect="AspectFit"
@@ -34,6 +35,7 @@
                 <StackLayout Orientation="Horizontal"
                              Margin="10,10,10,0">
                     <Label x:Name="lbYesNo"
+                           Text="{x:Static resource:AppResource.Question1}"
                            Style="{StaticResource lbWhiteStyle}"
                            TextColor="Black"
                            HorizontalOptions="StartAndExpand"/>

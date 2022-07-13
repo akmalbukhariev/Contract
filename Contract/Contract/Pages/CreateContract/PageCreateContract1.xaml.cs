@@ -15,9 +15,14 @@ namespace Contract.Pages.CreateContract
         private bool yes = true;
         public PageCreateContract1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+        }
 
-            lbYesNo.Text = "Mijozning (kontragent) \n rekvizitlari ochiq qolsinmi?";
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            lbStep.Text = RSC.Step + " #1";
         }
 
         private void YesNo_Tapped(object sender, EventArgs e)

@@ -18,6 +18,12 @@ namespace Contract.Pages.CreateContract
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            lbStep.Text = RSC.Step + " #2"; 
+        }
         private void YesNo1_Tapped(object sender, EventArgs e)
         {
             if (yes1)

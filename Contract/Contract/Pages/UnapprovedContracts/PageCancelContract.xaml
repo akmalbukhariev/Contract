@@ -4,7 +4,8 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
-            BackgroundColor="#F3F3F3"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.UnapprovedContracts.PageCancelContract">
 
     <Grid ColumnDefinitions="20,*,20">
@@ -15,13 +16,13 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="Tasdiqlanmagan shartnomalar"
+                                    Title="{x:Static resource:AppResource.UnapprovedContracts}"
                                     UseWhite="True"/>
             <Label HorizontalTextAlignment="Center" 
                    Grid.Row="1">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Tasdiqlanmagan"
+                        <Span Text="{x:Static resource:AppResource.Unapproved}"
                               TextColor="White"
                               FontSize="15"
                               FontFamily="Nunito_Regular"/>
@@ -29,7 +30,7 @@
                               TextColor="White"
                               FontAttributes="Bold"
                               FontSize="15"/>
-                        <Span Text=" sonli shartnomani bekor qilish"
+                        <Span Text="{x:Static resource:AppResource.CancelTerminationOfContractNo}"
                               TextColor="White"/>
                     </FormattedString>
                 </Label.FormattedText>
@@ -43,20 +44,20 @@
                          Margin="10,10,10,0"
                          Spacing="20"
                          Grid.Row="2">
-                <Label Text="Bekor qilishga asoslangan izoxni kiriting"
+                <Label Text="{x:Static resource:AppResource.CancellationComment}"
                        TextColor="Black"
                        FontSize="15"
                        Style="{StaticResource lbBoldTitle}"/>
                 <Frame BorderColor="LightGray"
                        CornerRadius="10">
-                    <control:CustomEditor Placeholder="Izoh"
+                    <control:CustomEditor Placeholder="{x:Static resource:AppResource.Comment}"
                                           PlaceholderColor="Gray"
                                           BackgroundColor="White" 
                                           HeightRequest="150"
                                           Margin="1"/>
                 </Frame>
             </StackLayout>
-            <Button Text="Bekor qilish"
+            <Button Text="{x:Static resource:AppResource.Cancel}"
                     TextColor="White"
                     FontFamily=""
                     BackgroundColor="{StaticResource AppColor}"

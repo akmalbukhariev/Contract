@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Contract.Resources"
              x:Class="Contract.Views.ViewConfirm">
 
     <Grid RowDefinitions="*,*"
@@ -31,7 +32,7 @@
             </Grid.GestureRecognizers>
             <Image Source="code"
                    Style="{StaticResource imStyle}"/>
-            <Label Text="Maxsus kod orqali tasdiqlash"
+            <Label Text="{x:Static resource:AppResource.ConfirmationBySpecialCode}"
                    Style="{StaticResource lbStyle}"
                    Grid.Column="1"/>
         </Grid>
@@ -43,7 +44,7 @@
             </Grid.GestureRecognizers>
             <Image Source="fingerprint"
                    Style="{StaticResource imStyle}"/>
-            <Label Text="ERI kaliti orqali tasdiqlash"
+            <Label Text="{x:Static resource:AppResource.VerificationBy_ERI_Key}"
                    Style="{StaticResource lbStyle}"
                    Grid.Column="1"/>
         </Grid>

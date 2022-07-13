@@ -4,6 +4,7 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.UnapprovedContracts.PageERIKey">
 
@@ -15,6 +16,7 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
+                                    Title="{x:Static resource:AppResource.UnapprovedContracts}"
                                     UseWhite="True"/>
             <Grid RowDefinitions="Auto,Auto" 
                   Grid.Row="1">
@@ -22,11 +24,11 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="22-001-12345 " FontAttributes="Bold" TextColor="White"/>
-                            <Span Text="sonli shartnomani" TextColor="White"/>
+                            <Span Text="{x:Static resource:AppResource.TerminationOfContract}" TextColor="White"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label Text="elektron raqamli imzo kaliti orqali tasdiqlash" Style="{StaticResource lbWhiteStyle}" 
+                <Label Text="{x:Static resource:AppResource.ConfirmByDigitalSignature}" Style="{StaticResource lbWhiteStyle}" 
                        Grid.Row="1"/>
             </Grid>
             <BoxView Style="{StaticResource boxFrame}"
@@ -35,7 +37,7 @@
                   Grid.Row="2">
                 <StackLayout Spacing="10"
                              Margin="10,20,10,0">
-                    <Label Text="ERI kalitini tanlang"
+                    <Label Text="{x:Static resource:AppResource.Select_ERI_Key}"
                            FontFamily="Nunito_Regular"
                            TextColor="Black"
                            FontSize="17"
@@ -58,20 +60,20 @@
                         </ResourceDictionary>
                     </Grid.Resources>
                     <StackLayout>
-                        <Label Text="Korxona nomi:" Style="{StaticResource lbTitleStyle}"/>
-                        <Label Text="Korxona nomi MCHJ" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
+                        <Label x:Name="lbCompanyName" Style="{StaticResource lbTitleStyle}"/>
+                        <Label x:Name="lbCompanyNameText" Text="Korxona nomi MCHJ" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
-                        <Label Text="Rahbar F.I.O:" Style="{StaticResource lbTitleStyle}"/>
-                        <Label Text="Name" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
+                        <Label x:Name="lbChiefName" Style="{StaticResource lbTitleStyle}"/>
+                        <Label x:Name="lbChiefNameText" Text="Name" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
-                        <Label Text="Korxona STIRi:" Style="{StaticResource lbTitleStyle}"/>
-                        <Label Text="123 456 789" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
+                        <Label x:Name="lbCompanySTIRi" Style="{StaticResource lbTitleStyle}"/>
+                        <Label x:Name="lbCompanySTIRiText" Text="123 456 789" Style="{StaticResource lbTitleStyle}" TextColor="Black"/>
                     </StackLayout>
                 </Grid>
                 <Button Style="{StaticResource btnNext}"
-                        Text="Tasdiqlash"
+                        Text="{x:Static resource:AppResource.Confirmation}"
                         VerticalOptions="End"
                         Grid.Row="2"/>
             </Grid>

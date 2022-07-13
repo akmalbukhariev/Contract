@@ -91,7 +91,7 @@
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FistAndLastName}"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource viewEntryStyle}"/>
                         <Grid ColumnDefinitions="*, Auto">
                             <Label Text="{x:Static resource:AppResource.IsCounterProvided}"
@@ -106,7 +106,7 @@
                         <Label Text="{x:Static resource:AppResource.ChiefAccountantName}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FistAndLastName}"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource viewEntryStyle}"/>
                         <Grid ColumnDefinitions="*, Auto">
                             <Label Text="{x:Static resource:AppResource.IsLegalCounselProvided}"
@@ -121,7 +121,7 @@
                         <Label Text="{x:Static resource:AppResource.LegalConsultantName}"
                                Style="{StaticResource lbBoldTitle}"
                                HorizontalTextAlignment="Start"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FistAndLastName}"
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource viewEntryStyle}"/>
                         <view:ViewExplanation Text="{x:Static resource:AppResource.FillInfoDescription}"/>
                     </StackLayout>

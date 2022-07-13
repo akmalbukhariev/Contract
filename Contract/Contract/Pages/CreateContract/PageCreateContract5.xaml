@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.CreateContract.PageCreateContract5">
 
@@ -14,7 +15,7 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="Shartnoma tuzish"
+                                    Title="{x:Static resource:AppResource.CreateContract}"
                                     UseWhite="True"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"
@@ -42,16 +43,16 @@
                     </ResourceDictionary>
                 </Grid.Resources>
                 <StackLayout>
-                    <Label Text="Tabriklaymiz!" Style="{StaticResource lbFinishStyle}"/>
-                    <Label Text="Siz shartnoma tuzishni" Style="{StaticResource lbFinishStyle}"/>
-                    <Label Text="muvaffaqiyatli yakunladingiz" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.Congratulations}" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.ToMakeContract}" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.SuccessfullyCompleted}" Style="{StaticResource lbFinishStyle}"/>
                 </StackLayout>
                 <StackLayout Grid.Row="1">
-                    <Label Text="Shartnoma raqami" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbFinishStyle}"/>
                     <Label Text="22-01-1234" Style="{StaticResource lbFinishBoldStyle}"/>
                 </StackLayout>
                 <StackLayout Grid.Row="2">
-                    <Label Text="Shartnoma summasi" Style="{StaticResource lbFinishStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbFinishStyle}"/>
                     <Label Text="123,000" Style="{StaticResource lbFinishBoldStyle}"/> 
                 </StackLayout>
             </Grid>
@@ -85,7 +86,7 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="View_Tapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="send_1" Style="{StaticResource imEdStyle}"/>
-                    <Label Text="Ko'rish" Style="{StaticResource lbEdStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
                 <BoxView x:Name="boxSend" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
                 <StackLayout x:Name ="stackSend" Spacing="-5" Grid.Column="2">
@@ -93,7 +94,7 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="send_2" Style="{StaticResource imEdStyle}"/>
-                    <Label Text="Jo'natish" Style="{StaticResource lbEdStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
                 <BoxView x:Name="boxCancel" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
                 <StackLayout x:Name="stackCancel" Spacing="-5" Grid.Column="4">
@@ -101,7 +102,7 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Cancel_Tapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="Cancel_1" Style="{StaticResource imEdStyle}"/>
-                    <Label Text="Bekor qilish" Style="{StaticResource lbEdStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
             </Grid>
         </Grid>

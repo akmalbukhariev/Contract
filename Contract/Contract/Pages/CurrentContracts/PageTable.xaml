@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.CurrentContracts.PageTable">
 
@@ -10,10 +11,11 @@
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,*"
+              RowSpacing="20"
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="Tasdiqlanmagan shartnomalar"
+                                    Title="{x:Static resource:AppResource.CurrentContracts}"
                                     UseWhite="True"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"
@@ -28,15 +30,15 @@
                         <Grid x:Name="grHeader" 
                               ColumnDefinitions="31,100,150,220,150,150,70,80,70,70">
                             <Label Text="№" Style="{StaticResource lbHeader}"/>
-                            <Label Text="Tayyorlovchi" Style="{StaticResource lbHeader}" Grid.Column="1"/>
-                            <Label Text="Shartnoma raqami" Style="{StaticResource lbHeader}" Grid.Column="2"/>
-                            <Label Text="Korxona (kontragent) nomi" Style="{StaticResource lbHeader}" Grid.Column="3"/>
-                            <Label Text="Shartnoma sanasi" Style="{StaticResource lbHeader}" Grid.Column="4"/>
-                            <Label Text="Shartnoma Narxi" Style="{StaticResource lbHeader}" Grid.Column="5"/>
-                            <Label Text="To'lov" Style="{StaticResource lbHeader}" Grid.Column="6"/>
-                            <Label Text="Ko'rish" Style="{StaticResource lbHeader}" Grid.Column="7"/>
-                            <Label Text="Jo'natish" Style="{StaticResource lbHeader}" Grid.Column="8"/>
-                            <Label Text="Bekor qilish" Style="{StaticResource lbHeader}" Grid.Column="9"/>
+                            <Label Text="{x:Static resource:AppResource.Preparer}" Style="{StaticResource lbHeader}" Grid.Column="1"/>
+                            <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbHeader}" Grid.Column="2"/>
+                            <Label Text="{x:Static resource:AppResource.CompanyContractorName}" Style="{StaticResource lbHeader}" Grid.Column="3"/>
+                            <Label Text="{x:Static resource:AppResource.DateOfContract}" Style="{StaticResource lbHeader}" Grid.Column="4"/>
+                            <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbHeader}" Grid.Column="5"/>
+                            <Label Text="{x:Static resource:AppResource.Payment}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
+                            <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
+                            <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
+                            <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="9"/>
                         </Grid>
                     </ListView.Header>
                     <ListView.ItemTemplate>
@@ -74,17 +76,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-        </Grid>
-        <BoxView IsVisible="{Binding ShowConfirmBox}"
-                 BackgroundColor="Black"
-                 Opacity="0.5"
-                 Grid.ColumnSpan="3"/>
-        <view:ViewConfirm IsVisible="{Binding ShowConfirmBox}"
-                          Grid.ColumnSpan="3"
-                          VerticalOptions="CenterAndExpand"
-                          HorizontalOptions="CenterAndExpand"
-                          CommandCode="{Binding CommandCode}"
-                          CommandERI="{Binding CommandERI}"/>
+        </Grid> 
     </Grid>
 
 </page:IPage>
