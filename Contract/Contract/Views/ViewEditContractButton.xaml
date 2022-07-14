@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Contract.Resources"
              x:Class="Contract.Views.ViewEditContractButton">
 
     <Grid>
@@ -41,6 +42,7 @@
             <Label x:Name="lbTextDelete"
                    TextColor="Black"
                    FontAttributes="Bold"
+                   Margin="10,0,0,0"
                    HorizontalOptions="StartAndExpand"
                    VerticalOptions="CenterAndExpand"/>
             <BoxView BackgroundColor="#D75555"
@@ -56,7 +58,7 @@
                        WidthRequest="30"
                        VerticalOptions="EndAndExpand"
                        HorizontalOptions="CenterAndExpand"/>
-                <Label Text="O'chirish"
+                <Label Text="{x:Static resource:AppResource.Delete}"
                        TextColor="White"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Start"/>

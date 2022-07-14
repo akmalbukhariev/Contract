@@ -39,7 +39,8 @@ namespace Contract.Pages.TemplateContract
             };
             EditTemplate item3 = new EditTemplate()
             {
-                ButtonText = "Shartnomaning xizmat \n ma'lumotlarini qo'shish",
+                ButtonText = RSC.Info4,
+                ButtonDeleteText = RSC.Info6,
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
                 IsVisibleAddButton = true,
@@ -47,7 +48,7 @@ namespace Contract.Pages.TemplateContract
             };
             EditTemplate item4 = new EditTemplate()
             {
-                ButtonText = "Band qo'shish",
+                ButtonText = RSC.AddClause,
                 IsThisAddClauseButton = true,
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
@@ -61,7 +62,8 @@ namespace Contract.Pages.TemplateContract
             };
             EditTemplate item6 = new EditTemplate()
             {
-                ButtonText = "Kelishuvchilarning rekvizit \n ma'lumotlarini qo'shish",
+                ButtonText = RSC.Info5,
+                ButtonDeleteText = RSC.Info7,
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
                 IsVisibleAddButton = true,

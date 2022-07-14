@@ -16,7 +16,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.TemplateContract.PageContractTemplate();
+            MainPage = new Pages.TemplateContract.PageEditTemplateContract();
         }
 
         protected override void OnStart()

@@ -4,7 +4,7 @@
              xmlns:control="clr-namespace:Contract.Control"
              x:Class="Contract.Views.ViewEditTemplateContract">
 
-    <Grid RowDefinitions="35,1,150"
+    <Grid RowDefinitions="35,1,100"
           ColumnDefinitions="230,1,45"
           ColumnSpacing="0"
           RowSpacing="0"

@@ -4,13 +4,14 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
             x:Class="Contract.Pages.TemplateContract.PageEditTemplateContract">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,*,100"
-              RowSpacing="20"
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,1,Auto,*,100"
+              RowSpacing="5"
               Grid.Column="1">
             <Grid.Resources>
                 <ResourceDictionary>
@@ -26,14 +27,54 @@
                 </ResourceDictionary>
             </Grid.Resources> 
             <view:ViewNavigationBar BackImage="back_left_white"  
-                                    Style="{StaticResource naviBarSignUp}"
-                                    Title="Shartnoma shablonlarini tahrirlash"
+                                    Style="{StaticResource naviBarSignUp}" 
+                                    Title="{x:Static resource:AppResource.EditContractTemplate}"
                                     UseWhite="True"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"
                      Margin="0,0,0,20"
                      Grid.Row="1"
-                     Grid.RowSpan="2"/> 
+                     Grid.RowSpan="7"/>
+            <Label Text="{x:Static resource:AppResource.SpecialPart}"
+                   TextColor="Black"
+                   FontSize="17"
+                   Margin="0,5,0,0"
+                   FontFamily="Nunito_SemiBold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="1"/>
+            <StackLayout Spacing="10"
+                         Margin="15,0,15,0"
+                         Grid.Row="2">
+                <Label Text="{x:Static resource:AppResource.ContractNumberSequence}"
+                       Style="{StaticResource lbWhiteStyle}"
+                       TextColor="Black"
+                       HorizontalOptions="StartAndExpand"/>
+                <control:CustomPicker Title="YY-OO-XXXX"
+                                      HorizontalTextAlignment="Start"
+                                      Image="show"
+                                      ChartSyle="True"
+                                      TitleColor="Gray"
+                                      BackgroundColor="White"/>
+            </StackLayout>
+            <StackLayout Margin="15,0,15,0" 
+                         Grid.Row="3">
+                <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
+                       Style="{StaticResource lbBlackStyle}"/>
+                <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}" 
+                                Style="{StaticResource entryStyle}"/>
+            </StackLayout>
+            <Line BackgroundColor="Gray"
+                  Margin="15,0,15,0"
+                  Grid.Row="4"/>
+            <Label Text="{x:Static resource:AppResource.Clauses}"
+                   TextColor="Black"
+                   FontSize="17"
+                   Margin="15,0,0,0"
+                   FontFamily="Nunito_Regular"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="5"/>
             <ListView x:Name="MyItems"
                       ItemsSource="{Binding DataList}"
                       SelectedItem="{Binding SelectedItem}"
@@ -41,7 +82,7 @@
                       HorizontalScrollBarVisibility="Never"
                       SeparatorVisibility="None" 
                       ItemSelected="MyItems_ItemSelected"
-                      Grid.Row="1">
+                      Grid.Row="6">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -73,7 +114,8 @@
                                                                DragStartingCommandParameter="{Binding}" />
                                     </view:ViewEditTemplateContract.GestureRecognizers>
                                 </view:ViewEditTemplateContract>
-                                <view:ViewEditContractButton TextAdd="{Binding ButtonText}" 
+                                <view:ViewEditContractButton TextAdd="{Binding ButtonText}"
+                                                             TextDelete="{Binding ButtonDeleteText}"
                                                              ButtonBackgroundColor="{Binding ButtonColor}"
                                                              BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                              IsVisible="{Binding IsVisibleButton}"
@@ -94,9 +136,9 @@
                 </ListView.ItemTemplate>
             </ListView> 
             <Button Style="{StaticResource btnNext}"
-                    Text="Tahrirlash"
+                    Text="{x:Static resource:AppResource.Editing}"
                     Margin="5,0,5,40"
-                    Grid.Row="2"/>
+                    Grid.Row="7"/>
         </Grid>
         <BoxView BackgroundColor="Black"
                  Opacity="0.5"
@@ -143,11 +185,11 @@
                 <Image Source="plus_little_down" Style="{StaticResource imEditTemplateBox}" Grid.Row="3"/>
                 <Image Source="plus_big_down" Style="{StaticResource imEditTemplateBox}" Grid.Row="4"/>
 
-                <Label Text="Yuqoriga katta band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Column="1"/>
-                <Label Text="Yuqoriga kichik band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="1" Grid.Column="1"/>
-                <Label Text="Bandni o'chirish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="2" Grid.Column="1"/>
-                <Label Text="Pastga kichik band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="3" Grid.Column="1"/>
-                <Label Text="Pastga katta band qo'shish" Style="{StaticResource lbEditTemplateBox}" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="{x:Static resource:AppResource.AddBigUpClause}" Style="{StaticResource lbEditTemplateBox}" Grid.Column="1"/>
+                <Label Text="{x:Static resource:AppResource.AddSmallUpClause}" Style="{StaticResource lbEditTemplateBox}" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="{x:Static resource:AppResource.DeleteClause}" Style="{StaticResource lbEditTemplateBox}" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="{x:Static resource:AppResource.AddSmallBottomClause}" Style="{StaticResource lbEditTemplateBox}" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="{x:Static resource:AppResource.AddBigBottomClause}" Style="{StaticResource lbEditTemplateBox}" Grid.Row="4" Grid.Column="1"/>
                 
                 <BoxView x:Name="box1" Style="{StaticResource boxEditTemplateBox}">
                     <BoxView.GestureRecognizers>

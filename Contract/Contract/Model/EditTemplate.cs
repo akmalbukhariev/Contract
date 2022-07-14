@@ -24,6 +24,7 @@ namespace Contract.Model
         public bool IsVisibleButton { get => GetValue<bool>(); set => SetValue(value); }
 
         public string ButtonText { get => GetValue<string>(); set => SetValue(value); }
+        public string ButtonDeleteText { get => GetValue<string>(); set => SetValue(value); }
         public Color ButtonColor { get => GetValue<Color>(); set => SetValue(value); }
 
         public string Title { get => GetValue<string>(); set => SetValue(value); }

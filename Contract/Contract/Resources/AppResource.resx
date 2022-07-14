@@ -137,6 +137,18 @@
     <value>Qo'shish</value>
     <comment>Customers</comment>
   </data>
+  <data name="AddBigBottomClause" xml:space="preserve">
+    <value>Pastga katta band qo'shish</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="AddBigUpClause" xml:space="preserve">
+    <value>Yuqoriga katta band qo'shish</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="AddClause" xml:space="preserve">
+    <value>Band qo'shish</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="AddCopy" xml:space="preserve">
     <value>Yangi qo'shish (nusxa)</value>
     <comment>CreateContract</comment>
@@ -152,6 +164,14 @@
   <data name="AddressOfCompany" xml:space="preserve">
     <value>Korxona manzili</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="AddSmallBottomClause" xml:space="preserve">
+    <value>Pastga kichik band qo'shish</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="AddSmallUpClause" xml:space="preserve">
+    <value>Yuqoriga kichik band qo'shish</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="Agree" xml:space="preserve">
     <value>Roziman</value>
@@ -217,6 +237,10 @@ shartnomalar</value>
   <data name="ChiefName" xml:space="preserve">
     <value>Rahbar F.I.O</value>
     <comment>UnapprovedContracts</comment>
+  </data>
+  <data name="Clauses" xml:space="preserve">
+    <value>Bandlar</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="Comment" xml:space="preserve">
     <value>Izox</value>
@@ -314,9 +338,21 @@ shartnomalar</value>
     <value>O'chirish</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="DeleteClause" xml:space="preserve">
+    <value>Bandni o'chirish</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Akkaunt parolini tahrirlash</value>
     <comment>Menu</comment>
+  </data>
+  <data name="EditContractTemplate" xml:space="preserve">
+    <value>Shartnoma shablonlarini tahrirlash</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Editing" xml:space="preserve">
+    <value>Tahrirlash</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="EditRequisiteInformation" xml:space="preserve">
     <value>Rekvizit ma'lumotlarini tahrirlash</value>
@@ -381,6 +417,26 @@ shartnomalar</value>
   <data name="Info3" xml:space="preserve">
     <value>Xizmat ko'rsatish ma'lumotlari to'g'riligiga e'tibor bering. Ushbuma'lumotlar shartnomada bajaruvchi tomonidan amalga oshiriladigan asosiy ish sifatida foydalaniladi</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Info4" xml:space="preserve">
+    <value>Shartnomaning xizmat 
+ ma'lumotlarini qo'shish</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Info5" xml:space="preserve">
+    <value>Kelishuvchilarning rekvizit 
+ ma'lumotlarini qo'shish</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Info6" xml:space="preserve">
+    <value>Shartnomaning xizmat 
+ ma'lumotlari</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Info7" xml:space="preserve">
+    <value>Kelishuvchilarning rekvizit 
+ ma'lumotlari</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="Intro1_1" xml:space="preserve">
     <value>ISTALGAN JOYDA 
@@ -516,6 +572,10 @@ shartnomalar mavjud emas.</value>
   <data name="NameOfBank" xml:space="preserve">
     <value>Bank nomi</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="NameOfContactTemplate" xml:space="preserve">
+    <value>Shartnoma shabloni nomi</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="NameOfServiceType" xml:space="preserve">
     <value>Xizmat turi nomi</value>
@@ -676,6 +736,10 @@ yuborilgan maxsus kodni kiriting.</value>
   <data name="SpecialCodeDescription" xml:space="preserve">
     <value>Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting.</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="SpecialPart" xml:space="preserve">
+    <value>Asosiy qisim</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="Step" xml:space="preserve">
     <value>Bosqich</value>
