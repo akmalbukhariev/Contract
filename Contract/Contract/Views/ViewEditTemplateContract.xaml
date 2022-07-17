@@ -20,7 +20,7 @@
                  Grid.ColumnSpan="3"/>
         <Grid Grid.ColumnSpan="2">
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" 
+                <TapGestureRecognizer Tapped="Title_Tapped" 
                                       NumberOfTapsRequired="1"
                                       Command="{Binding CommandClickTitle}"/>
             </Grid.GestureRecognizers>
@@ -52,11 +52,22 @@
         <Line BackgroundColor="LightGray"
               Grid.Row="1"
               Grid.ColumnSpan="3"/>
+        <Label x:Name="lbDescription"
+               FontSize="15"
+               TextColor="Black"
+               BackgroundColor="Transparent"
+               Margin="5,0,5,0.5"
+               Grid.Row="2"
+               Grid.ColumnSpan="2">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Text_Tapped"/>
+            </Label.GestureRecognizers>
+        </Label>
         <control:CustomEditor x:Name="edDescription" 
-                              Text="Shartnoma mazmuni vaishlarning narxi."
+                              FontSize="15"
                               PlaceholderColor="Gray"
                               BackgroundColor="White"
-                              Margin="5,5,5,0.5"
+                              Margin="5,0,5,0.5"
                               Grid.Row="2"
                               Grid.ColumnSpan="2"/>
     </Grid>

@@ -10,8 +10,8 @@
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,Auto,Auto,Auto,1,Auto,*,100"
-              RowSpacing="5"
+        <Grid RowDefinitions="Auto, *"
+              RowSpacing="10"
               Grid.Column="1">
             <Grid.Resources>
                 <ResourceDictionary>
@@ -30,115 +30,111 @@
                                     Style="{StaticResource naviBarSignUp}" 
                                     Title="{x:Static resource:AppResource.EditContractTemplate}"
                                     UseWhite="True"/>
-            <BoxView BackgroundColor="White"
-                     CornerRadius="10"
-                     Margin="0,0,0,20"
-                     Grid.Row="1"
-                     Grid.RowSpan="7"/>
-            <Label Text="{x:Static resource:AppResource.SpecialPart}"
-                   TextColor="Black"
-                   FontSize="17"
-                   Margin="0,5,0,0"
-                   FontFamily="Nunito_SemiBold"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"
-                   Grid.Row="1"/>
-            <StackLayout Spacing="10"
-                         Margin="15,0,15,0"
-                         Grid.Row="2">
-                <Label Text="{x:Static resource:AppResource.ContractNumberSequence}"
-                       Style="{StaticResource lbWhiteStyle}"
-                       TextColor="Black"
-                       HorizontalOptions="StartAndExpand"/>
-                <control:CustomPicker Title="YY-OO-XXXX"
-                                      HorizontalTextAlignment="Start"
-                                      Image="show"
-                                      ChartSyle="True"
-                                      TitleColor="Gray"
-                                      BackgroundColor="White"/>
-            </StackLayout>
-            <StackLayout Margin="15,0,15,0" 
-                         Grid.Row="3">
-                <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
-                       Style="{StaticResource lbBlackStyle}"/>
-                <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}" 
-                                Style="{StaticResource entryStyle}"/>
-            </StackLayout>
-            <Line BackgroundColor="Gray"
-                  Margin="15,0,15,0"
-                  Grid.Row="4"/>
-            <Label Text="{x:Static resource:AppResource.Clauses}"
-                   TextColor="Black"
-                   FontSize="17"
-                   Margin="15,0,0,0"
-                   FontFamily="Nunito_Regular"
-                   HorizontalOptions="StartAndExpand"
-                   VerticalOptions="CenterAndExpand"
-                   Grid.Row="5"/>
-            <ListView x:Name="MyItems"
-                      ItemsSource="{Binding DataList}"
-                      SelectedItem="{Binding SelectedItem}"
-                      HasUnevenRows="True"
-                      HorizontalScrollBarVisibility="Never"
-                      SeparatorVisibility="None" 
-                      ItemSelected="MyItems_ItemSelected"
-                      Grid.Row="6">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout HorizontalOptions="CenterAndExpand">
-                                <StackLayout.GestureRecognizers>
-                                    <DropGestureRecognizer AllowDrop="True"
-                                                           DragLeaveCommand="{Binding BindingContext.ItemDragLeave, Source={x:Reference MyItems}}"
-                                                           DragLeaveCommandParameter="{Binding}"
-                                                           DragOverCommand="{Binding BindingContext.ItemDraggedOver, Source={x:Reference MyItems}}"
-                                                           DragOverCommandParameter="{Binding}"
-                                                           Drop="DropGestureRecognizer_Drop_Collection"
-                                                           DropCommand="{Binding BindingContext.ItemDropped, Source={x:Reference MyItems}}"
-                                                           DropCommandParameter="{Binding}" />
-                                </StackLayout.GestureRecognizers>
-                                <Grid BackgroundColor="Orange"
-                                      HeightRequest="100"
-                                      IsVisible="{Binding IsBeingDraggedOver}" /> 
-                                <view:ViewEditTemplateContract Title="{Binding Title}"
-                                                               Description="{Binding Description}"
-                                                               HorizontalOptions="CenterAndExpand"
-                                                               BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
-                                                               IsVisible="{Binding IsVisibleItemClause}"
-                                                               CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
-                                                               Margin="5">
-                                    <view:ViewEditTemplateContract.GestureRecognizers>
-                                        <DragGestureRecognizer CanDrag="True"
-                                                               DragStarting="DragGestureRecognizer_DragStarting_Collection"
-                                                               DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
-                                                               DragStartingCommandParameter="{Binding}" />
-                                    </view:ViewEditTemplateContract.GestureRecognizers>
-                                </view:ViewEditTemplateContract>
-                                <view:ViewEditContractButton TextAdd="{Binding ButtonText}"
-                                                             TextDelete="{Binding ButtonDeleteText}"
-                                                             ButtonBackgroundColor="{Binding ButtonColor}"
-                                                             BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
-                                                             IsVisible="{Binding IsVisibleButton}"
-                                                             IsVisibleDelete="{Binding IsVisibleDeleteButton}"
-                                                             IsVisibleAdd="{Binding IsVisibleAddButton}"
-                                                             Margin="5">
-                                    <view:ViewEditContractButton.GestureRecognizers>
-                                        <DragGestureRecognizer CanDrag="True"
-                                                               DragStarting="DragGestureRecognizer_DragStarting_Collection"
-                                                               DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
-                                                               DragStartingCommandParameter="{Binding}" />
-                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
-                                    </view:ViewEditContractButton.GestureRecognizers>
-                                </view:ViewEditContractButton>
-                            </StackLayout> 
-                        </ViewCell> 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView> 
-            <Button Style="{StaticResource btnNext}"
-                    Text="{x:Static resource:AppResource.Editing}"
-                    Margin="5,0,5,40"
-                    Grid.Row="7"/>
+            <ScrollView Grid.Row="1">
+                <Grid RowDefinitions="Auto,Auto,Auto,80,1,Auto,*,100"
+                      RowSpacing="15">
+                    <BoxView BackgroundColor="White"
+                             CornerRadius="10"
+                             Margin="0,0,0,20" 
+                             Grid.RowSpan="8"/>
+                    <Label Text="{x:Static resource:AppResource.SpecialPart}"
+                           TextColor="Black"
+                           FontSize="17"
+                           Margin="0,5,0,0"
+                           FontFamily="Nunito_SemiBold"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.Row="1"/>
+                    <StackLayout Spacing="10"
+                                 Margin="15,0,15,0"
+                                 Grid.Row="2">
+                        <Label Text="{x:Static resource:AppResource.ContractNumberSequence}"
+                               Style="{StaticResource lbWhiteStyle}"
+                               TextColor="Black"
+                               HorizontalOptions="StartAndExpand"/>
+                        <control:CustomPicker Title="YY-OO-XXXX"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout Margin="15,0,15,0" 
+                                 Grid.Row="3">
+                        <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}" 
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <Line BackgroundColor="LightGray"
+                          Margin="15,0,15,0"
+                          Grid.Row="4"/>
+                    <Label Text="{x:Static resource:AppResource.Clauses}"
+                           TextColor="Black"
+                           FontSize="17"
+                           Margin="15,0,0,0"
+                           FontFamily="Nunito_Regular"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.Row="5"/>
+                    <StackLayout x:Name="MyItems"
+                                 BindableLayout.ItemsSource="{Binding DataList}"
+                                 Grid.Row="6">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                        <StackLayout.GestureRecognizers>
+                                            <DropGestureRecognizer AllowDrop="True"
+                                                                   DragLeaveCommand="{Binding BindingContext.ItemDragLeave, Source={x:Reference MyItems}}"
+                                                                   DragLeaveCommandParameter="{Binding}"
+                                                                   DragOverCommand="{Binding BindingContext.ItemDraggedOver, Source={x:Reference MyItems}}"
+                                                                   DragOverCommandParameter="{Binding}"
+                                                                   DropCommand="{Binding BindingContext.ItemDropped, Source={x:Reference MyItems}}"
+                                                                   DropCommandParameter="{Binding}" />
+                                        </StackLayout.GestureRecognizers>
+                                        <Grid BackgroundColor="Orange"
+                                              HeightRequest="100"
+                                              IsVisible="{Binding IsBeingDraggedOver}" />
+                                        <view:ViewEditTemplateContract Title="{Binding Title}"
+                                                                       Description="{Binding Description}"
+                                                                       HorizontalOptions="CenterAndExpand"
+                                                                       BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
+                                                                       IsVisible="{Binding IsVisibleItemClause}"
+                                                                       CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
+                                                                       CommandClickText="{Binding Path=BindingContext.ItemEditText, Source={x:Reference MyItems}}"
+                                                                       CommandClickTextParameter="{Binding}"
+                                                                       Margin="5">
+                                            <view:ViewEditTemplateContract.GestureRecognizers>
+                                                <DragGestureRecognizer CanDrag="True"
+                                                                       DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
+                                                                       DragStartingCommandParameter="{Binding}"/> 
+                                        </view:ViewEditTemplateContract.GestureRecognizers>
+                                        </view:ViewEditTemplateContract>
+                                        <view:ViewEditContractButton TextAdd="{Binding ButtonText}"
+                                                                     TextDelete="{Binding ButtonDeleteText}"
+                                                                     ButtonBackgroundColor="{Binding ButtonColor}"
+                                                                     BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
+                                                                     IsVisible="{Binding IsVisibleButton}"
+                                                                     IsVisibleDelete="{Binding IsVisibleDeleteButton}"
+                                                                     IsVisibleAdd="{Binding IsVisibleAddButton}"
+                                                                     Margin="5">
+                                            <view:ViewEditContractButton.GestureRecognizers>
+                                                <DragGestureRecognizer CanDrag="True"
+                                                                       DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
+                                                                       DragStartingCommandParameter="{Binding}" />
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Button_Tapped"/>
+                                            </view:ViewEditContractButton.GestureRecognizers>
+                                        </view:ViewEditContractButton>
+                                    </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <Button Style="{StaticResource btnNext}"
+                            Text="{x:Static resource:AppResource.Editing}"
+                            WidthRequest="156" 
+                            Grid.Row="7"/>
+                </Grid>
+            </ScrollView>     
         </Grid>
         <BoxView BackgroundColor="Black"
                  Opacity="0.5"

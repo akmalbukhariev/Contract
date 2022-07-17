@@ -16,7 +16,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.TemplateContract.PageEditTemplateContract();
+            MainPage = new Pages.Setting.PageSuggestion();
         }
 
         protected override void OnStart()

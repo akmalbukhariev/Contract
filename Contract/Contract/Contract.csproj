@@ -175,6 +175,9 @@
     <EmbeddedResource Update="Pages\TemplateContract\PageEditTemplateContract.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Pages\TemplateContract\PageFullDescription.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\UnapprovedContracts\PageCancelContract.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

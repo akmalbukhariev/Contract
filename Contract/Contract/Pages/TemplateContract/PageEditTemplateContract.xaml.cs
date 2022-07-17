@@ -15,6 +15,7 @@ namespace Contract.Pages.TemplateContract
     public partial class PageEditTemplateContract : IPage
     {
         private PageEditTemplateContractViewModel model;
+
         public PageEditTemplateContract()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace Contract.Pages.TemplateContract
             EditTemplate item4 = new EditTemplate()
             {
                 ButtonText = RSC.AddClause,
+                ButtonColor = Color.FromHex("#2DACC3"),
                 IsThisAddClauseButton = true,
                 IsVisibleItemClause = false,
                 IsVisibleButton = true,
@@ -78,23 +80,23 @@ namespace Contract.Pages.TemplateContract
             model.DataList.Add(item6);
         }
 
-        private void DragGestureRecognizer_DragStarting_Collection(System.Object sender, Xamarin.Forms.DragStartingEventArgs e)
-        {
+        //private void DragGestureRecognizer_DragStarting_Collection(Object sender, DragStartingEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void DropGestureRecognizer_Drop_Collection(System.Object sender, Xamarin.Forms.DropEventArgs e)
-        {
-            // We handle reordering login in our view model
-            e.Handled = true;
-        }
+        //private void DropGestureRecognizer_Drop_Collection(Object sender, DropEventArgs e)
+        //{
+        //    // We handle reordering login in our view model
+        //    e.Handled = true;
+        //}
 
         private void MyItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            MyItems.SelectedItem = null;
+            //MyItems.SelectedItem = null;
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void Button_Tapped(object sender, EventArgs e)
         {   
             Views.ViewEditContractButton vButton = (Views.ViewEditContractButton)sender;
             EditTemplate item = (EditTemplate)vButton.BindingContext;
@@ -102,7 +104,11 @@ namespace Contract.Pages.TemplateContract
             await vButton.ScaleTo(0.8, 200);
             if (item.IsVisibleAddButton)
             {
-                if (!item.IsThisAddClauseButton)
+                if (item.IsThisAddClauseButton)
+                {
+                    model.ShowClauseBox = true;
+                }
+                else
                 {
                     item.IsVisibleDeleteButton = true;
                     item.IsVisibleAddButton = false;
@@ -127,6 +133,6 @@ namespace Contract.Pages.TemplateContract
             await Task.Delay(100);
 
             model.ShowClauseBox = false;
-        } 
+        }
     }
 }

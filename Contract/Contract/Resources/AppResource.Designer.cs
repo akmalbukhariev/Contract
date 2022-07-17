@@ -61,6 +61,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dastur haqida.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dasturiy ta&apos;minot haqida.
         /// </summary>
         internal static string AboutSoftware {
@@ -314,6 +323,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account parolini tahrirlash.
+        /// </summary>
+        internal static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bosh hisobchi F.I.O.
         /// </summary>
         internal static string ChiefAccountantName {
@@ -539,11 +557,56 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Murojat turi.
+        /// </summary>
+        internal static string CustomerType {
+            get {
+                return ResourceManager.GetString("CustomerType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to K.
+        /// </summary>
+        internal static string D {
+            get {
+                return ResourceManager.GetString("D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to K - .
+        /// </summary>
+        internal static string D1 {
+            get {
+                return ResourceManager.GetString("D1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shartnoma sanasi.
         /// </summary>
         internal static string DateOfContract {
             get {
                 return ResourceManager.GetString("DateOfContract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kun.
+        /// </summary>
+        internal static string Day {
+            get {
+                return ResourceManager.GetString("Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Faqat ikki katakdan iborat bo&apos;lsin).
+        /// </summary>
+        internal static string DayText {
+            get {
+                return ResourceManager.GetString("DayText", resourceCulture);
             }
         }
         
@@ -566,11 +629,56 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Matn.
+        /// </summary>
+        internal static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Akkaunt parolini tahrirlash.
         /// </summary>
         internal static string EditAccountPassword {
             get {
                 return ResourceManager.GetString("EditAccountPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barcha kataklarga ixtiyoriy belgilarni qo&apos;yish mumkin.
+        /// </summary>
+        internal static string EditContractNumberTitle1 {
+            get {
+                return ResourceManager.GetString("EditContractNumberTitle1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bo&apos;sh qolgan kataklar inobatga olinmaydi.
+        /// </summary>
+        internal static string EditContractNumberTitle2 {
+            get {
+                return ResourceManager.GetString("EditContractNumberTitle2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kataklarga kiritilgan identifikatsion belgilarning to&apos;g&apos;riligiga va yoriqnoma asosan to&apos;ldirilganiga e&apos;tibor bering. Ushbu raqamlar yaratilgan shartnomalarning ajralmas qismi bo&apos;lib qoladi..
+        /// </summary>
+        internal static string EditContractNumberTitle3 {
+            get {
+                return ResourceManager.GetString("EditContractNumberTitle3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raqamlar ketma ketligining maksimal miqdori 12 ta simvolni tashkil etadi..
+        /// </summary>
+        internal static string EditContractNumberTitle4 {
+            get {
+                return ResourceManager.GetString("EditContractNumberTitle4", resourceCulture);
             }
         }
         
@@ -589,6 +697,24 @@ namespace Contract.Resources {
         internal static string Editing {
             get {
                 return ResourceManager.GetString("Editing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shartnoma raqamini tahrirlash.
+        /// </summary>
+        internal static string EditingContractNumber {
+            get {
+                return ResourceManager.GetString("EditingContractNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shaxsiy rekvizitlarni tahrirlash.
+        /// </summary>
+        internal static string EditPersonalDetails {
+            get {
+                return ResourceManager.GetString("EditPersonalDetails", resourceCulture);
             }
         }
         
@@ -629,11 +755,29 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amaldagi parolni kiriting.
+        /// </summary>
+        internal static string EnterCurrentPassword {
+            get {
+                return ResourceManager.GetString("EnterCurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bank nomini kiriting.
         /// </summary>
         internal static string EnterNameOfBank {
             get {
                 return ResourceManager.GetString("EnterNameOfBank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yangi parolni kiriting.
+        /// </summary>
+        internal static string EnterNewPassword {
+            get {
+                return ResourceManager.GetString("EnterNewPassword", resourceCulture);
             }
         }
         
@@ -697,6 +841,15 @@ namespace Contract.Resources {
         internal static string Goods {
             get {
                 return ResourceManager.GetString("Goods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifikasion belgilar.
+        /// </summary>
+        internal static string IdentificationMarks {
+            get {
+                return ResourceManager.GetString("IdentificationMarks", resourceCulture);
             }
         }
         
@@ -773,6 +926,24 @@ namespace Contract.Resources {
         internal static string Info7 {
             get {
                 return ResourceManager.GetString("Info7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iltimos, o&apos;zingizga qulay bo&apos;lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo&apos;ladi..
+        /// </summary>
+        internal static string Info8 {
+            get {
+                return ResourceManager.GetString("Info8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iltimos, o&apos;zingizga qulay bo&apos;lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo&apos;ladi..
+        /// </summary>
+        internal static string Info9 {
+            get {
+                return ResourceManager.GetString("Info9", resourceCulture);
             }
         }
         
@@ -880,6 +1051,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Til.
+        /// </summary>
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yurist konsultant F.I.O.
         /// </summary>
         internal static string LegalConsultantName {
@@ -937,6 +1117,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O.
+        /// </summary>
+        internal static string M {
+            get {
+                return ResourceManager.GetString("M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Telfon raqamingizni kiriting.
         /// </summary>
         internal static string M_EnterPhoneNumber {
@@ -978,6 +1167,15 @@ namespace Contract.Resources {
         internal static string M_Title2 {
             get {
                 return ResourceManager.GetString("M_Title2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O - .
+        /// </summary>
+        internal static string M1 {
+            get {
+                return ResourceManager.GetString("M1", resourceCulture);
             }
         }
         
@@ -1039,6 +1237,33 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ayni damda  shartnoma raqami ketma-ketligi ro&apos;yxati mavjud emas..
+        /// </summary>
+        internal static string Message7 {
+            get {
+                return ResourceManager.GetString("Message7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oy.
+        /// </summary>
+        internal static string Month {
+            get {
+                return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (Faqat ikki katakdan iborat bo&apos;lsin).
+        /// </summary>
+        internal static string MonthText {
+            get {
+                return ResourceManager.GetString("MonthText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mening korxonam.
         /// </summary>
         internal static string MyCompany {
@@ -1080,6 +1305,33 @@ namespace Contract.Resources {
         internal static string NameOfSignator {
             get {
                 return ResourceManager.GetString("NameOfSignator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tungi ko&apos;rinish.
+        /// </summary>
+        internal static string NightView {
+            get {
+                return ResourceManager.GetString("NightView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taklif.
+        /// </summary>
+        internal static string Offer {
+            get {
+                return ResourceManager.GetString("Offer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taklif va e&apos;tiroz.
+        /// </summary>
+        internal static string OfferAndObjection {
+            get {
+                return ResourceManager.GetString("OfferAndObjection", resourceCulture);
             }
         }
         
@@ -1272,6 +1524,15 @@ namespace Contract.Resources {
         internal static string Question7 {
             get {
                 return ResourceManager.GetString("Question7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yangi parolni qayta kiriting.
+        /// </summary>
+        internal static string RepeatNewPassword {
+            get {
+                return ResourceManager.GetString("RepeatNewPassword", resourceCulture);
             }
         }
         
@@ -1548,6 +1809,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dasturiy ta&apos;minotning versiyasi.
+        /// </summary>
+        internal static string VersionText {
+            get {
+                return ResourceManager.GetString("VersionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ko&apos;rish.
         /// </summary>
         internal static string View {
@@ -1557,11 +1827,101 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xabarlar ovozi.
+        /// </summary>
+        internal static string Voice {
+            get {
+                return ResourceManager.GetString("Voice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kutish vaqti.
         /// </summary>
         internal static string WaitingTime {
             get {
                 return ResourceManager.GetString("WaitingTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X.
+        /// </summary>
+        internal static string X {
+            get {
+                return ResourceManager.GetString("X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X - .
+        /// </summary>
+        internal static string X1 {
+            get {
+                return ResourceManager.GetString("X1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Ketma-ket sanoq tizimi.
+        /// </summary>
+        internal static string XText1 {
+            get {
+                return ResourceManager.GetString("XText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (Kamida uchta katakdan iborat bo&apos;lsin).
+        /// </summary>
+        internal static string XText2 {
+            get {
+                return ResourceManager.GetString("XText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Ushbu identifikatsion belgi bo&apos;lishi shart.
+        /// </summary>
+        internal static string XText3 {
+            get {
+                return ResourceManager.GetString("XText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y.
+        /// </summary>
+        internal static string Y {
+            get {
+                return ResourceManager.GetString("Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y - .
+        /// </summary>
+        internal static string Y1 {
+            get {
+                return ResourceManager.GetString("Y1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yil.
+        /// </summary>
+        internal static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (Faqat ikki yoki to&apos;rt katakdan iborat bo&apos;lsin).
+        /// </summary>
+        internal static string YearText {
+            get {
+                return ResourceManager.GetString("YearText", resourceCulture);
             }
         }
         

@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.Setting.PageSetting">
 
@@ -13,15 +14,17 @@
                  Grid.ColumnSpan="3"/>
         <view:ViewNavigationBar BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
-                                Title="Mijozlar"
+                                Title="{x:Static resource:AppResource.Settings}"
                                 UseWhite="True"
                                 Grid.Column="1"/>
         <BoxView BackgroundColor="White" 
                  CornerRadius="10"
+                 Margin="0,0,0,20"
                  Grid.Row="1"
                  Grid.Column="1"/>
         <TableView x:Name="tableSetting" 
                    HasUnevenRows="False"
+                   Margin="0,0,0,20"
                    Grid.Row="1"
                    Grid.Column="1">
             <TableRoot>
@@ -30,7 +33,7 @@
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="lbDemo" 
-                                   Text="Til"
+                                   Text="{x:Static resource:AppResource.Language}"
                                    FontSize="Body" 
                                    TextColor="Black" 
                                    HorizontalOptions="StartAndExpand" 
@@ -48,7 +51,7 @@
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="lbLanguage" 
-                                   Text="Xabarlar ovozi"
+                                   Text="{x:Static resource:AppResource.Voice}"
                                    FontSize="Body" 
                                    TextColor="Black" 
                                    HorizontalOptions="Start" 
@@ -70,7 +73,7 @@
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="lbViewNight" 
-                                   Text="Tungi ko'rinish"
+                                   Text="{x:Static resource:AppResource.NightView}"
                                    FontSize="Body" 
                                    TextColor="Black" 
                                    HorizontalOptions="StartAndExpand" 
@@ -92,7 +95,7 @@
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="lbAbout" 
-                                   Text="App haqida"
+                                   Text="{x:Static resource:AppResource.About}"
                                    FontSize="Body" 
                                    TextColor="Black" 
                                    HorizontalOptions="StartAndExpand" 

@@ -4,6 +4,7 @@
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.Setting.PageSuggestion">
 
@@ -14,7 +15,7 @@
                  Grid.ColumnSpan="3"/>
         <view:ViewNavigationBar BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
-                                Title="Mijozlar"
+                                Title="{x:Static resource:AppResource.OfferAndObjection}"
                                 UseWhite="True"
                                 Grid.Column="1"/>
         <BoxView BackgroundColor="White" 
@@ -28,9 +29,9 @@
               Grid.Row="1"
               Grid.Column="1">
             <StackLayout Spacing="10">
-                <Label Text="Murojat turi"
+                <Label Text="{x:Static resource:AppResource.CustomerType}"
                        Style="{StaticResource lbBlackStyle}"/>
-                <control:CustomPicker Title="Taklif"
+                <control:CustomPicker Title="{x:Static resource:AppResource.Offer}"
                                       HorizontalTextAlignment="Start"
                                       Image="show"
                                       ChartSyle="True"
@@ -42,14 +43,14 @@
                   Grid.Row="1">
                 <BoxView x:Name="frontBoxView" 
                          BackgroundColor="Gray"/>
-                <control:CustomEditor Placeholder="Murojat turi" 
+                <control:CustomEditor Placeholder="{x:Static resource:AppResource.Description}" 
                                       BackgroundColor="White" 
                                       HeightRequest="200"
                                       Margin="0.5"/>
             </Grid>
             <Button Style="{StaticResource btnNext}"
-                    Text="Yuborish"
-                    Margin="5,0,5,20"
+                    Text="{x:Static resource:AppResource.Send}"
+                    Margin="5,0,5,50"
                     Grid.Row="2"/>
         </Grid>
     </Grid>

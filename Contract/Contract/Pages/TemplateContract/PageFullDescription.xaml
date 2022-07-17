@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            x:Class="Contract.Pages.TemplateContract.PageFullDescription">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto, *, 100"
+              RowSpacing="10"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}" 
+                                    Title=""
+                                    UseWhite="True"/>
+            <Grid RowDefinitions="35,1,*"
+                  Margin="10,10,10,10"
+                  RowSpacing="0"
+                  Grid.Row="1">
+                <BoxView BackgroundColor="LightGray" 
+                         CornerRadius="10"
+                         Grid.RowSpan="3"/>
+                <BoxView BackgroundColor="White" 
+                         CornerRadius="10"
+                         Margin="1"
+                         Grid.RowSpan="3"/>
+                <Grid> 
+                    <BoxView x:Name="boxViewTitle" 
+                             BackgroundColor="#F7F6F6"
+                             CornerRadius="10,10,0,0"
+                             Margin="1,1,1,0"/>
+                    <Label x:Name="lbTitle" 
+                           Text="1"
+                           FontSize="17"
+                           TextColor="Gray"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"/>
+                </Grid> 
+                <Line BackgroundColor="LightGray"
+                      Grid.Row="1"/>
+                <control:CustomEditor x:Name="edDescription" 
+                                      FontSize="15"
+                                      PlaceholderColor="Gray"
+                                      BackgroundColor="White"
+                                      Margin="5,0,5,10"
+                                      Grid.Row="2"/> 
+            </Grid>
+            <Button Style="{StaticResource btnNext}"
+                     Text="{x:Static resource:AppResource.Save}"
+                     WidthRequest="156" 
+                     Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

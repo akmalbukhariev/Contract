@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.ContractNumber.PageContractNumberList">
 
@@ -13,7 +14,7 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="Tasdiqlanmagan shartnomalar"
+                                    Title="{x:Static resource:AppResource.ContractNumberSequence}"
                                     UseWhite="True"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"
@@ -28,10 +29,10 @@
                         <Grid x:Name="grHeader" 
                               ColumnDefinitions="31,220,80,80,70">
                             <Label Text="№" Style="{StaticResource lbHeader}"/>
-                            <Label Text="Shartnoma raqamlari" Style="{StaticResource lbHeader}" Grid.Column="1"/>
-                            <Label Text="Jo'natish" Style="{StaticResource lbHeader}" Grid.Column="2"/>
-                            <Label Text="Tahrirlash" Style="{StaticResource lbHeader}" Grid.Column="3"/>
-                            <Label Text="Bekor qilish" Style="{StaticResource lbHeader}" Grid.Column="4"/>
+                            <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbHeader}" Grid.Column="1"/>
+                            <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbHeader}" Grid.Column="2"/>
+                            <Label Text="{x:Static resource:AppResource.Editing}" Style="{StaticResource lbHeader}" Grid.Column="3"/>
+                            <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="4"/>
                         </Grid>
                     </ListView.Header>
                     <ListView.ItemTemplate>

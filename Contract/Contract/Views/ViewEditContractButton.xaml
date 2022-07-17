@@ -6,8 +6,8 @@
 
     <Grid>
         <Grid x:Name="gridAdd"
-              ColumnDefinitions="60,1,215" 
-              RowDefinitions="60"
+              ColumnDefinitions="60,1,196" 
+              RowDefinitions="50"
               HorizontalOptions="CenterAndExpand">
             <BoxView x:Name="boxView"
                      CornerRadius="10"
@@ -31,7 +31,7 @@
         <Grid x:Name="gridDelete"
               IsVisible="False"
               ColumnDefinitions="196,80"
-              RowDefinitions="60"
+              RowDefinitions="50"
               ColumnSpacing="0"
               HorizontalOptions="CenterAndExpand">
             <BoxView BackgroundColor="Gray"
@@ -40,6 +40,7 @@
                      Margin="1"
                      CornerRadius="10,0,10,0"/>
             <Label x:Name="lbTextDelete"
+                   FontSize="13"
                    TextColor="Black"
                    FontAttributes="Bold"
                    Margin="10,0,0,0"
@@ -50,15 +51,16 @@
                      Grid.Column="1"/>
             <StackLayout VerticalOptions="CenterAndExpand"
                          HorizontalOptions="CenterAndExpand"
-                         Margin="2"
+                         Margin="2,3,2,0"
                          Spacing="0"
                          Grid.Column="1">
                 <Image Source="Delete"
                        Aspect="AspectFit"
-                       WidthRequest="30"
+                       WidthRequest="25"
                        VerticalOptions="EndAndExpand"
                        HorizontalOptions="CenterAndExpand"/>
                 <Label Text="{x:Static resource:AppResource.Delete}"
+                       FontSize="10"
                        TextColor="White"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Start"/>

@@ -40,17 +40,11 @@ namespace Contract.Views
         }
         #endregion
 
-        #region Command
+        #region Command Title
         public static readonly BindableProperty CommandClickTitleProperty =
             BindableProperty.Create(nameof(CommandClickTitle),
                                     typeof(ICommand),
                                     typeof(ViewEditTemplateContract),
-                                    null);
-         
-        public static readonly BindableProperty CommandParameterProperty =
-            BindableProperty.Create(nameof(CommandParameter),
-                                    typeof(object),
-                                    typeof(ViewConfirm),
                                     null);
 
         public ICommand CommandClickTitle
@@ -58,20 +52,66 @@ namespace Contract.Views
             get { return (ICommand)GetValue(CommandClickTitleProperty); }
             set { SetValue(CommandClickTitleProperty, value); }
         }
-         
-        public object CommandParameter
+
+        public static readonly BindableProperty CommandClickTitleParameterProperty =
+            BindableProperty.Create(nameof(CommandClickTitleParameter),
+                                    typeof(object),
+                                    typeof(ViewConfirm),
+                                    null);
+
+        public object CommandClickTitleParameter
         {
-            get => GetValue(CommandParameterProperty);
-            set => SetValue(CommandParameterProperty, value);
+            get => GetValue(CommandClickTitleParameterProperty);
+            set => SetValue(CommandClickTitleParameterProperty, value);
+        }
+
+        #endregion
+
+        #region Command Text
+        public static readonly BindableProperty CommandClickTextProperty =
+            BindableProperty.Create(nameof(CommandClickText),
+                                    typeof(ICommand),
+                                    typeof(ViewEditTemplateContract),
+                                    null);
+
+        public ICommand CommandClickText
+        {
+            get { return (ICommand)GetValue(CommandClickTextProperty); }
+            set { SetValue(CommandClickTextProperty, value); }
+        }
+
+        public static readonly BindableProperty CommandClickTextParameterProperty =
+            BindableProperty.Create(nameof(CommandClickTextParameter),
+                                    typeof(object),
+                                    typeof(ViewConfirm),
+                                    null);
+          
+        public object CommandClickTextParameter
+        {
+            get => GetValue(CommandClickTextParameterProperty);
+            set => SetValue(CommandClickTextParameterProperty, value);
         }
         #endregion
+
+        public Label Label
+        {
+            get => lbDescription;
+            set => lbDescription = value;
+        }
+
+        public void ShowLabelText(bool show)
+        {
+            lbDescription.IsVisible = show;
+            edDescription.IsVisible = !show;
+        }
 
         public ViewEditTemplateContract()
         {
             InitializeComponent();
 
+            edDescription.IsVisible = false;
             this.lbTitle.SetBinding(Label.TextProperty, new Binding(nameof(Title), source: this));
-            this.edDescription.SetBinding(Editor.TextProperty, new Binding(nameof(Description), source: this));
+            this.lbDescription.SetBinding(Label.TextProperty, new Binding(nameof(Description), source: this));
         }
 
         public static void Execute(ICommand command)
@@ -83,7 +123,7 @@ namespace Contract.Views
             }
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void Title_Tapped(object sender, EventArgs e)
         {
             boxViewTitle.BackgroundColor = Color.Gray;
             await Task.Delay(200);
@@ -91,9 +131,20 @@ namespace Contract.Views
             boxViewTitle.BackgroundColor = Color.FromHex("#F7F6F6");
             await Task.Delay(200);
              
-            if (CommandClickTitle != null && CommandClickTitle.CanExecute(CommandParameter))
+            if (CommandClickTitle != null && CommandClickTitle.CanExecute(CommandClickTitleParameter))
             {
-                CommandClickTitle.Execute(CommandParameter);
+                CommandClickTitle.Execute(CommandClickTitleParameter);
+            }
+        }
+
+        private async void Text_Tapped(object sender, EventArgs e)
+        {
+            await this.ScaleTo(0.8, 200);
+            await this.ScaleTo(1, 200, Easing.SpringOut);
+
+            if (CommandClickText != null && CommandClickText.CanExecute(CommandClickTextParameter))
+            {
+                CommandClickText.Execute(CommandClickTextParameter);
             }
         }
     }

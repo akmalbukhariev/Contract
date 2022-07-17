@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.Setting.PageAbout">
 
@@ -13,7 +14,7 @@
                  Grid.ColumnSpan="3"/>
         <view:ViewNavigationBar BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
-                                Title="Mijozlar"
+                                Title="{x:Static resource:AppResource.About}"
                                 UseWhite="True"
                                 Grid.Column="1"/>
         <BoxView BackgroundColor="White" 
@@ -32,6 +33,7 @@
                    HorizontalOptions="CenterAndExpand"/>
             <StackLayout Grid.Row="1">
                 <Label x:Name="lbVersionText"
+                       Text="{x:Static resource:AppResource.VersionText}"
                        TextColor="Black"
                        FontSize="17"
                        FontAttributes="Bold"
