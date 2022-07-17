@@ -18,10 +18,13 @@
                    TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
-            <Line BackgroundColor="Gray"
+            <Line BackgroundColor="LightGray"
                   HeightRequest="3"/>
+            <!--<Image Source="language_separe"
+                   Aspect="AspectFit"
+                   HeightRequest="70"/>-->
             <Label x:Name="labelInfo"
-                   FontFamily=""
+                   FontFamily="Nunito_Regular"
                    TextColor="Gray"
                    HorizontalTextAlignment="Center"/>
         </StackLayout>

@@ -515,8 +515,7 @@ shartnomalar</value>
     <comment>Change password</comment>
   </data>
   <data name="Intro1_1" xml:space="preserve">
-    <value>ISTALGAN JOYDA 
- SHARTNOMA TUZISH</value>
+    <value>ISTALGAN JOYDA SHARTNOMA TUZISH</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro1_2" xml:space="preserve">
@@ -526,8 +525,7 @@ shartnomalarni tuzing.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro2_1" xml:space="preserve">
-    <value>TAYYOR SHARTNOMANI ONSON 
- JO'NATISH</value>
+    <value>TAYYOR SHARTNOMANI ONSON JO'NATISH</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro2_2" xml:space="preserve">
@@ -537,8 +535,7 @@ shartnomalarni tuzing.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro3_1" xml:space="preserve">
-    <value>QISQA MUDDATDA 
- SHARTNOMA TUZISH</value>
+    <value>QISQA MUDDATDA SHARTNOMA TUZISH</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro3_2" xml:space="preserve">
@@ -548,8 +545,7 @@ shartnomalarni tuzing.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro4_1" xml:space="preserve">
-    <value>QULAY SHABLONLAR 
- YARATISH</value>
+    <value>QULAY SHABLONLAR YARATISH</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro4_2" xml:space="preserve">
@@ -580,8 +576,7 @@ shartnomalarni tuzing.</value>
     <comment>CreateContract</comment>
   </data>
   <data name="LoginInfo1_1" xml:space="preserve">
-    <value>FOYDA VA ZARARLARNI 
- TAHLIL QILISH</value>
+    <value>FOYDA VA ZARARLARNI TAHLIL QILISH</value>
     <comment>LoginInfo</comment>
   </data>
   <data name="LoginInfo1_2" xml:space="preserve">

@@ -59,7 +59,7 @@
             </StackLayout>
             <Button Text="{x:Static resource:AppResource.Cancel}"
                     TextColor="White"
-                    FontFamily=""
+                    FontFamily="Nunito_Regular"
                     BackgroundColor="{StaticResource AppColor}"
                     CornerRadius="5"
                     VerticalOptions="End"

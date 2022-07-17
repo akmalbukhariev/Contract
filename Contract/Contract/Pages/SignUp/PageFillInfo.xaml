@@ -20,9 +20,9 @@
                                     UseWhite="True"/>
             <Label Text="{x:Static resource:AppResource.FillInfoTitle}"
                    TextColor="White"
-                   HorizontalTextAlignment="Center"
                    FontSize="18"
                    FontFamily="Nunito_Regular"
+                   HorizontalTextAlignment="Center"
                    Grid.Row="1"/>
             <Grid Grid.Row="2">
                 <BoxView BackgroundColor="White"

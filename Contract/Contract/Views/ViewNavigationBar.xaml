@@ -15,9 +15,8 @@
             </Image.GestureRecognizers>
         </Image>
         <Label x:Name="lbTitle"
-               FontSize="20"
+               FontSize="17"
                TextColor="White"
-               FontFamily="Nunito_SemiBold"
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
                Margin="0,15,0,0"

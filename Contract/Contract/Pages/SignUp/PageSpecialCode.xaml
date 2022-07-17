@@ -65,6 +65,7 @@
                 </Grid>
                 <Label x:Name="lbWaiting"
                        TextColor="Gray"
+                       FontFamily="Nunito_Regular"
                        HorizontalTextAlignment="Center"/>
                 <view:ViewExplanation Text="{x:Static resource:AppResource.SpecialCodeDescription}"
                                       VerticalOptions="Start"/>

@@ -53,7 +53,7 @@
             <Style x:Key="naviBarSignUp" TargetType="view:ViewNavigationBar">
                 <Setter Property="Title" Value="{x:Static resource:AppResource.SignUp}"/>
                 <Setter Property="TitleColor" Value="White"/>
-                <Setter Property="FontSize" Value="21"/>
+                <Setter Property="FontSize" Value="18"/>
             </Style>
             <Style x:Key="imBackground2" TargetType="Image">
                 <Setter Property="Source" Value="background2"/>

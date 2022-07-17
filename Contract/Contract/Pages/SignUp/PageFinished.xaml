@@ -21,7 +21,7 @@
                      Grid.Row="1"
                      Grid.RowSpan="2"/>
             <StackLayout VerticalOptions="CenterAndExpand"
-                         Spacing="20"
+                         Spacing="15"
                          Grid.Row="1">
                 <Grid RowDefinitions="Auto,Auto,Auto">
                     <Label Text="{x:Static resource:AppResource.Congratulations}"

@@ -948,8 +948,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ISTALGAN JOYDA 
-        /// SHARTNOMA TUZISH.
+        ///   Looks up a localized string similar to ISTALGAN JOYDA SHARTNOMA TUZISH.
         /// </summary>
         internal static string Intro1_1 {
             get {
@@ -969,8 +968,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TAYYOR SHARTNOMANI ONSON 
-        /// JO&apos;NATISH.
+        ///   Looks up a localized string similar to TAYYOR SHARTNOMANI ONSON JO&apos;NATISH.
         /// </summary>
         internal static string Intro2_1 {
             get {
@@ -990,8 +988,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QISQA MUDDATDA 
-        /// SHARTNOMA TUZISH.
+        ///   Looks up a localized string similar to QISQA MUDDATDA SHARTNOMA TUZISH.
         /// </summary>
         internal static string Intro3_1 {
             get {
@@ -1011,8 +1008,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QULAY SHABLONLAR 
-        /// YARATISH.
+        ///   Looks up a localized string similar to QULAY SHABLONLAR YARATISH.
         /// </summary>
         internal static string Intro4_1 {
             get {
@@ -1078,8 +1074,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FOYDA VA ZARARLARNI 
-        /// TAHLIL QILISH.
+        ///   Looks up a localized string similar to FOYDA VA ZARARLARNI TAHLIL QILISH.
         /// </summary>
         internal static string LoginInfo1_1 {
             get {

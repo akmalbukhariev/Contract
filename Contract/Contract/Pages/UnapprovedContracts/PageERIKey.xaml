@@ -28,7 +28,8 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label Text="{x:Static resource:AppResource.ConfirmByDigitalSignature}" Style="{StaticResource lbWhiteStyle}" 
+                <Label Text="{x:Static resource:AppResource.ConfirmByDigitalSignature}" 
+                       Style="{StaticResource lbWhiteStyle}" 
                        Grid.Row="1"/>
             </Grid>
             <BoxView Style="{StaticResource boxFrame}"

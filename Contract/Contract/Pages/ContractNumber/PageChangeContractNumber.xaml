@@ -23,7 +23,7 @@
                      Grid.RowSpan="2"
                      Grid.Row="1"/>
             <ScrollView VerticalOptions="FillAndExpand" 
-                        Margin="20,10,20,20"
+                        Margin="20,30,20,20"
                         Grid.Row="1">
                 <Grid RowDefinitions="Auto,*,Auto,Auto,Auto">
                     <Label Text="{x:Static resource:AppResource.IdentificationMarks}"
@@ -32,7 +32,7 @@
                            FontAttributes="Bold"
                            TextColor="Black"
                            HorizontalTextAlignment="Start"/>
-                    <StackLayout Grid.Row="1">
+                    <StackLayout Margin="0,20,0,0" Grid.Row="1">
                         <StackLayout.Resources>
                             <ResourceDictionary>
                                 <Style x:Key="lbContratNumber" TargetType="Label">
