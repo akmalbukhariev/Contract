@@ -12,6 +12,7 @@ namespace Contract.Pages
         public Control.ControlApp ControlApp => Control.ControlApp.Instance;
         public IPage()
         {
+            BackgroundColor = Color.White;
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
         }

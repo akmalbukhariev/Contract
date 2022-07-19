@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.Login.PageLogin">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <BoxView BackgroundColor="White"
+                 Margin="0,30,0,30"
+                 CornerRadius="10"
+                 Grid.Column="1"/>
+        <Grid RowDefinitions="*,Auto" 
+              RowSpacing="40"
+              VerticalOptions="CenterAndExpand"
+              Grid.Column="1">
+            <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="lbAppName" TargetType="Label">
+                            <Setter Property="FontSize" Value="30"/>
+                            <Setter Property="FontFamily" Value="Nunito_SemiBold"/>
+                            <Setter Property="FontAttributes" Value="Bold"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+                <Label Style="{StaticResource lbAppName}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Kontrakt" TextColor="{StaticResource AppColor}"/>
+                            <Span Text=" Meker" TextColor="Orange"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="logo"
+                       Aspect="AspectFit"
+                       WidthRequest="110"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" 
+                  VerticalOptions="StartAndExpand" 
+                  Margin="20,0,20,0"
+                  RowSpacing="10"
+                  Grid.Row="1">
+                <view:EntryView x:Name="entId"
+                                PlaceHoldingText="ID ni kiriting" 
+                                Style="{StaticResource viewEntryStyle}"/>
+                <Grid Grid.Row="1">
+                    <view:EntryView x:Name="entPassword" 
+                                    Text="123456" 
+                                    Style="{StaticResource viewEntryStyle}"
+                                    IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"/>
+                    <ImageButton VerticalOptions="Center"
+                                 Margin="0,0,10,0"
+                                 HeightRequest="30"
+                                 BackgroundColor="Transparent"
+                                 HorizontalOptions="End"
+                                 Source="eye_show">
+                        <ImageButton.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <control:ShowPasswordTriggerAction x:Name="ShowPasswordActualTrigger"
+                                                                   ShowIcon="eye_show"
+                                                                   HideIcon="eye_hide"/>
+                            </EventTrigger>
+                        </ImageButton.Triggers>
+                    </ImageButton>
+                </Grid>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Start"
+                             Spacing="0"
+                             Grid.Row="2">
+                    <CheckBox x:Name="autoCheckBox" 
+                              HorizontalOptions="EndAndExpand"
+                              Color="{StaticResource AppColor}"
+                              IsChecked="{Binding CheckAutoLogin, Mode=TwoWay}"
+                              CheckedChanged="AutoLogin_CheckedChanged"/>
+                    <Label x:Name="lbAutoLogin" 
+                           Text="ID va Parolni saqlash" 
+                           TextColor="Black"
+                           HorizontalOptions="End"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Spacing="10" 
+                             Grid.Row="3">
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="btnLoginStyle" TargetType="Button">
+                                <Setter Property="TextColor" Value="White"/>
+                                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                                <Setter Property="CornerRadius" Value="7"/> 
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+                    <Button Text="Kirish"
+                            BackgroundColor="{StaticResource AppColor}"
+                            Style="{StaticResource btnLoginStyle}"/>
+                    <Button Text="Ro'yxatdan o'tish"
+                            TextColor="Black"
+                            Style="{StaticResource btnLoginStyle}"
+                            BackgroundColor="White"
+                            BorderColor="Black"
+                            BorderWidth="1"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand"
+                             Spacing="10"
+                             Margin="0,10,0,0"
+                             Grid.Row="4">
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="lbStyle" TargetType="Label">
+                                <Setter Property="TextColor" Value="{StaticResource AppColor}"/>
+                                <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                                <Setter Property="FontSize" Value="16"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+                    <Label x:Name="lbFindId" Text="ID toping" Style="{StaticResource lbStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClickFindId" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Line WidthRequest="1" BackgroundColor="{StaticResource AppColor}"/>
+                    <Label x:Name="lbFindPassword" Text="Parolni unutdingizmi" Style="{StaticResource lbStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClickFindPassword" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</page:IPage>

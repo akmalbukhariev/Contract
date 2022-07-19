@@ -16,7 +16,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.EditContract.PageEditPersonalContract();
+            MainPage = new Pages.Login.PageLogin();
         }
 
         protected override void OnStart()
