@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.SignUp.PageCheckID">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*,Auto" 
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    UseWhite="True"/>
+            <BoxView Style="{StaticResource boxFrame}"
+                     Grid.Row="1"
+                     Grid.RowSpan="2"/> 
+            <Grid RowDefinitions="Auto,Auto" 
+                  ColumnDefinitions="*,Auto"
+                  Margin="10,20,10,0"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="StartAndExpand" 
+                  Grid.Row="1">
+                <Label Text="ID ni kiriting"
+                       TextColor="Black"
+                       FontFamily="Nunito_Regular"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                <view:EntryView x:Name="entId"
+                                PlaceHoldingText="ID" 
+                                Style="{StaticResource viewEntryStyle}"
+                                Grid.Row="1"/>
+                <Button Text="Tekshiring"
+                        TextColor="White"
+                        BackgroundColor="{StaticResource AppColor}"
+                        CornerRadius="5"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
+            </Grid>
+            <Button Style="{StaticResource btnNext}"
+                    VerticalOptions="End"
+                    Grid.Row="2"/>
+        </Grid>
+    </Grid>
+
+</page:IPage>

@@ -28,9 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Pages\Login\PagePhone.xaml.cs">
-      <DependentUpon>PagePhone.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Pages\PageMasterDetail.xaml.cs">
       <DependentUpon>PageMasterDetail.xaml</DependentUpon>
     </Compile>
@@ -48,6 +45,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\CanceledContracts\PageTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -87,6 +87,9 @@
     <EmbeddedResource Update="Pages\Login\PageLogin.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SignUp\PageCheckID.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\TemplateContract\PageContractTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -96,13 +99,7 @@
     <EmbeddedResource Update="Pages\EditContract\PageEditPersonalContract.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Login\PagePassword.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Pages\Setting\PageLanguage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Login\PagePhone.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Introduction\PageIntroduction.xaml">

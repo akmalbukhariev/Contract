@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.Login
+namespace Contract
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PagePhone : IPage
+    public partial class AppShell : Shell
     {
-        public PagePhone()
+        public AppShell()
         {
             InitializeComponent();
         }

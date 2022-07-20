@@ -11,7 +11,7 @@ namespace Contract.Pages.Login
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLogin : IPage
-    {
+    {   
         public PageLogin()
         {
             InitializeComponent();
@@ -32,5 +32,5 @@ namespace Contract.Pages.Login
         {
             ChangeClickBackColor(lbFindPassword, Color.White, Color.FromHex("#3F6C6C"));
         }
-    }
+    }   
 }

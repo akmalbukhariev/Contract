@@ -16,7 +16,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new Pages.Login.PageLogin();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()
