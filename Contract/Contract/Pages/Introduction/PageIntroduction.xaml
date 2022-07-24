@@ -2,14 +2,15 @@
 <page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
-            xmlns:resource="clr-namespace:Contract.Resources"
+            xmlns:resource="clr-namespace:Contract.Resources"   
             x:Class="Contract.Pages.Introduction.PageIntroduction">
 
     <AbsoluteLayout>
         <CarouselView ItemsSource="{Binding Images}" 
                       AbsoluteLayout.LayoutBounds="0,0,1,1"
                       AbsoluteLayout.LayoutFlags="All"
-                      IndicatorView="indicatorview">
+                      IndicatorView="indicatorview"
+                      CurrentItemChanged="CarouselView_CurrentItemChanged">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <Grid RowDefinitions="*,*">

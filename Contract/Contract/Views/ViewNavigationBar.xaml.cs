@@ -102,6 +102,7 @@ namespace Contract.Views
             im.Source = UseWhite ? "back_left_white" : "back_left_gray";
             await Task.Delay(200);
 
+            //await Shell.Current.GoToAsync("..");
             await Navigation.PopAsync();
         }
     }

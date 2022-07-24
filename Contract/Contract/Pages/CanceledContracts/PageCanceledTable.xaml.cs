@@ -11,10 +11,10 @@ using Xamarin.Forms.Xaml;
 namespace Contract.Pages.CanceledContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageTable : IPage
+    public partial class PageCanceledTable : IPage
     {
         private PageTableViewModel model;
-        public PageTable()
+        public PageCanceledTable()
         {
             InitializeComponent();
 

@@ -6,7 +6,7 @@
             xmlns:control="clr-namespace:Contract.Control"
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.CurrentContracts.PageCancelContract">
+            x:Class="Contract.Pages.CurrentContracts.PageCurrentCancelContract">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"

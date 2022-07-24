@@ -42,6 +42,7 @@
             </Grid>
             <Button Style="{StaticResource btnNext}"
                     VerticalOptions="End"
+                    Clicked="Next_Clicked"
                     Grid.Row="2"/>
         </Grid>
     </Grid>

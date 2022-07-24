@@ -12238,29 +12238,71 @@ namespace Contract.Droid
 			// aapt resource value: 0x7F01001B
 			public const int design_snackbar_out = 2130771995;
 			
-			// aapt resource value: 0x7F01001C
-			public const int EnterFromLeft = 2130771996;
-			
-			// aapt resource value: 0x7F01001D
-			public const int EnterFromRight = 2130771997;
-			
-			// aapt resource value: 0x7F01001E
-			public const int ExitToLeft = 2130771998;
-			
-			// aapt resource value: 0x7F01001F
-			public const int ExitToRight = 2130771999;
-			
 			// aapt resource value: 0x7F010020
-			public const int fragment_fast_out_extra_slow_in = 2130772000;
+			public const int EnterFromLeft = 2130772000;
 			
 			// aapt resource value: 0x7F010021
-			public const int mtrl_bottom_sheet_slide_in = 2130772001;
+			public const int EnterFromRight = 2130772001;
+			
+			// aapt resource value: 0x7F01001C
+			public const int enter_bottom = 2130771996;
+			
+			// aapt resource value: 0x7F01001D
+			public const int enter_left = 2130771997;
+			
+			// aapt resource value: 0x7F01001E
+			public const int enter_right = 2130771998;
+			
+			// aapt resource value: 0x7F01001F
+			public const int enter_top = 2130771999;
+			
+			// aapt resource value: 0x7F010026
+			public const int ExitToLeft = 2130772006;
+			
+			// aapt resource value: 0x7F010027
+			public const int ExitToRight = 2130772007;
 			
 			// aapt resource value: 0x7F010022
-			public const int mtrl_bottom_sheet_slide_out = 2130772002;
+			public const int exit_bottom = 2130772002;
 			
 			// aapt resource value: 0x7F010023
-			public const int mtrl_card_lowers_interpolator = 2130772003;
+			public const int exit_left = 2130772003;
+			
+			// aapt resource value: 0x7F010024
+			public const int exit_right = 2130772004;
+			
+			// aapt resource value: 0x7F010025
+			public const int exit_top = 2130772005;
+			
+			// aapt resource value: 0x7F010028
+			public const int fade_in = 2130772008;
+			
+			// aapt resource value: 0x7F010029
+			public const int fade_out = 2130772009;
+			
+			// aapt resource value: 0x7F01002A
+			public const int flip_in = 2130772010;
+			
+			// aapt resource value: 0x7F01002B
+			public const int flip_out = 2130772011;
+			
+			// aapt resource value: 0x7F01002C
+			public const int fragment_fast_out_extra_slow_in = 2130772012;
+			
+			// aapt resource value: 0x7F01002D
+			public const int mtrl_bottom_sheet_slide_in = 2130772013;
+			
+			// aapt resource value: 0x7F01002E
+			public const int mtrl_bottom_sheet_slide_out = 2130772014;
+			
+			// aapt resource value: 0x7F01002F
+			public const int mtrl_card_lowers_interpolator = 2130772015;
+			
+			// aapt resource value: 0x7F010030
+			public const int scale_in = 2130772016;
+			
+			// aapt resource value: 0x7F010031
+			public const int scale_out = 2130772017;
 			
 			static Animation()
 			{

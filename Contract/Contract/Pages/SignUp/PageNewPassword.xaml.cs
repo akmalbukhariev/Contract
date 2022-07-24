@@ -15,6 +15,20 @@ namespace Contract.Pages.SignUp
         public PageNewPassword()
         {
             InitializeComponent();
+
+            SetModel(new ViewModel.BaseModel(Navigation));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Model.Parent = Parent;
+        }
+
+        private async void Next_Clicked(object sender, EventArgs e)
+        {
+            Model.SetTransitionType();
+            //await Navigation.PushAsync
         }
     }
 }

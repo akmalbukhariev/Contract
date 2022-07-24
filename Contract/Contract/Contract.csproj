@@ -28,11 +28,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\CanceledContracts\PageCanceledTable.xaml.cs">
+      <DependentUpon>PageCanceledTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CurrentContracts\PageCurrentCancelContract.xaml.cs">
+      <DependentUpon>PageCurrentCancelContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CurrentContracts\PageCurrentContractTable.xaml.cs">
+      <DependentUpon>PageCurrentContractTable.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\PageMasterDetail.xaml.cs">
       <DependentUpon>PageMasterDetail.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\PageM.xaml.cs">
       <DependentUpon>PageM.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\UnapprovedContracts\PageUnapprovedCancelContract.xaml.cs">
+      <DependentUpon>PageUnapprovedCancelContract.xaml</DependentUpon>
     </Compile>
     <Compile Update="Resources\AppResource.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -48,7 +60,7 @@
     <EmbeddedResource Update="AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CanceledContracts\PageTable.xaml">
+    <EmbeddedResource Update="Pages\CanceledContracts\PageCanceledTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\ChangePassword\PageChangePassword.xaml">
@@ -75,10 +87,10 @@
     <EmbeddedResource Update="Pages\CreateContract\PageCreateContract5.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CurrentContracts\PageCancelContract.xaml">
+    <EmbeddedResource Update="Pages\CurrentContracts\PageCurrentCancelContract.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CurrentContracts\PageTable.xaml">
+    <EmbeddedResource Update="Pages\CurrentContracts\PageCurrentContractTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Customers\PageAddCustomer.xaml">
@@ -150,7 +162,7 @@
     <EmbeddedResource Update="Pages\TemplateContract\PageFullDescription.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\UnapprovedContracts\PageCancelContract.xaml">
+    <EmbeddedResource Update="Pages\UnapprovedContracts\PageUnapprovedCancelContract.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\UnapprovedContracts\PageContractSpecialCode.xaml">

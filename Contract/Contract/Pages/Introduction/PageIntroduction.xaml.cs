@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Introduction;
+﻿using Contract.Model;
+using Contract.ViewModel.Introduction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +13,36 @@ namespace Contract.Pages.Introduction
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageIntroduction : IPage
-    {
-        private PageIntroductionViewModel model;
+    { 
         public PageIntroduction()
         {
-            InitializeComponent();
-            model = new PageIntroductionViewModel(Navigation);
+            InitializeComponent(); 
+            SetModel(new PageIntroductionViewModel(Navigation));
+        }
 
-            BindingContext = model;
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Model.Parent = Parent;
         }
 
         private async void LabelSkip_Tapped(object sender, EventArgs e)
         {
             ChangeClickBackColor((Label)sender, Color.White, Color.White);
-            await Navigation.PushAsync(new PageLoginInfo());
+            Model.SetTransitionType();
+            await Navigation.PushAsync(new PageLoginInfo()); 
+        }
+
+        private async void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        {
+            IntroductionInfo previousItem = e.PreviousItem as IntroductionInfo;
+            IntroductionInfo currentItem = e.CurrentItem as IntroductionInfo;
+
+            if (previousItem != null && previousItem.ImagePath == PageIntroductionViewModel.Intro_4)
+            {
+                Model.SetTransitionType();
+                await Navigation.PushAsync(new PageLoginInfo());
+            }
         }
     }
 }

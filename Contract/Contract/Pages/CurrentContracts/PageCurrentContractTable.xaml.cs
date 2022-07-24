@@ -11,10 +11,10 @@ using Xamarin.Forms.Xaml;
 namespace Contract.Pages.CurrentContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageTable : IPage
+    public partial class PageCurrentContractTable : IPage
     {
         private PageTableViewModel model;
-        public PageTable()
+        public PageCurrentContractTable()
         {
             InitializeComponent();
             

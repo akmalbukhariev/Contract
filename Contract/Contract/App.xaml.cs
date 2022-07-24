@@ -1,4 +1,5 @@
-﻿using Contract.Resources;
+﻿using Contract.Control;
+using Contract.Resources;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +17,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new TransitionNavigationPage(new Pages.Introduction.PageIntroduction());
         }
 
         protected override void OnStart()

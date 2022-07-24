@@ -8,10 +8,12 @@ namespace Contract.Model
 {
     public class ChildMenuItem : BaseModel
     {
+        public string ID { get => GetValue<string>(); set => SetValue(value); }
         public string Name { get => GetValue<string>(); set => SetValue(value); }
     }
     public class Menu :  BaseModel
     {
+        public string ID { get => GetValue<string>(); set => SetValue(value); }
         public bool IsVisible { get => GetValue<bool>(); set => SetValue(value); }
         public int MenuHeight { get => GetValue<int>(); set => SetValue(value); }
         public string HImage { get => GetValue<string>(); set => SetValue(value); }

@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel;
+﻿using Contract.Control;
+using Contract.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Contract.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            model.Parent = Parent;
             model.InitMenu();
         }
 
@@ -36,15 +37,53 @@ namespace Contract.Pages
 
             var item = e.Item as Model.Menu;
 
-            if (item.ChildMenuList == null || item.ChildMenuList.Count == 0) return;
+            if (item.ChildMenuList != null && item.ChildMenuList.Count != 0)
+            {
+                model.HodeOrShowMenu(item);
+            }
 
-            model.HodeOrShowMenu(item);
+            switch (item.ID)
+            {
+                case Constant.Menu1: break;
+                case Constant.Menu2: break;
+                case Constant.Menu3: break;
+                case Constant.Menu4: break;
+                case Constant.Menu5: break;
+                case Constant.Menu6: break;
+                case Constant.Menu7: break;
+                case Constant.Menu8: break;
+                case Constant.Menu9: break;
+            }
         }
 
-        private void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var tListView = sender as ListView;
-            tListView.SelectedItem = null; 
+            tListView.SelectedItem = null;
+
+            var item = e.Item as Model.ChildMenuItem;
+
+            var transitionNavigationPage = Parent as TransitionNavigationPage;
+            if (transitionNavigationPage != null)
+                transitionNavigationPage.TransitionType = TransitionType.SlideFromRight;
+
+            model.SetTransitionType();
+            switch (item.ID)
+            { 
+                case Constant.Menu1_1:
+                    await Navigation.PushAsync(new UnapprovedContracts.PageTable());
+                    break;
+                case Constant.Menu1_2: break;
+                case Constant.Menu1_3: break;
+                case Constant.Menu1_4: break;
+                case Constant.Menu4_1: break;
+                case Constant.Menu4_2: break;
+                case Constant.Menu4_3: break;
+                case Constant.Menu4_4: break;
+                case Constant.Menu5_1: break;
+                case Constant.Menu5_2: break;
+                case Constant.Menu5_3: break;
+            }
         }
     }
 }

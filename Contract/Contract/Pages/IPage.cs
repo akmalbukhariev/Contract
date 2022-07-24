@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,26 @@ namespace Contract.Pages
     public class IPage : ContentPage
     {
         public Control.ControlApp ControlApp => Control.ControlApp.Instance;
+
+        protected BaseModel Model;
+
         public IPage()
         {
             BackgroundColor = Color.White;
+            
+            //Shell.SetNavBarIsVisible(this, false);
+            //Shell.SetPresentationMode(this, PresentationMode.Animated);
+
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
+        protected void SetModel(BaseModel model)
+        {
+            Model = model;
+            BindingContext = Model;
+        }
+ 
         protected async void ClickAnimationView<T>(T view) where T : View
         {
             await view.ScaleTo(0.8, 200);

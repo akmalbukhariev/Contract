@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Contract.Pages.UnapprovedContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageCancelContract : IPage
+    public partial class PageUnapprovedCancelContract : IPage
     {
-        public PageCancelContract()
+        public PageUnapprovedCancelContract()
         {
             InitializeComponent();
         }

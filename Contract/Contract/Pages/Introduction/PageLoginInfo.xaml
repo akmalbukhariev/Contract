@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
-            xmlns:resource="clr-namespace:Contract.Resources"
+            xmlns:resource="clr-namespace:Contract.Resources" 
             x:Class="Contract.Pages.Introduction.PageLoginInfo">
 
     <Grid RowDefinitions="Auto,Auto,*,Auto"

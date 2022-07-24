@@ -37,7 +37,7 @@ namespace Contract.Pages
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
-            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+            (Parent as MasterDetailPage).IsPresented = true;  
         }
     }
 }

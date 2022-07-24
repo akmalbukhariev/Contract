@@ -100,13 +100,15 @@
                     </StackLayout.Resources>
                     <Button Text="Kirish"
                             BackgroundColor="{StaticResource AppColor}"
-                            Style="{StaticResource btnLoginStyle}"/>
+                            Style="{StaticResource btnLoginStyle}"
+                            Command="{Binding CommandLogin}"/>
                     <Button Text="Ro'yxatdan o'tish"
                             TextColor="Black"
                             Style="{StaticResource btnLoginStyle}"
                             BackgroundColor="White"
                             BorderColor="Black"
-                            BorderWidth="1"/>
+                            BorderWidth="1"
+                            Command="{Binding CommandSignUp}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" 
                              HorizontalOptions="CenterAndExpand"

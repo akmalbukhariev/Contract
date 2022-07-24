@@ -13,6 +13,10 @@ namespace Contract.ViewModel.Introduction
 {
     public class PageIntroductionViewModel : BaseModel
     {
+        public const string Intro_1 = "intro_1";
+        public const string Intro_2 = "intro_2";
+        public const string Intro_3 = "intro_3";
+        public const string Intro_4 = "intro_4";
         public ObservableCollection<IntroductionInfo> Images { get; set; }
          
         public IntroductionInfo CurrentItem { get; set; }

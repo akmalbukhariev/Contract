@@ -13,7 +13,8 @@ namespace Contract.Pages
         public PageMasterDetail()
         {
             InitializeComponent();
-             
+
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

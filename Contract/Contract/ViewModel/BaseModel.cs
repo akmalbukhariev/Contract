@@ -11,7 +11,6 @@ namespace Contract.ViewModel
 {
     public class BaseModel : INotifyPropertyChanged
     {
-        
         public Element Parent { get; set; }
 
         protected INavigation Navigation { get; set; }
@@ -21,12 +20,12 @@ namespace Contract.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected BaseModel(INavigation navigation)
+        public BaseModel(INavigation navigation)
         {
             Navigation = navigation;
         }
 
-        protected BaseModel()
+        public BaseModel()
         {
             
         }
@@ -65,7 +64,16 @@ namespace Contract.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-         
+
+        public void SetTransitionType(TransitionType transitionType = TransitionType.SlideFromRight)
+        {
+            if (Parent == null) return;
+
+            var transitionNavigationPage = Parent as TransitionNavigationPage;
+            if (transitionNavigationPage != null)
+                transitionNavigationPage.TransitionType = transitionType;
+        }
+
         public async void Back()
         {
             await Navigation.PopAsync();
