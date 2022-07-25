@@ -8,8 +8,11 @@ using Xamarin.Forms;
 
 namespace Contract.Pages
 {
-    public class IPage : ContentPage
+    public abstract class IPage : ContentPage
     {
+        public delegate void NavigatePage(Page page);
+        public event NavigatePage EventNavigatePage;
+          
         public Control.ControlApp ControlApp => Control.ControlApp.Instance;
 
         protected BaseModel Model;
@@ -17,7 +20,7 @@ namespace Contract.Pages
         public IPage()
         {
             BackgroundColor = Color.White;
-            
+             
             //Shell.SetNavBarIsVisible(this, false);
             //Shell.SetPresentationMode(this, PresentationMode.Animated);
 
@@ -44,6 +47,11 @@ namespace Contract.Pages
 
             label.TextColor = orgColor;
             await Task.Delay(200);
+        }
+
+        protected virtual void OnNavigatePage(Page page = null)
+        {
+            EventNavigatePage?.Invoke(page);
         }
     }
 }

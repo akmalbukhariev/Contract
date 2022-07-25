@@ -12,8 +12,8 @@ using Xamarin.Forms.Xaml;
 namespace Contract.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageMenu : ContentPage
-    {
+    public partial class PageMenu : IPage
+    { 
         private PageMenuViewModel model;
         public PageMenu()
         {
@@ -26,11 +26,11 @@ namespace Contract.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            model.Parent = Parent;
+            //model.Parent = Parent;
             model.InitMenu();
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var tListView = sender as ListView;
             tListView.SelectedItem = null;
@@ -46,42 +46,69 @@ namespace Contract.Pages
             {
                 case Constant.Menu1: break;
                 case Constant.Menu2: break;
-                case Constant.Menu3: break;
+                case Constant.Menu3:
+                    OnNavigatePage(new Customers.PageCustomerList());
+                    break;
                 case Constant.Menu4: break;
                 case Constant.Menu5: break;
-                case Constant.Menu6: break;
+                case Constant.Menu6:
+                    OnNavigatePage(new Setting.PageSetting());
+                    break;
                 case Constant.Menu7: break;
-                case Constant.Menu8: break;
-                case Constant.Menu9: break;
+                case Constant.Menu8:
+                    OnNavigatePage(new Setting.PageSuggestion());
+                    break;
+                case Constant.Menu9:
+                    bool res = await Application.Current.MainPage.DisplayAlert("Chiqish", "Rosdan ham tizimdan chiqmoqchimisiz?", "Ok", RSC.Cancel);
+                    if (res)
+                    {
+                        //Preferences.Set("AutoLogin", "");
+                        //ControlApp.SystemStatus = LogInOut.LogOut;
+                        Application.Current.MainPage = new TransitionNavigationPage(new Login.PageLogin());
+                    }
+                    break;
             }
         }
 
-        private async void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var tListView = sender as ListView;
             tListView.SelectedItem = null;
 
             var item = e.Item as Model.ChildMenuItem;
 
-            var transitionNavigationPage = Parent as TransitionNavigationPage;
-            if (transitionNavigationPage != null)
-                transitionNavigationPage.TransitionType = TransitionType.SlideFromRight;
-
-            model.SetTransitionType();
             switch (item.ID)
             { 
-                case Constant.Menu1_1:
-                    await Navigation.PushAsync(new UnapprovedContracts.PageTable());
+                case Constant.Menu1_1: 
+                    OnNavigatePage(new UnapprovedContracts.PageTable());
                     break;
-                case Constant.Menu1_2: break;
-                case Constant.Menu1_3: break;
-                case Constant.Menu1_4: break;
-                case Constant.Menu4_1: break;
-                case Constant.Menu4_2: break;
-                case Constant.Menu4_3: break;
-                case Constant.Menu4_4: break;
-                case Constant.Menu5_1: break;
-                case Constant.Menu5_2: break;
+                case Constant.Menu1_2:
+                    OnNavigatePage(new CurrentContracts.PageCurrentContractTable());
+                    break;
+                case Constant.Menu1_3:
+                    OnNavigatePage(new CanceledContracts.PageCanceledTable());
+                    break;
+                case Constant.Menu1_4:
+                    OnNavigatePage(new CreateContract.PageCreateContract1());
+                    break;
+                case Constant.Menu4_1:
+                    OnNavigatePage(new TemplateContract.PageContractTemplate());
+                    break;
+                case Constant.Menu4_2:
+                    OnNavigatePage(new TemplateContract.PageEditTemplateContract());
+                    break;
+                case Constant.Menu4_3:
+                    OnNavigatePage(new ContractNumber.PageContractNumberList());
+                    break;
+                case Constant.Menu4_4:
+                    OnNavigatePage(new ContractNumber.PageChangeContractNumber());
+                    break;
+                case Constant.Menu5_1:
+                    OnNavigatePage(new EditContract.PageEditPersonalContract());
+                    break;
+                case Constant.Menu5_2:
+                    OnNavigatePage(new ChangePassword.PageChangePassword());
+                    break;
                 case Constant.Menu5_3: break;
             }
         }

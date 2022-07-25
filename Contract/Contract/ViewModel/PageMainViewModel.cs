@@ -23,9 +23,9 @@ namespace Contract.ViewModel
 
         public void Init()
         {
-            MenuList.Add(new ChildMenuItem() { Name = RSC.UnconfirmedContracts1 });
-            MenuList.Add(new ChildMenuItem() { Name = RSC.ApplicableContracts1 });
-            MenuList.Add(new ChildMenuItem() { Name = RSC.CanceledContracts });
+            MenuList.Add(new ChildMenuItem() {ID = Constant.Menu1, Name = RSC.UnconfirmedContracts1 });
+            MenuList.Add(new ChildMenuItem() {ID = Constant.Menu2, Name = RSC.ApplicableContracts1 });
+            MenuList.Add(new ChildMenuItem() {ID = Constant.Menu3, Name = RSC.CanceledContracts });
         }
     }
 }

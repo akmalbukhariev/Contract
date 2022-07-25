@@ -5,11 +5,11 @@
                   x:Class="Contract.Pages.PageMasterDetail">
 
     <MasterDetailPage.Master>
-        <page:PageMenu Title="Test"/>
+        <page:PageMenu x:Name="pMenu" Title="Test"/>
     </MasterDetailPage.Master>
 
-    <MasterDetailPage.Detail>
+    <!--<MasterDetailPage.Detail>
         <page:PageMain/>
-    </MasterDetailPage.Detail>
+    </MasterDetailPage.Detail>-->
 
 </MasterDetailPage>
