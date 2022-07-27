@@ -87,6 +87,7 @@
                 </StackLayout>
                 <Button Style="{StaticResource btnNext}"
                         VerticalOptions="EndAndExpand"
+                        Clicked="Next_Clicked"
                         Grid.Row="3"/>
             </Grid>
         </Grid>

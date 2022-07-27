@@ -18,6 +18,14 @@ namespace Contract.Pages.Setting
         public PageSetting()
         {
             InitializeComponent();
+
+            SetModel(new ViewModel.BaseModel());
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Model.Parent = Parent;
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -48,9 +56,17 @@ namespace Contract.Pages.Setting
             }
         }
 
-        private void TableCell_Tapped(object sender, EventArgs e)
+        private async void TableCell_Tapped(object sender, EventArgs e)
         {
-
+            Model.SetTransitionType();
+            if (sender == cellLanguage)
+            {
+                await Navigation.PushAsync(new PageLanguage());
+            }
+            else if (sender == cellAbout)
+            {
+                await Navigation.PushAsync(new PageAbout());
+            }
         }
     }
 }

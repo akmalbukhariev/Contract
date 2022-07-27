@@ -11,6 +11,7 @@
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,*"
+              RowSpacing="20"
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"

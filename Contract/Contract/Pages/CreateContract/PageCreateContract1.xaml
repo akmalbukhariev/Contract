@@ -52,6 +52,7 @@
                 </StackLayout>
                 <Button Style="{StaticResource btnNext}"
                         VerticalOptions="EndAndExpand"
+                        Clicked="Next_Clicked"
                         Grid.Row="1"/>
             </Grid>
         </Grid>

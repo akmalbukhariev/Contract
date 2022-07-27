@@ -12,26 +12,24 @@ namespace Contract.Pages.CanceledContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCanceledTable : IPage
-    {
-        private PageTableViewModel model;
+    { 
         public PageCanceledTable()
         {
             InitializeComponent();
 
-            model = new PageTableViewModel();
-            BindingContext = model;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            model.Init();
+            SetModel(new PageTableViewModel());
+            (Model as PageTableViewModel).Init();
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
                 listView.WidthRequest += grHeader.ColumnDefinitions[i].Width.Value;
             }
             listView.WidthRequest += 70;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing(); 
         }
 
         private void Eye_Tapped(object sender, EventArgs e)
@@ -48,7 +46,7 @@ namespace Contract.Pages.CanceledContracts
 
         private void Edit_Tapped(object sender, EventArgs e)
         {
-            model.ShowExplanationBox = true;
+            (Model as PageTableViewModel).ShowExplanationBox = true;
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
         }

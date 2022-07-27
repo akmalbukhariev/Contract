@@ -13,21 +13,19 @@ namespace Contract.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageMenu : IPage
-    { 
-        private PageMenuViewModel model;
+    {  
         public PageMenu()
         {
             InitializeComponent();
 
-            model = new PageMenuViewModel();
-            BindingContext = model;
+            SetModel(new PageMenuViewModel());
+            (Model as PageMenuViewModel).InitMenu();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            //model.Parent = Parent;
-            model.InitMenu();
+            Model.Parent = Parent;
         }
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -39,7 +37,7 @@ namespace Contract.Pages
 
             if (item.ChildMenuList != null && item.ChildMenuList.Count != 0)
             {
-                model.HodeOrShowMenu(item);
+                (Model as PageMenuViewModel).HodeOrShowMenu(item);
             }
 
             switch (item.ID)
@@ -54,7 +52,9 @@ namespace Contract.Pages
                 case Constant.Menu6:
                     OnNavigatePage(new Setting.PageSetting());
                     break;
-                case Constant.Menu7: break;
+                case Constant.Menu7:
+                    OnNavigatePage(new Setting.PageAbout());
+                    break;
                 case Constant.Menu8:
                     OnNavigatePage(new Setting.PageSuggestion());
                     break;

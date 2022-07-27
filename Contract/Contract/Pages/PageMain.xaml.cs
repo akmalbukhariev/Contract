@@ -16,39 +16,36 @@ namespace Contract.Pages
     {
         public delegate void ShowMenu(bool show);
         public event ShowMenu EventShowMenu;
-
-        private PageMainViewModel model;
+         
         public PageMain()
         {
             InitializeComponent();
 
-            model = new PageMainViewModel();
-            BindingContext = model;
+            SetModel(new PageMainViewModel());
+            (Model as PageMainViewModel).Init();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            model.Parent = Parent;
-            model.Init();
+            Model.Parent = Parent;
         }
 
-        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var listView = sender as ListView;
             ChildMenuItem item = listView.SelectedItem as ChildMenuItem;
-            
-            model.SetTransitionType();
+             
             switch (item.ID)
             {
-                case Constant.Menu1: 
-                    await Navigation.PushAsync(new UnapprovedContracts.PageTable());
+                case Constant.Menu1:
+                    OnNavigatePage(new UnapprovedContracts.PageTable()); 
                     break;
                 case Constant.Menu2:
-                    await Navigation.PushAsync(new CurrentContracts.PageCurrentContractTable());
+                    OnNavigatePage(new CurrentContracts.PageCurrentContractTable()); 
                     break;
                 case Constant.Menu3:
-                    await Navigation.PushAsync(new CanceledContracts.PageCanceledTable());
+                    OnNavigatePage(new CanceledContracts.PageCanceledTable()); 
                     break;
             }
 
@@ -61,10 +58,9 @@ namespace Contract.Pages
             EventShowMenu?.Invoke(true);
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            model.SetTransitionType();
-            await Navigation.PushAsync(new CreateContract.PageCreateContract1());
+            OnNavigatePage(new CreateContract.PageCreateContract1()); 
         }
     }
 }

@@ -16,7 +16,8 @@
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     Title="{x:Static resource:AppResource.UnapprovedContracts}"
-                                    UseWhite="True"/>
+                                    UseWhite="True"
+                                    IsThisModalPage="True"/>
             <BoxView Style="{StaticResource boxFrame}"
                      Grid.Row="1"
                      Grid.RowSpan="3"/>

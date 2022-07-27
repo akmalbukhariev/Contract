@@ -13,26 +13,25 @@ namespace Contract.Pages.UnapprovedContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageTable : IPage
-    {
-        private PageTableViewModel model;
+    { 
         public PageTable()
         {
             InitializeComponent();
 
-            model = new PageTableViewModel();
-            BindingContext = model;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            model.Init();
+            SetModel(new PageTableViewModel(Navigation));
+            (Model as PageTableViewModel).Init();
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
                 listView.WidthRequest += grHeader.ColumnDefinitions[i].Width.Value;
             }
             listView.WidthRequest += 70;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Model.Parent = Parent; 
         }
 
         private void Eye_Tapped(object sender, EventArgs e)
@@ -45,8 +44,8 @@ namespace Contract.Pages.UnapprovedContracts
         {
             ClickAnimationView((Image)sender); 
             ControlApp.Vibrate();
-            
-            model.ShowConfirmBox = true;
+
+            (Model as PageTableViewModel).ShowConfirmBox = true;
         }
 
         private void Send_Tapped(object sender, EventArgs e)
@@ -55,10 +54,13 @@ namespace Contract.Pages.UnapprovedContracts
             ControlApp.Vibrate();
         }
 
-        private void Cancel_Tapped(object sender, EventArgs e)
+        private async void Cancel_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            Model.SetTransitionType(TransitionType.SlideFromBottom);
+            await Navigation.PushModalAsync(new PageUnapprovedCancelContract());
         }
     }
 }

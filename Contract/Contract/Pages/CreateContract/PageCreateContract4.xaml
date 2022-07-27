@@ -11,13 +11,13 @@
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,Auto,Auto,100"
+        <Grid RowDefinitions="50,Auto,Auto,100"
               RowSpacing="20"
               Grid.Column="1">
-                <view:ViewNavigationBar BackImage="back_left_white"  
-                                        Style="{StaticResource naviBarSignUp}"
-                                        Title="{x:Static resource:AppResource.CreateContract}"
-                                        UseWhite="True"/>
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="{x:Static resource:AppResource.CreateContract}"
+                                    UseWhite="True"/>
             <StackLayout Spacing="-5" 
                          Grid.Row="1">
                 <Label x:Name="lbStep" 
@@ -264,6 +264,7 @@
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.ButtonFinished}"
                     Margin="5,0,5,20"
+                    Clicked="Finished_Clicked"
                     Grid.Row="3"/>
         </Grid>
     </Grid>

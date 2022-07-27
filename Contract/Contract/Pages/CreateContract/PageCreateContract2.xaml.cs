@@ -16,12 +16,14 @@ namespace Contract.Pages.CreateContract
         private bool yes2 = true;
         public PageCreateContract2()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            SetModel(new ViewModel.BaseModel());
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            Model.Parent = Parent;
 
             lbStep.Text = RSC.Step + " #1";
         }
@@ -52,6 +54,12 @@ namespace Contract.Pages.CreateContract
                 imYesNo2.Source = "uz_Yes";
                 yes2 = true;
             }
+        }
+
+        private async void Next_Clicked(object sender, EventArgs e)
+        {
+            Model.SetTransitionType();
+            await Navigation.PushAsync(new PageCreateContract3());
         }
     }
 }

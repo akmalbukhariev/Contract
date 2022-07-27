@@ -16,11 +16,13 @@ namespace Contract.Pages.CreateContract
         public PageCreateContract4()
         {
             InitializeComponent();
+            SetModel(new ViewModel.BaseModel());
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            Model.Parent = Parent;
 
             lbStep.Text = RSC.Step + " #2"; 
         }
@@ -73,6 +75,12 @@ namespace Contract.Pages.CreateContract
 
             boxView.BackgroundColor = Color.FromHex("#E6E6E6");
             await Task.Delay(200);
+        }
+
+        private async void Finished_Clicked(object sender, EventArgs e)
+        {
+            Model.SetTransitionType();
+            await Navigation.PushAsync(new PageCreateContract5());
         }
     }
 }

@@ -22,7 +22,14 @@ namespace Contract.Pages
             this.Detail = new TransitionNavigationPage(main);
 
             pMenu.EventNavigatePage += EventNavigatePage;
+            main.EventNavigatePage += EventNavigatePage;
             main.EventShowMenu += EventShowMenu;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            IsGestureEnabled = true;
         }
 
         private void EventShowMenu(bool show)
@@ -33,6 +40,7 @@ namespace Contract.Pages
         private async void EventNavigatePage(Page page = null)
         {
             IsPresented = false;
+            IsGestureEnabled = false;
 
             if (page == null) return;
 
@@ -41,6 +49,8 @@ namespace Contract.Pages
                 transitionNavigationPage.TransitionType = TransitionType.SlideFromRight;
 
             await Navigation.PushAsync(page);
+
+            //this.Detail = new TransitionNavigationPage(page);
         } 
     }
 }

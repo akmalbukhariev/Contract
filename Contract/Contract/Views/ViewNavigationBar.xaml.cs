@@ -84,6 +84,7 @@ namespace Contract.Views
         #endregion
 
         public bool UseWhite { get; set; } = false;
+        public bool IsThisModalPage { get; set; } = false;
         public ViewNavigationBar()
         {
             InitializeComponent();
@@ -102,8 +103,10 @@ namespace Contract.Views
             im.Source = UseWhite ? "back_left_white" : "back_left_gray";
             await Task.Delay(200);
 
-            //await Shell.Current.GoToAsync("..");
-            await Navigation.PopAsync();
+            if (IsThisModalPage)
+                await Navigation.PopModalAsync();
+            else
+                await Navigation.PopAsync();
         }
     }
 }

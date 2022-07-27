@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Contract.Model;
+using Contract.Pages.UnapprovedContracts;
 using Xamarin.Forms;
 
 namespace Contract.ViewModel.Pages.UnapprovedContracts
@@ -16,7 +17,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
 
         public ObservableCollection<UnapprovedContract> DataList { get; set; }
 
-        public PageTableViewModel()
+        public PageTableViewModel(INavigation navigation) : base(navigation)
         { 
             DataList = new ObservableCollection<UnapprovedContract>(); 
         }
@@ -29,12 +30,18 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
         {
             await Task.Delay(100);
             ShowConfirmBox = false;
+
+            SetTransitionType(TransitionType.SlideFromBottom);
+            await Navigation.PushModalAsync(new PageContractSpecialCode());
         }
 
         private async void ClickERI()
         {
             await Task.Delay(100);
             ShowConfirmBox = false;
+
+            SetTransitionType(TransitionType.SlideFromBottom);
+            await Navigation.PushModalAsync(new PageERIKey());
         }
         #endregion
 

@@ -20,6 +20,7 @@ namespace Contract.Pages.CreateContract
         public PageCreateContract3()
         {
             InitializeComponent();
+            SetModel(new ViewModel.BaseModel());
 
             lbYesNo1.Text = RSC.Question1;
             lbYesNo2.Text = RSC.Question2;
@@ -29,7 +30,7 @@ namespace Contract.Pages.CreateContract
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            Model.Parent = Parent;
             lbStep.Text = RSC.Step + " #1";
         }
 
@@ -101,6 +102,12 @@ namespace Contract.Pages.CreateContract
                 imYesNo5.Source = "uz_Yes";
                 yes5 = true;
             }
+        }
+
+        private async void Save_Clicked(object sender, EventArgs e)
+        {
+            Model.SetTransitionType();
+            await Navigation.PushAsync(new PageCreateContract4());
         }
     }
 }

@@ -11,9 +11,9 @@
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,Auto,Auto,100"
+        <Grid RowDefinitions="50,Auto,Auto,100"
               RowSpacing="20"
-              Grid.Column="1">
+              Grid.Column="1">  
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     Title="{x:Static resource:AppResource.CreateContract}"
@@ -32,8 +32,8 @@
                      Margin="0,0,0,20"
                      Grid.RowSpan="3"
                      Grid.Row="2"/>
-            <ScrollView VerticalOptions="FillAndExpand" 
-                        Margin="0,0,0,-20"
+            <ScrollView Margin="0,0,0,-20"
+                        VerticalOptions="EndAndExpand"
                         Grid.Row="2">
                 <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
                       RowSpacing="15"
@@ -210,7 +210,9 @@
             </ScrollView>
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.Save}"
+                    VerticalOptions="End"
                     Margin="5,0,5,20"
+                    Clicked="Save_Clicked"
                     Grid.Row="3"/>
         </Grid>
     </Grid>
