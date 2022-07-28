@@ -12,7 +12,10 @@ namespace Contract.Pages
     {
         public delegate void NavigatePage(Page page);
         public event NavigatePage EventNavigatePage;
-          
+
+        public delegate void ShowMenu(bool show);
+        public event ShowMenu EventShowMenu;
+
         public Control.ControlApp ControlApp => Control.ControlApp.Instance;
 
         protected BaseModel Model;
@@ -52,6 +55,11 @@ namespace Contract.Pages
         protected virtual void OnNavigatePage(Page page = null)
         {
             EventNavigatePage?.Invoke(page);
+        }
+
+        protected virtual void OnShowMenu(bool show)
+        {
+            EventShowMenu?.Invoke(show);
         }
     }
 }

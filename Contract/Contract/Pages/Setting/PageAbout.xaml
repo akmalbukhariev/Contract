@@ -45,15 +45,14 @@
                        FontAttributes="Bold"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
-            
+            </StackLayout> 
             <Line BackgroundColor="LightGray"
                   Margin="20,0,20,0"
                   Grid.Row="2"/>
             <WebView x:Name="webInfo"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"
-                     Margin="20,0,20,0"
+                     Margin="20,0,20,20"
                      Grid.Row="3"/>
         </Grid>
     </Grid>

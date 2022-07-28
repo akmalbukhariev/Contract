@@ -61,7 +61,7 @@ namespace Contract.Pages.Setting
             Model.SetTransitionType();
             if (sender == cellLanguage)
             {
-                await Navigation.PushAsync(new PageLanguage());
+                await Navigation.PushAsync(new PageLanguage(true));
             }
             else if (sender == cellAbout)
             {

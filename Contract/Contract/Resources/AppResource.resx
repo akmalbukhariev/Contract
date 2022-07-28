@@ -118,807 +118,791 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>Dastur haqida</value>
+    <value>About the program</value>
     <comment>Setting</comment>
   </data>
   <data name="AboutSoftware" xml:space="preserve">
-    <value>Dasturiy ta'minot haqida</value>
+    <value>About the software</value>
     <comment>Menu</comment>
   </data>
   <data name="AccountantName" xml:space="preserve">
-    <value>Bosh xisobchi F.I.O</value>
+    <value>Accountant Name</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AccountNumber" xml:space="preserve">
-    <value>Xisob raqami</value>
+    <value>Account Number</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Active" xml:space="preserve">
-    <value>Amaldagi</value>
+    <value>Active</value>
     <comment>CurrentContracts</comment>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Qo'shish</value>
+    <value>Add</value>
     <comment>Customers</comment>
   </data>
   <data name="AddBigBottomClause" xml:space="preserve">
-    <value>Pastga katta band qo'shish</value>
+    <value>Add Big Bottom Clause</value>
     <comment>Template Contract</comment>
   </data>
   <data name="AddBigUpClause" xml:space="preserve">
-    <value>Yuqoriga katta band qo'shish</value>
+    <value>Add Big Up Clause</value>
     <comment>Template Contract</comment>
   </data>
   <data name="AddClause" xml:space="preserve">
-    <value>Band qo'shish</value>
+    <value>Add Clause</value>
     <comment>Template Contract</comment>
   </data>
   <data name="AddCopy" xml:space="preserve">
-    <value>Yangi qo'shish (nusxa)</value>
+    <value>Add Copy</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddEmpty" xml:space="preserve">
-    <value>Yangi qo'shish (bo'sh)</value>
+    <value>Add Empty</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddNewCustomer" xml:space="preserve">
-    <value>Yangi mijoz qo'shish</value>
+    <value>Add New Customer</value>
     <comment>Customers</comment>
   </data>
   <data name="AddressOfCompany" xml:space="preserve">
-    <value>Korxona manzili</value>
+    <value>Address Of Company</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="AddSmallBottomClause" xml:space="preserve">
-    <value>Pastga kichik band qo'shish</value>
+    <value>Add Small Bottom Clause</value>
     <comment>Template Contract</comment>
   </data>
   <data name="AddSmallUpClause" xml:space="preserve">
-    <value>Yuqoriga kichik band qo'shish</value>
+    <value>Add Small Up Clause</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Agree" xml:space="preserve">
-    <value>Roziman</value>
+    <value>Agree</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AllContracts" xml:space="preserve">
-    <value>Shartnomalar</value>
+    <value>All Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="AmountOfQQS" xml:space="preserve">
-    <value>QQS miqdori</value>
+    <value>Amount Of  VAT</value>
     <comment>CreateContract</comment>
   </data>
   <data name="ApplicableContracts1" xml:space="preserve">
-    <value>Amaldagi shartnomalar</value>
+    <value>Applicable Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="ApplicableContracts2" xml:space="preserve">
-    <value>Amaldagi 
-shartnomalar</value>
+    <value>Applicable Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>Shartnoma maker</value>
+    <value>Contract Maker</value>
     <comment>Language</comment>
   </data>
   <data name="AreYou_QQS_Payer" xml:space="preserve">
-    <value>Siz QQS to'lovchimisiz?</value>
+    <value>Are you a tax payer?</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="BankCode" xml:space="preserve">
-    <value>Bank kodi</value>
+    <value>Bank Code</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="ButtonFinished" xml:space="preserve">
-    <value>Yakunlash</value>
+    <value>Finished</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="ButtonNext" xml:space="preserve">
-    <value>Keyingisi</value>
+    <value>Next</value>
     <comment>SpecialCode</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Bekor qilish</value>
+    <value>Cancel</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="CanceledContracts" xml:space="preserve">
-    <value>Bekor qilingan shartnomalar</value>
+    <value>Canceled Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="CancellationComment" xml:space="preserve">
-    <value>Bekor qilishga asoslangan izoxni kiriting</value>
+    <value>Enter the basis for terminating contracts</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="CancelTerminationOfContractNo" xml:space="preserve">
-    <value> sonli shartnomani bekor qilish</value>
+    <value>Cancel Termination of Contract No.</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ChangePassword" xml:space="preserve">
-    <value>Account parolini tahrirlash</value>
+    <value>Change account password</value>
     <comment>Change password</comment>
   </data>
   <data name="ChiefAccountantName" xml:space="preserve">
-    <value>Bosh hisobchi F.I.O</value>
+    <value>Chief Accountant Name</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="ChiefName" xml:space="preserve">
-    <value>Rahbar F.I.O</value>
+    <value>Chief Name</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Clauses" xml:space="preserve">
-    <value>Bandlar</value>
+    <value>Clauses</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Comment" xml:space="preserve">
-    <value>Izox</value>
+    <value>Comment</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="CompanyContractorName" xml:space="preserve">
-    <value>Korxona (kontragent) nomi</value>
+    <value>Company Contractor Name</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="CompanyLogo" xml:space="preserve">
-    <value>Korxona logotipi</value>
+    <value>Company Logo</value>
     <comment>Menu</comment>
   </data>
   <data name="CompanyName" xml:space="preserve">
-    <value>Korxona nomi</value>
+    <value>Company Name</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="CompanySTIRi" xml:space="preserve">
-    <value>Korxona STIRi</value>
+    <value>TIN of the enterprise</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Confirmation" xml:space="preserve">
-    <value>Tasdiqlash</value>
+    <value>Confirmation</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ConfirmationBySpecialCode" xml:space="preserve">
-    <value>Maxsus kod orqali tasdiqlash</value>
+    <value>Confirm By Special Code</value>
     <comment>ViewConfirm</comment>
   </data>
   <data name="ConfirmByDigitalSignature" xml:space="preserve">
-    <value>elektron raqamli imzo kaliti orqali tasdiqlash</value>
+    <value>Confirm By Digital Signature</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Congratulations" xml:space="preserve">
-    <value>Tabriklaymiz!</value>
+    <value>Congratulations!</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="Continue" xml:space="preserve">
-    <value>Davom ettirish </value>
+    <value>Continue</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="ContractNumber" xml:space="preserve">
-    <value>Shartnoma raqami</value>
+    <value>Contract Number</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ContractNumberSequence" xml:space="preserve">
-    <value>Shartnoma raqam ketma-ketligi</value>
+    <value>Contract number sequence</value>
     <comment>Menu</comment>
   </data>
   <data name="ContractPrice" xml:space="preserve">
-    <value>Shartnoma Narxi</value>
+    <value>Contract Price</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ContractTemplates" xml:space="preserve">
-    <value>Shartnoma shablonlari</value>
+    <value>Contract Templates</value>
     <comment>Menu</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
-    <value>Yuriskonsultant F.I.O</value>
+    <value>Counsel Name</value>
     <comment>CreateContract</comment>
   </data>
   <data name="CreateContract" xml:space="preserve">
-    <value>Shartnoma tuzish</value>
+    <value>Create Contract</value>
     <comment>Main</comment>
   </data>
   <data name="CreateContractNumber" xml:space="preserve">
-    <value>Shartnoma raqamini yaratish</value>
+    <value>Create Contract Number</value>
     <comment>Menu</comment>
   </data>
   <data name="CreatingContractTemplate" xml:space="preserve">
-    <value>Shartnoma shablonini yaratish</value>
+    <value>Creating Contract Template</value>
     <comment>Menu</comment>
   </data>
   <data name="CTRiOfCompany" xml:space="preserve">
-    <value>Korxona CTIRi</value>
+    <value>Company TIN</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="CurrencyOfTheContract" xml:space="preserve">
-    <value>Shartnomaning pul birligi</value>
+    <value>Contract currency</value>
     <comment>CreateContract</comment>
   </data>
   <data name="CurrentContracts" xml:space="preserve">
-    <value>Amaldagi shartnomalar</value>
+    <value>Current Contracts</value>
     <comment>CurrentContracts</comment>
   </data>
   <data name="Customers" xml:space="preserve">
-    <value>Mijozlar</value>
+    <value>Customers</value>
     <comment>Menu</comment>
   </data>
   <data name="CustomerType" xml:space="preserve">
-    <value>Murojat turi</value>
+    <value>Customer Type</value>
     <comment>Offer and objection</comment>
   </data>
   <data name="D" xml:space="preserve">
-    <value>K</value>
+    <value>D</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="D1" xml:space="preserve">
-    <value>K - </value>
+    <value>D1</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="DateOfContract" xml:space="preserve">
-    <value>Shartnoma sanasi</value>
+    <value>Date Of Contract</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Day" xml:space="preserve">
-    <value>Kun</value>
+    <value>Day</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="DayText" xml:space="preserve">
-    <value>(Faqat ikki katakdan iborat bo'lsin)</value>
+    <value>(Text of the day)</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>O'chirish</value>
+    <value>Delete</value>
     <comment>CreateContract</comment>
   </data>
   <data name="DeleteClause" xml:space="preserve">
-    <value>Bandni o'chirish</value>
+    <value>Delete Clause</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Matn</value>
+    <value>Description</value>
     <comment>Offer and objection</comment>
   </data>
   <data name="EditAccountPassword" xml:space="preserve">
-    <value>Akkaunt parolini tahrirlash</value>
+    <value>Edit Account Password</value>
     <comment>Menu</comment>
   </data>
   <data name="EditContractNumberTitle1" xml:space="preserve">
-    <value>Barcha kataklarga ixtiyoriy belgilarni qo'yish mumkin</value>
+    <value>All cells can be filled with arbitrary characters</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractNumberTitle2" xml:space="preserve">
-    <value>Bo'sh qolgan kataklar inobatga olinmaydi</value>
+    <value>Empty cells are not counted</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractNumberTitle3" xml:space="preserve">
-    <value>Kataklarga kiritilgan identifikatsion belgilarning to'g'riligiga va yoriqnoma asosan to'ldirilganiga e'tibor bering. Ushbu raqamlar yaratilgan shartnomalarning ajralmas qismi bo'lib qoladi.</value>
+    <value>Pay attention to the correctness of the identification marks entered in the cells and that they are filled in according to the instructions. These numbers remain an integral part of the created contracts.</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractNumberTitle4" xml:space="preserve">
-    <value>Raqamlar ketma ketligining maksimal miqdori 12 ta simvolni tashkil etadi.</value>
+    <value>The maximum length of a digit sequence is 12 characters.</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractTemplate" xml:space="preserve">
-    <value>Shartnoma shablonlarini tahrirlash</value>
+    <value>Edit contract templates</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Editing" xml:space="preserve">
-    <value>Tahrirlash</value>
+    <value>Editing</value>
     <comment>Template Contract</comment>
   </data>
   <data name="EditingContractNumber" xml:space="preserve">
-    <value>Shartnoma raqamini tahrirlash</value>
+    <value>Editing Contract Number</value>
     <comment>Contract number sequence</comment>
   </data>
   <data name="EditPersonalDetails" xml:space="preserve">
-    <value>Shaxsiy rekvizitlarni tahrirlash</value>
+    <value>Edit Personal Details</value>
     <comment>Edit personal details</comment>
   </data>
   <data name="EditRequisiteInformation" xml:space="preserve">
-    <value>Rekvizit ma'lumotlarini tahrirlash</value>
+    <value>Edit Requisite Information</value>
     <comment>Menu</comment>
   </data>
   <data name="EnterAddressOfCompany" xml:space="preserve">
-    <value>Korxona manzilini kiriting</value>
+    <value>Enter Address Of Company</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="EnterBankCode" xml:space="preserve">
-    <value>Bank kodini kiriting</value>
+    <value>Enter Bank Code</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="EnterCompanyName" xml:space="preserve">
-    <value>Korxona nomini kiriting</value>
+    <value>Enter Company Name</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="EnterCurrentPassword" xml:space="preserve">
-    <value>Amaldagi parolni kiriting</value>
+    <value>Enter Current Password</value>
     <comment>Change password</comment>
   </data>
   <data name="EnterNameOfBank" xml:space="preserve">
-    <value>Bank nomini kiriting</value>
+    <value>Enter Name of Bank</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="EnterNewPassword" xml:space="preserve">
-    <value>Yangi parolni kiriting</value>
+    <value>Enter New Password</value>
     <comment>Change password</comment>
   </data>
   <data name="EnterPassword" xml:space="preserve">
-    <value>Shaxsiy parolni kiriting</value>
+    <value>Enter Password</value>
     <comment>NewPassword</comment>
   </data>
   <data name="EnterPasswordAgain" xml:space="preserve">
-    <value>Shaxsiy parolni qayta kiriting</value>
+    <value>Re-enter your personal password</value>
     <comment>NewPassword</comment>
   </data>
   <data name="EnterSpecialCode" xml:space="preserve">
-    <value>Maxsus kodni kiriting</value>
+    <value>Enter Special Code</value>
     <comment>SpecialCode</comment>
   </data>
   <data name="FillInfoDescription" xml:space="preserve">
-    <value>Rekvizit ma'lumotlar to'g'irligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi</value>
+    <value>Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement.</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="FillInfoTitle" xml:space="preserve">
-    <value>Iltimos, korxonangizning rekvizitlarini kiriting.</value>
+    <value>Please enter your company information.</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="FirstAndLastName" xml:space="preserve">
-    <value>F.I.O</value>
+    <value>First And Last Name</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Goods" xml:space="preserve">
-    <value>Tovar</value>
+    <value>Goods</value>
     <comment>CreateContract</comment>
   </data>
   <data name="IdentificationMarks" xml:space="preserve">
-    <value>Identifikasion belgilar</value>
+    <value>Identification Marks</value>
     <comment>Contract number sequence</comment>
   </data>
   <data name="IDNumber" xml:space="preserve">
-    <value>ID raqamingiz</value>
+    <value>ID Number</value>
     <comment>Main</comment>
   </data>
   <data name="Info1" xml:space="preserve">
-    <value>Rekvizit ma'lumotlar to'g'riligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi</value>
+    <value>Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement.</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Info2" xml:space="preserve">
-    <value>Narxi bir o'lchov birligi uchun</value>
+    <value>The price is per unit of measure</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Info3" xml:space="preserve">
-    <value>Xizmat ko'rsatish ma'lumotlari to'g'riligiga e'tibor bering. Ushbuma'lumotlar shartnomada bajaruvchi tomonidan amalga oshiriladigan asosiy ish sifatida foydalaniladi</value>
+    <value>Pay attention to the reliability of service information. This information is used as the main work performed by the contractor in the contract.</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Info4" xml:space="preserve">
-    <value>Shartnomaning xizmat 
- ma'lumotlarini qo'shish</value>
+    <value>Add contract service details</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Info5" xml:space="preserve">
-    <value>Kelishuvchilarning rekvizit 
- ma'lumotlarini qo'shish</value>
+    <value>Add contractor information</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Info6" xml:space="preserve">
-    <value>Shartnomaning xizmat 
- ma'lumotlari</value>
+    <value>Service information of the contract</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Info7" xml:space="preserve">
-    <value>Kelishuvchilarning rekvizit 
- ma'lumotlari</value>
+    <value>Details of contractors</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Info8" xml:space="preserve">
-    <value>Iltimos, o'zingizga qulay bo'lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
+    <value>Please enter a complex password that is comfortable for you and remember it. This password is required when logging in</value>
     <comment>Change password</comment>
   </data>
   <data name="Info9" xml:space="preserve">
-    <value>Iltimos, o'zingizga qulay bo'lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
+    <value>Please enter a complex password that is comfortable for you and remember it. This password is required when logging in</value>
     <comment>Change password</comment>
   </data>
   <data name="Intro1_1" xml:space="preserve">
-    <value>ISTALGAN JOYDA SHARTNOMA TUZISH</value>
+    <value>SIGN A CONTRACT ANYWHERE</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro1_2" xml:space="preserve">
-    <value>Ofisda bo'lmang, bug'galterni kutmang.  
-O'zingizga qulay vaqtda, qulay joyda 
-shartnomalarni tuzing.</value>
+    <value>No need to be in the office, no need to wait for an accountant. Sign contracts at a convenient time for you, in a convenient place.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro2_1" xml:space="preserve">
-    <value>TAYYOR SHARTNOMANI ONSON JO'NATISH</value>
+    <value>CONVENIENT SENDING THE READY AGREEMENT</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro2_2" xml:space="preserve">
-    <value>Shartnomalarni qo'lda olib borish 
- shart emas. Ularni istalgan messenjer 
- orqali PDF formatida yuvorish.</value>
+    <value>Contracts do not need to be manually transferred. Send them in PDF format via any messenger.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro3_1" xml:space="preserve">
-    <value>QISQA MUDDATDA SHARTNOMA TUZISH</value>
+    <value>Conclude a short-term contract</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro3_2" xml:space="preserve">
-    <value>Endi shartnoma tuzish ko'p vaqt olmaydi. 
- Shunchaki asosiy ma'lumotlarni 
- to'ldiring va shartnoma tayyor.</value>
+    <value>Now the conclusion of the contract does not take much time. Just fill in the basic information and the contract is ready.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro4_1" xml:space="preserve">
-    <value>QULAY SHABLONLAR YARATISH</value>
+    <value>CREATE EASY TEMPLATES</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro4_2" xml:space="preserve">
-    <value>Shartnoma tuzish uchu o'z huquqlar, 
- talablar va imidjingizga mos 
- shablonlarni yaratib, 
- ulardan onson foydalaning.</value>
+    <value>Create and easily use templates that match your rights, requirements and image to conclude a contract.</value>
     <comment>Introduction</comment>
   </data>
   <data name="IsCounterProvided" xml:space="preserve">
-    <value>Hisobchi ko'zda tutilganmi?</value>
+    <value>Is an accountant provided?</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="IsLegalCounselProvided" xml:space="preserve">
-    <value>Yurist konsultant ko'zda tutilganmi?</value>
+    <value>Is Legal Counsel provided?</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Til</value>
+    <value>Language</value>
     <comment>Setting</comment>
   </data>
   <data name="LegalConsultantName" xml:space="preserve">
-    <value>Yurist konsultant F.I.O</value>
+    <value>Legal Consultant Name</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="ListOfCustomers" xml:space="preserve">
-    <value>Mijozlar ro'yxati</value>
+    <value>List Of Customers</value>
     <comment>CreateContract</comment>
   </data>
   <data name="LoginInfo1_1" xml:space="preserve">
-    <value>FOYDA VA ZARARLARNI TAHLIL QILISH</value>
+    <value>PROFIT AND LOSS ANALYSIS</value>
     <comment>LoginInfo</comment>
   </data>
   <data name="LoginInfo1_2" xml:space="preserve">
-    <value>Barcha bajarilgan amalyotlar bo'yicha 
- kirim-chimlarni foyda va zararlarga 
- ajrating</value>
+    <value>Divide all actions by profit and loss across all completed transactions</value>
     <comment>LoginInfo</comment>
   </data>
   <data name="LoginSystem" xml:space="preserve">
-    <value>Tizimga kirish</value>
+    <value>Login System</value>
     <comment>LoginInfo</comment>
   </data>
   <data name="Logotip" xml:space="preserve">
-    <value>Logotip</value>
+    <value>Logo</value>
     <comment>Customers</comment>
   </data>
   <data name="M" xml:space="preserve">
-    <value>O</value>
+    <value>M</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="M1" xml:space="preserve">
-    <value>O - </value>
+    <value>M1</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="Message1" xml:space="preserve">
-    <value>Ayni damda tadiqlanmagan shartnomalar mavjud emas.</value>
+    <value>There are currently no unconfirmed contracts.</value>
     <comment>Message</comment>
   </data>
   <data name="Message2" xml:space="preserve">
-    <value>Ayni damda tasdiqlanmagan
-shartnomalar mavjud emas.</value>
+    <value>There are currently no unconfirmed contracts.</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Message3" xml:space="preserve">
-    <value>Ayni damda amaldagi
-shartnomalar mavjud emas.</value>
+    <value>There are currently no active contracts.</value>
     <comment>CurrentContracts</comment>
   </data>
   <data name="Message4" xml:space="preserve">
-    <value>Ayni damda bekor qilingan
-shartnomalar mavjud emas.</value>
+    <value>There are currently no canceled contracts.</value>
     <comment>CanceledContracts</comment>
   </data>
   <data name="Message5" xml:space="preserve">
-    <value>Ayni damda ushbu bo'lim ish jarayonida.</value>
+    <value>This department is currently under construction.</value>
     <comment>Profit</comment>
   </data>
   <data name="Message6" xml:space="preserve">
-    <value>Ayni damda shartnoma shablonlari ro'yxati mavjud emas</value>
+    <value>Currently there is no list of available contract templates</value>
     <comment>Customers</comment>
   </data>
   <data name="Message7" xml:space="preserve">
-    <value>Ayni damda  shartnoma raqami ketma-ketligi ro'yxati mavjud emas.</value>
+    <value>There is currently no list of contract number sequences.</value>
     <comment>Contract number sequence</comment>
   </data>
   <data name="Month" xml:space="preserve">
-    <value>Oy</value>
+    <value>Month</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="MonthText" xml:space="preserve">
-    <value> (Faqat ikki katakdan iborat bo'lsin)</value>
+    <value> (Month Text)</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="MyCompany" xml:space="preserve">
-    <value>Mening korxonam</value>
+    <value>My Company</value>
     <comment>Main</comment>
   </data>
   <data name="M_EnterPhoneNumber" xml:space="preserve">
-    <value>Telfon raqamingizni kiriting</value>
+    <value>Enter Phone Number</value>
     <comment>M</comment>
   </data>
   <data name="M_Or" xml:space="preserve">
-    <value>Yoki</value>
+    <value>Or</value>
     <comment>M</comment>
   </data>
   <data name="M_SignUp" xml:space="preserve">
-    <value>Ro'yxatdan o'ting</value>
+    <value>Sign Up</value>
     <comment>M</comment>
   </data>
   <data name="M_Title1" xml:space="preserve">
-    <value>Assalomu alaykum hurmatli mijoz!</value>
+    <value>Hello dear client!</value>
     <comment>M</comment>
   </data>
   <data name="M_Title2" xml:space="preserve">
-    <value>Tizimdan foydalanish uchun avtorizasiya qiling.</value>
+    <value>Log in to use the system.</value>
     <comment>M</comment>
   </data>
   <data name="NameOfBank" xml:space="preserve">
-    <value>Bank nomi</value>
+    <value>Name  Of  Bank</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="NameOfContactTemplate" xml:space="preserve">
-    <value>Shartnoma shabloni nomi</value>
+    <value>Name  Of  Contact  Template</value>
     <comment>Template Contract</comment>
   </data>
   <data name="NameOfServiceType" xml:space="preserve">
-    <value>Xizmat turi nomi</value>
+    <value>Name  Of  Service  Type</value>
     <comment>CreateContract</comment>
   </data>
   <data name="NameOfSignator" xml:space="preserve">
-    <value>Shartnoma imzolovchining F.I.O</value>
+    <value>Full name of the contract signatory</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="NightView" xml:space="preserve">
-    <value>Tungi ko'rinish</value>
+    <value>Night View</value>
     <comment>Setting</comment>
   </data>
   <data name="Offer" xml:space="preserve">
-    <value>Taklif</value>
+    <value>Offer</value>
     <comment>Offer and objection</comment>
   </data>
   <data name="OfferAndObjection" xml:space="preserve">
-    <value>Taklif va e'tiroz</value>
+    <value>Offer And Objection</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+    <comment>Menu</comment>
+  </data>
   <data name="PasswordDescription" xml:space="preserve">
-    <value>Iltimos, o'zingizga qulay bo'lgan murakkab parolni kiriting va unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
+    <value>Enter a complex password that is comfortable for you and remember it. This password is required when logging in.</value>
     <comment>NewPassword</comment>
   </data>
   <data name="Payment" xml:space="preserve">
-    <value>To'lov</value>
+    <value>Payment</value>
     <comment>CurrentContracts</comment>
   </data>
   <data name="PersonalCabinet" xml:space="preserve">
-    <value>Shaxsiy kabinet</value>
+    <value>Personal Cabinet</value>
     <comment>Menu</comment>
   </data>
   <data name="PhoneNumberOfCompany" xml:space="preserve">
-    <value>Korxona telfon raqami</value>
+    <value>Phone Number Of Company</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Please" xml:space="preserve">
-    <value>Iltimos </value>
+    <value>Please</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
-    <value>Iltimos, xizmat ma'lumotlarini kiriting</value>
+    <value>Please Enter Service Info</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Position" xml:space="preserve">
-    <value>Lavozim</value>
+    <value>Position</value>
     <comment>CreateContract</comment>
   </data>
   <data name="PositionOfSignator" xml:space="preserve">
-    <value>Shartnoma imzolovchinning lavozimi</value>
+    <value>Position of the signatory of the agreement</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Preparer" xml:space="preserve">
-    <value>Tayyorlovchi</value>
+    <value>Preparer</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="PressTheButton" xml:space="preserve">
-    <value>tugmasini bosing</value>
+    <value>Press The Button</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="ProfitAndLoss" xml:space="preserve">
-    <value>Foyda va zarar</value>
+    <value>Profit And Loss</value>
     <comment>Menu</comment>
   </data>
   <data name="ProposalsAndObjections" xml:space="preserve">
-    <value>Taklif va e'tirozlar</value>
+    <value>Proposals And Objections</value>
     <comment>Menu</comment>
   </data>
   <data name="PurposeOfContract" xml:space="preserve">
-    <value>Shartnoma maqsadi</value>
+    <value>Purpose Of Contract</value>
     <comment>CreateContract</comment>
   </data>
   <data name="QQS_Code" xml:space="preserve">
-    <value>QQS Raqami</value>
+    <value>VAT Code</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Question1" xml:space="preserve">
-    <value>Mijozning (kontragent) 
-rekvizitlari ochiq qolsinmi?</value>
+    <value>Should the details of the client (executor) remain open?</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Question2" xml:space="preserve">
-    <value>Saqlangan mijozlar 
- ro'yxatidan izlaysizmi?</value>
+    <value>Are you searching from the list of saved clients?</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Question3" xml:space="preserve">
-    <value>Iltimos, mijoz (kontragent) 
- rekvizitlarini kiriting</value>
+    <value>Please enter customer (contractor) details</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Question4" xml:space="preserve">
-    <value>Bosh xisobchi ko'zda tutilganmi?</value>
+    <value>Is accountant provided?</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Question5" xml:space="preserve">
-    <value>Yuriskonsultant ko'zda tutilganmi?</value>
+    <value>Is legal counsel provided?</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Question6" xml:space="preserve">
-    <value>Aksiya solig'i stavkasi bormi?</value>
+    <value>Is there an excise tax?</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Question7" xml:space="preserve">
-    <value>Ommaviy oferataga rozimisiz?</value>
+    <value>Do you agree with the public offer?</value>
     <comment>CreateContract</comment>
   </data>
   <data name="RepeatNewPassword" xml:space="preserve">
-    <value>Yangi parolni qayta kiriting</value>
+    <value>Re-enter your new password</value>
     <comment>Change password</comment>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Saqlash</value>
+    <value>Save</value>
     <comment>CreateContract</comment>
   </data>
   <data name="SelectServiceType" xml:space="preserve">
-    <value>Xizmat turi shablonini belgilang</value>
+    <value>Specify a service type template</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Select_ERI_Key" xml:space="preserve">
-    <value>ERI kalitini tanlang</value>
+    <value>Select digital signature key</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Send" xml:space="preserve">
-    <value>Jo'natish</value>
+    <value>Send</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="SendAgain" xml:space="preserve">
-    <value>Kodni qayta yuvorish</value>
+    <value>Send code again</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="SendCodeByTelegram" xml:space="preserve">
-    <value>Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga 
-yuborilgan maxsus kodni kiriting.</value>
+    <value>Enter a special code sent to the phone number you specified via the Telegram network.</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="SendSpecialCode" xml:space="preserve">
-    <value>Kodni qayta yuborish</value>
+    <value>Send code again</value>
     <comment>SpecialCode</comment>
   </data>
   <data name="Service" xml:space="preserve">
-    <value>Xizmat</value>
+    <value>Service</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Sozlamalar</value>
+    <value>Settings</value>
     <comment>Menu</comment>
   </data>
   <data name="SignOut" xml:space="preserve">
-    <value>Tizimdan chiqish</value>
+    <value>Sign Out</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="SignOutText" xml:space="preserve">
+    <value>Do you really want to exit?</value>
     <comment>Menu</comment>
   </data>
   <data name="SignUp" xml:space="preserve">
-    <value>Ro'yxatdan o'tish</value>
+    <value>Sign Up</value>
     <comment>Resource</comment>
   </data>
   <data name="SignUpDescription" xml:space="preserve">
-    <value>Biz sizga telegram tarmog'i orqali maxsus kod yuvoramiz. Shu bois, telfon raqam telegram tarmog'iga ulangan bo'lishi lozim.</value>
+    <value>We will send you a special code via telegram network. Therefore, the phone number must be connected to the Telegram network</value>
     <comment>SignUp</comment>
   </data>
   <data name="SignUpTitle" xml:space="preserve">
-    <value>Telfon raqamingizni kiriting</value>
+    <value>Enter phone number</value>
     <comment>SignUp</comment>
   </data>
   <data name="Skip" xml:space="preserve">
-    <value>O'tkazib yuborish</value>
+    <value>Skip</value>
     <comment>Introduction</comment>
   </data>
   <data name="SkippedTimeText" xml:space="preserve">
-    <value>Siz kutish vaqtini o'tkazib yubordingiz. Iltimos kodni qayta yuvorish tugmasini bosing</value>
+    <value>You missed the waiting time. Please click the Resend Code button</value>
     <comment>Skipped Time</comment>
   </data>
   <data name="SpecialCodeDescription" xml:space="preserve">
-    <value>Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting.</value>
+    <value>Enter a special code sent to the phone number you specified via the Telegram network.</value>
     <comment>SpecialCode</comment>
   </data>
   <data name="SpecialPart" xml:space="preserve">
-    <value>Asosiy qisim</value>
+    <value>Special Part</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Step" xml:space="preserve">
-    <value>Bosqich</value>
+    <value>Step</value>
     <comment>CreateContract</comment>
   </data>
   <data name="SuccessfullyCompleted" xml:space="preserve">
-    <value>muvaffaqiyatli yakunladingiz.</value>
+    <value>Successfully Completed.</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="Templates" xml:space="preserve">
-    <value>Shablonlar</value>
+    <value>Templates</value>
     <comment>Menu</comment>
   </data>
   <data name="TerminationOfContract" xml:space="preserve">
-    <value>sonli shartnomani</value>
+    <value>Termination Of Contract</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ToMakeContract" xml:space="preserve">
-    <value>Siz shartnoma tuzishni</value>
+    <value>To Make Contract</value>
     <comment>CreateContract</comment>
   </data>
   <data name="ToRegister" xml:space="preserve">
-    <value>Siz ro'yxatdan o'tishni</value>
+    <value>To Register</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="TotalCostOfTheService" xml:space="preserve">
-    <value>Xizmatning jami narxi:</value>
+    <value>Total Cost Of The Service:</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Unapproved" xml:space="preserve">
-    <value>Tasdiqlanmagan</value>
+    <value>Unapproved</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="UnapprovedContracts" xml:space="preserve">
-    <value>Tasdiqlanmagan shartnomalar</value>
+    <value>Unapproved Contracts</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="UnconfirmedContracts1" xml:space="preserve">
-    <value>Tasdiqlanmagan shartnomalar</value>
+    <value>Unconfirmed Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="UnconfirmedContracts2" xml:space="preserve">
-    <value>Tasdiqlanmagan 
-shartnomalar</value>
+    <value>Unconfirmed Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="UnitOfMeasure" xml:space="preserve">
-    <value>O'lchov birligi</value>
+    <value>Unit Of  Measure</value>
     <comment>CreateContract</comment>
   </data>
   <data name="VerificationBy_ERI_Key" xml:space="preserve">
-    <value>ERI kaliti orqali tasdiqlash</value>
+    <value>Verification by digital signature key</value>
     <comment>ViewConfirm</comment>
   </data>
   <data name="VersionText" xml:space="preserve">
-    <value>Dasturiy ta'minotning versiyasi</value>
+    <value>Version of the app</value>
     <comment>About</comment>
   </data>
   <data name="View" xml:space="preserve">
-    <value>Ko'rish</value>
+    <value>View</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="Voice" xml:space="preserve">
-    <value>Xabarlar ovozi</value>
+    <value>Message sound</value>
     <comment>Setting</comment>
   </data>
   <data name="WaitingTime" xml:space="preserve">
-    <value>Kutish vaqti</value>
+    <value>Waiting Time</value>
     <comment>SpecialCode</comment>
   </data>
   <data name="X" xml:space="preserve">
@@ -930,15 +914,15 @@ shartnomalar</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="XText1" xml:space="preserve">
-    <value> Ketma-ket sanoq tizimi</value>
+    <value>Sequential numbering system</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="XText2" xml:space="preserve">
-    <value> (Kamida uchta katakdan iborat bo'lsin)</value>
+    <value> (Contains at least three cells)</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="XText3" xml:space="preserve">
-    <value> Ushbu identifikatsion belgi bo'lishi shart</value>
+    <value>This identification mark must be present</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="Y" xml:space="preserve">
@@ -950,15 +934,15 @@ shartnomalar</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Yil</value>
+    <value>Year</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="YearText" xml:space="preserve">
-    <value> (Faqat ikki yoki to'rt katakdan iborat bo'lsin)</value>
+    <value> (Contains at least two or four cells)</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="YourIdNumber" xml:space="preserve">
-    <value>Sizning ID raqamingiz</value>
+    <value>Your ID number</value>
     <comment>Finished FillInfo</comment>
   </data>
 </root>

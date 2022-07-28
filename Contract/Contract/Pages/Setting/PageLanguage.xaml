@@ -3,46 +3,60 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
             x:Class="Contract.Pages.Setting.PageLanguage">
 
-    <Grid RowDefinitions="*,*,*,*,50">
-        <view:ViewLanguage FlagImage="uzb_flag"
+    <Grid RowDefinitions="70,*"
+          ColumnDefinitions="10,*,10"
+          RowSpacing="20">
+        <BoxView BackgroundColor="{StaticResource AppColor}"
+                 Grid.ColumnSpan="3"/>
+        <view:ViewNavigationBar x:Name="navigationBar" 
+                                BackImage="back_left_white"  
+                                Style="{StaticResource naviBarSignUp}"
+                                Title="{x:Static resource:AppResource.Language}"
+                                UseWhite="True"
+                                Grid.Column="1"/>
+        <Grid RowDefinitions="*,*,*,*,50"
+              Grid.Row="1"
+              Grid.Column="1">
+            <view:ViewLanguage FlagImage="uzb_flag"
                            TextLanguage="ЎЗБЕКЧA"
                            TextLanguageInfo="Ўзбек (кирил) тилида давом етиш">
-            <view:ViewLanguage.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
-            </view:ViewLanguage.GestureRecognizers>
-        </view:ViewLanguage>
-        <view:ViewLanguage FlagImage="uzb_flag"
+                <view:ViewLanguage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
+                </view:ViewLanguage.GestureRecognizers>
+            </view:ViewLanguage>
+            <view:ViewLanguage FlagImage="uzb_flag"
                            TextLanguage="O'ZBEK"
                            TextLanguageInfo="O'zbek (kiril) tilida davom etish"
                            Grid.Row="1">
-            <view:ViewLanguage.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
-            </view:ViewLanguage.GestureRecognizers>
-        </view:ViewLanguage>
-        <view:ViewLanguage FlagImage="rus_flag" 
+                <view:ViewLanguage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
+                </view:ViewLanguage.GestureRecognizers>
+            </view:ViewLanguage>
+            <view:ViewLanguage FlagImage="rus_flag" 
                            TextLanguage="РУССКИ"
                            TextLanguageInfo="Положить на Русском языке" 
                            Grid.Row="2">
-            <view:ViewLanguage.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
-            </view:ViewLanguage.GestureRecognizers>
-        </view:ViewLanguage>
-        <view:ViewLanguage FlagImage="eng_flag" 
+                <view:ViewLanguage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
+                </view:ViewLanguage.GestureRecognizers>
+            </view:ViewLanguage>
+            <view:ViewLanguage FlagImage="eng_flag" 
                            TextLanguage="ENGLISH"
                            TextLanguageInfo="Continue in English"
                            Grid.Row="3">
-            <view:ViewLanguage.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
-            </view:ViewLanguage.GestureRecognizers>
-        </view:ViewLanguage>
-        <Label x:Name="lbAppVersion" 
+                <view:ViewLanguage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"/>
+                </view:ViewLanguage.GestureRecognizers>
+            </view:ViewLanguage>
+            <Label x:Name="lbAppVersion" 
                VerticalOptions="CenterAndExpand"
                FontFamily="Nunito_Regular"
                HorizontalTextAlignment="Center"
                Margin="0,0,0,10"
                Grid.Row="4"/>
+        </Grid>
     </Grid>
-    
 </page:IPage>

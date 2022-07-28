@@ -24,6 +24,7 @@ namespace Contract.Pages
             pMenu.EventNavigatePage += EventNavigatePage;
             main.EventNavigatePage += EventNavigatePage;
             main.EventShowMenu += EventShowMenu;
+            pMenu.EventShowMenu += EventShowMenu;
         }
 
         protected override void OnAppearing()

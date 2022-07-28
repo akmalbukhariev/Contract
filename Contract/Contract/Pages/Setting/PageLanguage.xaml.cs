@@ -13,9 +13,10 @@ namespace Contract.Pages.Setting
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLanguage : IPage
     {
-        public PageLanguage()
+        public PageLanguage(bool showNavigation = false)
         {
             InitializeComponent();
+            navigationBar.IsVisible = showNavigation;
         }
 
         protected override void OnAppearing()

@@ -59,7 +59,8 @@ namespace Contract.Pages
                     OnNavigatePage(new Setting.PageSuggestion());
                     break;
                 case Constant.Menu9:
-                    bool res = await Application.Current.MainPage.DisplayAlert("Chiqish", "Rosdan ham tizimdan chiqmoqchimisiz?", "Ok", RSC.Cancel);
+                    OnShowMenu(false);
+                    bool res = await Application.Current.MainPage.DisplayAlert(RSC.SignOut, RSC.SignOutText, RSC.Ok, RSC.Cancel);
                     if (res)
                     {
                         //Preferences.Set("AutoLogin", "");

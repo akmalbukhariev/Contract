@@ -13,10 +13,7 @@ namespace Contract.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageMain : IPage
-    {
-        public delegate void ShowMenu(bool show);
-        public event ShowMenu EventShowMenu;
-         
+    {  
         public PageMain()
         {
             InitializeComponent();
@@ -55,7 +52,7 @@ namespace Contract.Pages
         private void ShowMenu_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
-            EventShowMenu?.Invoke(true);
+            OnShowMenu(true);
         }
 
         private void Button_Clicked(object sender, EventArgs e)

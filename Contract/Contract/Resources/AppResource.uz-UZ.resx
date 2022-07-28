@@ -697,6 +697,10 @@ shartnomalar mavjud emas.</value>
     <value>Taklif va e'tiroz</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+    <comment>Menu</comment>
+  </data>
   <data name="PasswordDescription" xml:space="preserve">
     <value>Iltimos, o'zingizga qulay bo'lgan murakkab parolni kiriting va unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
     <comment>NewPassword</comment>
@@ -827,6 +831,10 @@ yuborilgan maxsus kodni kiriting.</value>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Tizimdan chiqish</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="SignOutText" xml:space="preserve">
+    <value>Haqiqatan ham chiqishni xohlaysizmi?</value>
     <comment>Menu</comment>
   </data>
   <data name="SignUp" xml:space="preserve">

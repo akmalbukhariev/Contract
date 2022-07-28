@@ -61,7 +61,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dastur haqida.
+        ///   Looks up a localized string similar to About the program.
         /// </summary>
         internal static string About {
             get {
@@ -70,7 +70,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dasturiy ta&apos;minot haqida.
+        ///   Looks up a localized string similar to About the software.
         /// </summary>
         internal static string AboutSoftware {
             get {
@@ -79,7 +79,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bosh xisobchi F.I.O.
+        ///   Looks up a localized string similar to Accountant Name.
         /// </summary>
         internal static string AccountantName {
             get {
@@ -88,7 +88,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xisob raqami.
+        ///   Looks up a localized string similar to Account Number.
         /// </summary>
         internal static string AccountNumber {
             get {
@@ -97,7 +97,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amaldagi.
+        ///   Looks up a localized string similar to Active.
         /// </summary>
         internal static string Active {
             get {
@@ -106,7 +106,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qo&apos;shish.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string Add {
             get {
@@ -115,7 +115,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pastga katta band qo&apos;shish.
+        ///   Looks up a localized string similar to Add Big Bottom Clause.
         /// </summary>
         internal static string AddBigBottomClause {
             get {
@@ -124,7 +124,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yuqoriga katta band qo&apos;shish.
+        ///   Looks up a localized string similar to Add Big Up Clause.
         /// </summary>
         internal static string AddBigUpClause {
             get {
@@ -133,7 +133,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Band qo&apos;shish.
+        ///   Looks up a localized string similar to Add Clause.
         /// </summary>
         internal static string AddClause {
             get {
@@ -142,7 +142,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yangi qo&apos;shish (nusxa).
+        ///   Looks up a localized string similar to Add Copy.
         /// </summary>
         internal static string AddCopy {
             get {
@@ -151,7 +151,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yangi qo&apos;shish (bo&apos;sh).
+        ///   Looks up a localized string similar to Add Empty.
         /// </summary>
         internal static string AddEmpty {
             get {
@@ -160,7 +160,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yangi mijoz qo&apos;shish.
+        ///   Looks up a localized string similar to Add New Customer.
         /// </summary>
         internal static string AddNewCustomer {
             get {
@@ -169,7 +169,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona manzili.
+        ///   Looks up a localized string similar to Address Of Company.
         /// </summary>
         internal static string AddressOfCompany {
             get {
@@ -178,7 +178,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pastga kichik band qo&apos;shish.
+        ///   Looks up a localized string similar to Add Small Bottom Clause.
         /// </summary>
         internal static string AddSmallBottomClause {
             get {
@@ -187,7 +187,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yuqoriga kichik band qo&apos;shish.
+        ///   Looks up a localized string similar to Add Small Up Clause.
         /// </summary>
         internal static string AddSmallUpClause {
             get {
@@ -196,7 +196,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roziman.
+        ///   Looks up a localized string similar to Agree.
         /// </summary>
         internal static string Agree {
             get {
@@ -205,7 +205,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnomalar.
+        ///   Looks up a localized string similar to All Contracts.
         /// </summary>
         internal static string AllContracts {
             get {
@@ -214,7 +214,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QQS miqdori.
+        ///   Looks up a localized string similar to Amount Of  VAT.
         /// </summary>
         internal static string AmountOfQQS {
             get {
@@ -223,7 +223,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amaldagi shartnomalar.
+        ///   Looks up a localized string similar to Applicable Contracts.
         /// </summary>
         internal static string ApplicableContracts1 {
             get {
@@ -232,8 +232,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amaldagi 
-        ///shartnomalar.
+        ///   Looks up a localized string similar to Applicable Contracts.
         /// </summary>
         internal static string ApplicableContracts2 {
             get {
@@ -242,7 +241,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma maker.
+        ///   Looks up a localized string similar to Contract Maker.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -251,7 +250,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Siz QQS to&apos;lovchimisiz?.
+        ///   Looks up a localized string similar to Are you a tax payer?.
         /// </summary>
         internal static string AreYou_QQS_Payer {
             get {
@@ -260,7 +259,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bank kodi.
+        ///   Looks up a localized string similar to Bank Code.
         /// </summary>
         internal static string BankCode {
             get {
@@ -269,7 +268,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yakunlash.
+        ///   Looks up a localized string similar to Finished.
         /// </summary>
         internal static string ButtonFinished {
             get {
@@ -278,7 +277,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keyingisi.
+        ///   Looks up a localized string similar to Next.
         /// </summary>
         internal static string ButtonNext {
             get {
@@ -287,7 +286,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bekor qilish.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Cancel {
             get {
@@ -296,7 +295,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bekor qilingan shartnomalar.
+        ///   Looks up a localized string similar to Canceled Contracts.
         /// </summary>
         internal static string CanceledContracts {
             get {
@@ -305,7 +304,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bekor qilishga asoslangan izoxni kiriting.
+        ///   Looks up a localized string similar to Enter the basis for terminating contracts.
         /// </summary>
         internal static string CancellationComment {
             get {
@@ -314,7 +313,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  sonli shartnomani bekor qilish.
+        ///   Looks up a localized string similar to Cancel Termination of Contract No..
         /// </summary>
         internal static string CancelTerminationOfContractNo {
             get {
@@ -323,7 +322,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account parolini tahrirlash.
+        ///   Looks up a localized string similar to Change account password.
         /// </summary>
         internal static string ChangePassword {
             get {
@@ -332,7 +331,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bosh hisobchi F.I.O.
+        ///   Looks up a localized string similar to Chief Accountant Name.
         /// </summary>
         internal static string ChiefAccountantName {
             get {
@@ -341,7 +340,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rahbar F.I.O.
+        ///   Looks up a localized string similar to Chief Name.
         /// </summary>
         internal static string ChiefName {
             get {
@@ -350,7 +349,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bandlar.
+        ///   Looks up a localized string similar to Clauses.
         /// </summary>
         internal static string Clauses {
             get {
@@ -359,7 +358,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Izox.
+        ///   Looks up a localized string similar to Comment.
         /// </summary>
         internal static string Comment {
             get {
@@ -368,7 +367,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona (kontragent) nomi.
+        ///   Looks up a localized string similar to Company Contractor Name.
         /// </summary>
         internal static string CompanyContractorName {
             get {
@@ -377,7 +376,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona logotipi.
+        ///   Looks up a localized string similar to Company Logo.
         /// </summary>
         internal static string CompanyLogo {
             get {
@@ -386,7 +385,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona nomi.
+        ///   Looks up a localized string similar to Company Name.
         /// </summary>
         internal static string CompanyName {
             get {
@@ -395,7 +394,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona STIRi.
+        ///   Looks up a localized string similar to TIN of the enterprise.
         /// </summary>
         internal static string CompanySTIRi {
             get {
@@ -404,7 +403,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tasdiqlash.
+        ///   Looks up a localized string similar to Confirmation.
         /// </summary>
         internal static string Confirmation {
             get {
@@ -413,7 +412,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maxsus kod orqali tasdiqlash.
+        ///   Looks up a localized string similar to Confirm By Special Code.
         /// </summary>
         internal static string ConfirmationBySpecialCode {
             get {
@@ -422,7 +421,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to elektron raqamli imzo kaliti orqali tasdiqlash.
+        ///   Looks up a localized string similar to Confirm By Digital Signature.
         /// </summary>
         internal static string ConfirmByDigitalSignature {
             get {
@@ -431,7 +430,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tabriklaymiz!.
+        ///   Looks up a localized string similar to Congratulations!.
         /// </summary>
         internal static string Congratulations {
             get {
@@ -440,7 +439,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Davom ettirish .
+        ///   Looks up a localized string similar to Continue.
         /// </summary>
         internal static string Continue {
             get {
@@ -449,7 +448,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma raqami.
+        ///   Looks up a localized string similar to Contract Number.
         /// </summary>
         internal static string ContractNumber {
             get {
@@ -458,7 +457,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma raqam ketma-ketligi.
+        ///   Looks up a localized string similar to Contract number sequence.
         /// </summary>
         internal static string ContractNumberSequence {
             get {
@@ -467,7 +466,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma Narxi.
+        ///   Looks up a localized string similar to Contract Price.
         /// </summary>
         internal static string ContractPrice {
             get {
@@ -476,7 +475,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma shablonlari.
+        ///   Looks up a localized string similar to Contract Templates.
         /// </summary>
         internal static string ContractTemplates {
             get {
@@ -485,7 +484,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yuriskonsultant F.I.O.
+        ///   Looks up a localized string similar to Counsel Name.
         /// </summary>
         internal static string CounselName {
             get {
@@ -494,7 +493,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma tuzish.
+        ///   Looks up a localized string similar to Create Contract.
         /// </summary>
         internal static string CreateContract {
             get {
@@ -503,7 +502,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma raqamini yaratish.
+        ///   Looks up a localized string similar to Create Contract Number.
         /// </summary>
         internal static string CreateContractNumber {
             get {
@@ -512,7 +511,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma shablonini yaratish.
+        ///   Looks up a localized string similar to Creating Contract Template.
         /// </summary>
         internal static string CreatingContractTemplate {
             get {
@@ -521,7 +520,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona CTIRi.
+        ///   Looks up a localized string similar to Company TIN.
         /// </summary>
         internal static string CTRiOfCompany {
             get {
@@ -530,7 +529,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnomaning pul birligi.
+        ///   Looks up a localized string similar to Contract currency.
         /// </summary>
         internal static string CurrencyOfTheContract {
             get {
@@ -539,7 +538,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amaldagi shartnomalar.
+        ///   Looks up a localized string similar to Current Contracts.
         /// </summary>
         internal static string CurrentContracts {
             get {
@@ -548,7 +547,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mijozlar.
+        ///   Looks up a localized string similar to Customers.
         /// </summary>
         internal static string Customers {
             get {
@@ -557,7 +556,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Murojat turi.
+        ///   Looks up a localized string similar to Customer Type.
         /// </summary>
         internal static string CustomerType {
             get {
@@ -566,7 +565,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to K.
+        ///   Looks up a localized string similar to D.
         /// </summary>
         internal static string D {
             get {
@@ -575,7 +574,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to K - .
+        ///   Looks up a localized string similar to D1.
         /// </summary>
         internal static string D1 {
             get {
@@ -584,7 +583,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma sanasi.
+        ///   Looks up a localized string similar to Date Of Contract.
         /// </summary>
         internal static string DateOfContract {
             get {
@@ -593,7 +592,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kun.
+        ///   Looks up a localized string similar to Day.
         /// </summary>
         internal static string Day {
             get {
@@ -602,7 +601,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Faqat ikki katakdan iborat bo&apos;lsin).
+        ///   Looks up a localized string similar to (Text of the day).
         /// </summary>
         internal static string DayText {
             get {
@@ -611,7 +610,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O&apos;chirish.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
             get {
@@ -620,7 +619,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bandni o&apos;chirish.
+        ///   Looks up a localized string similar to Delete Clause.
         /// </summary>
         internal static string DeleteClause {
             get {
@@ -629,7 +628,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Matn.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
         internal static string Description {
             get {
@@ -638,7 +637,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Akkaunt parolini tahrirlash.
+        ///   Looks up a localized string similar to Edit Account Password.
         /// </summary>
         internal static string EditAccountPassword {
             get {
@@ -647,7 +646,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Barcha kataklarga ixtiyoriy belgilarni qo&apos;yish mumkin.
+        ///   Looks up a localized string similar to All cells can be filled with arbitrary characters.
         /// </summary>
         internal static string EditContractNumberTitle1 {
             get {
@@ -656,7 +655,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bo&apos;sh qolgan kataklar inobatga olinmaydi.
+        ///   Looks up a localized string similar to Empty cells are not counted.
         /// </summary>
         internal static string EditContractNumberTitle2 {
             get {
@@ -665,7 +664,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kataklarga kiritilgan identifikatsion belgilarning to&apos;g&apos;riligiga va yoriqnoma asosan to&apos;ldirilganiga e&apos;tibor bering. Ushbu raqamlar yaratilgan shartnomalarning ajralmas qismi bo&apos;lib qoladi..
+        ///   Looks up a localized string similar to Pay attention to the correctness of the identification marks entered in the cells and that they are filled in according to the instructions. These numbers remain an integral part of the created contracts..
         /// </summary>
         internal static string EditContractNumberTitle3 {
             get {
@@ -674,7 +673,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raqamlar ketma ketligining maksimal miqdori 12 ta simvolni tashkil etadi..
+        ///   Looks up a localized string similar to The maximum length of a digit sequence is 12 characters..
         /// </summary>
         internal static string EditContractNumberTitle4 {
             get {
@@ -683,7 +682,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma shablonlarini tahrirlash.
+        ///   Looks up a localized string similar to Edit contract templates.
         /// </summary>
         internal static string EditContractTemplate {
             get {
@@ -692,7 +691,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tahrirlash.
+        ///   Looks up a localized string similar to Editing.
         /// </summary>
         internal static string Editing {
             get {
@@ -701,7 +700,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma raqamini tahrirlash.
+        ///   Looks up a localized string similar to Editing Contract Number.
         /// </summary>
         internal static string EditingContractNumber {
             get {
@@ -710,7 +709,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shaxsiy rekvizitlarni tahrirlash.
+        ///   Looks up a localized string similar to Edit Personal Details.
         /// </summary>
         internal static string EditPersonalDetails {
             get {
@@ -719,7 +718,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rekvizit ma&apos;lumotlarini tahrirlash.
+        ///   Looks up a localized string similar to Edit Requisite Information.
         /// </summary>
         internal static string EditRequisiteInformation {
             get {
@@ -728,7 +727,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona manzilini kiriting.
+        ///   Looks up a localized string similar to Enter Address Of Company.
         /// </summary>
         internal static string EnterAddressOfCompany {
             get {
@@ -737,7 +736,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bank kodini kiriting.
+        ///   Looks up a localized string similar to Enter Bank Code.
         /// </summary>
         internal static string EnterBankCode {
             get {
@@ -746,7 +745,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona nomini kiriting.
+        ///   Looks up a localized string similar to Enter Company Name.
         /// </summary>
         internal static string EnterCompanyName {
             get {
@@ -755,7 +754,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amaldagi parolni kiriting.
+        ///   Looks up a localized string similar to Enter Current Password.
         /// </summary>
         internal static string EnterCurrentPassword {
             get {
@@ -764,7 +763,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bank nomini kiriting.
+        ///   Looks up a localized string similar to Enter Name of Bank.
         /// </summary>
         internal static string EnterNameOfBank {
             get {
@@ -773,7 +772,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yangi parolni kiriting.
+        ///   Looks up a localized string similar to Enter New Password.
         /// </summary>
         internal static string EnterNewPassword {
             get {
@@ -782,7 +781,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shaxsiy parolni kiriting.
+        ///   Looks up a localized string similar to Enter Password.
         /// </summary>
         internal static string EnterPassword {
             get {
@@ -791,7 +790,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shaxsiy parolni qayta kiriting.
+        ///   Looks up a localized string similar to Re-enter your personal password.
         /// </summary>
         internal static string EnterPasswordAgain {
             get {
@@ -800,7 +799,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maxsus kodni kiriting.
+        ///   Looks up a localized string similar to Enter Special Code.
         /// </summary>
         internal static string EnterSpecialCode {
             get {
@@ -809,7 +808,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rekvizit ma&apos;lumotlar to&apos;g&apos;irligiga e&apos;tibor bering. Ushbu ma&apos;lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi.
+        ///   Looks up a localized string similar to Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement..
         /// </summary>
         internal static string FillInfoDescription {
             get {
@@ -818,7 +817,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos, korxonangizning rekvizitlarini kiriting..
+        ///   Looks up a localized string similar to Please enter your company information..
         /// </summary>
         internal static string FillInfoTitle {
             get {
@@ -827,7 +826,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to F.I.O.
+        ///   Looks up a localized string similar to First And Last Name.
         /// </summary>
         internal static string FirstAndLastName {
             get {
@@ -836,7 +835,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tovar.
+        ///   Looks up a localized string similar to Goods.
         /// </summary>
         internal static string Goods {
             get {
@@ -845,7 +844,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifikasion belgilar.
+        ///   Looks up a localized string similar to Identification Marks.
         /// </summary>
         internal static string IdentificationMarks {
             get {
@@ -854,7 +853,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ID raqamingiz.
+        ///   Looks up a localized string similar to ID Number.
         /// </summary>
         internal static string IDNumber {
             get {
@@ -863,7 +862,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rekvizit ma&apos;lumotlar to&apos;g&apos;riligiga e&apos;tibor bering. Ushbu ma&apos;lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi.
+        ///   Looks up a localized string similar to Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement..
         /// </summary>
         internal static string Info1 {
             get {
@@ -872,7 +871,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Narxi bir o&apos;lchov birligi uchun.
+        ///   Looks up a localized string similar to The price is per unit of measure.
         /// </summary>
         internal static string Info2 {
             get {
@@ -881,7 +880,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xizmat ko&apos;rsatish ma&apos;lumotlari to&apos;g&apos;riligiga e&apos;tibor bering. Ushbuma&apos;lumotlar shartnomada bajaruvchi tomonidan amalga oshiriladigan asosiy ish sifatida foydalaniladi.
+        ///   Looks up a localized string similar to Pay attention to the reliability of service information. This information is used as the main work performed by the contractor in the contract..
         /// </summary>
         internal static string Info3 {
             get {
@@ -890,8 +889,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnomaning xizmat 
-        /// ma&apos;lumotlarini qo&apos;shish.
+        ///   Looks up a localized string similar to Add contract service details.
         /// </summary>
         internal static string Info4 {
             get {
@@ -900,8 +898,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kelishuvchilarning rekvizit 
-        /// ma&apos;lumotlarini qo&apos;shish.
+        ///   Looks up a localized string similar to Add contractor information.
         /// </summary>
         internal static string Info5 {
             get {
@@ -910,8 +907,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnomaning xizmat 
-        /// ma&apos;lumotlari.
+        ///   Looks up a localized string similar to Service information of the contract.
         /// </summary>
         internal static string Info6 {
             get {
@@ -920,8 +916,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kelishuvchilarning rekvizit 
-        /// ma&apos;lumotlari.
+        ///   Looks up a localized string similar to Details of contractors.
         /// </summary>
         internal static string Info7 {
             get {
@@ -930,7 +925,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos, o&apos;zingizga qulay bo&apos;lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo&apos;ladi..
+        ///   Looks up a localized string similar to Please enter a complex password that is comfortable for you and remember it. This password is required when logging in.
         /// </summary>
         internal static string Info8 {
             get {
@@ -939,7 +934,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos, o&apos;zingizga qulay bo&apos;lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo&apos;ladi..
+        ///   Looks up a localized string similar to Please enter a complex password that is comfortable for you and remember it. This password is required when logging in.
         /// </summary>
         internal static string Info9 {
             get {
@@ -948,7 +943,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ISTALGAN JOYDA SHARTNOMA TUZISH.
+        ///   Looks up a localized string similar to SIGN A CONTRACT ANYWHERE.
         /// </summary>
         internal static string Intro1_1 {
             get {
@@ -957,9 +952,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ofisda bo&apos;lmang, bug&apos;galterni kutmang.  
-        ///O&apos;zingizga qulay vaqtda, qulay joyda 
-        ///shartnomalarni tuzing..
+        ///   Looks up a localized string similar to No need to be in the office, no need to wait for an accountant. Sign contracts at a convenient time for you, in a convenient place..
         /// </summary>
         internal static string Intro1_2 {
             get {
@@ -968,7 +961,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TAYYOR SHARTNOMANI ONSON JO&apos;NATISH.
+        ///   Looks up a localized string similar to CONVENIENT SENDING THE READY AGREEMENT.
         /// </summary>
         internal static string Intro2_1 {
             get {
@@ -977,9 +970,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnomalarni qo&apos;lda olib borish 
-        /// shart emas. Ularni istalgan messenjer 
-        /// orqali PDF formatida yuvorish..
+        ///   Looks up a localized string similar to Contracts do not need to be manually transferred. Send them in PDF format via any messenger..
         /// </summary>
         internal static string Intro2_2 {
             get {
@@ -988,7 +979,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QISQA MUDDATDA SHARTNOMA TUZISH.
+        ///   Looks up a localized string similar to Conclude a short-term contract.
         /// </summary>
         internal static string Intro3_1 {
             get {
@@ -997,9 +988,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Endi shartnoma tuzish ko&apos;p vaqt olmaydi. 
-        /// Shunchaki asosiy ma&apos;lumotlarni 
-        /// to&apos;ldiring va shartnoma tayyor..
+        ///   Looks up a localized string similar to Now the conclusion of the contract does not take much time. Just fill in the basic information and the contract is ready..
         /// </summary>
         internal static string Intro3_2 {
             get {
@@ -1008,7 +997,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QULAY SHABLONLAR YARATISH.
+        ///   Looks up a localized string similar to CREATE EASY TEMPLATES.
         /// </summary>
         internal static string Intro4_1 {
             get {
@@ -1017,10 +1006,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma tuzish uchu o&apos;z huquqlar, 
-        /// talablar va imidjingizga mos 
-        /// shablonlarni yaratib, 
-        /// ulardan onson foydalaning..
+        ///   Looks up a localized string similar to Create and easily use templates that match your rights, requirements and image to conclude a contract..
         /// </summary>
         internal static string Intro4_2 {
             get {
@@ -1029,7 +1015,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hisobchi ko&apos;zda tutilganmi?.
+        ///   Looks up a localized string similar to Is an accountant provided?.
         /// </summary>
         internal static string IsCounterProvided {
             get {
@@ -1038,7 +1024,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yurist konsultant ko&apos;zda tutilganmi?.
+        ///   Looks up a localized string similar to Is Legal Counsel provided?.
         /// </summary>
         internal static string IsLegalCounselProvided {
             get {
@@ -1047,7 +1033,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Til.
+        ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string Language {
             get {
@@ -1056,7 +1042,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yurist konsultant F.I.O.
+        ///   Looks up a localized string similar to Legal Consultant Name.
         /// </summary>
         internal static string LegalConsultantName {
             get {
@@ -1065,7 +1051,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mijozlar ro&apos;yxati.
+        ///   Looks up a localized string similar to List Of Customers.
         /// </summary>
         internal static string ListOfCustomers {
             get {
@@ -1074,7 +1060,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FOYDA VA ZARARLARNI TAHLIL QILISH.
+        ///   Looks up a localized string similar to PROFIT AND LOSS ANALYSIS.
         /// </summary>
         internal static string LoginInfo1_1 {
             get {
@@ -1083,9 +1069,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Barcha bajarilgan amalyotlar bo&apos;yicha 
-        /// kirim-chimlarni foyda va zararlarga 
-        /// ajrating.
+        ///   Looks up a localized string similar to Divide all actions by profit and loss across all completed transactions.
         /// </summary>
         internal static string LoginInfo1_2 {
             get {
@@ -1094,7 +1078,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tizimga kirish.
+        ///   Looks up a localized string similar to Login System.
         /// </summary>
         internal static string LoginSystem {
             get {
@@ -1103,7 +1087,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logotip.
+        ///   Looks up a localized string similar to Logo.
         /// </summary>
         internal static string Logotip {
             get {
@@ -1112,7 +1096,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O.
+        ///   Looks up a localized string similar to M.
         /// </summary>
         internal static string M {
             get {
@@ -1121,7 +1105,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telfon raqamingizni kiriting.
+        ///   Looks up a localized string similar to Enter Phone Number.
         /// </summary>
         internal static string M_EnterPhoneNumber {
             get {
@@ -1130,7 +1114,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yoki.
+        ///   Looks up a localized string similar to Or.
         /// </summary>
         internal static string M_Or {
             get {
@@ -1139,7 +1123,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ro&apos;yxatdan o&apos;ting.
+        ///   Looks up a localized string similar to Sign Up.
         /// </summary>
         internal static string M_SignUp {
             get {
@@ -1148,7 +1132,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assalomu alaykum hurmatli mijoz!.
+        ///   Looks up a localized string similar to Hello dear client!.
         /// </summary>
         internal static string M_Title1 {
             get {
@@ -1157,7 +1141,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tizimdan foydalanish uchun avtorizasiya qiling..
+        ///   Looks up a localized string similar to Log in to use the system..
         /// </summary>
         internal static string M_Title2 {
             get {
@@ -1166,7 +1150,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O - .
+        ///   Looks up a localized string similar to M1.
         /// </summary>
         internal static string M1 {
             get {
@@ -1175,7 +1159,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda tadiqlanmagan shartnomalar mavjud emas..
+        ///   Looks up a localized string similar to There are currently no unconfirmed contracts..
         /// </summary>
         internal static string Message1 {
             get {
@@ -1184,8 +1168,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda tasdiqlanmagan
-        ///shartnomalar mavjud emas..
+        ///   Looks up a localized string similar to There are currently no unconfirmed contracts..
         /// </summary>
         internal static string Message2 {
             get {
@@ -1194,8 +1177,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda amaldagi
-        ///shartnomalar mavjud emas..
+        ///   Looks up a localized string similar to There are currently no active contracts..
         /// </summary>
         internal static string Message3 {
             get {
@@ -1204,8 +1186,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda bekor qilingan
-        ///shartnomalar mavjud emas..
+        ///   Looks up a localized string similar to There are currently no canceled contracts..
         /// </summary>
         internal static string Message4 {
             get {
@@ -1214,7 +1195,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda ushbu bo&apos;lim ish jarayonida..
+        ///   Looks up a localized string similar to This department is currently under construction..
         /// </summary>
         internal static string Message5 {
             get {
@@ -1223,7 +1204,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda shartnoma shablonlari ro&apos;yxati mavjud emas.
+        ///   Looks up a localized string similar to Currently there is no list of available contract templates.
         /// </summary>
         internal static string Message6 {
             get {
@@ -1232,7 +1213,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayni damda  shartnoma raqami ketma-ketligi ro&apos;yxati mavjud emas..
+        ///   Looks up a localized string similar to There is currently no list of contract number sequences..
         /// </summary>
         internal static string Message7 {
             get {
@@ -1241,7 +1222,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oy.
+        ///   Looks up a localized string similar to Month.
         /// </summary>
         internal static string Month {
             get {
@@ -1250,7 +1231,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  (Faqat ikki katakdan iborat bo&apos;lsin).
+        ///   Looks up a localized string similar to  (Month Text).
         /// </summary>
         internal static string MonthText {
             get {
@@ -1259,7 +1240,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mening korxonam.
+        ///   Looks up a localized string similar to My Company.
         /// </summary>
         internal static string MyCompany {
             get {
@@ -1268,7 +1249,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bank nomi.
+        ///   Looks up a localized string similar to Name  Of  Bank.
         /// </summary>
         internal static string NameOfBank {
             get {
@@ -1277,7 +1258,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma shabloni nomi.
+        ///   Looks up a localized string similar to Name  Of  Contact  Template.
         /// </summary>
         internal static string NameOfContactTemplate {
             get {
@@ -1286,7 +1267,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xizmat turi nomi.
+        ///   Looks up a localized string similar to Name  Of  Service  Type.
         /// </summary>
         internal static string NameOfServiceType {
             get {
@@ -1295,7 +1276,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma imzolovchining F.I.O.
+        ///   Looks up a localized string similar to Full name of the contract signatory.
         /// </summary>
         internal static string NameOfSignator {
             get {
@@ -1304,7 +1285,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tungi ko&apos;rinish.
+        ///   Looks up a localized string similar to Night View.
         /// </summary>
         internal static string NightView {
             get {
@@ -1313,7 +1294,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taklif.
+        ///   Looks up a localized string similar to Offer.
         /// </summary>
         internal static string Offer {
             get {
@@ -1322,7 +1303,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taklif va e&apos;tiroz.
+        ///   Looks up a localized string similar to Offer And Objection.
         /// </summary>
         internal static string OfferAndObjection {
             get {
@@ -1331,7 +1312,16 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos, o&apos;zingizga qulay bo&apos;lgan murakkab parolni kiriting va unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo&apos;ladi..
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a complex password that is comfortable for you and remember it. This password is required when logging in..
         /// </summary>
         internal static string PasswordDescription {
             get {
@@ -1340,7 +1330,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To&apos;lov.
+        ///   Looks up a localized string similar to Payment.
         /// </summary>
         internal static string Payment {
             get {
@@ -1349,7 +1339,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shaxsiy kabinet.
+        ///   Looks up a localized string similar to Personal Cabinet.
         /// </summary>
         internal static string PersonalCabinet {
             get {
@@ -1358,7 +1348,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korxona telfon raqami.
+        ///   Looks up a localized string similar to Phone Number Of Company.
         /// </summary>
         internal static string PhoneNumberOfCompany {
             get {
@@ -1367,7 +1357,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos .
+        ///   Looks up a localized string similar to Please.
         /// </summary>
         internal static string Please {
             get {
@@ -1376,7 +1366,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos, xizmat ma&apos;lumotlarini kiriting.
+        ///   Looks up a localized string similar to Please Enter Service Info.
         /// </summary>
         internal static string PleaseEnterServiceInfo {
             get {
@@ -1385,7 +1375,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lavozim.
+        ///   Looks up a localized string similar to Position.
         /// </summary>
         internal static string Position {
             get {
@@ -1394,7 +1384,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma imzolovchinning lavozimi.
+        ///   Looks up a localized string similar to Position of the signatory of the agreement.
         /// </summary>
         internal static string PositionOfSignator {
             get {
@@ -1403,7 +1393,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tayyorlovchi.
+        ///   Looks up a localized string similar to Preparer.
         /// </summary>
         internal static string Preparer {
             get {
@@ -1412,7 +1402,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tugmasini bosing.
+        ///   Looks up a localized string similar to Press The Button.
         /// </summary>
         internal static string PressTheButton {
             get {
@@ -1421,7 +1411,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Foyda va zarar.
+        ///   Looks up a localized string similar to Profit And Loss.
         /// </summary>
         internal static string ProfitAndLoss {
             get {
@@ -1430,7 +1420,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taklif va e&apos;tirozlar.
+        ///   Looks up a localized string similar to Proposals And Objections.
         /// </summary>
         internal static string ProposalsAndObjections {
             get {
@@ -1439,7 +1429,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shartnoma maqsadi.
+        ///   Looks up a localized string similar to Purpose Of Contract.
         /// </summary>
         internal static string PurposeOfContract {
             get {
@@ -1448,7 +1438,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QQS Raqami.
+        ///   Looks up a localized string similar to VAT Code.
         /// </summary>
         internal static string QQS_Code {
             get {
@@ -1457,8 +1447,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mijozning (kontragent) 
-        ///rekvizitlari ochiq qolsinmi?.
+        ///   Looks up a localized string similar to Should the details of the client (executor) remain open?.
         /// </summary>
         internal static string Question1 {
             get {
@@ -1467,8 +1456,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saqlangan mijozlar 
-        /// ro&apos;yxatidan izlaysizmi?.
+        ///   Looks up a localized string similar to Are you searching from the list of saved clients?.
         /// </summary>
         internal static string Question2 {
             get {
@@ -1477,8 +1465,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iltimos, mijoz (kontragent) 
-        /// rekvizitlarini kiriting.
+        ///   Looks up a localized string similar to Please enter customer (contractor) details.
         /// </summary>
         internal static string Question3 {
             get {
@@ -1487,7 +1474,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bosh xisobchi ko&apos;zda tutilganmi?.
+        ///   Looks up a localized string similar to Is accountant provided?.
         /// </summary>
         internal static string Question4 {
             get {
@@ -1496,7 +1483,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yuriskonsultant ko&apos;zda tutilganmi?.
+        ///   Looks up a localized string similar to Is legal counsel provided?.
         /// </summary>
         internal static string Question5 {
             get {
@@ -1505,7 +1492,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aksiya solig&apos;i stavkasi bormi?.
+        ///   Looks up a localized string similar to Is there an excise tax?.
         /// </summary>
         internal static string Question6 {
             get {
@@ -1514,7 +1501,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ommaviy oferataga rozimisiz?.
+        ///   Looks up a localized string similar to Do you agree with the public offer?.
         /// </summary>
         internal static string Question7 {
             get {
@@ -1523,7 +1510,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yangi parolni qayta kiriting.
+        ///   Looks up a localized string similar to Re-enter your new password.
         /// </summary>
         internal static string RepeatNewPassword {
             get {
@@ -1532,7 +1519,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saqlash.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string Save {
             get {
@@ -1541,7 +1528,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERI kalitini tanlang.
+        ///   Looks up a localized string similar to Select digital signature key.
         /// </summary>
         internal static string Select_ERI_Key {
             get {
@@ -1550,7 +1537,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xizmat turi shablonini belgilang.
+        ///   Looks up a localized string similar to Specify a service type template.
         /// </summary>
         internal static string SelectServiceType {
             get {
@@ -1559,7 +1546,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jo&apos;natish.
+        ///   Looks up a localized string similar to Send.
         /// </summary>
         internal static string Send {
             get {
@@ -1568,7 +1555,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kodni qayta yuvorish.
+        ///   Looks up a localized string similar to Send code again.
         /// </summary>
         internal static string SendAgain {
             get {
@@ -1577,8 +1564,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telegram tarmog&apos;i orqali siz ko&apos;rsatgan telfon raqamiga 
-        ///yuborilgan maxsus kodni kiriting..
+        ///   Looks up a localized string similar to Enter a special code sent to the phone number you specified via the Telegram network..
         /// </summary>
         internal static string SendCodeByTelegram {
             get {
@@ -1587,7 +1573,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kodni qayta yuborish.
+        ///   Looks up a localized string similar to Send code again.
         /// </summary>
         internal static string SendSpecialCode {
             get {
@@ -1596,7 +1582,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xizmat.
+        ///   Looks up a localized string similar to Service.
         /// </summary>
         internal static string Service {
             get {
@@ -1605,7 +1591,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sozlamalar.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
@@ -1614,7 +1600,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tizimdan chiqish.
+        ///   Looks up a localized string similar to Sign Out.
         /// </summary>
         internal static string SignOut {
             get {
@@ -1623,7 +1609,16 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ro&apos;yxatdan o&apos;tish.
+        ///   Looks up a localized string similar to Do you really want to exit?.
+        /// </summary>
+        internal static string SignOutText {
+            get {
+                return ResourceManager.GetString("SignOutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign Up.
         /// </summary>
         internal static string SignUp {
             get {
@@ -1632,7 +1627,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Biz sizga telegram tarmog&apos;i orqali maxsus kod yuvoramiz. Shu bois, telfon raqam telegram tarmog&apos;iga ulangan bo&apos;lishi lozim..
+        ///   Looks up a localized string similar to We will send you a special code via telegram network. Therefore, the phone number must be connected to the Telegram network.
         /// </summary>
         internal static string SignUpDescription {
             get {
@@ -1641,7 +1636,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telfon raqamingizni kiriting.
+        ///   Looks up a localized string similar to Enter phone number.
         /// </summary>
         internal static string SignUpTitle {
             get {
@@ -1650,7 +1645,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O&apos;tkazib yuborish.
+        ///   Looks up a localized string similar to Skip.
         /// </summary>
         internal static string Skip {
             get {
@@ -1659,7 +1654,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Siz kutish vaqtini o&apos;tkazib yubordingiz. Iltimos kodni qayta yuvorish tugmasini bosing.
+        ///   Looks up a localized string similar to You missed the waiting time. Please click the Resend Code button.
         /// </summary>
         internal static string SkippedTimeText {
             get {
@@ -1668,7 +1663,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telegram tarmog&apos;i orqali siz ko&apos;rsatgan telfon raqamiga yuborilgan maxsus kodni kiriting..
+        ///   Looks up a localized string similar to Enter a special code sent to the phone number you specified via the Telegram network..
         /// </summary>
         internal static string SpecialCodeDescription {
             get {
@@ -1677,7 +1672,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Asosiy qisim.
+        ///   Looks up a localized string similar to Special Part.
         /// </summary>
         internal static string SpecialPart {
             get {
@@ -1686,7 +1681,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bosqich.
+        ///   Looks up a localized string similar to Step.
         /// </summary>
         internal static string Step {
             get {
@@ -1695,7 +1690,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to muvaffaqiyatli yakunladingiz..
+        ///   Looks up a localized string similar to Successfully Completed..
         /// </summary>
         internal static string SuccessfullyCompleted {
             get {
@@ -1704,7 +1699,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shablonlar.
+        ///   Looks up a localized string similar to Templates.
         /// </summary>
         internal static string Templates {
             get {
@@ -1713,7 +1708,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to sonli shartnomani.
+        ///   Looks up a localized string similar to Termination Of Contract.
         /// </summary>
         internal static string TerminationOfContract {
             get {
@@ -1722,7 +1717,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Siz shartnoma tuzishni.
+        ///   Looks up a localized string similar to To Make Contract.
         /// </summary>
         internal static string ToMakeContract {
             get {
@@ -1731,7 +1726,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Siz ro&apos;yxatdan o&apos;tishni.
+        ///   Looks up a localized string similar to To Register.
         /// </summary>
         internal static string ToRegister {
             get {
@@ -1740,7 +1735,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xizmatning jami narxi:.
+        ///   Looks up a localized string similar to Total Cost Of The Service:.
         /// </summary>
         internal static string TotalCostOfTheService {
             get {
@@ -1749,7 +1744,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tasdiqlanmagan.
+        ///   Looks up a localized string similar to Unapproved.
         /// </summary>
         internal static string Unapproved {
             get {
@@ -1758,7 +1753,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tasdiqlanmagan shartnomalar.
+        ///   Looks up a localized string similar to Unapproved Contracts.
         /// </summary>
         internal static string UnapprovedContracts {
             get {
@@ -1767,7 +1762,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tasdiqlanmagan shartnomalar.
+        ///   Looks up a localized string similar to Unconfirmed Contracts.
         /// </summary>
         internal static string UnconfirmedContracts1 {
             get {
@@ -1776,8 +1771,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tasdiqlanmagan 
-        ///shartnomalar.
+        ///   Looks up a localized string similar to Unconfirmed Contracts.
         /// </summary>
         internal static string UnconfirmedContracts2 {
             get {
@@ -1786,7 +1780,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O&apos;lchov birligi.
+        ///   Looks up a localized string similar to Unit Of  Measure.
         /// </summary>
         internal static string UnitOfMeasure {
             get {
@@ -1795,7 +1789,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERI kaliti orqali tasdiqlash.
+        ///   Looks up a localized string similar to Verification by digital signature key.
         /// </summary>
         internal static string VerificationBy_ERI_Key {
             get {
@@ -1804,7 +1798,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dasturiy ta&apos;minotning versiyasi.
+        ///   Looks up a localized string similar to Version of the app.
         /// </summary>
         internal static string VersionText {
             get {
@@ -1813,7 +1807,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ko&apos;rish.
+        ///   Looks up a localized string similar to View.
         /// </summary>
         internal static string View {
             get {
@@ -1822,7 +1816,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xabarlar ovozi.
+        ///   Looks up a localized string similar to Message sound.
         /// </summary>
         internal static string Voice {
             get {
@@ -1831,7 +1825,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kutish vaqti.
+        ///   Looks up a localized string similar to Waiting Time.
         /// </summary>
         internal static string WaitingTime {
             get {
@@ -1858,7 +1852,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Ketma-ket sanoq tizimi.
+        ///   Looks up a localized string similar to Sequential numbering system.
         /// </summary>
         internal static string XText1 {
             get {
@@ -1867,7 +1861,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  (Kamida uchta katakdan iborat bo&apos;lsin).
+        ///   Looks up a localized string similar to  (Contains at least three cells).
         /// </summary>
         internal static string XText2 {
             get {
@@ -1876,7 +1870,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Ushbu identifikatsion belgi bo&apos;lishi shart.
+        ///   Looks up a localized string similar to This identification mark must be present.
         /// </summary>
         internal static string XText3 {
             get {
@@ -1903,7 +1897,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yil.
+        ///   Looks up a localized string similar to Year.
         /// </summary>
         internal static string Year {
             get {
@@ -1912,7 +1906,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  (Faqat ikki yoki to&apos;rt katakdan iborat bo&apos;lsin).
+        ///   Looks up a localized string similar to  (Contains at least two or four cells).
         /// </summary>
         internal static string YearText {
             get {
@@ -1921,7 +1915,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sizning ID raqamingiz.
+        ///   Looks up a localized string similar to Your ID number.
         /// </summary>
         internal static string YourIdNumber {
             get {
