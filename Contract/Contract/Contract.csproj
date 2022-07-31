@@ -31,6 +31,15 @@
     <Compile Update="Pages\CanceledContracts\PageCanceledTable.xaml.cs">
       <DependentUpon>PageCanceledTable.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\CreateContract\PageCreateContract1.xaml.cs">
+      <DependentUpon>PageCreateContract1.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CreateContract\PageCreateContract2.xaml.cs">
+      <DependentUpon>PageCreateContract2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CreateContract\PageCreateContract3.xaml.cs">
+      <DependentUpon>PageCreateContract3.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\CurrentContracts\PageCurrentCancelContract.xaml.cs">
       <DependentUpon>PageCurrentCancelContract.xaml</DependentUpon>
     </Compile>
@@ -79,12 +88,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CreateContract\PageCreateContract3.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CreateContract\PageCreateContract4.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CreateContract\PageCreateContract5.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CurrentContracts\PageCurrentCancelContract.xaml">

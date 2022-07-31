@@ -154,11 +154,13 @@
     <comment>Template Contract</comment>
   </data>
   <data name="AddCopy" xml:space="preserve">
-    <value>Yangi qo'shish (nusxa)</value>
+    <value>Yangi qo'shish
+ (nusxa)</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddEmpty" xml:space="preserve">
-    <value>Yangi qo'shish (bo'sh)</value>
+    <value>Yangi qo'shish
+ (bo'sh)</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddNewCustomer" xml:space="preserve">

@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Contract.Interfaces;
 using Contract.ViewModel.Pages.UnapprovedContracts;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,22 @@ namespace Contract.Pages.UnapprovedContracts
             {
                 listView.WidthRequest += grHeader.ColumnDefinitions[i].Width.Value;
             }
-            listView.WidthRequest += 70;
+            listView.WidthRequest += 70; 
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Model.Parent = Parent; 
+            Model.Parent = Parent;
+
+            DependencyService.Get<IRotationService>().EnableRotation();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            DependencyService.Get<IRotationService>().DisableRotation();
         }
 
         private void Eye_Tapped(object sender, EventArgs e)

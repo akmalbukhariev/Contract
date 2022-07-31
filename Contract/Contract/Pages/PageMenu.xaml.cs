@@ -19,13 +19,14 @@ namespace Contract.Pages
             InitializeComponent();
 
             SetModel(new PageMenuViewModel());
-            (Model as PageMenuViewModel).InitMenu();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             Model.Parent = Parent;
+            (Model as PageMenuViewModel).Clean();
+            (Model as PageMenuViewModel).InitMenu();
         }
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

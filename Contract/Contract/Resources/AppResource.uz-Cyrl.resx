@@ -154,11 +154,13 @@
     <comment>Template Contract</comment>
   </data>
   <data name="AddCopy" xml:space="preserve">
-    <value>Янги қўшиш (нусҳа)</value>
+    <value>Янги қўшиш
+ (нусҳа)</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddEmpty" xml:space="preserve">
-    <value>Янги қўшиш (бўш)</value>
+    <value>Янги қўшиш
+ (бўш)</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddNewCustomer" xml:space="preserve">
@@ -686,11 +688,11 @@
     <comment>CurrentContracts</comment>
   </data>
   <data name="PersonalCabinet" xml:space="preserve">
-    <value>Shaxsiy kabinet</value>
+    <value>Шахсий кабинет</value>
     <comment>Menu</comment>
   </data>
   <data name="PhoneNumberOfCompany" xml:space="preserve">
-    <value>Шахсий кабинет</value>
+    <value>Корхона телфон рақами</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="Please" xml:space="preserve">

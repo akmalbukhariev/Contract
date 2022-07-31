@@ -28,7 +28,7 @@
                           ItemsSource="{Binding DataList}" >
                     <ListView.Header>
                         <Grid x:Name="grHeader" 
-                              ColumnDefinitions="31,100,150,220,150,150,70,80,70,70">
+                              ColumnDefinitions="31,120,150,220,150,150,70,120,90,70">
                             <Label Text="№" Style="{StaticResource lbHeader}"/>
                             <Label Text="{x:Static resource:AppResource.Preparer}" Style="{StaticResource lbHeader}" Grid.Column="1"/>
                             <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbHeader}" Grid.Column="2"/>
@@ -44,7 +44,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid ColumnDefinitions="30,100,150,220,150,150,70,80,70,70"
+                                <Grid ColumnDefinitions="30,120,150,220,150,150,70,120,90,70"
                                       BackgroundColor="{Binding ItemColor}">
                                     <Label Text="{Binding No}" Style="{StaticResource lbItem}" FontAttributes="Bold" FontSize="17"/>
                                     <BoxView BackgroundColor="{Binding PreparerColor}" Grid.Column="1"/>
@@ -83,7 +83,11 @@
         <BoxView IsVisible="{Binding ShowConfirmBox}"
                  BackgroundColor="Black"
                  Opacity="0.5"
-                 Grid.ColumnSpan="3"/>
+                 Grid.ColumnSpan="3">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandBoxView}"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
         <view:ViewConfirm IsVisible="{Binding ShowConfirmBox}"
                           Grid.ColumnSpan="3"
                           VerticalOptions="CenterAndExpand"

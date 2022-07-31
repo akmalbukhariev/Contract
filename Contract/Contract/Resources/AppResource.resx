@@ -194,7 +194,8 @@
     <comment>Main</comment>
   </data>
   <data name="ApplicableContracts2" xml:space="preserve">
-    <value>Applicable Contracts</value>
+    <value>Applicable 
+Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
@@ -878,7 +879,8 @@
     <comment>Main</comment>
   </data>
   <data name="UnconfirmedContracts2" xml:space="preserve">
-    <value>Unconfirmed Contracts</value>
+    <value>Unconfirmed 
+Contracts</value>
     <comment>Main</comment>
   </data>
   <data name="UnitOfMeasure" xml:space="preserve">

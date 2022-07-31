@@ -16,16 +16,22 @@ namespace Contract.ViewModel
         {
             MenuList = new ObservableCollection<ChildMenuItem>();
 
-            IDNumber = "1234567";
-            TextCount1 = RSC.ApplicableContracts2;
-            TextCount2 = RSC.UnconfirmedContracts2;
+            IDNumber = "1234567"; 
         }
 
         public void Init()
         {
+            TextCount1 = RSC.ApplicableContracts2;
+            TextCount2 = RSC.UnconfirmedContracts2;
+
             MenuList.Add(new ChildMenuItem() {ID = Constant.Menu1, Name = RSC.UnconfirmedContracts1 });
             MenuList.Add(new ChildMenuItem() {ID = Constant.Menu2, Name = RSC.ApplicableContracts1 });
             MenuList.Add(new ChildMenuItem() {ID = Constant.Menu3, Name = RSC.CanceledContracts });
+        }
+
+        public void Clean()
+        {
+            MenuList.Clear();
         }
     }
 }

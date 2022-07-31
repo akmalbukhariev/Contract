@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.ContractNumber;
+﻿using Contract.Interfaces;
+using Contract.ViewModel.Pages.ContractNumber;
 using Contract.ViewModel.Pages.Customers;
 using System;
 using System.Collections.Generic;
@@ -19,22 +20,30 @@ namespace Contract.Pages.ContractNumber
         {
             InitializeComponent();
 
-            model = new PageContractNumberListViewModel();
-            BindingContext = model;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            model.Init();
+            SetModel(new PageContractNumberListViewModel());
+            (Model as PageContractNumberListViewModel).Init();
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
                 listView.WidthRequest += grHeader.ColumnDefinitions[i].Width.Value;
             }
-            listView.WidthRequest += 30;
+            listView.WidthRequest += 50;
         }
-         
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            DependencyService.Get<IRotationService>().EnableRotation();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            DependencyService.Get<IRotationService>().DisableRotation();
+        }
+
         private void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);

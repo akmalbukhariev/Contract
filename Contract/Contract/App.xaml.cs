@@ -17,7 +17,7 @@ namespace Contract
         {
             InitializeComponent();
 
-            MainPage = new TransitionNavigationPage(new Pages.CreateContract.PageCreateContract3());//(new Pages.Introduction.PageIntroduction());
+            MainPage = new TransitionNavigationPage(new Pages.PageMasterDetail());//(new Pages.Introduction.PageIntroduction());
         }
 
         protected override void OnStart()

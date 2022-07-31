@@ -11,6 +11,7 @@
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,*"
+              RowSpacing="20"
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
@@ -27,7 +28,7 @@
                           ItemsSource="{Binding DataList}" >
                     <ListView.Header>
                         <Grid x:Name="grHeader" 
-                              ColumnDefinitions="31,220,150,80,80,80,70">
+                              ColumnDefinitions="31,220,150,80,80,110,70">
                             <Label Text="№" Style="{StaticResource lbHeader}"/>
                             <Label Text="{x:Static resource:AppResource.NameOfContactTemplate}" Style="{StaticResource lbHeader}" Grid.Column="1"/>
                             <Label Text="{x:Static resource:AppResource.PurposeOfContract}" Style="{StaticResource lbHeader}" Grid.Column="2"/>
@@ -40,7 +41,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid ColumnDefinitions="31,220,150,80,80,80,70"
+                                <Grid ColumnDefinitions="31,220,150,80,80,110,70"
                                       BackgroundColor="{Binding ItemColor}">
                                     <Label Text="{Binding No}" Style="{StaticResource lbItem}" FontAttributes="Bold" FontSize="17"/>
                                     <Label Text="{Binding ContractTempName}" Style="{StaticResource lbItem}" Grid.Column="1"/>

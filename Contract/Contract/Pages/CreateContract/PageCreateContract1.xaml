@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:page="clr-namespace:Contract.Pages"
             xmlns:view="clr-namespace:Contract.Views"
+            xmlns:control="clr-namespace:Contract.Control"
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.CreateContract.PageCreateContract1">
@@ -10,9 +11,9 @@
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,Auto,*"
+        <Grid RowDefinitions="50,Auto,Auto,100"
               RowSpacing="20"
-              Grid.Column="1">
+              Grid.Column="1">  
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     Title="{x:Static resource:AppResource.CreateContract}"
@@ -26,35 +27,226 @@
                        HeightRequest="30"
                        VerticalOptions="CenterAndExpand"/>
             </StackLayout>
-            <Grid RowDefinitions="Auto,*" 
-                  Grid.Row="2">
-                <BoxView BackgroundColor="White"
-                         CornerRadius="10"
-                         Margin="0,0,0,20"
-                         Grid.RowSpan="2"/>
-                <StackLayout Orientation="Horizontal"
-                             Margin="10,10,10,0">
-                    <Label x:Name="lbYesNo"
-                           Text="{x:Static resource:AppResource.Question1}"
-                           Style="{StaticResource lbWhiteStyle}"
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.RowSpan="3"
+                     Grid.Row="2"/>
+            <ScrollView Margin="0,0,0,-20"
+                        VerticalOptions="FillAndExpand"
+                        Grid.Row="2">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,100"
+                      RowSpacing="15"
+                      Margin="10,10,10,0">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="entryStyle" TargetType="view:EntryView">
+                                <Setter Property="TextColor" Value="Black"/>
+                                <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                                <Setter Property="BorderColor" Value="Gray"/>
+                                <Setter Property="BorderWidth" Value="1"/>
+                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="HeightEntryView" Value="60"/>
+                                <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                            </Style>
+                            <Style x:Key="imStyle" TargetType="Image">
+                                <Setter Property="WidthRequest" Value="60"/>
+                                <Setter Property="Aspect" Value="AspectFit"/>
+                                <Setter Property="HorizontalOptions" Value="End"/>
+                                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <StackLayout x:Name="stackYesNo1" 
+                                 Orientation="Horizontal">
+                        <Label x:Name="lbYesNo1"
+                               Style="{StaticResource lbBlackStyle}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Image x:Name="imYesNo1" 
+                               Source="uz_No"
+                               Style="{StaticResource imStyle}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo1_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout x:Name="stackYesNo2" 
+                                 Orientation="Horizontal"
+                                 Grid.Row="1">
+                        <Label x:Name="lbYesNo2"
+                               Style="{StaticResource lbBlackStyle}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Image x:Name="imYesNo2" 
+                               Source="uz_Yes"
+                               Style="{StaticResource imStyle}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo2_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout x:Name="stackCompanyName" 
+                                 Spacing="10"
+                                 Margin="10,10,10,0"
+                                 Grid.Row="2">
+                        <Label Text="{x:Static resource:AppResource.ListOfCustomers}"
+                               Style="{StaticResource lbWhiteStyle}"
+                               TextColor="Black"
+                               HorizontalOptions="StartAndExpand"/>
+                        <control:CustomPicker Title="{x:Static resource:AppResource.CompanyName}"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <Label x:Name="lbTitleBold"
                            TextColor="Black"
-                           HorizontalOptions="StartAndExpand"/>
-                    <Image x:Name="imYesNo" 
-                           Source="uz_Yes"
-                           WidthRequest="60"
-                           Aspect="AspectFit"
-                           VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="End">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo_Tapped"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                </StackLayout>
-                <Button Style="{StaticResource btnNext}"
-                        VerticalOptions="EndAndExpand"
-                        Clicked="Next_Clicked"
-                        Grid.Row="1"/>
-            </Grid>
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"
+                           Grid.Row="2"/>
+                    <StackLayout x:Name="stack1" 
+                                 Grid.Row="3">
+                        <Label Text="{x:Static resource:AppResource.CompanyName}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack2" 
+                                 Grid.Row="4">
+                        <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack3"
+                                 Grid.Row="5">
+                        <Label Text="{x:Static resource:AppResource.AccountNumber}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="---- ---- ---- ----"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack4" 
+                                 Grid.Row="6">
+                        <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="---- ---- ----"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack5" 
+                                 Grid.Row="7">
+                        <Label Text="{x:Static resource:AppResource.NameOfBank}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack6" 
+                                 Grid.Row="8">
+                        <Label Text="{x:Static resource:AppResource.BankCode}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack7" 
+                                 Orientation="Horizontal" 
+                                 Grid.Row="9">
+                        <Label Text="{x:Static resource:AppResource.AreYou_QQS_Payer}"
+                               Style="{StaticResource lbBlackStyle}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Image x:Name="imYesNo3" 
+                               Source="uz_Yes"
+                               Style="{StaticResource imStyle}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo3_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout x:Name="stack8" 
+                                 Grid.Row="10">
+                        <Label Text="{x:Static resource:AppResource.QQS_Code}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="---- ---- ---- ----"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack9" 
+                                 Grid.Row="11">
+                        <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="+998 ---- ---- ----"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack10" 
+                                 Spacing="10"
+                                 Grid.Row="12">
+                        <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack11"
+                                 Grid.Row="13">
+                        <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack12" 
+                                 Orientation="Horizontal" 
+                                 Grid.Row="14">
+                        <Label Text="{x:Static resource:AppResource.Question4}"
+                               Style="{StaticResource lbBlackStyle}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Image x:Name="imYesNo4" 
+                               Source="uz_Yes"
+                               Style="{StaticResource imStyle}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo4_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout x:Name="stack13" 
+                                 Grid.Row="15">
+                        <Label Text="{x:Static resource:AppResource.AccountantName}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="F.I.O"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="stack14" 
+                                 Orientation="Horizontal" 
+                                 Grid.Row="16">
+                        <Label Text="{x:Static resource:AppResource.Question5}"
+                               Style="{StaticResource lbBlackStyle}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Image x:Name="imYesNo5" 
+                               Source="uz_Yes"
+                               Style="{StaticResource imStyle}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="YesNo5_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout x:Name="stack15" 
+                                 Grid.Row="17">
+                        <Label Text="{x:Static resource:AppResource.CounselName}" 
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <view:ViewExplanation x:Name="viewExplan" 
+                                          Text="{x:Static resource:AppResource.Info1}" 
+                                          Grid.Row="18"/> 
+                </Grid>
+            </ScrollView>
+            <Button Style="{StaticResource btnNext}"
+                    Text="{x:Static resource:AppResource.Save}"
+                    VerticalOptions="EndAndExpand"
+                    Margin="10,0,10,20"
+                    Clicked="Save_Clicked"
+                    Grid.Row="3"/>
         </Grid>
     </Grid>
 

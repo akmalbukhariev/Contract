@@ -232,7 +232,8 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicable Contracts.
+        ///   Looks up a localized string similar to Applicable 
+        ///Contracts.
         /// </summary>
         internal static string ApplicableContracts2 {
             get {
@@ -1771,7 +1772,8 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unconfirmed Contracts.
+        ///   Looks up a localized string similar to Unconfirmed 
+        ///Contracts.
         /// </summary>
         internal static string UnconfirmedContracts2 {
             get {

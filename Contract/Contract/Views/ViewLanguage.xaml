@@ -18,7 +18,8 @@
                    TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
-            <Line BackgroundColor="LightGray"
+            <Line x:Name="line" 
+                  BackgroundColor="LightGray"
                   HeightRequest="3"/>
             <!--<Image Source="language_separe"
                    Aspect="AspectFit"

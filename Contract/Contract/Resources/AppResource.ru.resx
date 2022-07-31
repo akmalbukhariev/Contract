@@ -154,11 +154,13 @@
     <comment>Template Contract</comment>
   </data>
   <data name="AddCopy" xml:space="preserve">
-    <value>Добавить новую (копию)</value>
+    <value>Добавить новую 
+(копию)</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddEmpty" xml:space="preserve">
-    <value>Добавить новую (пустую)</value>
+    <value>Добавить новую
+ (пустую)</value>
     <comment>CreateContract</comment>
   </data>
   <data name="AddNewCustomer" xml:space="preserve">

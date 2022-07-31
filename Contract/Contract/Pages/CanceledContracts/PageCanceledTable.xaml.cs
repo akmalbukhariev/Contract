@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.CanceledContracts;
+﻿using Contract.Interfaces;
+using Contract.ViewModel.Pages.CanceledContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,16 @@ namespace Contract.Pages.CanceledContracts
 
         protected override void OnAppearing()
         {
-            base.OnAppearing(); 
+            base.OnAppearing();
+
+            DependencyService.Get<IRotationService>().EnableRotation();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            DependencyService.Get<IRotationService>().DisableRotation();
         }
 
         private void Eye_Tapped(object sender, EventArgs e)

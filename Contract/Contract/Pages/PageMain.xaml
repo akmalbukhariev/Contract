@@ -23,7 +23,8 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ShowMenu_Tapped"/>
                     </Image.GestureRecognizers>
                 </Image>
-                <Label Text="{x:Static resource:AppResource.MyCompany}"
+                <Label x:Name="lbMyCompany" 
+                       Text="{x:Static resource:AppResource.MyCompany}"
                        TextColor="White"
                        Margin="0,0,20,0"
                        Style="{StaticResource lbRegularTitle}"
@@ -38,7 +39,8 @@
                    Grid.Row="1"/>
             <StackLayout Spacing="-3" 
                          Grid.Row="2">
-                <Label Text="{x:Static resource:AppResource.IDNumber}"
+                <Label x:Name="lbIdNumber"
+                       Text="{x:Static resource:AppResource.IDNumber}"
                        TextColor="White"
                        FontSize="18"
                        Style="{StaticResource lbRegularTitle}"
@@ -57,13 +59,15 @@
                                             TextCount="15"
                                             Grid.Column="1"/>
             </Grid>
-            <Button Text="{x:Static resource:AppResource.CreateContract}"
+            <Button x:Name="btnCreateContract" 
+                    Text="{x:Static resource:AppResource.CreateContract}"
                     TextColor="White"
                     BackgroundColor="#EF8057"
                     CornerRadius="5"
                     Clicked="Button_Clicked"
                     Grid.Row="4"/>
-            <Label Text="{x:Static resource:AppResource.AllContracts}"
+            <Label x:Name="lbAllContracts"
+                   Text="{x:Static resource:AppResource.AllContracts}"
                    TextColor="Black"
                    FontSize="20"
                    FontFamily="Nunito_SemiBold"

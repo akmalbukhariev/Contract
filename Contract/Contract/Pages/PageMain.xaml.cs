@@ -26,6 +26,14 @@ namespace Contract.Pages
         {
             base.OnAppearing();
             Model.Parent = Parent;
+
+            lbMyCompany.Text = RSC.MyCompany;
+            lbIdNumber.Text = RSC.IDNumber;
+            btnCreateContract.Text = RSC.CreateContract;
+            lbAllContracts.Text = RSC.AllContracts;
+
+            (Model as PageMainViewModel).Clean();
+            (Model as PageMainViewModel).Init();
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

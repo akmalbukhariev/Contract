@@ -25,6 +25,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
         #region Commands
         public ICommand CommandCode => new Command(ClickCode);
         public ICommand CommandERI => new Command(ClickERI);
+        public ICommand CommandBoxView => new Command(ClickBoxView);
 
         private async void ClickCode()
         {
@@ -42,6 +43,11 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
 
             SetTransitionType(TransitionType.SlideFromBottom);
             await Navigation.PushModalAsync(new PageERIKey());
+        }
+
+        private void ClickBoxView()
+        {
+            ShowConfirmBox = false;
         }
         #endregion
 

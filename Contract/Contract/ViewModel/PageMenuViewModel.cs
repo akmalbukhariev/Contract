@@ -16,12 +16,13 @@ namespace Contract.ViewModel
         public PageMenuViewModel()
         {
             CompanyName = "\"Korxona nomi\" MCHJ";
-            IDNumber = "ID Raqamingiz \n 1234567";
             MenuList = new ObservableCollection<Menu>();
         }
 
         public void InitMenu()
         {
+            IDNumber = RSC.IDNumber + " \n 1234567";
+
             Menu menu1 = new Menu() 
             {
                 ID = Constant.Menu1,
@@ -120,6 +121,11 @@ namespace Contract.ViewModel
             MenuList.Add(menu7);
             MenuList.Add(menu8);
             MenuList.Add(menu9);
+        }
+
+        public void Clean()
+        {
+            MenuList.Clear();
         }
 
         internal void HodeOrShowMenu(Menu item)

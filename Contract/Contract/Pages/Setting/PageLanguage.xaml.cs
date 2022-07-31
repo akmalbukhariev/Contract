@@ -1,8 +1,11 @@
-﻿using Contract.Views;
+﻿using Contract.Resources;
+using Contract.Views;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -13,10 +16,21 @@ namespace Contract.Pages.Setting
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLanguage : IPage
     {
+        private bool _showNavigation = false;
         public PageLanguage(bool showNavigation = false)
         {
             InitializeComponent();
+
+            SetModel(new ViewModel.BaseModel());
+
+            _showNavigation = showNavigation;
+            boxNavigation.IsVisible = showNavigation;
             navigationBar.IsVisible = showNavigation;
+
+            if (!showNavigation)
+            {
+                grMain.RowDefinitions[0].Height = 10;
+            }
         }
 
         protected override void OnAppearing()
@@ -26,19 +40,65 @@ namespace Contract.Pages.Setting
             lbAppVersion.Text = RSC.AppVersion + " " + ControlApp.AppVersion;
         }
 
-        private void Item_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((ViewLanguage)sender); 
+        private async void Item_Tapped(object sender, EventArgs e)
+        { 
+            viewUzbKiril.UnSelected();
+            viewUzbLatin.UnSelected();
+            viewRus.UnSelected();
+            viewEng.UnSelected();
+
+            ViewLanguage view = (ViewLanguage)sender;
+             
+            await view.ScaleTo(0.8, 200);
+            view.Selected();
+            await view.ScaleTo(1, 200, Easing.SpringOut);
+
+            Setlanguage(sender);
+
+            if (_showNavigation)
+            {
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                Model.SetTransitionType();
+                await Navigation.PushAsync(new Introduction.PageIntroduction());
+            }
         }
 
-        private void DragGestureRecognizer_DragStarting(object sender, DragStartingEventArgs e)
-        {
+        private void Setlanguage(object sender)
+        { 
+            string strLanguage = GetLatinLanguageName(sender);
+            var language = CultureInfo.GetCultures(CultureTypes.NeutralCultures).ToList().First(element => element.EnglishName.Contains(strLanguage));
+            Thread.CurrentThread.CurrentUICulture = language;
+            AppResource.Culture = language;
 
+            navigationBar.Title = RSC.Language;
+            lbAppVersion.Text = RSC.AppVersion + " " + ControlApp.AppVersion;
         }
 
-        private void DropGestureRecognizer_DragOver(object sender, DragEventArgs e)
+        private string GetLatinLanguageName(object sender)
         {
+            string strResult = string.Empty;
 
+            if (sender == viewUzbKiril)
+            {
+                strResult = "Uzbek (Cyrillic)";
+            }
+            else if (sender == viewUzbLatin)
+            {
+                strResult = "Uzbek";
+            }
+            else if (sender == viewRus)
+            {
+                strResult = "Russian";
+            }
+            else if (sender == viewEng)
+            {
+                strResult = "English";
+            }
+
+            return strResult;
         }
     }
 }

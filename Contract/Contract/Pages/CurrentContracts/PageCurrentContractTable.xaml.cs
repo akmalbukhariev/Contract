@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.CurrentContracts;
+﻿using Contract.Interfaces;
+using Contract.ViewModel.Pages.CurrentContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,15 @@ namespace Contract.Pages.CurrentContracts
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            DependencyService.Get<IRotationService>().EnableRotation();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            DependencyService.Get<IRotationService>().DisableRotation();
         }
 
         private void Eye_Tapped(object sender, EventArgs e)

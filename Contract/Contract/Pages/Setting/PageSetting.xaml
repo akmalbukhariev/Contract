@@ -12,7 +12,8 @@
           RowSpacing="20">
         <BoxView BackgroundColor="{StaticResource AppColor}"
                  Grid.ColumnSpan="3"/>
-        <view:ViewNavigationBar BackImage="back_left_white"  
+        <view:ViewNavigationBar x:Name="navigationBar" 
+                                BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
                                 Title="{x:Static resource:AppResource.Settings}"
                                 UseWhite="True"
@@ -32,7 +33,7 @@
                     <ViewCell x:Name="cellLanguage" 
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
-                            <Label x:Name="lbDemo" 
+                            <Label x:Name="lbLanguage" 
                                    Text="{x:Static resource:AppResource.Language}"
                                    FontSize="Body" 
                                    TextColor="Black" 
@@ -50,7 +51,7 @@
                     <ViewCell x:Name="cellVoice" 
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
-                            <Label x:Name="lbLanguage" 
+                            <Label x:Name="lbVoice" 
                                    Text="{x:Static resource:AppResource.Voice}"
                                    FontSize="Body" 
                                    TextColor="Black" 
@@ -72,7 +73,7 @@
                     <ViewCell x:Name="cellViewNight" 
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
-                            <Label x:Name="lbViewNight" 
+                            <Label x:Name="lbNight" 
                                    Text="{x:Static resource:AppResource.NightView}"
                                    FontSize="Body" 
                                    TextColor="Black" 

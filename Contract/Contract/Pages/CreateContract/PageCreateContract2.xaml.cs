@@ -13,7 +13,6 @@ namespace Contract.Pages.CreateContract
     public partial class PageCreateContract2 : IPage
     {
         private bool yes1 = false;
-        private bool yes2 = true;
         public PageCreateContract2()
         {
             InitializeComponent();
@@ -25,9 +24,8 @@ namespace Contract.Pages.CreateContract
             base.OnAppearing();
             Model.Parent = Parent;
 
-            lbStep.Text = RSC.Step + " #1";
+            lbStep.Text = RSC.Step + " #2"; 
         }
-
         private void YesNo1_Tapped(object sender, EventArgs e)
         {
             if (yes1)
@@ -41,22 +39,45 @@ namespace Contract.Pages.CreateContract
                 yes1 = true;
             }
         }
-
-        private void YesNo2_Tapped(object sender, EventArgs e)
+         
+        private void Minus_Clicked(object sender, EventArgs e)
         {
-            if (yes2)
-            {
-                imYesNo2.Source = "uz_No";
-                yes2 = false;
-            }
-            else
-            {
-                imYesNo2.Source = "uz_Yes";
-                yes2 = true;
-            }
+            ChangeBoxColor(boxMinus);
         }
 
-        private async void Next_Clicked(object sender, EventArgs e)
+        private void Plus_Clicked(object sender, EventArgs e)
+        {
+            ChangeBoxColor(boxPlus);
+        }
+
+        private void Add_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(boxAdd);
+            ClickAnimationView(stackAdd);
+        }
+
+        private void Copy_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(boxCopy);
+            ClickAnimationView(stackCopy);
+        }
+
+        private void Delete_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(boxDelete);
+            ClickAnimationView(stackDelete);
+        }
+
+        async void ChangeBoxColor(BoxView boxView)
+        {
+            boxView.BackgroundColor = Color.White;
+            await Task.Delay(100);
+
+            boxView.BackgroundColor = Color.FromHex("#E6E6E6");
+            await Task.Delay(200);
+        }
+
+        private async void Finished_Clicked(object sender, EventArgs e)
         {
             Model.SetTransitionType();
             await Navigation.PushAsync(new PageCreateContract3());

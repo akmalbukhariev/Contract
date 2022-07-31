@@ -26,6 +26,12 @@ namespace Contract.Pages.Setting
         {
             base.OnAppearing();
             Model.Parent = Parent;
+
+            navigationBar.Title = RSC.Settings;
+            lbLanguage.Text = RSC.Language;
+            lbVoice.Text = RSC.Voice;
+            lbNight.Text = RSC.NightView;
+            lbAbout.Text = RSC.About;
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)

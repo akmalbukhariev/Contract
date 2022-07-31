@@ -27,9 +27,7 @@ namespace Contract
             
             Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract1), typeof(Pages.CreateContract.PageCreateContract1));
             Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract2), typeof(Pages.CreateContract.PageCreateContract2));
-            Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract3), typeof(Pages.CreateContract.PageCreateContract3));
-            Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract4), typeof(Pages.CreateContract.PageCreateContract4));
-            Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract5), typeof(Pages.CreateContract.PageCreateContract5));
+            Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract3), typeof(Pages.CreateContract.PageCreateContract3)); 
             
             Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentCancelContract), typeof(Pages.CurrentContracts.PageCurrentCancelContract));
             Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentContractTable), typeof(Pages.CurrentContracts.PageCurrentContractTable));
