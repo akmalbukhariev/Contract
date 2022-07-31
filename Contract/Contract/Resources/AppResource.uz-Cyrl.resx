@@ -207,6 +207,14 @@
     <value>Siz QQS to'lovchimisiz?</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AutoLogin" xml:space="preserve">
+    <value>Aвтоматик кириш</value>
+    <comment>Login</comment>
+  </data>
+  <data name="AutoLogMessage" xml:space="preserve">
+    <value>Aгар сиз aвтоматик киришни танласангиз, кейинги сафар фойдаланувчи ИД ва паролингизни киритишингиз шарт емас. Aвтоматик киришдан фойдаланмоқчимисиз?</value>
+    <comment>Login</comment>
+  </data>
   <data name="BankCode" xml:space="preserve">
     <value>Банк коди</value>
     <comment>Fillinfo</comment>

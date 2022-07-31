@@ -208,6 +208,14 @@ shartnomalar</value>
     <value>Siz QQS to'lovchimisiz?</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AutoLogin" xml:space="preserve">
+    <value>Avtomatik kirish</value>
+    <comment>Login</comment>
+  </data>
+  <data name="AutoLogMessage" xml:space="preserve">
+    <value>Agar siz avtomatik kirishni tanlasangiz, keyingi safar foydalanuvchi ID va parolingizni kiritishingiz shart yemas. Avtomatik kirishdan foydalanmoqchimisiz?</value>
+    <comment>Login</comment>
+  </data>
   <data name="BankCode" xml:space="preserve">
     <value>Bank kodi</value>
     <comment>Fillinfo</comment>

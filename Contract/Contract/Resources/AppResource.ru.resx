@@ -207,6 +207,14 @@
     <value>Являетесь ли вы налогоплательщиком?</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AutoLogin" xml:space="preserve">
+    <value>Автоматический вход</value>
+    <comment>Login</comment>
+  </data>
+  <data name="AutoLogMessage" xml:space="preserve">
+    <value>Если вы выберите автоматический вход, вы будете входить в систему автоматически, и вам не придется каждый раз вводить пароль и имя пользователя.</value>
+    <comment>Login</comment>
+  </data>
   <data name="BankCode" xml:space="preserve">
     <value>Код банка</value>
     <comment>Fillinfo</comment>

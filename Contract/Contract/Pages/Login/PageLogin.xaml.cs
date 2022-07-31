@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,9 +26,17 @@ namespace Contract.Pages.Login
             base.OnAppearing();
             Model.Parent = Parent;
         }
-        private void AutoLogin_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        private async void AutoLogin_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            if (!(Model as PageLoginViewModel).CheckAutoLogin) return;
 
+            bool res = await DisplayAlert(RSC.AutoLogin, RSC.AutoLogMessage, RSC.Ok, RSC.Cancel);
+            if (!res)
+            {
+                (Model as PageLoginViewModel).CheckAutoLogin = false;
+                Preferences.Set("AutoLogin", "");
+                return;
+            }
         }
 
         private void ClickFindId(object sender, EventArgs e)

@@ -260,6 +260,24 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto login.
+        /// </summary>
+        internal static string AutoLogin {
+            get {
+                return ResourceManager.GetString("AutoLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you select automatic login, you will be logged in automatically and will not have to enter password and username every time at the log in screen..
+        /// </summary>
+        internal static string AutoLogMessage {
+            get {
+                return ResourceManager.GetString("AutoLogMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bank Code.
         /// </summary>
         internal static string BankCode {

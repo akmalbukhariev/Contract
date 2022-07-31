@@ -11,6 +11,7 @@ namespace Contract.ViewModel.Pages.Login
 {
     public class PageLoginViewModel : BaseModel
     {
+        public bool CheckAutoLogin { get => GetValue<bool>(); set => SetValue(value); }
         public PageLoginViewModel(INavigation navigation) : base(navigation)
         {
             

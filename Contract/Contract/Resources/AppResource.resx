@@ -206,6 +206,14 @@ Contracts</value>
     <value>Are you a tax payer?</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AutoLogin" xml:space="preserve">
+    <value>Auto login</value>
+    <comment>Login</comment>
+  </data>
+  <data name="AutoLogMessage" xml:space="preserve">
+    <value>If you select automatic login, you will be logged in automatically and will not have to enter password and username every time at the log in screen.</value>
+    <comment>Login</comment>
+  </data>
   <data name="BankCode" xml:space="preserve">
     <value>Bank Code</value>
     <comment>Fillinfo</comment>
