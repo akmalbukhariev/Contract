@@ -15,6 +15,8 @@ namespace Contract.Pages.SignUp
         public PageSkippedTime()
         {
             InitializeComponent();
+            navigationBar.Title = RSC.SignUp;
+            btnNext.Text = RSC.ButtonNext;
         }
     }
 }

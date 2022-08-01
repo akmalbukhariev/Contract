@@ -194,7 +194,7 @@
     <comment>Main</comment>
   </data>
   <data name="ApplicableContracts2" xml:space="preserve">
-    <value>Applicable 
+    <value>Applicable
 Contracts</value>
     <comment>Main</comment>
   </data>
@@ -245,6 +245,10 @@ Contracts</value>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change account password</value>
     <comment>Change password</comment>
+  </data>
+  <data name="CheckID" xml:space="preserve">
+    <value>Check ID</value>
+    <comment>Check</comment>
   </data>
   <data name="ChiefAccountantName" xml:space="preserve">
     <value>Chief Accountant Name</value>
@@ -438,9 +442,17 @@ Contracts</value>
     <value>Enter Current Password</value>
     <comment>Change password</comment>
   </data>
+  <data name="EnterID_or_PhoneNumber" xml:space="preserve">
+    <value>Enter id or phone number</value>
+    <comment>Login</comment>
+  </data>
   <data name="EnterNameOfBank" xml:space="preserve">
     <value>Enter Name of Bank</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="EnterNewID" xml:space="preserve">
+    <value>Enter the new ID</value>
+    <comment>Check</comment>
   </data>
   <data name="EnterNewPassword" xml:space="preserve">
     <value>Enter New Password</value>
@@ -465,6 +477,14 @@ Contracts</value>
   <data name="FillInfoTitle" xml:space="preserve">
     <value>Please enter your company information.</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="FindID" xml:space="preserve">
+    <value>Find ID</value>
+    <comment>Login</comment>
+  </data>
+  <data name="FindPassword" xml:space="preserve">
+    <value>Find Password</value>
+    <comment>Login</comment>
   </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>First And Last Name</value>
@@ -569,6 +589,10 @@ Contracts</value>
   <data name="ListOfCustomers" xml:space="preserve">
     <value>List Of Customers</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+    <comment>Login</comment>
   </data>
   <data name="LoginInfo1_1" xml:space="preserve">
     <value>PROFIT AND LOSS ANALYSIS</value>
@@ -777,6 +801,10 @@ Contracts</value>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="SaveIDAndPassword" xml:space="preserve">
+    <value>ID va Parolni saqlash</value>
+    <comment>Login</comment>
   </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Specify a service type template</value>

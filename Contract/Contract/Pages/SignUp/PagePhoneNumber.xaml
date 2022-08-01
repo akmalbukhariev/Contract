@@ -12,7 +12,8 @@
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,*,Auto" 
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
+            <view:ViewNavigationBar x:Name="navigationBar" 
+                                    BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     UseWhite="True"/>
             <BoxView Style="{StaticResource boxFrame}"
@@ -27,7 +28,8 @@
                                 Style="{StaticResource viewEntryStyle}"/>
                 <view:ViewExplanation Text="{x:Static resource:AppResource.SignUpDescription}"/>
             </StackLayout>
-            <Button Style="{StaticResource btnNext}"
+            <Button x:Name="btnNext" 
+                    Style="{StaticResource btnNext}"
                     Clicked="Next_Clicked"
                     Grid.Row="2"/>
         </Grid>

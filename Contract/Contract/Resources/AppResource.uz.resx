@@ -241,12 +241,16 @@ shartnomalar</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="CancelTerminationOfContractNo" xml:space="preserve">
-    <value> sonli shartnomani bekor qilish</value>
+    <value> Sonli shartnomani bekor qilish</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Account parolini tahrirlash</value>
     <comment>Change password</comment>
+  </data>
+  <data name="CheckID" xml:space="preserve">
+    <value>ID tekshiring</value>
+    <comment>Check</comment>
   </data>
   <data name="ChiefAccountantName" xml:space="preserve">
     <value>Bosh hisobchi F.I.O</value>
@@ -401,7 +405,7 @@ shartnomalar</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractNumberTitle4" xml:space="preserve">
-    <value>Raqamlar ketma ketligining maksimal miqdori 12 ta simvolni tashkil etadi.</value>
+    <value>Raqamlar ketma ketligining maksimal miqdori 12 ta belgini tashkil etadi.</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractTemplate" xml:space="preserve">
@@ -440,9 +444,17 @@ shartnomalar</value>
     <value>Amaldagi parolni kiriting</value>
     <comment>Change password</comment>
   </data>
+  <data name="EnterID_or_PhoneNumber" xml:space="preserve">
+    <value>ID yoki telefon raqam</value>
+    <comment>Login</comment>
+  </data>
   <data name="EnterNameOfBank" xml:space="preserve">
     <value>Bank nomini kiriting</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="EnterNewID" xml:space="preserve">
+    <value>Yangi ID kiriting</value>
+    <comment>Check</comment>
   </data>
   <data name="EnterNewPassword" xml:space="preserve">
     <value>Yangi parolni kiriting</value>
@@ -467,6 +479,14 @@ shartnomalar</value>
   <data name="FillInfoTitle" xml:space="preserve">
     <value>Iltimos, korxonangizning rekvizitlarini kiriting.</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="FindID" xml:space="preserve">
+    <value>ID topish</value>
+    <comment>Login</comment>
+  </data>
+  <data name="FindPassword" xml:space="preserve">
+    <value>Parol topsih</value>
+    <comment>Login</comment>
   </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>F.I.O</value>
@@ -536,7 +556,7 @@ shartnomalarni tuzing.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro2_1" xml:space="preserve">
-    <value>TAYYOR SHARTNOMANI ONSON 
+    <value>TAYYOR SHARTNOMANI OSON 
  JO'NATISH</value>
     <comment>Introduction</comment>
   </data>
@@ -563,10 +583,10 @@ shartnomalarni tuzing.</value>
     <comment>Introduction</comment>
   </data>
   <data name="Intro4_2" xml:space="preserve">
-    <value>Shartnoma tuzish uchu o'z huquqlar, 
- talablar va imidjingizga mos 
- shablonlarni yaratib, 
- ulardan onson foydalaning.</value>
+    <value>Shartnoma tuzish uchun o'z huquq va  
+ talab va imidjingizga mos 
+ shablonlarni yarating va 
+ ulardan oson foydalaning.</value>
     <comment>Introduction</comment>
   </data>
   <data name="IsCounterProvided" xml:space="preserve">
@@ -588,6 +608,10 @@ shartnomalarni tuzing.</value>
   <data name="ListOfCustomers" xml:space="preserve">
     <value>Mijozlar ro'yxati</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Kirish</value>
+    <comment>Login</comment>
   </data>
   <data name="LoginInfo1_1" xml:space="preserve">
     <value>FOYDA VA ZARARLARNI 
@@ -806,6 +830,10 @@ rekvizitlari ochiq qolsinmi?</value>
     <value>Saqlash</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SaveIDAndPassword" xml:space="preserve">
+    <value>ID va Parolni saqlash</value>
+    <comment>Login</comment>
+  </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Xizmat turi shablonini belgilang</value>
     <comment>CreateContract</comment>
@@ -872,7 +900,7 @@ yuborilgan maxsus kodni kiriting.</value>
     <comment>SpecialCode</comment>
   </data>
   <data name="SpecialPart" xml:space="preserve">
-    <value>Asosiy qisim</value>
+    <value>Asosiy qism</value>
     <comment>Template Contract</comment>
   </data>
   <data name="Step" xml:space="preserve">
@@ -880,7 +908,7 @@ yuborilgan maxsus kodni kiriting.</value>
     <comment>CreateContract</comment>
   </data>
   <data name="SuccessfullyCompleted" xml:space="preserve">
-    <value>muvaffaqiyatli yakunladingiz.</value>
+    <value>Muvaffaqiyatli yakunladingiz.</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="Templates" xml:space="preserve">
@@ -888,15 +916,15 @@ yuborilgan maxsus kodni kiriting.</value>
     <comment>Menu</comment>
   </data>
   <data name="TerminationOfContract" xml:space="preserve">
-    <value>sonli shartnomani</value>
+    <value>Shartnomani bekor qilish</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ToMakeContract" xml:space="preserve">
-    <value>Siz shartnoma tuzishni</value>
+    <value>Shartnoma tuzish</value>
     <comment>CreateContract</comment>
   </data>
   <data name="ToRegister" xml:space="preserve">
-    <value>Siz ro'yxatdan o'tishni</value>
+    <value>Ro'yxatdan o'tish</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="TotalCostOfTheService" xml:space="preserve">

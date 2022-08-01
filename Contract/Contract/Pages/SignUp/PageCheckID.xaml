@@ -12,7 +12,8 @@
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,*,Auto" 
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
+            <view:ViewNavigationBar x:Name="navigationBar" 
+                                    BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     UseWhite="True"/>
             <BoxView Style="{StaticResource boxFrame}"
@@ -24,7 +25,7 @@
                   HorizontalOptions="FillAndExpand"
                   VerticalOptions="StartAndExpand" 
                   Grid.Row="1">
-                <Label Text="ID ni kiriting"
+                <Label Text="{x:Static resource:AppResource.EnterNewID}"
                        TextColor="Black"
                        FontFamily="Nunito_Regular"
                        HorizontalOptions="StartAndExpand"
@@ -33,14 +34,15 @@
                                 PlaceHoldingText="ID" 
                                 Style="{StaticResource viewEntryStyle}"
                                 Grid.Row="1"/>
-                <Button Text="Tekshiring"
+                <Button Text="{x:Static resource:AppResource.CheckID}"
                         TextColor="White"
                         BackgroundColor="{StaticResource AppColor}"
                         CornerRadius="5"
                         Grid.Row="1"
                         Grid.Column="1"/>
             </Grid>
-            <Button Style="{StaticResource btnNext}"
+            <Button x:Name="btnNext" 
+                    Style="{StaticResource btnNext}"
                     VerticalOptions="End"
                     Clicked="Next_Clicked"
                     Grid.Row="2"/>

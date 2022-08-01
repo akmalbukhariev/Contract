@@ -232,7 +232,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicable 
+        ///   Looks up a localized string similar to Applicable
         ///Contracts.
         /// </summary>
         internal static string ApplicableContracts2 {
@@ -346,6 +346,15 @@ namespace Contract.Resources {
         internal static string ChangePassword {
             get {
                 return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check ID.
+        /// </summary>
+        internal static string CheckID {
+            get {
+                return ResourceManager.GetString("CheckID", resourceCulture);
             }
         }
         
@@ -782,11 +791,29 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter id or phone number.
+        /// </summary>
+        internal static string EnterID_or_PhoneNumber {
+            get {
+                return ResourceManager.GetString("EnterID_or_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Name of Bank.
         /// </summary>
         internal static string EnterNameOfBank {
             get {
                 return ResourceManager.GetString("EnterNameOfBank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the new ID.
+        /// </summary>
+        internal static string EnterNewID {
+            get {
+                return ResourceManager.GetString("EnterNewID", resourceCulture);
             }
         }
         
@@ -841,6 +868,24 @@ namespace Contract.Resources {
         internal static string FillInfoTitle {
             get {
                 return ResourceManager.GetString("FillInfoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find ID.
+        /// </summary>
+        internal static string FindID {
+            get {
+                return ResourceManager.GetString("FindID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find Password.
+        /// </summary>
+        internal static string FindPassword {
+            get {
+                return ResourceManager.GetString("FindPassword", resourceCulture);
             }
         }
         
@@ -1075,6 +1120,15 @@ namespace Contract.Resources {
         internal static string ListOfCustomers {
             get {
                 return ResourceManager.GetString("ListOfCustomers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
@@ -1543,6 +1597,15 @@ namespace Contract.Resources {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID va Parolni saqlash.
+        /// </summary>
+        internal static string SaveIDAndPassword {
+            get {
+                return ResourceManager.GetString("SaveIDAndPassword", resourceCulture);
             }
         }
         

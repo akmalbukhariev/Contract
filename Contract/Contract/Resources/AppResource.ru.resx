@@ -138,15 +138,15 @@
     <comment>CurrentContracts</comment>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Прибавление</value>
+    <value>Добавить</value>
     <comment>Customers</comment>
   </data>
   <data name="AddBigBottomClause" xml:space="preserve">
-    <value>Добавить большой пункт с низу</value>
+    <value>Добавить большой пункт снизу</value>
     <comment>Template Contract</comment>
   </data>
   <data name="AddBigUpClause" xml:space="preserve">
-    <value>Добавить большой пункт с верху</value>
+    <value>Добавить большой пункт сверху</value>
     <comment>Template Contract</comment>
   </data>
   <data name="AddClause" xml:space="preserve">
@@ -184,7 +184,7 @@
     <comment>CreateContract</comment>
   </data>
   <data name="AllContracts" xml:space="preserve">
-    <value>Договора</value>
+    <value>Все договоры</value>
     <comment>Main</comment>
   </data>
   <data name="AmountOfQQS" xml:space="preserve">
@@ -192,15 +192,15 @@
     <comment>CreateContract</comment>
   </data>
   <data name="ApplicableContracts1" xml:space="preserve">
-    <value>Действующие договора</value>
+    <value>Применимые контракты</value>
     <comment>Main</comment>
   </data>
   <data name="ApplicableContracts2" xml:space="preserve">
-    <value>Действующие договора</value>
+    <value>Применимые контракты</value>
     <comment>Main</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>Конракт Мекер</value>
+    <value>Версия приложения</value>
     <comment>Language</comment>
   </data>
   <data name="AreYou_QQS_Payer" xml:space="preserve">
@@ -246,6 +246,10 @@
   <data name="ChangePassword" xml:space="preserve">
     <value>Изменить пароль аккаунта</value>
     <comment>Change password</comment>
+  </data>
+  <data name="CheckID" xml:space="preserve">
+    <value>Проверить ID</value>
+    <comment>Check</comment>
   </data>
   <data name="ChiefAccountantName" xml:space="preserve">
     <value>Ф.И.О. главного  бухгалтера</value>
@@ -439,9 +443,17 @@
     <value>Введите текущий пароль</value>
     <comment>Change password</comment>
   </data>
+  <data name="EnterID_or_PhoneNumber" xml:space="preserve">
+    <value>ID или номер телефона</value>
+    <comment>Login</comment>
+  </data>
   <data name="EnterNameOfBank" xml:space="preserve">
     <value>Введите название банка</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="EnterNewID" xml:space="preserve">
+    <value>Введите новый ID</value>
+    <comment>Check</comment>
   </data>
   <data name="EnterNewPassword" xml:space="preserve">
     <value>Введите новый пароль</value>
@@ -466,6 +478,14 @@
   <data name="FillInfoTitle" xml:space="preserve">
     <value>Пожалуйста, введите информацию о вашей компании.</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="FindID" xml:space="preserve">
+    <value>Найти ID</value>
+    <comment>Login</comment>
+  </data>
+  <data name="FindPassword" xml:space="preserve">
+    <value>Найдите пароль</value>
+    <comment>Login</comment>
   </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>Ф.И.О.</value>
@@ -570,6 +590,10 @@
   <data name="ListOfCustomers" xml:space="preserve">
     <value>Список клиентов</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Войти</value>
+    <comment>Login</comment>
   </data>
   <data name="LoginInfo1_1" xml:space="preserve">
     <value>АНАЛИЗ ПРИБЫЛИ И ПОТЕРЬ</value>
@@ -778,6 +802,10 @@
   <data name="Save" xml:space="preserve">
     <value>Сохранять</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="SaveIDAndPassword" xml:space="preserve">
+    <value>Сохранить ID и пароль</value>
+    <comment>Login</comment>
   </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Укажите шаблон вида услуги</value>

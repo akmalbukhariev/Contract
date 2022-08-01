@@ -16,6 +16,8 @@ namespace Contract.Pages.SignUp
         {
             InitializeComponent();
             SetModel(new ViewModel.BaseModel(Navigation));
+            navigationBar.Title = RSC.SignUp;
+            btnNext.Text = RSC.ButtonNext;
         }
 
         protected override void OnAppearing()

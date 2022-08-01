@@ -240,12 +240,16 @@
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="CancelTerminationOfContractNo" xml:space="preserve">
-    <value>сонли шартномани бекор қилиш</value>
+    <value>Cонли шартномани бекор қилиш</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Аккаунт паролини таҳрирлаш</value>
     <comment>Change password</comment>
+  </data>
+  <data name="CheckID" xml:space="preserve">
+    <value>ID текширинг</value>
+    <comment>Check</comment>
   </data>
   <data name="ChiefAccountantName" xml:space="preserve">
     <value>Бош ҳисобчи Ф.И.О.</value>
@@ -400,7 +404,7 @@
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractNumberTitle4" xml:space="preserve">
-    <value>Рақамлар кетма-кетлигининг максимал миқдори 12 та символни ташкил этади.</value>
+    <value>Рақамлар кетма-кетлигининг максимал миқдори 12 та белгини ташкил этади.</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="EditContractTemplate" xml:space="preserve">
@@ -439,9 +443,17 @@
     <value>Амалдаги паролни киритинг</value>
     <comment>Change password</comment>
   </data>
+  <data name="EnterID_or_PhoneNumber" xml:space="preserve">
+    <value>ID ёки телефон рақам</value>
+    <comment>Login</comment>
+  </data>
   <data name="EnterNameOfBank" xml:space="preserve">
     <value>Банк номини киритинг</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="EnterNewID" xml:space="preserve">
+    <value>Янги ID киритинг</value>
+    <comment>Check</comment>
   </data>
   <data name="EnterNewPassword" xml:space="preserve">
     <value>Янги паролни киритинг</value>
@@ -466,6 +478,14 @@
   <data name="FillInfoTitle" xml:space="preserve">
     <value>Илтимос, корхонангиз реквизитларини киритинг.</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="FindID" xml:space="preserve">
+    <value>ID топинг</value>
+    <comment>Login</comment>
+  </data>
+  <data name="FindPassword" xml:space="preserve">
+    <value>Парол топиш</value>
+    <comment>Login</comment>
   </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>Ф.И.О.</value>
@@ -548,7 +568,7 @@
     <comment>Introduction</comment>
   </data>
   <data name="Intro4_2" xml:space="preserve">
-    <value>Шартнома тузиш учун ўз ҳуқуқ, талаб ва имиджингизга мос шаблонларни яратиб, улардан осон фойдаланинг.</value>
+    <value>Шартнома тузиш учун ўз ҳуқуқ, талаб ва имиджингизга мос шаблонларни яратинг ва улардан осон фойдаланинг.</value>
     <comment>Introduction</comment>
   </data>
   <data name="IsCounterProvided" xml:space="preserve">
@@ -570,6 +590,10 @@
   <data name="ListOfCustomers" xml:space="preserve">
     <value>Мижозлар рўйхати</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Кириш</value>
+    <comment>Login</comment>
   </data>
   <data name="LoginInfo1_1" xml:space="preserve">
     <value>ФОЙДА ВА ЗАРАРЛАРНИ ТАҲЛИЛ ҚИЛИШ</value>
@@ -779,6 +803,10 @@
     <value>Сақлаш</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SaveIDAndPassword" xml:space="preserve">
+    <value>ID ва Паролни сақлаш</value>
+    <comment>Login</comment>
+  </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Хизмат тури шаблонини белгиланг</value>
     <comment>CreateContract</comment>
@@ -852,7 +880,7 @@
     <comment>CreateContract</comment>
   </data>
   <data name="SuccessfullyCompleted" xml:space="preserve">
-    <value>муваффақиятли якунладингиз.</value>
+    <value>Mуваффақиятли якунладингиз.</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="Templates" xml:space="preserve">
@@ -864,11 +892,11 @@
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ToMakeContract" xml:space="preserve">
-    <value>Сиз шартномани тузишни</value>
+    <value>Шартномани тузиш</value>
     <comment>CreateContract</comment>
   </data>
   <data name="ToRegister" xml:space="preserve">
-    <value>Сиз рўйхатдан ўтишни</value>
+    <value>Рўйхатдан ўтиш</value>
     <comment>Finished FillInfo</comment>
   </data>
   <data name="TotalCostOfTheService" xml:space="preserve">

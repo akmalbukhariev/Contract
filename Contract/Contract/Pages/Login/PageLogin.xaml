@@ -50,7 +50,7 @@
                   RowSpacing="10"
                   Grid.Row="1">
                 <view:EntryView x:Name="entId"
-                                PlaceHoldingText="ID ni kiriting" 
+                                PlaceHoldingText="{x:Static resource:AppResource.EnterID_or_PhoneNumber}" 
                                 Style="{StaticResource viewEntryStyle}"/>
                 <Grid Grid.Row="1">
                     <view:EntryView x:Name="entPassword" 
@@ -82,7 +82,7 @@
                               IsChecked="{Binding CheckAutoLogin, Mode=TwoWay}"
                               CheckedChanged="AutoLogin_CheckedChanged"/>
                     <Label x:Name="lbAutoLogin" 
-                           Text="ID va Parolni saqlash" 
+                           Text="{x:Static resource:AppResource.SaveIDAndPassword}" 
                            TextColor="Black"
                            HorizontalOptions="End"
                            VerticalTextAlignment="Center"/>
@@ -98,11 +98,11 @@
                             </Style>
                         </ResourceDictionary>
                     </StackLayout.Resources>
-                    <Button Text="Kirish"
+                    <Button Text="{x:Static resource:AppResource.Login}"
                             BackgroundColor="{StaticResource AppColor}"
                             Style="{StaticResource btnLoginStyle}"
                             Command="{Binding CommandLogin}"/>
-                    <Button Text="Ro'yxatdan o'tish"
+                    <Button Text="{x:Static resource:AppResource.SignUp}"
                             TextColor="Black"
                             Style="{StaticResource btnLoginStyle}"
                             BackgroundColor="White"
@@ -124,13 +124,17 @@
                             </Style>
                         </ResourceDictionary>
                     </StackLayout.Resources>
-                    <Label x:Name="lbFindId" Text="ID toping" Style="{StaticResource lbStyle}">
+                    <Label x:Name="lbFindId" 
+                           Text="{x:Static resource:AppResource.FindID}" 
+                           Style="{StaticResource lbStyle}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ClickFindId" NumberOfTapsRequired="1"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <Line WidthRequest="1" BackgroundColor="{StaticResource AppColor}"/>
-                    <Label x:Name="lbFindPassword" Text="Parolni unutdingizmi" Style="{StaticResource lbStyle}">
+                    <Label x:Name="lbFindPassword" 
+                           Text="{x:Static resource:AppResource.FindPassword}" 
+                           Style="{StaticResource lbStyle}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ClickFindPassword" NumberOfTapsRequired="1"/>
                         </Label.GestureRecognizers>

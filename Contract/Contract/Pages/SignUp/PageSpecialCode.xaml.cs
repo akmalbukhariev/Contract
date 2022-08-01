@@ -17,6 +17,8 @@ namespace Contract.Pages.SignUp
             InitializeComponent();
 
             lbWaiting.Text = RSC.WaitingTime + " 0:59";
+            navigationBar.Title = RSC.SignUp;
+            btnNext.Text = RSC.ButtonNext;
         }
 
         private void SendCodeaAgain_Tapped(object sender, EventArgs e)
