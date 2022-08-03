@@ -40,7 +40,7 @@
                       Margin="10,10,10,0">
                     <Grid.Resources>
                         <ResourceDictionary>
-                            <Style x:Key="entryStyle" TargetType="view:EntryView">
+                            <Style x:Key="entryStyle" TargetType="view:ViewEntry">
                                 <Setter Property="TextColor" Value="Black"/>
                                 <Setter Property="PlaceHolderTextColor" Value="Gray"/>
                                 <Setter Property="BorderColor" Value="Gray"/>
@@ -86,7 +86,7 @@
                     <StackLayout Grid.Row="3">
                         <Label Text="{x:Static resource:AppResource.ContractNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="22-01-1234"
+                        <view:ViewEntry PlaceHoldingText="22-01-1234"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
@@ -124,7 +124,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <view:EntryView PlaceHoldingText="-- %"
+                    <view:ViewEntry PlaceHoldingText="-- %"
                                     Style="{StaticResource entryStyle}"
                                     Grid.Row="7"/>
                     <Line BackgroundColor="Gray"
@@ -132,7 +132,7 @@
                     <StackLayout Grid.Row="9">
                         <Label Text="{x:Static resource:AppResource.NameOfServiceType}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.NameOfServiceType}"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfServiceType}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
@@ -185,7 +185,7 @@
                     <StackLayout Grid.Row="12">
                         <Label Text="{x:Static resource:AppResource.Info2}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="sum"
+                        <view:ViewEntry PlaceHoldingText="sum"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <Grid ColumnDefinitions="75,*,75,*,75"

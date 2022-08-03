@@ -10,13 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace Contract.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EntryView : ContentView
+    public partial class ViewEntry : ContentView
     {
         #region PlaceHoldingText
         public static readonly BindableProperty PlaceHoldingTextProperty =
             BindableProperty.Create(nameof(PlaceHoldingText),
                                     typeof(string),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: PlaceHoldingTextPropertyChanged);
 
@@ -28,7 +28,7 @@ namespace Contract.Views
 
         private static void PlaceHoldingTextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (control != null)
                 control.entry.Placeholder = newValue.ToString();
         }
@@ -38,7 +38,7 @@ namespace Contract.Views
         public static readonly BindableProperty FontSizeProperty =
             BindableProperty.Create(nameof(FontSize),
                                     typeof(double),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: FontSizePropertyChanged);
 
@@ -50,7 +50,7 @@ namespace Contract.Views
 
         private static void FontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (control != null)
                 control.entry.FontSize = (double)newValue;
         }
@@ -60,7 +60,7 @@ namespace Contract.Views
         public static readonly BindableProperty FontFamilyProperty =
             BindableProperty.Create(nameof(FontFamily),
                                     typeof(string),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: FontFamilyPropertyChanged);
 
@@ -72,7 +72,7 @@ namespace Contract.Views
 
         private static void FontFamilyPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (control != null)
                 control.entry.FontFamily = (string)newValue;
         }
@@ -82,7 +82,7 @@ namespace Contract.Views
         public static readonly BindableProperty TextProperty =
             BindableProperty.Create(nameof(Text),
                                     typeof(string),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     defaultBindingMode: BindingMode.TwoWay);
 
         public string Text
@@ -96,7 +96,7 @@ namespace Contract.Views
         public static readonly BindableProperty HeightEntryViewProperty =
            BindableProperty.Create(nameof(HeightEntryView),
                                    typeof(string),
-                                   typeof(EntryView),
+                                   typeof(ViewEntry),
                                    null,
                                    propertyChanged: HeightEntryViewPropertyChanged);
          
@@ -108,7 +108,7 @@ namespace Contract.Views
 
         private static void HeightEntryViewPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (control != null)
                 control.grMain.HeightRequest = double.Parse((string)newValue);
         }
@@ -118,7 +118,7 @@ namespace Contract.Views
         public static readonly BindableProperty CornerRadiusProperty =
             BindableProperty.Create(nameof(CornerRadius),
                                     typeof(double),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: CornerRadiusPropertyChanged);
 
@@ -130,7 +130,7 @@ namespace Contract.Views
 
         private static void CornerRadiusPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.backBoxView.CornerRadius = new CornerRadius((double)newValue);
@@ -143,7 +143,7 @@ namespace Contract.Views
         public static readonly BindableProperty BorderWidthProperty =
             BindableProperty.Create(nameof(BorderWidth),
                                     typeof(double),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: BorderWidthPropertyChanged);
 
@@ -155,7 +155,7 @@ namespace Contract.Views
 
         private static void BorderWidthPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 double val = (double)newValue;
@@ -168,7 +168,7 @@ namespace Contract.Views
         public static readonly BindableProperty BackgroundColorOfEntryProperty =
             BindableProperty.Create(nameof(BackgroundColorOfEntry),
                                     typeof(Color),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: BackgroundColorOfEntryPropertyChanged);
 
@@ -180,7 +180,7 @@ namespace Contract.Views
 
         private static void BackgroundColorOfEntryPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.frontBoxView.BackgroundColor = (Color)newValue;
@@ -192,7 +192,7 @@ namespace Contract.Views
         public static readonly BindableProperty BorderColorProperty =
             BindableProperty.Create(nameof(BorderColor),
                                     typeof(Color),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: BorderColorPropertyChanged);
 
@@ -204,7 +204,7 @@ namespace Contract.Views
 
         private static void BorderColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.backBoxView.BackgroundColor = (Color)newValue;
@@ -216,7 +216,7 @@ namespace Contract.Views
         public static readonly BindableProperty PlaceHolderTextColorProperty =
             BindableProperty.Create(nameof(PlaceHolderTextColor),
                                     typeof(Color),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: PlaceHolderTextColorPropertyChanged);
 
@@ -228,7 +228,7 @@ namespace Contract.Views
 
         private static void PlaceHolderTextColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.entry.PlaceholderColor = (Color)newValue;
@@ -240,7 +240,7 @@ namespace Contract.Views
         public static readonly BindableProperty TextColorProperty =
             BindableProperty.Create(nameof(TextColor),
                                     typeof(Color),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: TextColorPropertyChanged);
 
@@ -252,7 +252,7 @@ namespace Contract.Views
 
         private static void TextColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.entry.TextColor = (Color)newValue; 
@@ -264,7 +264,7 @@ namespace Contract.Views
         public static readonly BindableProperty KeyboardProperty =
             BindableProperty.Create(nameof(Keyboard),
                                     typeof(Keyboard),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: KeyboardPropertyChanged);
 
@@ -276,7 +276,7 @@ namespace Contract.Views
 
         private static void KeyboardPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.entry.Keyboard = (Keyboard)newValue;
@@ -288,7 +288,7 @@ namespace Contract.Views
         public static readonly BindableProperty MaxLengthProperty =
             BindableProperty.Create(nameof(MaxLength),
                                     typeof(int),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: MaxLengthPropertyChanged);
 
@@ -300,7 +300,7 @@ namespace Contract.Views
 
         private static void MaxLengthPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.entry.MaxLength = (int)newValue;
@@ -312,7 +312,7 @@ namespace Contract.Views
         public static readonly BindableProperty VerticalTextAlignmentProperty =
             BindableProperty.Create(nameof(VerticalTextAlignment),
                                     typeof(TextAlignment),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: VerticalTextAlignmentPropertyChanged);
 
@@ -324,7 +324,7 @@ namespace Contract.Views
 
         private static void VerticalTextAlignmentPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.entry.VerticalTextAlignment = (TextAlignment)newValue;
@@ -336,7 +336,7 @@ namespace Contract.Views
         public static readonly BindableProperty HorizontalTextAlignmentProperty =
             BindableProperty.Create(nameof(HorizontalTextAlignment),
                                     typeof(TextAlignment),
-                                    typeof(EntryView),
+                                    typeof(ViewEntry),
                                     null,
                                     propertyChanged: HorizontalTextAlignmentPropertyChanged);
 
@@ -348,7 +348,7 @@ namespace Contract.Views
 
         private static void HorizontalTextAlignmentPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = (EntryView)bindable;
+            var control = (ViewEntry)bindable;
             if (newValue != null)
             {
                 control.entry.HorizontalTextAlignment = (TextAlignment)newValue;
@@ -356,38 +356,30 @@ namespace Contract.Views
         }
         #endregion
 
-        #region Is Password
+        #region IsPassword
         public static readonly BindableProperty IsPasswordProperty =
-            BindableProperty.Create(nameof(IsPassword),
-                                    typeof(bool),
-                                    typeof(EntryView),
-                                    null,
-                                    propertyChanged: IsPasswordPropertyChanged);
+           BindableProperty.Create(nameof(IsPassword),
+                                   typeof(bool),
+                                   typeof(ViewEntry),
+                                   defaultValue: false,
+                                   defaultBindingMode: BindingMode.TwoWay);
 
         public bool IsPassword
         {
             get { return (bool)GetValue(IsPasswordProperty); }
             set { SetValue(IsPasswordProperty, value); }
         }
-
-        private static void IsPasswordPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var control = (EntryView)bindable;
-            if (newValue != null)
-            {
-                control.entry.IsPassword = (bool)newValue;
-            }
-        }
         #endregion
 
         public Entry Entry => entry;
           
-        public EntryView()
+        public ViewEntry()
         {
             InitializeComponent();
              
             this.entry.TextColorForIOS = Color.White;
             this.entry.SetBinding(Entry.TextProperty, new Binding(nameof(Text), source: this));
+            this.entry.SetBinding(Entry.IsPasswordProperty, new Binding(nameof(IsPassword), source: this));
         } 
     }
 }

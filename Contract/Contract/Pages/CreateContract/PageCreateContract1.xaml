@@ -40,7 +40,7 @@
                       Margin="10,10,10,0">
                     <Grid.Resources>
                         <ResourceDictionary>
-                            <Style x:Key="entryStyle" TargetType="view:EntryView">
+                            <Style x:Key="entryStyle" TargetType="view:ViewEntry">
                                 <Setter Property="TextColor" Value="Black"/>
                                 <Setter Property="PlaceHolderTextColor" Value="Gray"/>
                                 <Setter Property="BorderColor" Value="Gray"/>
@@ -109,42 +109,42 @@
                                  Grid.Row="3">
                         <Label Text="{x:Static resource:AppResource.CompanyName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack2" 
                                  Grid.Row="4">
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack3"
                                  Grid.Row="5">
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="---- ---- ---- ----"
+                        <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack4" 
                                  Grid.Row="6">
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="---- ---- ----"
+                        <view:ViewEntry PlaceHoldingText="---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack5" 
                                  Grid.Row="7">
                         <Label Text="{x:Static resource:AppResource.NameOfBank}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack6" 
                                  Grid.Row="8">
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack7" 
@@ -165,14 +165,14 @@
                                  Grid.Row="10">
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="---- ---- ---- ----"
+                        <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack9" 
                                  Grid.Row="11">
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="+998 ---- ---- ----"
+                        <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack10" 
@@ -191,7 +191,7 @@
                                  Grid.Row="13">
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack12" 
@@ -212,7 +212,7 @@
                                  Grid.Row="15">
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="F.I.O"
+                        <view:ViewEntry PlaceHoldingText="F.I.O"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack14" 
@@ -233,7 +233,7 @@
                                  Grid.Row="17">
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <view:ViewExplanation x:Name="viewExplan" 

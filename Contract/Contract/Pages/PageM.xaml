@@ -44,7 +44,7 @@
             <StackLayout Spacing="20"
                          VerticalOptions="StartAndExpand"
                          Grid.Row="2">
-                <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.M_EnterPhoneNumber}"
+                <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.M_EnterPhoneNumber}"
                                 TextColor="Black"
                                 PlaceHolderTextColor="Gray"
                                 BorderColor="Gray"

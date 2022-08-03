@@ -26,9 +26,8 @@ namespace Contract.Pages.Introduction
             Model.Parent = Parent;
         }
 
-        private async void LabelSkip_Tapped(object sender, EventArgs e)
-        {
-            ChangeClickBackColor((Label)sender, Color.White, Color.White);
+        private async void Skip_Tapped(object sender, EventArgs e)
+        { 
             Model.SetTransitionType();
             await Navigation.PushAsync(new PageLoginInfo()); 
         }

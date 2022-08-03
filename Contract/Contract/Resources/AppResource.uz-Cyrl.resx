@@ -200,11 +200,11 @@
     <comment>Main</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>Сиз ҚҚС тўловчимисиз?</value>
+    <value>Шартнома мекер</value>
     <comment>Language</comment>
   </data>
   <data name="AreYou_QQS_Payer" xml:space="preserve">
-    <value>Siz QQS to'lovchimisiz?</value>
+    <value>Сиз ҚҚС тўловчимисиз?</value>
     <comment>Fillinfo</comment>
   </data>
   <data name="AutoLogin" xml:space="preserve">
@@ -386,6 +386,10 @@
   <data name="Description" xml:space="preserve">
     <value>Матн</value>
     <comment>Offer and objection</comment>
+  </data>
+  <data name="DidYouForgotPassword" xml:space="preserve">
+    <value>Паролни унутдингизми?</value>
+    <comment>Login</comment>
   </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Аккаунт паролини таҳрирлаш</value>

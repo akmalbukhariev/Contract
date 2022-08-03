@@ -2,7 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:Contract.Control"
-             x:Class="Contract.Views.EntryView">
+             x:Class="Contract.Views.ViewEntry">
 
     <Grid x:Name="grMain" 
           ColumnDefinitions="*">

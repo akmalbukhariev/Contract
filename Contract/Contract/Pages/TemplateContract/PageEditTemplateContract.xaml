@@ -15,7 +15,7 @@
               Grid.Column="1">
             <Grid.Resources>
                 <ResourceDictionary>
-                    <Style x:Key="entryStyle" TargetType="view:EntryView">
+                    <Style x:Key="entryStyle" TargetType="view:ViewEntry">
                         <Setter Property="TextColor" Value="Black"/>
                         <Setter Property="PlaceHolderTextColor" Value="Gray"/>
                         <Setter Property="BorderColor" Value="Gray"/>
@@ -63,7 +63,7 @@
                                  Grid.Row="3">
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:EntryView PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}" 
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}" 
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <Line BackgroundColor="LightGray"

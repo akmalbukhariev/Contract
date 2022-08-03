@@ -36,7 +36,7 @@
                 <Setter Property="Margin" Value="15,0,15,50"/>
                 <Setter Property="Text" Value="{x:Static resource:AppResource.ButtonNext}"/>
             </Style>
-            <Style x:Key="viewEntryStyle" TargetType="view:EntryView">
+            <Style x:Key="viewEntryStyle" TargetType="view:ViewEntry">
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="PlaceHolderTextColor" Value="Gray"/>
                 <Setter Property="BorderColor" Value="Gray"/>

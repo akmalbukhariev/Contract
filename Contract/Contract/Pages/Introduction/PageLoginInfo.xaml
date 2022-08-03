@@ -26,12 +26,14 @@
                    TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
-            <Label x:Name="lbText2" 
-                   FontSize="17"
-                   FontFamily="Nunito_Regular"
-                   TextColor="Gray"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"/>
+            <ScrollView>
+                <Label x:Name="lbText2" 
+                       FontSize="17"
+                       FontFamily="Nunito_Regular"
+                       TextColor="Gray"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+            </ScrollView>
         </StackLayout>
         <Grid VerticalOptions="End" 
               Grid.Row="3"  

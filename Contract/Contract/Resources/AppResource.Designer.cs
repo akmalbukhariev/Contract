@@ -665,6 +665,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Have you forgot password?.
+        /// </summary>
+        internal static string DidYouForgotPassword {
+            get {
+                return ResourceManager.GetString("DidYouForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Account Password.
         /// </summary>
         internal static string EditAccountPassword {

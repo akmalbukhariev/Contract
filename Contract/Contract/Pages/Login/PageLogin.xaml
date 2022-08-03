@@ -49,29 +49,31 @@
                   Margin="20,0,20,0"
                   RowSpacing="10"
                   Grid.Row="1">
-                <view:EntryView x:Name="entId"
+                <view:ViewEntry x:Name="entId"
                                 PlaceHoldingText="{x:Static resource:AppResource.EnterID_or_PhoneNumber}" 
+                                Text="{Binding PhoneNumber}"
                                 Style="{StaticResource viewEntryStyle}"/>
-                <Grid Grid.Row="1">
-                    <view:EntryView x:Name="entPassword" 
-                                    Text="123456" 
-                                    Style="{StaticResource viewEntryStyle}"
-                                    IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"/>
-                    <ImageButton VerticalOptions="Center"
-                                 Margin="0,0,10,0"
-                                 HeightRequest="30"
-                                 BackgroundColor="Transparent"
-                                 HorizontalOptions="End"
-                                 Source="eye_show">
-                        <ImageButton.Triggers>
-                            <EventTrigger Event="Clicked">
-                                <control:ShowPasswordTriggerAction x:Name="ShowPasswordActualTrigger"
-                                                                   ShowIcon="eye_show"
-                                                                   HideIcon="eye_hide"/>
-                            </EventTrigger>
-                        </ImageButton.Triggers>
-                    </ImageButton>
-                </Grid>
+                <view:ViewEntry x:Name="entPassword" 
+                                PlaceHoldingText="{x:Static resource:AppResource.EnterPassword}"
+                                Text="{Binding Password}" 
+                                Style="{StaticResource viewEntryStyle}"
+                                IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"
+                                Grid.Row="1"/>
+                <ImageButton VerticalOptions="Center"
+                             Margin="0,0,10,0"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="End"
+                             Source="eye_hide"
+                             Grid.Row="1">
+                    <ImageButton.Triggers>
+                        <EventTrigger Event="Clicked">
+                            <control:ShowPasswordTriggerAction x:Name="ShowPasswordActualTrigger"
+                                                                ShowIcon="eye_show"
+                                                                HideIcon="eye_hide"/>
+                        </EventTrigger>
+                    </ImageButton.Triggers>
+                </ImageButton>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Start"
                              Spacing="0"
@@ -110,36 +112,12 @@
                             BorderWidth="1"
                             Command="{Binding CommandSignUp}"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" 
-                             HorizontalOptions="CenterAndExpand"
-                             Spacing="10"
-                             Margin="0,10,0,0"
-                             Grid.Row="4">
-                    <StackLayout.Resources>
-                        <ResourceDictionary>
-                            <Style x:Key="lbStyle" TargetType="Label">
-                                <Setter Property="TextColor" Value="{StaticResource AppColor}"/>
-                                <Setter Property="FontFamily" Value="Nunito_Regular"/>
-                                <Setter Property="FontSize" Value="16"/>
-                            </Style>
-                        </ResourceDictionary>
-                    </StackLayout.Resources>
-                    <Label x:Name="lbFindId" 
-                           Text="{x:Static resource:AppResource.FindID}" 
-                           Style="{StaticResource lbStyle}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="ClickFindId" NumberOfTapsRequired="1"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Line WidthRequest="1" BackgroundColor="{StaticResource AppColor}"/>
-                    <Label x:Name="lbFindPassword" 
-                           Text="{x:Static resource:AppResource.FindPassword}" 
-                           Style="{StaticResource lbStyle}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="ClickFindPassword" NumberOfTapsRequired="1"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
+                <Button Text="{x:Static resource:AppResource.DidYouForgotPassword}"
+                        TextColor="Gray"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="StartAndExpand"
+                        Clicked="ClickFindPassword"
+                        Grid.Row="4"/> 
             </Grid>
         </Grid>
     </Grid>

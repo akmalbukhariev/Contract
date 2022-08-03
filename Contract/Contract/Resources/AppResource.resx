@@ -386,6 +386,10 @@ Contracts</value>
     <value>Description</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="DidYouForgotPassword" xml:space="preserve">
+    <value>Have you forgot password?</value>
+    <comment>Login</comment>
+  </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Edit Account Password</value>
     <comment>Menu</comment>

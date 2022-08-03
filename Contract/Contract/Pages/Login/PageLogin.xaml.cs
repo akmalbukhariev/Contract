@@ -18,16 +18,18 @@ namespace Contract.Pages.Login
             InitializeComponent();
             SetModel(new PageLoginViewModel(Navigation));
 
-            entId.Entry.ClearButtonVisibility = ClearButtonVisibility.WhileEditing;
+            entId.Entry.ClearButtonVisibility = ClearButtonVisibility.WhileEditing; 
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             Model.Parent = Parent;
+
+            (Model as PageLoginViewModel).Password = "1235";
         }
         private async void AutoLogin_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
+        { 
             if (!(Model as PageLoginViewModel).CheckAutoLogin) return;
 
             bool res = await DisplayAlert(RSC.AutoLogin, RSC.AutoLogMessage, RSC.Ok, RSC.Cancel);
@@ -39,14 +41,9 @@ namespace Contract.Pages.Login
             }
         }
 
-        private void ClickFindId(object sender, EventArgs e)
-        {
-            ChangeClickBackColor(lbFindId, Color.White, Color.FromHex("#3F6C6C"));
-        }
-
         private void ClickFindPassword(object sender, EventArgs e)
         {
-            ChangeClickBackColor(lbFindPassword, Color.White, Color.FromHex("#3F6C6C"));
+            
         }
     }   
 }

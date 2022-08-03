@@ -201,7 +201,7 @@ shartnomalar</value>
     <comment>Main</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>Shartnoma maker</value>
+    <value>Shartnoma meker</value>
     <comment>Language</comment>
   </data>
   <data name="AreYou_QQS_Payer" xml:space="preserve">
@@ -387,6 +387,10 @@ shartnomalar</value>
   <data name="Description" xml:space="preserve">
     <value>Matn</value>
     <comment>Offer and objection</comment>
+  </data>
+  <data name="DidYouForgotPassword" xml:space="preserve">
+    <value>Parolni unutdingizmi?</value>
+    <comment>Login</comment>
   </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Akkaunt parolini tahrirlash</value>

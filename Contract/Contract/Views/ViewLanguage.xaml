@@ -7,7 +7,7 @@
        <Image x:Name="image" 
               Aspect="AspectFit"
               Margin="20,0,10,0"
-              WidthRequest="120"/>
+              WidthRequest="100"/>
         <StackLayout VerticalOptions="CenterAndExpand"
                      Margin="10,0,20,0"
                      Grid.Column="1">

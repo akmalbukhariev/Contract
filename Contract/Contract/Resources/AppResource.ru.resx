@@ -387,6 +387,10 @@
     <value>Описание</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="DidYouForgotPassword" xml:space="preserve">
+    <value>Забыли пароль?</value>
+    <comment>Login</comment>
+  </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Изменить пароль аккаунта</value>
     <comment>Menu</comment>

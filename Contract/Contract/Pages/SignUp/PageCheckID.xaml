@@ -30,7 +30,7 @@
                        FontFamily="Nunito_Regular"
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="CenterAndExpand"/>
-                <view:EntryView x:Name="entId"
+                <view:ViewEntry x:Name="entId"
                                 PlaceHoldingText="ID" 
                                 Style="{StaticResource viewEntryStyle}"
                                 Grid.Row="1"/>
