@@ -7,7 +7,7 @@
         <Image x:Name="image" 
                Source="back_left_gray"
                Aspect="AspectFit"
-               WidthRequest="40"
+               WidthRequest="30"
                HorizontalOptions="Start"
                Margin="0,15,0,0">
             <Image.GestureRecognizers>
@@ -19,7 +19,7 @@
                TextColor="White"
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
-               Margin="0,15,0,0"
+               Margin="0,15,20,0"
                Grid.Column="1"/>
     </Grid>
     

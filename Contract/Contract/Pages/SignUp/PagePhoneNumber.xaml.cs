@@ -29,7 +29,7 @@ namespace Contract.Pages.SignUp
         private async void Next_Clicked(object sender, EventArgs e)
         {
             Model.SetTransitionType();
-            await Navigation.PushAsync(new PageCheckID());
+            await Navigation.PushAsync(new PageNewPassword());
         }
     }
 }

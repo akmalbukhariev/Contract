@@ -7,7 +7,7 @@
     <Grid x:Name="grMain" 
           ColumnDefinitions="*">
         <BoxView x:Name="backBoxView" BackgroundColor="White"/> 
-        <BoxView x:Name="frontBoxView" Margin="2,2,2,2"/>
+        <BoxView x:Name="frontBoxView" Margin="2"/>
  
         <control:CustomEntry x:Name="entry"
                              PlaceholderColor="White"

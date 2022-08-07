@@ -7,7 +7,7 @@
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.Login.PageLogin">
-
+       
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
@@ -121,5 +121,5 @@
             </Grid>
         </Grid>
     </Grid>
-
+      
 </page:IPage>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Contract.Pages
-{
+{ 
     public abstract class IPage : ContentPage
     {
         public delegate void NavigatePage(Page page);
@@ -22,10 +22,7 @@ namespace Contract.Pages
 
         public IPage()
         {
-            BackgroundColor = Color.White;
-             
-            //Shell.SetNavBarIsVisible(this, false);
-            //Shell.SetPresentationMode(this, PresentationMode.Animated);
+            BackgroundColor = Color.White; 
 
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
@@ -36,7 +33,7 @@ namespace Contract.Pages
             Model = model;
             BindingContext = Model;
         }
- 
+          
         protected async void ClickAnimationView<T>(T view) where T : View
         {
             await view.ScaleTo(0.8, 200);
@@ -60,6 +57,28 @@ namespace Contract.Pages
         protected virtual void OnShowMenu(bool show)
         {
             EventShowMenu?.Invoke(show);
+        }
+
+        protected string GetYesNoIcon(bool yes)
+        {
+            string strLan = string.Empty;
+            switch (AppSettings.GetLanguage())
+            {
+                case Constant.LanUz:
+                    strLan = yes ? "uz_Yes" : "uz_No";
+                    break;
+                case Constant.LanUzCyrl:
+                    strLan = yes ? "uzK_Yes" : "uzK_No";
+                    break;
+                case Constant.LanEn:
+                    strLan = yes ? "en_Yes" : "en_No";
+                    break;
+                case Constant.LanRu:
+                    strLan = yes ? "ru_Yes" : "ru_No";
+                    break;
+            }
+
+            return strLan;
         }
     }
 }

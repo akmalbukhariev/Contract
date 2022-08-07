@@ -9,8 +9,7 @@
         <CarouselView ItemsSource="{Binding Images}" 
                       AbsoluteLayout.LayoutBounds="0,0,1,1"
                       AbsoluteLayout.LayoutFlags="All"
-                      IndicatorView="indicatorview"
-                      CurrentItemChanged="CarouselView_CurrentItemChanged">
+                      IndicatorView="indicatorview">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <Grid RowDefinitions="*,*">
@@ -30,6 +29,7 @@
                                    FontSize="17"
                                    FontFamily="Nunito_Regular"
                                    TextColor="Gray"
+                                   Margin="10,0,10,0"
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="Center"/>
                         </StackLayout> 

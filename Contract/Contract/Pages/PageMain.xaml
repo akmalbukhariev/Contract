@@ -7,7 +7,8 @@
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.PageMain">
 
-    <Grid ColumnDefinitions="20,*,20">
+    <ScrollView>
+        <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
         <Grid RowDefinitions="Auto,Auto,Auto,*,50,Auto,*,10"
@@ -102,5 +103,5 @@
             </ListView>
         </Grid>
     </Grid>
-
+    </ScrollView>
 </page:IPage>

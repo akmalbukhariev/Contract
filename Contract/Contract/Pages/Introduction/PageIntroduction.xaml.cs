@@ -32,16 +32,16 @@ namespace Contract.Pages.Introduction
             await Navigation.PushAsync(new PageLoginInfo()); 
         }
 
-        private async void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
-        {
-            IntroductionInfo previousItem = e.PreviousItem as IntroductionInfo;
-            IntroductionInfo currentItem = e.CurrentItem as IntroductionInfo;
+        //private async void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        //{
+        //    IntroductionInfo previousItem = e.PreviousItem as IntroductionInfo;
+        //    IntroductionInfo currentItem = e.CurrentItem as IntroductionInfo;
 
-            if (previousItem != null && previousItem.ImagePath == PageIntroductionViewModel.Intro_4)
-            {
-                Model.SetTransitionType();
-                await Navigation.PushAsync(new PageLoginInfo());
-            }
-        }
+        //    if (previousItem != null && previousItem.ImagePath == PageIntroductionViewModel.Intro_4)
+        //    {
+        //        Model.SetTransitionType();
+        //        await Navigation.PushAsync(new PageLoginInfo());
+        //    }
+        //}
     }
 }

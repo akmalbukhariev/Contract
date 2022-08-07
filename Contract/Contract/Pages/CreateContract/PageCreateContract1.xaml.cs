@@ -28,20 +28,26 @@ namespace Contract.Pages.CreateContract
 
             YesNo1_Tapped(null, null);
             YesNo2_Tapped(null, null);
+
+            //imYesNo1.Source = GetYesNoIcon(true);
+            //imYesNo2.Source = GetYesNoIcon(true);
+            imYesNo3.Source = GetYesNoIcon(true);
+            imYesNo4.Source = GetYesNoIcon(true);
+            imYesNo5.Source = GetYesNoIcon(true);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             Model.Parent = Parent;
-            lbStep.Text = RSC.Step + " #1";
+            lbStep.Text = RSC.Step + " #1"; 
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
         {
             if (yes1)
             {
-                imYesNo1.Source = "uz_No";
+                imYesNo1.Source = GetYesNoIcon(false);
                 yes1 = false;
                 ShowMenu1(true);
                 if (!yes2)
@@ -52,71 +58,83 @@ namespace Contract.Pages.CreateContract
             }
             else
             {
-                imYesNo1.Source = "uz_Yes";
+                imYesNo1.Source = GetYesNoIcon(true);
                 yes1 = true;
                 ShowMenu1(false);
                 ShowMenu2(false);
-            } 
+            }
+
+            if (sender != null)
+                ControlApp.Vibrate();
         }
 
         private void YesNo2_Tapped(object sender, EventArgs e)
         {
             if (yes2)
             {
-                imYesNo2.Source = "uz_No";
+                imYesNo2.Source = GetYesNoIcon(false);
                 yes2 = false;
                 ShowMenu2(true);
                 stackCompanyName.IsVisible = false;
             }
             else
             {
-                imYesNo2.Source = "uz_Yes";
+                imYesNo2.Source = GetYesNoIcon(true);
                 yes2 = true;
                 ShowMenu2(false);
                 stackCompanyName.IsVisible = true;
             }
+
+            if (sender != null)
+                ControlApp.Vibrate(); 
         }
 
         private void YesNo3_Tapped(object sender, EventArgs e)
         {
             if (yes3)
             {
-                imYesNo3.Source = "uz_No";
+                imYesNo3.Source = GetYesNoIcon(false);
                 yes3 = false;
             }
             else
             {
-                imYesNo3.Source = "uz_Yes";
+                imYesNo3.Source = GetYesNoIcon(true);
                 yes3 = true;
             }
+
+            ControlApp.Vibrate();
         }
 
         private void YesNo4_Tapped(object sender, EventArgs e)
         {
             if (yes4)
             {
-                imYesNo4.Source = "uz_No";
+                imYesNo4.Source = GetYesNoIcon(false);
                 yes4 = false;
             }
             else
             {
-                imYesNo4.Source = "uz_Yes";
+                imYesNo4.Source = GetYesNoIcon(true);
                 yes4 = true;
             }
+
+            ControlApp.Vibrate();
         }
 
         private void YesNo5_Tapped(object sender, EventArgs e)
         {
             if (yes5)
             {
-                imYesNo5.Source = "uz_No";
+                imYesNo5.Source = GetYesNoIcon(false);
                 yes5 = false;
             }
             else
             {
-                imYesNo5.Source = "uz_Yes";
+                imYesNo5.Source = GetYesNoIcon(true);
                 yes5 = true;
             }
+
+            ControlApp.Vibrate();
         }
 
         private async void Save_Clicked(object sender, EventArgs e)

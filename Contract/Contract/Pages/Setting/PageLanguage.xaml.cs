@@ -69,9 +69,7 @@ namespace Contract.Pages.Setting
         private void Setlanguage(object sender)
         { 
             string strLanguage = GetLatinLanguageName(sender);
-            var language = CultureInfo.GetCultures(CultureTypes.NeutralCultures).ToList().First(element => element.EnglishName.Contains(strLanguage));
-            Thread.CurrentThread.CurrentUICulture = language;
-            AppResource.Culture = language;
+            AppSettings.SetLanguage(strLanguage);
 
             navigationBar.Title = RSC.Language;
             lbAppVersion.Text = RSC.AppVersion + " " + ControlApp.AppVersion;

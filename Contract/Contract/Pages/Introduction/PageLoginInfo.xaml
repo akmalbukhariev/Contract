@@ -6,7 +6,7 @@
             xmlns:resource="clr-namespace:Contract.Resources" 
             x:Class="Contract.Pages.Introduction.PageLoginInfo">
 
-    <Grid RowDefinitions="Auto,Auto,*,Auto"
+    <Grid RowDefinitions="Auto,*,*,Auto"
           ColumnDefinitions="20,*,20">
         <view:ViewNavigationBar Grid.Column="1"/>
         <Image Source="intro_5"

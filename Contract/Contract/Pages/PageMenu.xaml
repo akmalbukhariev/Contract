@@ -6,7 +6,7 @@
              x:Class="Contract.Pages.PageMenu">
 
     <Grid RowDefinitions="130,*"
-          RowSpacing="20">
+          RowSpacing="10">
         <StackLayout VerticalOptions="FillAndExpand" 
                      BackgroundColor="{StaticResource AppColor}">
             <Label Text="{Binding CompanyName}"
@@ -31,7 +31,7 @@
                     <ViewCell>
                         <Grid RowDefinitions="Auto,Auto">
                             <StackLayout Orientation="Horizontal"
-                                         Margin="15,10,0,0">
+                                         Margin="15,5,0,0">
                                 <Image Source="{Binding HImage}"
                                        Aspect="AspectFill"
                                        WidthRequest="25"

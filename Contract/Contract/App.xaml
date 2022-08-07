@@ -37,13 +37,13 @@
                 <Setter Property="Text" Value="{x:Static resource:AppResource.ButtonNext}"/>
             </Style>
             <Style x:Key="viewEntryStyle" TargetType="view:ViewEntry">
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="PlaceHolderTextColor" Value="Gray"/>
-                <Setter Property="BorderColor" Value="Gray"/>
                 <Setter Property="BorderWidth" Value="1"/>
-                <Setter Property="BackgroundColorOfEntry" Value="White"/>
-                <Setter Property="HeightEntryView" Value="50"/>
                 <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BorderColor" Value="Gray"/>
+                <Setter Property="HeightEntryView" Value="50"/>
+                <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                <Setter Property="BackgroundColorOfEntry" Value="White"/>
             </Style>
             <Style x:Key="boxFrame" TargetType="BoxView">
                 <Setter Property="BackgroundColor" Value="White"/>

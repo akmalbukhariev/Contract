@@ -13,21 +13,20 @@ namespace Contract.Pages.Login
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLogin : IPage
     {
-        public PageLogin()
+        public PageLogin() 
         {
             InitializeComponent();
             SetModel(new PageLoginViewModel(Navigation));
-
+             
             entId.Entry.ClearButtonVisibility = ClearButtonVisibility.WhileEditing; 
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Model.Parent = Parent;
-
-            (Model as PageLoginViewModel).Password = "1235";
+            Model.Parent = Parent; 
         }
+
         private async void AutoLogin_CheckedChanged(object sender, CheckedChangedEventArgs e)
         { 
             if (!(Model as PageLoginViewModel).CheckAutoLogin) return;
@@ -44,6 +43,14 @@ namespace Contract.Pages.Login
         private void ClickFindPassword(object sender, EventArgs e)
         {
             
+        }
+
+        PageLoginViewModel PModel
+        {
+            get
+            {
+                return Model as PageLoginViewModel;
+            }
         }
     }   
 }

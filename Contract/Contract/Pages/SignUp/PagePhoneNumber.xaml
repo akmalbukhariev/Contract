@@ -23,7 +23,8 @@
                          Grid.Row="1">
                 <Label Text="{x:Static resource:AppResource.SignUpTitle}"
                        Style="{StaticResource lbBoldTitle}"/>
-                <view:ViewEntry PlaceHoldingText="+998-- --- ---"
+                <view:ViewEntry PlaceHoldingText="998"
+                                Keyboard="Numeric"
                                 HorizontalTextAlignment="Start"
                                 Style="{StaticResource viewEntryStyle}"/>
                 <view:ViewExplanation Text="{x:Static resource:AppResource.SignUpDescription}"/>
