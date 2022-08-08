@@ -185,6 +185,10 @@
     <value>All Contracts</value>
     <comment>Main</comment>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="AmountOfQQS" xml:space="preserve">
     <value>Amount Of  VAT</value>
     <comment>CreateContract</comment>

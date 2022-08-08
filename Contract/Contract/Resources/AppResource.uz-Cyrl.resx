@@ -187,6 +187,10 @@
     <value>Шартномалар</value>
     <comment>Main</comment>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Сони</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="AmountOfQQS" xml:space="preserve">
     <value>ҚҚС миқдори</value>
     <comment>CreateContract</comment>

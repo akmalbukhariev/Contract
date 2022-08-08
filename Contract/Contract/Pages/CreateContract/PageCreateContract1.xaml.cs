@@ -95,11 +95,13 @@ namespace Contract.Pages.CreateContract
             {
                 imYesNo3.Source = GetYesNoIcon(false);
                 yes3 = false;
+                stack8.IsVisible = false;
             }
             else
             {
                 imYesNo3.Source = GetYesNoIcon(true);
                 yes3 = true;
+                stack8.IsVisible = true;
             }
 
             ControlApp.Vibrate();
@@ -111,11 +113,13 @@ namespace Contract.Pages.CreateContract
             {
                 imYesNo4.Source = GetYesNoIcon(false);
                 yes4 = false;
+                stack13.IsVisible = false;
             }
             else
             {
                 imYesNo4.Source = GetYesNoIcon(true);
                 yes4 = true;
+                stack13.IsVisible = true;
             }
 
             ControlApp.Vibrate();
@@ -127,11 +131,13 @@ namespace Contract.Pages.CreateContract
             {
                 imYesNo5.Source = GetYesNoIcon(false);
                 yes5 = false;
+                stack15.IsVisible = false;
             }
             else
             {
                 imYesNo5.Source = GetYesNoIcon(true);
                 yes5 = true;
+                stack15.IsVisible = true;
             }
 
             ControlApp.Vibrate();

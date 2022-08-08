@@ -17,6 +17,7 @@ namespace Contract.Pages.CreateContract
         {
             InitializeComponent();
             SetModel(new ViewModel.BaseModel());
+            YesNo1_Tapped(null, null);
         }
 
         protected override void OnAppearing()
@@ -30,24 +31,34 @@ namespace Contract.Pages.CreateContract
         {
             if (yes1)
             {
-                imYesNo1.Source = "uz_No";
+                imYesNo1.Source = GetYesNoIcon(false);
                 yes1 = false;
+                entTax.IsVisible = false;
             }
             else
             {
-                imYesNo1.Source = "uz_Yes";
+                imYesNo1.Source = GetYesNoIcon(true);
                 yes1 = true;
+                entTax.IsVisible = true;
             }
+
+            if (sender != null)
+                ControlApp.Vibrate();
         }
          
         private void Minus_Clicked(object sender, EventArgs e)
         {
             ChangeBoxColor(boxMinus);
+            
+            if (lbAmount.Text == "0") return;
+
+            lbAmount.Text = (int.Parse(lbAmount.Text) - 1).ToString();
         }
 
         private void Plus_Clicked(object sender, EventArgs e)
         {
             ChangeBoxColor(boxPlus);
+            lbAmount.Text = (int.Parse(lbAmount.Text) + 1).ToString();
         }
 
         private void Add_Tapped(object sender, EventArgs e)

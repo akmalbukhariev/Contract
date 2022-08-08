@@ -173,6 +173,7 @@
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
+                                        Keyboard="Telephone"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack10" 

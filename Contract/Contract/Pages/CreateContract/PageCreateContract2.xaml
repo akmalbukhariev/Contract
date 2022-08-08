@@ -124,7 +124,8 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <view:ViewEntry PlaceHoldingText="-- %"
+                    <view:ViewEntry x:Name="entTax" 
+                                    PlaceHoldingText="-- %"
                                     Style="{StaticResource entryStyle}"
                                     Grid.Row="7"/>
                     <Line BackgroundColor="Gray"
@@ -147,7 +148,7 @@
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <Grid ColumnDefinitions="*,Auto" Grid.Row="11">
-                        <Label Text="Soni"
+                        <Label Text="{x:Static resource:AppResource.Amount}"
                                Style="{StaticResource lbBlackStyle}"
                                VerticalTextAlignment="Center"/>
                         <Grid ColumnDefinitions="65,70,65" 
@@ -164,7 +165,8 @@
                                     TextColor="Black"
                                     BackgroundColor="Transparent"
                                     Clicked="Minus_Clicked"/>
-                            <Label Text="1" 
+                            <Label x:Name="lbAmount" 
+                                   Text="1" 
                                    Margin="0,0.5,0,0.5"
                                    BackgroundColor="White"
                                    VerticalTextAlignment="Center"
