@@ -341,7 +341,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel Termination of Contract No..
+        ///   Looks up a localized string similar to cancel Termination of Contract No..
         /// </summary>
         internal static string CancelTerminationOfContractNo {
             get {

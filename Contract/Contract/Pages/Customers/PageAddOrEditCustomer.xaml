@@ -6,7 +6,7 @@
             xmlns:control="clr-namespace:Contract.Control"
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.Customers.PageAddCustomer">
+            x:Class="Contract.Pages.Customers.PageAddOrEditCustomer">
 
     <Grid RowDefinitions="70,*" 
           ColumnDefinitions="20,*,20"
@@ -98,7 +98,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout Grid.Row="7">
+                    <StackLayout x:Name="stackYesNo1" Grid.Row="7">
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
@@ -140,7 +140,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout Grid.Row="12">
+                    <StackLayout x:Name="stackYesNo2" Grid.Row="12">
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
@@ -159,7 +159,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout Grid.Row="14">
+                    <StackLayout x:Name="stackYesNo3" Grid.Row="14">
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"

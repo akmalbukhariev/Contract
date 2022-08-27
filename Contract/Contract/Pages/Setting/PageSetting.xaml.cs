@@ -19,7 +19,7 @@ namespace Contract.Pages.Setting
         {
             InitializeComponent();
 
-            SetModel(new ViewModel.BaseModel());
+            SetModel(new ViewModel.BaseModel()); 
         }
 
         protected override void OnAppearing()
@@ -32,34 +32,41 @@ namespace Contract.Pages.Setting
             lbVoice.Text = RSC.Voice;
             lbNight.Text = RSC.NightView;
             lbAbout.Text = RSC.About;
+
+            imYesNo1.Source = GetYesNoIcon(true);
+            imYesNo2.Source = GetYesNoIcon(true);
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
         {
             if (yes1)
             {
-                imYesNo1.Source = "uz_No";
+                imYesNo1.Source = GetYesNoIcon(false);
                 yes1 = false;
             }
             else
             {
-                imYesNo1.Source = "uz_Yes";
+                imYesNo1.Source = GetYesNoIcon(true);
                 yes1 = true;
             }
+
+            ControlApp.Vibrate();
         }
 
         private void YesNo2_Tapped(object sender, EventArgs e)
         {
             if (yes2)
             {
-                imYesNo2.Source = "uz_No";
+                imYesNo2.Source = GetYesNoIcon(false);
                 yes2 = false;
             }
             else
             {
-                imYesNo2.Source = "uz_Yes";
+                imYesNo2.Source = GetYesNoIcon(true);
                 yes2 = true;
             }
+
+            ControlApp.Vibrate();
         }
 
         private async void TableCell_Tapped(object sender, EventArgs e)

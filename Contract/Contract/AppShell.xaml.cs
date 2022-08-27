@@ -32,7 +32,7 @@ namespace Contract
             Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentCancelContract), typeof(Pages.CurrentContracts.PageCurrentCancelContract));
             Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentContractTable), typeof(Pages.CurrentContracts.PageCurrentContractTable));
             
-            Routing.RegisterRoute(nameof(Pages.Customers.PageAddCustomer), typeof(Pages.Customers.PageAddCustomer));
+            Routing.RegisterRoute(nameof(Pages.Customers.PageAddOrEditCustomer), typeof(Pages.Customers.PageAddOrEditCustomer));
             Routing.RegisterRoute(nameof(Pages.Customers.PageCustomerList), typeof(Pages.Customers.PageCustomerList));
             
             Routing.RegisterRoute(nameof(Pages.EditContract.PageEditPersonalContract), typeof(Pages.EditContract.PageEditPersonalContract));

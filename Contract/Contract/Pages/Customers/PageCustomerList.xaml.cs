@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.Customers;
+﻿using Contract.Model;
+using Contract.ViewModel.Pages.Customers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,22 @@ namespace Contract.Pages.Customers
             model.Init();
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var tListView = sender as ListView;
-            tListView.SelectedItem = null;
+            //tListView.SelectedItem = null;
+
+            await Navigation.PushAsync(new PageAddOrEditCustomer());
+        }
+
+        private async void Edit_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((Image)sender);
+            ControlApp.Vibrate();
+
+            Customer item = (Customer)((Image)sender).BindingContext;
+
+            await Navigation.PushAsync(new PageAddOrEditCustomer());
         }
     }
 }

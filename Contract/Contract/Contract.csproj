@@ -46,6 +46,9 @@
     <Compile Update="Pages\CurrentContracts\PageCurrentContractTable.xaml.cs">
       <DependentUpon>PageCurrentContractTable.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Customers\PageAddOrEditCustomer.xaml.cs">
+      <DependentUpon>PageAddOrEditCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\PageMasterDetail.xaml.cs">
       <DependentUpon>PageMasterDetail.xaml</DependentUpon>
     </Compile>
@@ -96,7 +99,7 @@
     <EmbeddedResource Update="Pages\CurrentContracts\PageCurrentContractTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Customers\PageAddCustomer.xaml">
+    <EmbeddedResource Update="Pages\Customers\PageAddOrEditCustomer.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Login\PageLogin.xaml">

@@ -27,7 +27,7 @@
                               TextColor="White"
                               FontSize="15"
                               FontFamily="Nunito_Regular"/>
-                        <Span Text=" 22-001-12345"
+                        <Span Text=" 22-001-12345 "
                               TextColor="White"
                               FontAttributes="Bold"
                               FontSize="15"/>

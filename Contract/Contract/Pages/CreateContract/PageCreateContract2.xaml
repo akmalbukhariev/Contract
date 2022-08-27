@@ -217,7 +217,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Tapped"/>
                             </StackLayout.GestureRecognizers>
-                            <Image Source="Copy" Style="{StaticResource imEdStyle}"/>
+                            <Image Source="Copy_1" Style="{StaticResource imEdStyle}"/>
                             <Label Text="{x:Static resource:AppResource.AddCopy}" Style="{StaticResource lbEdStyle}"/>
                         </StackLayout>
                         <BoxView x:Name="boxCopy" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
@@ -225,7 +225,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Tapped"/>
                             </StackLayout.GestureRecognizers>
-                            <Image Source="Add" Style="{StaticResource imEdStyle}"/>
+                            <Image Source="Add_1" Style="{StaticResource imEdStyle}"/>
                             <Label Text="{x:Static resource:AppResource.AddEmpty}" Style="{StaticResource lbEdStyle}"/>
                         </StackLayout>
                         <BoxView x:Name="boxDelete" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
@@ -233,7 +233,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
                             </StackLayout.GestureRecognizers>
-                            <Image Source="Delete" Style="{StaticResource imEdStyle}"/>
+                            <Image Source="Delete_1" Style="{StaticResource imEdStyle}"/>
                             <Label Text="{x:Static resource:AppResource.Delete}" Style="{StaticResource lbEdStyle}"/>
                         </StackLayout>
                     </Grid>

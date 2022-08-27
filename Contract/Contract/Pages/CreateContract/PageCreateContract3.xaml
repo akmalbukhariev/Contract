@@ -85,7 +85,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="View_Tapped"/>
                     </StackLayout.GestureRecognizers>
-                    <Image Source="eye_show" Style="{StaticResource imEdStyle}"/>
+                    <Image Source="view" Style="{StaticResource imEdStyle}"/>
                     <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
                 <BoxView x:Name="boxSend" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
@@ -101,7 +101,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Cancel_Tapped"/>
                     </StackLayout.GestureRecognizers>
-                    <Image Source="Cancel_1" Style="{StaticResource imEdStyle}"/>
+                    <Image Source="Cancel_2" Style="{StaticResource imEdStyle}"/>
                     <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
             </Grid>

@@ -97,7 +97,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout Grid.Row="8">
+                    <StackLayout x:Name="stackYesNo1" Grid.Row="8">
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
@@ -139,7 +139,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout Grid.Row="13">
+                    <StackLayout x:Name="stackYesNo2" Grid.Row="13">
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
@@ -158,7 +158,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout Grid.Row="15">
+                    <StackLayout x:Name="stackYesNo3" Grid.Row="15">
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
