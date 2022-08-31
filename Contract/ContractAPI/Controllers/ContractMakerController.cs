@@ -1,5 +1,5 @@
-﻿using LibContract.DataAccess;
-using LibContract.Models;
+﻿using ContractAPI.DataAccess;
+using ContractAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -19,8 +19,43 @@ namespace ContractAPI.Controllers
             _db = db;
         }
 
-        [HttpGet]
-        public IList<User> Get()
+        [HttpPost("signUp")]
+        public async Task<IActionResult> signUp([FromBody] User user)
+        {
+            Response response = new Response();
+            try
+            {
+                var newUser = new User()
+                {
+                    id = user.id,
+                    password = user.password,
+                    phone_number = user.phone_number,
+                    reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss")
+                };
+
+                _db.Users.Add(newUser);
+            }
+            catch (Exception ex)
+            {
+                response.result = false;
+                response.message = ex.Message;
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            return Ok(response);
+        }
+
+        [HttpGet("getUser/{phoneNumber}")]
+        public async Task<User> getUser(string phoneNumber)
+        {
+            User user = _db.Users.ToList().Find(item => item.phone_number == phoneNumber);
+            if(user == null)
+                return NotFound()
+        }
+
+        [HttpGet("getAllUsers")]
+        public IList<User> getAllUsers()
         {
             return (_db.Users.ToList());
         }

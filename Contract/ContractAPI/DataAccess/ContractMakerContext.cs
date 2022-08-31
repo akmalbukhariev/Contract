@@ -1,4 +1,5 @@
-﻿using LibContract.Models;
+﻿
+using ContractAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibContract.DataAccess
+namespace ContractAPI.DataAccess
 {
     public class ContractMakerContext : DbContext
     {
