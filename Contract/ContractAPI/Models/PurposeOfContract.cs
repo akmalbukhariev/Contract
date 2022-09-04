@@ -17,6 +17,8 @@ namespace ContractAPI.Models
 		public string unit_of_measure { get; set; }
 		public int amount { get; set; }
 		public int price { get; set; }
+		public string total_cost_of_service { get; set; }
+		public int public_offer { get; set; }
 
 		public void Copy(PurposeOfContract other)
 		{
@@ -29,7 +31,9 @@ namespace ContractAPI.Models
 			this.name_of_service_type = other.name_of_service_type;
 			this.unit_of_measure = other.unit_of_measure;
 			this.amount = other.amount;
-			this.price = other.price;	
+			this.price = other.price;
+			this.total_cost_of_service = other.total_cost_of_service;
+			this.public_offer = other.public_offer;
 		}
 	}
 }
