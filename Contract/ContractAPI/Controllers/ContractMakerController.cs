@@ -2,6 +2,7 @@
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace ContractAPI.Controllers
             {
                 var newUser = new User()
                 {
-                    id = user.id,
                     password = user.password,
                     phone_number = user.phone_number,
                     reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss")
@@ -72,10 +72,10 @@ namespace ContractAPI.Controllers
         }
 
         [HttpGet("getUser/{phoneNumber}")]
-        public IActionResult getUser(string phoneNumber)
+        public async Task<IActionResult> getUser(string phoneNumber)
         {
             ResponseUser response = new ResponseUser();
-            User user = _db.Users.ToList().Find(item => item.phone_number == phoneNumber);
+            User user = await _db.Users.Where(item => item.phone_number == phoneNumber).FirstOrDefaultAsync();
             if (user == null)
             {
                 response.data = null;
@@ -91,10 +91,10 @@ namespace ContractAPI.Controllers
         }
 
         [HttpGet("getUserCompanyInfo/{phoneNumber}")]
-        public IActionResult getUserCompanyInfo(string phoneNumber)
+        public async Task<IActionResult> getUserCompanyInfo(string phoneNumber)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            UserCompanyInfo info = _db.UserCompanyInfo.ToList().Find(item => item.user_phone_number.Equals(phoneNumber));
+            UserCompanyInfo info = await _db.UserCompanyInfo.Where(item => item.user_phone_number.Equals(phoneNumber)).FirstOrDefaultAsync();
             if (info == null)
             {
                 response.data = null;
@@ -114,7 +114,10 @@ namespace ContractAPI.Controllers
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            UserCompanyInfo found = _db.UserCompanyInfo.ToList().Find(item => item.user_phone_number.Equals(info.user_phone_number));
+            UserCompanyInfo found = await _db.UserCompanyInfo
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
             if (found != null)
             {
@@ -152,7 +155,11 @@ namespace ContractAPI.Controllers
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            UserCompanyInfo found = _db.UserCompanyInfo.ToList().Find(item => item.user_phone_number.Equals(info.user_phone_number));
+            UserCompanyInfo found = await _db.UserCompanyInfo
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
             if (found == null)
             {
                 response.result = false;
@@ -184,11 +191,59 @@ namespace ContractAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet("setPurposeOfCompany/{phoneNumber}")]
-        public IActionResult getPurposeOfCompany(string phoneNumber)
+        [HttpPut("updateUserPassword")]
+        public async Task<IActionResult> updateUserPassword([FromBody] User user)
+        {
+            ResponseLogin response = new ResponseLogin();
+
+            User found = await _db.Users.Where(item => item.phone_number == user.phone_number)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.result = false;
+                response.message = Constants.NotFound;
+                response.error_code = (int)HttpStatusCode.NotFound;
+
+                return NotFound(response);
+            }
+
+            var newUser = new User();
+            newUser.Copy(found);
+            newUser.password = user.password;
+
+            try
+            {
+                _db.Users.Update(newUser);
+            }
+            catch (Exception ex)
+            {
+                response.result = false;
+                response.userInfo = null;
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.userInfo = null;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
+
+        [HttpGet("getPurposeOfCompany/{phoneNumber}")]
+        public async Task<IActionResult> getPurposeOfCompany(string phoneNumber)
         {
             ResponsePurposeOfContract response = new ResponsePurposeOfContract();
-            PurposeOfContract info = _db.PurposeOfContracts.ToList().Find(item => item.user_phone_number.Equals(phoneNumber));
+            PurposeOfContract info = await _db.PurposeOfContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
+                .FirstOrDefaultAsync();
+
             if (info == null)
             {
                 response.data = null;
@@ -209,7 +264,10 @@ namespace ContractAPI.Controllers
             ResponsePurposeOfContract response = new ResponsePurposeOfContract();
             response.data = null;
 
-            PurposeOfContract found = _db.PurposeOfContracts.ToList().Find(item => item.user_phone_number.Equals(info.user_phone_number));
+            PurposeOfContract found = await _db.PurposeOfContracts
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
             if (found != null)
             {
@@ -248,10 +306,13 @@ namespace ContractAPI.Controllers
         }
 
         [HttpGet("getUnapprovedContract/{phoneNumber}")]
-        public IActionResult getUnapprovedContract(string phoneNumber)
+        public async Task<IActionResult> getUnapprovedContract(string phoneNumber)
         {
             ResponseUnapprovedContract response = new ResponseUnapprovedContract();
-            UnapprovedContract info = _db.UnapprovedContracts.ToList().Find(item => item.user_phone_number.Equals(phoneNumber));
+            UnapprovedContract info = await _db.UnapprovedContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
+                .FirstOrDefaultAsync();
+
             if (info == null)
             {
                 response.data = null;
@@ -296,10 +357,13 @@ namespace ContractAPI.Controllers
         }
 
         [HttpGet("getApplicableContract/{phoneNumber}")]
-        public IActionResult getApplicableContract(string phoneNumber)
+        public async Task<IActionResult> getApplicableContract(string phoneNumber)
         {
             ResponseApplicableContract response = new ResponseApplicableContract();
-            ApplicableContract info = _db.ApplicableContracts.ToList().Find(item => item.user_phone_number.Equals(phoneNumber));
+            ApplicableContract info = await _db.ApplicableContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
+                .FirstOrDefaultAsync();
+
             if (info == null)
             {
                 response.data = null;
@@ -344,10 +408,13 @@ namespace ContractAPI.Controllers
         }
          
         [HttpGet("getCanceledContract/{phoneNumber}")]
-        public IActionResult getCanceledContract(string phoneNumber)
+        public async Task<IActionResult> getCanceledContract(string phoneNumber)
         {
             ResponseCanceledContract response = new ResponseCanceledContract();
-            CanceledContract info = _db.CanceledContracts.ToList().Find(item => item.user_phone_number.Equals(phoneNumber));
+            CanceledContract info = await _db.CanceledContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
+                .FirstOrDefaultAsync();
+
             if (info == null)
             {
                 response.data = null;
