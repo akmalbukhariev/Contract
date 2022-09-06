@@ -17,6 +17,7 @@ namespace ContractAPI.DataAccess
         public DbSet<UnapprovedContract> UnapprovedContracts { get; set; }
         public DbSet<ApplicableContract> ApplicableContracts { get; set; }
         public DbSet<CanceledContract> CanceledContracts { get; set; }
+        public DbSet<AboutApp> AboutApp { get; set; }
 
         public ContractMakerContext(DbContextOptions options) : base(options)
         {
@@ -42,6 +43,9 @@ namespace ContractAPI.DataAccess
 
             modelBuilder.Entity<CanceledContract>().ToTable("CanceledContracts");
             modelBuilder.Entity<CanceledContract>().HasKey(r => r.date_of_contract);
+
+            modelBuilder.Entity<AboutApp>().ToTable("AboutApp");
+            modelBuilder.Entity<AboutApp>().HasKey(r => r.lan_code);
         }
     }
 }

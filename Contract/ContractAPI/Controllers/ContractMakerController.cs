@@ -458,5 +458,30 @@ namespace ContractAPI.Controllers
             return Ok(response);
         }
 
+        [HttpGet("getAboutApp/{lan_code}")]
+        public async Task<IActionResult> getAboutApp(string lan_code)
+        {
+            ResponseAboutApp response = new ResponseAboutApp();
+            response.data = null;
+            AboutApp found = await _db.AboutApp.Where(item => item.lan_code.Equals(lan_code)).FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.result = false;
+                response.message = Constants.NotFound;
+                response.error_code = (int)HttpStatusCode.NotFound;
+
+                return NotFound(response);
+            }
+
+            response.data = new AboutApp();
+            response.data.Copy(found);
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
     }
 }
