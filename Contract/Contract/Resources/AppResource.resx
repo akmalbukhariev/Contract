@@ -718,6 +718,10 @@ Contracts</value>
     <value>Ok</value>
     <comment>Menu</comment>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password.</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PasswordDescription" xml:space="preserve">
     <value>Enter a complex password that is comfortable for you and remember it. This password is required when logging in.</value>
     <comment>NewPassword</comment>
@@ -730,6 +734,10 @@ Contracts</value>
     <value>Personal Cabinet</value>
     <comment>Menu</comment>
   </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PhoneNumberOfCompany" xml:space="preserve">
     <value>Phone Number Of Company</value>
     <comment>Fillinfo</comment>
@@ -741,6 +749,9 @@ Contracts</value>
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
     <value>Please Enter Service Info</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please wait</value>
   </data>
   <data name="Position" xml:space="preserve">
     <value>Position</value>
@@ -865,6 +876,22 @@ Contracts</value>
   <data name="SignUpTitle" xml:space="preserve">
     <value>Enter phone number</value>
     <comment>SignUp</comment>
+  </data>
+  <data name="SignUp_Message_1" xml:space="preserve">
+    <value>Please enter the phone number.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_2" xml:space="preserve">
+    <value>Please enter the password.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_3" xml:space="preserve">
+    <value>Please check the password.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_4" xml:space="preserve">
+    <value>You have successfully registered</value>
+    <comment>Sign Up</comment>
   </data>
   <data name="Skip" xml:space="preserve">
     <value>Skip</value>

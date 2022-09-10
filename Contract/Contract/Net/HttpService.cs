@@ -11,8 +11,8 @@ namespace Contract.Net
 {
    public  class HttpService
     {
-        #region Url
-        public static string SERVER_URL = "https://localhost:5001/";
+        #region Url 
+        public static string SERVER_URL = "https://192.168.219.101:5001/api/ContractMaker/";
         public static string URL_LOGIN = SERVER_URL + "login";
         public static string URL_SIGN_UP = SERVER_URL + "signUp";
         public static string URL_GET_USER = SERVER_URL + "getUser/"; //phoneNumber
@@ -305,38 +305,24 @@ namespace Contract.Net
         /// <returns></returns>
         private static async Task<string> RequestPostMethod(string url, Object obj)
         {
-            var options = new RestClientOptions(url)
-            {
-                ThrowOnAnyError = true,
-                Timeout = 1000
-            };
-            
-            var client = new RestClient(options);
-           
-            var request = new RestRequest();
-            request.Method = Method.Post;
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", JsonConvert.SerializeObject(obj), ParameterType.RequestBody);
-            RestResponse response = await client.ExecuteAsync(request);
+            IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;
         }
 
         private static async Task<string> RequestPutMethod(string url, Object obj)
         {
-            var options = new RestClientOptions(url)
-            {
-                ThrowOnAnyError = true,
-                Timeout = 1000
-            };
-
-            var client = new RestClient(options);
-
-            var request = new RestRequest();
-            request.Method = Method.Put;
-            request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", JsonConvert.SerializeObject(obj), ParameterType.RequestBody);
-            RestResponse response = await client.ExecuteAsync(request);
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.PUT);
+            IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;
         }
@@ -348,37 +334,27 @@ namespace Contract.Net
         /// <returns></returns>
         private static async Task<string> RequestGetMethod(string url)
         {
-            var options = new RestClientOptions(url)
-            {
-                ThrowOnAnyError = true,
-                Timeout = -1
-            };
-            var client = new RestClient(options);
-             
-            var request = new RestRequest();
-            request.Method = Method.Get;
-            RestResponse response = await client.ExecuteAsync(request);
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;
         }
 
         private static async Task<string> RequestGetMethod(string url, Object data)
         {
-            //string sss = JsonConvert.SerializeObject(data).ToString();
-            var options = new RestClientOptions(url)
-            {
-                ThrowOnAnyError = true,
-                Timeout = -1
-            };
-            var client = new RestClient(options);
-            
-            var request = new RestRequest();
-            request.Method = Method.Get;
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.GET);
+
             request.AlwaysMultipartFormData = true;
 
             request.AddParameter("data", JsonConvert.SerializeObject(data));
 
-            RestResponse response = await client.ExecuteAsync(request);
+            IRestResponse response = await client.ExecuteAsync(request);
             return response.Content;
         }
 

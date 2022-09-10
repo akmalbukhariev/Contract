@@ -16,6 +16,8 @@ namespace Contract.Control
   
         private static ControlApp _instance = null;
 
+        public Net.Login LoginInfo { get; set; } = new Net.Login();
+
         private ControlApp()
         {
            

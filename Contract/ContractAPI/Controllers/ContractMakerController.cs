@@ -26,11 +26,19 @@ namespace ContractAPI.Controllers
         public async Task<IActionResult> signUp([FromBody] User user)
         {
             ResponseSignUp response = new ResponseSignUp();
+            User foundUser = _db.Users.Where(item => item.phone_number.Equals(user.phone_number)).AsNoTracking().FirstOrDefault();
+            if (foundUser != null)
+            {
+                response.error_code = (int)HttpStatusCode.Found;
+                response.message = Constants.Exist;
+                return BadRequest(response);
+            }
+
             try
             {
                 var newUser = new User()
                 {
-                    password = user.password,
+                    password = AesOperation.EncryptString(user.password),
                     phone_number = user.phone_number,
                     reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss")
                 };
@@ -47,6 +55,7 @@ namespace ContractAPI.Controllers
             await _db.SaveChangesAsync();
             response.result = true;
             response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
 
             return Ok(response);
         }
@@ -55,12 +64,21 @@ namespace ContractAPI.Controllers
         public IActionResult login([FromBody] Login user)
         {
             ResponseLogin response = new ResponseLogin();
-            User foundUser = _db.Users.FirstOrDefault(item => item.phone_number.Equals(user.phone_number) && item.password.Equals(user.password));
+            User foundUser = _db.Users.FirstOrDefault(item => item.phone_number.Equals(user.phone_number));
             if (foundUser == null)
             {
                 response.userInfo = null;
                 response.message = Constants.DoNotExist;
                 return NotFound(response);
+            }
+
+            string decryptPassword = AesOperation.DecryptString(foundUser.password);
+            if (!user.password.Equals(decryptPassword))
+            {
+                response.result = false;
+                response.message = "Wrong password.";
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return BadRequest(response);
             }
 
             response.userInfo.Copy(foundUser);

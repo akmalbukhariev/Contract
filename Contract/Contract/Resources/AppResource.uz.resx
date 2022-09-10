@@ -743,6 +743,10 @@ shartnomalar mavjud emas.</value>
     <value>Ok</value>
     <comment>Menu</comment>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Parol</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PasswordDescription" xml:space="preserve">
     <value>Iltimos, o'zingizga qulay bo'lgan murakkab parolni kiriting va unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
     <comment>NewPassword</comment>
@@ -755,6 +759,10 @@ shartnomalar mavjud emas.</value>
     <value>Shaxsiy kabinet</value>
     <comment>Menu</comment>
   </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefen nomer</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PhoneNumberOfCompany" xml:space="preserve">
     <value>Korxona telfon raqami</value>
     <comment>Fillinfo</comment>
@@ -766,6 +774,9 @@ shartnomalar mavjud emas.</value>
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
     <value>Iltimos, xizmat ma'lumotlarini kiriting</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Iltimos kuting</value>
   </data>
   <data name="Position" xml:space="preserve">
     <value>Lavozim</value>
@@ -894,6 +905,22 @@ yuborilgan maxsus kodni kiriting.</value>
   <data name="SignUpTitle" xml:space="preserve">
     <value>Telfon raqamingizni kiriting</value>
     <comment>SignUp</comment>
+  </data>
+  <data name="SignUp_Message_1" xml:space="preserve">
+    <value>Iltimos telefon nomeringizni kiriting.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_2" xml:space="preserve">
+    <value>Iltimos, parolni kiriting.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_3" xml:space="preserve">
+    <value>Iltimos, parolni tekshiring.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_4" xml:space="preserve">
+    <value>Siz roʻyxatdan muvaffaqiyatli oʻtdingiz</value>
+    <comment>Sign Up</comment>
   </data>
   <data name="Skip" xml:space="preserve">
     <value>O'tkazib yuborish</value>

@@ -719,6 +719,10 @@
     <value>Ок</value>
     <comment>Menu</comment>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль.</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PasswordDescription" xml:space="preserve">
     <value>Введите сложный пароль, который вам удобен, и запомните его. Этот пароль требуется при входе в систему.</value>
     <comment>NewPassword</comment>
@@ -731,6 +735,10 @@
     <value>Личный кабинет</value>
     <comment>Menu</comment>
   </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Номер телефона</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PhoneNumberOfCompany" xml:space="preserve">
     <value>Номер телефона предприятия</value>
     <comment>Fillinfo</comment>
@@ -742,6 +750,9 @@
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
     <value>Пожалуйста введите данные услуги</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Пожалуйста подождите</value>
   </data>
   <data name="Position" xml:space="preserve">
     <value>Должность</value>
@@ -866,6 +877,22 @@
   <data name="SignUpTitle" xml:space="preserve">
     <value>Введите номер телефона</value>
     <comment>SignUp</comment>
+  </data>
+  <data name="SignUp_Message_1" xml:space="preserve">
+    <value>Пожалуйста, введите номер телефона.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_2" xml:space="preserve">
+    <value>Пожалуйста, введите пароль.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_3" xml:space="preserve">
+    <value>Пожалуйста, проверьте пароль.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_4" xml:space="preserve">
+    <value>Вы успешно зарегистрировались</value>
+    <comment>Sign Up</comment>
   </data>
   <data name="Skip" xml:space="preserve">
     <value>Пропустить</value>

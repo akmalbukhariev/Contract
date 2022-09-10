@@ -1,4 +1,5 @@
 ﻿using Contract.Control;
+using Contract.Net;
 using Contract.Pages;
 using Contract.Pages.SignUp;
 using System;
@@ -22,9 +23,17 @@ namespace Contract.ViewModel.Pages.Login
         public ICommand CommandLogin => new Command(Login);
         public ICommand CommandSignUp => new Command(SignUp);
 
-        private void Login()
+        private async void Login()
         {
-             Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail()); 
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseUser response = await HttpService.GetUser("12");
+            ControlApp.CloseLoadingView();
+
+            if (response.result)
+            {
+                
+            }
+             //Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail()); 
         }
 
         private async void SignUp()

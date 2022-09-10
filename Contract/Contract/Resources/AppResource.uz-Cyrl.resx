@@ -719,6 +719,10 @@
     <value>Ок</value>
     <comment>Menu</comment>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Парол</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PasswordDescription" xml:space="preserve">
     <value>Илтимос, ўзингизга қулай бўлган мураккаб паролни киритинг ва унутманг. Бу парол, сиз тизимга киришингиз вақтида керак бўлади.</value>
     <comment>NewPassword</comment>
@@ -731,6 +735,10 @@
     <value>Шахсий кабинет</value>
     <comment>Menu</comment>
   </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Телефен номер</value>
+    <comment>Sign Up</comment>
+  </data>
   <data name="PhoneNumberOfCompany" xml:space="preserve">
     <value>Корхона телфон рақами</value>
     <comment>Fillinfo</comment>
@@ -742,6 +750,9 @@
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
     <value>Илтимос, хизмат маълумотларини киритинг</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Илтимос кутинг</value>
   </data>
   <data name="Position" xml:space="preserve">
     <value>Лавозим</value>
@@ -866,6 +877,22 @@
   <data name="SignUpTitle" xml:space="preserve">
     <value>Телефон рақамингизни киритинг</value>
     <comment>SignUp</comment>
+  </data>
+  <data name="SignUp_Message_1" xml:space="preserve">
+    <value>Илтимос телефон номерингизни киритинг.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_2" xml:space="preserve">
+    <value>Илтимос, паролни киритинг.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_3" xml:space="preserve">
+    <value>Илтимос, паролни текширинг.</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="SignUp_Message_4" xml:space="preserve">
+    <value>Сиз рўйхатдан муваффақиятли ўтдингиз.</value>
+    <comment>Sign Up</comment>
   </data>
   <data name="Skip" xml:space="preserve">
     <value>Ўтказиб юбориш</value>

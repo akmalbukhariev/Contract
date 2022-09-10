@@ -28,6 +28,14 @@ namespace Contract.Pages.SignUp
 
         private async void Next_Clicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(entry.Text))
+            {
+                await DisplayAlert(RSC.PhoneNumber, RSC.SignUp_Message_1, RSC.Ok);
+                return;
+            }
+
+            ControlApp.LoginInfo.phone_number = entry.Text; 
+
             Model.SetTransitionType();
             await Navigation.PushAsync(new PageNewPassword());
         }

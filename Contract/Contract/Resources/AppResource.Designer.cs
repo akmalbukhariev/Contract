@@ -1412,6 +1412,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password..
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter a complex password that is comfortable for you and remember it. This password is required when logging in..
         /// </summary>
         internal static string PasswordDescription {
@@ -1439,6 +1448,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phone number.
+        /// </summary>
+        internal static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone Number Of Company.
         /// </summary>
         internal static string PhoneNumberOfCompany {
@@ -1462,6 +1480,15 @@ namespace Contract.Resources {
         internal static string PleaseEnterServiceInfo {
             get {
                 return ResourceManager.GetString("PleaseEnterServiceInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please wait.
+        /// </summary>
+        internal static string PleaseWait {
+            get {
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
             }
         }
         
@@ -1723,6 +1750,42 @@ namespace Contract.Resources {
         internal static string SignUp {
             get {
                 return ResourceManager.GetString("SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the phone number..
+        /// </summary>
+        internal static string SignUp_Message_1 {
+            get {
+                return ResourceManager.GetString("SignUp_Message_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the password..
+        /// </summary>
+        internal static string SignUp_Message_2 {
+            get {
+                return ResourceManager.GetString("SignUp_Message_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please check the password..
+        /// </summary>
+        internal static string SignUp_Message_3 {
+            get {
+                return ResourceManager.GetString("SignUp_Message_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have successfully registered.
+        /// </summary>
+        internal static string SignUp_Message_4 {
+            get {
+                return ResourceManager.GetString("SignUp_Message_4", resourceCulture);
             }
         }
         
