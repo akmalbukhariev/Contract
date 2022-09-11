@@ -9,6 +9,16 @@ namespace ContractAPI.Models
     {
         public string payment_percent { get; set; }
 
+        public ApplicableContract()
+        {
+            
+        }
+
+        public ApplicableContract(ApplicableContract other)
+        {
+            this.Copy(other);
+        }
+
         public void Copy(ApplicableContract other)
         {
             base.Copy(other);

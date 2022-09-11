@@ -8,6 +8,6 @@ namespace ContractAPI.Response
 {
     public class ResponseApplicableContract : Response
     {
-        public ApplicableContract data { get; set; } = new ApplicableContract();
+        public List<ApplicableContract> data { get; set; } = new List<ApplicableContract>();
     }
 }

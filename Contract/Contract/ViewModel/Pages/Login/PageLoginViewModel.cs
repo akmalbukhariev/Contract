@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Contract.ViewModel.Pages.Login
@@ -23,17 +24,33 @@ namespace Contract.ViewModel.Pages.Login
         public ICommand CommandLogin => new Command(Login);
         public ICommand CommandSignUp => new Command(SignUp);
 
-        private async void Login()
+        public async void Login()
         {
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseUser response = await HttpService.GetUser("12");
+
+            var data = new Net.Login()
+            {
+                phone_number = PhoneNumber,
+                password = Password
+            };
+            ResponseLogin response = await HttpService.Login(data);
             ControlApp.CloseLoadingView();
 
-            if (response.result)
+            if (!response.result)
             {
-                
+                await Application.Current.MainPage.DisplayAlert(RSC.Login, RSC.Login_Message_1, RSC.Ok);
+                return;
             }
-             //Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail()); 
+
+            ControlApp.UserInfo = response.userInfo;
+            Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail());
+
+            if (CheckAutoLogin)
+                Preferences.Set("AutoLogin", $"{PhoneNumber}/{Password}");
+            else
+                Preferences.Set("AutoLogin", "");
         }
 
         private async void SignUp()

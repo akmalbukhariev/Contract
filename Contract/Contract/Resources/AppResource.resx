@@ -546,6 +546,9 @@ Contracts</value>
     <value>Please enter a complex password that is comfortable for you and remember it. This password is required when logging in</value>
     <comment>Change password</comment>
   </data>
+  <data name="Internet" xml:space="preserve">
+    <value>Internet</value>
+  </data>
   <data name="Intro1_1" xml:space="preserve">
     <value>SIGN A CONTRACT ANYWHERE</value>
     <comment>Introduction</comment>
@@ -613,6 +616,10 @@ Contracts</value>
   <data name="LoginSystem" xml:space="preserve">
     <value>Login System</value>
     <comment>LoginInfo</comment>
+  </data>
+  <data name="Login_Message_1" xml:space="preserve">
+    <value>Please check the phone number or password.</value>
+    <comment>Login</comment>
   </data>
   <data name="Logotip" xml:space="preserve">
     <value>Logo</value>
@@ -705,6 +712,9 @@ Contracts</value>
   <data name="NightView" xml:space="preserve">
     <value>Night View</value>
     <comment>Setting</comment>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>No internet</value>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Offer</value>
@@ -945,12 +955,12 @@ Contracts</value>
     <value>Unapproved Contracts</value>
     <comment>UnapprovedContracts</comment>
   </data>
-  <data name="UnconfirmedContracts1" xml:space="preserve">
-    <value>Unconfirmed Contracts</value>
+  <data name="UnapprovedContracts1" xml:space="preserve">
+    <value>Unapproved Contracts</value>
     <comment>Main</comment>
   </data>
-  <data name="UnconfirmedContracts2" xml:space="preserve">
-    <value>Unconfirmed 
+  <data name="UnapprovedContracts2" xml:space="preserve">
+    <value>Unapproved 
 Contracts</value>
     <comment>Main</comment>
   </data>

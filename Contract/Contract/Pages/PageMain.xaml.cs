@@ -32,8 +32,9 @@ namespace Contract.Pages
             btnCreateContract.Text = RSC.CreateContract;
             lbAllContracts.Text = RSC.AllContracts;
 
-            (Model as PageMainViewModel).Clean();
-            (Model as PageMainViewModel).Init();
+            PModel.Clean();
+            PModel.Init();
+            PModel.RequestInfo();
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -66,6 +67,14 @@ namespace Contract.Pages
         private void Button_Clicked(object sender, EventArgs e)
         {
             OnNavigatePage(new CreateContract.PageCreateContract1()); 
+        }
+
+        private PageMainViewModel PModel
+        {
+            get
+            {
+                return (Model as PageMainViewModel);
+            }
         }
     }
 }

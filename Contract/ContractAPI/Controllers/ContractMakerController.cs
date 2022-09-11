@@ -327,11 +327,10 @@ namespace ContractAPI.Controllers
         public async Task<IActionResult> getUnapprovedContract(string phoneNumber)
         {
             ResponseUnapprovedContract response = new ResponseUnapprovedContract();
-            UnapprovedContract info = await _db.UnapprovedContracts
-                .Where(item => item.user_phone_number.Equals(phoneNumber))
-                .FirstOrDefaultAsync();
+            List<UnapprovedContract> infoList = await _db.UnapprovedContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber)).ToListAsync();
 
-            if (info == null)
+            if (infoList == null || infoList.Count == 0)
             {
                 response.data = null;
                 return NotFound(response);
@@ -340,7 +339,11 @@ namespace ContractAPI.Controllers
             response.result = true;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
-            response.data.Copy(info);
+
+            foreach (UnapprovedContract info in infoList)
+            {
+                response.data.Add(new UnapprovedContract(info));
+            }
 
             return Ok(response);
         }
@@ -378,11 +381,10 @@ namespace ContractAPI.Controllers
         public async Task<IActionResult> getApplicableContract(string phoneNumber)
         {
             ResponseApplicableContract response = new ResponseApplicableContract();
-            ApplicableContract info = await _db.ApplicableContracts
-                .Where(item => item.user_phone_number.Equals(phoneNumber))
-                .FirstOrDefaultAsync();
+            List<ApplicableContract> infoList = await _db.ApplicableContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber)).ToListAsync();
 
-            if (info == null)
+            if (infoList == null || infoList.Count == 0)
             {
                 response.data = null;
                 return NotFound(response);
@@ -391,7 +393,11 @@ namespace ContractAPI.Controllers
             response.result = true;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
-            response.data.Copy(info);
+
+            foreach (ApplicableContract info in infoList)
+            {
+                response.data.Add(new ApplicableContract(info));
+            }
 
             return Ok(response);
         }

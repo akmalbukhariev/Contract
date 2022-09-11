@@ -54,10 +54,10 @@
                   Grid.Row="3">
                 <view:ViewShowContractCount ImageSource="check1"
                                             Text="{Binding TextCount1}"
-                                            TextCount="15"/>
+                                            TextCount="{Binding TextValue1}"/>
                 <view:ViewShowContractCount ImageSource="check2"
                                             Text="{Binding TextCount2}"
-                                            TextCount="15"
+                                            TextCount="{Binding TextValue2}"
                                             Grid.Column="1"/>
             </Grid>
             <Button x:Name="btnCreateContract" 

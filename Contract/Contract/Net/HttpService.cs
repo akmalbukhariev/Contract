@@ -581,7 +581,7 @@ namespace Contract.Net
 
     public class ResponseApplicableContract : Response, IResponse
     {
-        public ApplicableContract data { get; set; } = new ApplicableContract();
+        public List<ApplicableContract> data { get; set; } = new List<ApplicableContract>();
     }
 
     public class ResponseCanceledContract : Response, IResponse
@@ -596,7 +596,7 @@ namespace Contract.Net
 
     public class ResponseUnapprovedContract : Response, IResponse
     {
-        public UnapprovedContract data { get; set; } = new UnapprovedContract();
+        public List<UnapprovedContract> data { get; set; } = new List<UnapprovedContract>();
     }
 
     public class ResponseUser : Response, IResponse

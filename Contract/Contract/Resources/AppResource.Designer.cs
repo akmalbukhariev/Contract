@@ -1025,6 +1025,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Internet.
+        /// </summary>
+        internal static string Internet {
+            get {
+                return ResourceManager.GetString("Internet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SIGN A CONTRACT ANYWHERE.
         /// </summary>
         internal static string Intro1_1 {
@@ -1147,6 +1156,15 @@ namespace Contract.Resources {
         internal static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please check the phone number or password..
+        /// </summary>
+        internal static string Login_Message_1 {
+            get {
+                return ResourceManager.GetString("Login_Message_1", resourceCulture);
             }
         }
         
@@ -1381,6 +1399,15 @@ namespace Contract.Resources {
         internal static string NightView {
             get {
                 return ResourceManager.GetString("NightView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No internet.
+        /// </summary>
+        internal static string NoInternet {
+            get {
+                return ResourceManager.GetString("NoInternet", resourceCulture);
             }
         }
         
@@ -1925,21 +1952,21 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unconfirmed Contracts.
+        ///   Looks up a localized string similar to Unapproved Contracts.
         /// </summary>
-        internal static string UnconfirmedContracts1 {
+        internal static string UnapprovedContracts1 {
             get {
-                return ResourceManager.GetString("UnconfirmedContracts1", resourceCulture);
+                return ResourceManager.GetString("UnapprovedContracts1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unconfirmed 
+        ///   Looks up a localized string similar to Unapproved 
         ///Contracts.
         /// </summary>
-        internal static string UnconfirmedContracts2 {
+        internal static string UnapprovedContracts2 {
             get {
-                return ResourceManager.GetString("UnconfirmedContracts2", resourceCulture);
+                return ResourceManager.GetString("UnapprovedContracts2", resourceCulture);
             }
         }
         

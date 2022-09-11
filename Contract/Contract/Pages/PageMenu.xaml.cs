@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -64,8 +64,7 @@ namespace Contract.Pages
                     bool res = await Application.Current.MainPage.DisplayAlert(RSC.SignOut, RSC.SignOutText, RSC.Ok, RSC.Cancel);
                     if (res)
                     {
-                        //Preferences.Set("AutoLogin", "");
-                        //ControlApp.SystemStatus = LogInOut.LogOut;
+                        Preferences.Set("AutoLogin", ""); 
                         Application.Current.MainPage = new TransitionNavigationPage(new Login.PageLogin());
                     }
                     break;

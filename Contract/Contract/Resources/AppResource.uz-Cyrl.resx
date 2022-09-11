@@ -547,6 +547,9 @@
     <value>Илтимос, ўзингизга қулай бўлган мураккаб паролни киритинг ва уни унутманг. Бу парол, сиз тизимга киришингиз вақтида керак бўлади.</value>
     <comment>Change password</comment>
   </data>
+  <data name="Internet" xml:space="preserve">
+    <value>Интернет</value>
+  </data>
   <data name="Intro1_1" xml:space="preserve">
     <value>ИСТАЛГАН ЖОЙДА ШАРТНОМА ТУЗИШ</value>
     <comment>Introduction</comment>
@@ -614,6 +617,10 @@
   <data name="LoginSystem" xml:space="preserve">
     <value>Тизимга кириш</value>
     <comment>LoginInfo</comment>
+  </data>
+  <data name="Login_Message_1" xml:space="preserve">
+    <value>Илтимос, телефон рақами ёки паролни текширинг.</value>
+    <comment>Login</comment>
   </data>
   <data name="Logotip" xml:space="preserve">
     <value>Логотип</value>
@@ -706,6 +713,9 @@
   <data name="NightView" xml:space="preserve">
     <value>Тунги кўриниш</value>
     <comment>Setting</comment>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Интернет йўқ</value>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Таклиф</value>
@@ -946,11 +956,11 @@
     <value>Тасдиқланмаган шартномалар</value>
     <comment>UnapprovedContracts</comment>
   </data>
-  <data name="UnconfirmedContracts1" xml:space="preserve">
+  <data name="UnapprovedContracts1" xml:space="preserve">
     <value>Тасдиқланмаган шартномалар</value>
     <comment>Main</comment>
   </data>
-  <data name="UnconfirmedContracts2" xml:space="preserve">
+  <data name="UnapprovedContracts2" xml:space="preserve">
     <value>Тасдиқланмаган шартномалар</value>
     <comment>Main</comment>
   </data>

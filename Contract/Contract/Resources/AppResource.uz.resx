@@ -552,6 +552,9 @@ shartnomalar</value>
     <value>Iltimos, o'zingizga qulay bo'lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
     <comment>Change password</comment>
   </data>
+  <data name="Internet" xml:space="preserve">
+    <value>Internet</value>
+  </data>
   <data name="Intro1_1" xml:space="preserve">
     <value>ISTALGAN JOYDA 
  SHARTNOMA TUZISH</value>
@@ -635,6 +638,10 @@ shartnomalarni tuzing.</value>
   <data name="LoginSystem" xml:space="preserve">
     <value>Tizimga kirish</value>
     <comment>LoginInfo</comment>
+  </data>
+  <data name="Login_Message_1" xml:space="preserve">
+    <value>Iltimos, telefon raqami yoki parolni tekshiring.</value>
+    <comment>Login</comment>
   </data>
   <data name="Logotip" xml:space="preserve">
     <value>Logotip</value>
@@ -730,6 +737,9 @@ shartnomalar mavjud emas.</value>
   <data name="NightView" xml:space="preserve">
     <value>Tungi ko'rinish</value>
     <comment>Setting</comment>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Internet yo'q</value>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Taklif</value>
@@ -974,11 +984,11 @@ yuborilgan maxsus kodni kiriting.</value>
     <value>Tasdiqlanmagan shartnomalar</value>
     <comment>UnapprovedContracts</comment>
   </data>
-  <data name="UnconfirmedContracts1" xml:space="preserve">
+  <data name="UnapprovedContracts1" xml:space="preserve">
     <value>Tasdiqlanmagan shartnomalar</value>
     <comment>Main</comment>
   </data>
-  <data name="UnconfirmedContracts2" xml:space="preserve">
+  <data name="UnapprovedContracts2" xml:space="preserve">
     <value>Tasdiqlanmagan 
 shartnomalar</value>
     <comment>Main</comment>

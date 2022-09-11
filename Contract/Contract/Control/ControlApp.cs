@@ -17,6 +17,7 @@ namespace Contract.Control
         private static ControlApp _instance = null;
 
         public Net.Login LoginInfo { get; set; } = new Net.Login();
+        public Net.User UserInfo { get; set; }
 
         private ControlApp()
         {
@@ -57,7 +58,7 @@ namespace Contract.Control
         {
             if (!IsInternetConnectionOk)
             {
-                //UserDialogs.Instance.Alert(RSC.NoInternet, RSC.Internet, RSC.Ok);
+                UserDialogs.Instance.Alert(RSC.NoInternet, RSC.Internet, RSC.Ok);
                 return false;
             }
 
