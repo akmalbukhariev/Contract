@@ -19,9 +19,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
 
         public PageTableViewModel()
         { 
-            DataList = new ObservableCollection<CanceledContract>();
-
-            ExplanationText = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
+            DataList = new ObservableCollection<CanceledContract>(); 
         }
 
         #region Commands
@@ -34,51 +32,84 @@ namespace Contract.ViewModel.Pages.CanceledContracts
         }
         #endregion
 
-        public void Init()
+        public async void RequestInfo()
         {
-            CanceledContract item1 = new CanceledContract()
-            {
-                No = "1.",
-                Preparer = "Men",
-                ContractNnumber = "22-001-12345",
-                CompanyName = "Korxona nomi",
-                ContractDate = "06.04.2022",
-                ContractPrice = "100,000 sum",
-                ContractPayment = "100 %",
-                ContractPaymentColor = Color.FromHex("#C5E0B3"),
-                ItemColor = Color.FromHex("#DEEAF6"),
-                PreparerColor = Color.FromHex("#BDD6EE")
-            };
-            CanceledContract item2 = new CanceledContract()
-            {
-                No = "2.",
-                Preparer = "Kontragent",
-                ContractNnumber = "22-001-12345",
-                CompanyName = "Korxona nomi",
-                ContractDate = "06.04.2022",
-                ContractPrice = "100 $",
-                ContractPayment = "90 %",
-                ContractPaymentColor = Color.FromHex("#F7CAAC"),
-                ItemColor = Color.FromHex("#FFFFFF"),
-                PreparerColor = Color.FromHex("#FFF2CC")
-            };
-            CanceledContract item3 = new CanceledContract()
-            {
-                No = "3.",
-                Preparer = "Kontragent",
-                ContractNnumber = "22-001-12345",
-                CompanyName = "Korxona nomi",
-                ContractDate = "06.04.2022",
-                ContractPrice = "100 $",
-                ContractPayment = "100 %",
-                ContractPaymentColor = Color.FromHex("#538135"),
-                ItemColor = Color.FromHex("#DEEAF6"),
-                PreparerColor = Color.FromHex("#BDD6EE")
-            };
+            #region
+            //CanceledContract item1 = new CanceledContract()
+            //{
+            //    No = "1.",
+            //    Preparer = "Men",
+            //    ContractNnumber = "22-001-12345",
+            //    CompanyName = "Korxona nomi",
+            //    ContractDate = "06.04.2022",
+            //    ContractPrice = "100,000 sum",
+            //    ContractPayment = "100 %",
+            //    ContractPaymentColor = Color.FromHex("#C5E0B3"),
+            //    ItemColor = Color.FromHex("#DEEAF6"),
+            //    PreparerColor = Color.FromHex("#BDD6EE")
+            //};
+            //CanceledContract item2 = new CanceledContract()
+            //{
+            //    No = "2.",
+            //    Preparer = "Kontragent",
+            //    ContractNnumber = "22-001-12345",
+            //    CompanyName = "Korxona nomi",
+            //    ContractDate = "06.04.2022",
+            //    ContractPrice = "100 $",
+            //    ContractPayment = "90 %",
+            //    ContractPaymentColor = Color.FromHex("#F7CAAC"),
+            //    ItemColor = Color.FromHex("#FFFFFF"),
+            //    PreparerColor = Color.FromHex("#FFF2CC")
+            //};
+            //CanceledContract item3 = new CanceledContract()
+            //{
+            //    No = "3.",
+            //    Preparer = "Kontragent",
+            //    ContractNnumber = "22-001-12345",
+            //    CompanyName = "Korxona nomi",
+            //    ContractDate = "06.04.2022",
+            //    ContractPrice = "100 $",
+            //    ContractPayment = "100 %",
+            //    ContractPaymentColor = Color.FromHex("#538135"),
+            //    ItemColor = Color.FromHex("#DEEAF6"),
+            //    PreparerColor = Color.FromHex("#BDD6EE")
+            //};
 
-            Add(item1);
-            Add(item2);
-            Add(item3);
+            //Add(item1);
+            //Add(item2);
+            //Add(item3);
+            #endregion
+
+            this.DataList.Clear();
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            Net.ResponseCanceledContract response = await Net.HttpService.GetCanceledContract(ControlApp.UserInfo.phone_number);
+            ControlApp.CloseLoadingView();
+
+            if (response.result)
+            {
+                int no = 0;
+                foreach (Net.CanceledContract info in response.data)
+                {
+                    no++;
+                    CanceledContract item = new CanceledContract()
+                    {
+                        No = $"{no.ToString()}.",
+                        Preparer = info.preparer,
+                        ContractNnumber = info.contract_number,
+                        CompanyName = info.company_contractor_name,
+                        ContractDate = info.date_of_contract,
+                        ContractPrice = info.contract_price,
+                        ContractPayment = info.payment_percent,
+                        CommentText = info.comment,
+                        ContractPaymentColor = Color.FromHex("#C5E0B3"),
+                        ItemColor = Color.FromHex("#DEEAF6"),
+                        PreparerColor = Color.FromHex("#BDD6EE")
+                    };
+
+                    Add(item);
+                }
+            }
         }
 
         public void Add(CanceledContract item)

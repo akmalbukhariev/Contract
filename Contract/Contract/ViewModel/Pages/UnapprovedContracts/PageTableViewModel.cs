@@ -51,47 +51,77 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
         }
         #endregion
 
-        public void Init()
+        public async void RequestInfo()
         {
-            UnapprovedContract item1 = new UnapprovedContract()
-            {
-                No = "1.",
-                Preparer = "Men",
-                ContractNnumber = "22-001-12345",
-                CompanyName = "Korxona nomi",
-                ContractDate = "06.04.2022",
-                ContractPrice = "100,000 sum",
-                ItemColor = Color.FromHex("#DEEAF6"),
-                PreparerColor = Color.FromHex("#BDD6EE")
-            };
-            UnapprovedContract item2 = new UnapprovedContract()
-            {
-                No = "2.",
-                Preparer = "Kontragent",
-                ContractNnumber = "22-001-12345",
-                CompanyName = "Korxona nomi",
-                ContractDate = "06.04.2022",
-                ContractPrice = "100 $",
-                ItemColor = Color.FromHex("#FFFFFF"),
-                PreparerColor = Color.FromHex("#FFF2CC")
-            };
-            UnapprovedContract item3 = new UnapprovedContract()
-            {
-                No = "3.",
-                Preparer = "Kontragent",
-                ContractNnumber = "22-001-12345",
-                CompanyName = "Korxona nomi",
-                ContractDate = "06.04.2022",
-                ContractPrice = "100 $",
-                ItemColor = Color.FromHex("#DEEAF6"),
-                PreparerColor = Color.FromHex("#BDD6EE")
-            };
+            #region
+            //UnapprovedContract item1 = new UnapprovedContract()
+            //{
+            //    No = "1.",
+            //    Preparer = "Men",
+            //    ContractNnumber = "22-001-12345",
+            //    CompanyName = "Korxona nomi",
+            //    ContractDate = "06.04.2022",
+            //    ContractPrice = "100,000 sum",
+            //    ItemColor = Color.FromHex("#DEEAF6"),
+            //    PreparerColor = Color.FromHex("#BDD6EE")
+            //};
+            //UnapprovedContract item2 = new UnapprovedContract()
+            //{
+            //    No = "2.",
+            //    Preparer = "Kontragent",
+            //    ContractNnumber = "22-001-12345",
+            //    CompanyName = "Korxona nomi",
+            //    ContractDate = "06.04.2022",
+            //    ContractPrice = "100 $",
+            //    ItemColor = Color.FromHex("#FFFFFF"),
+            //    PreparerColor = Color.FromHex("#FFF2CC")
+            //};
+            //UnapprovedContract item3 = new UnapprovedContract()
+            //{
+            //    No = "3.",
+            //    Preparer = "Kontragent",
+            //    ContractNnumber = "22-001-12345",
+            //    CompanyName = "Korxona nomi",
+            //    ContractDate = "06.04.2022",
+            //    ContractPrice = "100 $",
+            //    ItemColor = Color.FromHex("#DEEAF6"),
+            //    PreparerColor = Color.FromHex("#BDD6EE")
+            //};
 
-            Add(item1);
-            Add(item2);
-            Add(item3);
+            //Add(item1);
+            //Add(item2);
+            //Add(item3);
+            #endregion
+
+            this.DataList.Clear();
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            Net.ResponseUnapprovedContract response = await Net.HttpService.GetUnapprovedContract(ControlApp.UserInfo.phone_number);
+            ControlApp.CloseLoadingView();
+
+            if (response.result)
+            {
+                int no = 0;
+                foreach (Net.UnapprovedContract info in response.data)
+                {
+                    no++;
+                    UnapprovedContract item = new UnapprovedContract()
+                    {
+                        No = $"{no.ToString()}.",
+                        Preparer = info.preparer,
+                        ContractNnumber = info.contract_number,
+                        CompanyName = info.company_contractor_name,
+                        ContractDate = info.date_of_contract,
+                        ContractPrice = info.contract_price,
+                        ItemColor = Color.FromHex("#DEEAF6"),
+                        PreparerColor = Color.FromHex("#BDD6EE")
+                    };
+
+                    Add(item);
+                }
+            }
         }
-
+         
         public void Add(UnapprovedContract item)
         {
             DataList.Add(item);

@@ -8,6 +8,7 @@ namespace Contract.Model
     public class CanceledContract : BaseContract
     {
         public string ContractPayment { get => GetValue<string>(); set => SetValue(value); }
+        public string CommentText { get => GetValue<string>(); set => SetValue(value); }
         public Color ContractPaymentColor { get => GetValue<Color>(); set => SetValue(value); }
     }
 }

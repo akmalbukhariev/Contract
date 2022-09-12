@@ -219,7 +219,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\Pages\CurrentContracts\" />
     <Folder Include="ViewModel\Pages\CanceledContracts\" />
     <Folder Include="ViewModel\SignUp\" />
   </ItemGroup>

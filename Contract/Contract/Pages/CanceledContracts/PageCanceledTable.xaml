@@ -46,6 +46,8 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Grid ColumnDefinitions="30,120,150,220,150,150,70,80,90,70"
+                                      RowDefinitions="*,1"
+                                      RowSpacing="0"
                                       BackgroundColor="{Binding ItemColor}">
                                     <Label Text="{Binding No}" Style="{StaticResource lbItem}" FontAttributes="Bold" FontSize="17"/>
                                     <BoxView BackgroundColor="{Binding PreparerColor}" Grid.Column="1"/>
@@ -68,9 +70,12 @@
                                     </Image>
                                     <Image Source="edited" Style="{StaticResource imItem}" Grid.Column="9">
                                         <Image.GestureRecognizers>
-                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Edit_Tapped"/>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Commit_Tapped"/>
                                         </Image.GestureRecognizers>
                                     </Image>
+                                    <Line BackgroundColor="Black" 
+                                          Grid.Row="1"  
+                                          Grid.ColumnSpan="10"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

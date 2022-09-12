@@ -1,4 +1,5 @@
 ﻿using Contract.Interfaces;
+using Contract.Model;
 using Contract.ViewModel.Pages.CurrentContracts;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ namespace Contract.Pages.CurrentContracts
             InitializeComponent();
 
             SetModel(new PageTableViewModel());
-            (Model as PageTableViewModel).Init();
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
@@ -31,6 +31,8 @@ namespace Contract.Pages.CurrentContracts
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            Model.Parent = Parent;
+            PModel.RequestInfo();
 
             DependencyService.Get<IRotationService>().EnableRotation();
         }
@@ -59,8 +61,32 @@ namespace Contract.Pages.CurrentContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
 
-            Model.SetTransitionType();
-            await Navigation.PushModalAsync(new PageCurrentCancelContract());
+            CurrentContract item = (CurrentContract)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            Net.CanceledContract canceledContract = new Net.CanceledContract()
+            {
+                user_phone_number = ControlApp.UserInfo.phone_number,
+                preparer = item.Preparer,
+                contract_number = item.ContractNnumber,
+                company_contractor_name = item.CompanyName,
+                date_of_contract = item.ContractDate,
+                contract_price = item.ContractPrice,
+                payment_percent = "85%",
+                comment = ""
+
+            };
+
+            Model.SetTransitionType(TransitionType.SlideFromBottom);
+            await Navigation.PushModalAsync(new PageCurrentCancelContract(canceledContract));
+        }
+
+        private PageTableViewModel PModel
+        {
+            get
+            {
+                return Model as PageTableViewModel;
+            }
         }
     }
 }

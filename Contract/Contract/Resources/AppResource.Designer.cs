@@ -323,6 +323,24 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel has been failed..
+        /// </summary>
+        internal static string Cancel_Message_1 {
+            get {
+                return ResourceManager.GetString("Cancel_Message_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a comment.
+        /// </summary>
+        internal static string Cancel_Message_2 {
+            get {
+                return ResourceManager.GetString("Cancel_Message_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Canceled Contracts.
         /// </summary>
         internal static string CanceledContracts {

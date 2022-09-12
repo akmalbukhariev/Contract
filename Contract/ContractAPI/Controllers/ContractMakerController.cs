@@ -323,6 +323,8 @@ namespace ContractAPI.Controllers
             return (_db.Users.ToList());
         }
 
+
+        #region UnapprovedContract
         [HttpGet("getUnapprovedContract/{phoneNumber}")]
         public async Task<IActionResult> getUnapprovedContract(string phoneNumber)
         {
@@ -377,6 +379,97 @@ namespace ContractAPI.Controllers
             return Ok(response);
         }
 
+        [HttpDelete("deleteUnapprovedContract")]
+        public async Task<IActionResult> deleteUnapprovedContract([FromBody] UnapprovedContract info)
+        {
+            ResponseUnapprovedContract response = new ResponseUnapprovedContract();
+            response.data = null;
+
+            UnapprovedContract found = await _db.UnapprovedContracts
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
+                               item.contract_number.Equals(info.contract_number) && 
+                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.data = null;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return NotFound(response);
+            }
+
+            try
+            {
+                _db.UnapprovedContracts.Remove(found);
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
+
+        [HttpDelete("deleteUnapprovedContractAndSetCanceledContract")]
+        public async Task<IActionResult> deleteUnapprovedContractAndSetCanceledContract([FromBody] CanceledContract info)
+        {
+            ResponseCanceledContract response = new ResponseCanceledContract();
+
+            UnapprovedContract found = await _db.UnapprovedContracts
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
+                               item.contract_number.Equals(info.contract_number) &&
+                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
+            if (found == null)
+            {
+                response.data = null;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return NotFound(response);
+            }
+
+            try
+            {
+                CanceledContract newCanceledContract = new CanceledContract();
+                newCanceledContract.Copy(info);
+                _db.CanceledContracts.Add(newCanceledContract);
+
+                UnapprovedContract newUnapprovedContract = new UnapprovedContract()
+                {
+                    user_phone_number = info.user_phone_number,
+                    preparer = info.preparer,
+                    contract_number = info.contract_number,
+                    company_contractor_name = info.company_contractor_name,
+                    date_of_contract = info.date_of_contract,
+                    contract_price = info.contract_price
+                };
+                _db.UnapprovedContracts.Remove(found);
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
+        #endregion
+
+
+
+        #region ApplicableContract
         [HttpGet("getApplicableContract/{phoneNumber}")]
         public async Task<IActionResult> getApplicableContract(string phoneNumber)
         {
@@ -430,16 +523,105 @@ namespace ContractAPI.Controllers
 
             return Ok(response);
         }
-         
+
+        [HttpDelete("deleteApplicableContract")]
+        public async Task<IActionResult> deleteApplicableContract([FromBody] ApplicableContract info)
+        {
+            ResponseApplicableContract response = new ResponseApplicableContract();
+            response.data = null;
+
+            ApplicableContract found = await _db.ApplicableContracts
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
+                               item.contract_number.Equals(info.contract_number) &&
+                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.data = null;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return NotFound(response);
+            }
+
+            try
+            {
+                _db.ApplicableContracts.Remove(found);
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
+
+        [HttpDelete("deleteApplicableContractAndSetCanceledContract")]
+        public async Task<IActionResult> deleteApplicableContractAndSetCanceledContract([FromBody] CanceledContract info)
+        {
+            ResponseCanceledContract response = new ResponseCanceledContract();
+
+            ApplicableContract found = await _db.ApplicableContracts
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
+                               item.contract_number.Equals(info.contract_number) &&
+                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
+            if (found == null)
+            {
+                response.data = null;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return NotFound(response);
+            }
+
+            try
+            {
+                CanceledContract newCanceledContract = new CanceledContract();
+                newCanceledContract.Copy(info);
+                _db.CanceledContracts.Add(newCanceledContract);
+
+                ApplicableContract newUnapprovedContract = new ApplicableContract()
+                {
+                    user_phone_number = info.user_phone_number,
+                    preparer = info.preparer,
+                    contract_number = info.contract_number,
+                    company_contractor_name = info.company_contractor_name,
+                    date_of_contract = info.date_of_contract,
+                    contract_price = info.contract_price
+                };
+                _db.ApplicableContracts.Remove(found);
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
+        #endregion
+
+
+
         [HttpGet("getCanceledContract/{phoneNumber}")]
         public async Task<IActionResult> getCanceledContract(string phoneNumber)
         {
             ResponseCanceledContract response = new ResponseCanceledContract();
-            CanceledContract info = await _db.CanceledContracts
-                .Where(item => item.user_phone_number.Equals(phoneNumber))
-                .FirstOrDefaultAsync();
+            List<CanceledContract> infoList = await _db.CanceledContracts
+                .Where(item => item.user_phone_number.Equals(phoneNumber)).ToListAsync();
 
-            if (info == null)
+            if (infoList == null || infoList.Count == 0)
             {
                 response.data = null;
                 return NotFound(response);
@@ -448,7 +630,11 @@ namespace ContractAPI.Controllers
             response.result = true;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
-            response.data.Copy(info);
+
+            foreach(CanceledContract info in infoList)
+            {
+                response.data.Add(new CanceledContract(info));
+            }
 
             return Ok(response);
         }
@@ -465,6 +651,42 @@ namespace ContractAPI.Controllers
                 newInfo.Copy(info);
 
                 _db.CanceledContracts.Add(newInfo);
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return Ok(response);
+        }
+
+        [HttpDelete("deleteCanceledContract")]
+        public async Task<IActionResult> deleteCanceledContract([FromBody] CanceledContract info)
+        {
+            ResponseCanceledContract response = new ResponseCanceledContract();
+            response.data = null;
+
+            CanceledContract found = await _db.CanceledContracts
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.data = null;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return NotFound(response);
+            }
+
+            try
+            {
+                _db.CanceledContracts.Remove(found);
             }
             catch (Exception ex)
             {

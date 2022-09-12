@@ -246,6 +246,14 @@ Contracts</value>
     <value>cancel Termination of Contract No.</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="Cancel_Message_1" xml:space="preserve">
+    <value>Cancel has been failed.</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Cancel_Message_2" xml:space="preserve">
+    <value>Please enter a comment</value>
+    <comment>Cancel</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change account password</value>
     <comment>Change password</comment>

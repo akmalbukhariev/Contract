@@ -1,4 +1,5 @@
 ﻿using Contract.Interfaces;
+using Contract.Model;
 using Contract.ViewModel.Pages.CanceledContracts;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,7 @@ namespace Contract.Pages.CanceledContracts
         {
             InitializeComponent();
 
-            SetModel(new PageTableViewModel());
-            (Model as PageTableViewModel).Init();
+            SetModel(new PageTableViewModel()); 
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
@@ -31,6 +31,8 @@ namespace Contract.Pages.CanceledContracts
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            Model.Parent = Parent;
+            PModel.RequestInfo();
 
             DependencyService.Get<IRotationService>().EnableRotation();
         }
@@ -54,11 +56,24 @@ namespace Contract.Pages.CanceledContracts
             ControlApp.Vibrate();
         }
 
-        private void Edit_Tapped(object sender, EventArgs e)
-        {
-            (Model as PageTableViewModel).ShowExplanationBox = true;
+        private void Commit_Tapped(object sender, EventArgs e)
+        { 
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            CanceledContract item = (CanceledContract)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            PModel.ExplanationText = item.CommentText;
+            PModel.ShowExplanationBox = true;
+        }
+
+        private PageTableViewModel PModel
+        {
+            get 
+            {
+                return Model as PageTableViewModel;
+            }
         }
     }
 }

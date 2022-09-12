@@ -248,6 +248,14 @@ shartnomalar</value>
     <value> Sonli shartnomani bekor qilish</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="Cancel_Message_1" xml:space="preserve">
+    <value>Bekor qilish amalga oshmadi.</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Cancel_Message_2" xml:space="preserve">
+    <value>Iltimos izohni kiring.</value>
+    <comment>Cancel</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Account parolini tahrirlash</value>
     <comment>Change password</comment>

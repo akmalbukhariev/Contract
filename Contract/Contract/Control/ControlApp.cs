@@ -12,6 +12,10 @@ namespace Contract.Control
         public bool AppStarting { get; set; }
         public bool AppOnResume { get; set; }
         public bool AppOnSleep { get; set; }
+        /// <summary>
+        /// Remove the item If canceled had been successfully
+        /// </summary>
+        public bool CanIRemove { get; set; } = false;
         public string UserId { get; set; }
   
         private static ControlApp _instance = null;

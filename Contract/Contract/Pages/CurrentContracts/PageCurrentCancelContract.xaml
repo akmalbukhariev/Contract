@@ -27,7 +27,7 @@
                               TextColor="White"
                               FontSize="15"
                               FontFamily="Nunito_Regular"/>
-                        <Span Text=" 22-001-12345 "
+                        <Span Text="{Binding ContractNumber}"
                               TextColor="White"
                               FontAttributes="Bold"
                               FontSize="15"/>
@@ -52,6 +52,7 @@
                 <Frame BorderColor="LightGray"
                        CornerRadius="10">
                     <control:CustomEditor Placeholder="{x:Static resource:AppResource.Comment}"
+                                          Text="{Binding CommentText}"
                                           PlaceholderColor="Gray"
                                           BackgroundColor="White" 
                                           HeightRequest="150"
@@ -65,6 +66,7 @@
                     CornerRadius="5"
                     VerticalOptions="End"
                     Margin="20,0,20,40"
+                    Command="{Binding CommandCancel}"
                     Grid.Row="3"/>
         </Grid>
     </Grid>
