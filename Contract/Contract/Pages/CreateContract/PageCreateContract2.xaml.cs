@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Contract.Model;
+using Contract.ViewModel.Pages.CreateContract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,7 @@ namespace Contract.Pages.CreateContract
         public PageCreateContract2()
         {
             InitializeComponent();
-            SetModel(new ViewModel.BaseModel());
+            SetModel(new PageCreateContract2ViewModel(Navigation));
             YesNo1_Tapped(null, null);
         }
 
@@ -27,6 +29,7 @@ namespace Contract.Pages.CreateContract
 
             lbStep.Text = RSC.Step + " #2"; 
         }
+
         private void YesNo1_Tapped(object sender, EventArgs e)
         {
             if (yes1)
@@ -47,36 +50,66 @@ namespace Contract.Pages.CreateContract
         }
          
         private void Minus_Clicked(object sender, EventArgs e)
-        {
-            ChangeBoxColor(boxMinus);
-            
-            if (lbAmount.Text == "0") return;
+        {  
+            ServicesInfo item = (ServicesInfo)((Button)sender).BindingContext;
+            if (item == null) return;
 
-            lbAmount.Text = (int.Parse(lbAmount.Text) - 1).ToString();
+            if (item.AmountText == "0") return;
+
+            item.AmountText = (int.Parse(item.AmountText) - 1).ToString();
         }
 
         private void Plus_Clicked(object sender, EventArgs e)
-        {
-            ChangeBoxColor(boxPlus);
-            lbAmount.Text = (int.Parse(lbAmount.Text) + 1).ToString();
+        { 
+            ServicesInfo item = (ServicesInfo)((Button)sender).BindingContext;
+            if (item == null) return;
+
+            item.AmountText = (int.Parse(item.AmountText) + 1).ToString();
         }
 
-        private void Add_Tapped(object sender, EventArgs e)
+        private void Add_Box_Tapped(object sender, EventArgs e)
         {
-            ClickAnimationView(boxAdd);
-            ClickAnimationView(stackAdd);
+            ClickAnimationView((BoxView)sender);
         }
 
-        private void Copy_Tapped(object sender, EventArgs e)
+        private void Add_Stack_Tapped(object sender, EventArgs e)
         {
-            ClickAnimationView(boxCopy);
-            ClickAnimationView(stackCopy);
+            ClickAnimationView((StackLayout)sender);
+
+            ServicesInfo service = new ServicesInfo()
+            {
+                NameOfService = "",
+                UnitOfMeasureIndex = 0,
+                AmountText = "1",
+                PriceText = ""
+            };
+
+            PModel.AddService(service);
         }
 
-        private void Delete_Tapped(object sender, EventArgs e)
+        private void Copy_Box_Tapped(object sender, EventArgs e)
         {
-            ClickAnimationView(boxDelete);
-            ClickAnimationView(stackDelete);
+            ClickAnimationView((BoxView)sender);
+        }
+
+        private void Copy_Stack_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((StackLayout)sender);
+        }
+
+        private void Delete_Box_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((BoxView)sender);
+        }
+
+        private void Delete_Stack_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((StackLayout)sender);
+
+            ServicesInfo item = (ServicesInfo)((StackLayout)sender).BindingContext;
+            if (item == null) return;
+
+
         }
 
         async void ChangeBoxColor(BoxView boxView)
@@ -86,12 +119,24 @@ namespace Contract.Pages.CreateContract
 
             boxView.BackgroundColor = Color.FromHex("#E6E6E6");
             await Task.Delay(200);
+        } 
+
+        private PageCreateContract2ViewModel PModel
+        {
+            get
+            {
+                return Model as PageCreateContract2ViewModel;
+            }
         }
 
-        private async void Finished_Clicked(object sender, EventArgs e)
+        private void BoxMinus_Tapped(object sender, EventArgs e)
         {
-            Model.SetTransitionType();
-            await Navigation.PushAsync(new PageCreateContract3());
+            ChangeBoxColor((BoxView)sender);
+        }
+
+        private void BoxPlus_Tapped(object sender, EventArgs e)
+        {
+            ChangeBoxColor((BoxView)sender);
         }
     }
 }

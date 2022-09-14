@@ -1,4 +1,5 @@
 ﻿using Contract.Control;
+using Contract.Pages.CreateContract;
 using Contract.Pages.Login;
 using Contract.Pages.Setting;
 using Contract.Resources;
@@ -24,22 +25,24 @@ namespace Contract
 
         protected override void OnStart()
         {
-            ControlApp.Instance.AppStarting = true;
-            ControlApp.Instance.AppOnResume = false;
-            ControlApp.Instance.AppOnSleep = false;
+            MainPage = new TransitionNavigationPage(new PageCreateContract2());
 
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.InstalledUICulture;
+            //ControlApp.Instance.AppStarting = true;
+            //ControlApp.Instance.AppOnResume = false;
+            //ControlApp.Instance.AppOnSleep = false;
 
-            string strLanguage = AppSettings.GetLanguage();
-            if (strLanguage == string.Empty)
-            {
-                MainPage = new TransitionNavigationPage(new PageLanguage());
-            }
-            else
-            {
-                AppSettings.SetLanguage(strLanguage);
-                MainPage = new TransitionNavigationPage(new PageLogin());
-            }
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.InstalledUICulture;
+
+            //string strLanguage = AppSettings.GetLanguage();
+            //if (strLanguage == string.Empty)
+            //{
+            //    MainPage = new TransitionNavigationPage(new PageLanguage());
+            //}
+            //else
+            //{
+            //    AppSettings.SetLanguage(strLanguage);
+            //    MainPage = new TransitionNavigationPage(new PageLogin());
+            //}
         }
 
         protected override void OnSleep()

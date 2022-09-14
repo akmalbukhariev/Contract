@@ -35,7 +35,7 @@
             <ScrollView VerticalOptions="FillAndExpand" 
                         Margin="0,0,0,-20"
                         Grid.Row="2">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,1,Auto,Auto,Auto,Auto,Auto,1,Auto,Auto,Auto" 
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,1,Auto,*,Auto,Auto,Auto,1,Auto,Auto,Auto" 
                       RowSpacing="15"
                       Margin="10,10,10,0">
                     <Grid.Resources>
@@ -62,9 +62,11 @@
                         <Label Text="{x:Static resource:AppResource.PurposeOfContract}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <RadioButton Content="{x:Static resource:AppResource.Service}"
+                                     IsChecked="True"
                                      HorizontalOptions="StartAndExpand"
                                      Grid.Row="1"/>
                         <RadioButton Content="{x:Static resource:AppResource.Goods}"
+                                     IsEnabled="False"
                                      HorizontalOptions="StartAndExpand"
                                      Grid.Row="1"
                                      Grid.Column="1"/>
@@ -74,6 +76,7 @@
                         <Label Text="{x:Static resource:AppResource.SelectServiceType}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="Odatiy"
+                                              SelectedIndex="{Binding ServiceTypeIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -87,6 +90,7 @@
                         <Label Text="{x:Static resource:AppResource.ContractNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="22-01-1234"
+                                        Text="{Binding ContractNumber}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
@@ -94,6 +98,7 @@
                         <Label Text="{x:Static resource:AppResource.CurrencyOfTheContract}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="Sum"
+                                              SelectedIndex="{Binding ContractCurrencyIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -105,6 +110,7 @@
                         <Label Text="{x:Static resource:AppResource.AmountOfQQS}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="15%"
+                                              SelectedIndex="{Binding AmountOfVatIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -126,124 +132,160 @@
                     </StackLayout>
                     <view:ViewEntry x:Name="entTax" 
                                     PlaceHoldingText="-- %"
+                                    Text="{Binding InterestText}"
                                     Style="{StaticResource entryStyle}"
                                     Grid.Row="7"/>
                     <Line BackgroundColor="Gray"
                           Grid.Row="8"/>
-                    <StackLayout Grid.Row="9">
-                        <Label Text="{x:Static resource:AppResource.NameOfServiceType}" 
-                               Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfServiceType}"
-                                        Style="{StaticResource entryStyle}"/>
+
+                    <StackLayout x:Name="MyItems"
+                                 BindableLayout.ItemsSource="{Binding ServicesList}"
+                                 Grid.Row="9"
+                                 Grid.RowSpan="5">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <StackLayout>
+                                        <Label Text="{x:Static resource:AppResource.NameOfServiceType}" 
+                                       Style="{StaticResource lbBlackStyle}"/>
+                                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfServiceType}"
+                                                        Text="{Binding NameOfService}"
+                                                        Style="{StaticResource entryStyle}"/>
+                                    </StackLayout>
+                                    <StackLayout Spacing="10">
+                                        <Label Text="{x:Static resource:AppResource.UnitOfMeasure}"
+                                           Style="{StaticResource lbBlackStyle}"/>
+                                        <control:CustomPicker Title="dona"
+                                                              SelectedIndex="{Binding UnitOfMeasureIndex}"
+                                                              HorizontalTextAlignment="Start"
+                                                              Image="show"
+                                                              ChartSyle="True"
+                                                              TitleColor="Gray"
+                                                              BackgroundColor="White"/>
+                                    </StackLayout>
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <Label Text="{x:Static resource:AppResource.Amount}"
+                                               Style="{StaticResource lbBlackStyle}"
+                                               VerticalTextAlignment="Center"/>
+                                        <Grid ColumnDefinitions="65,70,65" 
+                                              ColumnSpacing="0"
+                                              Grid.Column="1">
+                                            <BoxView BackgroundColor="#E6E6E6"
+                                                     CornerRadius="5"
+                                                     Grid.ColumnSpan="3"/>
+                                            <BoxView x:Name="boxMinus" 
+                                                     BackgroundColor="#E6E6E6"
+                                                     CornerRadius="5,0,5,0">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BoxMinus_Tapped"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+                                            <Button Text="-"
+                                                    FontSize="20"
+                                                    TextColor="Black"
+                                                    BackgroundColor="Transparent"
+                                                    Clicked="Minus_Clicked"/>
+                                            <Label x:Name="lbAmount" 
+                                                   Text="{Binding AmountText}" 
+                                                   Margin="0,0.5,0,0.5"
+                                                   BackgroundColor="White"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   Grid.Column="1"/>
+                                            <BoxView x:Name="boxPlus" 
+                                                     BackgroundColor="#E6E6E6"
+                                                     CornerRadius="0,5,0,5"
+                                                     Grid.Column="2">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BoxPlus_Tapped"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+                                            <Button Text="+"
+                                                    FontSize="20"
+                                                    TextColor="Black"
+                                                    BackgroundColor="Transparent"
+                                                    Clicked="Plus_Clicked"
+                                                    Grid.Column="2"/>
+                                        </Grid>
+                                    </Grid>
+                                    <StackLayout>
+                                        <Label Text="{x:Static resource:AppResource.Info2}" 
+                                               Style="{StaticResource lbBlackStyle}"/>
+                                        <view:ViewEntry PlaceHoldingText="sum"
+                                                        Text="{Binding PriceText}"
+                                                        Style="{StaticResource entryStyle}"/>
+                                    </StackLayout>
+                                    <Grid ColumnDefinitions="75,*,75,*,75"
+                                          RowDefinitions="70"
+                                          HorizontalOptions="CenterAndExpand"
+                                          ColumnSpacing="15">
+                                        <Grid.Resources>
+                                            <ResourceDictionary>
+                                                <Style x:Key="lbEdStyle" TargetType="Label">
+                                                    <Setter Property="TextColor" Value="White"/>
+                                                    <Setter Property="FontSize" Value="8"/>
+                                                    <Setter Property="Margin" Value="0,0,0,5"/>
+                                                    <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                                                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                                </Style>
+                                                <Style x:Key="imEdStyle" TargetType="Image">
+                                                    <Setter Property="Aspect" Value="AspectFit"/>
+                                                    <Setter Property="WidthRequest" Value="35"/>
+                                                    <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                                                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                                                </Style>
+                                            </ResourceDictionary>
+                                        </Grid.Resources>
+                                        <BoxView x:Name="boxAdd" BackgroundColor="#3E8799" CornerRadius="10">
+                                            <BoxView.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Box_Tapped"/>
+                                            </BoxView.GestureRecognizers>
+                                        </BoxView>
+                                        <StackLayout x:Name="stackAdd" Spacing="-5">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Stack_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <Image Source="Copy_1" Style="{StaticResource imEdStyle}"/>
+                                            <Label Text="{x:Static resource:AppResource.AddCopy}" Style="{StaticResource lbEdStyle}"/>
+                                        </StackLayout>
+                                        <BoxView x:Name="boxCopy" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2">
+                                            <BoxView.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Box_Tapped"/>
+                                            </BoxView.GestureRecognizers>
+                                        </BoxView>
+                                        <StackLayout x:Name ="stackCopy" Spacing="-5" Grid.Column="2">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Stack_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <Image Source="Add_1" Style="{StaticResource imEdStyle}"/>
+                                            <Label Text="{x:Static resource:AppResource.AddEmpty}" Style="{StaticResource lbEdStyle}"/>
+                                        </StackLayout>
+                                        <BoxView x:Name="boxDelete" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4">
+                                            <BoxView.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Box_Tapped"/>
+                                            </BoxView.GestureRecognizers>
+                                        </BoxView>
+                                        <StackLayout x:Name="stackDelete" Spacing="-5" Grid.Column="4">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Stack_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <Image Source="Delete_1" Style="{StaticResource imEdStyle}"/>
+                                            <Label Text="{x:Static resource:AppResource.Delete}" Style="{StaticResource lbEdStyle}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                             </DataTemplate>
+                        </BindableLayout.ItemTemplate>
                     </StackLayout>
-                    <StackLayout Spacing="10"
-                                 Grid.Row="10">
-                        <Label Text="{x:Static resource:AppResource.UnitOfMeasure}"
-                               Style="{StaticResource lbBlackStyle}"/>
-                        <control:CustomPicker Title="dona"
-                                              HorizontalTextAlignment="Start"
-                                              Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
-                                              BackgroundColor="White"/>
-                    </StackLayout>
-                    <Grid ColumnDefinitions="*,Auto" Grid.Row="11">
-                        <Label Text="{x:Static resource:AppResource.Amount}"
-                               Style="{StaticResource lbBlackStyle}"
-                               VerticalTextAlignment="Center"/>
-                        <Grid ColumnDefinitions="65,70,65" 
-                              ColumnSpacing="0"
-                              Grid.Column="1">
-                            <BoxView BackgroundColor="#E6E6E6"
-                                     CornerRadius="5"
-                                     Grid.ColumnSpan="3"/>
-                            <BoxView x:Name="boxMinus" 
-                                     BackgroundColor="#E6E6E6"
-                                     CornerRadius="5,0,5,0"/> 
-                            <Button Text="-"
-                                    FontSize="20"
-                                    TextColor="Black"
-                                    BackgroundColor="Transparent"
-                                    Clicked="Minus_Clicked"/>
-                            <Label x:Name="lbAmount" 
-                                   Text="1" 
-                                   Margin="0,0.5,0,0.5"
-                                   BackgroundColor="White"
-                                   VerticalTextAlignment="Center"
-                                   HorizontalTextAlignment="Center"
-                                   Grid.Column="1"/>
-                            <BoxView x:Name="boxPlus" 
-                                     BackgroundColor="#E6E6E6"
-                                     CornerRadius="0,5,0,5"
-                                     Grid.Column="2"/>
-                            <Button Text="+"
-                                    FontSize="20"
-                                    TextColor="Black"
-                                    BackgroundColor="Transparent"
-                                    Clicked="Plus_Clicked"
-                                    Grid.Column="2"/>
-                        </Grid>
-                    </Grid>
-                    <StackLayout Grid.Row="12">
-                        <Label Text="{x:Static resource:AppResource.Info2}" 
-                               Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="sum"
-                                        Style="{StaticResource entryStyle}"/>
-                    </StackLayout>
-                    <Grid ColumnDefinitions="75,*,75,*,75"
-                          RowDefinitions="70"
-                          HorizontalOptions="CenterAndExpand"
-                          ColumnSpacing="15"
-                          Grid.Row="13">
-                        <Grid.Resources>
-                            <ResourceDictionary>
-                                <Style x:Key="lbEdStyle" TargetType="Label">
-                                    <Setter Property="TextColor" Value="White"/>
-                                    <Setter Property="FontSize" Value="8"/>
-                                    <Setter Property="Margin" Value="0,0,0,5"/>
-                                    <Setter Property="HorizontalTextAlignment" Value="Center"/>
-                                    <Setter Property="VerticalTextAlignment" Value="Center"/>
-                                </Style>
-                                <Style x:Key="imEdStyle" TargetType="Image">
-                                    <Setter Property="Aspect" Value="AspectFit"/>
-                                    <Setter Property="WidthRequest" Value="35"/>
-                                    <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
-                                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-                                </Style>
-                            </ResourceDictionary>
-                        </Grid.Resources>
-                        <BoxView x:Name="boxAdd" BackgroundColor="#3E8799" CornerRadius="10"/>
-                        <StackLayout x:Name="stackAdd" Spacing="-5">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Tapped"/>
-                            </StackLayout.GestureRecognizers>
-                            <Image Source="Copy_1" Style="{StaticResource imEdStyle}"/>
-                            <Label Text="{x:Static resource:AppResource.AddCopy}" Style="{StaticResource lbEdStyle}"/>
-                        </StackLayout>
-                        <BoxView x:Name="boxCopy" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
-                        <StackLayout x:Name ="stackCopy" Spacing="-5" Grid.Column="2">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Tapped"/>
-                            </StackLayout.GestureRecognizers>
-                            <Image Source="Add_1" Style="{StaticResource imEdStyle}"/>
-                            <Label Text="{x:Static resource:AppResource.AddEmpty}" Style="{StaticResource lbEdStyle}"/>
-                        </StackLayout>
-                        <BoxView x:Name="boxDelete" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
-                        <StackLayout x:Name="stackDelete" Spacing="-5" Grid.Column="4">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
-                            </StackLayout.GestureRecognizers>
-                            <Image Source="Delete_1" Style="{StaticResource imEdStyle}"/>
-                            <Label Text="{x:Static resource:AppResource.Delete}" Style="{StaticResource lbEdStyle}"/>
-                        </StackLayout>
-                    </Grid>
+
+
                     <Line BackgroundColor="Gray"
                           Grid.Row="14"/>
                     <StackLayout Grid.Row="15">
                         <Label x:Name="lbTotalCost"
                                Text="{x:Static resource:AppResource.TotalCostOfTheService}"
                                Style="{StaticResource lbBlackStyle}"/>
-                        <Label Text="123.000 So'm"
+                        <Label Text="{Binding TotalCostText}"
                                TextColor="Black"
                                FontSize="20"
                                FontAttributes="Bold"
@@ -252,7 +294,7 @@
                     <StackLayout Grid.Row="16">
                         <Label Text="{x:Static resource:AppResource.Question7}"/>
                         <Grid ColumnDefinitions="Auto,*">
-                            <CheckBox/>
+                            <CheckBox IsChecked="{Binding Agree}"/>
                             <Label Text="{x:Static resource:AppResource.Agree}"
                                    TextColor="Black"
                                    VerticalTextAlignment="Center"
@@ -266,7 +308,7 @@
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.ButtonFinished}"
                     Margin="5,0,5,20"
-                    Clicked="Finished_Clicked"
+                    Command="{Binding CommandFinished}"
                     Grid.Row="3"/>
         </Grid>
     </Grid>

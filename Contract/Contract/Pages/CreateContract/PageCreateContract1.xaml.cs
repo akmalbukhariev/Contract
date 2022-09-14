@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.ViewModel.Pages.CreateContract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Contract.Pages.CreateContract
         public PageCreateContract1()
         {
             InitializeComponent();
-            SetModel(new ViewModel.BaseModel());
+            SetModel(new PageCreateContract1ViewModel(Navigation));
 
             lbYesNo1.Text = RSC.Question1;
             lbYesNo2.Text = RSC.Question2;
@@ -66,6 +67,8 @@ namespace Contract.Pages.CreateContract
 
             if (sender != null)
                 ControlApp.Vibrate();
+
+            PModel.OpenClientInfo = yes1;
         }
 
         private void YesNo2_Tapped(object sender, EventArgs e)
@@ -86,7 +89,9 @@ namespace Contract.Pages.CreateContract
             }
 
             if (sender != null)
-                ControlApp.Vibrate(); 
+                ControlApp.Vibrate();
+
+            PModel.OpenSearchClient = yes1;
         }
 
         private void YesNo3_Tapped(object sender, EventArgs e)
@@ -105,6 +110,7 @@ namespace Contract.Pages.CreateContract
             }
 
             ControlApp.Vibrate();
+            PModel.AreYouTaxPayer = yes3;
         }
 
         private void YesNo4_Tapped(object sender, EventArgs e)
@@ -123,6 +129,7 @@ namespace Contract.Pages.CreateContract
             }
 
             ControlApp.Vibrate();
+            PModel.IsAccountProvided = yes4;
         }
 
         private void YesNo5_Tapped(object sender, EventArgs e)
@@ -141,14 +148,9 @@ namespace Contract.Pages.CreateContract
             }
 
             ControlApp.Vibrate();
+            PModel.IsCounselProvided = yes5;
         }
-
-        private async void Save_Clicked(object sender, EventArgs e)
-        {
-            Model.SetTransitionType();
-            await Navigation.PushAsync(new PageCreateContract2());
-        }
-
+         
         void ShowMenu1(bool show)
         {
             stackYesNo2.IsVisible = show;
@@ -174,6 +176,14 @@ namespace Contract.Pages.CreateContract
             stack14.IsVisible = show;
             stack15.IsVisible = show;
             viewExplan.IsVisible = show;
+        }
+
+        private PageCreateContract1ViewModel PModel
+        {
+            get
+            {
+                return Model as PageCreateContract1ViewModel;
+            }
         }
     }
 }

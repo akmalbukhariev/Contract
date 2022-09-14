@@ -93,6 +93,7 @@
                                TextColor="Black"
                                HorizontalOptions="StartAndExpand"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.CompanyName}"
+                                              SelectedIndex="{Binding CustomerIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -110,6 +111,7 @@
                         <Label Text="{x:Static resource:AppResource.CompanyName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
+                                        Text="{Binding CompanyName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack2" 
@@ -117,6 +119,7 @@
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
+                                        Text="{Binding AddressOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack3"
@@ -124,6 +127,7 @@
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        Text="{Binding AccountNumber}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack4" 
@@ -131,6 +135,7 @@
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ----"
+                                        Text="{Binding TINEnterprise}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack5" 
@@ -138,6 +143,7 @@
                         <Label Text="{x:Static resource:AppResource.NameOfBank}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
+                                        Text="{Binding NameOfBank}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack6" 
@@ -145,6 +151,7 @@
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                                        Text="{Binding BankCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack7" 
@@ -166,6 +173,7 @@
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        Text="{Binding VatCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack9" 
@@ -173,6 +181,7 @@
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
+                                        Text="{Binding PhoneNnumberOfCompany}"
                                         Keyboard="Telephone"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
@@ -182,6 +191,7 @@
                         <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
+                                              SelectedIndex="{Binding PositionOfSignatory}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -193,6 +203,7 @@
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding FullNameOfSignatory}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack12" 
@@ -214,6 +225,7 @@
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="F.I.O"
+                                        Text="{Binding AccountantName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack14" 
@@ -235,6 +247,7 @@
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding CounselName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <view:ViewExplanation x:Name="viewExplan" 
@@ -246,7 +259,7 @@
                     Text="{x:Static resource:AppResource.Save}"
                     VerticalOptions="EndAndExpand"
                     Margin="10,0,10,20"
-                    Clicked="Save_Clicked"
+                    Command="{Binding CommandSave}"
                     Grid.Row="3"/>
         </Grid>
     </Grid>
