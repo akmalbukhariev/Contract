@@ -10,6 +10,211 @@
         <Color x:Key="BackColor">#F3F3F3</Color>
         <converters:DragColorConverter x:Key="DragColorConverter" />
         <ResourceDictionary>
+            <x:Array x:Key="currencyList_uz_cyrl" Type="{x:Type x:String}">
+                <x:String>Сўм (UZS)</x:String>
+                <x:String>RUB</x:String>
+                <x:String>USD</x:String>
+                <x:String>TRY</x:String>
+                <x:String>CNY</x:String>
+                <x:String>Янги қўшиш</x:String>
+            </x:Array>
+            <x:Array x:Key="currencyList_uz" Type="{x:Type x:String}">
+                <x:String>So'm (UZS)</x:String>
+                <x:String>RUB</x:String>
+                <x:String>USD</x:String>
+                <x:String>TRY</x:String>
+                <x:String>CNY</x:String>
+                <x:String>Yangi qo'shish</x:String>
+            </x:Array>
+            <x:Array x:Key="currencyList_en" Type="{x:Type x:String}">
+                <x:String>Sum (UZS)</x:String>
+                <x:String>RUB</x:String>
+                <x:String>USD</x:String>
+                <x:String>TRY</x:String>
+                <x:String>CNY</x:String>
+                <x:String>Add new</x:String>
+            </x:Array>
+            <x:Array x:Key="currencyList_ru" Type="{x:Type x:String}">
+                <x:String>Сум (UZS)</x:String>
+                <x:String>RUB</x:String>
+                <x:String>USD</x:String>
+                <x:String>TRY</x:String>
+                <x:String>CNY</x:String>
+                <x:String>Добавить новое</x:String>
+            </x:Array>
+            <x:Array x:Key="qqsList" Type="{x:Type x:String}">
+                <x:String>15%</x:String>
+                <x:String>0%</x:String>
+            </x:Array>
+            <x:Array x:Key="measureList_uz_cyrl" Type="{x:Type x:String}">
+                <x:String>Метр</x:String>
+                <x:String>Метр квадрат</x:String>
+                <x:String>Литр</x:String>
+                <x:String>Метр куб</x:String>
+                <x:String>Карат</x:String>
+                <x:String>Грамм</x:String>
+                <x:String>Килограмм</x:String>
+                <x:String>Тонна</x:String>
+                <x:String>Брутто</x:String>
+                <x:String>Нетто</x:String>
+                <x:String>Киловатт-соат</x:String>
+                <x:String>Киловатт</x:String>
+                <x:String>Соат</x:String>
+                <x:String>Кюри</x:String>
+                <x:String>Пачка</x:String>
+                <x:String>СМ куб</x:String>
+                <x:String>СМ</x:String>
+                <x:String>Тўплам</x:String>
+                <x:String>Дона</x:String>
+                <x:String>Лист</x:String>
+                <x:String>Ўрам</x:String>
+                <x:String>Рулон</x:String>
+                <x:String>Погон метр</x:String>
+                <x:String>Чақирим</x:String>
+                <x:String>Барр</x:String>
+                <x:String>Янги қўшиш</x:String>
+            </x:Array>
+            <x:Array x:Key="measureList_uz" Type="{x:Type x:String}">
+                <x:String>Metr</x:String>
+                <x:String>Metr kvadrat</x:String>
+                <x:String>Litr</x:String>
+                <x:String>Metr kub</x:String>
+                <x:String>Karat</x:String>
+                <x:String>Gramm</x:String>
+                <x:String>Kilogramm</x:String>
+                <x:String>Tonna</x:String>
+                <x:String>Brutto</x:String>
+                <x:String>Netto</x:String>
+                <x:String>Kilovatt-soat</x:String>
+                <x:String>Kilovatt</x:String>
+                <x:String>Soat</x:String>
+                <x:String>Kyuri</x:String>
+                <x:String>Pachka</x:String>
+                <x:String>SM kub</x:String>
+                <x:String>SM</x:String>
+                <x:String>Toʼplam</x:String>
+                <x:String>Dona</x:String>
+                <x:String>List</x:String>
+                <x:String>Oʼram</x:String>
+                <x:String>Rulon</x:String>
+                <x:String>Pogon metr</x:String>
+                <x:String>Chaqirim</x:String>
+                <x:String>Barr</x:String>
+                <x:String>Yangi qoʼshish</x:String>
+            </x:Array>
+            <x:Array x:Key="measureList_ru" Type="{x:Type x:String}">
+                <x:String>Метр</x:String>
+                <x:String>Квадратные метры</x:String>
+                <x:String>Литр</x:String>
+                <x:String>Кубические метры</x:String>
+                <x:String>Карат</x:String>
+                <x:String>Грамм</x:String>
+                <x:String>Килограмм</x:String>
+                <x:String>Тонн</x:String>
+                <x:String>Валовой</x:String>
+                <x:String>Нетто</x:String>
+                <x:String>киловатт-час</x:String>
+                <x:String>киловатт</x:String>
+                <x:String>Час</x:String>
+                <x:String>Кюри</x:String>
+                <x:String>Пашка</x:String>
+                <x:String>СМ куб.</x:String>
+                <x:String>СМ</x:String>
+                <x:String>Коллекция</x:String>
+                <x:String>Кусок</x:String>
+                <x:String>Список</x:String>
+                <x:String>Орам</x:String>
+                <x:String>Рулон</x:String>
+                <x:String>Погон метр</x:String>
+                <x:String>Мой вызов</x:String>
+                <x:String>Барр</x:String>
+                <x:String>Добавить новое</x:String>
+            </x:Array>
+            <x:Array x:Key="measureList_en" Type="{x:Type x:String}">
+                <x:String>Meter</x:String>
+                <x:String>Square meters</x:String>
+                <x:String>Liter</x:String>
+                <x:String>Cubic Meters</x:String>
+                <x:String>Carat</x:String>
+                <x:String>Gram</x:String>
+                <x:String>Kilogram</x:String>
+                <x:String>Tons</x:String>
+                <x:String>Gross</x:String>
+                <x:String>Net</x:String>
+                <x:String>Kilowatt-hour</x:String>
+                <x:String>Kilowatt</x:String>
+                <x:String>Hour</x:String>
+                <x:String>Curie</x:String>
+                <x:String>Pashka</x:String>
+                <x:String>CM cube</x:String>
+                <x:String>CM</x:String>
+                <x:String>Collection</x:String>
+                <x:String>A piece</x:String>
+                <x:String>List</x:String>
+                <x:String>Oram</x:String>
+                <x:String>Roll</x:String>
+                <x:String>Shoulder strap</x:String>
+                <x:String>My challenge</x:String>
+                <x:String>Barr</x:String>
+                <x:String>Add new</x:String>
+            </x:Array>
+            <x:Array x:Key="positionList_uz_cyrl" Type="{x:Type x:String}">
+                <x:String>Директор</x:String>
+                <x:String>Рахбар</x:String>
+                <x:String>Директор ўринбосари</x:String>
+                <x:String>Рахбар ўринбосари</x:String>
+                <x:String>Бошлиқ</x:String>
+                <x:String>Бошлиқ ўринбосари</x:String>
+                <x:String>Бошлиқ вазифасини бажарувчи</x:String>
+                <x:String>Директор вазифасини бажарувчи</x:String>
+                <x:String>Директор вазифасини вақтинча бажарувчи</x:String>
+                <x:String>Рахбар вазифасини бажарувчи</x:String>
+                <x:String>Рахбар вазифасини вақтинча бажарувчи</x:String>
+                <x:String>Очиқ қолдириш</x:String>
+            </x:Array>
+            <x:Array x:Key="positionList_uz" Type="{x:Type x:String}">
+                <x:String>Direktor</x:String>
+                <x:String>Raxbar</x:String>
+                <x:String>Direktor oʼrinbosari</x:String>
+                <x:String>Raxbar oʼrinbosari</x:String>
+                <x:String>Boshliq</x:String>
+                <x:String>Boshliq oʼrinbosari</x:String>
+                <x:String>Boshliq vazifasini bajaruvchi</x:String>
+                <x:String>Direktor vazifasini bajaruvchi</x:String>
+                <x:String>Direktor vazifasini vaqtincha bajaruvchi</x:String>
+                <x:String>Raxbar vazifasini bajaruvchi</x:String>
+                <x:String>Raxbar vazifasini vaqtincha bajaruvchi</x:String>
+                <x:String>Ochiq qoldirish</x:String>
+            </x:Array>
+            <x:Array x:Key="positionList_ru" Type="{x:Type x:String}">
+                <x:String>Директор</x:String>
+                <x:String>Лидер</x:String>
+                <x:String>Заместитель директора</x:String>
+                <x:String>Заместитель начальника</x:String>
+                <x:String>Главный</x:String>
+                <x:String>Заместитель начальника</x:String>
+                <x:String>Исполняющий обязанности начальника</x:String>
+                <x:String>Исполняющий обязанности директора</x:String>
+                <x:String>Исполняющий обязанности директора</x:String>
+                <x:String>Исполняющий обязанности менеджера</x:String>
+                <x:String>Временный менеджер</x:String>
+                <x:String>Оставьте его открытым</x:String>
+            </x:Array>
+            <x:Array x:Key="positionList_en" Type="{x:Type x:String}">
+                <x:String>Director</x:String>
+                <x:String>Leader</x:String>
+                <x:String>Deputy director</x:String>
+                <x:String>Deputy head</x:String>
+                <x:String>Chief</x:String>
+                <x:String>Deputy head</x:String>
+                <x:String>Acting Chief</x:String>
+                <x:String>Acting director</x:String>
+                <x:String>Acting Director</x:String>
+                <x:String>Acting manager</x:String>
+                <x:String>Temporary manager</x:String>
+                <x:String>Leave it open</x:String>
+            </x:Array>
+            
             <Style x:Key="lbStar" TargetType="Label">
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="TextColor" Value="Black"/>

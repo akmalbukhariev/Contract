@@ -27,7 +27,9 @@ namespace Contract.Pages.CreateContract
             base.OnAppearing();
             Model.Parent = Parent;
 
-            lbStep.Text = RSC.Step + " #2"; 
+            lbStep.Text = RSC.Step + " #2";
+            PModel.CurrencyList = GetCurrentList;
+            PModel.QQSList = GetQQSList;
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -66,50 +68,40 @@ namespace Contract.Pages.CreateContract
 
             item.AmountText = (int.Parse(item.AmountText) + 1).ToString();
         }
-
-        private void Add_Box_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((BoxView)sender);
-        }
-
-        private void Add_Stack_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((StackLayout)sender);
-
-            ServicesInfo service = new ServicesInfo()
-            {
-                NameOfService = "",
-                UnitOfMeasureIndex = 0,
-                AmountText = "1",
-                PriceText = ""
-            };
-
-            PModel.AddService(service);
-        }
-
-        private void Copy_Box_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((BoxView)sender);
-        }
-
-        private void Copy_Stack_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((StackLayout)sender);
-        }
-
-        private void Delete_Box_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((BoxView)sender);
-        }
-
-        private void Delete_Stack_Tapped(object sender, EventArgs e)
+         
+        private void AddCopy_Stack_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((StackLayout)sender);
 
             ServicesInfo item = (ServicesInfo)((StackLayout)sender).BindingContext;
             if (item == null) return;
 
+            ServicesInfo service = new ServicesInfo(item);
+            PModel.AddService(service);
+        }
+         
+        private void AddEmpty_Stack_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((StackLayout)sender);
 
+            ServicesInfo item = (ServicesInfo)((StackLayout)sender).BindingContext;
+            if (item == null) return;
+
+            ServicesInfo service = new ServicesInfo();
+            service.Index = item.Index + 1;
+            PModel.AddService(service);
+        }
+          
+        private void Delete_Stack_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((StackLayout)sender);
+
+            if (PModel.ServicesList.Count == 1) return;
+
+            ServicesInfo item = (ServicesInfo)((StackLayout)sender).BindingContext;
+            if (item == null) return;
+
+            PModel.RemoveService(item);
         }
 
         async void ChangeBoxColor(BoxView boxView)

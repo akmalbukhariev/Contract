@@ -76,6 +76,7 @@
                         <Label Text="{x:Static resource:AppResource.SelectServiceType}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="Odatiy"
+                                              ItemsSource="{Binding ServiceList}"
                                               SelectedIndex="{Binding ServiceTypeIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
@@ -98,6 +99,7 @@
                         <Label Text="{x:Static resource:AppResource.CurrencyOfTheContract}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="Sum"
+                                              ItemsSource="{Binding CurrencyList}"
                                               SelectedIndex="{Binding ContractCurrencyIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
@@ -110,6 +112,7 @@
                         <Label Text="{x:Static resource:AppResource.AmountOfQQS}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="15%"
+                                              ItemsSource="{Binding QQSList}"
                                               SelectedIndex="{Binding AmountOfVatIndex}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
@@ -156,6 +159,7 @@
                                         <Label Text="{x:Static resource:AppResource.UnitOfMeasure}"
                                            Style="{StaticResource lbBlackStyle}"/>
                                         <control:CustomPicker Title="dona"
+                                                              ItemsSource="{Binding MeasureList}"
                                                               SelectedIndex="{Binding UnitOfMeasureIndex}"
                                                               HorizontalTextAlignment="Start"
                                                               Image="show"
@@ -236,35 +240,23 @@
                                                 </Style>
                                             </ResourceDictionary>
                                         </Grid.Resources>
-                                        <BoxView x:Name="boxAdd" BackgroundColor="#3E8799" CornerRadius="10">
-                                            <BoxView.GestureRecognizers>
-                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Box_Tapped"/>
-                                            </BoxView.GestureRecognizers>
-                                        </BoxView>
+                                        <BoxView x:Name="boxAdd" BackgroundColor="#3E8799" CornerRadius="10"/>
                                         <StackLayout x:Name="stackAdd" Spacing="-5">
                                             <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Stack_Tapped"/>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddCopy_Stack_Tapped"/>
                                             </StackLayout.GestureRecognizers>
                                             <Image Source="Copy_1" Style="{StaticResource imEdStyle}"/>
                                             <Label Text="{x:Static resource:AppResource.AddCopy}" Style="{StaticResource lbEdStyle}"/>
                                         </StackLayout>
-                                        <BoxView x:Name="boxCopy" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2">
-                                            <BoxView.GestureRecognizers>
-                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Box_Tapped"/>
-                                            </BoxView.GestureRecognizers>
-                                        </BoxView>
+                                        <BoxView x:Name="boxCopy" BackgroundColor="#559147" CornerRadius="10" Grid.Column="2"/>
                                         <StackLayout x:Name ="stackCopy" Spacing="-5" Grid.Column="2">
                                             <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Stack_Tapped"/>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddEmpty_Stack_Tapped"/>
                                             </StackLayout.GestureRecognizers>
                                             <Image Source="Add_1" Style="{StaticResource imEdStyle}"/>
                                             <Label Text="{x:Static resource:AppResource.AddEmpty}" Style="{StaticResource lbEdStyle}"/>
                                         </StackLayout>
-                                        <BoxView x:Name="boxDelete" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4">
-                                            <BoxView.GestureRecognizers>
-                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Box_Tapped"/>
-                                            </BoxView.GestureRecognizers>
-                                        </BoxView>
+                                        <BoxView x:Name="boxDelete" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
                                         <StackLayout x:Name="stackDelete" Spacing="-5" Grid.Column="4">
                                             <StackLayout.GestureRecognizers>
                                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Stack_Tapped"/>

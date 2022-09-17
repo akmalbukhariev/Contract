@@ -17,12 +17,12 @@ namespace Contract.ViewModel.Pages.CreateContract
         public int AmountOfVatIndex { get => GetValue<int>(); set => SetValue(value); }
         public bool IsExeciseTax { get => GetValue<bool>(); set => SetValue(value); }
         public string InterestText { get => GetValue<string>(); set => SetValue(value); }
-        //public string NameOfService { get => GetValue<string>(); set => SetValue(value); }
-        //public int UnitOfMeasureIndex { get => GetValue<int>(); set => SetValue(value); }
-        //public string AmountText { get => GetValue<string>(); set => SetValue(value); }
-        //public string PriceText { get => GetValue<string>(); set => SetValue(value); }
         public string TotalCostText { get => GetValue<string>(); set => SetValue(value); }
         public bool Agree { get => GetValue<bool>(); set => SetValue(value); }
+
+        public List<string> ServiceList { get => GetValue<List<string>>(); set => SetValue(value); }
+        public List<string> CurrencyList { get => GetValue<List<string>>(); set => SetValue(value); }
+        public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); } 
 
         public ObservableCollection<ServicesInfo> ServicesList { get; set; }
 
@@ -32,6 +32,10 @@ namespace Contract.ViewModel.Pages.CreateContract
             InitServiceList();
 
             TotalCostText = "123,000 sum";
+
+            ServiceList = new List<string>();
+            CurrencyList = new List<string>();
+            QQSList = new List<string>();
         }
 
         #region Command
@@ -46,20 +50,18 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         public void InitServiceList()
         {
-            ServicesInfo service = new ServicesInfo()
-            {
-                NameOfService = "",
-                UnitOfMeasureIndex = 0,
-                AmountText = "1",
-                PriceText = ""
-            };
-
+            ServicesInfo service = new ServicesInfo();
             AddService(service);
         }
 
         public void AddService(ServicesInfo service)
         {
             this.ServicesList.Add(service);
+        }
+
+        public void RemoveService(ServicesInfo service)
+        {
+            this.ServicesList.Remove(service);
         }
     }
 }

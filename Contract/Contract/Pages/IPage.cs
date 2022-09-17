@@ -80,5 +80,91 @@ namespace Contract.Pages
 
             return strLan;
         }
+
+        protected List<string> GetCurrentList
+        {
+            get
+            {
+                List<string> result = new List<string>();
+
+                switch (AppSettings.GetLanguage())
+                {
+                    case Constant.LanUz:
+                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_uz]).ToList();
+                        break;
+                    case Constant.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_uz_cyrl]).ToList();
+                        break;
+                    case Constant.LanEn:
+                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_en]).ToList();
+                        break;
+                    case Constant.LanRu:
+                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_ru]).ToList();
+                        break;
+                }
+
+                return result;
+            }
+        }
+
+        protected List<string> GetQQSList
+        {
+            get
+            { 
+                return ((string[])Application.Current.Resources[Constant.QqsList]).ToList();
+            }
+        }
+
+        protected List<string> GetMeasureList
+        {
+            get
+            {
+                List<string> result = new List<string>();
+
+                switch (AppSettings.GetLanguage())
+                {
+                    case Constant.LanUz:
+                        result = ((string[])Application.Current.Resources[Constant.MeasureList_uz]).ToList();
+                        break;
+                    case Constant.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constant.MeasureList_uz_cyrl]).ToList();
+                        break;
+                    case Constant.LanEn:
+                        result = ((string[])Application.Current.Resources[Constant.MeasureList_en]).ToList();
+                        break;
+                    case Constant.LanRu:
+                        result = ((string[])Application.Current.Resources[Constant.MeasureList_ru]).ToList();
+                        break;
+                }
+
+                return result;
+            }
+        }
+
+        protected List<string> GetPositionList
+        {
+            get
+            {
+                List<string> result = new List<string>();
+
+                switch (AppSettings.GetLanguage())
+                {
+                    case Constant.LanUz:
+                        result = ((string[])Application.Current.Resources[Constant.PositionList_uz]).ToList();
+                        break;
+                    case Constant.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constant.PositionList_uz_cyrl]).ToList();
+                        break;
+                    case Constant.LanEn:
+                        result = ((string[])Application.Current.Resources[Constant.PositionList_en]).ToList();
+                        break;
+                    case Constant.LanRu:
+                        result = ((string[])Application.Current.Resources[Constant.PositionList_ru]).ToList();
+                        break;
+                }
+
+                return result;
+            }
+        }
     }
 }

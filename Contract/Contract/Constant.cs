@@ -6,11 +6,14 @@ namespace Contract
 {
     public class Constant
     {
+        #region Language
         public const string LanUz = "Uzbek";
         public const string LanUzCyrl = "Uzbek (Cyrillic)";
         public const string LanEn = "English";
         public const string LanRu = "Russian";
+        #endregion
 
+        #region Menu
         public const string Menu1 = "Menu1";
         public const string Menu1_1 = "Menu1_1";
         public const string Menu1_2 = "Menu1_2";
@@ -35,5 +38,23 @@ namespace Contract
         public const string Menu7 = "Menu7";
         public const string Menu8 = "Menu8";
         public const string Menu9 = "Menu9";
+        #endregion
+
+        public const string CurrencyList_uz_cyrl = "currencyList_uz_cyrl";
+        public const string CurrencyList_uz = "currencyList_uz";
+        public const string CurrencyList_en = "currencyList_en";
+        public const string CurrencyList_ru = "currencyList_ru";
+
+        public const string QqsList = "qqsList";
+
+        public const string MeasureList_uz_cyrl = "measureList_uz_cyrl";
+        public const string MeasureList_uz = "measureList_uz";
+        public const string MeasureList_ru = "measureList_ru";
+        public const string MeasureList_en = "measureList_en";
+
+        public const string PositionList_uz_cyrl = "positionList_uz_cyrl";
+        public const string PositionList_uz = "positionList_uz";
+        public const string PositionList_ru = "positionList_ru";
+        public const string PositionList_en = "positionList_en";
     }
 }

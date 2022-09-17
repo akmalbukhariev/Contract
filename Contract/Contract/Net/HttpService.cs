@@ -12,7 +12,7 @@ namespace Contract.Net
    public  class HttpService
     {
         #region Url 
-        public static string SERVER_URL = "https://192.168.219.101:5001/api/ContractMaker/";
+        public static string SERVER_URL = "https://192.168.219.102:5001/api/ContractMaker/";
         public static string URL_LOGIN = SERVER_URL + "login";
         public static string URL_SIGN_UP = SERVER_URL + "signUp";
         public static string URL_GET_USER = SERVER_URL + "getUser/"; //phoneNumber
