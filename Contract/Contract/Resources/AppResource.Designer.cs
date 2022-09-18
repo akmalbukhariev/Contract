@@ -1709,11 +1709,56 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select currency.
+        /// </summary>
+        internal static string SelectCurrency {
+            get {
+                return ResourceManager.GetString("SelectCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select measure.
+        /// </summary>
+        internal static string SelectMeasure {
+            get {
+                return ResourceManager.GetString("SelectMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the position.
+        /// </summary>
+        internal static string SelectPosition {
+            get {
+                return ResourceManager.GetString("SelectPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the VAT.
+        /// </summary>
+        internal static string SelectQQS {
+            get {
+                return ResourceManager.GetString("SelectQQS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specify a service type template.
         /// </summary>
         internal static string SelectServiceType {
             get {
                 return ResourceManager.GetString("SelectServiceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select service type.
+        /// </summary>
+        internal static string SelectServiceTypeTitle {
+            get {
+                return ResourceManager.GetString("SelectServiceTypeTitle", resourceCulture);
             }
         }
         

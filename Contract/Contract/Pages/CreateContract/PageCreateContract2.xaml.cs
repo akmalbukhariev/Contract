@@ -130,5 +130,10 @@ namespace Contract.Pages.CreateContract
         {
             ChangeBoxColor((BoxView)sender);
         }
+
+        private void Currency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -844,8 +844,28 @@
     <value>Сохранить ID и пароль</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectCurrency" xml:space="preserve">
+    <value>Выберите валюту</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectMeasure" xml:space="preserve">
+    <value>Выберите меру</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectPosition" xml:space="preserve">
+    <value>Выберите позицию</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectQQS" xml:space="preserve">
+    <value>Выберите НДС</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Укажите шаблон вида услуги</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectServiceTypeTitle" xml:space="preserve">
+    <value>Выберите тип услуги</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Select_ERI_Key" xml:space="preserve">

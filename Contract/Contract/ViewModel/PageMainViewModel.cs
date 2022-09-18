@@ -15,6 +15,7 @@ namespace Contract.ViewModel
         public string TextValue1 { get => GetValue<string>(); set => SetValue(value); }
         public string TextValue2 { get => GetValue<string>(); set => SetValue(value); }
         public ObservableCollection<ChildMenuItem> MenuList { get => GetValue<ObservableCollection<ChildMenuItem>>(); set => SetValue(value); }
+
         public PageMainViewModel()
         {
             MenuList = new ObservableCollection<ChildMenuItem>();

@@ -871,8 +871,28 @@ rekvizitlari ochiq qolsinmi?</value>
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectCurrency" xml:space="preserve">
+    <value>Valyutani tanlang</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectMeasure" xml:space="preserve">
+    <value>O'lchovni tanlang</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectPosition" xml:space="preserve">
+    <value>Lavozimni tanlang</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectQQS" xml:space="preserve">
+    <value>QQS ni tanlang</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Xizmat turi shablonini belgilang</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectServiceTypeTitle" xml:space="preserve">
+    <value>Xizmat turini tanlang</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Select_ERI_Key" xml:space="preserve">

@@ -40,7 +40,7 @@ namespace ContractAPI.Controllers
                 {
                     password = AesOperation.EncryptString(user.password),
                     phone_number = user.phone_number,
-                    reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss")
+                    reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss.SSS")
                 };
 
                 _db.Users.Add(newUser);
@@ -322,8 +322,7 @@ namespace ContractAPI.Controllers
         {
             return (_db.Users.ToList());
         }
-
-
+         
         #region UnapprovedContract
         [HttpGet("getUnapprovedContract/{phoneNumber}")]
         public async Task<IActionResult> getUnapprovedContract(string phoneNumber)
@@ -466,8 +465,7 @@ namespace ContractAPI.Controllers
             return Ok(response);
         }
         #endregion
-
-
+         
 
         #region ApplicableContract
         [HttpGet("getApplicableContract/{phoneNumber}")]
@@ -613,6 +611,58 @@ namespace ContractAPI.Controllers
         #endregion
 
 
+        [HttpPost("setContractInfo")]
+        public async Task<IActionResult> setContractInfo([FromBody] ContractInfo info)
+        {
+            ResponseContractInfo response = new ResponseContractInfo();
+            response.data = null;
+
+            var newInfo = new ContractInfo();
+            newInfo.Copy(info);
+            newInfo.created_date = DateTime.Now.ToString("yyyymmdd_HHmmss_fff");
+
+            try
+            {
+                _db.ContractInfo.Add(newInfo);
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return BadRequest(response);
+            }
+
+            await _db.SaveChangesAsync();
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
+
+            return Ok(response);
+        }
+
+        [HttpGet("getContractInfo/{phoneNumber}")]
+        public async Task<IActionResult> getContractInfo(string phoneNumber)
+        {
+            ResponseContractInfo response = new ResponseContractInfo();
+            List<ContractInfo> infoList = await _db.ContractInfo.Where(item => item.phone_number.Equals(phoneNumber)).ToListAsync();
+
+            if (infoList == null)
+            {
+                response.data = null;
+                return NotFound(response);
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            foreach (ContractInfo info in infoList)
+            {
+                response.data.Add(new ContractInfo(info));
+            }
+
+            return Ok(response);
+        }
 
         [HttpGet("getCanceledContract/{phoneNumber}")]
         public async Task<IActionResult> getCanceledContract(string phoneNumber)

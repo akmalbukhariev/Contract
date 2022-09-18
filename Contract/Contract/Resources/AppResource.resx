@@ -843,8 +843,28 @@ Contracts</value>
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectCurrency" xml:space="preserve">
+    <value>Select currency</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectMeasure" xml:space="preserve">
+    <value>Select measure</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectPosition" xml:space="preserve">
+    <value>Select the position</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectQQS" xml:space="preserve">
+    <value>Select the VAT</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Specify a service type template</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectServiceTypeTitle" xml:space="preserve">
+    <value>Select service type</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Select_ERI_Key" xml:space="preserve">

@@ -844,8 +844,28 @@
     <value>ID ва Паролни сақлаш</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectCurrency" xml:space="preserve">
+    <value>Валютани танланг</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectMeasure" xml:space="preserve">
+    <value>Ўлчовни танланг</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectPosition" xml:space="preserve">
+    <value>Лавозимни танланг</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectQQS" xml:space="preserve">
+    <value>ҚҚС ни танланг</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectServiceType" xml:space="preserve">
     <value>Хизмат тури шаблонини белгиланг</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="SelectServiceTypeTitle" xml:space="preserve">
+    <value>Хизмат турини танланг</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Select_ERI_Key" xml:space="preserve">
