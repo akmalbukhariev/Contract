@@ -112,7 +112,7 @@ namespace ContractAPI.Controllers
         public async Task<IActionResult> getUserCompanyInfo(string phoneNumber)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            UserCompanyInfo info = await _db.UserCompanyInfo.Where(item => item.user_phone_number.Equals(phoneNumber)).FirstOrDefaultAsync();
+            CompanyInfo info = await _db.UserCompanyInfo.Where(item => item.user_phone_number.Equals(phoneNumber)).FirstOrDefaultAsync();
             if (info == null)
             {
                 response.data = null;
@@ -127,12 +127,12 @@ namespace ContractAPI.Controllers
         }
 
         [HttpPost("setUserCompanyInfo")]
-        public async Task<IActionResult> setUserCompanyInfo([FromBody] UserCompanyInfo info)
+        public async Task<IActionResult> setUserCompanyInfo([FromBody] CompanyInfo info)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            UserCompanyInfo found = await _db.UserCompanyInfo
+            CompanyInfo found = await _db.UserCompanyInfo
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -145,7 +145,7 @@ namespace ContractAPI.Controllers
                 return BadRequest(response);    
             }
 
-            var newInfo = new UserCompanyInfo();
+            var newInfo = new CompanyInfo();
             newInfo.Copy(info);
 
             try
@@ -168,12 +168,12 @@ namespace ContractAPI.Controllers
         }
 
         [HttpPut("updateUserCompanyInfo")]
-        public async Task<IActionResult> updateUserCompanyInfo([FromBody] UserCompanyInfo info)
+        public async Task<IActionResult> updateUserCompanyInfo([FromBody] CompanyInfo info)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            UserCompanyInfo found = await _db.UserCompanyInfo
+            CompanyInfo found = await _db.UserCompanyInfo
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -186,7 +186,7 @@ namespace ContractAPI.Controllers
                 return BadRequest(response);
             }
 
-            var newInfo = new UserCompanyInfo();
+            var newInfo = new CompanyInfo();
             newInfo.Copy(info);
 
             try
@@ -611,19 +611,19 @@ namespace ContractAPI.Controllers
         #endregion
 
 
-        [HttpPost("setContractInfo")]
-        public async Task<IActionResult> setContractInfo([FromBody] ContractInfo info)
+        [HttpPost("createContract")]
+        public async Task<IActionResult> createContract([FromBody] CreateContract info)
         {
             ResponseContractInfo response = new ResponseContractInfo();
             response.data = null;
 
-            var newInfo = new ContractInfo();
+            var newInfo = new CreateContract();
             newInfo.Copy(info);
             newInfo.created_date = DateTime.Now.ToString("yyyymmdd_HHmmss_fff");
 
             try
             {
-                _db.ContractInfo.Add(newInfo);
+                _db.CreateContract.Add(newInfo);
             }
             catch (Exception ex)
             {
@@ -644,7 +644,7 @@ namespace ContractAPI.Controllers
         public async Task<IActionResult> getContractInfo(string phoneNumber)
         {
             ResponseContractInfo response = new ResponseContractInfo();
-            List<ContractInfo> infoList = await _db.ContractInfo.Where(item => item.phone_number.Equals(phoneNumber)).ToListAsync();
+            List<CreateContract> infoList = await _db.CreateContract.Where(item => item.phone_number.Equals(phoneNumber)).ToListAsync();
 
             if (infoList == null)
             {
@@ -656,9 +656,9 @@ namespace ContractAPI.Controllers
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
 
-            foreach (ContractInfo info in infoList)
+            foreach (CreateContract info in infoList)
             {
-                response.data.Add(new ContractInfo(info));
+                response.data.Add(new CreateContract(info));
             }
 
             return Ok(response);

@@ -8,6 +8,6 @@ namespace ContractAPI.Response
 {
     public class ResponseUserCompanyInfo : Response
     {
-        public UserCompanyInfo data { get; set; } = new UserCompanyInfo();
+        public CompanyInfo data { get; set; } = new CompanyInfo();
     }
 }

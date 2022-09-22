@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.Models
 {
-    public class UserCompanyInfo
+    public class CompanyInfo
     {
+        #region Properties
         public string user_phone_number { get; set; }
         public string company_name { get; set; }
         public string address_of_company { get; set; }
@@ -17,7 +18,7 @@ namespace ContractAPI.Models
         /// <summary>
         /// 1 = yes ,0 = no
         /// </summary>
-        public int are_you_tax_payer { get; set; } 
+        public int are_you_qqs_payer { get; set; } 
         public string qqs_number { get; set; }
         public string company_phone_number { get; set; }
         public string position_of_signer { get; set; }
@@ -32,8 +33,20 @@ namespace ContractAPI.Models
         /// </summary>
         public int is_legal_counsel_provided { get; set; }
         public string counsel_name { get; set; }
+        public string company_logo_url { get; set; }
+        #endregion
 
-        public void Copy(UserCompanyInfo other)
+        public CompanyInfo()
+        {
+            
+        }
+
+        public CompanyInfo(CompanyInfo other)
+        {
+            this.Copy(other);
+        }
+
+        public void Copy(CompanyInfo other)
         {
             this.user_phone_number = other.user_phone_number;
             this.company_name = other.company_name;
@@ -42,7 +55,7 @@ namespace ContractAPI.Models
             this.ctr_of_company = other.ctr_of_company;
             this.name_of_bank = other.name_of_bank;
             this.bank_code = other.bank_code;
-            this.are_you_tax_payer = other.are_you_tax_payer;
+            this.are_you_qqs_payer = other.are_you_qqs_payer;
             this.qqs_number = other.qqs_number;
             this.company_phone_number = other.company_phone_number;
             this.position_of_signer = other.position_of_signer;
@@ -51,6 +64,7 @@ namespace ContractAPI.Models
             this.accountant_name = other.accountant_name;
             this.is_legal_counsel_provided = other.is_legal_counsel_provided;
             this.counsel_name = other.counsel_name;
+            this.company_logo_url = other.company_logo_url;
         }
     }
 }
