@@ -9,6 +9,7 @@ namespace ContractAPI.Models
     {
         #region Properties
         public string user_phone_number { get; set; }
+        public string is_this_client_info { get; set; }
         public string company_name { get; set; }
         public string address_of_company { get; set; }
         public string account_number { get; set; }
@@ -49,6 +50,7 @@ namespace ContractAPI.Models
         public void Copy(CompanyInfo other)
         {
             this.user_phone_number = other.user_phone_number;
+            this.is_this_client_info = other.is_this_client_info;
             this.company_name = other.company_name;
             this.address_of_company = other.address_of_company;
             this.account_number = other.account_number;

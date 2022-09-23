@@ -8,8 +8,7 @@ namespace ContractAPI.Models
     public class CreateContractInfo
     {
         #region Properties
-        public string user_phone_number { get; set; }
-        public string client_phone_number { get; set; }
+        public string user_phone_number { get; set; } 
         public int open_client_info { get; set; }
         public int open_search_client { get; set; }
         public int client_index { get; set; }
@@ -37,7 +36,6 @@ namespace ContractAPI.Models
         public void Copy(CreateContractInfo other)
         {
             this.user_phone_number = other.user_phone_number;
-            this.client_phone_number = other.client_phone_number;
             this.open_client_info = other.open_client_info;
             this.open_search_client = other.open_search_client;
             this.client_index = other.client_index;

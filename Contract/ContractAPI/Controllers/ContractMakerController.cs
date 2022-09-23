@@ -108,106 +108,106 @@ namespace ContractAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet("getUserCompanyInfo/{phoneNumber}")]
-        public async Task<IActionResult> getUserCompanyInfo(string phoneNumber)
-        {
-            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            CompanyInfo info = await _db.UserCompanyInfo.Where(item => item.user_phone_number.Equals(phoneNumber)).FirstOrDefaultAsync();
-            if (info == null)
-            {
-                response.data = null;
-                return NotFound(response);
-            }
+        //[HttpGet("getUserCompanyInfo/{phoneNumber}")]
+        //public async Task<IActionResult> getUserCompanyInfo(string phoneNumber)
+        //{
+        //    ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+        //    CompanyInfo info = await _db.UserCompanyInfo.Where(item => item.user_phone_number.Equals(phoneNumber)).FirstOrDefaultAsync();
+        //    if (info == null)
+        //    {
+        //        response.data = null;
+        //        return NotFound(response);
+        //    }
 
-            response.result = true;
-            response.message = Constants.Success;
-            response.data.Copy(info);
+        //    response.result = true;
+        //    response.message = Constants.Success;
+        //    response.data.Copy(info);
 
-            return Ok(response);
-        }
+        //    return Ok(response);
+        //}
 
-        [HttpPost("setUserCompanyInfo")]
-        public async Task<IActionResult> setUserCompanyInfo([FromBody] CompanyInfo info)
-        {
-            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            response.data = null;
+        //[HttpPost("setUserCompanyInfo")]
+        //public async Task<IActionResult> setUserCompanyInfo([FromBody] CompanyInfo info)
+        //{
+        //    ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+        //    response.data = null;
 
-            CompanyInfo found = await _db.UserCompanyInfo
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
+        //    CompanyInfo found = await _db.UserCompanyInfo
+        //        .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+        //        .AsNoTracking()
+        //        .FirstOrDefaultAsync();
 
-            if (found != null)
-            {
-                response.result = false;
-                response.message = "User phone number already exist!";
-                response.error_code = (int)HttpStatusCode.BadRequest;
-                return BadRequest(response);    
-            }
+        //    if (found != null)
+        //    {
+        //        response.result = false;
+        //        response.message = "User phone number already exist!";
+        //        response.error_code = (int)HttpStatusCode.BadRequest;
+        //        return BadRequest(response);    
+        //    }
 
-            var newInfo = new CompanyInfo();
-            newInfo.Copy(info);
+        //    var newInfo = new CompanyInfo();
+        //    newInfo.Copy(info);
 
-            try
-            {
-                _db.UserCompanyInfo.Add(newInfo);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-                return BadRequest(response);
-            }
+        //    try
+        //    {
+        //        _db.UserCompanyInfo.Add(newInfo);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response.message = ex.Message;
+        //        response.error_code = (int)HttpStatusCode.BadRequest;
+        //        return BadRequest(response);
+        //    }
 
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.error_code = (int)HttpStatusCode.OK;
-            response.message = Constants.Success;
+        //    await _db.SaveChangesAsync();
+        //    response.result = true;
+        //    response.error_code = (int)HttpStatusCode.OK;
+        //    response.message = Constants.Success;
 
-            return Ok(response);
-        }
+        //    return Ok(response);
+        //}
 
-        [HttpPut("updateUserCompanyInfo")]
-        public async Task<IActionResult> updateUserCompanyInfo([FromBody] CompanyInfo info)
-        {
-            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            response.data = null;
+        //[HttpPut("updateUserCompanyInfo")]
+        //public async Task<IActionResult> updateUserCompanyInfo([FromBody] CompanyInfo info)
+        //{
+        //    ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+        //    response.data = null;
 
-            CompanyInfo found = await _db.UserCompanyInfo
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
+        //    CompanyInfo found = await _db.UserCompanyInfo
+        //        .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+        //        .AsNoTracking()
+        //        .FirstOrDefaultAsync();
 
-            if (found == null)
-            {
-                response.result = false;
-                response.message = "Not found the user phone number!";
+        //    if (found == null)
+        //    {
+        //        response.result = false;
+        //        response.message = "Not found the user phone number!";
 
-                return BadRequest(response);
-            }
+        //        return BadRequest(response);
+        //    }
 
-            var newInfo = new CompanyInfo();
-            newInfo.Copy(info);
+        //    var newInfo = new CompanyInfo();
+        //    newInfo.Copy(info);
 
-            try
-            {
-                _db.Update(newInfo);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
+        //    try
+        //    {
+        //        _db.Update(newInfo);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response.message = ex.Message;
+        //        response.error_code = (int)HttpStatusCode.BadRequest;
 
-                return BadRequest(response);
-            }
+        //        return BadRequest(response);
+        //    }
 
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
+        //    await _db.SaveChangesAsync();
+        //    response.result = true;
+        //    response.message = Constants.Success;
+        //    response.error_code = (int)HttpStatusCode.OK;
 
-            return Ok(response);
-        }
+        //    return Ok(response);
+        //}
 
         [HttpPut("updateUserPassword")]
         public async Task<IActionResult> updateUserPassword([FromBody] User user)
@@ -466,7 +466,6 @@ namespace ContractAPI.Controllers
         }
         #endregion
          
-
         #region ApplicableContract
         [HttpGet("getApplicableContract/{phoneNumber}")]
         public async Task<IActionResult> getApplicableContract(string phoneNumber)
@@ -610,20 +609,22 @@ namespace ContractAPI.Controllers
         }
         #endregion
 
-
         [HttpPost("createContract")]
         public async Task<IActionResult> createContract([FromBody] CreateContract info)
-        {
-            ResponseContractInfo response = new ResponseContractInfo();
-            response.data = null;
+        {   
+            ResponseCreateContract response = new ResponseCreateContract();
 
-            var newInfo = new CreateContract();
-            newInfo.Copy(info);
-            newInfo.created_date = DateTime.Now.ToString("yyyymmdd_HHmmss_fff");
+            CompanyInfo newInfo1 = new CompanyInfo(info.client_company_info);
+            CreateContractInfo newInfo2 = new CreateContractInfo(info.contract_info);
 
             try
             {
-                _db.CreateContract.Add(newInfo);
+                _db.CompanyInfo.Add(newInfo1);
+                _db.CreateContractInfo.Add(newInfo2);
+                foreach (ServicesInfo item in info.service_list)
+                {
+                    _db.ServicesInfo.Add(new ServicesInfo(item));
+                }
             }
             catch (Exception ex)
             {
@@ -638,31 +639,31 @@ namespace ContractAPI.Controllers
             response.message = Constants.Success;
 
             return Ok(response);
-        }
+        }    
 
-        [HttpGet("getContractInfo/{phoneNumber}")]
-        public async Task<IActionResult> getContractInfo(string phoneNumber)
-        {
-            ResponseContractInfo response = new ResponseContractInfo();
-            List<CreateContract> infoList = await _db.CreateContract.Where(item => item.phone_number.Equals(phoneNumber)).ToListAsync();
+        //[HttpGet("getContractInfo/{phoneNumber}")]
+        //public async Task<IActionResult> getContractInfo(string phoneNumber)
+        //{
+        //    ResponseContractInfo response = new ResponseContractInfo();
+        //    List<CreateContract> infoList = await _db.CreateContractInfo.Where(item => item.phone_number.Equals(phoneNumber)).ToListAsync();
 
-            if (infoList == null)
-            {
-                response.data = null;
-                return NotFound(response);
-            }
+        //    if (infoList == null)
+        //    {
+        //        response.data = null;
+        //        return NotFound(response);
+        //    }
 
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
+        //    response.result = true;
+        //    response.message = Constants.Success;
+        //    response.error_code = (int)HttpStatusCode.OK;
 
-            foreach (CreateContract info in infoList)
-            {
-                response.data.Add(new CreateContract(info));
-            }
+        //    foreach (CreateContract info in infoList)
+        //    {
+        //        response.data.Add(new CreateContract(info));
+        //    }
 
-            return Ok(response);
-        }
+        //    return Ok(response);
+        //}
 
         [HttpGet("getCanceledContract/{phoneNumber}")]
         public async Task<IActionResult> getCanceledContract(string phoneNumber)

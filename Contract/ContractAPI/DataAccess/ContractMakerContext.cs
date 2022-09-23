@@ -15,7 +15,7 @@ namespace ContractAPI.DataAccess
         //CompanyInfo
         public DbSet<User> Users { get; set; }
         public DbSet<CompanyInfo> CompanyInfo { get; set; }
-        public DbSet<CreateContractInfo> CreateContract { get; set; }
+        public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
         public DbSet<PurposeOfContract> PurposeOfContracts { get; set; }
         public DbSet<UnapprovedContract> UnapprovedContracts { get; set; }
@@ -34,13 +34,13 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<User>().HasKey(r => r.phone_number);
 
             modelBuilder.Entity<CompanyInfo>().ToTable("CompanyInfo");
-            modelBuilder.Entity<CompanyInfo>().HasKey(r => r.ctr_of_company);
+            modelBuilder.Entity<CompanyInfo>().HasKey(r => r.account_number);
 
-            modelBuilder.Entity<CreateContractInfo>().ToTable("ContractInfo");
+            modelBuilder.Entity<CreateContractInfo>().ToTable("CreateContractInfo");
             modelBuilder.Entity<CreateContractInfo>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<ServicesInfo>().ToTable("ServicesInfo");
-            modelBuilder.Entity<ServicesInfo>().HasKey(r => r.user_phone_number);
+            modelBuilder.Entity<ServicesInfo>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<PurposeOfContract>().ToTable("PurposeOfContracts");
             modelBuilder.Entity<PurposeOfContract>().HasKey(r => r.user_phone_number);

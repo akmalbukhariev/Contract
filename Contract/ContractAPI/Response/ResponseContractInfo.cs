@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.Response
 {
-    public class ResponseContractInfo : Response
+    public class ResponseCreateContract : Response
     {
-        public List<CreateContract> data { get; set; } = new List<CreateContract>();
+         
     }
 }
