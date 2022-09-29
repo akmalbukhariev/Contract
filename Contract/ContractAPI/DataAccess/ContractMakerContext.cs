@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 namespace ContractAPI.DataAccess
 {
     public class ContractMakerContext : DbContext
-    {
-        //CreateContract
-        //CompanyInfo
+    { 
         public DbSet<User> Users { get; set; }
         public DbSet<CompanyInfo> CompanyInfo { get; set; }
         public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
@@ -23,9 +21,15 @@ namespace ContractAPI.DataAccess
         public DbSet<CanceledContract> CanceledContracts { get; set; }
         public DbSet<AboutApp> AboutApp { get; set; }
 
+        private DbContextOptions _options { get; set; }
         public ContractMakerContext(DbContextOptions options) : base(options)
         {
-            
+            this._options = options;
+        }
+
+        public ContractMakerContext CreateNew()
+        {
+            return new ContractMakerContext(this._options);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

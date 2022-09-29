@@ -22,7 +22,8 @@ namespace ContractAPI.Controllers
             _db = db;
         }
 
-        [HttpPost("signUp")]
+        [HttpPost]
+        [Route("signUp")]
         public async Task<IActionResult> signUp([FromBody] User user)
         {
             ResponseSignUp response = new ResponseSignUp();
@@ -40,7 +41,7 @@ namespace ContractAPI.Controllers
                 {
                     password = AesOperation.EncryptString(user.password),
                     phone_number = user.phone_number,
-                    reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss.SSS")
+                    reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff")
                 };
 
                 _db.Users.Add(newUser);
@@ -323,308 +324,36 @@ namespace ContractAPI.Controllers
             return (_db.Users.ToList());
         }
          
-        #region UnapprovedContract
-        [HttpGet("getUnapprovedContract/{phoneNumber}")]
-        public async Task<IActionResult> getUnapprovedContract(string phoneNumber)
-        {
-            ResponseUnapprovedContract response = new ResponseUnapprovedContract();
-            List<UnapprovedContract> infoList = await _db.UnapprovedContracts
-                .Where(item => item.user_phone_number.Equals(phoneNumber)).ToListAsync();
-
-            if (infoList == null || infoList.Count == 0)
-            {
-                response.data = null;
-                return NotFound(response);
-            }
-
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            foreach (UnapprovedContract info in infoList)
-            {
-                response.data.Add(new UnapprovedContract(info));
-            }
-
-            return Ok(response);
-        }
-
-        [HttpPost("setUnapprovedContract")]
-        public async Task<IActionResult> setUnapprovedContract([FromBody] UnapprovedContract info)
-        {
-            ResponseUnapprovedContract response = new ResponseUnapprovedContract();
-            response.data = null;
-
-            try
-            {
-                UnapprovedContract newInfo = new UnapprovedContract();
-                newInfo.Copy(info);
-
-                _db.UnapprovedContracts.Add(newInfo);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-
-                return BadRequest(response);
-            }
-
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            return Ok(response);
-        }
-
-        [HttpDelete("deleteUnapprovedContract")]
-        public async Task<IActionResult> deleteUnapprovedContract([FromBody] UnapprovedContract info)
-        {
-            ResponseUnapprovedContract response = new ResponseUnapprovedContract();
-            response.data = null;
-
-            UnapprovedContract found = await _db.UnapprovedContracts
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
-                               item.contract_number.Equals(info.contract_number) && 
-                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
-
-            if (found == null)
-            {
-                response.data = null;
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return NotFound(response);
-            }
-
-            try
-            {
-                _db.UnapprovedContracts.Remove(found);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-
-                return BadRequest(response);
-            }
-
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            return Ok(response);
-        }
-
-        [HttpDelete("deleteUnapprovedContractAndSetCanceledContract")]
-        public async Task<IActionResult> deleteUnapprovedContractAndSetCanceledContract([FromBody] CanceledContract info)
-        {
-            ResponseCanceledContract response = new ResponseCanceledContract();
-
-            UnapprovedContract found = await _db.UnapprovedContracts
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
-                               item.contract_number.Equals(info.contract_number) &&
-                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
-            if (found == null)
-            {
-                response.data = null;
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return NotFound(response);
-            }
-
-            try
-            {
-                CanceledContract newCanceledContract = new CanceledContract();
-                newCanceledContract.Copy(info);
-                _db.CanceledContracts.Add(newCanceledContract);
-
-                UnapprovedContract newUnapprovedContract = new UnapprovedContract()
-                {
-                    user_phone_number = info.user_phone_number,
-                    preparer = info.preparer,
-                    contract_number = info.contract_number,
-                    company_contractor_name = info.company_contractor_name,
-                    date_of_contract = info.date_of_contract,
-                    contract_price = info.contract_price
-                };
-                _db.UnapprovedContracts.Remove(found);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-
-                return BadRequest(response);
-            }
-
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            return Ok(response);
-        }
-        #endregion
-         
-        #region ApplicableContract
-        [HttpGet("getApplicableContract/{phoneNumber}")]
-        public async Task<IActionResult> getApplicableContract(string phoneNumber)
-        {
-            ResponseApplicableContract response = new ResponseApplicableContract();
-            List<ApplicableContract> infoList = await _db.ApplicableContracts
-                .Where(item => item.user_phone_number.Equals(phoneNumber)).ToListAsync();
-
-            if (infoList == null || infoList.Count == 0)
-            {
-                response.data = null;
-                return NotFound(response);
-            }
-
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            foreach (ApplicableContract info in infoList)
-            {
-                response.data.Add(new ApplicableContract(info));
-            }
-
-            return Ok(response);
-        }
-
-        [HttpPost("setApplicableContract")]
-        public async Task<IActionResult> setApplicableContract([FromBody] ApplicableContract info)
-        {
-            ResponseApplicableContract response = new ResponseApplicableContract();
-            response.data = null;
-
-            try
-            {
-                ApplicableContract newInfo = new ApplicableContract();
-                newInfo.Copy(info);
-
-                _db.ApplicableContracts.Add(newInfo);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-
-                return BadRequest(response);
-            }
-
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            return Ok(response);
-        }
-
-        [HttpDelete("deleteApplicableContract")]
-        public async Task<IActionResult> deleteApplicableContract([FromBody] ApplicableContract info)
-        {
-            ResponseApplicableContract response = new ResponseApplicableContract();
-            response.data = null;
-
-            ApplicableContract found = await _db.ApplicableContracts
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
-                               item.contract_number.Equals(info.contract_number) &&
-                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
-
-            if (found == null)
-            {
-                response.data = null;
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return NotFound(response);
-            }
-
-            try
-            {
-                _db.ApplicableContracts.Remove(found);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-
-                return BadRequest(response);
-            }
-
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            return Ok(response);
-        }
-
-        [HttpDelete("deleteApplicableContractAndSetCanceledContract")]
-        public async Task<IActionResult> deleteApplicableContractAndSetCanceledContract([FromBody] CanceledContract info)
-        {
-            ResponseCanceledContract response = new ResponseCanceledContract();
-
-            ApplicableContract found = await _db.ApplicableContracts
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
-                               item.contract_number.Equals(info.contract_number) &&
-                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
-            if (found == null)
-            {
-                response.data = null;
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return NotFound(response);
-            }
-
-            try
-            {
-                CanceledContract newCanceledContract = new CanceledContract();
-                newCanceledContract.Copy(info);
-                _db.CanceledContracts.Add(newCanceledContract);
-
-                ApplicableContract newUnapprovedContract = new ApplicableContract()
-                {
-                    user_phone_number = info.user_phone_number,
-                    preparer = info.preparer,
-                    contract_number = info.contract_number,
-                    company_contractor_name = info.company_contractor_name,
-                    date_of_contract = info.date_of_contract,
-                    contract_price = info.contract_price
-                };
-                _db.ApplicableContracts.Remove(found);
-            }
-            catch (Exception ex)
-            {
-                response.message = ex.Message;
-                response.error_code = (int)HttpStatusCode.BadRequest;
-
-                return BadRequest(response);
-            }
-
-            await _db.SaveChangesAsync();
-            response.result = true;
-            response.message = Constants.Success;
-            response.error_code = (int)HttpStatusCode.OK;
-
-            return Ok(response);
-        }
-        #endregion
-
         [HttpPost("createContract")]
         public async Task<IActionResult> createContract([FromBody] CreateContract info)
         {   
             ResponseCreateContract response = new ResponseCreateContract();
 
             CompanyInfo newInfo1 = new CompanyInfo(info.client_company_info);
+            newInfo1.created_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff");
+             
             CreateContractInfo newInfo2 = new CreateContractInfo(info.contract_info);
+            newInfo2.created_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff");
+
+            ContractMakerContext contect1 = _db.CreateNew();
+            ContractMakerContext contect2 = _db.CreateNew();
+
+            contect1.CompanyInfo.Add(newInfo1);
+            contect2.CreateContractInfo.Add(newInfo2);
+
+            foreach (ServicesInfo item in info.service_list)
+            {
+                ServicesInfo newInfo3 = new ServicesInfo(item);
+                newInfo3.created_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff");
+
+                _db.ServicesInfo.Add(newInfo3);
+                await _db.SaveChangesAsync();
+            }
 
             try
             {
-                _db.CompanyInfo.Add(newInfo1);
-                _db.CreateContractInfo.Add(newInfo2);
-                foreach (ServicesInfo item in info.service_list)
-                {
-                    _db.ServicesInfo.Add(new ServicesInfo(item));
-                }
+                await contect1.SaveChangesAsync();
+                await contect2.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -632,8 +361,7 @@ namespace ContractAPI.Controllers
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return BadRequest(response);
             }
-
-            await _db.SaveChangesAsync();
+             
             response.result = true;
             response.error_code = (int)HttpStatusCode.OK;
             response.message = Constants.Success;

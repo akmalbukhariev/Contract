@@ -13,7 +13,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using ContractAPI.DataAccess; 
+using ContractAPI.DataAccess;
+using ContractAPI.Controllers.UnapprovedContracts.service;
+using ContractAPI.UnapprovedContracts.service.impl;
+using ContractAPI.ApplicableContracts.service.impl;
+using ContractAPI.ApplicableContracts.service;
 
 namespace ContractAPI
 {
@@ -33,6 +37,8 @@ namespace ContractAPI
             {
                 options.UseMySQL(Configuration.GetConnectionString("Default"));
             });
+            services.AddScoped<IUnapprovedContractService, UnapprovedContractService>();
+            services.AddScoped<IApplicableContractService, ApplicableContractService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

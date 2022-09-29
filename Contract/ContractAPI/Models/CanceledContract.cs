@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.Models
 {
-    public class CanceledContract : ContractTableInfo
+    public class CanceledContract : BaseContractTableInfo
     {
         public string comment { get; set; }
         public string payment_percent { get; set; }

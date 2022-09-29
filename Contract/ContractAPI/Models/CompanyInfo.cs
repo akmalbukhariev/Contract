@@ -35,6 +35,7 @@ namespace ContractAPI.Models
         public int is_legal_counsel_provided { get; set; }
         public string counsel_name { get; set; }
         public string company_logo_url { get; set; }
+        public string created_date { get; set; }
         #endregion
 
         public CompanyInfo()
@@ -67,6 +68,7 @@ namespace ContractAPI.Models
             this.is_legal_counsel_provided = other.is_legal_counsel_provided;
             this.counsel_name = other.counsel_name;
             this.company_logo_url = other.company_logo_url;
+            this.created_date = other.created_date;
         }
     }
 }

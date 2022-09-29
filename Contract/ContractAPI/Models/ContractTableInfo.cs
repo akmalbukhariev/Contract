@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.Models
 {
-    public class ContractTableInfo
+    public class BaseContractTableInfo
     {
         public string user_phone_number { get; set; }
         public string preparer { get; set; }
@@ -14,7 +14,7 @@ namespace ContractAPI.Models
         public string date_of_contract { get; set; }
         public string contract_price { get; set; }
 
-        public void Copy(ContractTableInfo other)
+        public void Copy(BaseContractTableInfo other)
         {
             this.user_phone_number = other.user_phone_number;
             this.preparer = other.preparer;
