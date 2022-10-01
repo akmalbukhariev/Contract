@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace ContractAPI.ApplicableContracts.service
 {
     public interface IApplicableContractService
-    {
-        ContractMakerContext dataBase { get; set; }
+    { 
         Task<ResponseApplicableContract> getApplicableContract(string phoneNumber);
         Task<ResponseApplicableContract> setApplicableContract(ApplicableContract info);
         Task<ResponseApplicableContract> deleteApplicableContract(ApplicableContract info);

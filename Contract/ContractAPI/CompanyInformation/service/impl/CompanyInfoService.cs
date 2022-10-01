@@ -1,4 +1,5 @@
 ﻿using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +11,12 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.CompanyInformation.service.impl
 {
-    public class CompanyInfoService : ICompanyInfoService
+    public class CompanyInfoService : AppBaseService, ICompanyInfoService
     {
-        public ContractMakerContext dataBase { get; set; }
+        public CompanyInfoService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
 
         public async Task<ResponseUserCompanyInfo> getCompanyInfo(string phoneNumber)
         {

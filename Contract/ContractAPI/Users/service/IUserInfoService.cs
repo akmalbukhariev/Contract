@@ -10,7 +10,6 @@ namespace ContractAPI.Users.service
 {
     public interface IUserInfoService
     {
-        ContractMakerContext dataBase { get; set; }
         Task<ResponseUser> getUser(string phoneNumber);
         Task<ResponseLogin> updateUserPassword(User user);
         Task<IList<User>> getAllUsers();

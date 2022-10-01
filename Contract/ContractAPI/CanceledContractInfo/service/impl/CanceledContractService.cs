@@ -1,4 +1,5 @@
 ﻿using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,13 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.CanceledContractInfo.service.impl
 {
-    public class CanceledContractService : ICanceledContractService
+    public class CanceledContractService : AppBaseService, ICanceledContractService
     {
-        public ContractMakerContext dataBase { get; set; }
-         
+        public CanceledContractService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
+
         public async Task<ResponseCanceledContract> getCanceledContract(string phoneNumber)
         {
             ResponseCanceledContract response = new ResponseCanceledContract();

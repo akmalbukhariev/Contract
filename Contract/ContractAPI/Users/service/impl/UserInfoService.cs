@@ -1,4 +1,5 @@
 ﻿using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,13 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.Users.service.impl
 {
-    public class UserInfoService : IUserInfoService
+    public class UserInfoService : AppBaseService, IUserInfoService
     {
-        public ContractMakerContext dataBase { get; set; }
-          
+        public UserInfoService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
+
         public async Task<ResponseUser> getUser(string phoneNumber)
         {
             ResponseUser response = new ResponseUser();

@@ -10,7 +10,6 @@ namespace ContractAPI.LoginSignUp.service
 {
     public interface ILoginSignUpService
     {
-        ContractMakerContext dataBase { get; set; }
         Task<ResponseSignUp> signUp(User user);
 
         Task<ResponseLogin> login(Login user);

@@ -10,7 +10,6 @@ namespace ContractAPI.CompanyInformation.service
 {
     public interface ICompanyInfoService
     {
-        ContractMakerContext dataBase { get; set; }
         Task<ResponseUserCompanyInfo> getCompanyInfo(string phoneNumber);
         Task<ResponseUserCompanyInfo> setCompanyInfo(CompanyInfo info);
         Task<ResponseUserCompanyInfo> updateCompanyInfo(CompanyInfo info);

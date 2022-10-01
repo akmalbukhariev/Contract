@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace ContractAPI.Controllers.UnapprovedContracts.service
 {
    public interface IUnapprovedContractService
-    {
-        ContractMakerContext dataBase { get; set; }
+    { 
         Task<ResponseUnapprovedContract> getUnapprovedContract(string phoneNumber);
         Task<ResponseUnapprovedContract> setUnapprovedContract(UnapprovedContract info);
         Task<ResponseUnapprovedContract> deleteUnapprovedContract(UnapprovedContract info);

@@ -1,4 +1,5 @@
 ﻿using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +11,12 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.LoginSignUp.service.impl
 {
-    public class LoginSignUpService : ILoginSignUpService
+    public class LoginSignUpService : AppBaseService, ILoginSignUpService
     {
-        public ContractMakerContext dataBase { get; set ; }
+        public LoginSignUpService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
 
         public async Task<ResponseLogin> login(Login user)
         {

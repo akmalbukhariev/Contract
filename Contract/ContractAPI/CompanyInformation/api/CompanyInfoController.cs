@@ -1,5 +1,6 @@
 ﻿using ContractAPI.CompanyInformation.service;
 using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.AspNetCore.Http;
@@ -14,45 +15,32 @@ namespace ContractAPI.CompanyInformation.api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CompanyInfoController : ControllerBase
+    public class CompanyInfoController : AppBaseController<ICompanyInfoService>
     {
-        private ICompanyInfoService _service;
-        public CompanyInfoController(ContractMakerContext db, ICompanyInfoService service)
+        public CompanyInfoController(ICompanyInfoService service) : base(service)
         {
-            _service = service;
-            _service.dataBase = db;
+             
         }
 
         [HttpGet("getCompanyInfo/{phoneNumber}")]
         public async Task<IActionResult> getCompanyInfo(string phoneNumber)
         {
-            ResponseUserCompanyInfo response = await _service.getCompanyInfo(phoneNumber);
+            ResponseUserCompanyInfo response = await Service.getCompanyInfo(phoneNumber);
             return MakeResponse(response, response.error_code);
         }
 
         [HttpPost("setCompanyInfo")]
         public async Task<IActionResult> setCompanyInfo([FromBody] CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = await _service.setCompanyInfo(info);
+            ResponseUserCompanyInfo response = await Service.setCompanyInfo(info);
             return MakeResponse(response, response.error_code);
         }
 
         [HttpPut("updateCompanyInfo")]
         public async Task<IActionResult> updateCompanyInfo([FromBody] CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = await _service.updateCompanyInfo(info);
+            ResponseUserCompanyInfo response = await Service.updateCompanyInfo(info);
             return MakeResponse(response, response.error_code);
-        }
-
-        private IActionResult MakeResponse(object obj, int error_code)
-        {
-            switch (error_code)
-            {
-                case (int)HttpStatusCode.NotFound: return NotFound(obj);
-                case (int)HttpStatusCode.BadRequest: return BadRequest(obj);
-            }
-
-            return Ok(obj);
-        }
+        } 
     }
 }

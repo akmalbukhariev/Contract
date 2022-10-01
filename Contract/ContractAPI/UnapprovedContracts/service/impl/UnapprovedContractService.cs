@@ -1,5 +1,6 @@
 ﻿using ContractAPI.Controllers.UnapprovedContracts.service;
 using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,12 @@ using System.Xml.Linq;
 
 namespace ContractAPI.UnapprovedContracts.service.impl
 {
-    public class UnapprovedContractService : IUnapprovedContractService
-    {
-        public ContractMakerContext dataBase { get; set ; }
+    public class UnapprovedContractService : AppBaseService, IUnapprovedContractService
+    {  
+        public UnapprovedContractService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
 
         public async Task<ResponseUnapprovedContract> getUnapprovedContract(string phoneNumber)
         {

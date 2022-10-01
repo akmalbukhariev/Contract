@@ -1,4 +1,5 @@
 ﻿using ContractAPI.DataAccess;
+using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +11,12 @@ using System.Threading.Tasks;
 
 namespace ContractAPI.ApplicableContracts.service.impl
 {
-    public class ApplicableContractService : IApplicableContractService
-    {
-        public ContractMakerContext dataBase { get; set; }
+    public class ApplicableContractService : AppBaseService, IApplicableContractService
+    {  
+        public ApplicableContractService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
 
         public async Task<ResponseApplicableContract> getApplicableContract(string phoneNumber)
         {

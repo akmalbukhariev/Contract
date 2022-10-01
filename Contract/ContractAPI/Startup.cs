@@ -24,6 +24,10 @@ using ContractAPI.CanceledContractInfo.service;
 using ContractAPI.CanceledContractInfo.service.impl;
 using ContractAPI.LoginSignUp.service;
 using ContractAPI.LoginSignUp.service.impl;
+using ContractAPI.AppInfo.service;
+using ContractAPI.AppInfo.service.impl;
+using ContractAPI.ContractInfo.service.impl;
+using ContractAPI.ContractInfo.service;
 
 namespace ContractAPI
 {
@@ -48,6 +52,8 @@ namespace ContractAPI
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ICanceledContractService, CanceledContractService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
+            services.AddScoped<IContractService, ContractService>();
+            services.AddScoped<IAppService, AppService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
