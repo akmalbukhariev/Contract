@@ -85,22 +85,22 @@ namespace ContractAPI.ContractInfo.service.impl
         {
             ResponseCreateContract response = new ResponseCreateContract();
 
-            CompanyInfo newInfo1 = new CompanyInfo(info.client_company_info);
-            newInfo1.created_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff");
+            ClientCompanyInfo newInfo1 = new ClientCompanyInfo(info.client_company_info);
+            newInfo1.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             CreateContractInfo newInfo2 = new CreateContractInfo(info.contract_info);
-            newInfo2.created_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff");
+            newInfo2.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             ContractMakerContext contect1 = dataBase.CreateNew();
             ContractMakerContext contect2 = dataBase.CreateNew();
 
-            contect1.CompanyInfo.Add(newInfo1);
+            contect1.ClientCompanyInfo.Add(newInfo1);
             contect2.CreateContractInfo.Add(newInfo2);
 
             foreach (ServicesInfo item in info.service_list)
             {
                 ServicesInfo newInfo3 = new ServicesInfo(item);
-                newInfo3.created_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff");
+                newInfo3.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
                 dataBase.ServicesInfo.Add(newInfo3);
                 await dataBase.SaveChangesAsync();

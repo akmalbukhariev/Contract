@@ -22,25 +22,46 @@ namespace ContractAPI.CompanyInformation.api
              
         }
 
-        [HttpGet("getCompanyInfo/{phoneNumber}")]
-        public async Task<IActionResult> getCompanyInfo(string phoneNumber)
+        [HttpGet("getUserCompanyInfo/{phoneNumber}")]
+        public async Task<IActionResult> getUserCompanyInfo(string phoneNumber)
         {
-            ResponseUserCompanyInfo response = await Service.getCompanyInfo(phoneNumber);
+            ResponseUserCompanyInfo response = await Service.getUserCompanyInfo(phoneNumber);
             return MakeResponse(response, response.error_code);
         }
 
-        [HttpPost("setCompanyInfo")]
-        public async Task<IActionResult> setCompanyInfo([FromBody] CompanyInfo info)
+        [HttpGet("getClientCompanyInfo/{phoneNumber}")]
+        public async Task<IActionResult> getClientCompanyInfo(string phoneNumber)
         {
-            ResponseUserCompanyInfo response = await Service.setCompanyInfo(info);
+            ResponseUserCompanyInfo response = await Service.getClientCompanyInfo(phoneNumber);
             return MakeResponse(response, response.error_code);
         }
 
-        [HttpPut("updateCompanyInfo")]
-        public async Task<IActionResult> updateCompanyInfo([FromBody] CompanyInfo info)
+        [HttpPost("setUserCompanyInfo")]
+        public async Task<IActionResult> setUserCompanyInfo([FromBody] CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = await Service.updateCompanyInfo(info);
+            ResponseUserCompanyInfo response = await Service.setUserCompanyInfo(info);
             return MakeResponse(response, response.error_code);
-        } 
+        }
+
+        [HttpPost("setClientCompanyInfo")]
+        public async Task<IActionResult> setClientCompanyInfo([FromBody] CompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = await Service.setClientCompanyInfo(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+        [HttpPut("updateUserCompanyInfo")]
+        public async Task<IActionResult> updateUserCompanyInfo([FromBody] CompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = await Service.updateUserCompanyInfo(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+        [HttpPut("updateClientCompanyInfo")]
+        public async Task<IActionResult> updateClientCompanyInfo([FromBody] CompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = await Service.updateClientCompanyInfo(info);
+            return MakeResponse(response, response.error_code);
+        }
     }
 }

@@ -18,10 +18,11 @@ namespace ContractAPI.CompanyInformation.service.impl
             dataBase = db;
         }
 
-        public async Task<ResponseUserCompanyInfo> getCompanyInfo(string phoneNumber)
+        public async Task<ResponseUserCompanyInfo> getClientCompanyInfo(string phoneNumber)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            CompanyInfo info = await dataBase.CompanyInfo.Where(item => item.user_phone_number.Equals(phoneNumber))
+            CompanyInfo info = await dataBase.ClientCompanyInfo
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
@@ -38,12 +39,33 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
-        public async Task<ResponseUserCompanyInfo> setCompanyInfo(CompanyInfo info)
+        public async Task<ResponseUserCompanyInfo> getUserCompanyInfo(string phoneNumber)
+        {
+            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            CompanyInfo info = await dataBase.UserCompanyInfo
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (info == null)
+            {
+                response.data = null;
+                return response;
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.data.Copy(info);
+
+            return response;
+        }
+
+        public async Task<ResponseUserCompanyInfo> setClientCompanyInfo(CompanyInfo info)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            CompanyInfo found = await dataBase.CompanyInfo
+            CompanyInfo found = await dataBase.ClientCompanyInfo
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -56,9 +78,9 @@ namespace ContractAPI.CompanyInformation.service.impl
                 return response;
             }
 
-            var newInfo = new CompanyInfo();
+            var newInfo = new ClientCompanyInfo();
             newInfo.Copy(info);
-            dataBase.CompanyInfo.Add(newInfo);
+            dataBase.ClientCompanyInfo.Add(newInfo);
 
             try
             {
@@ -78,12 +100,52 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
-        public async Task<ResponseUserCompanyInfo> updateCompanyInfo(CompanyInfo info)
+        public async Task<ResponseUserCompanyInfo> setUserCompanyInfo(CompanyInfo info)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            CompanyInfo found = await dataBase.CompanyInfo
+            CompanyInfo found = await dataBase.UserCompanyInfo
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (found != null)
+            {
+                response.result = false;
+                response.message = "User phone number already exist!";
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            var newInfo = new UserCompanyInfo();
+            newInfo.Copy(info);
+            dataBase.UserCompanyInfo.Add(newInfo);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
+
+            return response;
+        }
+
+        public async Task<ResponseUserCompanyInfo> updateClientCompanyInfo(CompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            response.data = null;
+
+            CompanyInfo found = await dataBase.ClientCompanyInfo
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -96,10 +158,52 @@ namespace ContractAPI.CompanyInformation.service.impl
                 return response;
             }
 
-            var newInfo = new CompanyInfo();
+            var newInfo = new ClientCompanyInfo();
+            newInfo.Copy(info);
+
+            dataBase.ClientCompanyInfo.Update(newInfo);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return response;
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return response;
+        }
+
+        public async Task<ResponseUserCompanyInfo> updateUserCompanyInfo(CompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            response.data = null;
+
+            CompanyInfo found = await dataBase.UserCompanyInfo
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.result = false;
+                response.message = "Not found the user phone number!";
+
+                return response;
+            }
+
+            var newInfo = new UserCompanyInfo();
             newInfo.Copy(info);
             
-            dataBase.Update(newInfo);
+            dataBase.UserCompanyInfo.Update(newInfo);
 
             try
             {

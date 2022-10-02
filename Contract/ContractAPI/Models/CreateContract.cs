@@ -8,7 +8,7 @@ namespace ContractAPI.Models
     public class CreateContract
     {
         #region Properties
-        public CompanyInfo client_company_info { get; set; } = new CompanyInfo();
+        public ClientCompanyInfo client_company_info { get; set; } = new ClientCompanyInfo();
         public CreateContractInfo contract_info { get; set; } = new CreateContractInfo();
         public List<ServicesInfo> service_list { get; set; } = new List<ServicesInfo>();
         #endregion

@@ -9,7 +9,9 @@ namespace ContractAPI.Models
     {
         #region Properties
         public string user_phone_number { get; set; }
-        public string is_this_client_info { get; set; }
+        /// <summary>
+        /// 1 = yes, 0 = no
+        /// </summary>
         public string company_name { get; set; }
         public string address_of_company { get; set; }
         public string account_number { get; set; }
@@ -17,7 +19,7 @@ namespace ContractAPI.Models
         public string name_of_bank { get; set; }
         public string bank_code { get; set; }
         /// <summary>
-        /// 1 = yes ,0 = no
+        /// 1 = yes, 0 = no
         /// </summary>
         public int are_you_qqs_payer { get; set; } 
         public string qqs_number { get; set; }
@@ -25,12 +27,12 @@ namespace ContractAPI.Models
         public string position_of_signer { get; set; }
         public string name_of_signer { get; set; }
         /// <summary>
-        /// 1 = yes ,0 = no
+        /// 1 = yes, 0 = no
         /// </summary>
         public int is_accountant_provided { get; set; } 
         public string accountant_name { get; set; }
         /// <summary>
-        /// 1 = yes ,0 = no
+        /// 1 = yes, 0 = no
         /// </summary>
         public int is_legal_counsel_provided { get; set; }
         public string counsel_name { get; set; }
@@ -51,7 +53,6 @@ namespace ContractAPI.Models
         public void Copy(CompanyInfo other)
         {
             this.user_phone_number = other.user_phone_number;
-            this.is_this_client_info = other.is_this_client_info;
             this.company_name = other.company_name;
             this.address_of_company = other.address_of_company;
             this.account_number = other.account_number;

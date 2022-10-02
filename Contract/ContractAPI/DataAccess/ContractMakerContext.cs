@@ -12,7 +12,8 @@ namespace ContractAPI.DataAccess
     public class ContractMakerContext : DbContext
     { 
         public DbSet<User> Users { get; set; }
-        public DbSet<CompanyInfo> CompanyInfo { get; set; }
+        public DbSet<UserCompanyInfo> UserCompanyInfo { get; set; }
+        public DbSet<ClientCompanyInfo> ClientCompanyInfo { get; set; }
         public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
         public DbSet<PurposeOfContract> PurposeOfContracts { get; set; }
@@ -37,8 +38,11 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<User>().HasKey(r => r.phone_number);
 
-            modelBuilder.Entity<CompanyInfo>().ToTable("CompanyInfo");
-            modelBuilder.Entity<CompanyInfo>().HasKey(r => r.account_number);
+            modelBuilder.Entity<UserCompanyInfo>().ToTable("UserCompanyInfo");
+            modelBuilder.Entity<UserCompanyInfo>().HasKey(r => r.created_date);
+
+            modelBuilder.Entity<ClientCompanyInfo>().ToTable("ClientCompanyInfo");
+            modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<CreateContractInfo>().ToTable("CreateContractInfo");
             modelBuilder.Entity<CreateContractInfo>().HasKey(r => r.created_date);
