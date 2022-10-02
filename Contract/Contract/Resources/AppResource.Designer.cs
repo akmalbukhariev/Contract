@@ -1709,6 +1709,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select company.
+        /// </summary>
+        internal static string SelectClientCompany {
+            get {
+                return ResourceManager.GetString("SelectClientCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select currency.
         /// </summary>
         internal static string SelectCurrency {

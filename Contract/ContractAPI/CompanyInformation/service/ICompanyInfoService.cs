@@ -11,9 +11,9 @@ namespace ContractAPI.CompanyInformation.service
     public interface ICompanyInfoService
     {
         Task<ResponseUserCompanyInfo> getUserCompanyInfo(string phoneNumber);
-        Task<ResponseUserCompanyInfo> getClientCompanyInfo(string phoneNumber);
+        Task<ResponseClientCompanyInfo> getClientCompanyInfo(string phoneNumber);
         Task<ResponseUserCompanyInfo> setUserCompanyInfo(CompanyInfo info);
-        Task<ResponseUserCompanyInfo> setClientCompanyInfo(CompanyInfo info);
+        Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfo info);
         Task<ResponseUserCompanyInfo> updateUserCompanyInfo(CompanyInfo info);
         Task<ResponseUserCompanyInfo> updateClientCompanyInfo(CompanyInfo info);
     }

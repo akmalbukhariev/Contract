@@ -59,6 +59,7 @@
                                    Aspect="AspectFit"
                                    WidthRequest="30"
                                    Margin="0,0,20,0"
+                                   IsVisible="{Binding IsThisEditClient}"
                                    VerticalOptions="CenterAndExpand"
                                    HorizontalOptions="CenterAndExpand"
                                    Grid.Column="2">
@@ -73,6 +74,7 @@
             </ListView>
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.AddNewCustomer}"
+                    IsVisible="{Binding IsThisEditClient}"
                     VerticalOptions="End"
                     Margin="0,30,0,30"
                     Grid.Row="2"

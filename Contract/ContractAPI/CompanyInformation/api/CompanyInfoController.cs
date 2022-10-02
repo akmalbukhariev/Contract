@@ -32,7 +32,7 @@ namespace ContractAPI.CompanyInformation.api
         [HttpGet("getClientCompanyInfo/{phoneNumber}")]
         public async Task<IActionResult> getClientCompanyInfo(string phoneNumber)
         {
-            ResponseUserCompanyInfo response = await Service.getClientCompanyInfo(phoneNumber);
+            ResponseClientCompanyInfo response = await Service.getClientCompanyInfo(phoneNumber);
             return MakeResponse(response, response.error_code);
         }
 
@@ -46,7 +46,7 @@ namespace ContractAPI.CompanyInformation.api
         [HttpPost("setClientCompanyInfo")]
         public async Task<IActionResult> setClientCompanyInfo([FromBody] CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = await Service.setClientCompanyInfo(info);
+            ResponseClientCompanyInfo response = await Service.setClientCompanyInfo(info);
             return MakeResponse(response, response.error_code);
         }
 

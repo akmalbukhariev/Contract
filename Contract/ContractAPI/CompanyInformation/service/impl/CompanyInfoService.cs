@@ -18,15 +18,15 @@ namespace ContractAPI.CompanyInformation.service.impl
             dataBase = db;
         }
 
-        public async Task<ResponseUserCompanyInfo> getClientCompanyInfo(string phoneNumber)
+        public async Task<ResponseClientCompanyInfo> getClientCompanyInfo(string phoneNumber)
         {
-            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
-            CompanyInfo info = await dataBase.ClientCompanyInfo
+            ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
+            List<ClientCompanyInfo> infoList = await dataBase.ClientCompanyInfo
                 .Where(item => item.user_phone_number.Equals(phoneNumber))
                 .AsNoTracking()
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
-            if (info == null)
+            if (infoList == null)
             {
                 response.data = null;
                 return response;
@@ -34,8 +34,11 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             response.result = true;
             response.message = Constants.Success;
-            response.data.Copy(info);
 
+            foreach (ClientCompanyInfo info in infoList)
+            {
+                response.data.Add(new CompanyInfo(info));
+            }
             return response;
         }
 
@@ -60,9 +63,9 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
-        public async Task<ResponseUserCompanyInfo> setClientCompanyInfo(CompanyInfo info)
+        public async Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
             response.data = null;
 
             CompanyInfo found = await dataBase.ClientCompanyInfo

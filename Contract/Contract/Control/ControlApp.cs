@@ -20,6 +20,7 @@ namespace Contract.Control
   
         private static ControlApp _instance = null;
 
+        public Net.CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
         public Net.Login LoginInfo { get; set; } = new Net.Login();
         public Net.User UserInfo { get; set; }
 

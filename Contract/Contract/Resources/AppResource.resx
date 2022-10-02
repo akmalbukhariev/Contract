@@ -843,6 +843,10 @@ Contracts</value>
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectClientCompany" xml:space="preserve">
+    <value>Select company</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectCurrency" xml:space="preserve">
     <value>Select currency</value>
     <comment>CreateContract</comment>

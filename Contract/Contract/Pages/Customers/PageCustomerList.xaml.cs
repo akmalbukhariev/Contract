@@ -26,16 +26,35 @@ namespace Contract.Pages.Customers
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            model.RequestClientCompany();
+            //model.Init();
+        }
 
-            model.Init();
+        public void IsThisPageEditable(bool yes)
+        {
+            model.IsThisEditClient = yes;
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var tListView = sender as ListView;
+            Customer item = (Customer)tListView.SelectedItem;
             //tListView.SelectedItem = null;
 
-            await Navigation.PushAsync(new PageAddOrEditCustomer());
+            foreach (Net.CompanyInfo info in model.ResponseClientCompanyInfo.data)
+            {
+                if (info.ctr_of_company.Trim().Equals(item.UserStir))
+                {
+                    ControlApp.SelectedClientCompanyInfo = new Net.CompanyInfo();
+                    ControlApp.SelectedClientCompanyInfo.Copy(info);
+                }
+                break;
+            }
+
+            if (model.IsThisEditClient)
+                await Navigation.PushAsync(new PageAddOrEditCustomer());
+            else
+                await Navigation.PopModalAsync();
         }
 
         private async void Edit_Tapped(object sender, EventArgs e)

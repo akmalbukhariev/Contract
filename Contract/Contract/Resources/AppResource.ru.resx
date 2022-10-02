@@ -844,6 +844,10 @@
     <value>Сохранить ID и пароль</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectClientCompany" xml:space="preserve">
+    <value>Выберите компанию</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectCurrency" xml:space="preserve">
     <value>Выберите валюту</value>
     <comment>CreateContract</comment>

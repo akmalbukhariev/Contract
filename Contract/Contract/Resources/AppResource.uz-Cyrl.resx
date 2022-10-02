@@ -844,6 +844,10 @@
     <value>ID ва Паролни сақлаш</value>
     <comment>Login</comment>
   </data>
+  <data name="SelectClientCompany" xml:space="preserve">
+    <value>Компанияни танланг</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SelectCurrency" xml:space="preserve">
     <value>Валютани танланг</value>
     <comment>CreateContract</comment>

@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.CreateContract;
+﻿using Contract.Pages.Customers;
+using Contract.ViewModel.Pages.CreateContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,16 @@ namespace Contract.Pages.CreateContract
         {
             base.OnAppearing();
             Model.Parent = Parent;
-            lbStep.Text = RSC.Step + " #1"; 
+            lbStep.Text = RSC.Step + " #1";
+
+            if (ControlApp.SelectedClientCompanyInfo != null)
+            {
+                PModel.ShowClientCompanyImage = true;
+                PModel.ClientCompanyImage = "rus_flag";
+                PModel.ClientCompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
+                PModel.ClientCompanyStir = ControlApp.SelectedClientCompanyInfo.ctr_of_company;
+                PModel.ClientHorizontalOption = LayoutOptions.CenterAndExpand;
+            }
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -177,6 +187,16 @@ namespace Contract.Pages.CreateContract
             stack15.IsVisible = show;
             viewExplan.IsVisible = show;
         }
+ 
+        private async void ShowClientCompany_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(grSelectClient);
+
+            ControlApp.SelectedClientCompanyInfo = null;
+            PageCustomerList page = new PageCustomerList();
+            page.IsThisPageEditable(false);
+            await Navigation.PushModalAsync(page);
+        }
 
         private PageCreateContract1ViewModel PModel
         {
@@ -185,5 +205,6 @@ namespace Contract.Pages.CreateContract
                 return Model as PageCreateContract1ViewModel;
             }
         }
+
     }
 }

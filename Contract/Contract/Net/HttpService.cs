@@ -12,30 +12,39 @@ namespace Contract.Net
    public  class HttpService
     {
         #region Url 
-        public static string SERVER_URL = "https://192.168.219.102:5001/api/ContractMaker/";
-        public static string URL_LOGIN = SERVER_URL + "login";
-        public static string URL_SIGN_UP = SERVER_URL + "signUp";
-        public static string URL_GET_USER = SERVER_URL + "getUser/"; //phoneNumber
-        public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "getUserCompanyInfo/"; //phoneNumber
-        public static string URL_SET_USER_COMPANY_INFO = SERVER_URL + "setUserCompanyInfo";
-        public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "updateUserCompanyInfo";
-        public static string URL_UPDATE_USER_PASSWORD = SERVER_URL + "updateUserPassword";
-        public static string URL_GET_PURPOSE_OF_COMPANY = SERVER_URL + "getPurposeOfCompany/"; //phoneNumber
-        public static string URL_SET_PURPOSE_OF_COMPANY = SERVER_URL + "setPurposeOfCompany";
+        public static string SERVER_URL = "https://192.168.219.102:5001/api/";
+        public static string URL_LOGIN = SERVER_URL + "LoginSignUp/login";
+        public static string URL_SIGN_UP = SERVER_URL + "LoginSignUp/signUp";
         
-        public static string URL_GET_UNAPPROVED_CONTRACT = SERVER_URL + "getUnapprovedContract/"; //phoneNumber
-        public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "setUnapprovedContract";
-        public static string URL_DELETE_UNAPPROVED_CONTRACT = SERVER_URL + "deleteUnapprovedContract";
-        public static string URL_DELETE_UNAPPROVED_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "deleteUnapprovedContractAndSetCanceledContract";
+        public static string URL_GET_USER = SERVER_URL + "UserInfo/getUser/"; //phoneNumber
+        public static string URL_UPDATE_USER_PASSWORD = SERVER_URL + "UserInfo/updateUserPassword";
 
-        public static string URL_GET_APPLICABLE_CONTRACT = SERVER_URL + "getApplicableContract/"; //phoneNumber
-        public static string URL_SET_APPLICABLE_CONTRACT = SERVER_URL + "setApplicableContract";
-        public static string URL_DELETE_APPLICABLE_CONTRACT = SERVER_URL + "deleteApplicableContract";
-        public static string URL_DELETE_APPLICABLE_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "deleteApplicableContractAndSetCanceledContract";
+        public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/getUserCompanyInfo/"; //phoneNumber
+        public static string URL_SET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/setUserCompanyInfo";
+        public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateUserCompanyInfo";
 
-        public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "getCanceledContract/"; //phoneNumber
-        public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "setCanceledContract";
-        public static string URL_GET_ABOUT_APP = SERVER_URL + "getAboutApp/"; //lan_code
+        public static string URL_GET_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/getClientCompanyInfo/"; //phoneNumber
+        public static string URL_SET_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/setClientCompanyInfo";
+        public static string URL_UPDATE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateClientCompanyInfo";
+
+        public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
+        public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
+        public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
+
+        public static string URL_GET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/getUnapprovedContract/"; //phoneNumber
+        public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/setUnapprovedContract";
+        public static string URL_DELETE_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/deleteUnapprovedContract";
+        public static string URL_DELETE_UNAPPROVED_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "UnapprovedContract/deleteUnapprovedContractAndSetCanceledContract";
+
+        public static string URL_GET_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/getApplicableContract/"; //phoneNumber
+        public static string URL_SET_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/setApplicableContract";
+        public static string URL_DELETE_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContract";
+        public static string URL_DELETE_APPLICABLE_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContractAndSetCanceledContract";
+
+        public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/getCanceledContract/"; //phoneNumber
+        public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
+        public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
+        public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
         #endregion
 
         private static HttpStatusCode StatusCode;
@@ -110,7 +119,23 @@ namespace Contract.Net
             return responseLogin;
         }
 
-        public async static Task<ResponseUserCompanyInfo> SetUserCompanyInfo(UserCompanyInfo data)
+        public async static Task<ResponseClientCompanyInfo> GetClientCompanyInfo(string phoneNumbera)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestGetMethod($"{URL_GET_CLIENT_COMPANY_INFO}{phoneNumbera}");
+                response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+
+            ResponseClientCompanyInfo responseLogin = ConvertResponseObj<ResponseClientCompanyInfo>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseUserCompanyInfo> SetUserCompanyInfo(CompanyInfo data)
         {
             Response response = new Response();
             try
@@ -126,7 +151,23 @@ namespace Contract.Net
             return responseLogin;
         }
 
-        public async static Task<ResponseUserCompanyInfo> UpdateUserCompanyInfo(UserCompanyInfo data)
+        public async static Task<ResponseClientCompanyInfo> SetClientCompanyInfo(CompanyInfo data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SET_CLIENT_COMPANY_INFO, data);
+                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+
+            ResponseClientCompanyInfo responseLogin = ConvertResponseObj<ResponseClientCompanyInfo>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseUserCompanyInfo> UpdateUserCompanyInfo(CompanyInfo data)
         {
             Response response = new Response();
             try
@@ -163,7 +204,7 @@ namespace Contract.Net
             Response response = new Response();
             try
             {
-                var receivedData = await RequestGetMethod($"{URL_GET_PURPOSE_OF_COMPANY}{phoneNumbera}");
+                var receivedData = await RequestGetMethod($"{URL_GET_PURPOSE_OF_CONTRACT}{phoneNumbera}");
                 response = JsonConvert.DeserializeObject<ResponsePurposeOfContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponsePurposeOfContract>(); }
@@ -179,7 +220,7 @@ namespace Contract.Net
             Response response = new Response();
             try
             {
-                var receivedData = await RequestPostMethod(URL_SET_PURPOSE_OF_COMPANY, data);
+                var receivedData = await RequestPostMethod(URL_SET_PURPOSE_OF_CONTRACT, data);
                 response = JsonConvert.DeserializeObject<ResponsePurposeOfContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponsePurposeOfContract>(); }
@@ -579,9 +620,12 @@ namespace Contract.Net
         }
     }
 
-    public class UserCompanyInfo
+    public class CompanyInfo
     {
         public string user_phone_number { get; set; }
+        /// <summary>
+        /// 1 = yes, 0 = no
+        /// </summary>
         public string company_name { get; set; }
         public string address_of_company { get; set; }
         public string account_number { get; set; }
@@ -589,25 +633,27 @@ namespace Contract.Net
         public string name_of_bank { get; set; }
         public string bank_code { get; set; }
         /// <summary>
-        /// 1 = yes ,0 = no
+        /// 1 = yes, 0 = no
         /// </summary>
-        public int are_you_tax_payer { get; set; }
+        public int are_you_qqs_payer { get; set; }
         public string qqs_number { get; set; }
         public string company_phone_number { get; set; }
         public string position_of_signer { get; set; }
         public string name_of_signer { get; set; }
         /// <summary>
-        /// 1 = yes ,0 = no
+        /// 1 = yes, 0 = no
         /// </summary>
         public int is_accountant_provided { get; set; }
         public string accountant_name { get; set; }
         /// <summary>
-        /// 1 = yes ,0 = no
+        /// 1 = yes, 0 = no
         /// </summary>
         public int is_legal_counsel_provided { get; set; }
         public string counsel_name { get; set; }
+        public string company_logo_url { get; set; }
+        public string created_date { get; set; }
 
-        public void Copy(UserCompanyInfo other)
+        public void Copy(CompanyInfo other)
         {
             this.user_phone_number = other.user_phone_number;
             this.company_name = other.company_name;
@@ -616,7 +662,7 @@ namespace Contract.Net
             this.ctr_of_company = other.ctr_of_company;
             this.name_of_bank = other.name_of_bank;
             this.bank_code = other.bank_code;
-            this.are_you_tax_payer = other.are_you_tax_payer;
+            this.are_you_qqs_payer = other.are_you_qqs_payer;
             this.qqs_number = other.qqs_number;
             this.company_phone_number = other.company_phone_number;
             this.position_of_signer = other.position_of_signer;
@@ -625,6 +671,8 @@ namespace Contract.Net
             this.accountant_name = other.accountant_name;
             this.is_legal_counsel_provided = other.is_legal_counsel_provided;
             this.counsel_name = other.counsel_name;
+            this.company_logo_url = other.company_logo_url;
+            this.created_date = other.created_date;
         }
     }
 
@@ -769,7 +817,12 @@ namespace Contract.Net
 
     public class ResponseUserCompanyInfo : Response, IResponse
     {
-        public UserCompanyInfo data { get; set; } = new UserCompanyInfo();
+        public CompanyInfo data { get; set; } = new CompanyInfo();
+    }
+
+    public class ResponseClientCompanyInfo : Response, IResponse
+    {
+        public List<CompanyInfo> data { get; set; } = new List<CompanyInfo>();
     }
     #endregion
 }
