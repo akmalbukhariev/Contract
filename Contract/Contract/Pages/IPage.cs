@@ -33,7 +33,7 @@ namespace Contract.Pages
             Model = model;
             BindingContext = Model;
         }
-          
+         
         protected async void ClickAnimationView<T>(T view) where T : View
         {
             await view.ScaleTo(0.8, 200);
@@ -80,7 +80,7 @@ namespace Contract.Pages
 
             return strLan;
         }
-
+         
         protected List<string> GetCurrentList
         {
             get

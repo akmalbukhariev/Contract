@@ -49,9 +49,9 @@ namespace Contract.Pages.CreateContract
                 PModel.ShowClientCompanyImage = true;
                 PModel.ClientCompanyImage = "rus_flag";
                 PModel.ClientCompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
-                PModel.ClientCompanyStir = ControlApp.SelectedClientCompanyInfo.ctr_of_company;
+                PModel.ClientCompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
                 PModel.ClientHorizontalOption = LayoutOptions.CenterAndExpand;
-            }
+            } 
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace Contract.Pages.CreateContract
             }
 
             ControlApp.Vibrate();
-            PModel.AreYouTaxPayer = yes3;
+            PModel.AreYouQQSPayer = yes3;
         }
 
         private void YesNo4_Tapped(object sender, EventArgs e)
@@ -191,10 +191,10 @@ namespace Contract.Pages.CreateContract
         private async void ShowClientCompany_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(grSelectClient);
-
+             
             ControlApp.SelectedClientCompanyInfo = null;
             PageCustomerList page = new PageCustomerList();
-            page.IsThisPageEditable(false);
+            page.IsThisPageSelectable(false);
             await Navigation.PushModalAsync(page);
         }
 

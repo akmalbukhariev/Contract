@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.ViewModel.Pages.Customers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,29 @@ namespace Contract.Pages.Customers
         private bool yes2 = true;
         private bool yes3 = true;
 
-        public PageAddOrEditCustomer()
+        private bool IsThisEditClient = false;
+
+        public PageAddOrEditCustomer(bool isThisEditClient = false)
         {
             InitializeComponent();
+
+            IsThisEditClient = isThisEditClient;
+
+            SetModel(new PageAddOrEditCustomerViewModel(Navigation));
 
             imYesNo1.Source = GetYesNoIcon(true);
             imYesNo2.Source = GetYesNoIcon(true);
             imYesNo3.Source = GetYesNoIcon(true);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (IsThisEditClient)
+            {
+                PModel.SetData();
+            }
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -79,9 +96,29 @@ namespace Contract.Pages.Customers
             ControlApp.Vibrate();
         }
 
-        private void Add_Tapped(object sender, EventArgs e)
+        private void Logotip_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
+        }
+
+        private void Finished_Clicked(object sender, EventArgs e)
+        {
+            if (IsThisEditClient)
+            {
+                PModel.RequestUpdateInfo();
+            }
+            else
+            {
+                PModel.RequestAddInfo();
+            }
+        }
+
+        private PageAddOrEditCustomerViewModel PModel
+        {
+            get
+            {
+                return Model as PageAddOrEditCustomerViewModel;
+            }
         }
     }
 }

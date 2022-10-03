@@ -14,7 +14,9 @@ namespace Contract.Pages.Customers
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCustomerList : IPage
     {
+        private bool _isSelectable = false;
         private PageCustomerListViewModel model;
+
         public PageCustomerList()
         {
             InitializeComponent();
@@ -26,44 +28,55 @@ namespace Contract.Pages.Customers
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            model.RequestClientCompany();
-            //model.Init();
+            model.RequestClientCompany(); 
         }
 
-        public void IsThisPageEditable(bool yes)
+        public void IsThisPageSelectable(bool yes)
         {
-            model.IsThisEditClient = yes;
+            _isSelectable = yes;
+            model.IsThisEditable = !yes;
+
+            if (yes)
+            {
+                viewNavigationBar.IsThisModalPage = true;
+            }
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var tListView = sender as ListView;
             Customer item = (Customer)tListView.SelectedItem;
-            //tListView.SelectedItem = null;
 
             foreach (Net.CompanyInfo info in model.ResponseClientCompanyInfo.data)
             {
-                if (info.ctr_of_company.Trim().Equals(item.UserStir))
+                if (info.stir_of_company.Trim().Equals(item.UserStir))
                 {
                     ControlApp.SelectedClientCompanyInfo = new Net.CompanyInfo();
                     ControlApp.SelectedClientCompanyInfo.Copy(info);
+                    
+                    break;
                 }
-                break;
             }
 
-            if (model.IsThisEditClient)
-                await Navigation.PushAsync(new PageAddOrEditCustomer());
-            else
+            if (_isSelectable)
                 await Navigation.PopModalAsync();
+            else
+                await Navigation.PushAsync(new PageAddOrEditCustomer(true));
         }
 
-        private async void Edit_Tapped(object sender, EventArgs e)
+        //private async void Edit_Tapped(object sender, EventArgs e)
+        //{
+        //    ClickAnimationView((Image)sender);
+        //    ControlApp.Vibrate();
+
+        //    Customer item = (Customer)((Image)sender).BindingContext;
+
+        //    await Navigation.PushAsync(new PageAddOrEditCustomer(true));
+        //}
+
+        private async void Add_Clicked(object sender, EventArgs e)
         {
-            ClickAnimationView((Image)sender);
-            ControlApp.Vibrate();
-
-            Customer item = (Customer)((Image)sender).BindingContext;
-
+            model.SetTransitionType();
             await Navigation.PushAsync(new PageAddOrEditCustomer());
         }
     }

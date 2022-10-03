@@ -488,6 +488,10 @@ shartnomalar</value>
     <value>Maxsus kodni kiriting</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Qo‘shish amalga oshmadi</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="FillInfoDescription" xml:space="preserve">
     <value>Rekvizit ma'lumotlar to'g'irligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi</value>
     <comment>Fillinfo</comment>
@@ -984,9 +988,17 @@ yuborilgan maxsus kodni kiriting.</value>
     <value>Bosqich</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SuccessfullyAdded" xml:space="preserve">
+    <value>Muvaffaqiyatli qo'shildi</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SuccessfullyCompleted" xml:space="preserve">
     <value>Muvaffaqiyatli yakunladingiz.</value>
     <comment>Finished FillInfo</comment>
+  </data>
+  <data name="SuccessfullyUpdated" xml:space="preserve">
+    <value>Muvaffaqiyatli yangilandi</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Templates" xml:space="preserve">
     <value>Shablonlar</value>

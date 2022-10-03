@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Contract.ViewModel.Pages.Customers
+namespace Contract.ViewModel.Pages.TemplateContract
 {
     public class PageContractTemplateViewModel : BaseModel
     {

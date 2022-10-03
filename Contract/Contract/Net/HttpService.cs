@@ -157,7 +157,7 @@ namespace Contract.Net
             try
             {
                 var receivedData = await RequestPostMethod(URL_SET_CLIENT_COMPANY_INFO, data);
-                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
+                response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
@@ -179,6 +179,22 @@ namespace Contract.Net
             catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
 
             ResponseUserCompanyInfo responseLogin = ConvertResponseObj<ResponseUserCompanyInfo>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseClientCompanyInfo> UpdateClientCompanyInfo(CompanyInfo data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPutMethod(URL_UPDATE_CLIENT_COMPANY_INFO, data);
+                response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+
+            ResponseClientCompanyInfo responseLogin = ConvertResponseObj<ResponseClientCompanyInfo>(response);
 
             return responseLogin;
         }
@@ -450,6 +466,8 @@ namespace Contract.Net
             client.Timeout = -1;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             var request = new RestRequest(Method.PUT);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(obj), ParameterType.RequestBody);
             IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;
@@ -629,7 +647,7 @@ namespace Contract.Net
         public string company_name { get; set; }
         public string address_of_company { get; set; }
         public string account_number { get; set; }
-        public string ctr_of_company { get; set; }
+        public string stir_of_company { get; set; }
         public string name_of_bank { get; set; }
         public string bank_code { get; set; }
         /// <summary>
@@ -659,7 +677,7 @@ namespace Contract.Net
             this.company_name = other.company_name;
             this.address_of_company = other.address_of_company;
             this.account_number = other.account_number;
-            this.ctr_of_company = other.ctr_of_company;
+            this.stir_of_company = other.stir_of_company;
             this.name_of_bank = other.name_of_bank;
             this.bank_code = other.bank_code;
             this.are_you_qqs_payer = other.are_you_qqs_payer;

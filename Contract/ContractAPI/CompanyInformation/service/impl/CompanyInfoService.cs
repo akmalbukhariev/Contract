@@ -69,20 +69,21 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.ClientCompanyInfo
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
             if (found != null)
             {
                 response.result = false;
-                response.message = "User phone number already exist!";
+                response.message = "Stir number is already exist!";
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
 
             var newInfo = new ClientCompanyInfo();
             newInfo.Copy(info);
+            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
             dataBase.ClientCompanyInfo.Add(newInfo);
 
             try
@@ -123,6 +124,7 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             var newInfo = new UserCompanyInfo();
             newInfo.Copy(info);
+            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
             dataBase.UserCompanyInfo.Add(newInfo);
 
             try
@@ -143,9 +145,9 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
-        public async Task<ResponseUserCompanyInfo> updateClientCompanyInfo(CompanyInfo info)
+        public async Task<ResponseClientCompanyInfo> updateClientCompanyInfo(CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
             response.data = null;
 
             CompanyInfo found = await dataBase.ClientCompanyInfo

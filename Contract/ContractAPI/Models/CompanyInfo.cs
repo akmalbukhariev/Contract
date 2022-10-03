@@ -15,7 +15,7 @@ namespace ContractAPI.Models
         public string company_name { get; set; }
         public string address_of_company { get; set; }
         public string account_number { get; set; }
-        public string ctr_of_company { get; set; }
+        public string stir_of_company { get; set; }
         public string name_of_bank { get; set; }
         public string bank_code { get; set; }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ContractAPI.Models
             this.company_name = other.company_name;
             this.address_of_company = other.address_of_company;
             this.account_number = other.account_number;
-            this.ctr_of_company = other.ctr_of_company;
+            this.stir_of_company = other.stir_of_company;
             this.name_of_bank = other.name_of_bank;
             this.bank_code = other.bank_code;
             this.are_you_qqs_payer = other.are_you_qqs_payer;

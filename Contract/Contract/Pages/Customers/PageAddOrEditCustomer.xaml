@@ -53,36 +53,42 @@
                         <Label Text="{x:Static resource:AppResource.CompanyName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
+                                        Text="{Binding CompanyName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
+                                        Text="{Binding AddressOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        Text="{Binding AccountNumber}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="3">
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ----"
+                                        Text="{Binding CompanyStir}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="4">
                         <Label Text="{x:Static resource:AppResource.NameOfBank}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
+                                        Text="{Binding NameOfBank}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="5">
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                                        Text="{Binding BankCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -102,12 +108,14 @@
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        Text="{Binding QQSCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="8">
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
+                                        Text="{Binding PhoneNnumberOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
@@ -125,6 +133,7 @@
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding FullNameOfSignatory}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -144,6 +153,7 @@
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding AccountantName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -163,6 +173,7 @@
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding CounselName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="15">
@@ -174,7 +185,7 @@
                                HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand">
                             <Image.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Tapped"/>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Logotip_Tapped"/>
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
@@ -183,7 +194,8 @@
                 </Grid>
             </ScrollView>
             <Button Style="{StaticResource btnNext}"
-                    Text="{x:Static resource:AppResource.Add}"
+                    Text="{x:Static resource:AppResource.ButtonFinished}"
+                    Clicked="Finished_Clicked"
                     Margin="5,0,5,40"
                     Grid.Row="1"/>
         </Grid>

@@ -101,26 +101,26 @@
                                               TitleColor="Gray"
                                               BackgroundColor="White"/>-->
                         <Grid x:Name="grSelectClient" 
-                              ColumnDefinitions="Auto,*" 
+                              ColumnDefinitions="Auto,*,Auto" 
                               Margin="0">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ShowClientCompany_Tapped"/>
                             </Grid.GestureRecognizers>
-                            <BoxView BackgroundColor="Gray" 
+                            <BoxView BackgroundColor="LightGray" 
                                      CornerRadius="7"
-                                     Grid.ColumnSpan="2"
+                                     Grid.ColumnSpan="3"
                                      Margin="4"/>
-                            <BoxView BackgroundColor="White" 
-                                     CornerRadius="7"
+                            <BoxView x:Name="boxBackground" 
+                                     BackgroundColor="White" 
+                                     CornerRadius="7,0,7,0"
                                      Grid.ColumnSpan="2"
                                      Margin="5"/>
                             <circleImage:CircleImage Source="{Binding ClientCompanyImage}" 
                                                      IsVisible="{Binding ShowClientCompanyImage}"
                                                      Aspect="AspectFill"
-                                                     WidthRequest="55"
+                                                     WidthRequest="50"
                                                      HeightRequest="55"
-                                                     Margin="20">
-                            </circleImage:CircleImage>
+                                                     Margin="20"/>
                             <StackLayout Spacing="0"  
                                          VerticalOptions="CenterAndExpand"
                                          HorizontalOptions="{Binding ClientHorizontalOption}"
@@ -134,7 +134,15 @@
                                        TextColor="#ACB4C1"
                                        HorizontalTextAlignment="Start"
                                        VerticalTextAlignment="Center"/>
-                            </StackLayout> 
+                            </StackLayout>
+                            <Image Source="show"
+                                   Aspect="AspectFit"
+                                   WidthRequest="30"
+                                   Margin="0,0,20,0"
+                                   IsVisible="{Binding IsThisEditClient}"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Grid.Column="2"/>
                         </Grid>
                     </StackLayout>
                     <Label x:Name="lbTitleBold"
@@ -172,7 +180,7 @@
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ----"
-                                        Text="{Binding TINEnterprise}"
+                                        Text="{Binding CompanyStir}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack5" 
@@ -210,7 +218,7 @@
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
-                                        Text="{Binding VatCode}"
+                                        Text="{Binding QQSCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack9" 

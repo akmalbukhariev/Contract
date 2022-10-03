@@ -15,6 +15,6 @@ namespace ContractAPI.CompanyInformation.service
         Task<ResponseUserCompanyInfo> setUserCompanyInfo(CompanyInfo info);
         Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfo info);
         Task<ResponseUserCompanyInfo> updateUserCompanyInfo(CompanyInfo info);
-        Task<ResponseUserCompanyInfo> updateClientCompanyInfo(CompanyInfo info);
+        Task<ResponseClientCompanyInfo> updateClientCompanyInfo(CompanyInfo info);
     }
 }

@@ -60,8 +60,8 @@ namespace ContractAPI.CompanyInformation.api
         [HttpPut("updateClientCompanyInfo")]
         public async Task<IActionResult> updateClientCompanyInfo([FromBody] CompanyInfo info)
         {
-            ResponseUserCompanyInfo response = await Service.updateClientCompanyInfo(info);
+            ResponseClientCompanyInfo response = await Service.updateClientCompanyInfo(info);
             return MakeResponse(response, response.error_code);
-        }
+        } 
     }
 }

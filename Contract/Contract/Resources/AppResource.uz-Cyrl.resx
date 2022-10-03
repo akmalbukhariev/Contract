@@ -487,6 +487,10 @@
     <value>Махсус кодни киритинг</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Қўшиш амалга ошмади</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="FillInfoDescription" xml:space="preserve">
     <value>Реквизит маълумотлар тўғрилигига эътибор беринг. Ушбу маълумотлар шартнома тузиш вақтида корхона реквизити сифатида фойдаланилади</value>
     <comment>Fillinfo</comment>
@@ -956,9 +960,17 @@
     <value>Босқич</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SuccessfullyAdded" xml:space="preserve">
+    <value>Муваффақиятли қўшилди</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="SuccessfullyCompleted" xml:space="preserve">
     <value>Mуваффақиятли якунладингиз.</value>
     <comment>Finished FillInfo</comment>
+  </data>
+  <data name="SuccessfullyUpdated" xml:space="preserve">
+    <value>Муваффақиятли янгиланди</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Templates" xml:space="preserve">
     <value>Шаблонлар</value>

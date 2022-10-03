@@ -890,6 +890,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed.
+        /// </summary>
+        internal static string Failed {
+            get {
+                return ResourceManager.GetString("Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement..
         /// </summary>
         internal static string FillInfoDescription {
@@ -1952,11 +1961,29 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully added.
+        /// </summary>
+        internal static string SuccessfullyAdded {
+            get {
+                return ResourceManager.GetString("SuccessfullyAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully Completed..
         /// </summary>
         internal static string SuccessfullyCompleted {
             get {
                 return ResourceManager.GetString("SuccessfullyCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated.
+        /// </summary>
+        internal static string SuccessfullyUpdated {
+            get {
+                return ResourceManager.GetString("SuccessfullyUpdated", resourceCulture);
             }
         }
         

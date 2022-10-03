@@ -1,5 +1,6 @@
 ﻿using Contract.Control;
 using Contract.Pages.CreateContract;
+using Contract.Pages.Customers;
 using Contract.Pages.Login;
 using Contract.Pages.Setting;
 using Contract.Resources;
@@ -25,7 +26,7 @@ namespace Contract
 
         protected override void OnStart()
         {
-            MainPage = new TransitionNavigationPage(new PageCreateContract1());
+            MainPage = new TransitionNavigationPage(new PageCustomerList());
 
             //ControlApp.Instance.AppStarting = true;
             //ControlApp.Instance.AppOnResume = false;

@@ -1,5 +1,5 @@
 ﻿using Contract.Interfaces;
-using Contract.ViewModel.Pages.Customers;
+using Contract.ViewModel.Pages.TemplateContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
