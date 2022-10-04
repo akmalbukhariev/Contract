@@ -270,6 +270,10 @@ Contracts</value>
     <value>Chief Name</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseImage" xml:space="preserve">
+    <value>Choose an image</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="Clauses" xml:space="preserve">
     <value>Clauses</value>
     <comment>Template Contract</comment>
@@ -398,6 +402,10 @@ Contracts</value>
     <value>Description</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="DeviceMessage1" xml:space="preserve">
+    <value>Your device does not currently support this feature!</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Have you forgot password?</value>
     <comment>Login</comment>
@@ -521,6 +529,10 @@ Contracts</value>
   <data name="IDNumber" xml:space="preserve">
     <value>ID Number</value>
     <comment>Main</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Info1" xml:space="preserve">
     <value>Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement.</value>
@@ -727,6 +739,10 @@ Contracts</value>
   </data>
   <data name="NoInternet" xml:space="preserve">
     <value>No internet</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>Not supported</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Offer</value>
@@ -969,6 +985,10 @@ Contracts</value>
   </data>
   <data name="SuccessfullyUpdated" xml:space="preserve">
     <value>Successfully updated</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="TakePicture" xml:space="preserve">
+    <value>Take a picture</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Templates" xml:space="preserve">

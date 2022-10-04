@@ -10,7 +10,7 @@ namespace Contract.ViewModel.Pages.Customers
     {
         public PageAddOrEditCustomerViewModel(INavigation navigation) : base(navigation)
         {
-            
+            LogoImage = "plus";
         }
 
         public void SetData()
@@ -37,8 +37,32 @@ namespace Contract.ViewModel.Pages.Customers
 
         public async void RequestAddInfo()
         {
-            ControlApp.ShowLoadingView(RSC.PleaseWait); 
-            ResponseClientCompanyInfo response = await HttpService.SetClientCompanyInfo(GetCompanyInfo());
+            if (!ControlApp.InternetOk()) return;
+
+            Net.CompanyInfo infoTest = new CompanyInfo()
+            {
+                user_phone_number ="12",
+                company_name = "Nesty",
+                address_of_company = "Ddddffff",
+                account_number = "123457",
+                stir_of_company = "3355771111",
+                name_of_bank = "hhhhhhhhh",
+                bank_code = "642168",
+                are_you_qqs_payer = 0,
+                qqs_number = "444412111",
+                company_phone_number = "99897654321",
+                position_of_signer = "zzzzzzzz",
+                name_of_signer ="Akrom",
+                is_accountant_provided = 0,
+                accountant_name = "Lllkhffgh",
+                is_legal_counsel_provided = 0,
+                counsel_name = "Vbbbbbvgtsfg",
+                company_logo_url = "/storage/emulated/0/Android/data/com.companyname.contract/files/Pictures/temp/IMG_20200725_132236.jpg",
+                created_date = "20225303_105338.461"
+            };
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseClientCompanyInfo response = await HttpService.SetClientCompanyInfo(infoTest);//GetCompanyInfo());
             ControlApp.CloseLoadingView();
 
             string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
@@ -50,6 +74,8 @@ namespace Contract.ViewModel.Pages.Customers
 
         public async void RequestUpdateInfo()
         {
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseClientCompanyInfo response = await HttpService.UpdateClientCompanyInfo(GetCompanyInfo());
             ControlApp.CloseLoadingView();

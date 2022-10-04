@@ -156,7 +156,7 @@ namespace Contract.Net
             Response response = new Response();
             try
             {
-                var receivedData = await RequestPostMethod(URL_SET_CLIENT_COMPANY_INFO, data);
+                var receivedData = await RequestPostFileMethod(URL_SET_CLIENT_COMPANY_INFO, data);
                 response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
@@ -442,6 +442,25 @@ namespace Contract.Net
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", JsonConvert.SerializeObject(obj), ParameterType.RequestBody);
+            IRestResponse response = await client.ExecuteAsync(request);
+
+            return response.Content;
+        }
+
+        private static async Task<string> RequestPostFileMethod(string url, CompanyInfo obj)
+        {
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.POST);
+            
+            request.AddParameter("data", JsonConvert.SerializeObject(obj));
+            
+            if (!string.IsNullOrEmpty(obj.company_logo_url))
+            {
+                request.AddFile("company_logo_url", obj.company_logo_url);
+            }
+
             IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;

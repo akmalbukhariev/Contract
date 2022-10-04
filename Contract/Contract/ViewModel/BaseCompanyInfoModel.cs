@@ -22,6 +22,8 @@ namespace Contract.ViewModel
         public string AccountantName { get => GetValue<string>(); set => SetValue(value); }
         public bool IsCounselProvided { get => GetValue<bool>(); set => SetValue(value); }
         public string CounselName { get => GetValue<string>(); set => SetValue(value); }
+        public string LogoImagePath { get => GetValue<string>(); set => SetValue(value); }
+        public ImageSource LogoImage { get => GetValue<ImageSource>(); set => SetValue(value); }
         public string CreatedDate { get => GetValue<string>(); set => SetValue(value); }
 
         public BaseCompanyInfoModel()
@@ -54,6 +56,7 @@ namespace Contract.ViewModel
                 accountant_name = AccountantName,
                 is_legal_counsel_provided = IsCounselProvided ? 1 : 0,
                 counsel_name = CounselName,
+                company_logo_url = LogoImagePath,
                 created_date = CreatedDate
             };
         }

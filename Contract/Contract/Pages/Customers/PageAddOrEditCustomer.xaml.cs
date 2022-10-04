@@ -1,4 +1,6 @@
 ﻿using Contract.ViewModel.Pages.Customers;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,9 +98,45 @@ namespace Contract.Pages.Customers
             ControlApp.Vibrate();
         }
 
-        private void Logotip_Tapped(object sender, EventArgs e)
+        private async void Logotip_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
+
+            string[] strButtons = new string[] { RSC.ChooseImage, RSC.TakePicture };
+            string action = await Application.Current.MainPage.DisplayActionSheet(RSC.Image, RSC.Cancel, null, strButtons);
+            if (string.IsNullOrEmpty(action) || action.Equals(RSC.Cancel)) return;
+
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsPickPhotoSupported || !CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.NotSupported, RSC.DeviceMessage1, RSC.Ok);
+                return;
+            }
+
+            if (action.Equals(RSC.ChooseImage))
+            {
+                var mediaOption = new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                };
+
+                var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOption);
+                if (selectedImageFile != null)
+                {
+                    PModel.LogoImage = ImageSource.FromStream(() => selectedImageFile.GetStream());
+                    PModel.LogoImagePath = selectedImageFile.Path;
+                }
+            }
+            else
+            {
+                var photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions());
+
+                if (photo != null)
+                {
+                    PModel.LogoImage = photo.Path;
+                    PModel.LogoImagePath = photo.Path; 
+                }
+            } 
         }
 
         private void Finished_Clicked(object sender, EventArgs e)

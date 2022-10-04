@@ -271,6 +271,10 @@
     <value>Ф.И.О. директора</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseImage" xml:space="preserve">
+    <value>Выберите изображение</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="Clauses" xml:space="preserve">
     <value>Пункты</value>
     <comment>Template Contract</comment>
@@ -399,6 +403,10 @@
     <value>Описание</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="DeviceMessage1" xml:space="preserve">
+    <value>Ваше устройство в настоящее время не поддерживает эту функцию!</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Забыли пароль?</value>
     <comment>Login</comment>
@@ -522,6 +530,10 @@
   <data name="IDNumber" xml:space="preserve">
     <value>Ваш идентификационный номер</value>
     <comment>Main</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Образ</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Info1" xml:space="preserve">
     <value>Обратите внимание на точность деталей. Данная информация будет использоваться как реквизит предприятия при заключении договора</value>
@@ -728,6 +740,10 @@
   </data>
   <data name="NoInternet" xml:space="preserve">
     <value>Нет интернета.</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>Не поддерживается</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Предложение</value>
@@ -970,6 +986,10 @@
   </data>
   <data name="SuccessfullyUpdated" xml:space="preserve">
     <value>Успешно обновлено</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="TakePicture" xml:space="preserve">
+    <value>Сделать фото</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Templates" xml:space="preserve">

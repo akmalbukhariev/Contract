@@ -272,6 +272,10 @@ shartnomalar</value>
     <value>Rahbar F.I.O</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseImage" xml:space="preserve">
+    <value>Tasvirni tanlang</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="Clauses" xml:space="preserve">
     <value>Bandlar</value>
     <comment>Template Contract</comment>
@@ -400,6 +404,10 @@ shartnomalar</value>
     <value>Matn</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="DeviceMessage1" xml:space="preserve">
+    <value>Sizning qurilmangiz hozirda bu xususiyatni qo'llab-quvvatlamaydi!</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Parolni unutdingizmi?</value>
     <comment>Login</comment>
@@ -523,6 +531,10 @@ shartnomalar</value>
   <data name="IDNumber" xml:space="preserve">
     <value>ID raqamingiz</value>
     <comment>Main</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Rasm</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Info1" xml:space="preserve">
     <value>Rekvizit ma'lumotlar to'g'riligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi</value>
@@ -752,6 +764,10 @@ shartnomalar mavjud emas.</value>
   </data>
   <data name="NoInternet" xml:space="preserve">
     <value>Internet yo'q</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>Qo'llab-quvvatlanmaydi</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Taklif</value>
@@ -998,6 +1014,10 @@ yuborilgan maxsus kodni kiriting.</value>
   </data>
   <data name="SuccessfullyUpdated" xml:space="preserve">
     <value>Muvaffaqiyatli yangilandi</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="TakePicture" xml:space="preserve">
+    <value>Rasmga tushirish</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Templates" xml:space="preserve">

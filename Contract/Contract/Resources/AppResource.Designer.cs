@@ -404,6 +404,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose an image.
+        /// </summary>
+        internal static string ChooseImage {
+            get {
+                return ResourceManager.GetString("ChooseImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clauses.
         /// </summary>
         internal static string Clauses {
@@ -692,6 +701,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your device does not currently support this feature!.
+        /// </summary>
+        internal static string DeviceMessage1 {
+            get {
+                return ResourceManager.GetString("DeviceMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Have you forgot password?.
         /// </summary>
         internal static string DidYouForgotPassword {
@@ -967,6 +985,15 @@ namespace Contract.Resources {
         internal static string IDNumber {
             get {
                 return ResourceManager.GetString("IDNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
             }
         }
         
@@ -1435,6 +1462,15 @@ namespace Contract.Resources {
         internal static string NoInternet {
             get {
                 return ResourceManager.GetString("NoInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not supported.
+        /// </summary>
+        internal static string NotSupported {
+            get {
+                return ResourceManager.GetString("NotSupported", resourceCulture);
             }
         }
         
@@ -1984,6 +2020,15 @@ namespace Contract.Resources {
         internal static string SuccessfullyUpdated {
             get {
                 return ResourceManager.GetString("SuccessfullyUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take a picture.
+        /// </summary>
+        internal static string TakePicture {
+            get {
+                return ResourceManager.GetString("TakePicture", resourceCulture);
             }
         }
         

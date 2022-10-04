@@ -271,6 +271,10 @@
     <value>Раҳбар Ф.И.О.</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseImage" xml:space="preserve">
+    <value>Тасвирни танланг</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="Clauses" xml:space="preserve">
     <value>Бандлар</value>
     <comment>Template Contract</comment>
@@ -399,6 +403,10 @@
     <value>Матн</value>
     <comment>Offer and objection</comment>
   </data>
+  <data name="DeviceMessage1" xml:space="preserve">
+    <value>Сизнинг қурилмангиз ҳозирда бу хусусиятни қўллаб-қувватламайди!</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Паролни унутдингизми?</value>
     <comment>Login</comment>
@@ -522,6 +530,10 @@
   <data name="IDNumber" xml:space="preserve">
     <value>ID рақамингиз</value>
     <comment>Main</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Расм</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Info1" xml:space="preserve">
     <value>Реквизит маълумотлар тўғрилигига эътибор беринг. Ушбу маълумотлар шартнома тузиш вақтида корхона реквизити сифатида фойдаланилади</value>
@@ -728,6 +740,10 @@
   </data>
   <data name="NoInternet" xml:space="preserve">
     <value>Интернет йўқ</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>Қўллаб-қувватланмайди</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Таклиф</value>
@@ -970,6 +986,10 @@
   </data>
   <data name="SuccessfullyUpdated" xml:space="preserve">
     <value>Муваффақиятли янгиланди</value>
+    <comment>CreateContract</comment>
+  </data>
+  <data name="TakePicture" xml:space="preserve">
+    <value>Расмга тушириш</value>
     <comment>CreateContract</comment>
   </data>
   <data name="Templates" xml:space="preserve">
