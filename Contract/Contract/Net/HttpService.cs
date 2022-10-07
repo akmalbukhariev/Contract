@@ -453,16 +453,31 @@ namespace Contract.Net
             client.Timeout = -1;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             var request = new RestRequest(Method.POST);
-            
-            request.AddParameter("data", JsonConvert.SerializeObject(obj));
-            
+
+            request.AddParameter("user_phone_number", obj.user_phone_number);
+            request.AddParameter("company_name", obj.company_name);
+            request.AddParameter("address_of_company", obj.address_of_company);
+            request.AddParameter("account_number", obj.account_number);
+            request.AddParameter("stir_of_company", obj.stir_of_company);
+            request.AddParameter("name_of_bank", obj.name_of_bank);
+            request.AddParameter("bank_code", obj.bank_code);
+            request.AddParameter("are_you_qqs_payer", obj.are_you_qqs_payer);
+            request.AddParameter("qqs_number", obj.qqs_number);
+            request.AddParameter("company_phone_number", obj.company_phone_number);
+            request.AddParameter("position_of_signer", obj.position_of_signer);
+            request.AddParameter("name_of_signer", obj.name_of_signer);
+            request.AddParameter("is_accountant_provided", obj.is_accountant_provided);
+            request.AddParameter("accountant_name", obj.accountant_name);
+            request.AddParameter("is_legal_counsel_provided", obj.is_legal_counsel_provided);
+            request.AddParameter("counsel_name", obj.counsel_name);
+            request.AddParameter("created_date", "20225303_105338.461");
+
             if (!string.IsNullOrEmpty(obj.company_logo_url))
             {
                 request.AddFile("company_logo_url", obj.company_logo_url);
             }
 
             IRestResponse response = await client.ExecuteAsync(request);
-
             return response.Content;
         }
 

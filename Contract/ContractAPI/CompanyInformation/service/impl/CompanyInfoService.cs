@@ -2,9 +2,11 @@
 using ContractAPI.Helper;
 using ContractAPI.Models;
 using ContractAPI.Response;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -13,9 +15,11 @@ namespace ContractAPI.CompanyInformation.service.impl
 {
     public class CompanyInfoService : AppBaseService, ICompanyInfoService
     {
-        public CompanyInfoService(ContractMakerContext db)
+        public static IWebHostEnvironment _environment;
+        public CompanyInfoService(ContractMakerContext db, IWebHostEnvironment environment)
         {
             dataBase = db;
+            _environment = environment;
         }
 
         public async Task<ResponseClientCompanyInfo> getClientCompanyInfo(string phoneNumber)
@@ -63,10 +67,22 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
-        public async Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfo info)
+        public async Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfoWithFile info)
         {
             ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
             response.data = null;
+
+            string savePath = $"{_environment.WebRootPath}{Constants.SaveImagePath}";
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+
+            using (FileStream filestream = File.Create($"{savePath}{info.company_logo_url.FileName}"))
+            {
+                await info.company_logo_url.CopyToAsync(filestream);
+                filestream.Flush(); 
+            }
 
             CompanyInfo found = await dataBase.ClientCompanyInfo
                 .Where(item => item.stir_of_company.Equals(info.stir_of_company))
@@ -82,8 +98,25 @@ namespace ContractAPI.CompanyInformation.service.impl
             }
 
             var newInfo = new ClientCompanyInfo();
-            newInfo.Copy(info);
+            newInfo.user_phone_number = info.user_phone_number;
+            newInfo.company_name = info.company_name;
+            newInfo.address_of_company = info.address_of_company;
+            newInfo.account_number = info.account_number;
+            newInfo.stir_of_company = info.stir_of_company;
+            newInfo.name_of_bank = info.name_of_bank;
+            newInfo.bank_code = info.bank_code;
+            newInfo.are_you_qqs_payer = 0;
+            newInfo.qqs_number = info.qqs_number;
+            newInfo.company_phone_number = info.company_phone_number;
+            newInfo.position_of_signer = info.position_of_signer;
+            newInfo.name_of_signer = info.name_of_signer;
+            newInfo.is_accountant_provided = 0;
+            newInfo.accountant_name = info.accountant_name;
+            newInfo.is_legal_counsel_provided = 0;
+            newInfo.counsel_name = info.counsel_name;
+            newInfo.company_logo_url = Constants.SaveImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
             newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            
             dataBase.ClientCompanyInfo.Add(newInfo);
 
             try

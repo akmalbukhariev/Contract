@@ -28,7 +28,7 @@ namespace Contract.Pages.Customers
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            model.RequestClientCompany(); 
+            //model.RequestClientCompany(); 
         }
 
         public void IsThisPageSelectable(bool yes)

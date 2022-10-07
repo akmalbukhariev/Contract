@@ -44,7 +44,7 @@ namespace ContractAPI.CompanyInformation.api
         }
 
         [HttpPost("setClientCompanyInfo")]
-        public async Task<IActionResult> setClientCompanyInfo([FromBody] CompanyInfo info)
+        public async Task<IActionResult> setClientCompanyInfo([FromForm] CompanyInfoWithFile info)
         {
             ResponseClientCompanyInfo response = await Service.setClientCompanyInfo(info);
             return MakeResponse(response, response.error_code);

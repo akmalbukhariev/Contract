@@ -1,11 +1,51 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ContractAPI.Models
 {
+    public class CompanyInfoWithFile
+    {
+        public string user_phone_number { get; set; }
+        /// <summary>
+        /// 1 = yes, 0 = no
+        /// </summary>
+        public string company_name { get; set; }
+        public string address_of_company { get; set; }
+        public string account_number { get; set; }
+        public string stir_of_company { get; set; }
+        public string name_of_bank { get; set; }
+        public string bank_code { get; set; }
+        /// <summary>
+        /// 1 = yes, 0 = no
+        /// </summary>
+        public int are_you_qqs_payer { get; set; }
+        public string qqs_number { get; set; }
+        public string company_phone_number { get; set; }
+        public string position_of_signer { get; set; }
+        public string name_of_signer { get; set; }
+        /// <summary>
+        /// 1 = yes, 0 = no
+        /// </summary>
+        public int is_accountant_provided { get; set; }
+        public string accountant_name { get; set; }
+        /// <summary>
+        /// 1 = yes, 0 = no
+        /// </summary>
+        public int is_legal_counsel_provided { get; set; }
+        public string counsel_name { get; set; }
+        public IFormFile company_logo_url { get; set; }
+    }
+
+    public class TestData
+    {
+        public string str1 { get; set; }
+        public string str2 { get; set; }
+    }
+
     public class CompanyInfo
     {
         #region Properties
@@ -37,7 +77,7 @@ namespace ContractAPI.Models
         /// </summary>
         public int is_legal_counsel_provided { get; set; }
         public string counsel_name { get; set; }
-        public IFormFile company_logo_url { get; set; }
+        public string company_logo_url { get; set; }
         public string created_date { get; set; }
         #endregion
 

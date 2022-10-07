@@ -28,6 +28,9 @@ using ContractAPI.AppInfo.service;
 using ContractAPI.AppInfo.service.impl;
 using ContractAPI.ContractInfo.service.impl;
 using ContractAPI.ContractInfo.service;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
 
 namespace ContractAPI
 {
@@ -54,7 +57,7 @@ namespace ContractAPI
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAppService, AppService>();
-
+ 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -75,6 +78,20 @@ namespace ContractAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
+
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload\images")),
+            //    RequestPath = new PathString("/images")
+            //});
+
+            //app.UseDirectoryBrowser(new DirectoryBrowserOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload")),
+            //    RequestPath = new PathString("/Upload")
+            //});
 
             app.UseAuthorization();
 

@@ -39,7 +39,7 @@ namespace Contract.ViewModel.Pages.Customers
         {
             if (!ControlApp.InternetOk()) return;
 
-            Net.CompanyInfo infoTest = new CompanyInfo()
+            CompanyInfo infoTest = new CompanyInfo()
             {
                 user_phone_number ="12",
                 company_name = "Nesty",
@@ -57,7 +57,7 @@ namespace Contract.ViewModel.Pages.Customers
                 accountant_name = "Lllkhffgh",
                 is_legal_counsel_provided = 0,
                 counsel_name = "Vbbbbbvgtsfg",
-                company_logo_url = "/storage/emulated/0/Android/data/com.companyname.contract/files/Pictures/temp/IMG_20200725_132236.jpg",
+                company_logo_url = LogoImagePath,  
                 created_date = "20225303_105338.461"
             };
 
