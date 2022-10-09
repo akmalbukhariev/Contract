@@ -36,6 +36,7 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
+
         [HttpPost("setUserCompanyInfo")]
         public async Task<IActionResult> setUserCompanyInfo([FromBody] CompanyInfo info)
         {
@@ -43,12 +44,29 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
+        [HttpPost("setUserCompanyInfoWithFile")]
+        public async Task<IActionResult> setUserCompanyInfoWithFile([FromForm] CompanyInfoWithFile info)
+        {
+            ResponseUserCompanyInfo response = await Service.setUserCompanyInfoWithFile(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+
         [HttpPost("setClientCompanyInfo")]
-        public async Task<IActionResult> setClientCompanyInfo([FromForm] CompanyInfoWithFile info)
+        public async Task<IActionResult> setClientCompanyInfo([FromBody] CompanyInfo info)
         {
             ResponseClientCompanyInfo response = await Service.setClientCompanyInfo(info);
             return MakeResponse(response, response.error_code);
         }
+
+        [HttpPost("setClientCompanyInfoWithFile")]
+        public async Task<IActionResult> setClientCompanyInfoWithFile([FromForm] CompanyInfoWithFile info)
+        {
+            ResponseClientCompanyInfo response = await Service.setClientCompanyInfoWithFile(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+
 
         [HttpPut("updateUserCompanyInfo")]
         public async Task<IActionResult> updateUserCompanyInfo([FromBody] CompanyInfo info)
@@ -57,10 +75,25 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
+        [HttpPut("updateUserCompanyInfoWithFile")]
+        public async Task<IActionResult> updateUserCompanyInfoWithFile([FromForm] CompanyInfoWithFile info)
+        {
+            ResponseUserCompanyInfo response = await Service.updateUserCompanyInfoWithFile(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+ 
         [HttpPut("updateClientCompanyInfo")]
         public async Task<IActionResult> updateClientCompanyInfo([FromBody] CompanyInfo info)
         {
             ResponseClientCompanyInfo response = await Service.updateClientCompanyInfo(info);
+            return MakeResponse(response, response.error_code);
+        }
+        
+        [HttpPut("updateClientCompanyInfoWithFile")]
+        public async Task<IActionResult> updateClientCompanyInfoWithFile([FromForm] CompanyInfoWithFile info)
+        {
+            ResponseClientCompanyInfo response = await Service.updateClientCompanyInfoWithFile(info);
             return MakeResponse(response, response.error_code);
         } 
     }

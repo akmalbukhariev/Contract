@@ -499,6 +499,10 @@
     <value>Қўшиш амалга ошмади</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="FieldEmpty" xml:space="preserve">
+    <value>Майдон бўш бўлиши мумкин емас</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="FillInfoDescription" xml:space="preserve">
     <value>Реквизит маълумотлар тўғрилигига эътибор беринг. Ушбу маълумотлар шартнома тузиш вақтида корхона реквизити сифатида фойдаланилади</value>
     <comment>Fillinfo</comment>

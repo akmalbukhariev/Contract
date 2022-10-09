@@ -12,7 +12,7 @@
           ColumnDefinitions="20,*,20"
           RowSpacing="20">
         <BoxView BackgroundColor="{StaticResource AppColor}"
-                     Grid.ColumnSpan="3"/>
+                 Grid.ColumnSpan="3"/>
         <view:ViewNavigationBar BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
                                 Title="{x:Static resource:AppResource.Customers}"
@@ -123,6 +123,8 @@
                         <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
+                                              ItemsSource="{Binding PositionList}"
+                                              SelectedItem="{Binding PositionOfSignatory}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -179,9 +181,9 @@
                     <StackLayout Grid.Row="15">
                         <Label Text="{x:Static resource:AppResource.Logotip}"
                                Style="{StaticResource lbBlackStyle}"/>
-                        <Image Source="https://192.168.219.102:5001/Upload/images/IMG_20190926_172327.jpg"
+                        <Image Source="plus"
                                Aspect="AspectFit"
-                               WidthRequest="80"
+                               WidthRequest="80" 
                                HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand">
                             <Image.GestureRecognizers>

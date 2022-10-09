@@ -21,6 +21,7 @@ namespace Contract.Pages.Customers
 
         private bool IsThisEditClient = false;
 
+        private PageAddOrEditCustomerViewModel oldModel;
         public PageAddOrEditCustomer(bool isThisEditClient = false)
         {
             InitializeComponent();
@@ -32,15 +33,31 @@ namespace Contract.Pages.Customers
             imYesNo1.Source = GetYesNoIcon(true);
             imYesNo2.Source = GetYesNoIcon(true);
             imYesNo3.Source = GetYesNoIcon(true);
+
+            PModel.LogoImageStr = "";
+            AppSettings.SetLanguage(Constant.LanEn);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+            PModel.PositionList = GetPositionList;
+
+
             if (IsThisEditClient)
             {
                 PModel.SetData();
+
+                yes1 = !PModel.AreYouQQSPayer;
+                yes2 = !PModel.IsAccountProvided;
+                yes3 = !PModel.IsCounselProvided;
+
+                YesNo1_Tapped(null, null);
+                YesNo2_Tapped(null, null);
+                YesNo3_Tapped(null, null);
+
+                oldModel = new PageAddOrEditCustomerViewModel(PModel);
             }
         }
 
@@ -59,7 +76,9 @@ namespace Contract.Pages.Customers
                 stackYesNo1.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            PModel.AreYouQQSPayer = yes1;
+            if (sender != null)
+                ControlApp.Vibrate();
         }
 
         private void YesNo2_Tapped(object sender, EventArgs e)
@@ -77,7 +96,9 @@ namespace Contract.Pages.Customers
                 stackYesNo2.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            PModel.IsAccountProvided = yes2;
+            if (sender != null)
+                ControlApp.Vibrate();
         }
 
         private void YesNo3_Tapped(object sender, EventArgs e)
@@ -95,7 +116,9 @@ namespace Contract.Pages.Customers
                 stackYesNo3.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            PModel.IsCounselProvided = yes3;
+            if (sender != null)
+                ControlApp.Vibrate();
         }
 
         private async void Logotip_Tapped(object sender, EventArgs e)
@@ -124,7 +147,7 @@ namespace Contract.Pages.Customers
                 if (selectedImageFile != null)
                 {
                     PModel.LogoImage = ImageSource.FromStream(() => selectedImageFile.GetStream());
-                    PModel.LogoImagePath = selectedImageFile.Path;
+                    PModel.LogoImageStr = selectedImageFile.Path;
                 }
             }
             else
@@ -134,16 +157,25 @@ namespace Contract.Pages.Customers
                 if (photo != null)
                 {
                     PModel.LogoImage = photo.Path;
-                    PModel.LogoImagePath = photo.Path; 
+                    PModel.LogoImageStr = photo.Path; 
                 }
             } 
         }
 
-        private void Finished_Clicked(object sender, EventArgs e)
+        private async void Finished_Clicked(object sender, EventArgs e)
         {
+            if (PModel.IsFieildEmpty())
+            {
+                await DisplayAlert(RSC.CreateContract, RSC.FieldEmpty, RSC.Ok);
+                return;
+            }
+
             if (IsThisEditClient)
             {
-                PModel.RequestUpdateInfo();
+                if (PModel == oldModel)
+                    await Navigation.PopAsync();
+                else
+                    PModel.RequestUpdateInfo();
             }
             else
             {

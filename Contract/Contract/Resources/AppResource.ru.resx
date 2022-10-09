@@ -499,6 +499,10 @@
     <value>Не удалось</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="FieldEmpty" xml:space="preserve">
+    <value>Поле не может быть пустым</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="FillInfoDescription" xml:space="preserve">
     <value>Обратите внимание на точность деталей. Данная информация будет использоваться как реквизит предприятия при заключении договора</value>
     <comment>Fillinfo</comment>

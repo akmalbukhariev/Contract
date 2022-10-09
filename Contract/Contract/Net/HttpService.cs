@@ -12,6 +12,7 @@ namespace Contract.Net
    public  class HttpService
     {
         #region Url 
+        public static string DATA_URL = "https://192.168.219.102:5001/";
         public static string SERVER_URL = "https://192.168.219.102:5001/api/";
         public static string URL_LOGIN = SERVER_URL + "LoginSignUp/login";
         public static string URL_SIGN_UP = SERVER_URL + "LoginSignUp/signUp";
@@ -19,27 +20,39 @@ namespace Contract.Net
         public static string URL_GET_USER = SERVER_URL + "UserInfo/getUser/"; //phoneNumber
         public static string URL_UPDATE_USER_PASSWORD = SERVER_URL + "UserInfo/updateUserPassword";
 
+        #region User info
         public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/getUserCompanyInfo/"; //phoneNumber
         public static string URL_SET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/setUserCompanyInfo";
+        public static string URL_SET_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setUserCompanyInfoWithFile";
         public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateUserCompanyInfo";
+        public static string URL_UPDATE_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/updateUserCompanyInfoWithFile";
+        #endregion
 
+        #region Client info
         public static string URL_GET_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/getClientCompanyInfo/"; //phoneNumber
         public static string URL_SET_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/setClientCompanyInfo";
+        public static string URL_SET_CLIENT_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setClientCompanyInfoWithFile";
         public static string URL_UPDATE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateClientCompanyInfo";
-
-        public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
-        public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
-        public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
-
+        public static string URL_UPDATE_CLIENT_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/updateClientCompanyInfoWithFile";
+        #endregion
+         
+        #region Unapproved contract
         public static string URL_GET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/getUnapprovedContract/"; //phoneNumber
         public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/setUnapprovedContract";
         public static string URL_DELETE_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/deleteUnapprovedContract";
         public static string URL_DELETE_UNAPPROVED_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "UnapprovedContract/deleteUnapprovedContractAndSetCanceledContract";
+        #endregion
 
+        #region Applicable contract
         public static string URL_GET_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/getApplicableContract/"; //phoneNumber
         public static string URL_SET_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/setApplicableContract";
         public static string URL_DELETE_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContract";
         public static string URL_DELETE_APPLICABLE_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContractAndSetCanceledContract";
+        #endregion
+
+        public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
+        public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
+        public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
 
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/getCanceledContract/"; //phoneNumber
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
@@ -103,6 +116,8 @@ namespace Contract.Net
             return responseLogin;
         }
 
+
+        #region User company info
         public async static Task<ResponseUserCompanyInfo> GetUserCompanyInfo(string phoneNumbera)
         {
             Response response = new Response();
@@ -119,6 +134,47 @@ namespace Contract.Net
             return responseLogin;
         }
 
+        public async static Task<ResponseUserCompanyInfo> SetUserCompanyInfo(CompanyInfo data, bool hasFile = false)
+        {
+            Response response = new Response();
+            try
+            {
+                string url = hasFile ? URL_SET_USER_COMPANY_INFO_WITH_FILE : URL_SET_USER_COMPANY_INFO;
+
+                var receivedData = hasFile ? await RequestMethodWithFile(url, data, Method.POST) : 
+                                             await RequestPostMethod(url, data);
+                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+
+            ResponseUserCompanyInfo responseLogin = ConvertResponseObj<ResponseUserCompanyInfo>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseUserCompanyInfo> UpdateUserCompanyInfo(CompanyInfo data, bool hasFile = false)
+        {
+            Response response = new Response();
+            try
+            {
+                string url = hasFile ? URL_UPDATE_USER_COMPANY_INFO_WITH_FILE : URL_UPDATE_USER_COMPANY_INFO;
+
+                var receivedData = hasFile? await RequestMethodWithFile(url, data, Method.PUT) :  
+                                            await RequestPutMethod(url, data);
+                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+
+            ResponseUserCompanyInfo responseLogin = ConvertResponseObj<ResponseUserCompanyInfo>(response);
+
+            return responseLogin;
+        }
+        #endregion
+
+
+        #region Client company info
         public async static Task<ResponseClientCompanyInfo> GetClientCompanyInfo(string phoneNumbera)
         {
             Response response = new Response();
@@ -135,28 +191,15 @@ namespace Contract.Net
             return responseLogin;
         }
 
-        public async static Task<ResponseUserCompanyInfo> SetUserCompanyInfo(CompanyInfo data)
+        public async static Task<ResponseClientCompanyInfo> SetClientCompanyInfo(CompanyInfo data, bool hasFile = false)
         {
             Response response = new Response();
             try
             {
-                var receivedData = await RequestPostMethod(URL_SET_USER_COMPANY_INFO, data);
-                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+                string url = hasFile ? URL_SET_CLIENT_COMPANY_INFO_WITH_FILE : URL_SET_CLIENT_COMPANY_INFO;
 
-            ResponseUserCompanyInfo responseLogin = ConvertResponseObj<ResponseUserCompanyInfo>(response);
-
-            return responseLogin;
-        }
-
-        public async static Task<ResponseClientCompanyInfo> SetClientCompanyInfo(CompanyInfo data)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestPostFileMethod(URL_SET_CLIENT_COMPANY_INFO, data);
+                var receivedData = hasFile? await RequestMethodWithFile(url, data, Method.POST) : 
+                                            await RequestPostMethod(url, data);
                 response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
@@ -167,28 +210,15 @@ namespace Contract.Net
             return responseLogin;
         }
 
-        public async static Task<ResponseUserCompanyInfo> UpdateUserCompanyInfo(CompanyInfo data)
+        public async static Task<ResponseClientCompanyInfo> UpdateClientCompanyInfo(CompanyInfo data, bool hasFile = false)
         {
             Response response = new Response();
             try
             {
-                var receivedData = await RequestPutMethod(URL_UPDATE_USER_COMPANY_INFO, data);
-                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+                string url = hasFile ? URL_UPDATE_CLIENT_COMPANY_INFO_WITH_FILE : URL_UPDATE_CLIENT_COMPANY_INFO;
 
-            ResponseUserCompanyInfo responseLogin = ConvertResponseObj<ResponseUserCompanyInfo>(response);
-
-            return responseLogin;
-        }
-
-        public async static Task<ResponseClientCompanyInfo> UpdateClientCompanyInfo(CompanyInfo data)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestPutMethod(URL_UPDATE_CLIENT_COMPANY_INFO, data);
+                var receivedData = hasFile? await RequestMethodWithFile(url, data, Method.PUT) : 
+                                            await RequestPutMethod (url, data);
                 response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
@@ -198,6 +228,8 @@ namespace Contract.Net
 
             return responseLogin;
         }
+        #endregion
+
 
         public async static Task<ResponseLogin> UpdateUserPassword(User data)
         {
@@ -447,13 +479,21 @@ namespace Contract.Net
             return response.Content;
         }
 
-        private static async Task<string> RequestPostFileMethod(string url, CompanyInfo obj)
+        /// <summary>
+        /// This method suitable for POST and PUT
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="obj"></param>
+        /// <param name="hasFile"></param>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        private static async Task<string> RequestMethodWithFile(string url, CompanyInfo obj, Method method)
         {
             var client = new RestClient(url);
             client.Timeout = -1;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-            var request = new RestRequest(Method.POST);
-
+            var request = new RestRequest(method);
+             
             request.AddParameter("user_phone_number", obj.user_phone_number);
             request.AddParameter("company_name", obj.company_name);
             request.AddParameter("address_of_company", obj.address_of_company);
@@ -470,13 +510,9 @@ namespace Contract.Net
             request.AddParameter("accountant_name", obj.accountant_name);
             request.AddParameter("is_legal_counsel_provided", obj.is_legal_counsel_provided);
             request.AddParameter("counsel_name", obj.counsel_name);
-            request.AddParameter("created_date", "20225303_105338.461");
-
-            if (!string.IsNullOrEmpty(obj.company_logo_url))
-            {
-                request.AddFile("company_logo_url", obj.company_logo_url);
-            }
-
+            request.AddFile("company_logo_url", obj.company_logo_url);
+            request.AddParameter("created_date", "");
+              
             IRestResponse response = await client.ExecuteAsync(request);
             return response.Content;
         }

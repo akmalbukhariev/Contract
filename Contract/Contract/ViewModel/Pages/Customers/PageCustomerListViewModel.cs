@@ -36,6 +36,8 @@ namespace Contract.ViewModel.Pages.Customers
         {
             DataList.Clear();
 
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseClientCompanyInfo = await HttpService.GetClientCompanyInfo("12");
             ControlApp.CloseLoadingView();
@@ -47,7 +49,7 @@ namespace Contract.ViewModel.Pages.Customers
                     Customer item = new Customer()
                     {
                         IsThisEditClient = IsThisEditable,
-                        UserImage = "rus_flag",
+                        UserImage = $"{HttpService.DATA_URL}{info.company_logo_url}",
                         UserTitle = info.company_name,
                         UserStir = info.stir_of_company
                     };

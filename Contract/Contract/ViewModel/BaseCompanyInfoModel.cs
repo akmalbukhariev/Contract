@@ -16,24 +16,26 @@ namespace Contract.ViewModel
         public bool AreYouQQSPayer { get => GetValue<bool>(); set => SetValue(value); }
         public string QQSCode { get => GetValue<string>(); set => SetValue(value); }
         public string PhoneNnumberOfCompany { get => GetValue<string>(); set => SetValue(value); }
-        public int PositionOfSignatory { get => GetValue<int>(); set => SetValue(value); }
+        public string PositionOfSignatory { get => GetValue<string>(); set => SetValue(value); }
         public string FullNameOfSignatory { get => GetValue<string>(); set => SetValue(value); }
         public bool IsAccountProvided { get => GetValue<bool>(); set => SetValue(value); }
         public string AccountantName { get => GetValue<string>(); set => SetValue(value); }
         public bool IsCounselProvided { get => GetValue<bool>(); set => SetValue(value); }
         public string CounselName { get => GetValue<string>(); set => SetValue(value); }
-        public string LogoImagePath { get => GetValue<string>(); set => SetValue(value); }
+        public string LogoImageStr { get => GetValue<string>(); set => SetValue(value); }
         public ImageSource LogoImage { get => GetValue<ImageSource>(); set => SetValue(value); }
         public string CreatedDate { get => GetValue<string>(); set => SetValue(value); }
 
+        public List<string> PositionList { get => GetValue<List<string>>(); set => SetValue(value); }
+
         public BaseCompanyInfoModel()
         {
-            
+            PositionList = new List<string>();
         }
 
         public BaseCompanyInfoModel(INavigation navigation) : base(navigation)
         {
-            
+            PositionList = new List<string>();
         }
 
         public Net.CompanyInfo GetCompanyInfo()
@@ -50,13 +52,13 @@ namespace Contract.ViewModel
                 are_you_qqs_payer = AreYouQQSPayer ? 1 : 0,
                 qqs_number = QQSCode,
                 company_phone_number = PhoneNnumberOfCompany,
-                position_of_signer = "",//PositionOfSignatory,
+                position_of_signer = PositionOfSignatory,
                 name_of_signer = FullNameOfSignatory,
                 is_accountant_provided = IsAccountProvided ? 1 : 0,
                 accountant_name = AccountantName,
                 is_legal_counsel_provided = IsCounselProvided ? 1 : 0,
                 counsel_name = CounselName,
-                company_logo_url = LogoImagePath,
+                company_logo_url = LogoImageStr,
                 created_date = CreatedDate
             };
         }

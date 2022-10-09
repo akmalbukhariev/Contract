@@ -39,10 +39,10 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<User>().HasKey(r => r.phone_number);
 
             modelBuilder.Entity<UserCompanyInfo>().ToTable("UserCompanyInfo");
-            modelBuilder.Entity<UserCompanyInfo>().HasKey(r => r.created_date);
+            modelBuilder.Entity<UserCompanyInfo>().HasKey(r => r.stir_of_company);
 
             modelBuilder.Entity<ClientCompanyInfo>().ToTable("ClientCompanyInfo");
-            modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.created_date);
+            modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.stir_of_company);
 
             modelBuilder.Entity<CreateContractInfo>().ToTable("CreateContractInfo");
             modelBuilder.Entity<CreateContractInfo>().HasKey(r => r.created_date);

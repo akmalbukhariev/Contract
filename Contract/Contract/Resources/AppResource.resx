@@ -498,6 +498,10 @@ Contracts</value>
     <value>Failed</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="FieldEmpty" xml:space="preserve">
+    <value>The field cannot be empty</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="FillInfoDescription" xml:space="preserve">
     <value>Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement.</value>
     <comment>Fillinfo</comment>

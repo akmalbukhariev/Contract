@@ -12,9 +12,17 @@ namespace ContractAPI.CompanyInformation.service
     {
         Task<ResponseUserCompanyInfo> getUserCompanyInfo(string phoneNumber);
         Task<ResponseClientCompanyInfo> getClientCompanyInfo(string phoneNumber);
+
         Task<ResponseUserCompanyInfo> setUserCompanyInfo(CompanyInfo info);
-        Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfoWithFile info);
+        Task<ResponseUserCompanyInfo> setUserCompanyInfoWithFile(CompanyInfoWithFile info);
+
+        Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfo info);
+        Task<ResponseClientCompanyInfo> setClientCompanyInfoWithFile(CompanyInfoWithFile info);
+
         Task<ResponseUserCompanyInfo> updateUserCompanyInfo(CompanyInfo info);
+        Task<ResponseUserCompanyInfo> updateUserCompanyInfoWithFile(CompanyInfoWithFile info);
+
         Task<ResponseClientCompanyInfo> updateClientCompanyInfo(CompanyInfo info);
+        Task<ResponseClientCompanyInfo> updateClientCompanyInfoWithFile(CompanyInfoWithFile info);
     }
 }

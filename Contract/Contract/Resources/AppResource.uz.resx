@@ -500,6 +500,10 @@ shartnomalar</value>
     <value>Qo‘shish amalga oshmadi</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="FieldEmpty" xml:space="preserve">
+    <value>Maydon bo'sh bo'lishi mumkin emas</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="FillInfoDescription" xml:space="preserve">
     <value>Rekvizit ma'lumotlar to'g'irligiga e'tibor bering. Ushbu ma'lumotlar shartnoma tuzish vaqtida korxona rekviziti sifatida foydalaniladi</value>
     <comment>Fillinfo</comment>

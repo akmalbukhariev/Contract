@@ -917,6 +917,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The field cannot be empty.
+        /// </summary>
+        internal static string FieldEmpty {
+            get {
+                return ResourceManager.GetString("FieldEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pay attention to the accuracy of the details. This information will be used as the details of the company when concluding an agreement..
         /// </summary>
         internal static string FillInfoDescription {
