@@ -37,7 +37,19 @@
                                      CornerRadius="7"
                                      Grid.ColumnSpan="3"
                                      Margin="5"/>
-                            <control:CircleImage Source="{Binding UserImage}" 
+                            <BoxView IsVisible="{Binding ShowLetter}" 
+                                     BackgroundColor="#99A2B3"
+                                     CornerRadius="30"
+                                     WidthRequest="60"
+                                     Margin="20"/>
+                            <Label IsVisible="{Binding ShowLetter}"
+                                   Text="{Binding FirstLetter}"
+                                   TextColor="White"
+                                   FontSize="30"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            <control:CircleImage IsVisible="{Binding ShowCircleImage}" 
+                                                 Source="{Binding UserImage}" 
                                                  Aspect="AspectFill"
                                                  WidthRequest="55"
                                                  HeightRequest="55"
@@ -71,7 +83,7 @@
             </ListView>
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.AddNewCustomer}"
-                    IsVisible="{Binding IsThisSelectable}"
+                    IsVisible="{Binding IsThisEditable}"
                     VerticalOptions="End"
                     Margin="0,30,0,30"
                     Clicked="Add_Clicked"

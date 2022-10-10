@@ -1008,6 +1008,10 @@ yuborilgan maxsus kodni kiriting.</value>
     <value>Bosqich</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="STIR" xml:space="preserve">
+    <value>STIR</value>
+    <comment>CompanyInfo</comment>
+  </data>
   <data name="SuccessfullyAdded" xml:space="preserve">
     <value>Muvaffaqiyatli qo'shildi</value>
     <comment>CreateContract</comment>

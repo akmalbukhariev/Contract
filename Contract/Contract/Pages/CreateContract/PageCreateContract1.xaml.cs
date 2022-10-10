@@ -43,14 +43,23 @@ namespace Contract.Pages.CreateContract
             base.OnAppearing();
             Model.Parent = Parent;
             lbStep.Text = RSC.Step + " #1";
+            PModel.ClientCompanyStir = $"{RSC.STIR} :";
 
             if (ControlApp.SelectedClientCompanyInfo != null)
             {
                 PModel.ShowClientCompanyImage = true;
-                PModel.ClientCompanyImage = "rus_flag";
+                PModel.ShowLetter = false;
+                PModel.FirstLetter = "";
+                PModel.ClientCompanyImage = ControlApp.SelectedClientCompanyInfo.company_logo_url;
                 PModel.ClientCompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
-                PModel.ClientCompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
-                PModel.ClientHorizontalOption = LayoutOptions.CenterAndExpand;
+                PModel.ClientCompanyStir = $"{RSC.STIR} : {ControlApp.SelectedClientCompanyInfo.stir_of_company}";
+
+                if (string.IsNullOrEmpty(PModel.ClientCompanyImage))
+                {
+                    PModel.ShowClientCompanyImage = false;
+                    PModel.ShowLetter = true;
+                    PModel.FirstLetter = PModel.ClientCompanyName?.Length > 0 ? PModel.ClientCompanyName[0].ToString() : "";
+                }
             } 
         }
 
@@ -78,7 +87,7 @@ namespace Contract.Pages.CreateContract
             if (sender != null)
                 ControlApp.Vibrate();
 
-            PModel.OpenClientInfo = yes1;
+            ControlApp.OpenClientInfo = yes1;
         }
 
         private void YesNo2_Tapped(object sender, EventArgs e)
@@ -101,7 +110,7 @@ namespace Contract.Pages.CreateContract
             if (sender != null)
                 ControlApp.Vibrate();
 
-            PModel.OpenSearchClient = yes1;
+            ControlApp.OpenSearchClient = yes1;
         }
 
         private void YesNo3_Tapped(object sender, EventArgs e)
@@ -194,7 +203,7 @@ namespace Contract.Pages.CreateContract
              
             ControlApp.SelectedClientCompanyInfo = null;
             PageCustomerList page = new PageCustomerList();
-            page.IsThisPageSelectable(false);
+            page.IsThisPageSelectable(true);
             await Navigation.PushModalAsync(page);
         }
 

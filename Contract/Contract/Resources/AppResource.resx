@@ -979,6 +979,10 @@ Contracts</value>
     <value>Step</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="STIR" xml:space="preserve">
+    <value>TIN</value>
+    <comment>CompanyInfo</comment>
+  </data>
   <data name="SuccessfullyAdded" xml:space="preserve">
     <value>Successfully added</value>
     <comment>CreateContract</comment>

@@ -77,7 +77,7 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.SelectServiceTypeTitle}"
                                               ItemsSource="{Binding ServiceList}"
-                                              SelectedIndex="{Binding ServiceTypeIndex}"
+                                              SelectedItem="{Binding SelectedServiceType}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -100,7 +100,7 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.SelectCurrency}"
                                               ItemsSource="{Binding CurrencyList}"
-                                              SelectedIndex="{Binding ContractCurrencyIndex}"
+                                              SelectedItem="{Binding SelectedCurrency}"
                                               SelectedIndexChanged="Currency_SelectedIndexChanged"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
@@ -114,7 +114,7 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.SelectQQS}"
                                               ItemsSource="{Binding QQSList}"
-                                              SelectedIndex="{Binding AmountOfVatIndex}"
+                                              SelectedIndex="{Binding SelectedQQS}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -151,17 +151,17 @@
                                 <StackLayout>
                                     <StackLayout>
                                         <Label Text="{x:Static resource:AppResource.NameOfServiceType}" 
-                                       Style="{StaticResource lbBlackStyle}"/>
+                                               Style="{StaticResource lbBlackStyle}"/>
                                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfServiceType}"
                                                         Text="{Binding NameOfService}"
                                                         Style="{StaticResource entryStyle}"/>
                                     </StackLayout>
                                     <StackLayout Spacing="10">
                                         <Label Text="{x:Static resource:AppResource.UnitOfMeasure}"
-                                           Style="{StaticResource lbBlackStyle}"/>
+                                               Style="{StaticResource lbBlackStyle}"/>
                                         <control:CustomPicker Title="{x:Static resource:AppResource.SelectMeasure}"
                                                               ItemsSource="{Binding MeasureList}"
-                                                              SelectedIndex="{Binding UnitOfMeasureIndex}"
+                                                              SelectedItem="{Binding SelectedMeasure}"
                                                               HorizontalTextAlignment="Start"
                                                               Image="show"
                                                               ChartSyle="True"
@@ -217,6 +217,7 @@
                                         <Label Text="{x:Static resource:AppResource.Info2}" 
                                                Style="{StaticResource lbBlackStyle}"/>
                                         <view:ViewEntry Text="{Binding PriceText}"
+                                                        IsEnabled="False"
                                                         Style="{StaticResource entryStyle}"/>
                                     </StackLayout>
                                     <Grid ColumnDefinitions="75,*,75,*,75"

@@ -9,7 +9,8 @@ namespace Contract.ViewModel.Pages.Customers
 {
     public class PageCustomerListViewModel : BaseModel
     {
-        public bool IsThisEditable { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsThisEditable { get => GetValue<bool>(); set => SetValue(value); } 
+
         public ObservableCollection<Customer> DataList { get; set; }
 
         public Customer SelectedCustomer { get => GetValue<Customer>(); set => SetValue(value); }
@@ -39,7 +40,7 @@ namespace Contract.ViewModel.Pages.Customers
             if (!ControlApp.InternetOk()) return;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseClientCompanyInfo = await HttpService.GetClientCompanyInfo("12");
+            ResponseClientCompanyInfo = await HttpService.GetClientCompanyInfo(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
             if (ResponseClientCompanyInfo.result)
@@ -51,8 +52,15 @@ namespace Contract.ViewModel.Pages.Customers
                         IsThisEditClient = IsThisEditable,
                         UserImage = $"{HttpService.DATA_URL}{info.company_logo_url}",
                         UserTitle = info.company_name,
-                        UserStir = info.stir_of_company
+                        UserStir = $"{RSC.STIR} : {info.stir_of_company}"
                     };
+
+                    if (string.IsNullOrEmpty(info.company_logo_url))
+                    {
+                        item.ShowCircleImage = false;
+                        item.ShowLetter = true;
+                        item.FirstLetter = info.company_name?.Length > 0? info.company_name[0].ToString() : "";
+                    }
 
                     Add(item);
                 }

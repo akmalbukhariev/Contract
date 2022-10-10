@@ -92,15 +92,8 @@
                         <Label Text="{x:Static resource:AppResource.ListOfCustomers}"
                                Style="{StaticResource lbWhiteStyle}"
                                TextColor="Black"
-                               HorizontalOptions="StartAndExpand"/>
-                        <!--<control:CustomPicker Title="{x:Static resource:AppResource.CompanyName}"
-                                              SelectedIndex="{Binding CustomerIndex}"
-                                              HorizontalTextAlignment="Start"
-                                              Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
-                                              BackgroundColor="White"/>-->
-                        <Grid x:Name="grSelectClient" 
+                               HorizontalOptions="StartAndExpand"/> 
+                        <!--<Grid x:Name="grSelectClient" 
                               ColumnDefinitions="Auto,*,Auto" 
                               Margin="0">
                             <Grid.GestureRecognizers>
@@ -140,6 +133,60 @@
                                    WidthRequest="30"
                                    Margin="0,0,20,0"
                                    IsVisible="{Binding IsThisEditClient}"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Grid.Column="2"/>
+                        </Grid>-->
+                        <Grid x:Name="grSelectClient"
+                              ColumnDefinitions="Auto,*,Auto"
+                              RowDefinitions="100"
+                              Margin="0">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ShowClientCompany_Tapped"/>
+                            </Grid.GestureRecognizers>
+                            <BoxView BackgroundColor="Gray" 
+                                     CornerRadius="7"
+                                     Grid.ColumnSpan="3"
+                                     Margin="5"/>
+                            <BoxView BackgroundColor="White"
+                                     CornerRadius="7"
+                                     Grid.ColumnSpan="3"
+                                     Margin="6"/>
+                            <BoxView IsVisible="{Binding ShowLetter}" 
+                                     BackgroundColor="#99A2B3"
+                                     CornerRadius="30"
+                                     WidthRequest="60"
+                                     Margin="20"/>
+                            <Label IsVisible="{Binding ShowLetter}"
+                                   Text="{Binding FirstLetter}"
+                                   TextColor="White"
+                                   FontSize="30"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            <circleImage:CircleImage IsVisible="{Binding ShowClientCompanyImage}" 
+                                                     Source="{Binding ClientCompanyImage}" 
+                                                     Aspect="AspectFill"
+                                                     WidthRequest="55"
+                                                     HeightRequest="55"
+                                                     Margin="20"/>
+                            <StackLayout Spacing="10" 
+                                         VerticalOptions="CenterAndExpand"
+                                         Grid.Column="1">
+                                <Label Text="{Binding ClientCompanyName}"
+                                       LineBreakMode="TailTruncation"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding ClientCompanyStir}"
+                                       FontSize="12"
+                                       TextColor="#ACB4C1"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                            <Image Source="show"
+                                   Aspect="AspectFit"
+                                   WidthRequest="30"
+                                   Margin="0,0,20,0"
                                    VerticalOptions="CenterAndExpand"
                                    HorizontalOptions="CenterAndExpand"
                                    Grid.Column="2"/>

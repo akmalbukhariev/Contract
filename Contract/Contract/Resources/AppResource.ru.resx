@@ -980,6 +980,10 @@
     <value>Стадия</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="STIR" xml:space="preserve">
+    <value>ИНН</value>
+    <comment>CompanyInfo</comment>
+  </data>
   <data name="SuccessfullyAdded" xml:space="preserve">
     <value>Успешно добавлено</value>
     <comment>CreateContract</comment>

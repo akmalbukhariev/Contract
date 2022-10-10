@@ -23,7 +23,8 @@ namespace Contract.Control
         public Net.CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
         public Net.Login LoginInfo { get; set; } = new Net.Login();
         public Net.User UserInfo { get; set; }
-
+        public bool OpenClientInfo { get; set; }
+        public bool OpenSearchClient { get; set; }
         private ControlApp()
         {
            

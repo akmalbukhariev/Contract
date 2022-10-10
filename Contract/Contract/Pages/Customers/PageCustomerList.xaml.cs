@@ -49,11 +49,12 @@ namespace Contract.Pages.Customers
 
             foreach (Net.CompanyInfo info in model.ResponseClientCompanyInfo.data)
             {
-                if (info.stir_of_company.Trim().Equals(item.UserStir))
+                string strStir = item.UserStir.Replace($"{RSC.STIR} :", "").Trim();
+                if (info.stir_of_company.Trim().Equals(strStir))
                 {
                     ControlApp.SelectedClientCompanyInfo = new Net.CompanyInfo();
                     ControlApp.SelectedClientCompanyInfo.Copy(info);
-                    
+                     
                     break;
                 }
             }

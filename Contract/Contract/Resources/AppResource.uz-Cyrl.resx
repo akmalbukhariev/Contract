@@ -980,6 +980,10 @@
     <value>Босқич</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="STIR" xml:space="preserve">
+    <value>СТИР</value>
+    <comment>CompanyInfo</comment>
+  </data>
   <data name="SuccessfullyAdded" xml:space="preserve">
     <value>Муваффақиятли қўшилди</value>
     <comment>CreateContract</comment>

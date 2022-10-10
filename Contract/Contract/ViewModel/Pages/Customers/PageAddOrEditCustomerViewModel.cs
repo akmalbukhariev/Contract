@@ -122,7 +122,7 @@ namespace Contract.ViewModel.Pages.Customers
             return (res1 || res2 || res3 || res4);
         }
 
-        public override bool Equals(object o)  
+        public override bool Equals(object o)
         {  
            return true;  
         }  

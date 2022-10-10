@@ -15,11 +15,13 @@ namespace Contract.Pages.CreateContract
     public partial class PageCreateContract2 : IPage
     {
         private bool yes1 = false;
-        public PageCreateContract2()
+        
+        public PageCreateContract2(Net.CompanyInfo companyInfo)
         {
             InitializeComponent();
-            SetModel(new PageCreateContract2ViewModel(Navigation));
-            YesNo1_Tapped(null, null);
+
+            SetModel(new PageCreateContract2ViewModel(Navigation, companyInfo));
+            YesNo1_Tapped(null, null); 
         }
 
         protected override void OnAppearing()

@@ -12,23 +12,21 @@ namespace Contract.ViewModel.Pages.CreateContract
     {
         #region Properties
         public bool ShowClientCompanyImage { get => GetValue<bool>(); set => SetValue(value); }
+        public bool ShowLetter { get => GetValue<bool>(); set => SetValue(value); }
+        public string FirstLetter { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyImage { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyName { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyStir { get => GetValue<string>(); set => SetValue(value); }
-        public LayoutOptions ClientHorizontalOption { get => GetValue<LayoutOptions>(); set => SetValue(value); }
-
-
-        public bool OpenClientInfo { get => GetValue<bool>(); set => SetValue(value); }
-        public bool OpenSearchClient { get => GetValue<bool>(); set => SetValue(value); }
-        public int CustomerIndex { get => GetValue<int>(); set => SetValue(value); }
+        //public bool OpenClientInfo { get => GetValue<bool>(); set => SetValue(value); }
+        //public bool OpenSearchClient { get => GetValue<bool>(); set => SetValue(value); } 
          
         #endregion
 
         public PageCreateContract1ViewModel(INavigation navigation) : base(navigation)
         {
-            ShowClientCompanyImage = false;
+            ShowClientCompanyImage = true;
             ClientCompanyName = RSC.SelectClientCompany;
-            ClientHorizontalOption = LayoutOptions.CenterAndExpand;
+            ClientCompanyImage = "no_image";
         }
 
         #region Command
@@ -37,7 +35,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         private async void Save()
         {
             SetTransitionType();
-            await Navigation.PushAsync(new PageCreateContract2());
+            await Navigation.PushAsync(new PageCreateContract2(GetCompanyInfo()));
         }
         #endregion
          

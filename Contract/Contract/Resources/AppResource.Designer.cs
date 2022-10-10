@@ -2006,6 +2006,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TIN.
+        /// </summary>
+        internal static string STIR {
+            get {
+                return ResourceManager.GetString("STIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully added.
         /// </summary>
         internal static string SuccessfullyAdded {
