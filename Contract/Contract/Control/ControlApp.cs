@@ -7,7 +7,10 @@ using Xamarin.Forms;
 namespace Contract.Control
 {
     public class ControlApp
-    { 
+    {
+        public delegate void CurrencyCostChanged();
+        public event CurrencyCostChanged EventCurrencyCostChanged;
+
         private bool _closeLoadingView = false; 
         public bool AppStarting { get; set; }
         public bool AppOnResume { get; set; }
@@ -111,6 +114,11 @@ namespace Contract.Control
 
                 return false; // True = Repeat again, False = Stop the timer
             });
+        }
+
+        public void ChangedCurrentPrice()
+        {
+            EventCurrencyCostChanged?.Invoke();
         }
 
         public void ShowNotification(string desctirption, string title)

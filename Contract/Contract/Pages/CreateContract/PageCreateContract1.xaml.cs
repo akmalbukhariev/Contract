@@ -30,12 +30,12 @@ namespace Contract.Pages.CreateContract
 
             YesNo1_Tapped(null, null);
             YesNo2_Tapped(null, null);
-
-            //imYesNo1.Source = GetYesNoIcon(true);
-            //imYesNo2.Source = GetYesNoIcon(true);
+             
             imYesNo3.Source = GetYesNoIcon(true);
             imYesNo4.Source = GetYesNoIcon(true);
             imYesNo5.Source = GetYesNoIcon(true);
+
+            ControlApp.SelectedClientCompanyInfo = null;
         }
 
         protected override void OnAppearing()

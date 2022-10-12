@@ -13,17 +13,21 @@ namespace Contract.Model
         public string NameOfService { get => GetValue<string>(); set => SetValue(value); }
         public string SelectedMeasure { get => GetValue<string>(); set => SetValue(value); }
         public string AmountText { get => GetValue<string>(); set => SetValue(value); }
-        public string PriceText { get => GetValue<string>(); set => SetValue(value); }
+        public string AmountOfPrice { get => GetValue<string>(); set => SetValue(value); }
+        public string SelectedCurrency { get => GetValue<string>(); set => SetValue(value); }
         public List<string> MeasureList { get => GetValue<List<string>>(); set => SetValue(value); }
 
         public ServicesInfo()
         {
             Index = 0;
             NameOfService = "";
-            UnitOfMeasureIndex = 0;
             AmountText = "1";
-            PriceText = "";
+            AmountOfPrice = "1";
+            SelectedCurrency = "";
             MeasureList = GetMeasureList;
+
+            if (MeasureList.Count > 0)
+                SelectedMeasure = MeasureList[0];
         }
 
         public ServicesInfo(ServicesInfo other)
@@ -36,9 +40,18 @@ namespace Contract.Model
             this.Index = other.Index + 1;
             this.NameOfService = other.NameOfService;
             this.AmountText = other.AmountText;
-            this.PriceText = other.PriceText;
+            this.AmountOfPrice = other.AmountOfPrice;
+            this.SelectedCurrency = other.SelectedCurrency;
             this.MeasureList = other.MeasureList;
-            this.UnitOfMeasureIndex = other.UnitOfMeasureIndex;
+            this.SelectedCurrency = other.SelectedCurrency;
+        }
+
+        public int CalcTotalCost()
+        {
+            int int_AmountText = string.IsNullOrEmpty(AmountText) ? 0 : int.Parse(AmountText);
+            int int_AmountOfPrice = string.IsNullOrEmpty(AmountOfPrice) ? 0 : int.Parse(AmountOfPrice);
+
+            return  (int_AmountText * int_AmountOfPrice);
         }
 
         public List<string> GetMeasureList

@@ -274,7 +274,7 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
                                         Text="{Binding PhoneNnumberOfCompany}"
-                                        Keyboard="Telephone"
+                                        KeyboardSetting="Telephone"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack10" 

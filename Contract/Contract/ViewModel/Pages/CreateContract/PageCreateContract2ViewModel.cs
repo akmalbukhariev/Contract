@@ -11,6 +11,7 @@ namespace Contract.ViewModel.Pages.CreateContract
 {
     public class PageCreateContract2ViewModel : BaseModel
     {
+        #region Properties
         public string SelectedServiceType { get => GetValue<string>(); set => SetValue(value); }
         public string ContractNumber { get => GetValue<string>(); set => SetValue(value); }
         public string SelectedCurrency { get => GetValue<string>(); set => SetValue(value); }
@@ -20,9 +21,10 @@ namespace Contract.ViewModel.Pages.CreateContract
         public string TotalCostText { get => GetValue<string>(); set => SetValue(value); }
         public bool Agree { get => GetValue<bool>(); set => SetValue(value); }
 
-        public List<string> ServiceList { get => GetValue<List<string>>(); set => SetValue(value); }
+        public List<string> ServiceTypeList { get => GetValue<List<string>>(); set => SetValue(value); }
         public List<string> CurrencyList { get => GetValue<List<string>>(); set => SetValue(value); }
         public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); }
+        #endregion
 
         private Net.CreateContract createContract = new Net.CreateContract();
 
@@ -35,7 +37,7 @@ namespace Contract.ViewModel.Pages.CreateContract
 
             TotalCostText = "000 sum";
 
-            ServiceList = new List<string>();
+            ServiceTypeList = new List<string>();
             CurrencyList = new List<string>();
             QQSList = new List<string>();
 
@@ -66,6 +68,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 created_date = ""
            };
             createContract.service_list = new List<Net.ServicesInfo>();
+
             foreach (ServicesInfo item in ServicesList)
             {
                 Net.ServicesInfo newItem = new Net.ServicesInfo()
@@ -93,7 +96,16 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         public void AddService(ServicesInfo service)
         {
+            service.SelectedCurrency = SelectedCurrency;
             this.ServicesList.Add(service);
+        }
+
+        public void UpdateServiceList()
+        {
+            foreach (ServicesInfo item in ServicesList)
+            {
+                item.SelectedCurrency = SelectedCurrency;
+            }
         }
 
         public void RemoveService(ServicesInfo service)

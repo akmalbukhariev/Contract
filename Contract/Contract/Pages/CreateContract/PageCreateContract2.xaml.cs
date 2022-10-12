@@ -14,16 +14,17 @@ namespace Contract.Pages.CreateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCreateContract2 : IPage
     {
-        private bool yes1 = false;
+        private bool yes1 = true;
         
         public PageCreateContract2(Net.CompanyInfo companyInfo)
         {
             InitializeComponent();
 
             SetModel(new PageCreateContract2ViewModel(Navigation, companyInfo));
-            YesNo1_Tapped(null, null); 
+            YesNo1_Tapped(null, null);
+            ControlApp.EventCurrencyCostChanged += UpdateTotalCost;
         }
-
+         
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -32,6 +33,12 @@ namespace Contract.Pages.CreateContract
             lbStep.Text = RSC.Step + " #2";
             PModel.CurrencyList = GetCurrentList;
             PModel.QQSList = GetQQSList;
+
+            if (PModel.CurrencyList.Count > 0)
+                PModel.SelectedCurrency = PModel.CurrencyList[0];
+
+            if (PModel.QQSList.Count > 0)
+                PModel.SelectedQQS = PModel.QQSList[0];
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -61,6 +68,7 @@ namespace Contract.Pages.CreateContract
             if (item.AmountText == "0") return;
 
             item.AmountText = (int.Parse(item.AmountText) - 1).ToString();
+            UpdateTotalCost();
         }
 
         private void Plus_Clicked(object sender, EventArgs e)
@@ -69,6 +77,7 @@ namespace Contract.Pages.CreateContract
             if (item == null) return;
 
             item.AmountText = (int.Parse(item.AmountText) + 1).ToString();
+            UpdateTotalCost();
         }
          
         private void AddCopy_Stack_Tapped(object sender, EventArgs e)
@@ -80,6 +89,7 @@ namespace Contract.Pages.CreateContract
 
             ServicesInfo service = new ServicesInfo(item);
             PModel.AddService(service);
+            UpdateTotalCost();
         }
          
         private void AddEmpty_Stack_Tapped(object sender, EventArgs e)
@@ -92,6 +102,7 @@ namespace Contract.Pages.CreateContract
             ServicesInfo service = new ServicesInfo();
             service.Index = item.Index + 1;
             PModel.AddService(service);
+            UpdateTotalCost();
         }
           
         private void Delete_Stack_Tapped(object sender, EventArgs e)
@@ -104,6 +115,18 @@ namespace Contract.Pages.CreateContract
             if (item == null) return;
 
             PModel.RemoveService(item);
+            UpdateTotalCost();
+        }
+
+        private void UpdateTotalCost()
+        {
+            int cost = 0;
+            foreach (ServicesInfo item in PModel.ServicesList)
+            {
+                cost += item.CalcTotalCost();
+            }
+
+            PModel.TotalCostText = $"{cost.ToString()} {PModel.SelectedCurrency}";
         }
 
         async void ChangeBoxColor(BoxView boxView)
@@ -135,7 +158,8 @@ namespace Contract.Pages.CreateContract
 
         private void Currency_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            PModel.UpdateServiceList();
+            UpdateTotalCost();
         }
     }
 }

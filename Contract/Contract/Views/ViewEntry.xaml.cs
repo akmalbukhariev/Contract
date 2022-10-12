@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Contract.Control;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -259,31 +260,7 @@ namespace Contract.Views
             }
         }
         #endregion
-
-        #region Keybord
-        public static readonly BindableProperty KeyboardProperty =
-            BindableProperty.Create(nameof(Keyboard),
-                                    typeof(Keyboard),
-                                    typeof(ViewEntry),
-                                    null,
-                                    propertyChanged: KeyboardPropertyChanged);
-
-        public Keyboard Keyboard
-        {
-            get { return (Keyboard)GetValue(KeyboardProperty); }
-            set { SetValue(KeyboardProperty, value); }
-        }
-
-        private static void KeyboardPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var control = (ViewEntry)bindable;
-            if (newValue != null)
-            {
-                control.entry.Keyboard = (Keyboard)newValue;
-            }
-        }
-        #endregion
-
+          
         #region MaxLength
         public static readonly BindableProperty MaxLengthProperty =
             BindableProperty.Create(nameof(MaxLength),
@@ -371,15 +348,75 @@ namespace Contract.Views
         }
         #endregion
 
+        #region Keyboard
+        public static readonly BindableProperty KeyboardSettingProperty =
+           BindableProperty.Create(nameof(KeyboardSetting),
+                                   typeof(Keyboard),
+                                   typeof(ViewEntry),
+                                   defaultValue: Keyboard.Default,
+                                   defaultBindingMode: BindingMode.TwoWay);
+
+        public Keyboard KeyboardSetting
+        {
+            get { return (Keyboard)GetValue(KeyboardSettingProperty); }
+            set { SetValue(KeyboardSettingProperty, value); }
+        }
+        #endregion
+
+        #region TextChanged
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(ViewEntry), null);
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(ViewEntry), null);
+
+        public event EventHandler<TextChangedEventArgs> TextChanged;
+
+        public ICommand Command
+        {
+            get { return (ICommand)GetValue(CommandProperty); }
+            set { SetValue(CommandProperty, value); }
+        }
+
+        public object CommandParameter
+        {
+            get { return GetValue(CommandParameterProperty); }
+            set { SetValue(CommandParameterProperty, value); }
+        }
+        #endregion
+
         public Entry Entry => entry;
           
         public ViewEntry()
         {
             InitializeComponent();
-             
+
+            this.entry.TextChanged += Entry_TextChanged;
+
             this.entry.TextColorForIOS = Color.White;
+            this.entry.SetBinding(Entry.KeyboardProperty, new Binding(nameof(KeyboardSetting), source: this));
             this.entry.SetBinding(Entry.TextProperty, new Binding(nameof(Text), source: this));
             this.entry.SetBinding(Entry.IsPasswordProperty, new Binding(nameof(IsPassword), source: this));
-        } 
+        }
+
+        private void Entry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ControlApp.Instance.ChangedCurrentPrice();
+            #region 
+            //object resolvedParameter;
+
+            //if (CommandParameter != null)
+            //{
+            //    resolvedParameter = CommandParameter;
+            //}
+            //else
+            //{
+            //    resolvedParameter = e;
+            //}
+
+            //if (Command?.CanExecute(resolvedParameter) ?? true)
+            //{
+            //    TextChanged?.Invoke(this, e);
+            //    Command?.Execute(resolvedParameter);
+            //}
+            #endregion
+        }
     }
 }

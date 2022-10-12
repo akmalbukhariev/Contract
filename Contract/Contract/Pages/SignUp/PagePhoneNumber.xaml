@@ -25,7 +25,7 @@
                        Style="{StaticResource lbBoldTitle}"/>
                 <view:ViewEntry x:Name="entry" 
                                 PlaceHoldingText="998"
-                                Keyboard="Numeric"
+                                KeyboardSetting="Numeric"
                                 HorizontalTextAlignment="Start"
                                 Style="{StaticResource viewEntryStyle}"/>
                 <view:ViewExplanation Text="{x:Static resource:AppResource.SignUpDescription}"/>

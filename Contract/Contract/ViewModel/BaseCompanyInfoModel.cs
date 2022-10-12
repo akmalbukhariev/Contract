@@ -38,6 +38,34 @@ namespace Contract.ViewModel
             PositionList = new List<string>();
         }
 
+        public bool IsFieildEmpty()
+        {
+            bool res1 = (string.IsNullOrEmpty(CompanyName?.Trim()) ||
+                         string.IsNullOrEmpty(AddressOfCompany?.Trim()) ||
+                         string.IsNullOrEmpty(AccountNumber?.Trim()) ||
+                         string.IsNullOrEmpty(CompanyStir?.Trim()) ||
+                         string.IsNullOrEmpty(NameOfBank?.Trim()) ||
+                         string.IsNullOrEmpty(BankCode?.Trim()) ||
+                         string.IsNullOrEmpty(PhoneNnumberOfCompany?.Trim()) ||
+                         string.IsNullOrEmpty(PositionOfSignatory?.Trim()) ||
+                         string.IsNullOrEmpty(FullNameOfSignatory?.Trim()));
+
+            bool res2 = AreYouQQSPayer;
+            bool res3 = IsAccountProvided;
+            bool res4 = IsCounselProvided;
+
+            if (AreYouQQSPayer)
+                res2 = string.IsNullOrEmpty(QQSCode?.Trim());
+
+            if (IsAccountProvided)
+                res3 = string.IsNullOrEmpty(AccountantName?.Trim());
+
+            if (IsCounselProvided)
+                res4 = string.IsNullOrEmpty(CounselName?.Trim());
+
+            return (res1 || res2 || res3 || res4);
+        }
+
         public Net.CompanyInfo GetCompanyInfo()
         {
             return new Net.CompanyInfo()

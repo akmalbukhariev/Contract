@@ -76,7 +76,7 @@
                         <Label Text="{x:Static resource:AppResource.SelectServiceType}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.SelectServiceTypeTitle}"
-                                              ItemsSource="{Binding ServiceList}"
+                                              ItemsSource="{Binding ServiceTypeList}"
                                               SelectedItem="{Binding SelectedServiceType}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
@@ -134,14 +134,21 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <view:ViewEntry x:Name="entTax" 
-                                    PlaceHoldingText="-- %"
-                                    Text="{Binding InterestText}"
-                                    Style="{StaticResource entryStyle}"
-                                    Grid.Row="7"/>
+                    <Grid x:Name="entTax" Grid.Row="7">
+                        <view:ViewEntry KeyboardSetting="Numeric"
+                                        PlaceHoldingText="--"
+                                        Text="{Binding InterestText}"
+                                        Style="{StaticResource entryStyle}"/>
+                        <Label Text="%"
+                               TextColor="Black"
+                               FontSize="20"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               Margin="0,0,15,0"/>
+                    </Grid>
                     <Line BackgroundColor="Gray"
                           Grid.Row="8"/>
-
+                    
                     <StackLayout x:Name="MyItems"
                                  BindableLayout.ItemsSource="{Binding ServicesList}"
                                  Grid.Row="9"
@@ -216,9 +223,17 @@
                                     <StackLayout>
                                         <Label Text="{x:Static resource:AppResource.Info2}" 
                                                Style="{StaticResource lbBlackStyle}"/>
-                                        <view:ViewEntry Text="{Binding PriceText}"
-                                                        IsEnabled="False"
-                                                        Style="{StaticResource entryStyle}"/>
+                                        <Grid>
+                                            <view:ViewEntry Text="{Binding AmountOfPrice}"
+                                                            KeyboardSetting="Numeric"
+                                                            Style="{StaticResource entryStyle}"/>
+                                            <Label Text="{Binding SelectedCurrency}"
+                                                   TextColor="Black"
+                                                   FontSize="16"
+                                                   HorizontalOptions="End"
+                                                   VerticalOptions="Center"
+                                                   Margin="0,0,15,0"/>
+                                        </Grid>
                                     </StackLayout>
                                     <Grid ColumnDefinitions="75,*,75,*,75"
                                           RowDefinitions="70"
@@ -270,7 +285,6 @@
                              </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-
 
                     <Line BackgroundColor="Gray"
                           Grid.Row="14"/>

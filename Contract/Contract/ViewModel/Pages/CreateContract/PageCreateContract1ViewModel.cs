@@ -16,10 +16,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         public string FirstLetter { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyImage { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyName { get => GetValue<string>(); set => SetValue(value); }
-        public string ClientCompanyStir { get => GetValue<string>(); set => SetValue(value); }
-        //public bool OpenClientInfo { get => GetValue<bool>(); set => SetValue(value); }
-        //public bool OpenSearchClient { get => GetValue<bool>(); set => SetValue(value); } 
-         
+        public string ClientCompanyStir { get => GetValue<string>(); set => SetValue(value); } 
         #endregion
 
         public PageCreateContract1ViewModel(INavigation navigation) : base(navigation)
@@ -34,6 +31,20 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         private async void Save()
         {
+            #region Check
+            //if (!ControlApp.OpenClientInfo && ControlApp.OpenSearchClient && ControlApp.SelectedClientCompanyInfo == null)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Please} {RSC.SelectClientCompany}", RSC.Ok);
+            //    return;
+            //}
+
+            //if (!ControlApp.OpenClientInfo && !ControlApp.OpenSearchClient && !IsFieildEmpty())
+            //{
+
+            //    return;
+            //} 
+            #endregion
+
             SetTransitionType();
             await Navigation.PushAsync(new PageCreateContract2(GetCompanyInfo()));
         }
