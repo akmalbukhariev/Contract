@@ -1,8 +1,8 @@
 ﻿using ContractAPI.CompanyInformation.service;
 using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using ContractAPI.Models;
 
 namespace ContractAPI.CompanyInformation.api
 {

@@ -1,8 +1,8 @@
 ﻿using ContractAPI.Controllers.UnapprovedContracts.service;
 using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using ContractAPI.UnapprovedContracts.service.impl;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

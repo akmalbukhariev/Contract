@@ -1,7 +1,7 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -79,7 +79,7 @@ namespace ContractAPI.CanceledContractInfo.service.impl
             response.data = null;
 
             CanceledContract found = await dataBase.CanceledContracts
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.date_of_contract.Equals(info.date_of_contract))
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.created_date.Equals(info.created_date))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 

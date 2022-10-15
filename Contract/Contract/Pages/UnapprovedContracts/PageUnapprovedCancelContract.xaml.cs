@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.UnapprovedContracts;
+﻿using Contract.HttpModels;
+using Contract.ViewModel.Pages.UnapprovedContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Contract.Pages.UnapprovedContracts
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageUnapprovedCancelContract : IPage
     {
-        public PageUnapprovedCancelContract(Net.CanceledContract canceledContract)
+        public PageUnapprovedCancelContract(CanceledContract canceledContract)
         {
             InitializeComponent();
 

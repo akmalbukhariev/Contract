@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Contract.HttpResponse;
 using Contract.Model;
 using Xamarin.Forms;
 
@@ -83,13 +84,13 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             this.DataList.Clear();
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            Net.ResponseCanceledContract response = await Net.HttpService.GetCanceledContract(ControlApp.UserInfo.phone_number);
+            ResponseCanceledContract response = await Net.HttpService.GetCanceledContract(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
             if (response.result)
             {
                 int no = 0;
-                foreach (Net.CanceledContract info in response.data)
+                foreach (HttpModels.CanceledContract info in response.data)
                 {
                     no++;
                     CanceledContract item = new CanceledContract()
@@ -97,10 +98,10 @@ namespace Contract.ViewModel.Pages.CanceledContracts
                         No = $"{no.ToString()}.",
                         Preparer = info.preparer,
                         ContractNnumber = info.contract_number,
-                        CompanyName = info.company_contractor_name,
-                        ContractDate = info.date_of_contract,
-                        ContractPrice = info.contract_price,
-                        ContractPayment = info.payment_percent,
+                        //CompanyName = info.company_contractor_name,
+                        //ContractDate = info.date_of_contract,
+                        //ContractPrice = info.contract_price,
+                        //ContractPayment = info.payment_percent,
                         CommentText = info.comment,
                         ContractPaymentColor = Color.FromHex("#C5E0B3"),
                         ItemColor = Color.FromHex("#DEEAF6"),

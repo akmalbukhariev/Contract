@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ContractAPI.Models
+namespace Contract.HttpModels
 {
     public class PurposeOfContract
     {
-		public string user_phone_number { get; set; }
+        public string user_phone_number { get; set; }
 		public string specify_service_type { get; set; }
 		public string contract_number { get; set; }
 		public string contract_currency { get; set; }

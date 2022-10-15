@@ -1,7 +1,7 @@
 ﻿using ContractAPI.AppInfo.service;
 using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Response;
+using Contract.HttpResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

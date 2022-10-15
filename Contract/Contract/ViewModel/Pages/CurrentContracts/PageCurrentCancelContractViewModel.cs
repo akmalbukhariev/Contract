@@ -1,4 +1,5 @@
-﻿using Contract.Net;
+﻿using Contract.HttpResponse;
+using Contract.Net;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,8 +13,8 @@ namespace Contract.ViewModel.Pages.CurrentContracts
         public string ContractNumber { get => GetValue<string>(); set => SetValue(value); }
         public string CommentText { get => GetValue<string>(); set => SetValue(value); }
 
-        private CanceledContract CanceledContractInfo;
-        public PageCurrentCancelContractViewModel(CanceledContract canceledContract, INavigation navigation) : base(navigation)
+        private HttpModels.CanceledContract CanceledContractInfo;
+        public PageCurrentCancelContractViewModel(HttpModels.CanceledContract canceledContract, INavigation navigation) : base(navigation)
         {
             CanceledContractInfo = canceledContract;
             ContractNumber = $" {canceledContract.contract_number} ";
@@ -30,7 +31,7 @@ namespace Contract.ViewModel.Pages.CurrentContracts
                 return;
             }
 
-            CanceledContract data = new CanceledContract();
+            HttpModels.CanceledContract data = new HttpModels.CanceledContract();
             data.Copy(CanceledContractInfo);
             data.comment = CommentText;
 

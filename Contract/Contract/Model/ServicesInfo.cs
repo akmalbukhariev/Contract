@@ -12,6 +12,7 @@ namespace Contract.Model
         public int Index { get => GetValue<int>(); set => SetValue(value); }
         public string NameOfService { get => GetValue<string>(); set => SetValue(value); }
         public string SelectedMeasure { get => GetValue<string>(); set => SetValue(value); }
+        public int SelectedMeasure_index { get => GetValue<int>(); set => SetValue(value); }
         public string AmountText { get => GetValue<string>(); set => SetValue(value); }
         public string AmountOfPrice { get => GetValue<string>(); set => SetValue(value); }
         public string SelectedCurrency { get => GetValue<string>(); set => SetValue(value); }
@@ -25,6 +26,8 @@ namespace Contract.Model
             AmountOfPrice = "1";
             SelectedCurrency = "";
             MeasureList = GetMeasureList;
+            SelectedMeasure = "";
+            SelectedMeasure_index = 0;
 
             if (MeasureList.Count > 0)
                 SelectedMeasure = MeasureList[0];
@@ -43,7 +46,8 @@ namespace Contract.Model
             this.AmountOfPrice = other.AmountOfPrice;
             this.SelectedCurrency = other.SelectedCurrency;
             this.MeasureList = other.MeasureList;
-            this.SelectedCurrency = other.SelectedCurrency;
+            this.SelectedMeasure = other.SelectedMeasure;
+            this.SelectedMeasure_index = other.SelectedMeasure_index;
         }
 
         public int CalcTotalCost()
@@ -62,17 +66,17 @@ namespace Contract.Model
 
                 switch (AppSettings.GetLanguage())
                 {
-                    case Constant.LanUz:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_uz]).ToList();
+                    case Constants.LanUz:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_uz]).ToList();
                         break;
-                    case Constant.LanUzCyrl:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_uz_cyrl]).ToList();
+                    case Constants.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_uz_cyrl]).ToList();
                         break;
-                    case Constant.LanEn:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_en]).ToList();
+                    case Constants.LanEn:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_en]).ToList();
                         break;
-                    case Constant.LanRu:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_ru]).ToList();
+                    case Constants.LanRu:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_ru]).ToList();
                         break;
                 }
 

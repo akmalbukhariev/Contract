@@ -1,7 +1,7 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -85,16 +85,45 @@ namespace ContractAPI.ContractInfo.service.impl
         {
             ResponseCreateContract response = new ResponseCreateContract();
 
-            ClientCompanyInfo newInfo1 = new ClientCompanyInfo(info.client_company_info);
-            newInfo1.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            CreateContractInfo contractNumber = await dataBase.CreateContractInfo
+                .Where(item => item.contract_number.Equals(info.contract_info.contract_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
+            if (contractNumber != null)
+            {
+                response.message = "Contract number is exist.";
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            ClientCompanyInfo stirNumber = await dataBase.ClientCompanyInfo
+                .Where(item => item.stir_of_company.Equals(info.client_company_info.stir_of_company))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (stirNumber == null)
+            {
+                ContractMakerContext contect1 = dataBase.CreateNew();
+
+                ClientCompanyInfo newInfo1 = new ClientCompanyInfo(info.client_company_info);
+                newInfo1.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+                contect1.ClientCompanyInfo.Add(newInfo1);
+                try
+                {
+                    await contect1.SaveChangesAsync();
+                }
+                catch(Exception ex)
+                {
+                    response.message = ex.Message;
+                    response.error_code = (int)HttpStatusCode.BadRequest;
+                    return response;
+                }
+            }
+            
             CreateContractInfo newInfo2 = new CreateContractInfo(info.contract_info);
             newInfo2.created_date = DateTime.Now.ToString(Constants.TimeFormat);
-
-            ContractMakerContext contect1 = dataBase.CreateNew();
             ContractMakerContext contect2 = dataBase.CreateNew();
-
-            contect1.ClientCompanyInfo.Add(newInfo1);
             contect2.CreateContractInfo.Add(newInfo2);
 
             foreach (ServicesInfo item in info.service_list)
@@ -108,7 +137,6 @@ namespace ContractAPI.ContractInfo.service.impl
 
             try
             {
-                await contect1.SaveChangesAsync();
                 await contect2.SaveChangesAsync();
             }
             catch (Exception ex)

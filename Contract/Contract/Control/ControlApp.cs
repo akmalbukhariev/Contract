@@ -1,4 +1,5 @@
-﻿using Acr.UserDialogs; 
+﻿using Acr.UserDialogs;
+using Contract.HttpModels;
 using System; 
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -23,9 +24,10 @@ namespace Contract.Control
   
         private static ControlApp _instance = null;
 
-        public Net.CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
-        public Net.Login LoginInfo { get; set; } = new Net.Login();
-        public Net.User UserInfo { get; set; }
+        public CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
+        public CompanyInfo UserCompanyInfo { get; set; } = new CompanyInfo();
+        public Login LoginInfo { get; set; } = new Login();
+        public User UserInfo { get; set; }
         public bool OpenClientInfo { get; set; }
         public bool OpenSearchClient { get; set; }
         private ControlApp()

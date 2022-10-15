@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Contract
 {
-    public class Constant
+    public class Constants
     {
         #region Language
         public const string LanUz = "Uzbek";
@@ -56,5 +56,11 @@ namespace Contract
         public const string PositionList_uz = "positionList_uz";
         public const string PositionList_ru = "positionList_ru";
         public const string PositionList_en = "positionList_en";
+
+        public const string Success = "Success";
+        public const string NotFound = "Not Found!";
+        public const string BadRequest = "Bad Request!";
+        public const string DoNotExist = "Do not exist!";
+        public const string Exist = "Exist!";
     }
 }

@@ -1,6 +1,6 @@
 ﻿using ContractAPI.DataAccess;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

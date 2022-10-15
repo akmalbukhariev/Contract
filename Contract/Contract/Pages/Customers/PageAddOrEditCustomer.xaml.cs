@@ -35,7 +35,7 @@ namespace Contract.Pages.Customers
             imYesNo3.Source = GetYesNoIcon(true);
 
             PModel.LogoImageStr = "";
-            AppSettings.SetLanguage(Constant.LanEn);
+            AppSettings.SetLanguage(Constants.LanEn);
         }
 
         protected override void OnAppearing()

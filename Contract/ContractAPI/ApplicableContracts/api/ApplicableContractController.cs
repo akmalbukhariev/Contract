@@ -1,8 +1,8 @@
 ﻿using ContractAPI.ApplicableContracts.service;
 using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

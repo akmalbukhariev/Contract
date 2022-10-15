@@ -125,6 +125,7 @@
                         <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
                                               ItemsSource="{Binding PositionList}"
                                               SelectedItem="{Binding PositionOfSignatory}"
+                                              SelectedIndex="{Binding PositionOfSignatory_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"

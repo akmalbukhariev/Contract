@@ -110,7 +110,7 @@ namespace Contract.Pages.CreateContract
             if (sender != null)
                 ControlApp.Vibrate();
 
-            ControlApp.OpenSearchClient = yes1;
+            ControlApp.OpenSearchClient = yes2;
         }
 
         private void YesNo3_Tapped(object sender, EventArgs e)
@@ -214,6 +214,5 @@ namespace Contract.Pages.CreateContract
                 return Model as PageCreateContract1ViewModel;
             }
         }
-
     }
 }

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ContractAPI.Models
+namespace Contract.HttpModels
 {
-    public class UserCompanyInfo : CompanyInfo
+    public class ClientCompanyInfo : CompanyInfo
     {
-        public UserCompanyInfo()
+        public ClientCompanyInfo()
         {
             
         }
 
-        public UserCompanyInfo(CompanyInfo other)
+        public ClientCompanyInfo(CompanyInfo other)
         {
             Copy(other);
         }

@@ -49,11 +49,11 @@
                 </StackLayout>
                 <StackLayout Grid.Row="1">
                     <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbFinishStyle}"/>
-                    <Label x:Name="lnContractNumber" Text="22-01-1234" Style="{StaticResource lbFinishBoldStyle}"/>
+                    <Label x:Name="lbContractNumber" Text="22-01-1234" Style="{StaticResource lbFinishBoldStyle}"/>
                 </StackLayout>
                 <StackLayout Grid.Row="2">
                     <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbFinishStyle}"/>
-                    <Label x:Name="lnContractPrice" Text="123,000" Style="{StaticResource lbFinishBoldStyle}"/> 
+                    <Label x:Name="lbContractPrice" Text="123,000" Style="{StaticResource lbFinishBoldStyle}"/> 
                 </StackLayout>
             </Grid>
             <Grid ColumnDefinitions="80,*,80,*,80"

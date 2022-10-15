@@ -1,7 +1,7 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using ContractAPI.Models;
-using ContractAPI.Response;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -116,7 +116,7 @@ namespace ContractAPI.ApplicableContracts.service.impl
             ApplicableContract found = await dataBase.ApplicableContracts.AsNoTracking()
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number) &&
                                item.contract_number.Equals(info.contract_number) &&
-                               item.date_of_contract.Equals(info.date_of_contract)).FirstOrDefaultAsync();
+                               item.date_of_contract.Equals(info.created_date)).FirstOrDefaultAsync();
             if (found == null)
             {
                 response.data = null;
@@ -133,9 +133,9 @@ namespace ContractAPI.ApplicableContracts.service.impl
                 user_phone_number = info.user_phone_number,
                 preparer = info.preparer,
                 contract_number = info.contract_number,
-                company_contractor_name = info.company_contractor_name,
-                date_of_contract = info.date_of_contract,
-                contract_price = info.contract_price
+                //company_contractor_name = info.company_contractor_name,
+                //date_of_contract = info.date_of_contract,
+                //contract_price = info.contract_price
             };
             dataBase.ApplicableContracts.Remove(found);
 

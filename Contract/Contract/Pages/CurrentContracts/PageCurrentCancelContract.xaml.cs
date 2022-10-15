@@ -1,4 +1,5 @@
-﻿using Contract.ViewModel.Pages.CurrentContracts;
+﻿using Contract.HttpModels;
+using Contract.ViewModel.Pages.CurrentContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Contract.Pages.CurrentContracts
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCurrentCancelContract : IPage
     {
-        public PageCurrentCancelContract(Net.CanceledContract canceledContract)
+        public PageCurrentCancelContract(CanceledContract canceledContract)
         {
             InitializeComponent();
 

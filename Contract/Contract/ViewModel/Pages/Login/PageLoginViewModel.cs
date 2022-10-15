@@ -1,4 +1,5 @@
 ﻿using Contract.Control;
+using Contract.HttpResponse;
 using Contract.Net;
 using Contract.Pages;
 using Contract.Pages.SignUp;
@@ -30,7 +31,7 @@ namespace Contract.ViewModel.Pages.Login
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
 
-            var data = new Net.Login()
+            var data = new HttpModels.Login()
             {
                 phone_number = PhoneNumber,
                 password = Password

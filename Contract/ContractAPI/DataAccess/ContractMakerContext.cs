@@ -1,5 +1,5 @@
 ﻿
-using ContractAPI.Models;
+using Contract.HttpModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -60,7 +60,7 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<ApplicableContract>().HasKey(r => r.date_of_contract);
 
             modelBuilder.Entity<CanceledContract>().ToTable("CanceledContracts");
-            modelBuilder.Entity<CanceledContract>().HasKey(r => r.date_of_contract);
+            modelBuilder.Entity<CanceledContract>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<AboutApp>().ToTable("AboutApp");
             modelBuilder.Entity<AboutApp>().HasKey(r => r.lan_code);

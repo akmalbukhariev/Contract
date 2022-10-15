@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Contract.HttpResponse;
 using Contract.Model;
 using Contract.Pages.UnapprovedContracts;
 using Xamarin.Forms;
@@ -96,13 +97,13 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
             this.DataList.Clear();
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            Net.ResponseUnapprovedContract response = await Net.HttpService.GetUnapprovedContract(ControlApp.UserInfo.phone_number);
+            ResponseUnapprovedContract response = await Net.HttpService.GetUnapprovedContract(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
             if (response.result)
             {
                 int no = 0;
-                foreach (Net.UnapprovedContract info in response.data)
+                foreach (HttpModels.UnapprovedContract info in response.data)
                 {
                     no++;
                     UnapprovedContract item = new UnapprovedContract()

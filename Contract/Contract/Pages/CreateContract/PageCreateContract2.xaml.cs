@@ -16,7 +16,7 @@ namespace Contract.Pages.CreateContract
     {
         private bool yes1 = true;
         
-        public PageCreateContract2(Net.CompanyInfo companyInfo)
+        public PageCreateContract2(HttpModels.CompanyInfo companyInfo)
         {
             InitializeComponent();
 

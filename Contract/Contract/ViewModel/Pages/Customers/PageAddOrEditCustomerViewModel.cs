@@ -1,4 +1,5 @@
-﻿using Contract.Net;
+﻿using Contract.HttpResponse;
+using Contract.Net;
 using System;
 using System.Collections.Generic;
 using System.Text;

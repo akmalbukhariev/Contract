@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ContractAPI.Response
+namespace Contract.HttpResponse
 {
     public class Response
     {

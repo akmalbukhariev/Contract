@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.HttpModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
@@ -17,6 +18,7 @@ namespace Contract.ViewModel
         public string QQSCode { get => GetValue<string>(); set => SetValue(value); }
         public string PhoneNnumberOfCompany { get => GetValue<string>(); set => SetValue(value); }
         public string PositionOfSignatory { get => GetValue<string>(); set => SetValue(value); }
+        public int PositionOfSignatory_index { get => GetValue<int>(); set => SetValue(value); }
         public string FullNameOfSignatory { get => GetValue<string>(); set => SetValue(value); }
         public bool IsAccountProvided { get => GetValue<bool>(); set => SetValue(value); }
         public string AccountantName { get => GetValue<string>(); set => SetValue(value); }
@@ -66,9 +68,9 @@ namespace Contract.ViewModel
             return (res1 || res2 || res3 || res4);
         }
 
-        public Net.CompanyInfo GetCompanyInfo()
+        public CompanyInfo GetCompanyInfo()
         {
-            return new Net.CompanyInfo()
+            return new CompanyInfo()
             {
                 user_phone_number = "12",
                 company_name = CompanyName,
@@ -81,6 +83,7 @@ namespace Contract.ViewModel
                 qqs_number = QQSCode,
                 company_phone_number = PhoneNnumberOfCompany,
                 position_of_signer = PositionOfSignatory,
+                position_of_signer_index = PositionOfSignatory_index,
                 name_of_signer = FullNameOfSignatory,
                 is_accountant_provided = IsAccountProvided ? 1 : 0,
                 accountant_name = AccountantName,

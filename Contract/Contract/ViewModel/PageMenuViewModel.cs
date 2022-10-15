@@ -25,89 +25,89 @@ namespace Contract.ViewModel
 
             Menu menu1 = new Menu() 
             {
-                ID = Constant.Menu1,
+                ID = Constants.Menu1,
                 MenuHeight = 205,
                 HImage = "contracts",
                 HText = RSC.AllContracts,
                 HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
-                    new ChildMenuItem(){ID = Constant.Menu1_1, Name = RSC.UnapprovedContracts1},
-                    new ChildMenuItem(){ID = Constant.Menu1_2, Name = RSC.ApplicableContracts1},
-                    new ChildMenuItem(){ID = Constant.Menu1_3, Name = RSC.CanceledContracts},
-                    new ChildMenuItem(){ID = Constant.Menu1_4, Name = RSC.CreateContract}
+                    new ChildMenuItem(){ID = Constants.Menu1_1, Name = RSC.UnapprovedContracts1},
+                    new ChildMenuItem(){ID = Constants.Menu1_2, Name = RSC.ApplicableContracts1},
+                    new ChildMenuItem(){ID = Constants.Menu1_3, Name = RSC.CanceledContracts},
+                    new ChildMenuItem(){ID = Constants.Menu1_4, Name = RSC.CreateContract}
                 }
             };
 
             Menu menu2 = new Menu()
             {
-                ID = Constant.Menu2,
+                ID = Constants.Menu2,
                 HImage = "statistics",
                 HText = RSC.ProfitAndLoss
             };
 
             Menu menu3 = new Menu()
             {
-                ID = Constant.Menu3,
+                ID = Constants.Menu3,
                 HImage = "clients",
                 HText = RSC.Customers
             };
 
             Menu menu4 = new Menu() 
             {
-                ID = Constant.Menu4,
+                ID = Constants.Menu4,
                 MenuHeight = 190,
                 HImage = "templates",
                 HText = RSC.Templates,
                 HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
-                    new ChildMenuItem(){ID = Constant.Menu4_1, Name = RSC.ContractTemplates},
-                    new ChildMenuItem(){ID = Constant.Menu4_2, Name = RSC.CreatingContractTemplate},
-                    new ChildMenuItem(){ID = Constant.Menu4_3, Name = RSC.ContractNumberSequence},
-                    new ChildMenuItem(){ID = Constant.Menu4_4, Name = RSC.CreateContractNumber}
+                    new ChildMenuItem(){ID = Constants.Menu4_1, Name = RSC.ContractTemplates},
+                    new ChildMenuItem(){ID = Constants.Menu4_2, Name = RSC.CreatingContractTemplate},
+                    new ChildMenuItem(){ID = Constants.Menu4_3, Name = RSC.ContractNumberSequence},
+                    new ChildMenuItem(){ID = Constants.Menu4_4, Name = RSC.CreateContractNumber}
                 }
             };
 
             Menu menu5 = new Menu() 
             {
-                ID = Constant.Menu5,
+                ID = Constants.Menu5,
                 MenuHeight = 160,
                 HImage = "profile",
                 HText = RSC.PersonalCabinet,
                 HShowImage = "showMenu",
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
-                    new ChildMenuItem(){ID = Constant.Menu5_1, Name = RSC.EditRequisiteInformation},
-                    new ChildMenuItem(){ID = Constant.Menu5_2, Name = RSC.EditAccountPassword},
-                    new ChildMenuItem(){ID = Constant.Menu5_3, Name = RSC.CompanyLogo}
+                    new ChildMenuItem(){ID = Constants.Menu5_1, Name = RSC.EditRequisiteInformation},
+                    new ChildMenuItem(){ID = Constants.Menu5_2, Name = RSC.EditAccountPassword},
+                    new ChildMenuItem(){ID = Constants.Menu5_3, Name = RSC.CompanyLogo}
                 }
             };
 
             Menu menu6 = new Menu()
             {
-                ID = Constant.Menu6,
+                ID = Constants.Menu6,
                 HImage = "settings",
                 HText = RSC.Settings
             };
 
             Menu menu7 = new Menu()
             {
-                ID = Constant.Menu7,
+                ID = Constants.Menu7,
                 HImage = "info",
                 HText = RSC.AboutSoftware
             };
 
             Menu menu8 = new Menu()
             {
-                ID = Constant.Menu8,
+                ID = Constants.Menu8,
                 HImage = "support",
                 HText = RSC.ProposalsAndObjections
             };
 
             Menu menu9 = new Menu()
             {
-                ID = Constant.Menu9,
+                ID = Constants.Menu9,
                 HImage = "exit",
                 HText = RSC.SignOut
             };

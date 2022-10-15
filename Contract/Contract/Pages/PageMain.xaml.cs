@@ -44,13 +44,13 @@ namespace Contract.Pages
              
             switch (item.ID)
             {
-                case Constant.Menu1:
+                case Constants.Menu1:
                     OnNavigatePage(new UnapprovedContracts.PageTable()); 
                     break;
-                case Constant.Menu2:
+                case Constants.Menu2:
                     OnNavigatePage(new CurrentContracts.PageCurrentContractTable()); 
                     break;
-                case Constant.Menu3:
+                case Constants.Menu3:
                     OnNavigatePage(new CanceledContracts.PageCanceledTable()); 
                     break;
             }

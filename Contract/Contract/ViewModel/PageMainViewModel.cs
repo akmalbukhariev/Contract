@@ -1,4 +1,5 @@
-﻿using Contract.Model;
+﻿using Contract.HttpResponse;
+using Contract.Model;
 using Contract.Net;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,9 @@ namespace Contract.ViewModel
             TextValue1 = "0";
             TextValue2 = "0";
 
-            MenuList.Add(new ChildMenuItem() {ID = Constant.Menu1, Name = RSC.UnapprovedContracts1 });
-            MenuList.Add(new ChildMenuItem() {ID = Constant.Menu2, Name = RSC.ApplicableContracts1 });
-            MenuList.Add(new ChildMenuItem() {ID = Constant.Menu3, Name = RSC.CanceledContracts });
+            MenuList.Add(new ChildMenuItem() {ID = Constants.Menu1, Name = RSC.UnapprovedContracts1 });
+            MenuList.Add(new ChildMenuItem() {ID = Constants.Menu2, Name = RSC.ApplicableContracts1 });
+            MenuList.Add(new ChildMenuItem() {ID = Constants.Menu3, Name = RSC.CanceledContracts });
         }
 
         public async void RequestInfo()

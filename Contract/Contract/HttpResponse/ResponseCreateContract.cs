@@ -1,12 +1,12 @@
-﻿using ContractAPI.Models;
+﻿using Contract.HttpModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ContractAPI.Response
+namespace Contract.HttpResponse
 {
-    public class ResponseCreateContract : Response
+    public class ResponseCreateContract : Response, IResponse
     {
          
     }

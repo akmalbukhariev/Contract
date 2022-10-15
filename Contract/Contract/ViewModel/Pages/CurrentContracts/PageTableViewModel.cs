@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Contract.HttpResponse;
 using Contract.Model;
 using Xamarin.Forms;
 
@@ -89,13 +90,13 @@ namespace Contract.ViewModel.Pages.CurrentContracts
             this.DataList.Clear();
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            Net.ResponseApplicableContract response = await Net.HttpService.GetApplicableContract(ControlApp.UserInfo.phone_number);
+            ResponseApplicableContract response = await Net.HttpService.GetApplicableContract(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
             if (response.result)
             {
                 int no = 0;
-                foreach (Net.ApplicableContract info in response.data)
+                foreach (HttpModels.ApplicableContract info in response.data)
                 {
                     no++;
                     CurrentContract item = new CurrentContract()

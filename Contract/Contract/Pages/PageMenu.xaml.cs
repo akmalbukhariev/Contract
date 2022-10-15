@@ -43,23 +43,23 @@ namespace Contract.Pages
 
             switch (item.ID)
             {
-                case Constant.Menu1: break;
-                case Constant.Menu2: break;
-                case Constant.Menu3:
+                case Constants.Menu1: break;
+                case Constants.Menu2: break;
+                case Constants.Menu3:
                     OnNavigatePage(new Customers.PageCustomerList());
                     break;
-                case Constant.Menu4: break;
-                case Constant.Menu5: break;
-                case Constant.Menu6:
+                case Constants.Menu4: break;
+                case Constants.Menu5: break;
+                case Constants.Menu6:
                     OnNavigatePage(new Setting.PageSetting());
                     break;
-                case Constant.Menu7:
+                case Constants.Menu7:
                     OnNavigatePage(new Setting.PageAbout());
                     break;
-                case Constant.Menu8:
+                case Constants.Menu8:
                     OnNavigatePage(new Setting.PageSuggestion());
                     break;
-                case Constant.Menu9:
+                case Constants.Menu9:
                     OnShowMenu(false);
                     bool res = await Application.Current.MainPage.DisplayAlert(RSC.SignOut, RSC.SignOutText, RSC.Ok, RSC.Cancel);
                     if (res)
@@ -80,37 +80,37 @@ namespace Contract.Pages
 
             switch (item.ID)
             { 
-                case Constant.Menu1_1: 
+                case Constants.Menu1_1: 
                     OnNavigatePage(new UnapprovedContracts.PageTable());
                     break;
-                case Constant.Menu1_2:
+                case Constants.Menu1_2:
                     OnNavigatePage(new CurrentContracts.PageCurrentContractTable());
                     break;
-                case Constant.Menu1_3:
+                case Constants.Menu1_3:
                     OnNavigatePage(new CanceledContracts.PageCanceledTable());
                     break;
-                case Constant.Menu1_4:
+                case Constants.Menu1_4:
                     OnNavigatePage(new CreateContract.PageCreateContract1());
                     break;
-                case Constant.Menu4_1:
+                case Constants.Menu4_1:
                     OnNavigatePage(new TemplateContract.PageContractTemplate());
                     break;
-                case Constant.Menu4_2:
+                case Constants.Menu4_2:
                     OnNavigatePage(new TemplateContract.PageEditTemplateContract());
                     break;
-                case Constant.Menu4_3:
+                case Constants.Menu4_3:
                     OnNavigatePage(new ContractNumber.PageContractNumberList());
                     break;
-                case Constant.Menu4_4:
+                case Constants.Menu4_4:
                     OnNavigatePage(new ContractNumber.PageChangeContractNumber());
                     break;
-                case Constant.Menu5_1:
+                case Constants.Menu5_1:
                     OnNavigatePage(new EditContract.PageEditPersonalContract());
                     break;
-                case Constant.Menu5_2:
+                case Constants.Menu5_2:
                     OnNavigatePage(new ChangePassword.PageChangePassword());
                     break;
-                case Constant.Menu5_3: break;
+                case Constants.Menu5_3: break;
             }
         }
     }

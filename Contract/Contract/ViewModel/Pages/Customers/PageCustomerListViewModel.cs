@@ -1,4 +1,5 @@
-﻿using Contract.Model;
+﻿using Contract.HttpResponse;
+using Contract.Model;
 using Contract.Net;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,7 @@ namespace Contract.ViewModel.Pages.Customers
 
             if (ResponseClientCompanyInfo.result)
             { 
-                foreach (CompanyInfo info in ResponseClientCompanyInfo.data)
+                foreach (HttpModels.CompanyInfo info in ResponseClientCompanyInfo.data)
                 {
                     Customer item = new Customer()
                     {

@@ -73,15 +73,15 @@ namespace Contract.Pages.UnapprovedContracts
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
-            Net.CanceledContract canceledContract = new Net.CanceledContract()
+            HttpModels.CanceledContract canceledContract = new HttpModels.CanceledContract()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 preparer = item.Preparer,
                 contract_number = item.ContractNnumber,
-                company_contractor_name = item.CompanyName,
-                date_of_contract = item.ContractDate,
-                contract_price = item.ContractPrice,
-                payment_percent = "85%",
+                //company_contractor_name = item.CompanyName,
+                //date_of_contract = item.ContractDate,
+                //contract_price = item.ContractPrice,
+                //payment_percent = "85%",
                 comment = ""
                 
             };

@@ -64,16 +64,16 @@ namespace Contract.Pages
             string strLan = string.Empty;
             switch (AppSettings.GetLanguage())
             {
-                case Constant.LanUz:
+                case Constants.LanUz:
                     strLan = yes ? "uz_Yes" : "uz_No";
                     break;
-                case Constant.LanUzCyrl:
+                case Constants.LanUzCyrl:
                     strLan = yes ? "uzK_Yes" : "uzK_No";
                     break;
-                case Constant.LanEn:
+                case Constants.LanEn:
                     strLan = yes ? "en_Yes" : "en_No";
                     break;
-                case Constant.LanRu:
+                case Constants.LanRu:
                     strLan = yes ? "ru_Yes" : "ru_No";
                     break;
             }
@@ -89,17 +89,17 @@ namespace Contract.Pages
 
                 switch (AppSettings.GetLanguage())
                 {
-                    case Constant.LanUz:
-                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_uz]).ToList();
+                    case Constants.LanUz:
+                        result = ((string[])Application.Current.Resources[Constants.CurrencyList_uz]).ToList();
                         break;
-                    case Constant.LanUzCyrl:
-                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_uz_cyrl]).ToList();
+                    case Constants.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constants.CurrencyList_uz_cyrl]).ToList();
                         break;
-                    case Constant.LanEn:
-                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_en]).ToList();
+                    case Constants.LanEn:
+                        result = ((string[])Application.Current.Resources[Constants.CurrencyList_en]).ToList();
                         break;
-                    case Constant.LanRu:
-                        result = ((string[])Application.Current.Resources[Constant.CurrencyList_ru]).ToList();
+                    case Constants.LanRu:
+                        result = ((string[])Application.Current.Resources[Constants.CurrencyList_ru]).ToList();
                         break;
                 }
 
@@ -111,7 +111,7 @@ namespace Contract.Pages
         {
             get
             { 
-                return ((string[])Application.Current.Resources[Constant.QqsList]).ToList();
+                return ((string[])Application.Current.Resources[Constants.QqsList]).ToList();
             }
         }
 
@@ -123,17 +123,17 @@ namespace Contract.Pages
 
                 switch (AppSettings.GetLanguage())
                 {
-                    case Constant.LanUz:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_uz]).ToList();
+                    case Constants.LanUz:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_uz]).ToList();
                         break;
-                    case Constant.LanUzCyrl:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_uz_cyrl]).ToList();
+                    case Constants.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_uz_cyrl]).ToList();
                         break;
-                    case Constant.LanEn:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_en]).ToList();
+                    case Constants.LanEn:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_en]).ToList();
                         break;
-                    case Constant.LanRu:
-                        result = ((string[])Application.Current.Resources[Constant.MeasureList_ru]).ToList();
+                    case Constants.LanRu:
+                        result = ((string[])Application.Current.Resources[Constants.MeasureList_ru]).ToList();
                         break;
                 }
 
@@ -149,17 +149,17 @@ namespace Contract.Pages
 
                 switch (AppSettings.GetLanguage())
                 {
-                    case Constant.LanUz:
-                        result = ((string[])Application.Current.Resources[Constant.PositionList_uz]).ToList();
+                    case Constants.LanUz:
+                        result = ((string[])Application.Current.Resources[Constants.PositionList_uz]).ToList();
                         break;
-                    case Constant.LanUzCyrl:
-                        result = ((string[])Application.Current.Resources[Constant.PositionList_uz_cyrl]).ToList();
+                    case Constants.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constants.PositionList_uz_cyrl]).ToList();
                         break;
-                    case Constant.LanEn:
-                        result = ((string[])Application.Current.Resources[Constant.PositionList_en]).ToList();
+                    case Constants.LanEn:
+                        result = ((string[])Application.Current.Resources[Constants.PositionList_en]).ToList();
                         break;
-                    case Constant.LanRu:
-                        result = ((string[])Application.Current.Resources[Constant.PositionList_ru]).ToList();
+                    case Constants.LanRu:
+                        result = ((string[])Application.Current.Resources[Constants.PositionList_ru]).ToList();
                         break;
                 }
 

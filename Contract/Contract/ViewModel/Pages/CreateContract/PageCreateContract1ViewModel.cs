@@ -45,8 +45,9 @@ namespace Contract.ViewModel.Pages.CreateContract
             //} 
             #endregion
 
+            HttpModels.CompanyInfo companyInfo = ControlApp.OpenSearchClient ? ControlApp.SelectedClientCompanyInfo : GetCompanyInfo();
             SetTransitionType();
-            await Navigation.PushAsync(new PageCreateContract2(GetCompanyInfo()));
+            await Navigation.PushAsync(new PageCreateContract2(companyInfo));
         }
         #endregion
          

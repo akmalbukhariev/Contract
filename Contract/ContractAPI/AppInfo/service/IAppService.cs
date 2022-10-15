@@ -1,5 +1,5 @@
-﻿using ContractAPI.DataAccess;
-using ContractAPI.Response;
+﻿using Contract.HttpResponse;
+using ContractAPI.DataAccess; 
 using System;
 using System.Collections.Generic;
 using System.Linq;

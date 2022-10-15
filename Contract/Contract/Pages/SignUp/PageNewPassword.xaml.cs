@@ -1,4 +1,5 @@
 ﻿using Contract.Control;
+using Contract.HttpResponse;
 using Contract.Net;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace Contract.Pages.SignUp
                 return;
             }
 
-            var userInfo = new User()
+            var userInfo = new HttpModels.User()
             {
                 phone_number = ControlApp.LoginInfo.phone_number,
                 password = password1.Text,

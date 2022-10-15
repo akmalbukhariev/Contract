@@ -12,9 +12,12 @@ namespace Contract.Pages.CreateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCreateContract3 : IPage
     {
-        public PageCreateContract3()
+        public PageCreateContract3(string contractNumber, string price)
         {
             InitializeComponent();
+
+            lbContractNumber.Text = contractNumber;
+            lbContractPrice.Text = price;
         }
 
         private void View_Tapped(object sender, EventArgs e)

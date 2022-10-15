@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Contract.HttpModels;
+using Contract.HttpResponse;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -116,7 +118,6 @@ namespace Contract.Net
             return responseLogin;
         }
 
-
         #region User company info
         public async static Task<ResponseUserCompanyInfo> GetUserCompanyInfo(string phoneNumbera)
         {
@@ -172,7 +173,6 @@ namespace Contract.Net
             return responseLogin;
         }
         #endregion
-
 
         #region Client company info
         public async static Task<ResponseClientCompanyInfo> GetClientCompanyInfo(string phoneNumbera)
@@ -592,7 +592,7 @@ namespace Contract.Net
         private static T CreateResponseObj<T>() where T : IResponse, new()
         {
             T t = new T();
-            t.Check();
+            //t.Check();
             return t;
         }
 
@@ -601,355 +601,399 @@ namespace Contract.Net
             T t = (T)Convert.ChangeType(response, typeof(T));
             if (t == null)
                 t = new T();
-            t.Check();
+            //t.Check();
 
             return t;
         }
     }
      
-    #region Request
-    public class Login
-    {
-        public string phone_number { get; set; }
-        public string password { get; set; }
-    }
+    //#region Request
+    //public class Login
+    //{
+    //    public string phone_number { get; set; }
+    //    public string password { get; set; }
+    //}
 
-    public class User
-    {
-        public string phone_number { get; set; }
-        public string password { get; set; }
-        public string reg_date { get; set; }
+    //public class User
+    //{
+    //    public string phone_number { get; set; }
+    //    public string password { get; set; }
+    //    public string reg_date { get; set; }
 
-        public void Copy(User other)
-        {
-            this.phone_number = other.phone_number;
-            this.password = other.password;
-            this.reg_date = other.reg_date;
-        }
-    }
+    //    public void Copy(User other)
+    //    {
+    //        this.phone_number = other.phone_number;
+    //        this.password = other.password;
+    //        this.reg_date = other.reg_date;
+    //    }
+    //}
 
-    public class AboutApp
-    {
-        public string lan_code { get; set; }
-        public string text { get; set; }
+    //public class AboutApp
+    //{
+    //    public string lan_code { get; set; }
+    //    public string text { get; set; }
 
-        public void Copy(AboutApp other)
-        {
-            this.lan_code = other.lan_code;
-            this.text = other.text;
-        }
-    }
+    //    public void Copy(AboutApp other)
+    //    {
+    //        this.lan_code = other.lan_code;
+    //        this.text = other.text;
+    //    }
+    //}
 
-    public class ContractTableInfo
-    {
-        public string user_phone_number { get; set; }
-        public string preparer { get; set; }
-        public string contract_number { get; set; }
-        public string company_contractor_name { get; set; }
-        public string date_of_contract { get; set; }
-        public string contract_price { get; set; }
+    //public class BaseContractTableInfo
+    //{
+    //    public string user_phone_number { get; set; }
+    //    public string preparer { get; set; }
+    //    public string contract_number { get; set; }
+    //    public string company_contractor_name { get; set; }
+    //    public string date_of_contract { get; set; }
+    //    public string contract_price { get; set; }
 
-        public void Copy(ContractTableInfo other)
-        {
-            this.user_phone_number = other.user_phone_number;
-            this.preparer = other.preparer;
-            this.contract_number = other.contract_number;
-            this.company_contractor_name = other.company_contractor_name;
-            this.date_of_contract = other.date_of_contract;
-            this.contract_price = other.contract_price;
-        }
-    }
+    //    public void Copy(BaseContractTableInfo other)
+    //    {
+    //        this.user_phone_number = other.user_phone_number;
+    //        this.preparer = other.preparer;
+    //        this.contract_number = other.contract_number;
+    //        this.company_contractor_name = other.company_contractor_name;
+    //        this.date_of_contract = other.date_of_contract;
+    //        this.contract_price = other.contract_price;
+    //    }
+    //}
 
-    public class ApplicableContract : ContractTableInfo
-    {
-        public string payment_percent { get; set; }
+    //public class ApplicableContract : BaseContractTableInfo
+    //{
+    //    public string payment_percent { get; set; }
 
-        public void Copy(ApplicableContract other)
-        {
-            base.Copy(other);
-            this.payment_percent = other.payment_percent;
-        }
-    }
+    //    public void Copy(ApplicableContract other)
+    //    {
+    //        base.Copy(other);
+    //        this.payment_percent = other.payment_percent;
+    //    }
+    //}
 
-    public class CanceledContract : ContractTableInfo
-    {
-        public string comment { get; set; }  
-        public string payment_percent { get; set; }
-        public void Copy(CanceledContract other)
-        {
-            base.Copy(other);
-            this.comment = other.comment;
-            this.payment_percent = other.payment_percent;
-        }
-    }
+    //public class CanceledContract //: ContractTableInfo
+    //{
+    //    public string user_phone_number { get; set; }
+    //    public string preparer { get; set; }
+    //    public string contract_number { get; set; } 
+    //    public string client_company_name { get; set; }
+    //    public string user_company_name { get; set; }
+    //    public string open_client_info { get; set; }
+    //    public string open_search_client { get; set; }
+    //    public string client_stir { get; set; }
+    //    public string service_type { get; set; }
+    //    public int service_type_indx { get; set; }
+    //    public string contract_currency { get; set; }
+    //    public int contract_currency_index { get; set; }
+    //    public string amount_of_qqs { get; set; }
+    //    public string amount_of_qqs_index { get; set; }
+    //    public string is_execise_tax { get; set; }
+    //    public string interest_text { get; set; } 
+    //    public string total_cost_text { get; set; }
+    //    public string agree { get; set; } 
+    //    public string comment { get; set; }
+    //    public string created_date { get; set; }
 
-    public class UnapprovedContract : ContractTableInfo
-    {
-        public void Copy(UnapprovedContract other)
-        {
-            base.Copy(other);
-        }
-    }
+    //    public void Copy(CanceledContract other)
+    //    {
+    //        user_phone_number = other.user_phone_number;
+    //        preparer = other.preparer;
+    //        contract_number = other.contract_number;
+    //        client_company_name = other.client_company_name;
+    //        user_company_name = other.user_company_name;
+    //        open_client_info = other.open_client_info;
+    //        open_search_client = other.open_search_client;
+    //        client_stir = other.client_stir;
+    //        service_type = other.service_type;
+    //        service_type_indx = other.service_type_indx;
+    //        contract_currency = other.contract_currency;
+    //        contract_currency_index = other.contract_currency_index;
+    //        amount_of_qqs = other.amount_of_qqs;
+    //        amount_of_qqs_index = other.amount_of_qqs_index;
+    //        is_execise_tax = other.is_execise_tax;
+    //        interest_text = other.interest_text;
+    //        total_cost_text = other.total_cost_text;
+    //        agree = other.agree;
+    //        comment = other.comment;
+    //        created_date = other.created_date;
+    //    }
+    //}
 
-    public class PurposeOfContract
-    {
-        public string user_phone_number { get; set; }
-        public string specify_service_type { get; set; }
-        public string contract_number { get; set; }
-        public string contract_currency { get; set; }
-        public string amount_of_qqs { get; set; }
-        public int is_there_excise_tax { get; set; }
-        public string name_of_service_type { get; set; }
-        public string unit_of_measure { get; set; }
-        public int amount { get; set; }
-        public int price { get; set; }
-        public string total_cost_of_service { get; set; }
-        public int public_offer { get; set; }
+    //public class UnapprovedContract : BaseContractTableInfo
+    //{
+    //    public void Copy(UnapprovedContract other)
+    //    {
+    //        base.Copy(other);
+    //    }
+    //}
 
-        public void Copy(PurposeOfContract other)
-        {
-            this.user_phone_number = other.user_phone_number;
-            this.specify_service_type = other.specify_service_type;
-            this.contract_number = other.contract_number;
-            this.contract_currency = other.contract_currency;
-            this.amount_of_qqs = other.amount_of_qqs;
-            this.is_there_excise_tax = other.is_there_excise_tax;
-            this.name_of_service_type = other.name_of_service_type;
-            this.unit_of_measure = other.unit_of_measure;
-            this.amount = other.amount;
-            this.price = other.price;
-            this.total_cost_of_service = other.total_cost_of_service;
-            this.public_offer = other.public_offer;
-        }
-    }
+    //public class PurposeOfContract
+    //{
+    //    public string user_phone_number { get; set; }
+    //    public string specify_service_type { get; set; }
+    //    public string contract_number { get; set; }
+    //    public string contract_currency { get; set; }
+    //    public string amount_of_qqs { get; set; }
+    //    public int is_there_excise_tax { get; set; }
+    //    public string name_of_service_type { get; set; }
+    //    public string unit_of_measure { get; set; }
+    //    public int amount { get; set; }
+    //    public int price { get; set; }
+    //    public string total_cost_of_service { get; set; }
+    //    public int public_offer { get; set; }
 
-    public class CompanyInfo
-    {
-        public string user_phone_number { get; set; }
-        /// <summary>
-        /// 1 = yes, 0 = no
-        /// </summary>
-        public string company_name { get; set; }
-        public string address_of_company { get; set; }
-        public string account_number { get; set; }
-        public string stir_of_company { get; set; }
-        public string name_of_bank { get; set; }
-        public string bank_code { get; set; }
-        /// <summary>
-        /// 1 = yes, 0 = no
-        /// </summary>
-        public int are_you_qqs_payer { get; set; }
-        public string qqs_number { get; set; }
-        public string company_phone_number { get; set; }
-        public string position_of_signer { get; set; }
-        public string name_of_signer { get; set; }
-        /// <summary>
-        /// 1 = yes, 0 = no
-        /// </summary>
-        public int is_accountant_provided { get; set; }
-        public string accountant_name { get; set; }
-        /// <summary>
-        /// 1 = yes, 0 = no
-        /// </summary>
-        public int is_legal_counsel_provided { get; set; }
-        public string counsel_name { get; set; }
-        public string company_logo_url { get; set; }
-        public string created_date { get; set; }
+    //    public void Copy(PurposeOfContract other)
+    //    {
+    //        this.user_phone_number = other.user_phone_number;
+    //        this.specify_service_type = other.specify_service_type;
+    //        this.contract_number = other.contract_number;
+    //        this.contract_currency = other.contract_currency;
+    //        this.amount_of_qqs = other.amount_of_qqs;
+    //        this.is_there_excise_tax = other.is_there_excise_tax;
+    //        this.name_of_service_type = other.name_of_service_type;
+    //        this.unit_of_measure = other.unit_of_measure;
+    //        this.amount = other.amount;
+    //        this.price = other.price;
+    //        this.total_cost_of_service = other.total_cost_of_service;
+    //        this.public_offer = other.public_offer;
+    //    }
+    //}
 
-        public CompanyInfo()
-        {
+    //public class CompanyInfo
+    //{
+    //    public string user_phone_number { get; set; }
+    //    /// <summary>
+    //    /// 1 = yes, 0 = no
+    //    /// </summary>
+    //    public string company_name { get; set; }
+    //    public string address_of_company { get; set; }
+    //    public string account_number { get; set; }
+    //    public string stir_of_company { get; set; }
+    //    public string name_of_bank { get; set; }
+    //    public string bank_code { get; set; }
+    //    /// <summary>
+    //    /// 1 = yes, 0 = no
+    //    /// </summary>
+    //    public int are_you_qqs_payer { get; set; }
+    //    public string qqs_number { get; set; }
+    //    public string company_phone_number { get; set; }
+    //    public string position_of_signer { get; set; }
+    //    public int position_of_signer_index { get; set; }
+    //    public string name_of_signer { get; set; }
+    //    /// <summary>
+    //    /// 1 = yes, 0 = no
+    //    /// </summary>
+    //    public int is_accountant_provided { get; set; }
+    //    public string accountant_name { get; set; }
+    //    /// <summary>
+    //    /// 1 = yes, 0 = no
+    //    /// </summary>
+    //    public int is_legal_counsel_provided { get; set; }
+    //    public string counsel_name { get; set; }
+    //    public string company_logo_url { get; set; }
+    //    public string created_date { get; set; }
+
+    //    public CompanyInfo()
+    //    {
             
-        }
+    //    }
 
-        public CompanyInfo(CompanyInfo other)
-        {
-            this.Copy(other);
-        }
+    //    public CompanyInfo(CompanyInfo other)
+    //    {
+    //        this.Copy(other);
+    //    }
 
-        public void Copy(CompanyInfo other)
-        {
-            this.user_phone_number = other.user_phone_number;
-            this.company_name = other.company_name;
-            this.address_of_company = other.address_of_company;
-            this.account_number = other.account_number;
-            this.stir_of_company = other.stir_of_company;
-            this.name_of_bank = other.name_of_bank;
-            this.bank_code = other.bank_code;
-            this.are_you_qqs_payer = other.are_you_qqs_payer;
-            this.qqs_number = other.qqs_number;
-            this.company_phone_number = other.company_phone_number;
-            this.position_of_signer = other.position_of_signer;
-            this.name_of_signer = other.name_of_signer;
-            this.is_accountant_provided = other.is_accountant_provided;
-            this.accountant_name = other.accountant_name;
-            this.is_legal_counsel_provided = other.is_legal_counsel_provided;
-            this.counsel_name = other.counsel_name;
-            this.company_logo_url = other.company_logo_url;
-            this.created_date = other.created_date;
-        }
-    }
+    //    public void Copy(CompanyInfo other)
+    //    {
+    //        this.user_phone_number = other.user_phone_number;
+    //        this.company_name = other.company_name;
+    //        this.address_of_company = other.address_of_company;
+    //        this.account_number = other.account_number;
+    //        this.stir_of_company = other.stir_of_company;
+    //        this.name_of_bank = other.name_of_bank;
+    //        this.bank_code = other.bank_code;
+    //        this.are_you_qqs_payer = other.are_you_qqs_payer;
+    //        this.qqs_number = other.qqs_number;
+    //        this.company_phone_number = other.company_phone_number;
+    //        this.position_of_signer = other.position_of_signer;
+    //        this.position_of_signer_index = other.position_of_signer_index;
+    //        this.name_of_signer = other.name_of_signer;
+    //        this.is_accountant_provided = other.is_accountant_provided;
+    //        this.accountant_name = other.accountant_name;
+    //        this.is_legal_counsel_provided = other.is_legal_counsel_provided;
+    //        this.counsel_name = other.counsel_name;
+    //        this.company_logo_url = other.company_logo_url;
+    //        this.created_date = other.created_date;
+    //    }
+    //}
 
-    public class CreateContractInfo
-    {
-        #region Properties
-        public string user_phone_number { get; set; }
-        public int open_client_info { get; set; }
-        public int open_search_client { get; set; }
-        public string client_stir { get; set; }
-        public string service_type { get; set; }
-        public string contract_number { get; set; }
-        public string contract_currency { get; set; }
-        public string amount_of_qqs { get; set; }
-        public int is_execise_tax { get; set; }
-        public string interest_text { get; set; }
-        public string total_cost_text { get; set; }
-        public int agree { get; set; }
-        public string created_date { get; set; }
-        #endregion
+    //public class CreateContractInfo
+    //{
+    //    #region Properties
+    //    public string user_phone_number { get; set; }
+    //    public int open_client_info { get; set; }
+    //    public int open_search_client { get; set; }
+    //    public string client_stir { get; set; }
+    //    public string client_company_name { get; set; }
+    //    public string user_company_name { get; set; }
+    //    public string service_type { get; set; }
+    //    public string contract_number { get; set; }
+    //    public string contract_currency { get; set; }
+    //    public string amount_of_qqs { get; set; }
+    //    public int is_execise_tax { get; set; }
+    //    public string interest_text { get; set; }
+    //    public string total_cost_text { get; set; }
+    //    public int agree { get; set; }
+    //    public string created_date { get; set; }
+    //    #endregion
 
-        public CreateContractInfo()
-        {
+    //    public CreateContractInfo()
+    //    {
 
-        }
+    //    }
 
-        public CreateContractInfo(CreateContractInfo other)
-        {
-            this.Copy(other);
-        }
+    //    public CreateContractInfo(CreateContractInfo other)
+    //    {
+    //        this.Copy(other);
+    //    }
 
-        public void Copy(CreateContractInfo other)
-        {
-            this.user_phone_number = other.user_phone_number;
-            this.open_client_info = other.open_client_info;
-            this.open_search_client = other.open_search_client;
-            this.client_stir = other.client_stir;
-            this.service_type = other.service_type;
-            this.contract_number = other.contract_number;
-            this.contract_currency = other.contract_currency;
-            this.amount_of_qqs = other.amount_of_qqs;
-            this.is_execise_tax = other.is_execise_tax;
-            this.interest_text = other.interest_text;
-            this.total_cost_text = other.total_cost_text;
-            this.agree = other.agree;
-            this.created_date = other.created_date;
-        }
-    }
+    //    public void Copy(CreateContractInfo other)
+    //    {
+    //        this.user_phone_number = other.user_phone_number;
+    //        this.open_client_info = other.open_client_info;
+    //        this.open_search_client = other.open_search_client;
+    //        this.client_stir = other.client_stir;
+    //        this.client_company_name = other.client_company_name;
+    //        this.user_company_name = other.user_company_name;
+    //        this.service_type = other.service_type;
+    //        this.contract_number = other.contract_number;
+    //        this.contract_currency = other.contract_currency;
+    //        this.amount_of_qqs = other.amount_of_qqs;
+    //        this.is_execise_tax = other.is_execise_tax;
+    //        this.interest_text = other.interest_text;
+    //        this.total_cost_text = other.total_cost_text;
+    //        this.agree = other.agree;
+    //        this.created_date = other.created_date;
+    //    }
+    //}
 
-    public class ServicesInfo
-    {
-        public string contract_number { get; set; }
-        public string name_of_service { get; set; }
-        public string unit_of_measure { get; set; }
-        public int amount_value { get; set; }
-        public string currency_text { get; set; }
-        public string created_date { get; set; }
+    //public class ServicesInfo
+    //{
+    //    public string contract_number { get; set; }
+    //    public string name_of_service { get; set; }
+    //    public string unit_of_measure { get; set; }
+    //    public int amount_value { get; set; }
+    //    public string amount_value_price { get; set; }
+    //    public string currency { get; set; }
+    //    public string created_date { get; set; }
 
-        public ServicesInfo()
-        {
+    //    public ServicesInfo()
+    //    {
 
-        }
+    //    }
 
-        public ServicesInfo(ServicesInfo other)
-        {
-            this.Copy(other);
-        }
+    //    public ServicesInfo(ServicesInfo other)
+    //    {
+    //        this.Copy(other);
+    //    }
 
-        public void Copy(ServicesInfo other)
-        {
-            this.contract_number = other.contract_number;
-            this.name_of_service = other.name_of_service;
-            this.unit_of_measure = other.unit_of_measure;
-            this.amount_value = other.amount_value;
-            this.currency_text = other.currency_text;
-            this.created_date = other.created_date;
-        }
-    }
+    //    public void Copy(ServicesInfo other)
+    //    {
+    //        this.contract_number = other.contract_number;
+    //        this.name_of_service = other.name_of_service;
+    //        this.unit_of_measure = other.unit_of_measure;
+    //        this.amount_value = other.amount_value;
+    //        this.amount_value_price = other.amount_value_price;
+    //        this.currency = other.currency;
+    //        this.created_date = other.created_date;
+    //    }
+    //}
 
-    public class CreateContract
-    {
-        public CompanyInfo client_company_info { get; set; }
-        public CreateContractInfo contract_info { get; set; }
-        public List<ServicesInfo> service_list { get; set; }
-    }
-    #endregion
+    //public class CreateContract
+    //{
+    //    public CompanyInfo client_company_info { get; set; }
+    //    public CreateContractInfo contract_info { get; set; }
+    //    public List<ServicesInfo> service_list { get; set; }
+    //}
+    //#endregion
 
-    #region Response
-    public interface IResponse
-    {
-        void Check();
-    }
+    //#region Response
+    //public interface IResponse
+    //{
+    //    void Check();
+    //}
 
-    public class Response
-    {
-        public bool result { get; set; }
-        public String message { get; set; }
-        public int error_code { get; set; }
+    //public class Response
+    //{
+    //    public bool result { get; set; }
+    //    public String message { get; set; }
+    //    public int error_code { get; set; }
 
-        public Response()
-        {
-            result = false;
-            message = "";
-            error_code = (int)HttpStatusCode.NotFound;
-        }
+    //    public Response()
+    //    {
+    //        result = false;
+    //        message = "";
+    //        error_code = (int)HttpStatusCode.NotFound;
+    //    }
 
-        public virtual void Check()
-        {
+    //    public virtual void Check()
+    //    {
              
-        }
-    }
+    //    }
+    //}
 
-    public class ResponseLogin : Response, IResponse
-    {
-        public User userInfo { get; set; } = new User();
-    }
+    //public class ResponseLogin : Response, IResponse
+    //{
+    //    public User userInfo { get; set; } = new User();
+    //}
 
-    public class ResponseSignUp : Response, IResponse
-    {
-    }
+    //public class ResponseSignUp : Response, IResponse
+    //{
+    //}
 
-    public class ResponseAboutApp : Response, IResponse
-    {
-        public AboutApp data { get; set; } = new AboutApp();
-    }
+    //public class ResponseAboutApp : Response, IResponse
+    //{
+    //    public AboutApp data { get; set; } = new AboutApp();
+    //}
 
-    public class ResponseApplicableContract : Response, IResponse
-    {
-        public List<ApplicableContract> data { get; set; } = new List<ApplicableContract>();
-    }
+    //public class ResponseApplicableContract : Response, IResponse
+    //{
+    //    public List<ApplicableContract> data { get; set; } = new List<ApplicableContract>();
+    //}
 
-    public class ResponseCanceledContract : Response, IResponse
-    {
-        public List<CanceledContract> data { get; set; } = new List<CanceledContract>();
-    }
+    //public class ResponseCanceledContract : Response, IResponse
+    //{
+    //    public List<CanceledContract> data { get; set; } = new List<CanceledContract>();
+    //}
 
-    public class ResponsePurposeOfContract : Response, IResponse
-    {
-        public PurposeOfContract data { get; set; } = new PurposeOfContract();
-    }
+    //public class ResponsePurposeOfContract : Response, IResponse
+    //{
+    //    public PurposeOfContract data { get; set; } = new PurposeOfContract();
+    //}
 
-    public class ResponseUnapprovedContract : Response, IResponse
-    {
-        public List<UnapprovedContract> data { get; set; } = new List<UnapprovedContract>();
-    }
+    //public class ResponseUnapprovedContract : Response, IResponse
+    //{
+    //    public List<UnapprovedContract> data { get; set; } = new List<UnapprovedContract>();
+    //}
 
-    public class ResponseUser : Response, IResponse
-    {
-        public User data { get; set; } = new User();
-    }
+    //public class ResponseUser : Response, IResponse
+    //{
+    //    public User data { get; set; } = new User();
+    //}
 
-    public class ResponseUserCompanyInfo : Response, IResponse
-    {
-        public CompanyInfo data { get; set; } = new CompanyInfo();
-    }
+    //public class ResponseUserCompanyInfo : Response, IResponse
+    //{
+    //    public CompanyInfo data { get; set; } = new CompanyInfo();
+    //}
 
-    public class ResponseClientCompanyInfo : Response, IResponse
-    {
-        public List<CompanyInfo> data { get; set; } = new List<CompanyInfo>();
-    }
+    //public class ResponseClientCompanyInfo : Response, IResponse
+    //{
+    //    public List<CompanyInfo> data { get; set; } = new List<CompanyInfo>();
+    //}
 
-    public class ResponseCreateContract : Response, IResponse
-    {
+    //public class ResponseCreateContract : Response, IResponse
+    //{
 
-    }
-    #endregion
+    //}
+    //#endregion
 }
