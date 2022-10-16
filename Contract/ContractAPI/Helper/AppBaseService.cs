@@ -9,5 +9,15 @@ namespace ContractAPI.Helper
     public abstract class AppBaseService
     {
         protected ContractMakerContext dataBase { get; set; }
+
+        protected AppBaseService(ContractMakerContext db)
+        {
+            dataBase = db;
+        }
+
+        protected AppBaseService()
+        {
+            
+        }
     }
 }

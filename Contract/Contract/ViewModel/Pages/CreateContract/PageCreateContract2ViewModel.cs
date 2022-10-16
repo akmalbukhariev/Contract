@@ -30,7 +30,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); }
         #endregion
 
-        private HttpModels.CreateContract createContract = new HttpModels.CreateContract();
+        private HttpModels.CompanyInfo ClientCompanyInfo = null;
 
         public ObservableCollection<ServicesInfo> ServicesList { get; set; }
 
@@ -45,7 +45,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             CurrencyList = new List<string>();
             QQSList = new List<string>();
 
-            createContract.client_company_info = new HttpModels.ClientCompanyInfo(companyInfo);
+            ClientCompanyInfo = new HttpModels.ClientCompanyInfo(companyInfo);
         }
 
         #region Command
@@ -55,29 +55,32 @@ namespace Contract.ViewModel.Pages.CreateContract
         {
             if (!ControlApp.InternetOk()) return;
 
-            createContract.contract_info = new HttpModels.CreateContractInfo()
+            HttpModels.CreateContract contractinfo = new HttpModels.CreateContract()
             {
-                user_phone_number = ControlApp.UserInfo.phone_number,
-                open_client_info = ControlApp.OpenClientInfo? 1: 0,
-                open_search_client = ControlApp.OpenSearchClient? 1 : 0,
-                client_stir = createContract.client_company_info.stir_of_company,
-                client_company_name = createContract.client_company_info.company_name,
-                user_company_name = ControlApp.UserCompanyInfo.company_name,
-                service_type = SelectedServiceType,
-                service_type_index = SelectedServiceType_index,
-                contract_number = ContractNumber,
-                contract_currency = SelectedCurrency,
-                contract_currency_index = SelectedCurrency_index,
-                amount_of_qqs = SelectedQQS,
-                amount_of_qqs_index = SelectedQQS_index,
-                is_execise_tax = IsExeciseTax? 1 : 0,
-                interest_text = InterestText,
-                total_cost_text = TotalCostText,
-                agree = Agree? 1 : 0,
-                created_date = ""
+                contract_info = new HttpModels.CreateContractInfo()
+                {
+                    user_phone_number = ControlApp.UserInfo.phone_number,
+                    open_client_info = ControlApp.OpenClientInfo ? 1 : 0,
+                    open_search_client = ControlApp.OpenSearchClient ? 1 : 0,
+                    client_stir = ClientCompanyInfo.stir_of_company,
+                    client_company_name = ClientCompanyInfo.company_name,
+                    user_company_name = ControlApp.UserCompanyInfo.company_name,
+                    service_type = SelectedServiceType,
+                    service_type_index = SelectedServiceType_index,
+                    contract_number = ContractNumber,
+                    contract_currency = SelectedCurrency,
+                    contract_currency_index = SelectedCurrency_index,
+                    amount_of_qqs = SelectedQQS,
+                    amount_of_qqs_index = SelectedQQS_index,
+                    is_execise_tax = IsExeciseTax ? 1 : 0,
+                    interest_text = InterestText,
+                    total_cost_text = TotalCostText,
+                    agree = Agree ? 1 : 0,
+                    created_date = ""
+                }
             };
-            createContract.service_list = new List<HttpModels.ServicesInfo>();
-
+             
+            List<HttpModels.ServicesInfo> serviceList = new List<HttpModels.ServicesInfo>();
             foreach (ServicesInfo item in ServicesList)
             {
                 HttpModels.ServicesInfo newItem = new HttpModels.ServicesInfo()
@@ -91,18 +94,40 @@ namespace Contract.ViewModel.Pages.CreateContract
                     currency = item.SelectedCurrency,
                     created_date = ""
                 };
-                createContract.service_list.Add(new HttpModels.ServicesInfo(newItem));
+                serviceList.Add(new HttpModels.ServicesInfo(newItem));
             }
 
-            ResponseCreateContract response = await Net.HttpService.CreateContract(createContract);
-            if (response.result)
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+
+            ResponseCreateContract responseCreate = await Net.HttpService.CreateContract(contractinfo);
+            if (!responseCreate.result)
+            {
+                ControlApp.CloseLoadingView();
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
+                return;
+            }
+
+            ResponseServiceInfo responseService = await Net.HttpService.SetServiceInfo(serviceList);
+            if (!responseService.result)
+            {
+                ControlApp.CloseLoadingView();
+                responseCreate = await Net.HttpService.DeleteContract(ContractNumber);
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
+                return;
+            }
+
+            ResponseClientCompanyInfo responseClient = await Net.HttpService.SetClientCompanyInfo(ClientCompanyInfo);
+            ControlApp.CloseLoadingView();
+
+            if (responseClient.result)
             {
                 SetTransitionType();
                 await Navigation.PushAsync(new PageCreateContract3(ContractNumber, TotalCostText));
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+                responseService = await Net.HttpService.DeleteServiceinfo(ContractNumber);
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
             }
         }
         #endregion

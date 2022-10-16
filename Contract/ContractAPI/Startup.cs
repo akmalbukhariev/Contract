@@ -31,6 +31,8 @@ using ContractAPI.ContractInfo.service;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Http;
+using ContractAPI.ContractServices.service;
+using ContractAPI.ContractServices.service.impl;
 
 namespace ContractAPI
 {
@@ -50,14 +52,15 @@ namespace ContractAPI
             {
                 options.UseMySQL(Configuration.GetConnectionString("Default"));
             });
+            services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>();
             services.AddScoped<IUnapprovedContractService, UnapprovedContractService>();
             services.AddScoped<IApplicableContractService, ApplicableContractService>();
-            services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ICanceledContractService, CanceledContractService>();
+            services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAppService, AppService>();
- 
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -38,6 +38,21 @@ namespace ContractAPI.CompanyInformation.api
         }
 
 
+        [HttpDelete("deleteUserCompanyInfo")]
+        public async Task<IActionResult> deleteUserCompanyInfo([FromBody] DeleteCompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = await Service.deleteUserCompanyInfo(info);
+            return MakeResponse(response, response.error_code);
+        }
+        
+        [HttpDelete("deleteClientCompanyInfo")]
+        public async Task<IActionResult> deleteClientCompanyInfo([FromBody] DeleteCompanyInfo info)
+        {
+            ResponseClientCompanyInfo response = await Service.deleteClientCompanyInfo(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+
         [HttpPost("setUserCompanyInfo")]
         public async Task<IActionResult> setUserCompanyInfo([FromBody] CompanyInfo info)
         {

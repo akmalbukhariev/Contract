@@ -13,10 +13,13 @@
         <Grid RowDefinitions="Auto,*,Auto"
               RowSpacing="20"
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
+            <!--<view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     Title="{x:Static resource:AppResource.CreateContract}"
-                                    UseWhite="True"/>
+                                    UseWhite="True"/>-->
+            <Label Text="{x:Static resource:AppResource.CreateContract}"
+                   FontSize="18"
+                   TextColor="White"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"
                      Margin="0,0,0,20"

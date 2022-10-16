@@ -28,6 +28,7 @@ namespace Contract.Net
         public static string URL_SET_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setUserCompanyInfoWithFile";
         public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateUserCompanyInfo";
         public static string URL_UPDATE_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/updateUserCompanyInfoWithFile";
+        public static string URL_DELETE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/deleteUserCompanyInfo";
         #endregion
 
         #region Client info
@@ -36,8 +37,9 @@ namespace Contract.Net
         public static string URL_SET_CLIENT_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setClientCompanyInfoWithFile";
         public static string URL_UPDATE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateClientCompanyInfo";
         public static string URL_UPDATE_CLIENT_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/updateClientCompanyInfoWithFile";
+        public static string URL_DELETE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/deleteClientCompanyInfo";
         #endregion
-         
+
         #region Unapproved contract
         public static string URL_GET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/getUnapprovedContract/"; //phoneNumber
         public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/setUnapprovedContract";
@@ -52,9 +54,15 @@ namespace Contract.Net
         public static string URL_DELETE_APPLICABLE_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContractAndSetCanceledContract";
         #endregion
 
+        #region Service Info
+        public static string URL_SET_SERVICE_INFO = SERVER_URL + "ServiceInfo/setContractServiceInfo";
+        public static string URL_DELETE_SERVICE_INFO = SERVER_URL + "ServiceInfo/deleteContractServiceInfo"; //contract_number
+        #endregion
+
         public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
         public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
         public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
+        public static string URL_DELETE_CONTRACT = SERVER_URL + "Contract/deleteContract"; //contract_number
 
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/getCanceledContract/"; //phoneNumber
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
@@ -172,6 +180,22 @@ namespace Contract.Net
 
             return responseLogin;
         }
+
+        public async static Task<ResponseUserCompanyInfo> DeleteUserCompanyInfo(DeleteCompanyInfo data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_DELETE_USER_COMPANY_INFO, data);
+                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+
+            ResponseUserCompanyInfo responseLogin = ConvertResponseObj<ResponseUserCompanyInfo>(response);
+
+            return responseLogin;
+        }
         #endregion
 
         #region Client company info
@@ -228,6 +252,56 @@ namespace Contract.Net
 
             return responseLogin;
         }
+
+        public async static Task<ResponseClientCompanyInfo> DeleteClientCompanyInfo(DeleteCompanyInfo data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_DELETE_CLIENT_COMPANY_INFO, data);
+                response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+
+            ResponseClientCompanyInfo responseLogin = ConvertResponseObj<ResponseClientCompanyInfo>(response);
+
+            return responseLogin;
+        }
+        #endregion
+
+        #region Service Info
+        public async static Task<ResponseServiceInfo> SetServiceInfo(List<ServicesInfo> data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SET_SERVICE_INFO, data);
+                response = JsonConvert.DeserializeObject<ResponseServiceInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseServiceInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseServiceInfo>(); }
+
+            ResponseServiceInfo responseLogin = ConvertResponseObj<ResponseServiceInfo>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseServiceInfo> DeleteServiceinfo(string contract_number)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestDeleteMethod($"{URL_DELETE_SERVICE_INFO}{contract_number}");
+                response = JsonConvert.DeserializeObject<ResponseServiceInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseServiceInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseServiceInfo>(); }
+
+            ResponseServiceInfo responseLogin = ConvertResponseObj<ResponseServiceInfo>(response);
+
+            return responseLogin;
+        }
         #endregion
 
         public async static Task<ResponseCreateContract> CreateContract(CreateContract data)
@@ -236,6 +310,22 @@ namespace Contract.Net
             try
             {
                 var receivedData = await RequestPostMethod(URL_CREATE_CONTRACT, data);
+                response = JsonConvert.DeserializeObject<ResponseCreateContract>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
+
+            ResponseCreateContract responseLogin = ConvertResponseObj<ResponseCreateContract>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseCreateContract> DeleteContract(string contract_number)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestDeleteMethod($"{URL_DELETE_CONTRACT}{contract_number}");
                 response = JsonConvert.DeserializeObject<ResponseCreateContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
@@ -540,6 +630,17 @@ namespace Contract.Net
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", JsonConvert.SerializeObject(obj), ParameterType.RequestBody);
+            IRestResponse response = await client.ExecuteAsync(request);
+
+            return response.Content;
+        }
+
+        private static async Task<string> RequestDeleteMethod(string url)
+        {
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.DELETE);
             IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;

@@ -14,6 +14,9 @@ namespace ContractAPI.CompanyInformation.service
         Task<ResponseUserCompanyInfo> getUserCompanyInfo(string phoneNumber);
         Task<ResponseClientCompanyInfo> getClientCompanyInfo(string phoneNumber);
 
+        Task<ResponseUserCompanyInfo> deleteUserCompanyInfo(DeleteCompanyInfo info);
+        Task<ResponseClientCompanyInfo> deleteClientCompanyInfo(DeleteCompanyInfo info);
+
         Task<ResponseUserCompanyInfo> setUserCompanyInfo(CompanyInfo info);
         Task<ResponseUserCompanyInfo> setUserCompanyInfoWithFile(CompanyInfoWithFile info);
 

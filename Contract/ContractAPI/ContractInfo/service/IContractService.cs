@@ -13,5 +13,6 @@ namespace ContractAPI.ContractInfo.service
         Task<ResponsePurposeOfContract> getPurposeOfContract(string phoneNumber);
         Task<ResponsePurposeOfContract> setPurposeOfContract(PurposeOfContract info);
         Task<ResponseCreateContract> createContract(CreateContract info);
+        Task<ResponseCreateContract> deleteContract(string contract_number);
     }
 }

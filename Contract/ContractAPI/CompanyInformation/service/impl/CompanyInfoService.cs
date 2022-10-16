@@ -68,6 +68,90 @@ namespace ContractAPI.CompanyInformation.service.impl
         }
 
 
+        public async Task<ResponseUserCompanyInfo> deleteUserCompanyInfo(DeleteCompanyInfo info)
+        {
+            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            response.data = null;
+
+            CompanyInfo found = await dataBase.UserCompanyInfo
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.stir_of_company.Equals(info.stir_of_company))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.result = false;
+                response.message = "User stir number does not exist!";
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            var deleteInfo = new UserCompanyInfo();
+            deleteInfo.user_phone_number = info.user_phone_number;
+            deleteInfo.stir_of_company = info.stir_of_company;
+
+            dataBase.UserCompanyInfo.Remove(deleteInfo);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
+
+            return response;
+        }
+        public async Task<ResponseClientCompanyInfo> deleteClientCompanyInfo(DeleteCompanyInfo info)
+        {
+            ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
+            response.data = null;
+
+            CompanyInfo found = await dataBase.ClientCompanyInfo
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.stir_of_company.Equals(info.stir_of_company))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (found == null)
+            {
+                response.result = false;
+                response.message = "User stir number does not exist!";
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            var deleteInfo = new ClientCompanyInfo();
+            deleteInfo.user_phone_number = info.user_phone_number;
+            deleteInfo.stir_of_company = info.stir_of_company;
+
+            dataBase.ClientCompanyInfo.Remove(deleteInfo);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
+
+            return response;
+        }
+
+
         public async Task<ResponseUserCompanyInfo> setUserCompanyInfo(CompanyInfo info)
         {
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();

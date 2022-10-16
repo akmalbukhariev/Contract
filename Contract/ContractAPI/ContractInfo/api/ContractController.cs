@@ -41,6 +41,13 @@ namespace ContractAPI.ContractInfo.api
         {
             ResponseCreateContract response = await Service.createContract(info);
             return MakeResponse(response, response.error_code);
-        } 
+        }
+
+        [HttpPost("deleteContract")]
+        public async Task<IActionResult> deleteContract(string contract_number)
+        {
+            ResponseCreateContract response = await Service.deleteContract(contract_number);
+            return MakeResponse(response, response.error_code);
+        }
     }
 }
