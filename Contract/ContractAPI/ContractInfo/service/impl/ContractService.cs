@@ -81,12 +81,12 @@ namespace ContractAPI.ContractInfo.service.impl
             return response;
         }
 
-        public async Task<ResponseCreateContract> createContract(CreateContract info)
+        public async Task<ResponseCreateContract> createContract(CreateContractInfo info)
         {
             ResponseCreateContract response = new ResponseCreateContract();
 
             CreateContractInfo contractNumber = await dataBase.CreateContractInfo
-                .Where(item => item.contract_number.Equals(info.contract_info.contract_number))
+                .Where(item => item.contract_number.Equals(info.contract_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
@@ -97,7 +97,7 @@ namespace ContractAPI.ContractInfo.service.impl
                 return response;
             }
               
-            CreateContractInfo newInfo = new CreateContractInfo(info.contract_info);
+            CreateContractInfo newInfo = new CreateContractInfo(info);
             newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
              
             dataBase.CreateContractInfo.Add(newInfo);
@@ -124,19 +124,59 @@ namespace ContractAPI.ContractInfo.service.impl
         {
             ResponseCreateContract response = new ResponseCreateContract();
 
-            CreateContractInfo contractNumber = await dataBase.CreateContractInfo
+            CreateContractInfo found = await dataBase.CreateContractInfo
                 .Where(item => item.contract_number.Equals(contract_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
-            if (contractNumber == null)
+            if (found == null)
+            {
+                response.message = "Contract number does not exist.";
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+             
+            dataBase.CreateContractInfo.Remove(found);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
+
+            return response;
+        }
+
+        public async Task<ResponseCreateContract> cancelContract(CreateContractInfo info)
+        {
+            ResponseCreateContract response = new ResponseCreateContract();
+
+            CreateContractInfo found = await dataBase.CreateContractInfo
+                .Where(item => item.contract_number.Equals(info.contract_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (found == null)
             {
                 response.message = "Contract number does not exist.";
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
 
-            dataBase.CreateContractInfo.Remove(contractNumber);
+            found.comment = info.comment;
+            found.is_deleted = 1;
+            found.deleted_date = DateTime.Now.ToString(Constants.TimeFormat);
+
+            dataBase.CreateContractInfo.Update(found);
 
             try
             {

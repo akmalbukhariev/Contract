@@ -1,5 +1,4 @@
-﻿
-using Contract.HttpModels;
+﻿using Contract.HttpModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

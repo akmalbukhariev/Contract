@@ -256,6 +256,10 @@ shartnomalar</value>
     <value>Iltimos izohni kiring.</value>
     <comment>Cancel</comment>
   </data>
+  <data name="Cancel_Message_3" xml:space="preserve">
+    <value>Shartnoma bekor qilindi.</value>
+    <comment>Cancel</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Account parolini tahrirlash</value>
     <comment>Change password</comment>

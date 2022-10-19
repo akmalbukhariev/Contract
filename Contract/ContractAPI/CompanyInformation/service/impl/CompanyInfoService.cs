@@ -266,8 +266,8 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             if (found != null)
             {
-                response.result = false;
-                response.message = "User stir number is already exist!";
+                response.result = true;
+                response.message = "User stir number is exist!";
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }

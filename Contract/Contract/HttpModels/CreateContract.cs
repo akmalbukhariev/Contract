@@ -5,25 +5,26 @@ using System.Threading.Tasks;
 
 namespace Contract.HttpModels
 {
-    public class CreateContract
-    {
-        public CreateContractInfo contract_info { get; set; } = new CreateContractInfo();
+    //public class CreateContract : CreateContractInfo
+    //{
+    //    //public CreateContractInfo contract_info { get; set; } = new CreateContractInfo();
       
-        public CreateContract()
-        {
+    //    public CreateContract()
+    //    {
 
-        }
+    //    }
 
-        public CreateContract(CreateContract other)
-        {
-            this.Copy(other);
-        }
+    //    public CreateContract(CreateContract other)
+    //    {
+    //        this.Copy(other);
+    //    }
 
-        public void Copy(CreateContract other)
-        {
-            this.contract_info.Copy(other.contract_info);
-        }
-    }
+    //    public void Copy(CreateContract other)
+    //    {
+    //        //this.contract_info.Copy(other.contract_info);
+    //        base.Copy(other);
+    //    }
+    //}
 
     //public class CreateContract
     //{

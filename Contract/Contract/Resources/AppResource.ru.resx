@@ -255,6 +255,10 @@
     <value>Введите комментарий</value>
     <comment>Cancel</comment>
   </data>
+  <data name="Cancel_Message_3" xml:space="preserve">
+    <value>Контракт отменен.</value>
+    <comment>Cancel</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Изменить пароль аккаунта</value>
     <comment>Change password</comment>

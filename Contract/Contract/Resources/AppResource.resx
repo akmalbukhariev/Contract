@@ -254,6 +254,10 @@ Contracts</value>
     <value>Please enter a comment</value>
     <comment>Cancel</comment>
   </data>
+  <data name="Cancel_Message_3" xml:space="preserve">
+    <value>Contract has been canceled.</value>
+    <comment>Cancel</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change account password</value>
     <comment>Change password</comment>

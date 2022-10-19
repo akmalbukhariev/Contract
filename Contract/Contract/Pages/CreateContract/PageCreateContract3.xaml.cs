@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.HttpModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,15 @@ namespace Contract.Pages.CreateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCreateContract3 : IPage
     {
-        public PageCreateContract3(string contractNumber, string price)
+        private CreateContractInfo ContractInfo;
+        public PageCreateContract3(CreateContractInfo createContract)
         {
             InitializeComponent();
 
-            lbContractNumber.Text = contractNumber;
-            lbContractPrice.Text = price;
+            ContractInfo = new CreateContractInfo(createContract);
+
+            lbContractNumber.Text = createContract.contract_number;
+            lbContractPrice.Text = createContract.total_cost_text;
         }
 
         private void View_Tapped(object sender, EventArgs e)
@@ -32,10 +36,12 @@ namespace Contract.Pages.CreateContract
             ClickAnimationView(stackSend);
         }
 
-        private void Cancel_Tapped(object sender, EventArgs e)
+        private async void Cancel_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxCancel);
-            ClickAnimationView(stackCancel);
+            ClickAnimationView(stackCancel); 
+
+            await Navigation.PushModalAsync(new PageCancelContract(ContractInfo));
         }
     }
 }

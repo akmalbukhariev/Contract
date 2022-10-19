@@ -62,6 +62,7 @@ namespace Contract.Net
         public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
         public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
         public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
+        public static string URL_CANCEL_CONTRACT = SERVER_URL + "Contract/cancelContract";
         public static string URL_DELETE_CONTRACT = SERVER_URL + "Contract/deleteContract"; //contract_number
 
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/getCanceledContract/"; //phoneNumber
@@ -304,12 +305,28 @@ namespace Contract.Net
         }
         #endregion
 
-        public async static Task<ResponseCreateContract> CreateContract(CreateContract data)
+        public async static Task<ResponseCreateContract> CreateContract(CreateContractInfo data)
         {
             Response response = new Response();
             try
             {
                 var receivedData = await RequestPostMethod(URL_CREATE_CONTRACT, data);
+                response = JsonConvert.DeserializeObject<ResponseCreateContract>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
+
+            ResponseCreateContract responseLogin = ConvertResponseObj<ResponseCreateContract>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseCreateContract> CancelContract(CreateContractInfo data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPutMethod(URL_CANCEL_CONTRACT, data);
                 response = JsonConvert.DeserializeObject<ResponseCreateContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
