@@ -19,7 +19,7 @@ namespace Contract.Pages
             InitializeComponent();
 
             SetModel(new PageMainViewModel());
-            (Model as PageMainViewModel).Init();
+            PModel.Init();
         }
 
         protected override void OnAppearing()

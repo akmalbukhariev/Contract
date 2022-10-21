@@ -45,6 +45,7 @@ namespace Contract.ViewModel.Pages.CreateContract
 
             ClientCompanyInfo = new HttpModels.ClientCompanyInfo(companyInfo);
 
+#if DEBUG
             TotalCostText = "000 sum";
             SelectedServiceType = "";
             SelectedServiceType_index = 0;
@@ -84,6 +85,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             ServicesList.Add(item1);
             ServicesList.Add(item2);
             ServicesList.Add(item3);
+#endif
         }
 
         #region Command
@@ -92,6 +94,12 @@ namespace Contract.ViewModel.Pages.CreateContract
         private async void Finished()
         {
             if (!ControlApp.InternetOk()) return;
+
+            if (!Agree)
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.AgreeMessage, RSC.Ok);
+                return;
+            }
 
             HttpModels.CreateContractInfo contractinfo = new HttpModels.CreateContractInfo()
             {
@@ -138,7 +146,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             if (!responseCreate.result)
             {
                 ControlApp.CloseLoadingView();
-                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed + ": " + responseCreate.message, RSC.Ok);
                 return;
             }
 
@@ -147,7 +155,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             {
                 ControlApp.CloseLoadingView();
                 responseCreate = await Net.HttpService.DeleteContract(ContractNumber);
-                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed + ": " + responseService.message, RSC.Ok);
                 return;
             }
 

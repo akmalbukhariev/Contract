@@ -11,6 +11,7 @@ namespace Contract.HttpModels
         public string user_phone_number { get; set; } 
         public int open_client_info { get; set; }
         public int open_search_client { get; set; }
+        public string user_stir { get; set; }
         public string client_stir { get; set; }
         public string client_company_name { get; set; }
         public string user_company_name { get; set; }
@@ -49,6 +50,7 @@ namespace Contract.HttpModels
             this.user_phone_number = other.user_phone_number;
             this.open_client_info = other.open_client_info;
             this.open_search_client = other.open_search_client;
+            this.user_stir = other.user_stir;
             this.client_stir = other.client_stir; 
             this.client_company_name = other.client_company_name;
             this.user_company_name = other.user_company_name; 

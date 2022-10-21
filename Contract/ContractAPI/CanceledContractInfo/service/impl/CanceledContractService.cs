@@ -36,10 +36,10 @@ namespace ContractAPI.CanceledContractInfo.service.impl
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
 
-            foreach (CanceledContract info in infoList)
-            {
-                response.data.Add(new CanceledContract(info));
-            }
+            //foreach (CanceledContract info in infoList)
+            //{
+            //    response.data.Add(new CanceledContract(info));
+            //}
 
             return response;
         }

@@ -196,101 +196,25 @@ namespace ContractAPI.ContractInfo.service.impl
             return response;
         }
 
-        //public async Task<ResponseCreateContract> createContract(CreateContract info)
-        //{
-        //    ResponseCreateContract response = new ResponseCreateContract();
+        public async Task<ResponseCanceledContract> getCanceledContract(CreateContractInfo info)
+        {
+            ResponseCanceledContract response = new ResponseCanceledContract();
 
-        //    CreateContractInfo contractNumber = await dataBase.CreateContractInfo
-        //        .Where(item => item.contract_number.Equals(info.contract_info.contract_number))
-        //        .AsNoTracking()
-        //        .FirstOrDefaultAsync();
+            List<CreateContractInfo> found = await dataBase.CreateContractInfo
+                .Where(item => (item.is_deleted == 1 && item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir)))
+                .AsNoTracking()
+                .ToListAsync();
 
-        //    if (contractNumber != null)
-        //    {
-        //        response.message = "Contract number is exist.";
-        //        response.error_code = (int)HttpStatusCode.BadRequest;
-        //        return response;
-        //    }
+            foreach (CreateContractInfo item in found)
+            {
+                response.data.Add(new CreateContractInfo(item));
+            }
+            
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
 
-        //    ClientCompanyInfo stirNumber = await dataBase.ClientCompanyInfo
-        //        .Where(item => item.stir_of_company.Equals(info.client_company_info.stir_of_company))
-        //        .AsNoTracking()
-        //        .FirstOrDefaultAsync();
-
-        //    if (stirNumber == null)
-        //    {
-        //        ContractMakerContext contect1 = dataBase.CreateNew();
-
-        //        ClientCompanyInfo newInfo1 = new ClientCompanyInfo(info.client_company_info);
-        //        newInfo1.created_date = DateTime.Now.ToString(Constants.TimeFormat);
-        //        contect1.ClientCompanyInfo.Add(newInfo1);
-        //        try
-        //        {
-        //            await contect1.SaveChangesAsync();
-        //        }
-        //        catch(Exception ex)
-        //        {
-        //            response.message = ex.Message;
-        //            response.error_code = (int)HttpStatusCode.BadRequest;
-        //            return response;
-        //        }
-        //    }
-
-        //    foreach (ServicesInfo item in info.service_list)
-        //    {
-        //        ServicesInfo newInfo3 = new ServicesInfo(item);
-        //        newInfo3.created_date = DateTime.Now.ToString(Constants.TimeFormat);
-
-        //        dataBase.ServicesInfo.Add(newInfo3);
-
-        //        try
-        //        {
-        //            await dataBase.SaveChangesAsync();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            response.message = ex.Message;
-        //            response.error_code = (int)HttpStatusCode.BadRequest;
-        //            return response;
-        //        }
-        //    }
-
-        //    CreateContractInfo newInfo2 = new CreateContractInfo(info.contract_info);
-        //    newInfo2.created_date = DateTime.Now.ToString(Constants.TimeFormat);
-        //    ContractMakerContext contect2 = dataBase.CreateNew();
-        //    contect2.CreateContractInfo.Add(newInfo2);
-
-        //    try
-        //    {
-        //        await contect2.SaveChangesAsync();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        foreach (ServicesInfo item in dataBase.ServicesInfo)
-        //        {
-        //            dataBase.ServicesInfo.Remove(item);
-
-        //            try
-        //            {
-        //                await dataBase.SaveChangesAsync();
-        //            }
-        //            catch (Exception ex1)
-        //            {
-        //                response.message = ex1.Message;
-        //                response.error_code = (int)HttpStatusCode.BadRequest;
-        //                return response;
-        //            }
-        //        }
-        //        response.message = ex.Message;
-        //        response.error_code = (int)HttpStatusCode.BadRequest;
-        //        return response;
-        //    }
-
-        //    response.result = true;
-        //    response.error_code = (int)HttpStatusCode.OK;
-        //    response.message = Constants.Success;
-
-        //    return response;
-        //}
+            return response;
+        }
     }
 }

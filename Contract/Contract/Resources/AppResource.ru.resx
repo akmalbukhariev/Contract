@@ -183,6 +183,10 @@
     <value>Согласен</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="AgreeMessage" xml:space="preserve">
+    <value>Пожалуйста, отметьте поле согласия</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="AllContracts" xml:space="preserve">
     <value>Все договоры</value>
     <comment>Main</comment>
@@ -338,6 +342,10 @@
   <data name="ContractTemplates" xml:space="preserve">
     <value>Шаблоны контрактов</value>
     <comment>Menu</comment>
+  </data>
+  <data name="Contragent" xml:space="preserve">
+    <value>Контраагент</value>
+    <comment>Table</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>ФИО юрисконсульта</value>
@@ -665,6 +673,10 @@
   <data name="M1" xml:space="preserve">
     <value>O - </value>
     <comment>Editing Contract number</comment>
+  </data>
+  <data name="Me" xml:space="preserve">
+    <value>Я</value>
+    <comment>Table</comment>
   </data>
   <data name="Message1" xml:space="preserve">
     <value>В настоящее время нет неподтвержденных контрактов.</value>

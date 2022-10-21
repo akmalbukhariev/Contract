@@ -83,29 +83,34 @@ namespace Contract.ViewModel.Pages.CanceledContracts
 
             this.DataList.Clear();
 
+            HttpModels.CreateContractInfo request = new HttpModels.CreateContractInfo();
+            request.user_stir = "111122";
+            request.user_phone_number = "12";
+            request.is_deleted = 1;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseCanceledContract response = await Net.HttpService.GetCanceledContract(ControlApp.UserInfo.phone_number);
+            ResponseCanceledContract response = await Net.HttpService.GetCanceledContract(request);
             ControlApp.CloseLoadingView();
 
             if (response.result)
             {
                 int no = 0;
-                foreach (HttpModels.CanceledContract info in response.data)
-                {
+                foreach (HttpModels.CreateContractInfo info in response.data)
+                { 
                     no++;
                     CanceledContract item = new CanceledContract()
                     {
                         No = $"{no.ToString()}.",
-                        Preparer = info.preparer,
+                        Preparer = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number)? RSC.Me : RSC.Contragent,
                         ContractNnumber = info.contract_number,
-                        //CompanyName = info.company_contractor_name,
-                        //ContractDate = info.date_of_contract,
-                        //ContractPrice = info.contract_price,
-                        //ContractPayment = info.payment_percent,
+                        CompanyName = info.user_company_name,
+                        ContractDate = info.created_date,
+                        ContractPrice = info.total_cost_text,
+                        ContractPayment = "100 %",
                         CommentText = info.comment,
                         ContractPaymentColor = Color.FromHex("#C5E0B3"),
-                        ItemColor = Color.FromHex("#DEEAF6"),
-                        PreparerColor = Color.FromHex("#BDD6EE")
+                        ItemColor = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number)? Color.FromHex("#DEEAF6") : Color.FromHex("#FFFFFF"),
+                        PreparerColor = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number)? Color.FromHex("#BDD6EE") : Color.FromHex("#FFF2CC")
                     };
 
                     Add(item);

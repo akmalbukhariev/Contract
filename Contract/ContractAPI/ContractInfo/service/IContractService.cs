@@ -15,5 +15,6 @@ namespace ContractAPI.ContractInfo.service
         Task<ResponseCreateContract> createContract(CreateContractInfo info);
         Task<ResponseCreateContract> deleteContract(string contract_number);
         Task<ResponseCreateContract> cancelContract(CreateContractInfo info);
+        Task<ResponseCanceledContract> getCanceledContract(CreateContractInfo info);
     }
 }

@@ -65,7 +65,7 @@ namespace Contract.Net
         public static string URL_CANCEL_CONTRACT = SERVER_URL + "Contract/cancelContract";
         public static string URL_DELETE_CONTRACT = SERVER_URL + "Contract/deleteContract"; //contract_number
 
-        public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/getCanceledContract/"; //phoneNumber
+        public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract"; 
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
         public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
         public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
@@ -533,12 +533,12 @@ namespace Contract.Net
         }
         #endregion
          
-        public async static Task<ResponseCanceledContract> GetCanceledContract(string phoneNumbera)
+        public async static Task<ResponseCanceledContract> GetCanceledContract(CreateContractInfo data)
         {
             Response response = new Response();
             try
             {
-                var receivedData = await RequestGetMethod($"{URL_GET_CANCELED_CONTRACTS}{phoneNumbera}");
+                var receivedData = await RequestPostMethod(URL_GET_CANCELED_CONTRACTS, data);
                 response = JsonConvert.DeserializeObject<ResponseCanceledContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCanceledContract>(); }
@@ -691,22 +691,7 @@ namespace Contract.Net
 
             return response.Content;
         }
-
-        private static async Task<string> RequestGetMethod(string url, Object data)
-        {
-            var client = new RestClient(url);
-            client.Timeout = -1;
-            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-            var request = new RestRequest(Method.GET);
-
-            request.AlwaysMultipartFormData = true;
-
-            request.AddParameter("data", JsonConvert.SerializeObject(data));
-
-            IRestResponse response = await client.ExecuteAsync(request);
-            return response.Content;
-        }
-
+          
         private static T CreateResponseObj<T>() where T : IResponse, new()
         {
             T t = new T();

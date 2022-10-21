@@ -183,6 +183,10 @@
     <value>Roziman</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="AgreeMessage" xml:space="preserve">
+    <value>Iltimos rozilik tugmasini belgilang.</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="AllContracts" xml:space="preserve">
     <value>Shartnomalar</value>
     <comment>Main</comment>
@@ -339,6 +343,10 @@ shartnomalar</value>
   <data name="ContractTemplates" xml:space="preserve">
     <value>Shartnoma shablonlari</value>
     <comment>Menu</comment>
+  </data>
+  <data name="Contragent" xml:space="preserve">
+    <value>Kontragent</value>
+    <comment>Table</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Yuriskonsultant F.I.O</value>
@@ -686,6 +694,10 @@ shartnomalarni tuzing.</value>
   <data name="M1" xml:space="preserve">
     <value>O - </value>
     <comment>Editing Contract number</comment>
+  </data>
+  <data name="Me" xml:space="preserve">
+    <value>Men</value>
+    <comment>Table</comment>
   </data>
   <data name="Message1" xml:space="preserve">
     <value>Ayni damda tadiqlanmagan shartnomalar mavjud emas.</value>

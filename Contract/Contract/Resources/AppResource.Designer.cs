@@ -205,6 +205,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check agree box to proceed.
+        /// </summary>
+        internal static string AgreeMessage {
+            get {
+                return ResourceManager.GetString("AgreeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Contracts.
         /// </summary>
         internal static string AllContracts {
@@ -553,6 +562,15 @@ namespace Contract.Resources {
         internal static string ContractTemplates {
             get {
                 return ResourceManager.GetString("ContractTemplates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contragent.
+        /// </summary>
+        internal static string Contragent {
+            get {
+                return ResourceManager.GetString("Contragent", resourceCulture);
             }
         }
         
@@ -1336,6 +1354,15 @@ namespace Contract.Resources {
         internal static string M1 {
             get {
                 return ResourceManager.GetString("M1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Me.
+        /// </summary>
+        internal static string Me {
+            get {
+                return ResourceManager.GetString("Me", resourceCulture);
             }
         }
         

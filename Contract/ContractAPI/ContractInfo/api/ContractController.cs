@@ -56,5 +56,12 @@ namespace ContractAPI.ContractInfo.api
             ResponseCreateContract response = await Service.cancelContract(info);
             return MakeResponse(response, response.error_code);
         }
+
+        [HttpPost("getCanceledContract")]
+        public async Task<IActionResult> getCanceledContract([FromBody] CreateContractInfo info)
+        {
+            ResponseCanceledContract response = await Service.getCanceledContract(info);
+            return MakeResponse(response, response.error_code);
+        }
     }
 }

@@ -183,6 +183,10 @@
     <value>Розиман</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="AgreeMessage" xml:space="preserve">
+    <value>Илтимос розилик тугмасини белгиланг.</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="AllContracts" xml:space="preserve">
     <value>Шартномалар</value>
     <comment>Main</comment>
@@ -338,6 +342,10 @@
   <data name="ContractTemplates" xml:space="preserve">
     <value>Шартнома шаблонлари</value>
     <comment>Menu</comment>
+  </data>
+  <data name="Contragent" xml:space="preserve">
+    <value>Контрагент</value>
+    <comment>Table</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Юрисконсульт Ф.И.О.</value>
@@ -665,6 +673,10 @@
   <data name="M1" xml:space="preserve">
     <value>O - </value>
     <comment>Editing Contract number</comment>
+  </data>
+  <data name="Me" xml:space="preserve">
+    <value>Мен</value>
+    <comment>Table</comment>
   </data>
   <data name="Message1" xml:space="preserve">
     <value>Айни дамда тасдиқланмаган шартномалар мавжуд эмас.</value>

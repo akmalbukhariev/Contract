@@ -24,6 +24,11 @@ namespace Contract.Pages.CreateContract
             lbContractPrice.Text = createContract.total_cost_text;
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         private void View_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxView);

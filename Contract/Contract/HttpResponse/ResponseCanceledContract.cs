@@ -8,6 +8,6 @@ namespace Contract.HttpResponse
 {
     public class ResponseCanceledContract : Response, IResponse
     {
-        public List<CanceledContract> data { get; set; } = new List<CanceledContract>();
+        public List<CreateContractInfo> data { get; set; } = new List<CreateContractInfo>();
     }
 }
