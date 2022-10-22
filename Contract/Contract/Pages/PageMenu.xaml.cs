@@ -81,10 +81,10 @@ namespace Contract.Pages
             switch (item.ID)
             { 
                 case Constants.Menu1_1: 
-                    OnNavigatePage(new UnapprovedContracts.PageTable());
+                    OnNavigatePage(new UnapprovedContracts.PageUnapprovedTable());
                     break;
                 case Constants.Menu1_2:
-                    OnNavigatePage(new CurrentContracts.PageCurrentContractTable());
+                    OnNavigatePage(new ApprovedContracts.PageApprovedTable());
                     break;
                 case Constants.Menu1_3:
                     OnNavigatePage(new CanceledContracts.PageCanceledTable());

@@ -13,11 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using ContractAPI.DataAccess;
-using ContractAPI.Controllers.UnapprovedContracts.service;
-using ContractAPI.UnapprovedContracts.service.impl;
-using ContractAPI.ApplicableContracts.service.impl;
-using ContractAPI.ApplicableContracts.service;
+using ContractAPI.DataAccess; 
+ 
 using ContractAPI.CompanyInformation.service;
 using ContractAPI.CompanyInformation.service.impl;
 using ContractAPI.CanceledContractInfo.service;
@@ -33,6 +30,8 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Http;
 using ContractAPI.ContractServices.service;
 using ContractAPI.ContractServices.service.impl;
+using ContractAPI.ApprovedUnapprovedContract.service;
+using ContractAPI.ApprovedUnapprovedContract.service.impl;
 
 namespace ContractAPI
 {
@@ -52,9 +51,8 @@ namespace ContractAPI
             {
                 options.UseMySQL(Configuration.GetConnectionString("Default"));
             });
-            services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>();
-            services.AddScoped<IUnapprovedContractService, UnapprovedContractService>();
-            services.AddScoped<IApplicableContractService, ApplicableContractService>();
+            services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>(); 
+            services.AddScoped<IApprovedUnapprovedContractService, ApprovedUnapprovedContractService>();
             services.AddScoped<ICanceledContractService, CanceledContractService>();
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();

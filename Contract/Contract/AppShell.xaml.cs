@@ -29,8 +29,8 @@ namespace Contract
             Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract2), typeof(Pages.CreateContract.PageCreateContract2));
             Routing.RegisterRoute(nameof(Pages.CreateContract.PageCreateContract3), typeof(Pages.CreateContract.PageCreateContract3)); 
             
-            Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentCancelContract), typeof(Pages.CurrentContracts.PageCurrentCancelContract));
-            Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentContractTable), typeof(Pages.CurrentContracts.PageCurrentContractTable));
+            //Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentCancelContract), typeof(Pages.CurrentContracts.PageCurrentCancelContract));
+            //Routing.RegisterRoute(nameof(Pages.CurrentContracts.PageCurrentContractTable), typeof(Pages.CurrentContracts.PageCurrentContractTable));
             
             Routing.RegisterRoute(nameof(Pages.Customers.PageAddOrEditCustomer), typeof(Pages.Customers.PageAddOrEditCustomer));
             Routing.RegisterRoute(nameof(Pages.Customers.PageCustomerList), typeof(Pages.Customers.PageCustomerList));
@@ -58,10 +58,10 @@ namespace Contract
             Routing.RegisterRoute(nameof(Pages.TemplateContract.PageEditTemplateContract), typeof(Pages.TemplateContract.PageEditTemplateContract));
             Routing.RegisterRoute(nameof(Pages.TemplateContract.PageFullDescription), typeof(Pages.TemplateContract.PageFullDescription));
 
-            Routing.RegisterRoute(nameof(Pages.UnapprovedContracts.PageUnapprovedCancelContract), typeof(Pages.UnapprovedContracts.PageUnapprovedCancelContract));
+            //Routing.RegisterRoute(nameof(Pages.UnapprovedContracts.PageUnapprovedCancelContract), typeof(Pages.UnapprovedContracts.PageUnapprovedCancelContract));
             Routing.RegisterRoute(nameof(Pages.UnapprovedContracts.PageContractSpecialCode), typeof(Pages.UnapprovedContracts.PageContractSpecialCode));
             Routing.RegisterRoute(nameof(Pages.UnapprovedContracts.PageERIKey), typeof(Pages.UnapprovedContracts.PageERIKey));
-            Routing.RegisterRoute(nameof(Pages.UnapprovedContracts.PageTable), typeof(Pages.UnapprovedContracts.PageTable));
+            //Routing.RegisterRoute(nameof(Pages.UnapprovedContracts.PageTable), typeof(Pages.UnapprovedContracts.PageTable));
 
             Routing.RegisterRoute(nameof(Pages.PageM), typeof(Pages.PageM));
             Routing.RegisterRoute(nameof(Pages.PageMain), typeof(Pages.PageMain));

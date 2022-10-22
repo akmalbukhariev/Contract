@@ -41,20 +41,20 @@ namespace Contract.ViewModel
         {
             if (!ControlApp.InternetOk()) return;
 
-            ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseApplicableContract response1 = await HttpService.GetApplicableContract(ControlApp.UserInfo.phone_number);
-            ResponseUnapprovedContract response2 = await HttpService.GetUnapprovedContract(ControlApp.UserInfo.phone_number);
-            ControlApp.CloseLoadingView();
+            //ControlApp.ShowLoadingView(RSC.PleaseWait);
+            //ResponseApprovedUnapprovedContract response1 = await HttpService.GetApplicableContract(ControlApp.UserInfo.phone_number);
+            //ResponseUnapprovedContract response2 = await HttpService.GetUnapprovedContract(ControlApp.UserInfo.phone_number);
+            //ControlApp.CloseLoadingView();
 
-            if (response1.result)
-            {
-                TextValue1 = response1.data != null ? response1.data.Count.ToString() : "0";
-            }
+            //if (response1.result)
+            //{
+            //    TextValue1 = response1.data != null ? response1.data.Count.ToString() : "0";
+            //}
 
-            if (response2.result)
-            {
-                TextValue2 = response2.data != null ? response2.data.Count.ToString() : "0";
-            }
+            //if (response2.result)
+            //{
+            //    TextValue2 = response2.data != null ? response2.data.Count.ToString() : "0";
+            //}
         }
 
         public void Clean()

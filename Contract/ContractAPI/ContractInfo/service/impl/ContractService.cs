@@ -173,7 +173,7 @@ namespace ContractAPI.ContractInfo.service.impl
             }
 
             found.comment = info.comment;
-            found.is_deleted = 1;
+            found.is_canceled = 1;
             found.deleted_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.CreateContractInfo.Update(found);
@@ -201,7 +201,7 @@ namespace ContractAPI.ContractInfo.service.impl
             ResponseCanceledContract response = new ResponseCanceledContract();
 
             List<CreateContractInfo> found = await dataBase.CreateContractInfo
-                .Where(item => (item.is_deleted == 1 && item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir)))
+                .Where(item => item.is_canceled == 1 && item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir))
                 .AsNoTracking()
                 .ToListAsync();
 

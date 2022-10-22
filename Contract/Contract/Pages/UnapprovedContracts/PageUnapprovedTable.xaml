@@ -5,7 +5,7 @@
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.CurrentContracts.PageCurrentContractTable">
+            x:Class="Contract.Pages.UnapprovedContracts.PageUnapprovedTable">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
@@ -15,7 +15,7 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="{x:Static resource:AppResource.CurrentContracts}"
+                                    Title="{x:Static resource:AppResource.UnapprovedContracts}"
                                     UseWhite="True"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"
@@ -28,15 +28,15 @@
                           ItemsSource="{Binding DataList}" >
                     <ListView.Header>
                         <Grid x:Name="grHeader" 
-                              ColumnDefinitions="31,120,150,220,150,150,70,80,90,70">
+                              ColumnDefinitions="31,120,150,220,150,150,70,120,90,70">
                             <Label Text="№" Style="{StaticResource lbHeader}"/>
                             <Label Text="{x:Static resource:AppResource.Preparer}" Style="{StaticResource lbHeader}" Grid.Column="1"/>
                             <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbHeader}" Grid.Column="2"/>
                             <Label Text="{x:Static resource:AppResource.CompanyContractorName}" Style="{StaticResource lbHeader}" Grid.Column="3"/>
                             <Label Text="{x:Static resource:AppResource.DateOfContract}" Style="{StaticResource lbHeader}" Grid.Column="4"/>
                             <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbHeader}" Grid.Column="5"/>
-                            <Label Text="{x:Static resource:AppResource.Payment}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
-                            <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
+                            <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
+                            <Label Text="{x:Static resource:AppResource.Confirmation}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
                             <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
                             <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="9"/>
                         </Grid>
@@ -44,7 +44,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid ColumnDefinitions="30,120,150,220,150,150,70,80,90,70"
+                                <Grid ColumnDefinitions="30,120,150,220,150,150,70,120,90,70"
                                       RowDefinitions="*,1"
                                       RowSpacing="0"
                                       BackgroundColor="{Binding ItemColor}">
@@ -55,11 +55,14 @@
                                     <Label Text="{Binding CompanyName}" Style="{StaticResource lbItem}" Grid.Column="3"/>
                                     <Label Text="{Binding ContractDate}" Style="{StaticResource lbItem}" Grid.Column="4"/>
                                     <Label Text="{Binding ContractPrice}" Style="{StaticResource lbItem}" Grid.Column="5"/>
-                                    <BoxView BackgroundColor="{Binding ContractPaymentColor}" Grid.Column="6"/>
-                                    <Label Text="{Binding ContractPayment}" Style="{StaticResource lbItem}" Grid.Column="6"/>
-                                    <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="7">
+                                    <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="6">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Eye_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="check" Style="{StaticResource imItem}" Grid.Column="7">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Check_Tapped"/>
                                         </Image.GestureRecognizers>
                                     </Image>
                                     <Image Source="send" Style="{StaticResource imItem}" Grid.Column="8">
@@ -75,13 +78,27 @@
                                     <Line BackgroundColor="Black" 
                                           Grid.Row="1"  
                                           Grid.ColumnSpan="10"/>
-                                </Grid>
+                                </Grid>    
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-        </Grid> 
+        </Grid>
+        <BoxView IsVisible="{Binding ShowConfirmBox}"
+                 BackgroundColor="Black"
+                 Opacity="0.5"
+                 Grid.ColumnSpan="3">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandBoxView}"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <view:ViewConfirm IsVisible="{Binding ShowConfirmBox}"
+                          Grid.ColumnSpan="3"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          CommandCode="{Binding CommandCode}"
+                          CommandERI="{Binding CommandERI}"/>
     </Grid>
 
 </page:IPage>

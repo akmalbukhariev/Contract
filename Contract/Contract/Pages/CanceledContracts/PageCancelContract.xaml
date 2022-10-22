@@ -6,7 +6,7 @@
             xmlns:control="clr-namespace:Contract.Control"
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.CurrentContracts.PageCurrentCancelContract">
+            x:Class="Contract.Pages.CanceledContracts.PageCancelContract">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
@@ -16,14 +16,14 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="{x:Static resource:AppResource.CurrentContracts}"
+                                    Title="{x:Static resource:AppResource.UnapprovedContracts}"
                                     UseWhite="True"
                                     IsThisModalPage="True"/>
             <Label HorizontalTextAlignment="Center" 
                    Grid.Row="1">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{x:Static resource:AppResource.Active}"
+                        <Span Text="{x:Static resource:AppResource.Unapproved}"
                               TextColor="White"
                               FontSize="15"
                               FontFamily="Nunito_Regular"/>
@@ -61,7 +61,7 @@
             </StackLayout>
             <Button Text="{x:Static resource:AppResource.Cancel}"
                     TextColor="White"
-                    FontFamily="Nunito_Regular"
+                    FontFamily=""
                     BackgroundColor="{StaticResource AppColor}"
                     CornerRadius="5"
                     VerticalOptions="End"

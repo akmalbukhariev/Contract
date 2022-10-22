@@ -40,20 +40,12 @@ namespace Contract.Net
         public static string URL_DELETE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/deleteClientCompanyInfo";
         #endregion
 
-        #region Unapproved contract
-        public static string URL_GET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/getUnapprovedContract/"; //phoneNumber
-        public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/setUnapprovedContract";
-        public static string URL_DELETE_UNAPPROVED_CONTRACT = SERVER_URL + "UnapprovedContract/deleteUnapprovedContract";
-        public static string URL_DELETE_UNAPPROVED_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "UnapprovedContract/deleteUnapprovedContractAndSetCanceledContract";
+        #region Approved and Unapproved contract
+        public static string URL_GET_APPROVED_OR_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/getApprovedOrUnapprovedContract"; 
+        public static string URL_SET_APPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/setApprovedContract/";   //contract_number
+        public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/setUnapprovedContract/"; //contract_number
         #endregion
-
-        #region Applicable contract
-        public static string URL_GET_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/getApplicableContract/"; //phoneNumber
-        public static string URL_SET_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/setApplicableContract";
-        public static string URL_DELETE_APPLICABLE_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContract";
-        public static string URL_DELETE_APPLICABLE_CONTRACT_AND_SET_CANCELED_CONTRACT = SERVER_URL + "ApplicableContract/deleteApplicableContractAndSetCanceledContract";
-        #endregion
-
+          
         #region Service Info
         public static string URL_SET_SERVICE_INFO = SERVER_URL + "ServiceInfo/setContractServiceInfo";
         public static string URL_DELETE_SERVICE_INFO = SERVER_URL + "ServiceInfo/deleteContractServiceInfo"; //contract_number
@@ -401,138 +393,56 @@ namespace Contract.Net
             return responseLogin;
         }
 
-        #region Unapproved
-        public async static Task<ResponseUnapprovedContract> GetUnapprovedContract(string phoneNumbera)
+        #region #region Approved and Unapproved contract
+        public async static Task<ResponseApprovedUnapprovedContract> GetApprovedOrUnapprovedContract(ApprovedUnapprovedContract data)
         {
             Response response = new Response();
             try
             {
-                var receivedData = await RequestGetMethod($"{URL_GET_UNAPPROVED_CONTRACT}{phoneNumbera}");
-                response = JsonConvert.DeserializeObject<ResponseUnapprovedContract>(receivedData, settings);
+                var receivedData = await RequestPostMethod(URL_GET_APPROVED_OR_UNAPPROVED_CONTRACT, data);
+                response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
             }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseUnapprovedContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseUnapprovedContract>(); }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
 
-            ResponseUnapprovedContract responseLogin = ConvertResponseObj<ResponseUnapprovedContract>(response);
+            ResponseApprovedUnapprovedContract responseLogin = ConvertResponseObj<ResponseApprovedUnapprovedContract>(response);
 
             return responseLogin;
         }
 
-        public async static Task<ResponseUnapprovedContract> SetUnapprovedContract(UnapprovedContract data)
+        public async static Task<ResponseApprovedUnapprovedContract> SetApprovedContract(string contract_number)
         {
             Response response = new Response();
             try
             {
-                var receivedData = await RequestPostMethod(URL_SET_UNAPPROVED_CONTRACT, data);
-                response = JsonConvert.DeserializeObject<ResponseUnapprovedContract>(receivedData, settings);
+                var receivedData = await RequestPostMethod($"{URL_SET_APPROVED_CONTRACT}{contract_number}");
+                response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
             }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseUnapprovedContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseUnapprovedContract>(); }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
 
-            ResponseUnapprovedContract responseLogin = ConvertResponseObj<ResponseUnapprovedContract>(response);
+            ResponseApprovedUnapprovedContract responseLogin = ConvertResponseObj<ResponseApprovedUnapprovedContract>(response);
 
             return responseLogin;
         }
 
-        public async static Task<ResponseUnapprovedContract> DeleteUnapprovedContract(UnapprovedContract data)
+        public async static Task<ResponseApprovedUnapprovedContract> SetUnapprovedContract(string contract_number)
         {
             Response response = new Response();
             try
             {
-                var receivedData = await RequestDeleteMethod(URL_DELETE_UNAPPROVED_CONTRACT, data);
-                response = JsonConvert.DeserializeObject<ResponseUnapprovedContract>(receivedData, settings);
+                var receivedData = await RequestPostMethod($"{URL_SET_UNAPPROVED_CONTRACT}{contract_number}");
+                response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
             }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseUnapprovedContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseUnapprovedContract>(); }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
 
-            ResponseUnapprovedContract responseLogin = ConvertResponseObj<ResponseUnapprovedContract>(response);
-
-            return responseLogin;
-        }
-
-        public async static Task<ResponseCanceledContract> DeleteUnapprovedContractAndSetCanceledContract(CanceledContract data)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestDeleteMethod(URL_DELETE_UNAPPROVED_CONTRACT_AND_SET_CANCELED_CONTRACT, data);
-                response = JsonConvert.DeserializeObject<ResponseCanceledContract>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseCanceledContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseCanceledContract>(); }
-
-            ResponseCanceledContract responseLogin = ConvertResponseObj<ResponseCanceledContract>(response);
+            ResponseApprovedUnapprovedContract responseLogin = ConvertResponseObj<ResponseApprovedUnapprovedContract>(response);
 
             return responseLogin;
         }
         #endregion
-         
-        #region ApplicableContract
-        public async static Task<ResponseApplicableContract> GetApplicableContract(string phoneNumbera)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestGetMethod($"{URL_GET_APPLICABLE_CONTRACT}{phoneNumbera}");
-                response = JsonConvert.DeserializeObject<ResponseApplicableContract>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseApplicableContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseApplicableContract>(); }
-
-            ResponseApplicableContract responseLogin = ConvertResponseObj<ResponseApplicableContract>(response);
-
-            return responseLogin;
-        }
-
-        public async static Task<ResponseApplicableContract> SetApplicableContract(ApplicableContract data)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestPostMethod(URL_SET_APPLICABLE_CONTRACT, data);
-                response = JsonConvert.DeserializeObject<ResponseApplicableContract>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseApplicableContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseApplicableContract>(); }
-
-            ResponseApplicableContract responseLogin = ConvertResponseObj<ResponseApplicableContract>(response);
-
-            return responseLogin;
-        }
-
-        public async static Task<ResponseApplicableContract> DeleteApplicableContract(ApplicableContract data)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestDeleteMethod(URL_DELETE_APPLICABLE_CONTRACT, data);
-                response = JsonConvert.DeserializeObject<ResponseApplicableContract>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseApplicableContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseApplicableContract>(); }
-
-            ResponseApplicableContract responseLogin = ConvertResponseObj<ResponseApplicableContract>(response);
-
-            return responseLogin;
-        }
-
-        public async static Task<ResponseCanceledContract> DeleteApplicableContractAndSetCanceledContract(CanceledContract data)
-        {
-            Response response = new Response();
-            try
-            {
-                var receivedData = await RequestDeleteMethod(URL_DELETE_APPLICABLE_CONTRACT_AND_SET_CANCELED_CONTRACT, data);
-                response = JsonConvert.DeserializeObject<ResponseCanceledContract>(receivedData, settings);
-            }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseCanceledContract>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseCanceledContract>(); }
-
-            ResponseCanceledContract responseLogin = ConvertResponseObj<ResponseCanceledContract>(response);
-
-            return responseLogin;
-        }
-        #endregion
-         
+          
         public async static Task<ResponseCanceledContract> GetCanceledContract(CreateContractInfo data)
         {
             Response response = new Response();
@@ -691,7 +601,18 @@ namespace Contract.Net
 
             return response.Content;
         }
-          
+
+        private static async Task<string> RequestPostMethod(string url)
+        {
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.POST);
+            IRestResponse response = await client.ExecuteAsync(request);
+
+            return response.Content;
+        }
+
         private static T CreateResponseObj<T>() where T : IResponse, new()
         {
             T t = new T();

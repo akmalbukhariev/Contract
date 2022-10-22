@@ -27,12 +27,16 @@ namespace Contract.HttpModels
         public string total_cost_text { get; set; }
         public int agree { get; set; }
         public string created_date { get; set; }
+        /// <summary>
+        /// 1: yes, 0: no
+        /// </summary>
+        public int is_approved { get; set; }
         public string comment { get; set; }
         public string deleted_date { get; set; }
         /// <summary>
         /// 1: yes, 0: no
         /// </summary>
-        public int is_deleted { get; set; }
+        public int is_canceled { get; set; }
         #endregion
 
         public CreateContractInfo()
@@ -66,9 +70,10 @@ namespace Contract.HttpModels
             this.total_cost_text = other.total_cost_text;
             this.agree = other.agree;
             this.created_date = other.created_date;
+            this.is_approved = other.is_approved;
             this.comment = other.comment;
             this.deleted_date = other.deleted_date;
-            this.is_deleted = other.is_deleted;
+            this.is_canceled = other.is_canceled;
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using Acr.UserDialogs;
-using Contract.Interfaces;
+﻿using Contract.Interfaces;
 using Contract.Model;
-using Contract.ViewModel.Pages.UnapprovedContracts;
+using Contract.Pages.CanceledContracts;
+using Contract.ViewModel.Pages.CurrentContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +11,22 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.UnapprovedContracts
+namespace Contract.Pages.ApprovedContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageTable : IPage
+    public partial class PageApprovedTable : IPage
     { 
-        public PageTable()
+        public PageApprovedTable()
         {
             InitializeComponent();
 
-            SetModel(new PageTableViewModel(Navigation));
-             
+            SetModel(new PageApprovedTableViewModel());
+
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
                 listView.WidthRequest += grHeader.ColumnDefinitions[i].Width.Value;
             }
-            listView.WidthRequest += 70; 
+            listView.WidthRequest += 70;
         }
 
         protected override void OnAppearing()
@@ -50,15 +50,7 @@ namespace Contract.Pages.UnapprovedContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
         }
-
-        private void Check_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((Image)sender); 
-            ControlApp.Vibrate();
-
-            PModel.ShowConfirmBox = true;
-        }
-
+         
         private void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
@@ -70,31 +62,24 @@ namespace Contract.Pages.UnapprovedContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
 
-            UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
+            ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
-            HttpModels.CanceledContract canceledContract = new HttpModels.CanceledContract()
-            {
-                user_phone_number = ControlApp.UserInfo.phone_number,
-                preparer = item.Preparer,
+            HttpModels.CreateContractInfo canceledContract = new HttpModels.CreateContractInfo()
+            { 
                 contract_number = item.ContractNnumber,
-                //company_contractor_name = item.CompanyName,
-                //date_of_contract = item.ContractDate,
-                //contract_price = item.ContractPrice,
-                //payment_percent = "85%",
                 comment = ""
-                
             };
 
             Model.SetTransitionType(TransitionType.SlideFromBottom);
-            await Navigation.PushModalAsync(new PageUnapprovedCancelContract(canceledContract));
+            await Navigation.PushModalAsync(new PageCancelContract(canceledContract));
         }
 
-        private PageTableViewModel PModel
+        private PageApprovedTableViewModel PModel
         {
             get
             {
-                return Model as PageTableViewModel;
+                return Model as PageApprovedTableViewModel;
             }
         }
     }
