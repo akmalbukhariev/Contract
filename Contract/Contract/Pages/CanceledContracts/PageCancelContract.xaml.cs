@@ -10,15 +10,18 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Contract.Pages.CanceledContracts
-{
+{ 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCancelContract : IPage
-    { 
-        public PageCancelContract(CreateContractInfo contractInfo)
+    {
+        public PageCancelContract(CreateContractInfo contractInfo, string pageTitle, bool moveToMainPage = false)
         {
             InitializeComponent();
+            
+            navBar.Title = pageTitle;
+            lbSpan1.Text = pageTitle.Contains(RSC.Approved) ? RSC.Approved : RSC.Unapproved;
 
-            SetModel(new PageCancelContractViewModel(contractInfo, Navigation));
+            SetModel(new PageCancelContractViewModel(contractInfo, Navigation, moveToMainPage));
         }
 
         private PageCancelContractViewModel PModel

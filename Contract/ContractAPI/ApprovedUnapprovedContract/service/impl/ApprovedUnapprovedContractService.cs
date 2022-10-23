@@ -68,12 +68,27 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
 
         public async Task<ResponseApprovedUnapprovedContract> getApprovedOrUnapprovedContract(Contract.HttpModels.ApprovedUnapprovedContract info)
         {
-            ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract(); 
+            ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
 
-            List<CreateContractInfo> found = await dataBase.CreateContractInfo
-                .Where(item => item.is_approved == info.is_approved && (item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir)))
-                .AsNoTracking()
-                .ToListAsync();
+            List<CreateContractInfo> found = new List<CreateContractInfo>();
+
+            if (info.use_is_approved == 1)
+            {
+                found = await dataBase.CreateContractInfo
+                    .Where(item => (item.is_approved == info.is_approved) &&
+                                   (item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir)) &&
+                                   (item.is_canceled == 0))
+                    .AsNoTracking()
+                    .ToListAsync();
+            }
+            else
+            {
+                found = await dataBase.CreateContractInfo
+                    .Where(item => (item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir)) &&
+                                   (item.is_canceled == 0))
+                    .AsNoTracking()
+                    .ToListAsync();
+            }
 
             foreach (CreateContractInfo item in found)
             {

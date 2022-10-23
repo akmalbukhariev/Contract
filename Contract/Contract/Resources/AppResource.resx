@@ -197,12 +197,16 @@
     <value>Amount Of  VAT</value>
     <comment>CreateContract</comment>
   </data>
-  <data name="ApplicableContracts1" xml:space="preserve">
-    <value>Applicable Contracts</value>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
     <comment>Main</comment>
   </data>
-  <data name="ApplicableContracts2" xml:space="preserve">
-    <value>Applicable
+  <data name="ApprovedContracts1" xml:space="preserve">
+    <value>Approved Contracts</value>
+    <comment>Main</comment>
+  </data>
+  <data name="ApprovedContracts2" xml:space="preserve">
+    <value>Approved
 Contracts</value>
     <comment>Main</comment>
   </data>

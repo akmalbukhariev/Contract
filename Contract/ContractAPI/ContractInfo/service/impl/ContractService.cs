@@ -201,7 +201,8 @@ namespace ContractAPI.ContractInfo.service.impl
             ResponseCanceledContract response = new ResponseCanceledContract();
 
             List<CreateContractInfo> found = await dataBase.CreateContractInfo
-                .Where(item => item.is_canceled == 1 && item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir))
+                .Where(item => (item.is_canceled == 1) && 
+                               (item.user_phone_number.Equals(info.user_phone_number) || item.client_stir.Equals(info.user_stir)))
                 .AsNoTracking()
                 .ToListAsync();
 

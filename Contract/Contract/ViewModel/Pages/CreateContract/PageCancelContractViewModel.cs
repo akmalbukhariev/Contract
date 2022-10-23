@@ -1,4 +1,5 @@
-﻿using Contract.HttpModels;
+﻿using Contract.Control;
+using Contract.HttpModels;
 using Contract.HttpResponse;
 using Contract.Net;
 using System;
@@ -11,14 +12,17 @@ namespace Contract.ViewModel.Pages.CreateContract
 {
     public class PageCancelContractViewModel : BaseModel
     {
+        public bool MoveToMainPage = false;
         public string ContractNumber { get => GetValue<string>(); set => SetValue(value); }
         public string CommentText { get => GetValue<string>(); set => SetValue(value); }
 
         private CreateContractInfo CanceledContractInfo;
-        public PageCancelContractViewModel(CreateContractInfo contractInfo, INavigation navigation) : base(navigation)
+        public PageCancelContractViewModel(CreateContractInfo contractInfo, INavigation navigation, bool moveToMainPage = false) 
+            : base(navigation)
         {
             CanceledContractInfo = contractInfo;
             ContractNumber = $" {contractInfo.contract_number} ";
+            MoveToMainPage = moveToMainPage;
         }
 
         #region Commands
@@ -42,7 +46,11 @@ namespace Contract.ViewModel.Pages.CreateContract
             {
                 ControlApp.CanIRemove = true;
                 await Application.Current.MainPage.DisplayAlert(RSC.Cancel, RSC.Cancel_Message_3, RSC.Ok);
-                Application.Current.MainPage = new Contract.Pages.PageMain();
+
+                if (MoveToMainPage)
+                    Application.Current.MainPage = new TransitionNavigationPage(new Contract.Pages.PageMain());
+                else
+                    await Navigation.PopModalAsync();
             }
             else
             {

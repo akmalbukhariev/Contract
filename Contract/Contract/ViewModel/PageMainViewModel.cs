@@ -4,6 +4,7 @@ using Contract.Net;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace Contract.ViewModel
@@ -26,14 +27,14 @@ namespace Contract.ViewModel
 
         public void Init()
         {
-            TextCount1 = RSC.ApplicableContracts2;
+            TextCount1 = RSC.ApprovedContracts2;
             TextCount2 = RSC.UnapprovedContracts2;
 
             TextValue1 = "0";
             TextValue2 = "0";
 
             MenuList.Add(new ChildMenuItem() {ID = Constants.Menu1, Name = RSC.UnapprovedContracts1 });
-            MenuList.Add(new ChildMenuItem() {ID = Constants.Menu2, Name = RSC.ApplicableContracts1 });
+            MenuList.Add(new ChildMenuItem() {ID = Constants.Menu2, Name = RSC.ApprovedContracts1 });
             MenuList.Add(new ChildMenuItem() {ID = Constants.Menu3, Name = RSC.CanceledContracts });
         }
 
@@ -41,20 +42,22 @@ namespace Contract.ViewModel
         {
             if (!ControlApp.InternetOk()) return;
 
-            //ControlApp.ShowLoadingView(RSC.PleaseWait);
-            //ResponseApprovedUnapprovedContract response1 = await HttpService.GetApplicableContract(ControlApp.UserInfo.phone_number);
-            //ResponseUnapprovedContract response2 = await HttpService.GetUnapprovedContract(ControlApp.UserInfo.phone_number);
-            //ControlApp.CloseLoadingView();
+            HttpModels.ApprovedUnapprovedContract request = new HttpModels.ApprovedUnapprovedContract()
+            {
+                user_phone_number = ControlApp.UserInfo.phone_number,
+                user_stir = "111122",
+                use_is_approved = 0
+            };
 
-            //if (response1.result)
-            //{
-            //    TextValue1 = response1.data != null ? response1.data.Count.ToString() : "0";
-            //}
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseApprovedUnapprovedContract response = await Net.HttpService.GetApprovedOrUnapprovedContract(request);
+            ControlApp.CloseLoadingView();
 
-            //if (response2.result)
-            //{
-            //    TextValue2 = response2.data != null ? response2.data.Count.ToString() : "0";
-            //}
+            if (response.result)
+            {
+                TextValue1 = response.data != null ? response.data.Where(item => item.is_approved == 1).ToList().Count.ToString() : "0";
+                TextValue2 = response.data != null ? response.data.Where(item => item.is_approved == 0).ToList().Count.ToString() : "0";
+            }
         }
 
         public void Clean()

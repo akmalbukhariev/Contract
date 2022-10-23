@@ -241,21 +241,30 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicable Contracts.
+        ///   Looks up a localized string similar to Approved.
         /// </summary>
-        internal static string ApplicableContracts1 {
+        internal static string Approved {
             get {
-                return ResourceManager.GetString("ApplicableContracts1", resourceCulture);
+                return ResourceManager.GetString("Approved", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicable
+        ///   Looks up a localized string similar to Approved Contracts.
+        /// </summary>
+        internal static string ApprovedContracts1 {
+            get {
+                return ResourceManager.GetString("ApprovedContracts1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved
         ///Contracts.
         /// </summary>
-        internal static string ApplicableContracts2 {
+        internal static string ApprovedContracts2 {
             get {
-                return ResourceManager.GetString("ApplicableContracts2", resourceCulture);
+                return ResourceManager.GetString("ApprovedContracts2", resourceCulture);
             }
         }
         

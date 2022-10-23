@@ -14,7 +14,8 @@
         <Grid RowDefinitions="Auto,Auto,*,Auto" 
               RowSpacing="20"
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
+            <view:ViewNavigationBar x:Name="navBar" 
+                                    BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     Title="{x:Static resource:AppResource.UnapprovedContracts}"
                                     UseWhite="True"
@@ -23,7 +24,8 @@
                    Grid.Row="1">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{x:Static resource:AppResource.Unapproved}"
+                        <Span x:Name="lbSpan1" 
+                              Text="{x:Static resource:AppResource.Unapproved}"
                               TextColor="White"
                               FontSize="15"
                               FontFamily="Nunito_Regular"/>

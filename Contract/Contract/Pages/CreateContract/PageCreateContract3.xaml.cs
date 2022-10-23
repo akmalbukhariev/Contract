@@ -47,7 +47,7 @@ namespace Contract.Pages.CreateContract
             ClickAnimationView(boxCancel);
             ClickAnimationView(stackCancel); 
 
-            await Navigation.PushModalAsync(new PageCancelContract(ContractInfo));
+            await Navigation.PushModalAsync(new PageCancelContract(ContractInfo,RSC.CreateContract ,true));
         }
     }
 }

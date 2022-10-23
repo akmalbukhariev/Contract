@@ -199,11 +199,15 @@
     <value>ҚҚС миқдори</value>
     <comment>CreateContract</comment>
   </data>
-  <data name="ApplicableContracts1" xml:space="preserve">
+  <data name="Approved" xml:space="preserve">
+    <value>Тасдиқланган</value>
+    <comment>Main</comment>
+  </data>
+  <data name="ApprovedContracts1" xml:space="preserve">
     <value>Амалдаги шартномалар</value>
     <comment>Main</comment>
   </data>
-  <data name="ApplicableContracts2" xml:space="preserve">
+  <data name="ApprovedContracts2" xml:space="preserve">
     <value>Амалдаги шартномалар</value>
     <comment>Main</comment>
   </data>

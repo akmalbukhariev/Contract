@@ -33,7 +33,7 @@ namespace Contract.ViewModel
                 ChildMenuList = new ObservableCollection<ChildMenuItem>()
                 {
                     new ChildMenuItem(){ID = Constants.Menu1_1, Name = RSC.UnapprovedContracts1},
-                    new ChildMenuItem(){ID = Constants.Menu1_2, Name = RSC.ApplicableContracts1},
+                    new ChildMenuItem(){ID = Constants.Menu1_2, Name = RSC.ApprovedContracts1},
                     new ChildMenuItem(){ID = Constants.Menu1_3, Name = RSC.CanceledContracts},
                     new ChildMenuItem(){ID = Constants.Menu1_4, Name = RSC.CreateContract}
                 }

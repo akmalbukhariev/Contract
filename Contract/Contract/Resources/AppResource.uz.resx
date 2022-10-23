@@ -199,11 +199,15 @@
     <value>QQS miqdori</value>
     <comment>CreateContract</comment>
   </data>
-  <data name="ApplicableContracts1" xml:space="preserve">
+  <data name="Approved" xml:space="preserve">
+    <value>Tasdiqlangan</value>
+    <comment>Main</comment>
+  </data>
+  <data name="ApprovedContracts1" xml:space="preserve">
     <value>Amaldagi shartnomalar</value>
     <comment>Main</comment>
   </data>
-  <data name="ApplicableContracts2" xml:space="preserve">
+  <data name="ApprovedContracts2" xml:space="preserve">
     <value>Amaldagi 
 shartnomalar</value>
     <comment>Main</comment>

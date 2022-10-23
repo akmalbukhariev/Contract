@@ -81,7 +81,7 @@ namespace Contract.Pages.UnapprovedContracts
             };
 
             Model.SetTransitionType(TransitionType.SlideFromBottom);
-            await Navigation.PushModalAsync(new PageCancelContract(canceledContract));
+            await Navigation.PushModalAsync(new PageCancelContract(canceledContract, RSC.UnapprovedContracts1));
         }
 
         private PageUnapprovedTableViewModel PModel
