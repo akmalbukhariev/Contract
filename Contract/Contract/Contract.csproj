@@ -49,6 +49,9 @@
     <Compile Update="Pages\Customers\PageAddOrEditCustomer.xaml.cs">
       <DependentUpon>PageAddOrEditCustomer.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\EditUserContractInfo\PageEditUserContractInfo.xaml.cs">
+      <DependentUpon>PageEditUserContractInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\PageMasterDetail.xaml.cs">
       <DependentUpon>PageMasterDetail.xaml</DependentUpon>
     </Compile>
@@ -114,7 +117,7 @@
     <EmbeddedResource Update="Pages\Customers\PageCustomerList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\EditContract\PageEditPersonalContract.xaml">
+    <EmbeddedResource Update="Pages\EditUserContractInfo\PageEditUserContractInfo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Setting\PageLanguage.xaml">
@@ -214,7 +217,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\Pages\CanceledContracts\" />
     <Folder Include="ViewModel\SignUp\" />
   </ItemGroup>
 </Project>

@@ -283,6 +283,7 @@
                         <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
+                                              ItemsSource="{Binding PositionList}"
                                               SelectedItem="{Binding PositionOfSignatory}"
                                               SelectedIndex="{Binding PositionOfSignatory_index}"
                                               HorizontalTextAlignment="Start"

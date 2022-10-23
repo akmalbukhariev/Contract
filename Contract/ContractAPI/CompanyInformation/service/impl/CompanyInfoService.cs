@@ -158,14 +158,14 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.UserCompanyInfo
-                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
             if (found != null)
             {
                 response.result = false;
-                response.message = "User stir number is already exist!";
+                response.message = "User phone number is already exist!";
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
@@ -362,7 +362,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.UserCompanyInfo
-                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
+                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 

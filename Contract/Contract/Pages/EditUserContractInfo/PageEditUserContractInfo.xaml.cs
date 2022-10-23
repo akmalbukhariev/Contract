@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.ViewModel.Pages.EditUserContractInfo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,22 +8,39 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Contract.Pages.EditContract
+namespace Contract.Pages.EditUserContractInfo
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageEditPersonalContract : IPage
+    public partial class PageEditUserContractInfo : IPage
     {
         private bool yes1 = true;
         private bool yes2 = true;
         private bool yes3 = true;
 
-        public PageEditPersonalContract()
+        public PageEditUserContractInfo()
         {
             InitializeComponent();
+
+            SetModel(new PageEditUserContractInfoViewModel(Navigation));
 
             imYesNo1.Source = GetYesNoIcon(true);
             imYesNo2.Source = GetYesNoIcon(true);
             imYesNo3.Source = GetYesNoIcon(true);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            PModel.PositionList = GetPositionList;
+            PModel.RequestInfo();
+
+            yes1 = !PModel.AreYouQQSPayer;
+            yes2 = !PModel.IsAccountProvided;
+            yes3 = !PModel.IsCounselProvided;
+
+            YesNo1_Tapped(null, null);
+            YesNo2_Tapped(null, null);
+            YesNo3_Tapped(null, null);
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)
@@ -40,7 +58,10 @@ namespace Contract.Pages.EditContract
                 stackYesNo1.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            if (sender != null)
+                ControlApp.Vibrate();
+
+            PModel.AreYouQQSPayer = yes1;
         }
 
         private void YesNo2_Tapped(object sender, EventArgs e)
@@ -58,7 +79,10 @@ namespace Contract.Pages.EditContract
                 stackYesNo2.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            if (sender != null)
+                ControlApp.Vibrate();
+
+            PModel.IsAccountProvided = yes2;
         }
 
         private void YesNo3_Tapped(object sender, EventArgs e)
@@ -76,7 +100,18 @@ namespace Contract.Pages.EditContract
                 stackYesNo3.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            if (sender != null)
+                ControlApp.Vibrate();
+
+            PModel.IsCounselProvided = yes3;
+        }
+
+        private PageEditUserContractInfoViewModel PModel
+        {
+            get
+            {
+                return Model as PageEditUserContractInfoViewModel;
+            }
         }
     }
 }

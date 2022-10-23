@@ -35,7 +35,7 @@ namespace Contract
             Routing.RegisterRoute(nameof(Pages.Customers.PageAddOrEditCustomer), typeof(Pages.Customers.PageAddOrEditCustomer));
             Routing.RegisterRoute(nameof(Pages.Customers.PageCustomerList), typeof(Pages.Customers.PageCustomerList));
             
-            Routing.RegisterRoute(nameof(Pages.EditContract.PageEditPersonalContract), typeof(Pages.EditContract.PageEditPersonalContract));
+            //Routing.RegisterRoute(nameof(Pages.EditContract.PageEditPersonalContract), typeof(Pages.EditContract.PageEditPersonalContract));
 
             Routing.RegisterRoute(nameof(Pages.Introduction.PageIntroduction), typeof(Pages.Introduction.PageIntroduction));
             Routing.RegisterRoute(nameof(Pages.Introduction.PageLoginInfo), typeof(Pages.Introduction.PageLoginInfo));

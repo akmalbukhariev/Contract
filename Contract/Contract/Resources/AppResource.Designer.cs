@@ -872,6 +872,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter the TIN of company..
+        /// </summary>
+        internal static string EnterCompanyStir {
+            get {
+                return ResourceManager.GetString("EnterCompanyStir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Current Password.
         /// </summary>
         internal static string EnterCurrentPassword {

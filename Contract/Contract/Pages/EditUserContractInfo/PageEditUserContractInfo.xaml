@@ -6,7 +6,7 @@
             xmlns:control="clr-namespace:Contract.Control"
             xmlns:resource="clr-namespace:Contract.Resources"
             BackgroundColor="{StaticResource BackColor}"
-            x:Class="Contract.Pages.EditContract.PageEditPersonalContract">
+            x:Class="Contract.Pages.EditUserContractInfo.PageEditUserContractInfo">
 
     <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
@@ -52,36 +52,42 @@
                         <Label Text="{x:Static resource:AppResource.CompanyName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
+                                        Text="{Binding CompanyName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
+                                        Text="{Binding AddressOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="3">
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        Text="{Binding AccountNumber}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="4">
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ----"
+                                        Text="{Binding CompanyStir}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="5">
                         <Label Text="{x:Static resource:AppResource.NameOfBank}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
+                                        Text="{Binding NameOfBank}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="6">
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                                        Text="{Binding BankCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -101,19 +107,24 @@
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        Text="{Binding QQSCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="9">
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
+                                        Text="{Binding PhoneNnumberOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
                                  Grid.Row="10">
                         <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBlackStyle}"/>
-                        <control:CustomPicker Title="Lavozim"
+                        <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
+                                              ItemsSource="{Binding PositionList}"
+                                              SelectedItem="{Binding PositionOfSignatory}"
+                                              SelectedIndex="{Binding PositionOfSignatory_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
@@ -124,6 +135,7 @@
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding FullNameOfSignatory}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -143,6 +155,7 @@
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding AccountantName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -162,6 +175,7 @@
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
+                                        Text="{Binding CounselName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <view:ViewExplanation Text="{x:Static resource:AppResource.Info1}" 
@@ -171,6 +185,7 @@
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.Save}"
                     Margin="5,0,5,20"
+                    Command="{Binding CommandSave}"
                     Grid.Row="2"/>
         </Grid>
     </Grid>

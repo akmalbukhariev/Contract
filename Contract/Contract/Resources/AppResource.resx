@@ -478,6 +478,10 @@ Contracts</value>
     <value>Enter Company Name</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="EnterCompanyStir" xml:space="preserve">
+    <value>Please enter the TIN of company.</value>
+    <comment>MyCompany</comment>
+  </data>
   <data name="EnterCurrentPassword" xml:space="preserve">
     <value>Enter Current Password</value>
     <comment>Change password</comment>

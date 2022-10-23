@@ -66,6 +66,7 @@ namespace Contract.HttpModels
             base.qqs_number = other.qqs_number;
             base.company_phone_number = other.company_phone_number;
             base.position_of_signer = other.position_of_signer;
+            base.position_of_signer_index = other.position_of_signer_index;
             base.name_of_signer = other.name_of_signer;
             base.is_accountant_provided = other.is_accountant_provided;
             base.accountant_name = other.accountant_name;

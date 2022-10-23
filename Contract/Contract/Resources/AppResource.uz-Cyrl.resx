@@ -479,6 +479,10 @@
     <value>Корхона номини киритинг</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="EnterCompanyStir" xml:space="preserve">
+    <value>Илтимос, компаниянинг ТИНни киритинг.</value>
+    <comment>MyCompany</comment>
+  </data>
   <data name="EnterCurrentPassword" xml:space="preserve">
     <value>Амалдаги паролни киритинг</value>
     <comment>Change password</comment>

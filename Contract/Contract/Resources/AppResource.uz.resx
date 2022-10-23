@@ -480,6 +480,10 @@ shartnomalar</value>
     <value>Korxona nomini kiriting</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="EnterCompanyStir" xml:space="preserve">
+    <value>Iltimos, kompaniyaning TIN ni kiriting.</value>
+    <comment>MyCompany</comment>
+  </data>
   <data name="EnterCurrentPassword" xml:space="preserve">
     <value>Amaldagi parolni kiriting</value>
     <comment>Change password</comment>

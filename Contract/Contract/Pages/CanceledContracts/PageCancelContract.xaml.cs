@@ -1,4 +1,5 @@
 ﻿using Contract.HttpModels;
+using Contract.ViewModel.Pages.CanceledContracts;
 using Contract.ViewModel.Pages.CreateContract;
 using System;
 using System.Collections.Generic;

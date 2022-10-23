@@ -479,6 +479,10 @@
     <value>Введите название компании</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="EnterCompanyStir" xml:space="preserve">
+    <value>Пожалуйста, введите ИНН компании.</value>
+    <comment>MyCompany</comment>
+  </data>
   <data name="EnterCurrentPassword" xml:space="preserve">
     <value>Введите текущий пароль</value>
     <comment>Change password</comment>

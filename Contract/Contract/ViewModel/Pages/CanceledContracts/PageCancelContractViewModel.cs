@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Contract.ViewModel.Pages.CreateContract
+namespace Contract.ViewModel.Pages.CanceledContracts
 {
     public class PageCancelContractViewModel : BaseModel
     {
