@@ -813,6 +813,10 @@
     <value>Пожалуйста</value>
     <comment>Finished FillInfo</comment>
   </data>
+  <data name="PleaseCheckNewPassword" xml:space="preserve">
+    <value>Пожалуйста, проверьте новый пароль.</value>
+    <comment>Change Password</comment>
+  </data>
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
     <value>Пожалуйста введите данные услуги</value>
     <comment>CreateContract</comment>
@@ -1083,6 +1087,10 @@
   <data name="WaitingTime" xml:space="preserve">
     <value>Время ожидания</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="WrongCurrentPassword" xml:space="preserve">
+    <value>Неверный текущий пароль.</value>
+    <comment>Change password</comment>
   </data>
   <data name="X" xml:space="preserve">
     <value>X</value>

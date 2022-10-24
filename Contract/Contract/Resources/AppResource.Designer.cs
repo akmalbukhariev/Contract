@@ -1628,6 +1628,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check the new password..
+        /// </summary>
+        internal static string PleaseCheckNewPassword {
+            get {
+                return ResourceManager.GetString("PleaseCheckNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please Enter Service Info.
         /// </summary>
         internal static string PleaseEnterServiceInfo {
@@ -2237,6 +2246,15 @@ namespace Contract.Resources {
         internal static string WaitingTime {
             get {
                 return ResourceManager.GetString("WaitingTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong current password..
+        /// </summary>
+        internal static string WrongCurrentPassword {
+            get {
+                return ResourceManager.GetString("WrongCurrentPassword", resourceCulture);
             }
         }
         

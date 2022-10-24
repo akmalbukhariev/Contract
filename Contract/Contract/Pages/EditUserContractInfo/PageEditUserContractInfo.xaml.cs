@@ -22,25 +22,32 @@ namespace Contract.Pages.EditUserContractInfo
             InitializeComponent();
 
             SetModel(new PageEditUserContractInfoViewModel(Navigation));
+            PModel.EventRequestInfoFinished += EventRequestInfoFinished;
 
             imYesNo1.Source = GetYesNoIcon(true);
             imYesNo2.Source = GetYesNoIcon(true);
             imYesNo3.Source = GetYesNoIcon(true);
         }
-
+         
         protected override void OnAppearing()
         {
             base.OnAppearing();
             PModel.PositionList = GetPositionList;
-            PModel.RequestInfo();
+            PModel.RequestInfo(); 
+        }
 
+        private void EventRequestInfoFinished()
+        {
             yes1 = !PModel.AreYouQQSPayer;
             yes2 = !PModel.IsAccountProvided;
             yes3 = !PModel.IsCounselProvided;
 
-            YesNo1_Tapped(null, null);
-            YesNo2_Tapped(null, null);
-            YesNo3_Tapped(null, null);
+            Device.BeginInvokeOnMainThread(new Action(() =>
+            {
+                YesNo1_Tapped(null, null);
+                YesNo2_Tapped(null, null);
+                YesNo3_Tapped(null, null);
+            }));
         }
 
         private void YesNo1_Tapped(object sender, EventArgs e)

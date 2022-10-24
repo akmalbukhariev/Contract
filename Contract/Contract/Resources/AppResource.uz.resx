@@ -837,6 +837,10 @@ shartnomalar mavjud emas.</value>
     <value>Iltimos </value>
     <comment>Finished FillInfo</comment>
   </data>
+  <data name="PleaseCheckNewPassword" xml:space="preserve">
+    <value>Iltimos, yangi parolni tekshiring.</value>
+    <comment>Change Password</comment>
+  </data>
   <data name="PleaseEnterServiceInfo" xml:space="preserve">
     <value>Iltimos, xizmat ma'lumotlarini kiriting</value>
     <comment>CreateContract</comment>
@@ -1112,6 +1116,10 @@ shartnomalar</value>
   <data name="WaitingTime" xml:space="preserve">
     <value>Kutish vaqti</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="WrongCurrentPassword" xml:space="preserve">
+    <value>Amaldagi parol noto‘g‘ri.</value>
+    <comment>Change password</comment>
   </data>
   <data name="X" xml:space="preserve">
     <value>X</value>

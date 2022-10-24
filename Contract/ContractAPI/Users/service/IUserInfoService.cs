@@ -11,7 +11,7 @@ namespace ContractAPI.Users.service
     public interface IUserInfoService
     {
         Task<ResponseUser> getUser(string phoneNumber);
-        Task<ResponseLogin> updateUserPassword(User user);
+        Task<ResponseLogin> updateUserPassword(ChnagePassword user);
         Task<IList<User>> getAllUsers();
     }
 }

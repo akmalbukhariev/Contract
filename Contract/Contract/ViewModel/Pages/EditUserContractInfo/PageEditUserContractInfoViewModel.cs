@@ -8,7 +8,10 @@ using Xamarin.Forms;
 namespace Contract.ViewModel.Pages.EditUserContractInfo
 {
     public class PageEditUserContractInfoViewModel: BaseCompanyInfoModel
-    {
+    {   
+        public delegate void RequestInfoFinished();
+        public event RequestInfoFinished EventRequestInfoFinished;
+
         public PageEditUserContractInfoViewModel(INavigation navigation) : base(navigation)
         {
             CompanyName = "Kontrakt Maker";
@@ -58,6 +61,8 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
                 CounselName = response.data.counsel_name;
 
                 oldModel = Copy(this);
+
+                EventRequestInfoFinished?.Invoke();
             }
         }
 

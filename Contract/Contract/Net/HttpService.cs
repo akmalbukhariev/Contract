@@ -345,7 +345,7 @@ namespace Contract.Net
             return responseLogin;
         }
 
-        public async static Task<ResponseLogin> UpdateUserPassword(User data)
+        public async static Task<ResponseLogin> UpdateUserPassword(ChnagePassword data)
         {
             Response response = new Response();
             try

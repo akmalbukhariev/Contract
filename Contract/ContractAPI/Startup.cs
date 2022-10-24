@@ -34,6 +34,8 @@ using ContractAPI.ApprovedUnapprovedContract.service;
 using ContractAPI.ApprovedUnapprovedContract.service.impl;
 using ContractAPI.MyCompanyInfo.service;
 using ContractAPI.MyCompanyInfo.service.impl;
+using ContractAPI.Users.service;
+using ContractAPI.Users.service.impl;
 
 namespace ContractAPI
 {
@@ -59,6 +61,7 @@ namespace ContractAPI
             services.AddScoped<IUserCompanyInfoService, UserCompanyInfoService>();
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
+            services.AddScoped<IUserInfoService, UserInfoService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAppService, AppService>();
 

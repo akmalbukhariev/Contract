@@ -39,26 +39,33 @@ namespace ContractAPI.Users.service.impl
             return response;
         }
 
-        public async Task<ResponseLogin> updateUserPassword(User user)
+        public async Task<ResponseLogin> updateUserPassword(ChnagePassword user)
         {
             ResponseLogin response = new ResponseLogin();
-
-            User found = await dataBase.Users.Where(item => item.phone_number == user.phone_number)
+            User foundUser = await dataBase.Users
+                .Where(item => item.phone_number.Equals(user.phone_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
-            if (found == null)
+            if (foundUser == null)
+            {
+                response.userInfo = null;
+                response.message = Constants.DoNotExist;
+                return response;
+            }
+
+            string decryptPassword = AesOperation.DecryptString(foundUser.password);
+            if (!user.password.Equals(decryptPassword))
             {
                 response.result = false;
-                response.message = Constants.NotFound;
-                response.error_code = (int)HttpStatusCode.NotFound;
-
+                response.message = "Wrong password.";
+                response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
 
             var newUser = new User();
-            newUser.Copy(found);
-            newUser.password = user.password;
+            newUser.Copy(foundUser);
+            newUser.password = AesOperation.EncryptString(user.new_password);
 
             dataBase.Users.Update(newUser);
 

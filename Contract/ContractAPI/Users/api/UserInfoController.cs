@@ -29,7 +29,7 @@ namespace ContractAPI.Users.api
         }
 
         [HttpPut("updateUserPassword")]
-        public async Task<IActionResult> updateUserPassword([FromBody] User user)
+        public async Task<IActionResult> updateUserPassword([FromBody] ChnagePassword user)
         {
             ResponseLogin response = await Service.updateUserPassword(user);
             return MakeResponse(response, response.error_code);
