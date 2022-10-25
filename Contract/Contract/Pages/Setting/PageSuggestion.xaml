@@ -31,7 +31,9 @@
             <StackLayout Spacing="10">
                 <Label Text="{x:Static resource:AppResource.CustomerType}"
                        Style="{StaticResource lbBlackStyle}"/>
-                <control:CustomPicker Title="{x:Static resource:AppResource.Offer}"
+                <control:CustomPicker Title="{x:Static resource:AppResource.SelectServiceType}"
+                                      ItemsSource="{Binding OfferList}"
+                                      SelectedItem="{Binding SelectedOffer}"
                                       HorizontalTextAlignment="Start"
                                       Image="show"
                                       ChartSyle="True"
@@ -39,17 +41,19 @@
                                       BackgroundColor="White"/>
             </StackLayout>
             <Grid x:Name="grMain"
-                  VerticalOptions="StartAndExpand"
+                  VerticalOptions="Fill"
                   Grid.Row="1">
                 <BoxView x:Name="frontBoxView" 
                          BackgroundColor="Gray"/>
                 <control:CustomEditor Placeholder="{x:Static resource:AppResource.Description}" 
+                                      Text="{Binding Description}"
                                       BackgroundColor="White" 
-                                      HeightRequest="200"
                                       Margin="0.5"/>
             </Grid>
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.Send}"
+                    Command="{Binding CommandSend}"
+                    VerticalOptions="End"
                     Margin="5,0,5,50"
                     Grid.Row="2"/>
         </Grid>

@@ -214,7 +214,23 @@
                 <x:String>Temporary manager</x:String>
                 <x:String>Leave it open</x:String>
             </x:Array>
-            
+            <x:Array x:Key="offerList_en" Type="{x:Type x:String}">
+                <x:String>Offer</x:String>
+                <x:String>Complaint</x:String>
+            </x:Array>
+            <x:Array x:Key="offerList_ru" Type="{x:Type x:String}">
+                <x:String>Предложение</x:String>
+                <x:String>Жалоба</x:String>
+            </x:Array>
+            <x:Array x:Key="offerList_uz" Type="{x:Type x:String}">
+                <x:String>Taklif</x:String>
+                <x:String>Shikoyat</x:String>
+            </x:Array>
+            <x:Array x:Key="offerList_uz_cyrl" Type="{x:Type x:String}">
+                <x:String>Таклиф</x:String>
+                <x:String>Шикоят</x:String>
+            </x:Array>
+
             <Style x:Key="lbStar" TargetType="Label">
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="TextColor" Value="Black"/>

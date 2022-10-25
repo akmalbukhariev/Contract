@@ -60,6 +60,7 @@ namespace Contract.Net
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract"; 
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
         public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
+        public static string URL_SAVE_OFFER_OBJECTION = SERVER_URL + "OfferObjection/Save";
         public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
         #endregion
 
@@ -357,6 +358,22 @@ namespace Contract.Net
             catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
 
             ResponseLogin responseLogin = ConvertResponseObj<ResponseLogin>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseOfferObjection> SaveOfferObjection(OfferAndObjection data)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SAVE_OFFER_OBJECTION, data);
+                response = JsonConvert.DeserializeObject<ResponseOfferObjection>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseOfferObjection>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseOfferObjection>(); }
+
+            ResponseOfferObjection responseLogin = ConvertResponseObj<ResponseOfferObjection>(response);
 
             return responseLogin;
         }

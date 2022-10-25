@@ -31,11 +31,11 @@ using Microsoft.AspNetCore.Http;
 using ContractAPI.ContractServices.service;
 using ContractAPI.ContractServices.service.impl;
 using ContractAPI.ApprovedUnapprovedContract.service;
-using ContractAPI.ApprovedUnapprovedContract.service.impl;
-using ContractAPI.MyCompanyInfo.service;
-using ContractAPI.MyCompanyInfo.service.impl;
+using ContractAPI.ApprovedUnapprovedContract.service.impl; 
 using ContractAPI.Users.service;
 using ContractAPI.Users.service.impl;
+using ContractAPI.OfferObjection.service;
+using ContractAPI.OfferObjection.service.impl;
 
 namespace ContractAPI
 {
@@ -58,7 +58,7 @@ namespace ContractAPI
             services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>(); 
             services.AddScoped<IApprovedUnapprovedContractService, ApprovedUnapprovedContractService>();
             services.AddScoped<ICanceledContractService, CanceledContractService>();
-            services.AddScoped<IUserCompanyInfoService, UserCompanyInfoService>();
+            services.AddScoped<IOfferObjectionService, OfferObjectionService>();
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
             services.AddScoped<IUserInfoService, UserInfoService>();

@@ -12,6 +12,7 @@ namespace ContractAPI.DataAccess
     { 
         public DbSet<User> Users { get; set; }
         public DbSet<UserCompanyInfo> UserCompanyInfo { get; set; }
+        public DbSet<OfferAndObjection> OfferAndObjection { get; set; }
         public DbSet<ClientCompanyInfo> ClientCompanyInfo { get; set; }
         public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
@@ -39,6 +40,9 @@ namespace ContractAPI.DataAccess
 
             modelBuilder.Entity<UserCompanyInfo>().ToTable("UserCompanyInfo");
             modelBuilder.Entity<UserCompanyInfo>().HasKey(r => r.user_phone_number);
+
+            modelBuilder.Entity<OfferAndObjection>().ToTable("OfferAndObjection");
+            modelBuilder.Entity<OfferAndObjection>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<ClientCompanyInfo>().ToTable("ClientCompanyInfo");
             modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.stir_of_company);

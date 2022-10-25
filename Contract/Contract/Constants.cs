@@ -45,6 +45,11 @@ namespace Contract
         public const string CurrencyList_en = "currencyList_en";
         public const string CurrencyList_ru = "currencyList_ru";
 
+        public const string OfferList_uz_cyrl = "offerList_uz_cyrl";
+        public const string OfferList_uz = "offerList_uz";
+        public const string OfferList_en = "offerList_en";
+        public const string OfferList_ru = "offerList_ru";
+
         public const string QqsList = "qqsList";
 
         public const string MeasureList_uz_cyrl = "measureList_uz_cyrl";
