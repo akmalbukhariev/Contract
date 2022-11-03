@@ -284,6 +284,10 @@ shartnomalar</value>
     <value>Rahbar F.I.O</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseContractNumberFormat" xml:space="preserve">
+    <value>Iltimos, shartnoma raqami formatini tanlang.</value>
+    <comment>Editing Contract number</comment>
+  </data>
   <data name="ChooseImage" xml:space="preserve">
     <value>Tasvirni tanlang</value>
     <comment>CreateContract</comment>
@@ -515,6 +519,10 @@ shartnomalar</value>
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Maxsus kodni kiriting</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ExYourChoose" xml:space="preserve">
+    <value>Bo'sh joy: Alifbo yoki raqam bo'lishi mumkin.</value>
+    <comment>Editing Contract number</comment>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Qo‘shish amalga oshmadi</value>
@@ -1155,6 +1163,10 @@ shartnomalar</value>
   </data>
   <data name="YearText" xml:space="preserve">
     <value> (Faqat ikki yoki to'rt katakdan iborat bo'lsin)</value>
+    <comment>Editing Contract number</comment>
+  </data>
+  <data name="YourChoose" xml:space="preserve">
+    <value>Sizning tanlovingiz</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="YourIdNumber" xml:space="preserve">

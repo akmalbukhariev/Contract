@@ -282,6 +282,10 @@ Contracts</value>
     <value>Chief Name</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseContractNumberFormat" xml:space="preserve">
+    <value>Please choose the contract number format.</value>
+    <comment>Editing Contract number</comment>
+  </data>
   <data name="ChooseImage" xml:space="preserve">
     <value>Choose an image</value>
     <comment>CreateContract</comment>
@@ -513,6 +517,10 @@ Contracts</value>
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Enter Special Code</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ExYourChoose" xml:space="preserve">
+    <value>Empty space: May be alphabet or digit.</value>
+    <comment>Editing Contract number</comment>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Failed</value>
@@ -1126,6 +1134,10 @@ Contracts</value>
   </data>
   <data name="YearText" xml:space="preserve">
     <value> (Contains at least two or four cells)</value>
+    <comment>Editing Contract number</comment>
+  </data>
+  <data name="YourChoose" xml:space="preserve">
+    <value>Your choose</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="YourIdNumber" xml:space="preserve">

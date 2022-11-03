@@ -283,6 +283,10 @@
     <value>Ф.И.О. директора</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseContractNumberFormat" xml:space="preserve">
+    <value>Пожалуйста, выберите формат номера контракта.</value>
+    <comment>Editing Contract number</comment>
+  </data>
   <data name="ChooseImage" xml:space="preserve">
     <value>Выберите изображение</value>
     <comment>CreateContract</comment>
@@ -514,6 +518,10 @@
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Введите специальный код</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ExYourChoose" xml:space="preserve">
+    <value>Пустое место: Может быть алфавит или цифра.</value>
+    <comment>Editing Contract number</comment>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Не удалось</value>
@@ -1126,6 +1134,10 @@
   </data>
   <data name="YearText" xml:space="preserve">
     <value>(Только две или четыре клетки)</value>
+    <comment>Editing Contract number</comment>
+  </data>
+  <data name="YourChoose" xml:space="preserve">
+    <value>Ваш выбор</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="YourIdNumber" xml:space="preserve">

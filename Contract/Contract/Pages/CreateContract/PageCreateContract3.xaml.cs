@@ -1,4 +1,6 @@
-﻿using Contract.HttpModels;
+﻿using Contract.Control;
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using Contract.Pages.CanceledContracts;
 using System;
 using System.Collections.Generic;
@@ -40,6 +42,15 @@ namespace Contract.Pages.CreateContract
         {
             ClickAnimationView(boxSend);
             ClickAnimationView(stackSend);
+
+            //ControlApp.ShowLoadingView(RSC.PleaseWait);
+            //ResponseApprovedUnapprovedContract response = await Net.HttpService.SetUnapprovedContract(ContractInfo.contract_number);
+            //ControlApp.CloseLoadingView();
+            //
+            //string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
+            //await DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);
+            //
+            //Application.Current.MainPage = new TransitionNavigationPage(new PageMain());
         }
 
         private async void Cancel_Tapped(object sender, EventArgs e)

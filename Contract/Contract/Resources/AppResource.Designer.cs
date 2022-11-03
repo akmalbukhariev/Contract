@@ -431,6 +431,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please choose the contract number format..
+        /// </summary>
+        internal static string ChooseContractNumberFormat {
+            get {
+                return ResourceManager.GetString("ChooseContractNumberFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose an image.
         /// </summary>
         internal static string ChooseImage {
@@ -949,6 +958,15 @@ namespace Contract.Resources {
         internal static string EnterSpecialCode {
             get {
                 return ResourceManager.GetString("EnterSpecialCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty space: May be alphabet or digit..
+        /// </summary>
+        internal static string ExYourChoose {
+            get {
+                return ResourceManager.GetString("ExYourChoose", resourceCulture);
             }
         }
         
@@ -2336,6 +2354,15 @@ namespace Contract.Resources {
         internal static string YearText {
             get {
                 return ResourceManager.GetString("YearText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your choose.
+        /// </summary>
+        internal static string YourChoose {
+            get {
+                return ResourceManager.GetString("YourChoose", resourceCulture);
             }
         }
         

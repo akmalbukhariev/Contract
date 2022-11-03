@@ -283,6 +283,10 @@
     <value>Раҳбар Ф.И.О.</value>
     <comment>UnapprovedContracts</comment>
   </data>
+  <data name="ChooseContractNumberFormat" xml:space="preserve">
+    <value>Илтимос, шартнома рақами форматини танланг.</value>
+    <comment>Editing Contract number</comment>
+  </data>
   <data name="ChooseImage" xml:space="preserve">
     <value>Тасвирни танланг</value>
     <comment>CreateContract</comment>
@@ -514,6 +518,10 @@
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Махсус кодни киритинг</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ExYourChoose" xml:space="preserve">
+    <value>Бўш жой: Алифбо ёки рақам бўлиши мумкин.</value>
+    <comment>Editing Contract number</comment>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Қўшиш амалга ошмади</value>
@@ -1126,6 +1134,10 @@
   </data>
   <data name="YearText" xml:space="preserve">
     <value>(Фақат икки ёки тўрт катакдан иборат бўлсин)</value>
+    <comment>Editing Contract number</comment>
+  </data>
+  <data name="YourChoose" xml:space="preserve">
+    <value>Сизнинг танловингиз</value>
     <comment>Editing Contract number</comment>
   </data>
   <data name="YourIdNumber" xml:space="preserve">
