@@ -27,7 +27,7 @@ namespace ContractAPI.LoginSignUp.service.impl
 
             if (foundUser == null)
             {
-                response.userInfo = null;
+                response.data = null;
                 response.message = Constants.DoNotExist;
                 return response;
             }
@@ -41,7 +41,7 @@ namespace ContractAPI.LoginSignUp.service.impl
                 return response;
             }
 
-            response.userInfo.Copy(foundUser);
+            response.data.Copy(foundUser);
             response.result = true;
             response.message = Constants.Exist;
             response.error_code = (int)HttpStatusCode.OK;

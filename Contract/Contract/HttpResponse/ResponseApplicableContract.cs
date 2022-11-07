@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contract.HttpResponse
 {
-    public class ResponseApprovedUnapprovedContract : Response, IResponse
+    public class ResponseApprovedUnapprovedContract : Response<List<CreateContractInfo>>, IResponse
     {
-        public List<CreateContractInfo> data { get; set; } = new List<CreateContractInfo>();
     }
 }

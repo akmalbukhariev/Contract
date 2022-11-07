@@ -1,12 +1,11 @@
 ﻿using Contract.HttpModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace Contract.HttpResponse
 {
-    public class ResponseUser : Response<User>, IResponse
-    { 
+    public class ResponseContractNumber: Response<ContractNumber>, IResponse
+    {
     }
 }

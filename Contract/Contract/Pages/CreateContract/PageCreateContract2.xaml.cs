@@ -22,13 +22,17 @@ namespace Contract.Pages.CreateContract
 
             SetModel(new PageCreateContract2ViewModel(Navigation, companyInfo));
             YesNo1_Tapped(null, null);
+
             ControlApp.EventCurrencyCostChanged += UpdateTotalCost;
+            entContractNumber.Entry.IsEnabled = false;
         }
          
         protected override void OnAppearing()
         {
             base.OnAppearing();
             Model.Parent = Parent;
+
+            PModel.RequestContractNumber();
 
             lbStep.Text = RSC.Step + " #2";
             PModel.CurrencyList = GetCurrentList;

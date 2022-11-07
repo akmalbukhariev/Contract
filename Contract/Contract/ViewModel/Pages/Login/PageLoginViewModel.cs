@@ -45,7 +45,7 @@ namespace Contract.ViewModel.Pages.Login
                 return;
             }
 
-            ControlApp.UserInfo = response.userInfo;
+            ControlApp.UserInfo = response.data;
             Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail());
 
             if (CheckAutoLogin)

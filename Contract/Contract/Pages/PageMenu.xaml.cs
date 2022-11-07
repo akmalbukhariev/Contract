@@ -102,7 +102,7 @@ namespace Contract.Pages
                     OnNavigatePage(new ContractNumber.PageContractNumberList());
                     break;
                 case Constants.Menu4_4:
-                    OnNavigatePage(new ContractNumber.PageChangeContractNumber());
+                    OnNavigatePage(new ContractNumber.PageEditContractNumber());
                     break;
                 case Constants.Menu5_1:
                     OnNavigatePage(new EditUserContractInfo.PageEditUserContractInfo());

@@ -88,6 +88,36 @@ namespace Contract.ViewModel.Pages.CreateContract
 #endif
         }
 
+        public async void RequestContractNumber()
+        { 
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseContractNumber response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
+            ControlApp.CloseLoadingView();
+
+            string strDate = DateTime.Now.ToString("yyyyMMdd");
+            string strTime = DateTime.Now.ToString("hhmmss.fff").Replace(".", "");
+
+            if (response.result)
+            {
+                switch (response.data.contract_format)
+                {
+                    case 1:
+                        ContractNumber = $"{strDate} - {response.data.contract_option} - {strTime}";
+                        break;
+                    case 2:
+                        ContractNumber = $"{response.data.contract_option} - {strDate} - {strTime}";
+                        break;
+                    case 3:
+                        ContractNumber = $"{strDate} - {strTime} - {response.data.contract_option}";
+                        break;
+                }
+            }
+            else
+            { 
+                ContractNumber = $"{strDate}-{strTime}";
+            }
+        }
+
         #region Command
         public ICommand CommandFinished => new Command(Finished);
 

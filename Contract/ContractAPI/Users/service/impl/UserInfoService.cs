@@ -49,7 +49,7 @@ namespace ContractAPI.Users.service.impl
 
             if (foundUser == null)
             {
-                response.userInfo = null;
+                response.data = null;
                 response.message = Constants.DoNotExist;
                 return response;
             }
@@ -76,7 +76,7 @@ namespace ContractAPI.Users.service.impl
             catch (Exception ex)
             {
                 response.result = false;
-                response.userInfo = null;
+                response.data = null;
                 response.message = ex.Message;
                 response.error_code = (int)HttpStatusCode.BadRequest;
 
@@ -84,7 +84,7 @@ namespace ContractAPI.Users.service.impl
             }
 
             response.result = true;
-            response.userInfo = null;
+            response.data = null;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
 

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Contract.HttpResponse
 {
-    public class ResponseLogin : Response, IResponse
-    {
-        public User userInfo { get; set; } = new User();
+    public class ResponseLogin : Response<User>, IResponse
+    { 
+
     }
 }

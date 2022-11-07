@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Contract.HttpResponse
 {
-    public class ResponseAboutApp : Response, IResponse
+    public class ResponseAboutApp : Response<AboutApp>, IResponse
     {
-        public AboutApp data { get; set; } = new AboutApp();
+
     }
 }
