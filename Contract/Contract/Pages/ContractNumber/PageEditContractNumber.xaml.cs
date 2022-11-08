@@ -33,29 +33,29 @@ namespace Contract.Pages.ContractNumber
 
         private void Format_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string strYearFormat_1 = PModel.YearFormat_1.Replace("-", "");
-            string strYearFormat_2 = PModel.YearFormat_2.Replace("-", "");
-            string strYearFormat_3 = PModel.YearFormat_3.Replace("-", "");
+            string strYearFormat_1 = PModel.YearFormat_1.Replace("-", "").Trim();
+            string strYearFormat_2 = PModel.YearFormat_2.Replace("-", "").Trim();
+            string strYearFormat_3 = PModel.YearFormat_3.Replace("-", "").Trim();
 
-            string strTimeFormat_1 = PModel.TimeFormat_1.Replace("-", "");
-            string strTimeFormat_2 = PModel.TimeFormat_2.Replace("-", "");
-            string strTimeFormat_3 = PModel.TimeFormat_3.Replace("-", "");
+            string strTimeFormat_1 = PModel.TimeFormat_1.Replace("-", "").Trim();
+            string strTimeFormat_2 = PModel.TimeFormat_2.Replace("-", "").Trim();
+            string strTimeFormat_3 = PModel.TimeFormat_3.Replace("-", "").Trim();
 
             if (sender == entyFormat1.Entry && PModel.CheckFormat_1)
             {
-                PModel.YourContractNumber = $"{strYearFormat_1} - {PModel.Format_1} - {strTimeFormat_1}";
+                PModel.YourContractNumber = $"{strYearFormat_1}-{PModel.Format_1}-{strTimeFormat_1}";
                 PModel.Format_2 = PModel.Format_1;
                 PModel.Format_3 = PModel.Format_1;
             }
             else if (sender == entyFormat2.Entry && PModel.CheckFormat_2)
             {
-                PModel.YourContractNumber = $"{PModel.Format_2} - {strYearFormat_2} - {strTimeFormat_2}";
+                PModel.YourContractNumber = $"{PModel.Format_2}-{strYearFormat_2}-{strTimeFormat_2}";
                 PModel.Format_1 = PModel.Format_2;
                 PModel.Format_3 = PModel.Format_2;
             }
             else if (sender == entyFormat3.Entry && PModel.CheckFormat_3)
             {
-                PModel.YourContractNumber = $"{strYearFormat_3} - {strTimeFormat_3} - {PModel.Format_3}";
+                PModel.YourContractNumber = $"{strYearFormat_3}-{strTimeFormat_3}-{PModel.Format_3}";
                 PModel.Format_1 = PModel.Format_3;
                 PModel.Format_2 = PModel.Format_3;
             } 
@@ -63,13 +63,13 @@ namespace Contract.Pages.ContractNumber
 
         void OnRadioButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            string strYearFormat_1 = PModel.YearFormat_1.Replace("-", "");
-            string strYearFormat_2 = PModel.YearFormat_2.Replace("-", "");
-            string strYearFormat_3 = PModel.YearFormat_3.Replace("-", "");
+            string strYearFormat_1 = PModel.YearFormat_1.Replace("-", "").Trim();
+            string strYearFormat_2 = PModel.YearFormat_2.Replace("-", "").Trim();
+            string strYearFormat_3 = PModel.YearFormat_3.Replace("-", "").Trim();
                     
-            string strTimeFormat_1 = PModel.TimeFormat_1.Replace("-", "");
-            string strTimeFormat_2 = PModel.TimeFormat_2.Replace("-", "");
-            string strTimeFormat_3 = PModel.TimeFormat_3.Replace("-", "");
+            string strTimeFormat_1 = PModel.TimeFormat_1.Replace("-", "").Trim();
+            string strTimeFormat_2 = PModel.TimeFormat_2.Replace("-", "").Trim();
+            string strTimeFormat_3 = PModel.TimeFormat_3.Replace("-", "").Trim();
 
             if (sender == rbFormat1)
             {
@@ -87,7 +87,7 @@ namespace Contract.Pages.ContractNumber
                 entyFormat1.Entry.IsEnabled = PModel.EnableFomat_1 = true;
                 entyFormat2.Entry.IsEnabled = PModel.EnableFomat_2 = false;
                 entyFormat3.Entry.IsEnabled =  PModel.EnableFomat_3 = false;
-                PModel.YourContractNumber = $"{strYearFormat_1} - {PModel.Format_1} - {strTimeFormat_1}";
+                PModel.YourContractNumber = $"{strYearFormat_1}-{PModel.Format_1}-{strTimeFormat_1}";
             }
             else if (sender == rbFormat2)
             { 
@@ -105,7 +105,7 @@ namespace Contract.Pages.ContractNumber
                 entyFormat1.Entry.IsEnabled = PModel.EnableFomat_1 = false;
                 entyFormat2.Entry.IsEnabled = PModel.EnableFomat_2 = true;
                 entyFormat3.Entry.IsEnabled = PModel.EnableFomat_3 = false;
-                PModel.YourContractNumber = $"{PModel.Format_2} - {strYearFormat_2} - {strTimeFormat_2}";
+                PModel.YourContractNumber = $"{PModel.Format_2}-{strYearFormat_2}-{strTimeFormat_2}";
             }
             else if (sender == rbFormat3)
             {
@@ -123,7 +123,7 @@ namespace Contract.Pages.ContractNumber
                 entyFormat1.Entry.IsEnabled = PModel.EnableFomat_1 = false;
                 entyFormat2.Entry.IsEnabled = PModel.EnableFomat_2 = false;
                 entyFormat3.Entry.IsEnabled = PModel.EnableFomat_3 = true;
-                PModel.YourContractNumber = $"{strYearFormat_3} - {strTimeFormat_3} - {PModel.Format_3}";
+                PModel.YourContractNumber = $"{strYearFormat_3}-{strTimeFormat_3}-{PModel.Format_3}";
             }
         }
 

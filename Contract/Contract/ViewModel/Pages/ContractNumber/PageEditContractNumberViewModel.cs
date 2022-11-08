@@ -76,35 +76,35 @@ namespace Contract.ViewModel.Pages.ContractNumber
                 }
 
                 Format_1 = response.data.contract_option;
-                YearFormat_1 = $"{response.data.contract_date} - ";
-                TimeFormat_1 = $"- {response.data.conatrct_time}";
+                //YearFormat_1 = $"{response.data.contract_date} - ";
+                //TimeFormat_1 = $"- {response.data.conatrct_time}";
 
                 Format_2 = response.data.contract_option;
-                YearFormat_2 = $"- {response.data.contract_date} -";
-                TimeFormat_2 = response.data.conatrct_time;
+                //YearFormat_2 = $"- {response.data.contract_date} -";
+                //TimeFormat_2 = response.data.conatrct_time;
 
                 Format_3 = response.data.contract_option;
-                YearFormat_3 = $"{response.data.contract_date} -";
-                TimeFormat_3 = $"{response.data.conatrct_time} -";
+                //YearFormat_3 = $"{response.data.contract_date} -";
+                //TimeFormat_3 = $"{response.data.conatrct_time} -";
 
-                string strYearFormat_1 = YearFormat_1.Replace("-", "");
-                string strYearFormat_2 = YearFormat_2.Replace("-", "");
-                string strYearFormat_3 = YearFormat_3.Replace("-", "");
+                string strYearFormat_1 = YearFormat_1.Replace("-", "").Trim();
+                string strYearFormat_2 = YearFormat_2.Replace("-", "").Trim();
+                string strYearFormat_3 = YearFormat_3.Replace("-", "").Trim();
 
-                string strTimeFormat_1 = TimeFormat_1.Replace("-", "");
-                string strTimeFormat_2 = TimeFormat_2.Replace("-", "");
-                string strTimeFormat_3 = TimeFormat_3.Replace("-", "");
+                string strTimeFormat_1 = TimeFormat_1.Replace("-", "").Trim();
+                string strTimeFormat_2 = TimeFormat_2.Replace("-", "").Trim();
+                string strTimeFormat_3 = TimeFormat_3.Replace("-", "").Trim();
 
                 switch (response.data.contract_format)
                 {
                     case 1:
-                        YourContractNumber = $"{strYearFormat_1} - {Format_1} - {strTimeFormat_1}";
+                        YourContractNumber = $"{strYearFormat_1}-{Format_1}-{strTimeFormat_1}";
                         break;
                     case 2:
-                        YourContractNumber = $"{Format_2} - {strYearFormat_2} - {strTimeFormat_2}";
+                        YourContractNumber = $"{Format_2}-{strYearFormat_2}-{strTimeFormat_2}";
                         break;
                     case 3:
-                        YourContractNumber = $"{strYearFormat_3} - {strTimeFormat_3} - {Format_3}";
+                        YourContractNumber = $"{strYearFormat_3}-{strTimeFormat_3}-{Format_3}";
                         break;
                 }
 
