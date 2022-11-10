@@ -47,6 +47,19 @@ namespace ContractAPI.ContractNumberInfo.service.impl
         {
             ResponseContractNumber response = new ResponseContractNumber();
 
+            //ContractNumber found = await dataBase.ContractNumber
+            //     .Where(item => item.contract_option.Equals(info.contract_option))
+            //     .AsNoTracking()
+            //     .FirstOrDefaultAsync();
+            //
+            //if (found != null)
+            //{
+            //    response.data = null;
+            //    response.message = "Exist";
+            //    response.error_code = (int)HttpStatusCode.Found;
+            //    return response;
+            //}
+
             ContractNumber newItem = new ContractNumber(info);
             dataBase.ContractNumber.Add(newItem);
 

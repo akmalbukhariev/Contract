@@ -336,6 +336,10 @@ shartnomalar</value>
     <value>Davom ettirish </value>
     <comment>Finished FillInfo</comment>
   </data>
+  <data name="ContractFormatExist" xml:space="preserve">
+    <value>Shartnoma raqami formati mavjud.</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="ContractNumber" xml:space="preserve">
     <value>Shartnoma raqami</value>
     <comment>UnapprovedContracts</comment>
@@ -551,6 +555,10 @@ shartnomalar</value>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>F.I.O</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Format</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Goods" xml:space="preserve">
     <value>Tovar</value>

@@ -334,6 +334,10 @@ Contracts</value>
     <value>Continue</value>
     <comment>Finished FillInfo</comment>
   </data>
+  <data name="ContractFormatExist" xml:space="preserve">
+    <value>Contract number format is exist. </value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="ContractNumber" xml:space="preserve">
     <value>Contract Number</value>
     <comment>UnapprovedContracts</comment>
@@ -549,6 +553,10 @@ Contracts</value>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>First And Last Name</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Format</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Goods" xml:space="preserve">
     <value>Goods</value>

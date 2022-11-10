@@ -18,18 +18,10 @@ namespace Contract.ViewModel.Pages.ContractNumber
         public bool CheckFormat_2 { get => GetValue<bool>(); set => SetValue(value); }
         public bool CheckFormat_3 { get => GetValue<bool>(); set => SetValue(value); }
 
-        public string Format_1 { get => GetValue<string>(); set => SetValue(value); }
-        public string Format_2 { get => GetValue<string>(); set => SetValue(value); }
-        public string Format_3 { get => GetValue<string>(); set => SetValue(value); }
-
-        public string YearFormat_1 { get => GetValue<string>(); set => SetValue(value); }
-        public string YearFormat_2 { get => GetValue<string>(); set => SetValue(value); }
-        public string YearFormat_3 { get => GetValue<string>(); set => SetValue(value); }
-
-        public string TimeFormat_1 { get => GetValue<string>(); set => SetValue(value); }
-        public string TimeFormat_2 { get => GetValue<string>(); set => SetValue(value); }
-        public string TimeFormat_3 { get => GetValue<string>(); set => SetValue(value); }
-
+        public string Option { get => GetValue<string>(); set => SetValue(value); } 
+        public string SequenceNumber1 { get => GetValue<string>(); set => SetValue(value); }
+        public string SequenceNumber2 { get => GetValue<string>(); set => SetValue(value); }
+        public string SequenceNumber3 { get => GetValue<string>(); set => SetValue(value); }
         public string YourContractNumber { get => GetValue<string>(); set => SetValue(value); }
         #endregion
 
@@ -44,16 +36,9 @@ namespace Contract.ViewModel.Pages.ContractNumber
             CheckFormat_2 = false;
             CheckFormat_3 = false;
 
-            string strDate = DateTime.Now.ToString("yyyyMMdd");
-            string strTime = DateTime.Now.ToString("hhmmss.fff").Replace(".", "");
-
-            YearFormat_1 = $"{strDate} -";
-            YearFormat_2 = $"- {strDate} -";
-            YearFormat_3 = $"{strDate} -";
-
-            TimeFormat_1 = $"- {strTime}";
-            TimeFormat_2 = $"{strTime}";
-            TimeFormat_3 = $"{strTime} -"; 
+            SequenceNumber1 = "00001";
+            SequenceNumber2 = "- 00001";
+            SequenceNumber3 = "00001 -";
         }
 
         public ICommand CommandSave => new Command(Save);
@@ -68,43 +53,28 @@ namespace Contract.ViewModel.Pages.ContractNumber
 
             if (response.result)
             {
-                switch (response.data.contract_format)
+                switch (response.data.format)
                 {
                     case 1: CheckFormat_1 = true;  break;
                     case 2: CheckFormat_2 = true;  break;
                     case 3: CheckFormat_3 = true;  break;
                 }
 
-                Format_1 = response.data.contract_option;
-                //YearFormat_1 = $"{response.data.contract_date} - ";
-                //TimeFormat_1 = $"- {response.data.conatrct_time}";
-
-                Format_2 = response.data.contract_option;
-                //YearFormat_2 = $"- {response.data.contract_date} -";
-                //TimeFormat_2 = response.data.conatrct_time;
-
-                Format_3 = response.data.contract_option;
-                //YearFormat_3 = $"{response.data.contract_date} -";
-                //TimeFormat_3 = $"{response.data.conatrct_time} -";
-
-                string strYearFormat_1 = YearFormat_1.Replace("-", "").Trim();
-                string strYearFormat_2 = YearFormat_2.Replace("-", "").Trim();
-                string strYearFormat_3 = YearFormat_3.Replace("-", "").Trim();
-
-                string strTimeFormat_1 = TimeFormat_1.Replace("-", "").Trim();
-                string strTimeFormat_2 = TimeFormat_2.Replace("-", "").Trim();
-                string strTimeFormat_3 = TimeFormat_3.Replace("-", "").Trim();
-
-                switch (response.data.contract_format)
+                Option = response.data.option;
+                SequenceNumber1 = response.data.sequence_number;
+                SequenceNumber2 = $"- {SequenceNumber1}";
+                SequenceNumber3 = $"{SequenceNumber1} -";
+                   
+                switch (response.data.format)
                 {
                     case 1:
-                        YourContractNumber = $"{strYearFormat_1}-{Format_1}-{strTimeFormat_1}";
+                        YourContractNumber = SequenceNumber1;
                         break;
                     case 2:
-                        YourContractNumber = $"{Format_2}-{strYearFormat_2}-{strTimeFormat_2}";
+                        YourContractNumber = $"{Option}-{SequenceNumber2}";
                         break;
                     case 3:
-                        YourContractNumber = $"{strYearFormat_3}-{strTimeFormat_3}-{Format_3}";
+                        YourContractNumber = $"{SequenceNumber3}-{Option}";
                         break;
                 }
 
@@ -113,30 +83,23 @@ namespace Contract.ViewModel.Pages.ContractNumber
         }
 
         async void Save()
-        {
-            string strDate = "";
-            string strTime = "";
-            string strOption = "";
+        { 
             int contractFormat = 1;
+            string strOption = "";
+            string strSequenceNumber = "";
 
             if (CheckFormat_1)
             {
-                strDate = YearFormat_1;
-                strTime = TimeFormat_1;
-                strOption = Format_1;
+                strOption = SequenceNumber1;
             }
             else if (CheckFormat_2)
-            {
-                strDate = YearFormat_2;
-                strTime = TimeFormat_2;
-                strOption = Format_2;
+            { 
+                strSequenceNumber = SequenceNumber2;
                 contractFormat = 2;
             }
             else if (CheckFormat_3)
-            {
-                strDate = YearFormat_3;
-                strTime = TimeFormat_3;
-                strOption = Format_3;
+            { 
+                strSequenceNumber = SequenceNumber3;
                 contractFormat = 3;
             }
 
@@ -146,17 +109,14 @@ namespace Contract.ViewModel.Pages.ContractNumber
                 return;
             }
 
-            strDate = strDate.Replace("-", "");
-            strTime = strTime.Replace("-", "");
-            strOption = strOption.Replace("-", "");
-
+            strSequenceNumber = strSequenceNumber.Replace("-", "");
+              
             HttpModels.ContractNumber data = new HttpModels.ContractNumber()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
-                contract_date = strDate,
-                conatrct_time = strTime,
-                contract_option = strOption,
-                contract_format = contractFormat
+                sequence_number = strSequenceNumber.Replace("-", ""),
+                option = Option,
+                format = contractFormat
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
@@ -168,9 +128,16 @@ namespace Contract.ViewModel.Pages.ContractNumber
             if (response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, updateContractnumber ? RSC.SuccessfullyUpdated : RSC.SuccessfullyAdded, RSC.Ok);
+                await Navigation.PopAsync();
             }
-
-            await Navigation.PopAsync();
+            //else if (response.message.Equals("Exist"))
+            //{
+            //    await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.ContractFormatExist, RSC.Ok);
+            //}
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.Failed, RSC.Ok);
+            } 
         }
     }
 }

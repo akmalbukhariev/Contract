@@ -94,27 +94,24 @@ namespace Contract.ViewModel.Pages.CreateContract
             ResponseContractNumber response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
-            string strDate = DateTime.Now.ToString("yyyyMMdd");
-            string strTime = DateTime.Now.ToString("hhmmss.fff").Replace(".", "");
-
             if (response.result)
             {
-                switch (response.data.contract_format)
+                switch (response.data.format)
                 {
                     case 1:
-                        ContractNumber = $"{strDate} - {response.data.contract_option} - {strTime}";
+                        ContractNumber = response.data.sequence_number;
                         break;
                     case 2:
-                        ContractNumber = $"{response.data.contract_option} - {strDate} - {strTime}";
+                        ContractNumber = $"{response.data.option} - {response.data.sequence_number}";
                         break;
                     case 3:
-                        ContractNumber = $"{strDate} - {strTime} - {response.data.contract_option}";
+                        ContractNumber = $"{response.data.option} - {response.data.option}";
                         break;
                 }
             }
             else
             { 
-                ContractNumber = $"{strDate}-{strTime}";
+                ContractNumber = "";
             }
         }
 

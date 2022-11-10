@@ -548,6 +548,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contract number format is exist. .
+        /// </summary>
+        internal static string ContractFormatExist {
+            get {
+                return ResourceManager.GetString("ContractFormatExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contract Number.
         /// </summary>
         internal static string ContractNumber {
@@ -1030,6 +1039,15 @@ namespace Contract.Resources {
         internal static string FirstAndLastName {
             get {
                 return ResourceManager.GetString("FirstAndLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Format.
+        /// </summary>
+        internal static string Format {
+            get {
+                return ResourceManager.GetString("Format", resourceCulture);
             }
         }
         

@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using Contract.HttpModels;
-using System; 
+using System;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -136,6 +137,23 @@ namespace Contract.Control
             //};
 
             //NotificationCenter.Current.Show(notification);
+        }
+
+        public string MakeSequenceNumber(string seqNumber)
+        {
+            int seq = int.Parse(seqNumber);
+            seq = seq + 1;
+            int length = seq.ToString().Length;
+
+            string res = "";
+            for (int i = 0; i < 5 - length; i++)
+            {
+                res += "0";
+            }
+
+            res += seq.ToString();
+
+            return res;
         }
 
         public void Vibrate()

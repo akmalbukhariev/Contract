@@ -15,7 +15,7 @@
               Grid.Column="1">
             <view:ViewNavigationBar BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
-                                    Title="{x:Static resource:AppResource.UnapprovedContracts}"
+                                    Title="{x:Static resource:AppResource.ContractTemplates}"
                                     UseWhite="True"/>
             <BoxView BackgroundColor="White"
                      CornerRadius="10"

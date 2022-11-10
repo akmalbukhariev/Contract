@@ -335,6 +335,10 @@
     <value>Продолжать</value>
     <comment>Finished FillInfo</comment>
   </data>
+  <data name="ContractFormatExist" xml:space="preserve">
+    <value>Формат номера контракта существует.</value>
+    <comment>CreateContract</comment>
+  </data>
   <data name="ContractNumber" xml:space="preserve">
     <value>Контактный номер</value>
     <comment>UnapprovedContracts</comment>
@@ -550,6 +554,10 @@
   <data name="FirstAndLastName" xml:space="preserve">
     <value>Ф.И.О.</value>
     <comment>Fillinfo</comment>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Формат</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="Goods" xml:space="preserve">
     <value>Товары</value>
