@@ -21,7 +21,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             : base(navigation)
         {
             CanceledContractInfo = contractInfo;
-            ContractNumber = $" {contractInfo.contract_number} ";
+            ContractNumber = $" {ControlApp.ExtractContractNumber(contractInfo.contract_number)} ";
             MoveToMainPage = moveToMainPage;
         }
 

@@ -156,6 +156,22 @@ namespace Contract.Control
             return res;
         }
 
+        public string ExtractContractNumber(string strContractnumber)
+        {
+            string[] strList = strContractnumber.Split('_');
+
+            if (strList.Length == 3)
+            {
+                return $"{strList[1]}-{strList[2]}";
+            }
+            else if (strList.Length == 2)
+            {
+                return strList[1];
+            }
+
+            return "";
+        }
+
         public void Vibrate()
         {
             try

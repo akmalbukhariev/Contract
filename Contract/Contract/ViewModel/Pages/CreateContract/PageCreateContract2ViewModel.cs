@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -30,6 +31,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); }
         #endregion
 
+        private ResponseContractNumber ResponseContractNumberInfo;
         private HttpModels.CompanyInfo ClientCompanyInfo = null;
 
         public ObservableCollection<ServicesInfo> ServicesList { get; set; }
@@ -91,21 +93,21 @@ namespace Contract.ViewModel.Pages.CreateContract
         public async void RequestContractNumber()
         { 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractNumber response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
+            ResponseContractNumberInfo = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
-            if (response.result)
+            if (ResponseContractNumberInfo.result)
             {
-                switch (response.data.format)
+                switch (ResponseContractNumberInfo.data.format)
                 {
                     case 1:
-                        ContractNumber = response.data.sequence_number;
+                        ContractNumber = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number);
                         break;
                     case 2:
-                        ContractNumber = $"{response.data.option} - {response.data.sequence_number}";
+                        ContractNumber = $"{ResponseContractNumberInfo.data.option} - {ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)}";
                         break;
                     case 3:
-                        ContractNumber = $"{response.data.option} - {response.data.option}";
+                        ContractNumber = $"{ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)} - {ResponseContractNumberInfo.data.option}";
                         break;
                 }
             }
@@ -128,6 +130,25 @@ namespace Contract.ViewModel.Pages.CreateContract
                 return;
             }
 
+            HttpModels.ContractNumber data = new HttpModels.ContractNumber()
+            {
+                user_phone_number = ControlApp.UserInfo.phone_number,
+                sequence_number = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number),
+                option = ResponseContractNumberInfo.data.option,
+                format = ResponseContractNumberInfo.data.format
+            };
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseContractNumber responseContractnumber = await Net.HttpService.UpdateContractNumber(data);
+            ControlApp.CloseLoadingView();
+
+            if (!responseContractnumber.result)
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.Failed, RSC.Ok);
+                return;
+            }
+
+            string strNumber = Regex.Replace(ContractNumber, @"\s", "");
             HttpModels.CreateContractInfo contractinfo = new HttpModels.CreateContractInfo()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
@@ -138,7 +159,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 user_company_name = ControlApp.UserCompanyInfo.company_name,
                 service_type = SelectedServiceType,
                 service_type_index = SelectedServiceType_index,
-                contract_number = ContractNumber,
+                contract_number = $"{ControlApp.UserInfo.phone_number}_{strNumber.Replace("-","_")}",
                 contract_currency = SelectedCurrency,
                 contract_currency_index = SelectedCurrency_index,
                 amount_of_qqs = SelectedQQS,

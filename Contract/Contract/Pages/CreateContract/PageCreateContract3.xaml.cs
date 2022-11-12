@@ -23,12 +23,13 @@ namespace Contract.Pages.CreateContract
 
             ContractInfo = new CreateContractInfo(createContract);
 
-            lbContractNumber.Text = createContract.contract_number;
+            lbContractNumber.Text = ControlApp.ExtractContractNumber(createContract.contract_number);
             lbContractPrice.Text = createContract.total_cost_text;
         }
 
         protected override bool OnBackButtonPressed()
         {
+            Navigation.PopToRootAsync();
             return true;
         }
 

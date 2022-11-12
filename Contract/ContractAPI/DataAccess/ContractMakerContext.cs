@@ -17,9 +17,7 @@ namespace ContractAPI.DataAccess
         public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
         public DbSet<ContractNumber> ContractNumber { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
-        public DbSet<PurposeOfContract> PurposeOfContracts { get; set; }
-        //public DbSet<UnapprovedContract> UnapprovedContracts { get; set; }
-        //public DbSet<Contract.HttpModels.ApprovedUnapprovedContract> ApplicableContracts { get; set; }
+        public DbSet<PurposeOfContract> PurposeOfContracts { get; set; } 
         public DbSet<CanceledContract> CanceledContracts { get; set; }
         public DbSet<AboutApp> AboutApp { get; set; }
 
@@ -62,9 +60,6 @@ namespace ContractAPI.DataAccess
 
             modelBuilder.Entity<UnapprovedContract>().ToTable("UnapprovedContracts");
             modelBuilder.Entity<UnapprovedContract>().HasKey(r => r.date_of_contract);
-
-            //modelBuilder.Entity<ApprovedUnapprovedContract>().ToTable("ApplicableContracts");
-            //modelBuilder.Entity<Contract.HttpModels.ApprovedUnapprovedContract>().HasKey(r => r.date_of_contract);
 
             modelBuilder.Entity<CanceledContract>().ToTable("CanceledContracts");
             modelBuilder.Entity<CanceledContract>().HasKey(r => r.created_date);

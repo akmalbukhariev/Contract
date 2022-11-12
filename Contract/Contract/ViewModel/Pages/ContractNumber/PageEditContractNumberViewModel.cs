@@ -25,6 +25,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
         public string YourContractNumber { get => GetValue<string>(); set => SetValue(value); }
         #endregion
 
+        private string OldOption = string.Empty;
         private bool updateContractnumber = false;
         public PageEditContractNumberViewModel(INavigation navigation) : base(navigation)
         {
@@ -60,7 +61,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
                     case 3: CheckFormat_3 = true;  break;
                 }
 
-                Option = response.data.option;
+                OldOption = Option = response.data.option;
                 SequenceNumber1 = response.data.sequence_number;
                 SequenceNumber2 = $"- {SequenceNumber1}";
                 SequenceNumber3 = $"{SequenceNumber1} -";
@@ -71,10 +72,10 @@ namespace Contract.ViewModel.Pages.ContractNumber
                         YourContractNumber = SequenceNumber1;
                         break;
                     case 2:
-                        YourContractNumber = $"{Option}-{SequenceNumber2}";
+                        YourContractNumber = $"{Option}{SequenceNumber2}";
                         break;
                     case 3:
-                        YourContractNumber = $"{SequenceNumber3}-{Option}";
+                        YourContractNumber = $"{SequenceNumber3} {Option}";
                         break;
                 }
 
@@ -90,32 +91,41 @@ namespace Contract.ViewModel.Pages.ContractNumber
 
             if (CheckFormat_1)
             {
-                strOption = SequenceNumber1;
+                strOption = "";
+                strSequenceNumber = SequenceNumber1;
             }
             else if (CheckFormat_2)
-            { 
+            {
+                strOption = Option;
                 strSequenceNumber = SequenceNumber2;
                 contractFormat = 2;
             }
             else if (CheckFormat_3)
-            { 
+            {
+                strOption = Option;
                 strSequenceNumber = SequenceNumber3;
                 contractFormat = 3;
             }
 
-            if (string.IsNullOrEmpty(strOption))
+            if (!CheckFormat_1 && string.IsNullOrEmpty(strOption.Trim()))
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.FieldEmpty, RSC.Ok);
                 return;
             }
 
             strSequenceNumber = strSequenceNumber.Replace("-", "");
-              
+
+            if (OldOption.Trim().Equals(strOption))
+            {
+                await Navigation.PopAsync();
+                return;
+            }
+
             HttpModels.ContractNumber data = new HttpModels.ContractNumber()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 sequence_number = strSequenceNumber.Replace("-", ""),
-                option = Option,
+                option = strOption,
                 format = contractFormat
             };
 
