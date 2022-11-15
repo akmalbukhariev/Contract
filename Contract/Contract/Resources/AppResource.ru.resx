@@ -920,6 +920,10 @@
     <value>Выберите валюту</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SelectFormat" xml:space="preserve">
+    <value>Выберите формат</value>
+    <comment>Contract template</comment>
+  </data>
   <data name="SelectMeasure" xml:space="preserve">
     <value>Выберите меру</value>
     <comment>CreateContract</comment>

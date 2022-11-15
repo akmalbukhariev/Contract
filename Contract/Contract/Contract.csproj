@@ -58,6 +58,9 @@
     <Compile Update="Pages\PageM.xaml.cs">
       <DependentUpon>PageM.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\TemplateContract\PageContractTemplateTable.xaml.cs">
+      <DependentUpon>PageContractTemplateTable.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\UnapprovedContracts\PageUnapprovedTable.xaml.cs">
       <DependentUpon>PageUnapprovedTable.xaml</DependentUpon>
     </Compile>
@@ -114,7 +117,7 @@
     <EmbeddedResource Update="Pages\SignUp\PageCheckID.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\TemplateContract\PageContractTemplate.xaml">
+    <EmbeddedResource Update="Pages\TemplateContract\PageContractTemplateTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Customers\PageCustomerList.xaml">

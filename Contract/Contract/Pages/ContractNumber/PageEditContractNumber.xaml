@@ -13,7 +13,8 @@
         <Grid RowDefinitions="Auto,*"
               RowSpacing="20"
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
+            <view:ViewNavigationBar x:Name="navBar" 
+                                    BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}"
                                     Title="{x:Static resource:AppResource.ContractNumberSequence}"
                                     UseWhite="True"/>
@@ -151,12 +152,13 @@
                             </Grid>
                         </Grid>
                     </StackLayout>
-                    <Button Style="{StaticResource btnNext}"
-                        Text="{x:Static resource:AppResource.Save}"
-                        Command="{Binding CommandSave}"
-                        VerticalOptions="End"
-                        Margin="20,0,20,40"
-                        Grid.Row="3"/>
+                    <Button x:Name="btnSave" 
+                            Style="{StaticResource btnNext}"
+                            Text="{x:Static resource:AppResource.Save}"
+                            Command="{Binding CommandSave}"
+                            VerticalOptions="End"
+                            Margin="20,0,20,40"
+                            Grid.Row="3"/>
                 </Grid>
             </ScrollView>
         </Grid>

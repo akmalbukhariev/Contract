@@ -13,9 +13,14 @@ namespace Contract.Pages.ContractNumber
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEditContractNumber : IPage
     {
-        public PageEditContractNumber()
+        public PageEditContractNumber(bool isReadonly = false)
         {
             InitializeComponent();
+
+            navBar.IsThisModalPage = isReadonly;
+            entyFormat2.Entry.IsReadOnly = isReadonly;
+            entyFormat3.Entry.IsReadOnly = isReadonly;
+            btnSave.IsVisible = !isReadonly;
 
             SetModel(new PageEditContractNumberViewModel(Navigation));
 

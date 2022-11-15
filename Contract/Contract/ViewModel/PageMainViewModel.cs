@@ -12,6 +12,7 @@ namespace Contract.ViewModel
     public class PageMainViewModel : BaseModel
     {
         public string IDNumber { get => GetValue<string>(); set => SetValue(value); }
+        public string CompanyName { get => GetValue<string>(); set => SetValue(value); }
         public string TextCount1 { get => GetValue<string>(); set => SetValue(value); }
         public string TextCount2 { get => GetValue<string>(); set => SetValue(value); }
         public string TextValue1 { get => GetValue<string>(); set => SetValue(value); }
@@ -22,7 +23,7 @@ namespace Contract.ViewModel
         {
             MenuList = new ObservableCollection<ChildMenuItem>();
 
-            IDNumber = "1234567"; 
+            IDNumber = ControlApp.UserInfo.phone_number; 
         }
 
         public void Init()
@@ -50,13 +51,20 @@ namespace Contract.ViewModel
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseApprovedUnapprovedContract response = await Net.HttpService.GetApprovedOrUnapprovedContract(request);
+            ResponseApprovedUnapprovedContract response = await HttpService.GetApprovedOrUnapprovedContract(request);
+            ResponseUserCompanyInfo responseCompany = await HttpService.GetUserCompanyInfo(ControlApp.UserInfo.phone_number);
+
             ControlApp.CloseLoadingView();
 
             if (response.result)
             {
                 TextValue1 = response.data != null ? response.data.Where(item => item.is_approved == 1).ToList().Count.ToString() : "0";
                 TextValue2 = response.data != null ? response.data.Where(item => item.is_approved == 0).ToList().Count.ToString() : "0";
+            }
+
+            if (responseCompany.result)
+            {
+                CompanyName = $"{RSC.CompanyName}: {responseCompany.data.company_name}";
             }
         }
 

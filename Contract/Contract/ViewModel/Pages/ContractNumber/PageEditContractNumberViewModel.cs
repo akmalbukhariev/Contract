@@ -49,7 +49,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
             updateContractnumber = false;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractNumber response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
+            ResponseContractNumber response = await Net.HttpService.GetContractNumber("12");
             ControlApp.CloseLoadingView();
 
             if (response.result)

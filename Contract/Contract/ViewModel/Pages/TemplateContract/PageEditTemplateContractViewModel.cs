@@ -14,13 +14,20 @@ namespace Contract.ViewModel.Pages.TemplateContract
     public class PageEditTemplateContractViewModel : BaseModel
     {
         public bool ShowClauseBox { get => GetValue<bool>(); set => SetValue(value); }
+
+        public string ContractNumberFormat { get => GetValue<string>(); set => SetValue(value); }
+        public string AddressOfCompany { get => GetValue<string>(); set => SetValue(value); }
+        public string NameOfTemplate { get => GetValue<string>(); set => SetValue(value); }
+
         public EditTemplate SelectedItem { get => GetValue<EditTemplate>(); set => SetValue(value); }
         public ObservableCollection<EditTemplate> DataList { get; set; }
         
         public PageEditTemplateContractViewModel()
         {
             DataList = new ObservableCollection<EditTemplate>();
-             
+
+            ContractNumberFormat = RSC.SelectFormat;
+
             ItemDragged = new Command<EditTemplate>(OnItemDragged);
             ItemDraggedOver = new Command<EditTemplate>(OnItemDraggedOver);
             ItemDragLeave = new Command<EditTemplate>(OnItemDragLeave);

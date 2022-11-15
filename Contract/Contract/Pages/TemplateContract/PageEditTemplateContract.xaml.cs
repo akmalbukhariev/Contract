@@ -134,5 +134,14 @@ namespace Contract.Pages.TemplateContract
 
             model.ShowClauseBox = false;
         }
+
+        private async void SelectFormat_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = sender as Frame;
+            await frame.ScaleTo(0.8, 200);
+            await frame.ScaleTo(1, 200, Easing.SpringOut);
+
+            await Navigation.PushModalAsync(new ContractNumber.PageEditContractNumber(true));
+        }
     }
 }

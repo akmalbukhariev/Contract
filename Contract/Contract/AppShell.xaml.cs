@@ -54,7 +54,7 @@ namespace Contract
             Routing.RegisterRoute(nameof(Pages.SignUp.PageSkippedTime), typeof(Pages.SignUp.PageSkippedTime));
             Routing.RegisterRoute(nameof(Pages.SignUp.PageSpecialCode), typeof(Pages.SignUp.PageSpecialCode));
 
-            Routing.RegisterRoute(nameof(Pages.TemplateContract.PageContractTemplate), typeof(Pages.TemplateContract.PageContractTemplate));
+            Routing.RegisterRoute(nameof(Pages.TemplateContract.PageContractTemplateTable), typeof(Pages.TemplateContract.PageContractTemplateTable));
             Routing.RegisterRoute(nameof(Pages.TemplateContract.PageEditTemplateContract), typeof(Pages.TemplateContract.PageEditTemplateContract));
             Routing.RegisterRoute(nameof(Pages.TemplateContract.PageFullDescription), typeof(Pages.TemplateContract.PageFullDescription));
 

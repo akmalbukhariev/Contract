@@ -920,6 +920,10 @@
     <value>Валютани танланг</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SelectFormat" xml:space="preserve">
+    <value>Форматни танланг</value>
+    <comment>Contract template</comment>
+  </data>
   <data name="SelectMeasure" xml:space="preserve">
     <value>Ўлчовни танланг</value>
     <comment>CreateContract</comment>

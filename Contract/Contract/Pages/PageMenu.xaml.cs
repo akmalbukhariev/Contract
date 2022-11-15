@@ -93,7 +93,7 @@ namespace Contract.Pages
                     OnNavigatePage(new CreateContract.PageCreateContract1());
                     break;
                 case Constants.Menu4_1:
-                    OnNavigatePage(new TemplateContract.PageContractTemplate());
+                    OnNavigatePage(new TemplateContract.PageContractTemplateTable());
                     break;
                 case Constants.Menu4_2:
                     OnNavigatePage(new TemplateContract.PageEditTemplateContract());

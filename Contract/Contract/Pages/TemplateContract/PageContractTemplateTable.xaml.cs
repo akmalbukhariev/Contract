@@ -12,14 +12,14 @@ using Xamarin.Forms.Xaml;
 namespace Contract.Pages.TemplateContract
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageContractTemplate : IPage
+    public partial class PageContractTemplateTable : IPage
     { 
-        public PageContractTemplate()
+        public PageContractTemplateTable()
         {
             InitializeComponent();
 
-            SetModel(new PageContractTemplateViewModel());
-            (Model as PageContractTemplateViewModel).Init();
+            SetModel(new PageContractTemplateTableViewModel());
+            (Model as PageContractTemplateTableViewModel).Init();
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {

@@ -7,10 +7,10 @@ using Xamarin.Forms;
 
 namespace Contract.ViewModel.Pages.TemplateContract
 {
-    public class PageContractTemplateViewModel : BaseModel
+    public class PageContractTemplateTableViewModel : BaseModel
     {
         public ObservableCollection<ContractTemplate> DataList { get; set; }
-        public PageContractTemplateViewModel()
+        public PageContractTemplateTableViewModel()
         {
             DataList = new ObservableCollection<ContractTemplate>();
         }

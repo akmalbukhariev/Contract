@@ -1880,6 +1880,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select format.
+        /// </summary>
+        internal static string SelectFormat {
+            get {
+                return ResourceManager.GetString("SelectFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select measure.
         /// </summary>
         internal static string SelectMeasure {

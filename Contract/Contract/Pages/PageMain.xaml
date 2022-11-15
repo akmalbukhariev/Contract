@@ -33,7 +33,7 @@
                        HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
             <Label x:Name="lbCompanyName" 
-                   Text="Korxona nomi MCHJ"
+                   Text="{Binding CompanyName}"
                    TextColor="White"
                    FontSize="18"
                    Style="{StaticResource lbBoldTitle}"
