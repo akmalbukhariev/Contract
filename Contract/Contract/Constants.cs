@@ -67,5 +67,7 @@ namespace Contract
         public const string BadRequest = "Bad Request!";
         public const string DoNotExist = "Do not exist!";
         public const string Exist = "Exist!";
+
+        public const string ContractSequenceNumber = "XXXXX";
     }
 }

@@ -23,21 +23,21 @@ namespace ContractAPI.ContractNumberInfo.api
         [HttpGet("geContractNumber/{phoneNumber}")]
         public async Task<IActionResult> geContractNumber(string phoneNumber)
         {
-            ResponseContractNumber response = await Service.getContractNumber(phoneNumber);
+            ResponseContractNumberTemplate response = await Service.getContractNumber(phoneNumber);
             return MakeResponse(response, response.error_code);
         }
 
         [HttpPost("setContractNumber")]
-        public async Task<IActionResult> setContractNumber([FromBody] ContractNumber info)
+        public async Task<IActionResult> setContractNumber([FromBody] ContractNumberTemplate info)
         {
-            ResponseContractNumber response = await Service.setContractNumber(info);
+            ResponseContractNumberTemplate response = await Service.setContractNumber(info);
             return MakeResponse(response, response.error_code);
         }
 
         [HttpPut("updateContractNumber")]
-        public async Task<IActionResult> updateContractNumber([FromBody] ContractNumber info)
+        public async Task<IActionResult> updateContractNumber([FromBody] ContractNumberTemplate info)
         {
-            ResponseContractNumber response = await Service.updateContractNumber(info);
+            ResponseContractNumberTemplate response = await Service.updateContractNumber(info);
             return MakeResponse(response, response.error_code);
         }
     }

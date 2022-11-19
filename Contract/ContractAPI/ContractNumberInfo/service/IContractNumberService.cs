@@ -9,8 +9,8 @@ namespace ContractAPI.ContractNumberInfo.service
 {
     public interface IContractNumberService
     {
-        Task<ResponseContractNumber> getContractNumber(string userPhoneNumber);
-        Task<ResponseContractNumber> setContractNumber(ContractNumber info);
-        Task<ResponseContractNumber> updateContractNumber(ContractNumber info);
+        Task<ResponseContractNumberTemplate> getContractNumber(string userPhoneNumber);
+        Task<ResponseContractNumberTemplate> setContractNumber(ContractNumberTemplate info);
+        Task<ResponseContractNumberTemplate> updateContractNumber(ContractNumberTemplate info); 
     }
 }

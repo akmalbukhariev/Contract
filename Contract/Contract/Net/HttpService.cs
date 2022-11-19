@@ -283,44 +283,44 @@ namespace Contract.Net
         #endregion
 
         #region Contract number
-        public async static Task<ResponseContractNumber> GetContractNumber(string phoneNumbera)
+        public async static Task<ResponseContractNumberTemplate> GetContractNumber(string phoneNumbera)
         {
-            ResponseContractNumber response = new ResponseContractNumber();
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
             try
             {
                 var receivedData = await RequestGetMethod($"{URL_GET_CONTRACT_NUMBER}{phoneNumbera}");
-                response = JsonConvert.DeserializeObject<ResponseContractNumber>(receivedData, settings);
+                response = JsonConvert.DeserializeObject<ResponseContractNumberTemplate>(receivedData, settings);
             }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumber>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumber>(); }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
 
             return response;
         }
 
-        public async static Task<ResponseContractNumber> SetContractNumber(ContractNumber data)
+        public async static Task<ResponseContractNumberTemplate> SetContractNumber(ContractNumberTemplate data)
         {
-            ResponseContractNumber response = new ResponseContractNumber();
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
             try
             {
                 var receivedData = await RequestPostMethod(URL_SET_CONTRACT_NUMBER, data);
-                response = JsonConvert.DeserializeObject<ResponseContractNumber>(receivedData, settings);
+                response = JsonConvert.DeserializeObject<ResponseContractNumberTemplate>(receivedData, settings);
             }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumber>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumber>(); }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
 
             return response;
         }
 
-        public async static Task<ResponseContractNumber> UpdateContractNumber(ContractNumber data)
+        public async static Task<ResponseContractNumberTemplate> UpdateContractNumber(ContractNumberTemplate data)
         {
-            ResponseContractNumber response = new ResponseContractNumber();
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
             try
             {
                 var receivedData = await RequestPutMethod(URL_UPDATE_CONTRACT_NUMBER, data);
-                response = JsonConvert.DeserializeObject<ResponseContractNumber>(receivedData, settings);
+                response = JsonConvert.DeserializeObject<ResponseContractNumberTemplate>(receivedData, settings);
             }
-            catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumber>(); }
-            catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumber>(); }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
 
             return response;
         }

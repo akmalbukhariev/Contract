@@ -18,14 +18,12 @@ namespace ContractAPI.ContractNumberInfo.service.impl
 
         }
 
-        public async Task<ResponseContractNumber> getContractNumber(string userPhoneNumber)
+        public async Task<ResponseContractNumberTemplate> getContractNumber(string userPhoneNumber)
         {
-            ResponseContractNumber response = new ResponseContractNumber();
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
 
-            ContractNumber found = await dataBase.ContractNumber
-                 .Where(item => item.user_phone_number.Equals(userPhoneNumber))
-                 .AsNoTracking()
-                 .FirstOrDefaultAsync();
+            List<ContractNumberTemplate> found = await dataBase.ContractNumberTemplate
+                 .Where(item => item.user_phone_number.Equals(userPhoneNumber) && item.is_deleted == 0).ToListAsync(); 
 
             if (found == null)
             {
@@ -38,30 +36,35 @@ namespace ContractAPI.ContractNumberInfo.service.impl
             response.result = true;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
-            response.data.Copy(found);
+
+            foreach (ContractNumberTemplate item in found)
+            {
+                response.data.Add(new ContractNumberTemplate(item));
+            }
 
             return response;
         }
 
-        public async Task<ResponseContractNumber> setContractNumber(ContractNumber info)
+        public async Task<ResponseContractNumberTemplate> setContractNumber(ContractNumberTemplate info)
         {
-            ResponseContractNumber response = new ResponseContractNumber();
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
 
-            //ContractNumber found = await dataBase.ContractNumber
-            //     .Where(item => item.contract_option.Equals(info.contract_option))
-            //     .AsNoTracking()
-            //     .FirstOrDefaultAsync();
-            //
-            //if (found != null)
-            //{
-            //    response.data = null;
-            //    response.message = "Exist";
-            //    response.error_code = (int)HttpStatusCode.Found;
-            //    return response;
-            //}
+            ContractNumberTemplate found = await dataBase.ContractNumberTemplate
+                 .Where(item => item.option.Equals(info.option) && item.format == info.format)
+                 .AsNoTracking()
+                 .FirstOrDefaultAsync();
+            
+            if (found != null)
+            {
+                response.data = null;
+                response.message = "Exist";
+                response.error_code = (int)HttpStatusCode.Found;
+                return response;
+            }
 
-            ContractNumber newItem = new ContractNumber(info);
-            dataBase.ContractNumber.Add(newItem);
+            ContractNumberTemplate newItem = new ContractNumberTemplate(info);
+            newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            dataBase.ContractNumberTemplate.Add(newItem);
 
             try
             {
@@ -82,12 +85,12 @@ namespace ContractAPI.ContractNumberInfo.service.impl
             return response;
         }
 
-        public async Task<ResponseContractNumber> updateContractNumber(ContractNumber info)
+        public async Task<ResponseContractNumberTemplate> updateContractNumber(ContractNumberTemplate info)
         {
-            ResponseContractNumber response = new ResponseContractNumber();
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
 
-            ContractNumber newItem = new ContractNumber(info);
-            dataBase.ContractNumber.Update(newItem);
+            ContractNumberTemplate newItem = new ContractNumberTemplate(info);
+            dataBase.ContractNumberTemplate.Update(newItem);
 
             try
             {

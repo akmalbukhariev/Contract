@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Contract.HttpResponse
 {
-    public class ResponseContractNumber: Response<ContractNumber>, IResponse
+    public class ResponseContractNumberTemplate : Response<List<ContractNumberTemplate>>, IResponse
     {
     }
 }

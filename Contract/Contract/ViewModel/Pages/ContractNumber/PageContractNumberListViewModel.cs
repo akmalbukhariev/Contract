@@ -1,4 +1,6 @@
 ﻿
+using Contract.HttpModels;
+using Contract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,6 +42,60 @@ namespace Contract.ViewModel.Pages.ContractNumber
             Add(item1);
             Add(item2);
             Add(item3);
+        }
+
+        public async void RequestInfo()
+        {
+            DataList.Clear();
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
+            ControlApp.CloseLoadingView();
+
+            if (response.result)
+            {
+                int count = 0;
+                Color rowColor = Color.White;
+                foreach (ContractNumberTemplate item in response.data)
+                {
+                    count++;
+                    Model.ContractNumber newItem = new Model.ContractNumber();
+
+                    if (count % 2 == 0)
+                    {
+                        rowColor = Color.FromHex("#DEEAF6");
+                    }
+                    else
+                    {
+                        rowColor = Color.White;
+                    }
+
+                    string strTemplate = "";
+                    switch (item.format)
+                    {
+                        case 1:
+                            strTemplate = Constants.ContractSequenceNumber;
+                            break;
+                        case 2:
+                            strTemplate = $"{item.option}-{Constants.ContractSequenceNumber}";
+                            break;
+                        case 3:
+                            strTemplate = $"{Constants.ContractSequenceNumber}-{item.option}";
+                            break;
+                        default:
+                            break;
+                    }
+
+                    newItem.No = count.ToString();
+                    newItem.ContractNumberText = strTemplate;
+                    newItem.ItemColor = rowColor;
+                    newItem.Format = item.format;
+                    newItem.CreatedDate = item.created_date;
+                    newItem.IsDeleted = item.is_deleted;
+
+                    Add(newItem);
+                }
+            }
         }
 
         private void Add(Model.ContractNumber item)

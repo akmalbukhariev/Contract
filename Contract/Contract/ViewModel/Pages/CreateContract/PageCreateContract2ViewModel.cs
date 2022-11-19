@@ -31,7 +31,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); }
         #endregion
 
-        private ResponseContractNumber ResponseContractNumberInfo;
+        private ResponseContractNumberTemplate ResponseContractNumberInfo;
         private HttpModels.CompanyInfo ClientCompanyInfo = null;
 
         public ObservableCollection<ServicesInfo> ServicesList { get; set; }
@@ -98,18 +98,18 @@ namespace Contract.ViewModel.Pages.CreateContract
 
             if (ResponseContractNumberInfo.result)
             {
-                switch (ResponseContractNumberInfo.data.format)
-                {
-                    case 1:
-                        ContractNumber = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number);
-                        break;
-                    case 2:
-                        ContractNumber = $"{ResponseContractNumberInfo.data.option} - {ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)}";
-                        break;
-                    case 3:
-                        ContractNumber = $"{ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)} - {ResponseContractNumberInfo.data.option}";
-                        break;
-                }
+                //switch (ResponseContractNumberInfo.data.format)
+                //{
+                //    case 1:
+                //        //ContractNumber = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number);
+                //        break;
+                //    case 2:
+                //        //ContractNumber = $"{ResponseContractNumberInfo.data.option} - {ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)}";
+                //        break;
+                //    case 3:
+                //        //ContractNumber = $"{ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)} - {ResponseContractNumberInfo.data.option}";
+                //        break;
+                //}
             }
             else
             { 
@@ -130,16 +130,16 @@ namespace Contract.ViewModel.Pages.CreateContract
                 return;
             }
 
-            HttpModels.ContractNumber data = new HttpModels.ContractNumber()
+            HttpModels.ContractNumberTemplate data = new HttpModels.ContractNumberTemplate()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
-                sequence_number = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number),
-                option = ResponseContractNumberInfo.data.option,
-                format = ResponseContractNumberInfo.data.format
+                //sequence_number = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number),
+                //option = ResponseContractNumberInfo.data.option,
+                //format = ResponseContractNumberInfo.data.format
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractNumber responseContractnumber = await Net.HttpService.UpdateContractNumber(data);
+            ResponseContractNumberTemplate responseContractnumber = await Net.HttpService.UpdateContractNumber(data);
             ControlApp.CloseLoadingView();
 
             if (!responseContractnumber.result)

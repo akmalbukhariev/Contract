@@ -15,7 +15,7 @@ namespace ContractAPI.DataAccess
         public DbSet<OfferAndObjection> OfferAndObjection { get; set; }
         public DbSet<ClientCompanyInfo> ClientCompanyInfo { get; set; }
         public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
-        public DbSet<ContractNumber> ContractNumber { get; set; }
+        public DbSet<ContractNumberTemplate> ContractNumberTemplate { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
         public DbSet<PurposeOfContract> PurposeOfContracts { get; set; } 
         public DbSet<CanceledContract> CanceledContracts { get; set; }
@@ -49,8 +49,8 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<CreateContractInfo>().ToTable("CreateContractInfo");
             modelBuilder.Entity<CreateContractInfo>().HasKey(r => r.created_date);
 
-            modelBuilder.Entity<ContractNumber>().ToTable("ContractNumber");
-            modelBuilder.Entity<ContractNumber>().HasKey(r => r.user_phone_number);
+            modelBuilder.Entity<ContractNumberTemplate>().ToTable("ContractNumberTemplate");
+            modelBuilder.Entity<ContractNumberTemplate>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<ServicesInfo>().ToTable("ServicesInfo");
             modelBuilder.Entity<ServicesInfo>().HasKey(r => r.created_date);

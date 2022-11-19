@@ -28,6 +28,11 @@ namespace Contract.Pages.TemplateContract
         {
             base.OnAppearing();
 
+            if (ControlApp.SelectedContractNumberFormat != null)
+            {
+                //PModel.ContractNumberFormat = ControlApp.SelectedContractNumberFormat.GetContractNumber();
+            }
+
             EditTemplate item1 = new EditTemplate()
             {
                 Title = "1",
@@ -141,7 +146,16 @@ namespace Contract.Pages.TemplateContract
             await frame.ScaleTo(0.8, 200);
             await frame.ScaleTo(1, 200, Easing.SpringOut);
 
-            await Navigation.PushModalAsync(new ContractNumber.PageEditContractNumber(true));
+            //ContractNumber.PageEditContractNumber page = new ContractNumber.PageEditContractNumber(true);
+            //await Navigation.PushModalAsync(page); 
+        }
+
+        PageEditTemplateContractViewModel PModel
+        {
+            get
+            {
+                return Model as PageEditTemplateContractViewModel;
+            }
         }
     }
 }

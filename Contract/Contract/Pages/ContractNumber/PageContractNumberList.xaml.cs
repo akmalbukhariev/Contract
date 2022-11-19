@@ -1,4 +1,5 @@
-﻿using Contract.Interfaces;
+﻿using Contract.HttpResponse;
+using Contract.Interfaces;
 using Contract.ViewModel.Pages.ContractNumber;
 using Contract.ViewModel.Pages.Customers;
 using System;
@@ -20,8 +21,7 @@ namespace Contract.Pages.ContractNumber
         {
             InitializeComponent();
 
-            SetModel(new PageContractNumberListViewModel());
-            (Model as PageContractNumberListViewModel).Init();
+            SetModel(new PageContractNumberListViewModel()); 
 
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
@@ -34,6 +34,7 @@ namespace Contract.Pages.ContractNumber
         {
             base.OnAppearing();
 
+            PModel.RequestInfo();
             DependencyService.Get<IRotationService>().EnableRotation();
         }
 
@@ -50,16 +51,52 @@ namespace Contract.Pages.ContractNumber
             ControlApp.Vibrate();
         }
 
-        private void Edit_Tapped(object sender, EventArgs e)
+        private async void Edit_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            Model.ContractNumber item = (Model.ContractNumber)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            await Navigation.PushAsync(new PageEditContractNumber(item));
         }
 
-        private void Cancel_Tapped(object sender, EventArgs e)
+        private async void Cancel_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.DeleteMessage, RSC.Ok, RSC.Cancel)) return;
+            
+            Model.ContractNumber item = (Model.ContractNumber)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            HttpModels.ContractNumberTemplate data = new HttpModels.ContractNumberTemplate()
+            {
+                user_phone_number = ControlApp.UserInfo.phone_number,
+                option = item.ContractNumberText.Replace(Constants.ContractSequenceNumber, "").Replace("-", ""),
+                format = item.Format,
+                created_date = item.CreatedDate,
+                is_deleted = 1
+            };
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseContractNumberTemplate response = await Net.HttpService.UpdateContractNumber(data);
+            ControlApp.CloseLoadingView();
+
+            string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
+            await DisplayAlert(RSC.ContractNumber, strMessage, RSC.Ok);
+
+            PModel.RequestInfo();
+        }
+
+        public PageContractNumberListViewModel PModel
+        {
+            get
+            {
+                return Model as PageContractNumberListViewModel;
+            }
         }
     }
 }

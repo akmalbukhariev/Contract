@@ -56,7 +56,7 @@ namespace Contract.ViewModel
             Menu menu4 = new Menu() 
             {
                 ID = Constants.Menu4,
-                MenuHeight = 150,
+                MenuHeight = 190,
                 HImage = "templates",
                 HText = RSC.Templates,
                 HShowImage = "showMenu",
@@ -64,7 +64,7 @@ namespace Contract.ViewModel
                 {
                     new ChildMenuItem(){ID = Constants.Menu4_1, Name = RSC.ContractTemplates},
                     new ChildMenuItem(){ID = Constants.Menu4_2, Name = RSC.CreatingContractTemplate},
-                    //new ChildMenuItem(){ID = Constants.Menu4_3, Name = RSC.ContractNumberSequence},
+                    new ChildMenuItem(){ID = Constants.Menu4_3, Name = RSC.ContractNumberSequence},
                     new ChildMenuItem(){ID = Constants.Menu4_4, Name = RSC.CreateContractNumber}
                 }
             };

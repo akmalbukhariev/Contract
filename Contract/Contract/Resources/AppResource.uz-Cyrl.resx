@@ -423,6 +423,10 @@
     <value>Бандни ўчириш</value>
     <comment>Template Contract</comment>
   </data>
+  <data name="DeleteMessage" xml:space="preserve">
+    <value>Ҳақиқатан ҳам ўчирмоқчимисиз?</value>
+    <comment>Contract Number</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Матн</value>
     <comment>Offer and objection</comment>
@@ -1087,6 +1091,10 @@
   <data name="UnitOfMeasure" xml:space="preserve">
     <value>Ўлчов бирлиги</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Янгилаш</value>
+    <comment>Contract Number</comment>
   </data>
   <data name="VerificationBy_ERI_Key" xml:space="preserve">
     <value>ЭРИ калити орқали тасдиқлаш</value>

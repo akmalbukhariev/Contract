@@ -343,7 +343,7 @@ Contracts</value>
     <comment>UnapprovedContracts</comment>
   </data>
   <data name="ContractNumberSequence" xml:space="preserve">
-    <value>Contract number sequence</value>
+    <value>Contract Number Sequence</value>
     <comment>Menu</comment>
   </data>
   <data name="ContractPrice" xml:space="preserve">
@@ -421,6 +421,10 @@ Contracts</value>
   <data name="DeleteClause" xml:space="preserve">
     <value>Delete Clause</value>
     <comment>Template Contract</comment>
+  </data>
+  <data name="DeleteMessage" xml:space="preserve">
+    <value>Do you really want to delete?</value>
+    <comment>Contract Number</comment>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -1087,6 +1091,10 @@ Contracts</value>
   <data name="UnitOfMeasure" xml:space="preserve">
     <value>Unit Of  Measure</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+    <comment>Contract Number</comment>
   </data>
   <data name="VerificationBy_ERI_Key" xml:space="preserve">
     <value>Verification by digital signature key</value>

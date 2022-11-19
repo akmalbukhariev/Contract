@@ -424,6 +424,10 @@ shartnomalar</value>
     <value>Bandni o'chirish</value>
     <comment>Template Contract</comment>
   </data>
+  <data name="DeleteMessage" xml:space="preserve">
+    <value>Haqiqatan ham o'chirmoqchimisiz?</value>
+    <comment>Contract Number</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Matn</value>
     <comment>Offer and objection</comment>
@@ -1116,6 +1120,10 @@ shartnomalar</value>
   <data name="UnitOfMeasure" xml:space="preserve">
     <value>O'lchov birligi</value>
     <comment>CreateContract</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Yangilash</value>
+    <comment>Contract Number</comment>
   </data>
   <data name="VerificationBy_ERI_Key" xml:space="preserve">
     <value>ERI kaliti orqali tasdiqlash</value>

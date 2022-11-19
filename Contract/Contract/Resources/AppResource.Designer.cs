@@ -566,7 +566,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contract number sequence.
+        ///   Looks up a localized string similar to Contract Number Sequence.
         /// </summary>
         internal static string ContractNumberSequence {
             get {
@@ -742,6 +742,15 @@ namespace Contract.Resources {
         internal static string DeleteClause {
             get {
                 return ResourceManager.GetString("DeleteClause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to delete?.
+        /// </summary>
+        internal static string DeleteMessage {
+            get {
+                return ResourceManager.GetString("DeleteMessage", resourceCulture);
             }
         }
         
@@ -2246,6 +2255,15 @@ namespace Contract.Resources {
         internal static string UnitOfMeasure {
             get {
                 return ResourceManager.GetString("UnitOfMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
         

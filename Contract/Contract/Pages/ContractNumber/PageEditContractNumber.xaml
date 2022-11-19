@@ -60,7 +60,7 @@
                                 </Style>
                             </ResourceDictionary>
                         </StackLayout.Resources>
-                        <Grid RowDefinitions="Auto,Auto">
+                        <!--<Grid RowDefinitions="Auto,Auto">
                             <Label Text="{x:Static resource:AppResource.ContractNumber}" 
                                    TextColor="Black"
                                    FontAttributes="Bold"
@@ -74,8 +74,8 @@
                                    VerticalTextAlignment="Center"
                                    HorizontalTextAlignment="Center"
                                    Grid.Row="1"/>
-                        </Grid> 
-                        <Grid RowDefinitions="Auto,*">
+                        </Grid>--> 
+                        <Grid x:Name="grFormat1" RowDefinitions="Auto,*">
                             <BoxView IsVisible="{Binding CheckFormat_1}" BackgroundColor="Red" CornerRadius="10" Grid.RowSpan="2"/>
                             <BoxView IsVisible="{Binding CheckFormat_1}" BackgroundColor="White" CornerRadius="10" Margin="1" Grid.RowSpan="2"/>
                             <BoxView IsVisible="{Binding EnableFomat_1}" BackgroundColor="Black" Opacity="0.4" CornerRadius="10" Margin="1" Grid.RowSpan="2"/>
@@ -83,7 +83,7 @@
                                          IsChecked="{Binding CheckFormat_1}" 
                                          CheckedChanged="OnRadioButtonCheckedChanged"
                                          Margin="5"/>
-                            <Label x:Name="lbFormat1_1" Text="{Binding SequenceNumber1}" 
+                            <Label x:Name="lbFormat1_1" Text="{Binding SequenceNumber}" 
                                    Style="{StaticResource lbContract}" 
                                    HorizontalOptions="CenterAndExpand"
                                    Grid.Row="1">
@@ -109,7 +109,7 @@
                                 </Label>
                             </Grid>-->
                         </Grid>
-                        <Grid RowDefinitions="Auto,*">
+                        <Grid x:Name="grFormat2" RowDefinitions="Auto,*">
                             <BoxView IsVisible="{Binding CheckFormat_2}" BackgroundColor="Red" CornerRadius="10" Grid.RowSpan="2"/>
                             <BoxView IsVisible="{Binding CheckFormat_2}" BackgroundColor="White" CornerRadius="10" Margin="1" Grid.RowSpan="2"/>
                             <BoxView IsVisible="{Binding EnableFomat_2}" BackgroundColor="Black" Opacity="0.4" CornerRadius="10" Margin="1" Grid.RowSpan="2"/>
@@ -123,14 +123,14 @@
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Label_Tapped"/>
                                     </view:ViewEntry.GestureRecognizers>
                                 </view:ViewEntry>
-                                <Label x:Name="lbFormat2_1" Text="{Binding SequenceNumber2}" Style="{StaticResource lbContract}" Grid.Column="1">
+                                <Label x:Name="lbFormat2_1" Text="{Binding SequenceNumber}" Style="{StaticResource lbContract}" Grid.Column="1">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Label_Tapped"/>
                                     </Label.GestureRecognizers>
                                 </Label> 
                             </Grid>
                         </Grid>
-                        <Grid RowDefinitions="Auto,*">
+                        <Grid x:Name="grFormat3" RowDefinitions="Auto,*">
                             <BoxView IsVisible="{Binding CheckFormat_3}" BackgroundColor="Red" CornerRadius="10" Grid.RowSpan="2"/>
                             <BoxView IsVisible="{Binding CheckFormat_3}" BackgroundColor="White" CornerRadius="10" Margin="1" Grid.RowSpan="2"/>
                             <BoxView IsVisible="{Binding EnableFomat_3}" BackgroundColor="Black" Opacity="0.4" CornerRadius="10" Margin="1" Grid.RowSpan="2"/>
@@ -139,7 +139,7 @@
                                          CheckedChanged="OnRadioButtonCheckedChanged"
                                          Margin="5"/>
                             <Grid ColumnDefinitions="Auto,*" Margin="5" Grid.Row="1">
-                                <Label x:Name="lbFormat3_1" Text="{Binding SequenceNumber3}" Style="{StaticResource lbContract}">
+                                <Label x:Name="lbFormat3_1" Text="{Binding SequenceNumber}" Style="{StaticResource lbContract}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Label_Tapped"/>
                                     </Label.GestureRecognizers>
@@ -155,7 +155,7 @@
                     <Button x:Name="btnSave" 
                             Style="{StaticResource btnNext}"
                             Text="{x:Static resource:AppResource.Save}"
-                            Command="{Binding CommandSave}"
+                            Command="{Binding CommandSaveUpdate}"
                             VerticalOptions="End"
                             Margin="20,0,20,40"
                             Grid.Row="3"/>

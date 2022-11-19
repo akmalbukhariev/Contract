@@ -4,29 +4,25 @@ using System.Text;
 
 namespace Contract.HttpModels
 {
-    public class ContractNumber
+    public class LastUsedContractNumber
     {
         public string user_phone_number { get; set; }
         public string sequence_number { get; set; }
-        public string option { get; set; }
-        public int format { get; set; } 
 
-        public ContractNumber()
-        {
-            
-        }
-
-        public ContractNumber(ContractNumber other)
+        public LastUsedContractNumber(LastUsedContractNumber other)
         {
             Copy(other);
         }
 
-        public void Copy(ContractNumber other)
+        public LastUsedContractNumber()
+        {
+            
+        }
+
+        public void Copy(LastUsedContractNumber other)
         {
             this.user_phone_number = other.user_phone_number;
             this.sequence_number = other.sequence_number;
-            this.option = other.option;
-            this.format = other.format;
         }
     }
 }
