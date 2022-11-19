@@ -61,8 +61,7 @@ namespace Contract.Pages.ContractNumber
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            ControlApp.SelectedContractNumberFormat = null;
+             
             //PModel.RequestInfo();
         }
 

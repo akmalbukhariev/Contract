@@ -25,7 +25,7 @@ namespace Contract.Control
   
         private static ControlApp _instance = null;
 
-        public ContractNumberTemplate SelectedContractNumberFormat { get; set; } = null;
+        //public ContractNumberTemplate SelectedContractNumberFormat { get; set; } = null;
         public CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
         public CompanyInfo UserCompanyInfo { get; set; } = new CompanyInfo();
         public Login LoginInfo { get; set; } = new Login();

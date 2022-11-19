@@ -439,6 +439,14 @@
     <value>Паролни унутдингизми?</value>
     <comment>Login</comment>
   </data>
+  <data name="Done" xml:space="preserve">
+    <value>Тайёр</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Таҳрир</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Аккаунт паролини таҳрирлаш</value>
     <comment>Menu</comment>

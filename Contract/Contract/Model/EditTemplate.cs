@@ -8,6 +8,7 @@ namespace Contract.Model
 {
     public class EditTemplate : BaseModel
     {
+        public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDragged { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDraggedOver { get => GetValue<bool>(); set => SetValue(value); }
 
@@ -32,6 +33,7 @@ namespace Contract.Model
 
         public EditTemplate()
         {
+            Editable = false;
             IsVisibleItemClause = true;
             IsThisAddClauseButton = false;
             IsVisibleAddContractInfoButton = false;

@@ -48,6 +48,8 @@ namespace Contract.ViewModel.Pages.ContractNumber
         {
             DataList.Clear();
 
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();

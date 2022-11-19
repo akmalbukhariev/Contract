@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -13,26 +14,19 @@ namespace Contract.Pages.TemplateContract
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEditTemplateContract : IPage
-    {
-        private PageEditTemplateContractViewModel model;
-
+    {  
         public PageEditTemplateContract()
         {
             InitializeComponent();
 
-            model = new PageEditTemplateContractViewModel();
-            BindingContext = model; 
+            SetModel(new PageEditTemplateContractViewModel()); 
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (ControlApp.SelectedContractNumberFormat != null)
-            {
-                //PModel.ContractNumberFormat = ControlApp.SelectedContractNumberFormat.GetContractNumber();
-            }
-
+            //PModel.RequestInfo();
+             
             EditTemplate item1 = new EditTemplate()
             {
                 Title = "1",
@@ -77,12 +71,12 @@ namespace Contract.Pages.TemplateContract
                 IsVisibleAddDetailOfNegotiatorButton = true
             };
 
-            model.DataList.Add(item1);
-            model.DataList.Add(item2);
-            model.DataList.Add(item3);
-            model.DataList.Add(item4);
-            model.DataList.Add(item5);
-            model.DataList.Add(item6);
+            PModel.DataList.Add(item1);
+            PModel.DataList.Add(item2);
+            PModel.DataList.Add(item3);
+            PModel.DataList.Add(item4);
+            PModel.DataList.Add(item5);
+            PModel.DataList.Add(item6);
         }
 
         //private void DragGestureRecognizer_DragStarting_Collection(Object sender, DragStartingEventArgs e)
@@ -102,7 +96,7 @@ namespace Contract.Pages.TemplateContract
         }
 
         private async void Button_Tapped(object sender, EventArgs e)
-        {   
+        { 
             Views.ViewEditContractButton vButton = (Views.ViewEditContractButton)sender;
             EditTemplate item = (EditTemplate)vButton.BindingContext;
 
@@ -111,7 +105,7 @@ namespace Contract.Pages.TemplateContract
             {
                 if (item.IsThisAddClauseButton)
                 {
-                    model.ShowClauseBox = true;
+                    PModel.ShowClauseBox = true;
                 }
                 else
                 {
@@ -137,7 +131,7 @@ namespace Contract.Pages.TemplateContract
             box.BackgroundColor = Color.Transparent;
             await Task.Delay(100);
 
-            model.ShowClauseBox = false;
+            PModel.ShowClauseBox = false;
         }
 
         private async void SelectFormat_Tapped(object sender, EventArgs e)
@@ -156,6 +150,35 @@ namespace Contract.Pages.TemplateContract
             {
                 return Model as PageEditTemplateContractViewModel;
             }
+        }
+
+        private void EditDone_Clicked(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(new ThreadStart(ShakeItems));
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        void ShakeItems()
+        {
+            while (PModel.Editable)
+            {
+                Parallel.ForEach(MyItems.Children, async view =>
+                {
+                    uint timeout = 50;
+                    await view.RotateTo(5, timeout);
+                    await view.RotateTo(0, timeout); 
+                });
+
+                Thread.Sleep(200);
+            }
+
+            Parallel.ForEach(MyItems.Children, async view =>
+            {
+                uint timeout = 50;
+                await view.RotateTo(5, timeout);
+                await view.RotateTo(0, timeout);
+            });
         }
     }
 }

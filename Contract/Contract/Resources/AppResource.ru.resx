@@ -439,6 +439,14 @@
     <value>Забыли пароль?</value>
     <comment>Login</comment>
   </data>
+  <data name="Done" xml:space="preserve">
+    <value>Готово</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Изменить</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Изменить пароль аккаунта</value>
     <comment>Menu</comment>

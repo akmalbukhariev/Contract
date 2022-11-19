@@ -440,6 +440,14 @@ shartnomalar</value>
     <value>Parolni unutdingizmi?</value>
     <comment>Login</comment>
   </data>
+  <data name="Done" xml:space="preserve">
+    <value>Tayyor</value>
+    <comment>Template Contract</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Tahrir</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="EditAccountPassword" xml:space="preserve">
     <value>Akkaunt parolini tahrirlash</value>
     <comment>Menu</comment>
