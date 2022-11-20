@@ -5,7 +5,7 @@
              x:Class="Contract.Views.ViewEditTemplateContract">
 
     <Grid RowDefinitions="35,1,100"
-          ColumnDefinitions="230,1,45"
+          ColumnDefinitions="*,1,45"
           ColumnSpacing="0"
           RowSpacing="0"
           Margin="0">

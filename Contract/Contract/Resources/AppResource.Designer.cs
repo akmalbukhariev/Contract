@@ -1547,7 +1547,7 @@ namespace Contract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name  Of  Contact  Template.
+        ///   Looks up a localized string similar to Name  Of  Contract  Template.
         /// </summary>
         internal static string NameOfContactTemplate {
             get {

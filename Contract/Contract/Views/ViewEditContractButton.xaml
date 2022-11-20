@@ -6,9 +6,8 @@
 
     <Grid>
         <Grid x:Name="gridAdd"
-              ColumnDefinitions="60,1,196" 
-              RowDefinitions="50"
-              HorizontalOptions="CenterAndExpand">
+              ColumnDefinitions="60,1,*" 
+              RowDefinitions="50">
             <BoxView x:Name="boxView"
                      CornerRadius="10"
                      HorizontalOptions="FillAndExpand"
@@ -30,10 +29,9 @@
         </Grid>
         <Grid x:Name="gridDelete"
               IsVisible="False"
-              ColumnDefinitions="196,80"
+              ColumnDefinitions="*,80"
               RowDefinitions="50"
-              ColumnSpacing="0"
-              HorizontalOptions="CenterAndExpand">
+              ColumnSpacing="0">
             <BoxView BackgroundColor="Gray"
                      CornerRadius="10,0,10,0"/>  
             <BoxView BackgroundColor="White"

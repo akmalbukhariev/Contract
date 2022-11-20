@@ -19,24 +19,60 @@ namespace Contract.Pages.TemplateContract
         {
             InitializeComponent();
 
-            SetModel(new PageEditTemplateContractViewModel()); 
+            SetModel(new PageEditTemplateContractViewModel(Navigation)); 
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            //PModel.RequestInfo();
+            base.OnAppearing(); 
              
             EditTemplate item1 = new EditTemplate()
             {
                 Title = "1",
-                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+                Description = "1  Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun",
             };
-            EditTemplate item2 = new EditTemplate()
+            item1.Child.Add(new EditTemplate()
             {
                 Title = "1.1",
-                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+                Description = "1.1  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item1.Child.Add(new EditTemplate()
+            {
+                Title = "1.2",
+                Description = "1.2  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+
+            EditTemplate item2 = new EditTemplate()
+            {
+                Title = "3",
+                Description = "3 Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
             };
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.1",
+                Description = "3.1 DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.2",
+                Description = "3.2 ASXSXSX XMMZNBHXBHVX SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.3",
+                Description = "3.3 DDDDDD WWWWWWW52225c5dc2 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.4",
+                Description = "3.4 EEEEEEEEDD AAAAAXXXX 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.5",
+                Description = "3.5 XXXX FFFFFFFFFFFFFFFF 555 \n PPPPP \n WWWWWW"
+            });
+
             EditTemplate item3 = new EditTemplate()
             {
                 ButtonText = RSC.Info4,
@@ -72,23 +108,12 @@ namespace Contract.Pages.TemplateContract
             };
 
             PModel.DataList.Add(item1);
-            PModel.DataList.Add(item2);
             PModel.DataList.Add(item3);
             PModel.DataList.Add(item4);
             PModel.DataList.Add(item5);
             PModel.DataList.Add(item6);
+            PModel.DataList.Add(item2);
         }
-
-        //private void DragGestureRecognizer_DragStarting_Collection(Object sender, DragStartingEventArgs e)
-        //{
-
-        //}
-
-        //private void DropGestureRecognizer_Drop_Collection(Object sender, DropEventArgs e)
-        //{
-        //    // We handle reordering login in our view model
-        //    e.Handled = true;
-        //}
 
         private void MyItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -163,21 +188,32 @@ namespace Contract.Pages.TemplateContract
         {
             while (PModel.Editable)
             {
-                Parallel.ForEach(MyItems.Children, async view =>
+                Parallel.ForEach(MyItems.Children, view =>
                 {
-                    uint timeout = 50;
-                    await view.RotateTo(5, timeout);
-                    await view.RotateTo(0, timeout); 
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        uint timeout = 50;
+                        await view.RotateTo(2.5, timeout);
+                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(2.5, timeout);
+                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(2.5, timeout);
+                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(2.5, timeout);
+                        await view.RotateTo(0, timeout);
+                    });
                 });
 
-                Thread.Sleep(200);
+                Thread.Sleep(300);
             }
 
             Parallel.ForEach(MyItems.Children, async view =>
             {
-                uint timeout = 50;
-                await view.RotateTo(5, timeout);
-                await view.RotateTo(0, timeout);
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    uint timeout = 50;
+                    await view.RotateTo(0, timeout);
+                });
             });
         }
     }

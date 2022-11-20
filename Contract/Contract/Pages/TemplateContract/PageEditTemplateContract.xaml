@@ -117,11 +117,13 @@
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Margin="0,0,15,0"
+                            CornerRadius="5"
                             Command="{Binding CommandEditDone}"
                             Clicked="EditDone_Clicked"
                             Grid.Row="6"/>
                     <StackLayout x:Name="MyItems"
                                  BindableLayout.ItemsSource="{Binding DataList}"
+                                 Margin="10,0,10,0"
                                  Grid.Row="7">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
@@ -155,6 +157,7 @@
                                         </view:ViewEditTemplateContract>
                                         <view:ViewEditContractButton TextAdd="{Binding ButtonText}" 
                                                                      TextDelete="{Binding ButtonDeleteText}"
+                                                                     HorizontalOptions="CenterAndExpand"
                                                                      ButtonBackgroundColor="{Binding ButtonColor}"
                                                                      BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                                      IsVisible="{Binding IsVisibleButton}"

@@ -1,6 +1,7 @@
 ﻿using Contract.HttpModels;
 using Contract.HttpResponse;
 using Contract.Model;
+using Contract.Pages.TemplateContract;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,7 +28,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public ObservableCollection<EditTemplate> DataList { get; set; }
         public ObservableCollection<Model.ContractNumber> ContractNumberTemplateList { get; set; }
         
-        public PageEditTemplateContractViewModel()
+        public PageEditTemplateContractViewModel(INavigation navigation) : base(navigation)
         {
             DataList = new ObservableCollection<EditTemplate>();
             ContractNumberTemplateList = new ObservableCollection<Model.ContractNumber>();
@@ -96,7 +97,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         public ICommand ItemEditText { get; }
 
-        public ICommand CommandShowClauseBox => new Command(ClickEditItem);
+        public ICommand CommandShowClauseBox => new Command<EditTemplate>(ClickEditItem);
         public ICommand CommandCloseClauseBox => new Command(ClickBoxViewBack);
         public ICommand CommandSaveUpdate => new Command(SaveUpdate);
         public ICommand CommandEditDone => new Command(EditDone);
@@ -161,12 +162,12 @@ namespace Contract.ViewModel.Pages.TemplateContract
             itemToInsertBefore.IsBeingDraggedOver = false;
         }
 
-        private void EditItemText(EditTemplate item)
+        private async void EditItemText(EditTemplate item)
         {
-            
+            await Navigation.PushAsync(new PageClausesChild(item));
         }
 
-        void ClickEditItem()
+        void ClickEditItem(EditTemplate item)
         {
             ShowClauseBox = true;
         }

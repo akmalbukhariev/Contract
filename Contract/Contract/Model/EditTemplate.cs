@@ -8,6 +8,7 @@ namespace Contract.Model
 {
     public class EditTemplate : BaseModel
     {
+        #region Properties
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDragged { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDraggedOver { get => GetValue<bool>(); set => SetValue(value); }
@@ -30,6 +31,9 @@ namespace Contract.Model
 
         public string Title { get => GetValue<string>(); set => SetValue(value); }
         public string Description { get => GetValue<string>(); set => SetValue(value); }
+        #endregion
+
+        public List<EditTemplate> Child { get => GetValue<List<EditTemplate>>(); set => SetValue(value);}
 
         public EditTemplate()
         {
@@ -42,6 +46,39 @@ namespace Contract.Model
 
             IsVisibleButton = false;
             ButtonColor = Color.FromHex("#5BAB42");
+
+            Child = new List<EditTemplate>();
+        }
+
+        public EditTemplate(EditTemplate other)
+        {
+            Copy(other);
+        }
+
+        public void Copy(EditTemplate other)
+        {
+            Editable = other.Editable;
+            IsBeingDragged = other.IsBeingDragged;
+            IsBeingDraggedOver = other.IsBeingDraggedOver;
+
+            IsVisibleItemClause = other.IsVisibleItemClause;
+            IsVisibleDeleteButton = other.IsVisibleDeleteButton;
+            IsVisibleAddButton = other.IsVisibleAddButton;
+
+            IsThisAddClauseButton = other.IsThisAddClauseButton;
+
+            IsVisibleAddContractInfoButton = other.IsVisibleAddContractInfoButton;
+            IsVisibleAddClauseButton = other.IsVisibleAddClauseButton;
+            IsVisibleAddDetailOfNegotiatorButton = other.IsVisibleAddDetailOfNegotiatorButton;
+
+            IsVisibleButton = other.IsVisibleButton;
+
+            ButtonText = other.ButtonText;
+            ButtonDeleteText = other.ButtonDeleteText;
+            ButtonColor = other.ButtonColor;
+
+            Title = other.Title;
+            Description = other.Description;
         }
     }
 }
