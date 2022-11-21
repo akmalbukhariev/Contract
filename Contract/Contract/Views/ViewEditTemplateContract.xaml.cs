@@ -40,6 +40,20 @@ namespace Contract.Views
         }
         #endregion
 
+        #region Delete
+        public static readonly BindableProperty IsVisibleDeleteProperty =
+            BindableProperty.Create(nameof(IsVisibleDelete),
+                                    typeof(bool),
+                                    typeof(ViewEditTemplateContract),
+                                    defaultBindingMode: BindingMode.TwoWay);
+
+        public bool IsVisibleDelete
+        {
+            get { return (bool)GetValue(IsVisibleDeleteProperty); }
+            set { SetValue(IsVisibleDeleteProperty, value); }
+        }
+        #endregion
+
         #region Command Title
         public static readonly BindableProperty CommandClickTitleProperty =
             BindableProperty.Create(nameof(CommandClickTitle),
@@ -93,6 +107,32 @@ namespace Contract.Views
         }
         #endregion
 
+        #region Delete command
+        public static readonly BindableProperty CommandDeleteProperty =
+            BindableProperty.Create(nameof(CommandDelete),
+                                    typeof(ICommand),
+                                    typeof(ViewEditTemplateContract),
+                                    null);
+
+        public ICommand CommandDelete
+        {
+            get { return (ICommand)GetValue(CommandDeleteProperty); }
+            set { SetValue(CommandDeleteProperty, value); }
+        }
+
+        public static readonly BindableProperty CommandDeleteParameterProperty =
+            BindableProperty.Create(nameof(CommandDeleteParameter),
+                                    typeof(object),
+                                    typeof(ViewConfirm),
+                                    null);
+
+        public object CommandDeleteParameter
+        {
+            get => GetValue(CommandDeleteParameterProperty);
+            set => SetValue(CommandDeleteParameterProperty, value);
+        }
+        #endregion
+
         public Label Label
         {
             get => lbDescription;
@@ -112,6 +152,7 @@ namespace Contract.Views
             edDescription.IsVisible = false;
             this.lbTitle.SetBinding(Label.TextProperty, new Binding(nameof(Title), source: this));
             this.lbDescription.SetBinding(Label.TextProperty, new Binding(nameof(Description), source: this));
+            this.imDelete.SetBinding(Image.IsVisibleProperty, new Binding(nameof(IsVisibleDelete), source: this));
         }
 
         public static void Execute(ICommand command)
@@ -125,6 +166,7 @@ namespace Contract.Views
 
         private async void Title_Tapped(object sender, EventArgs e)
         {
+            return;
             boxViewTitle.BackgroundColor = Color.Gray;
             await Task.Delay(200);
         
@@ -145,6 +187,14 @@ namespace Contract.Views
             if (CommandClickText != null && CommandClickText.CanExecute(CommandClickTextParameter))
             {
                 CommandClickText.Execute(CommandClickTextParameter);
+            }
+        }
+
+        private void Delete_Tapped(object sender, EventArgs e)
+        { 
+            if (CommandDelete != null && CommandDelete.CanExecute(CommandDeleteParameter))
+            {
+                CommandDelete.Execute(CommandDeleteParameter);
             }
         }
     }

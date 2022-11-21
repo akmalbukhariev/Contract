@@ -34,6 +34,17 @@
                    TextColor="Gray"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="CenterAndExpand"/>
+            <Image x:Name="imDelete" 
+                   Source="cancel"
+                   Aspect="AspectFit"
+                   WidthRequest="30"
+                   HorizontalOptions="StartAndExpand"
+                   Margin="0,0,10,0"
+                   IsVisible="False">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
         <BoxView BackgroundColor="#F7F6F6" 
                  CornerRadius="0,10,0,0"

@@ -36,7 +36,9 @@
                         Command="{Binding CommandEditDone}"
                         Clicked="EditDone_Clicked"/>
                 <ScrollView Grid.Row="1">
-                    <StackLayout x:Name="MyItems" 
+                    <Grid RowDefinitions="*,Auto,Auto"
+                          RowSpacing="15">
+                        <StackLayout x:Name="MyItems" 
                                  BindableLayout.ItemsSource="{Binding DataList}"
                                  Margin="10,0,10,0">
                         <BindableLayout.ItemTemplate>
@@ -59,9 +61,12 @@
                                                                    HorizontalOptions="CenterAndExpand"
                                                                    BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                                    IsVisible="{Binding IsVisibleItemClause}"
+                                                                   IsVisibleDelete="{Binding IsVisibleDelete}"
                                                                    CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
                                                                    CommandClickText="{Binding Path=BindingContext.ItemClickEditText, Source={x:Reference MyItems}}"
                                                                    CommandClickTextParameter="{Binding}"
+                                                                   CommandDelete="{Binding Path=BindingContext.ItemDelete, Source={x:Reference MyItems}}"
+                                                                   CommandDeleteParameter="{Binding}"
                                                                    Margin="5">
                                         <view:ViewEditTemplateContract.GestureRecognizers>
                                             <DragGestureRecognizer CanDrag="{Binding Editable}"
@@ -73,18 +78,23 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-                </ScrollView>
-                <Image Source="Add"
-                       Aspect="AspectFit"
-                       WidthRequest="50"
-                       Margin="0,0,10,10"
-                       VerticalOptions="EndAndExpand"
-                       HorizontalOptions="EndAndExpand"
-                       Grid.Row="1">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Tapped"/>
-                    </Image.GestureRecognizers>
-                </Image>
+                        <Button Text="{x:Static resource:AppResource.Add}"
+                                Style="{StaticResource btnNext}"
+                                TextColor="{StaticResource AppColor}"
+                                BorderColor="{StaticResource AppColor}"
+                                BackgroundColor="White"
+                                BorderWidth="1"
+                                Margin="10,0,10,0"
+                                Command="{Binding CommandAdd}"
+                                Grid.Row="1"/>
+                        <Button x:Name="btnSaveUpdate" 
+                                Style="{x:Static resource:AppResource.Save}"
+                                Text="{x:Static resource:AppResource.Editing}"
+                                Command="{Binding CommandSave}"
+                                Margin="10,0,10,0"
+                                Grid.Row="2"/>
+                    </Grid>
+                </ScrollView> 
             </Grid>
         </Grid>
     </Grid>

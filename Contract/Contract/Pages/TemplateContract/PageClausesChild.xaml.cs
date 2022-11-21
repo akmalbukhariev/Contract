@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace Contract.Pages.TemplateContract
@@ -24,6 +25,8 @@ namespace Contract.Pages.TemplateContract
 
         private void EditDone_Clicked(object sender, EventArgs e)
         {
+            PModel.DataList.ForEach(item => item.IsVisibleDelete = PModel.Editable);
+
             Thread thread = new Thread(new ThreadStart(ShakeItems));
             thread.IsBackground = true;
             thread.Start();
@@ -37,22 +40,22 @@ namespace Contract.Pages.TemplateContract
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        uint timeout = 50;
+                        uint timeout = 120;
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                     });
                 });
 
-                Thread.Sleep(300);
+                Thread.Sleep(200);
             }
 
-            Parallel.ForEach(MyItems.Children, async view =>
+            Parallel.ForEach(MyItems.Children, view =>
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
@@ -61,16 +64,7 @@ namespace Contract.Pages.TemplateContract
                 });
             });
         }
-
-        private void Add_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((Image)sender);
-
-            EditTemplate newItem = new EditTemplate();
-            newItem.Title = $"{PModel.DataList[0].Title}.{PModel.DataList.Count}";
-            PModel.DataList.Add(newItem);
-        }
-
+          
         PageClausesChildViewModel PModel
         {
             get

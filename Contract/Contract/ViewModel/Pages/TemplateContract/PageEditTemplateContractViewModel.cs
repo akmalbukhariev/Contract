@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -39,6 +40,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             ItemDraggedOver = new Command<EditTemplate>(OnItemDraggedOver);
             ItemDragLeave = new Command<EditTemplate>(OnItemDragLeave);
             ItemDropped = new Command<EditTemplate>(OnItemDropped);
+            ItemDelete = new Command<EditTemplate>(DeleteItem);
             ItemEditText = new Command<EditTemplate>(EditItemText);
 
             Editable = false;
@@ -96,11 +98,13 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public ICommand ItemDropped { get; }
 
         public ICommand ItemEditText { get; }
+        public ICommand ItemDelete { get; }
 
         public ICommand CommandShowClauseBox => new Command<EditTemplate>(ClickEditItem);
         public ICommand CommandCloseClauseBox => new Command(ClickBoxViewBack);
         public ICommand CommandSaveUpdate => new Command(SaveUpdate);
         public ICommand CommandEditDone => new Command(EditDone);
+        public ICommand CommandAdd => new Command(Add);
         #endregion
 
         bool isDragged = false;
@@ -119,6 +123,13 @@ namespace Contract.ViewModel.Pages.TemplateContract
             }
 
             DataList.ForEach(item => item.Editable = Editable);
+        }
+
+        private void Add()
+        {
+            EditTemplate newItem = new EditTemplate();
+            newItem.Title = $"{DataList.Where(item => item.Title.Trim() != "").Count() + 1}";
+            DataList.Add(newItem);
         }
 
         private void OnItemDragged(EditTemplate item)
@@ -160,13 +171,40 @@ namespace Contract.ViewModel.Pages.TemplateContract
             DataList.Insert(insertAtIndex, itemToMove);
             itemToMove.IsBeingDragged = false;
             itemToInsertBefore.IsBeingDraggedOver = false;
+
+            Thread thread = new Thread(new ThreadStart(OrderItems));
+            thread.IsBackground = true;
+            thread.Start();
         }
 
         private async void EditItemText(EditTemplate item)
         {
-            await Navigation.PushAsync(new PageClausesChild(item));
+            if (!Editable)
+                await Navigation.PushAsync(new PageClausesChild(item));
         }
 
+        private async void DeleteItem(EditTemplate item)
+        {
+            if (await Application.Current.MainPage.DisplayAlert(RSC.ContractTemplates, $"{RSC.DeleteMessage} {item.Title}", RSC.Ok, RSC.Cancel, FlowDirection.LeftToRight))
+            {
+                DataList.Remove(item);
+                OrderItems();
+            }
+        }
+
+        private void OrderItems()
+        {
+            int count = 0;
+            foreach (EditTemplate item in DataList)
+            {
+                if (item.Title.Trim() != "")
+                {
+                    count++;
+                    item.Title = $"{count}";
+                }
+            }
+        }
+        
         void ClickEditItem(EditTemplate item)
         {
             ShowClauseBox = true;

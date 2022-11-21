@@ -31,7 +31,7 @@
                                     Title="{x:Static resource:AppResource.EditContractTemplate}"
                                     UseWhite="True"/>
             <ScrollView Grid.Row="1">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,80,1,Auto,*,100"
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,80,1,Auto,*,Auto,Auto"
                       RowSpacing="15">
                     <BoxView BackgroundColor="White"
                              CornerRadius="10"
@@ -145,9 +145,12 @@
                                                                        HorizontalOptions="CenterAndExpand"
                                                                        BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                                        IsVisible="{Binding IsVisibleItemClause}"
+                                                                       IsVisibleDelete="{Binding IsVisibleDelete}"
                                                                        CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
                                                                        CommandClickText="{Binding Path=BindingContext.ItemEditText, Source={x:Reference MyItems}}"
                                                                        CommandClickTextParameter="{Binding}"
+                                                                       CommandDelete="{Binding Path=BindingContext.ItemDelete, Source={x:Reference MyItems}}"
+                                                                       CommandDeleteParameter="{Binding}"
                                                                        Margin="5">
                                             <view:ViewEditTemplateContract.GestureRecognizers>
                                                 <DragGestureRecognizer CanDrag="{Binding Editable}"
@@ -175,12 +178,21 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
+                    <Button Text="{x:Static resource:AppResource.Add}"
+                            Style="{StaticResource btnNext}"
+                            TextColor="{StaticResource AppColor}"
+                            BorderColor="{StaticResource AppColor}"
+                            BackgroundColor="White"
+                            BorderWidth="1"
+                            Margin="10,0,10,0"
+                            Command="{Binding CommandAdd}"
+                            Grid.Row="8"/>
                     <Button x:Name="btnSaveUpdate" 
                             Style="{StaticResource btnNext}"
                             Text="{x:Static resource:AppResource.Editing}"
                             Command="{Binding CommandSaveUpdate}"
-                            WidthRequest="156" 
-                            Grid.Row="8"/>
+                            Margin="10,0,10,0"
+                            Grid.Row="9"/>
                 </Grid>
             </ScrollView>     
         </Grid>

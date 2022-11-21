@@ -10,6 +10,7 @@ namespace Contract.Model
     {
         #region Properties
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsVisibleDelete { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDragged { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDraggedOver { get => GetValue<bool>(); set => SetValue(value); }
 
@@ -39,11 +40,13 @@ namespace Contract.Model
         {
             Editable = false;
             IsVisibleItemClause = true;
+            IsVisibleDelete = false;
             IsThisAddClauseButton = false;
             IsVisibleAddContractInfoButton = false;
             IsVisibleAddClauseButton = false;
             IsVisibleAddDetailOfNegotiatorButton = false;
 
+            Title = "";
             IsVisibleButton = false;
             ButtonColor = Color.FromHex("#5BAB42");
 

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace Contract.Pages.TemplateContract
@@ -24,8 +25,10 @@ namespace Contract.Pages.TemplateContract
 
         protected override void OnAppearing()
         {
-            base.OnAppearing(); 
-             
+            base.OnAppearing();
+
+            PModel.DataList.Clear();
+
             EditTemplate item1 = new EditTemplate()
             {
                 Title = "1",
@@ -109,7 +112,7 @@ namespace Contract.Pages.TemplateContract
 
             PModel.DataList.Add(item1);
             PModel.DataList.Add(item3);
-            PModel.DataList.Add(item4);
+            //PModel.DataList.Add(item4);
             PModel.DataList.Add(item5);
             PModel.DataList.Add(item6);
             PModel.DataList.Add(item2);
@@ -168,17 +171,11 @@ namespace Contract.Pages.TemplateContract
             //ContractNumber.PageEditContractNumber page = new ContractNumber.PageEditContractNumber(true);
             //await Navigation.PushModalAsync(page); 
         }
-
-        PageEditTemplateContractViewModel PModel
-        {
-            get
-            {
-                return Model as PageEditTemplateContractViewModel;
-            }
-        }
-
+         
         private void EditDone_Clicked(object sender, EventArgs e)
         {
+            PModel.DataList.ForEach(item => item.IsVisibleDelete = PModel.Editable);
+
             Thread thread = new Thread(new ThreadStart(ShakeItems));
             thread.IsBackground = true;
             thread.Start();
@@ -192,22 +189,22 @@ namespace Contract.Pages.TemplateContract
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        uint timeout = 50;
+                        uint timeout = 120;
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                         await view.RotateTo(2.5, timeout);
-                        await view.RotateTo(0, timeout);
+                        await view.RotateTo(-3, timeout);
                     });
                 });
 
-                Thread.Sleep(300);
+                Thread.Sleep(200);
             }
 
-            Parallel.ForEach(MyItems.Children, async view =>
+            Parallel.ForEach(MyItems.Children, view =>
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
@@ -216,5 +213,13 @@ namespace Contract.Pages.TemplateContract
                 });
             });
         }
+
+        PageEditTemplateContractViewModel PModel
+        {
+            get
+            {
+                return Model as PageEditTemplateContractViewModel;
+            }
+        } 
     }
 }

@@ -28,7 +28,9 @@ namespace Contract.ViewModel.Pages.TemplateContract
             ItemDraggedOver = new Command<EditTemplate>(OnItemDraggedOver);
             ItemDragLeave = new Command<EditTemplate>(OnItemDragLeave);
             ItemDropped = new Command<EditTemplate>(OnItemDropped);
+            ItemDelete = new Command<EditTemplate>(DeleteItem);
             ItemClickEditText = new Command<EditTemplate>(ClickEditText);
+
 
             BtnEditDoneText = RSC.Edit;
 
@@ -48,11 +50,25 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public ICommand ItemDragLeave { get; }
 
         public ICommand ItemDropped { get; }
+        public ICommand ItemDelete { get; }
         public ICommand ItemClickEditText { get; }
-
+        public ICommand CommandSave => new Command(Save);
+        public ICommand CommandAdd => new Command(Add);
         public ICommand CommandEditDone => new Command(EditDone);
         #endregion
 
+        private void Add()
+        {
+            EditTemplate newItem = new EditTemplate();
+            newItem.Title = $"{DataList[0].Title}.{DataList.Count}";
+            DataList.Add(newItem);
+        }
+
+        private void Save()
+        {
+            
+        }
+          
         bool isDragged = false;
 
         private void EditDone()
@@ -121,8 +137,17 @@ namespace Contract.ViewModel.Pages.TemplateContract
             int count = 0;
             foreach (EditTemplate item in DataList)
             { 
-                item.Title = count == 0 ? "1" : $"1.{count}";
+                item.Title = count == 0 ? SelectedItem.Title : $"{SelectedItem.Title}.{count}";
                 count++;
+            }
+        }
+
+        private async void DeleteItem(EditTemplate item)
+        {
+            if (await Application.Current.MainPage.DisplayAlert(RSC.ContractTemplates, $"{RSC.DeleteMessage} {item.Title}", RSC.Ok, RSC.Cancel, FlowDirection.LeftToRight))
+            {
+                DataList.Remove(item);
+                OrderItems();
             }
         }
 
