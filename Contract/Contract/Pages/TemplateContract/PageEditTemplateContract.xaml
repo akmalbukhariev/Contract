@@ -109,7 +109,7 @@
                            VerticalOptions="CenterAndExpand"
                            Grid.Row="6"/>
                     <Button Text="{Binding BtnEditDoneText}" 
-                            TextColor="Black"
+                            TextColor="White"
                             FontSize="13"
                             BorderColor="Black"
                             HeightRequest="37"
@@ -189,7 +189,7 @@
                             Grid.Row="8"/>
                     <Button x:Name="btnSaveUpdate" 
                             Style="{StaticResource btnNext}"
-                            Text="{x:Static resource:AppResource.Editing}"
+                            Text="{x:Static resource:AppResource.Save}"
                             Command="{Binding CommandSaveUpdate}"
                             Margin="10,0,10,0"
                             Grid.Row="9"/>

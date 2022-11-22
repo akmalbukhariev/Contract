@@ -14,8 +14,8 @@ namespace Contract.Net
    public  class HttpService
     {
         #region Url 
-        public static string DATA_URL = "https://192.168.219.102:5001/";
-        public static string SERVER_URL = "https://192.168.219.102:5001/api/";
+        public static string DATA_URL = "http://192.168.219.102:5000/";
+        public static string SERVER_URL = "http://192.168.219.102:5000/api/";
         public static string URL_LOGIN = SERVER_URL + "LoginSignUp/login";
         public static string URL_SIGN_UP = SERVER_URL + "LoginSignUp/signUp";
         

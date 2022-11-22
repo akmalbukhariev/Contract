@@ -14,9 +14,12 @@ namespace Contract.ViewModel.Pages.TemplateContract
     public class PageClausesChildViewModel : BaseModel
     {
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
+        public bool ShowTextEdit { get => GetValue<bool>(); set => SetValue(value); }
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
-
+        public string EditItemText { get => GetValue<string>(); set => SetValue(value); }
+        
         private EditTemplate SelectedItem;
+        private EditTemplate EditSelectedItem;
         public ObservableCollection<EditTemplate> DataList { get; set; }
 
         public PageClausesChildViewModel(EditTemplate selectedItem)
@@ -31,7 +34,8 @@ namespace Contract.ViewModel.Pages.TemplateContract
             ItemDelete = new Command<EditTemplate>(DeleteItem);
             ItemClickEditText = new Command<EditTemplate>(ClickEditText);
 
-
+            ShowTextEdit = false;
+            EditItemText = "";
             BtnEditDoneText = RSC.Edit;
 
             DataList.Add(new EditTemplate(selectedItem));
@@ -55,6 +59,8 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public ICommand CommandSave => new Command(Save);
         public ICommand CommandAdd => new Command(Add);
         public ICommand CommandEditDone => new Command(EditDone);
+        public ICommand CommandSaveEditText => new Command(SaveEditText);
+        public ICommand CommandCancelEditText => new Command(CancelEditText);
         #endregion
 
         private void Add()
@@ -153,7 +159,22 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         private void ClickEditText(EditTemplate item)
         {
-            
+            if (Editable) return;
+
+            ShowTextEdit = true;
+            EditItemText = item.Description;
+            EditSelectedItem = item;
+        }
+
+        private void SaveEditText()
+        {
+            ShowTextEdit = false;
+            EditSelectedItem.Description = EditItemText;
+        }
+
+        private void CancelEditText()
+        {
+            ShowTextEdit = false;
         }
     }
 }
