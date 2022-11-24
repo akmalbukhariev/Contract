@@ -26,6 +26,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
 
         public Model.ContractNumber SelectedContractNumberTemplate { get => GetValue<Model.ContractNumber>(); set => SetValue(value); }
+        //public EditTemplate SelectedEditTemplate = null;
         public ObservableCollection<EditTemplate> DataList { get; set; }
         public ObservableCollection<Model.ContractNumber> ContractNumberTemplateList { get; set; }
         
@@ -45,6 +46,84 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
             Editable = false;
             BtnEditDoneText = RSC.Edit;
+
+              
+            EditTemplate item1 = new EditTemplate()
+            {
+                Title = "1",
+                Description = "1  Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun",
+            };
+            item1.Child.Add(new EditTemplate()
+            {
+                Title = "1.1",
+                Description = "1.1  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item1.Child.Add(new EditTemplate()
+            {
+                Title = "1.2",
+                Description = "1.2  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+
+            EditTemplate item2 = new EditTemplate()
+            {
+                Title = "3",
+                Description = "3 Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+            };
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.1",
+                Description = "3.1 DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.2",
+                Description = "3.2 ASXSXSX XMMZNBHXBHVX SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.3",
+                Description = "3.3 DDDDDD WWWWWWW52225c5dc2 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.4",
+                Description = "3.4 EEEEEEEEDD AAAAAXXXX 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            });
+            item2.Child.Add(new EditTemplate()
+            {
+                Title = "3.5",
+                Description = "3.5 XXXX FFFFFFFFFFFFFFFF 555 \n PPPPP \n WWWWWW"
+            });
+
+            EditTemplate item3 = new EditTemplate()
+            {
+                ButtonText = RSC.Info4,
+                ButtonDeleteText = RSC.Info6,
+                IsVisibleItemClause = false,
+                IsVisibleButton = true,
+                IsVisibleAddButton = true,
+                IsVisibleAddContractInfoButton = true
+            };
+            EditTemplate item5 = new EditTemplate()
+            {
+                Title = "2",
+                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+            };
+            EditTemplate item6 = new EditTemplate()
+            {
+                ButtonText = RSC.Info5,
+                ButtonDeleteText = RSC.Info7,
+                IsVisibleItemClause = false,
+                IsVisibleButton = true,
+                IsVisibleAddButton = true,
+                IsVisibleAddDetailOfNegotiatorButton = true
+            };
+
+            DataList.Add(item1);
+            DataList.Add(item3);
+            DataList.Add(item5);
+            DataList.Add(item6);
+            DataList.Add(item2);
         }
 
         public async void RequestInfo()
@@ -180,7 +259,10 @@ namespace Contract.ViewModel.Pages.TemplateContract
         private async void EditItemText(EditTemplate item)
         {
             if (!Editable)
+            {
+                //SelectedEditTemplate = item;
                 await Navigation.PushAsync(new PageClausesChild(item));
+            }
         }
 
         private async void DeleteItem(EditTemplate item)
@@ -213,6 +295,26 @@ namespace Contract.ViewModel.Pages.TemplateContract
         void ClickBoxViewBack()
         {
             ShowClauseBox = false;
+        }
+
+        public void Update(EditTemplate item)
+        {
+            for (int i = 0; i < DataList.Count; i++)
+            {
+                if (DataList[i].Title.Trim().Equals(item.Title.Trim()))
+                {
+                    if (item.IsDeleted)
+                    {
+                        DataList.RemoveAt(i);
+                        break;
+                    }
+                    else
+                    {
+                        DataList[i] = new EditTemplate(item);
+                        break;
+                    }
+                }
+            }
         }
 
         async void SaveUpdate()

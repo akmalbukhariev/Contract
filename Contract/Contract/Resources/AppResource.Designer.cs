@@ -1583,6 +1583,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No internet.
         /// </summary>
         internal static string NoInternet {
@@ -2331,6 +2340,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Would you like to save the changes?.
+        /// </summary>
+        internal static string WouldYouLikeToSave {
+            get {
+                return ResourceManager.GetString("WouldYouLikeToSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wrong current password..
         /// </summary>
         internal static string WrongCurrentPassword {
@@ -2417,6 +2435,15 @@ namespace Contract.Resources {
         internal static string YearText {
             get {
                 return ResourceManager.GetString("YearText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

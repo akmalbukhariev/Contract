@@ -794,6 +794,10 @@
     <value>Тунги кўриниш</value>
     <comment>Setting</comment>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Йўқ</value>
+    <comment>Menu</comment>
+  </data>
   <data name="NoInternet" xml:space="preserve">
     <value>Интернет йўқ</value>
   </data>
@@ -1124,6 +1128,10 @@
     <value>Кутиш вақти</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="WouldYouLikeToSave" xml:space="preserve">
+    <value>Ўзгаришлар сақлансинми?</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Aмалдаги, парол нотўғри.</value>
     <comment>Change password</comment>
@@ -1163,6 +1171,10 @@
   <data name="YearText" xml:space="preserve">
     <value>(Фақат икки ёки тўрт катакдан иборат бўлсин)</value>
     <comment>Editing Contract number</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ҳа</value>
+    <comment>Menu</comment>
   </data>
   <data name="YourChoose" xml:space="preserve">
     <value>Сизнинг танловингиз</value>

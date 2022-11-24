@@ -818,6 +818,10 @@ shartnomalar mavjud emas.</value>
     <value>Tungi ko'rinish</value>
     <comment>Setting</comment>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Yo'q</value>
+    <comment>Menu</comment>
+  </data>
   <data name="NoInternet" xml:space="preserve">
     <value>Internet yo'q</value>
   </data>
@@ -1153,6 +1157,10 @@ shartnomalar</value>
     <value>Kutish vaqti</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="WouldYouLikeToSave" xml:space="preserve">
+    <value>O'zgarishlar saqlansinmi?</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Amaldagi parol noto‘g‘ri.</value>
     <comment>Change password</comment>
@@ -1192,6 +1200,10 @@ shartnomalar</value>
   <data name="YearText" xml:space="preserve">
     <value> (Faqat ikki yoki to'rt katakdan iborat bo'lsin)</value>
     <comment>Editing Contract number</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ha</value>
+    <comment>Menu</comment>
   </data>
   <data name="YourChoose" xml:space="preserve">
     <value>Sizning tanlovingiz</value>

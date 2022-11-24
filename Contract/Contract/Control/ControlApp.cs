@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using Contract.HttpModels;
+using Contract.Model;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace Contract.Control
         //public ContractNumberTemplate SelectedContractNumberFormat { get; set; } = null;
         public CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
         public CompanyInfo UserCompanyInfo { get; set; } = new CompanyInfo();
+        public EditTemplate SelectedEditTemplate { get; set; }
         public Login LoginInfo { get; set; } = new Login();
         public User UserInfo { get; set; }
         public bool OpenClientInfo { get; set; }

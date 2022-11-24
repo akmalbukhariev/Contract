@@ -12,6 +12,9 @@ namespace Contract.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewNavigationBar : ContentView
     {
+        public delegate void ClickBackButton();
+        public event ClickBackButton EventClickBackButton;
+
         #region Image
         public static readonly BindableProperty FlagImageProperty = BindableProperty.Create(nameof(BackImage),
                                                                     typeof(string),
@@ -85,6 +88,7 @@ namespace Contract.Views
 
         public bool UseWhite { get; set; } = false;
         public bool IsThisModalPage { get; set; } = false;
+        public bool UseBackNavigation { get; set; } = false;
         public ViewNavigationBar()
         {
             InitializeComponent();
@@ -102,6 +106,12 @@ namespace Contract.Views
 
             im.Source = UseWhite ? "back_left_white" : "back_left_gray";
             await Task.Delay(200);
+
+            if (UseBackNavigation)
+            {
+                EventClickBackButton?.Invoke();
+                return;
+            }
 
             if (IsThisModalPage)
                 await Navigation.PopModalAsync();

@@ -793,6 +793,10 @@ Contracts</value>
     <value>Night View</value>
     <comment>Setting</comment>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+    <comment>Menu</comment>
+  </data>
   <data name="NoInternet" xml:space="preserve">
     <value>No internet</value>
   </data>
@@ -1124,6 +1128,10 @@ Contracts</value>
     <value>Waiting Time</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="WouldYouLikeToSave" xml:space="preserve">
+    <value>Would you like to save the changes?</value>
+    <comment>Template Contract</comment>
+  </data>
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Wrong current password.</value>
     <comment>Change password</comment>
@@ -1163,6 +1171,10 @@ Contracts</value>
   <data name="YearText" xml:space="preserve">
     <value> (Contains at least two or four cells)</value>
     <comment>Editing Contract number</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Menu</comment>
   </data>
   <data name="YourChoose" xml:space="preserve">
     <value>Your choose</value>

@@ -13,7 +13,8 @@
         <Grid RowDefinitions="Auto, *"
               RowSpacing="10"
               Grid.Column="1">
-            <view:ViewNavigationBar BackImage="back_left_white"  
+            <view:ViewNavigationBar x:Name="backNavigation" 
+                                    BackImage="back_left_white"  
                                     Style="{StaticResource naviBarSignUp}" 
                                     Title="{x:Static resource:AppResource.EditContractTemplate}"
                                     UseWhite="True"/>
@@ -25,10 +26,9 @@
                          Grid.RowSpan="2"/>
                 <Button Text="{Binding BtnEditDoneText}" 
                         TextColor="White"
+                        BackgroundColor="{StaticResource AppColor}"
                         FontSize="13"
-                        BorderColor="Black"
                         HeightRequest="37"
-                        BorderWidth="1"
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                         Margin="0,15,15,0"

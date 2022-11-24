@@ -17,12 +17,12 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public bool ShowTextEdit { get => GetValue<bool>(); set => SetValue(value); }
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
         public string EditItemText { get => GetValue<string>(); set => SetValue(value); }
-        
-        private EditTemplate SelectedItem;
+
+        private  EditTemplate SelectedItem;
         private EditTemplate EditSelectedItem;
         public ObservableCollection<EditTemplate> DataList { get; set; }
 
-        public PageClausesChildViewModel(EditTemplate selectedItem)
+        public PageClausesChildViewModel(EditTemplate selectedItem, INavigation navigation) : base(navigation)
         {
             SelectedItem = selectedItem;
             DataList = new ObservableCollection<EditTemplate>();
@@ -39,6 +39,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             BtnEditDoneText = RSC.Edit;
 
             DataList.Add(new EditTemplate(selectedItem));
+            DataList[0].Child.Clear();
 
             foreach (EditTemplate item in selectedItem.Child)
             {
@@ -70,9 +71,10 @@ namespace Contract.ViewModel.Pages.TemplateContract
             DataList.Add(newItem);
         }
 
-        private void Save()
+        private async void Save()
         {
-            
+            ControlApp.SelectedEditTemplate = new EditTemplate(GetSaveChanges()); 
+            await Navigation.PopAsync();
         }
           
         bool isDragged = false;
@@ -175,6 +177,20 @@ namespace Contract.ViewModel.Pages.TemplateContract
         private void CancelEditText()
         {
             ShowTextEdit = false;
+        }
+
+        public EditTemplate GetSaveChanges()
+        { 
+            if (DataList.Count == 0) return new EditTemplate(true);
+
+            EditTemplate res = new EditTemplate(DataList[0]);
+            
+            for (int i = 1; i < DataList.Count; i++)
+            {
+                res.Child.Add(new EditTemplate(DataList[i]));    
+            }
+
+            return res;
         }
     }
 }

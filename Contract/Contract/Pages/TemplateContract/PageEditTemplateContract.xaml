@@ -110,10 +110,9 @@
                            Grid.Row="6"/>
                     <Button Text="{Binding BtnEditDoneText}" 
                             TextColor="White"
+                            BackgroundColor="{StaticResource AppColor}"
                             FontSize="13"
-                            BorderColor="Black"
                             HeightRequest="37"
-                            BorderWidth="1"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Margin="0,0,15,0"

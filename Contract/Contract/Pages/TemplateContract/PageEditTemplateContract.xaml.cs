@@ -24,105 +24,15 @@ namespace Contract.Pages.TemplateContract
         }
 
         protected override void OnAppearing()
-        {
+        {   
             base.OnAppearing();
 
-            PModel.DataList.Clear();
-
-            EditTemplate item1 = new EditTemplate()
+            if (ControlApp.SelectedEditTemplate != null)
             {
-                Title = "1",
-                Description = "1  Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun",
-            };
-            item1.Child.Add(new EditTemplate()
-            {
-                Title = "1.1",
-                Description = "1.1  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item1.Child.Add(new EditTemplate()
-            {
-                Title = "1.2",
-                Description = "1.2  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-
-            EditTemplate item2 = new EditTemplate()
-            {
-                Title = "3",
-                Description = "3 Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
-            };
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.1",
-                Description = "3.1 DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.2",
-                Description = "3.2 ASXSXSX XMMZNBHXBHVX SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.3",
-                Description = "3.3 DDDDDD WWWWWWW52225c5dc2 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.4",
-                Description = "3.4 EEEEEEEEDD AAAAAXXXX 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.5",
-                Description = "3.5 XXXX FFFFFFFFFFFFFFFF 555 \n PPPPP \n WWWWWW"
-            });
-
-            EditTemplate item3 = new EditTemplate()
-            {
-                ButtonText = RSC.Info4,
-                ButtonDeleteText = RSC.Info6,
-                IsVisibleItemClause = false,
-                IsVisibleButton = true,
-                IsVisibleAddButton = true,
-                IsVisibleAddContractInfoButton = true
-            };
-            EditTemplate item4 = new EditTemplate()
-            {
-                ButtonText = RSC.AddClause,
-                ButtonColor = Color.FromHex("#2DACC3"),
-                IsThisAddClauseButton = true,
-                IsVisibleItemClause = false,
-                IsVisibleButton = true,
-                IsVisibleAddButton = true,
-                IsVisibleAddClauseButton = true
-            };
-            EditTemplate item5 = new EditTemplate()
-            {
-                Title = "2",
-                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
-            };
-            EditTemplate item6 = new EditTemplate()
-            {
-                ButtonText = RSC.Info5,
-                ButtonDeleteText = RSC.Info7,
-                IsVisibleItemClause = false,
-                IsVisibleButton = true,
-                IsVisibleAddButton = true,
-                IsVisibleAddDetailOfNegotiatorButton = true
-            };
-
-            PModel.DataList.Add(item1);
-            PModel.DataList.Add(item3);
-            //PModel.DataList.Add(item4);
-            PModel.DataList.Add(item5);
-            PModel.DataList.Add(item6);
-            PModel.DataList.Add(item2);
-        }
-
-        private void MyItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            //MyItems.SelectedItem = null;
-        }
-
+                PModel.Update(ControlApp.SelectedEditTemplate);
+            }
+        }   
+         
         private async void Button_Tapped(object sender, EventArgs e)
         { 
             Views.ViewEditContractButton vButton = (Views.ViewEditContractButton)sender;
