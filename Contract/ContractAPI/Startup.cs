@@ -38,6 +38,8 @@ using ContractAPI.OfferObjection.service;
 using ContractAPI.OfferObjection.service.impl;
 using ContractAPI.ContractNumberInfo.service;
 using ContractAPI.ContractNumberInfo.service.impl;
+using ContractAPI.ContractTemplateInfo.service;
+using ContractAPI.ContractTemplateInfo.service.impl;
 
 namespace ContractAPI
 {
@@ -57,9 +59,10 @@ namespace ContractAPI
             {
                 options.UseMySQL(Configuration.GetConnectionString("Default"));
             });
-            services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>(); 
             services.AddScoped<IApprovedUnapprovedContractService, ApprovedUnapprovedContractService>();
+            services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>(); 
             services.AddScoped<ICanceledContractService, CanceledContractService>();
+            services.AddScoped<IContractTemplateService, ContractTemplateService>();
             services.AddScoped<IOfferObjectionService, OfferObjectionService>();
             services.AddScoped<IContractNumberService, ContractNumberService>();
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();

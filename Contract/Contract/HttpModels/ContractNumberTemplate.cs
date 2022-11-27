@@ -6,6 +6,7 @@ namespace Contract.HttpModels
 {
     public class ContractNumberTemplate
     {
+        public int id { get; set; }
         public string user_phone_number { get; set; } 
         public string option { get; set; }
         public int format { get; set; }
@@ -24,6 +25,7 @@ namespace Contract.HttpModels
 
         public void Copy(ContractNumberTemplate other)
         {
+            this.id = other.id;
             this.user_phone_number = other.user_phone_number; 
             this.option = other.option;
             this.format = other.format;

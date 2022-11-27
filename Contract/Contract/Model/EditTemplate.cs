@@ -11,21 +11,22 @@ namespace Contract.Model
         #region Properties
         public bool IsDeleted { get => GetValue<bool>(); set => SetValue(value); }
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
-        public bool IsVisibleDelete { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDragged { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsBeingDraggedOver { get => GetValue<bool>(); set => SetValue(value); }
 
+        public bool IsVisibleItemClauseDelete { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsVisibleItemClause { get => GetValue<bool>(); set => SetValue(value); }
-        public bool IsVisibleDeleteButton { get => GetValue<bool>(); set => SetValue(value); }
-        public bool IsVisibleAddButton { get => GetValue<bool>(); set => SetValue(value); }
-
-        public bool IsThisAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }
-
-        public bool IsVisibleAddContractInfoButton { get => GetValue<bool>(); set => SetValue(value); }
-        public bool IsVisibleAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }  
-        public bool IsVisibleAddDetailOfNegotiatorButton { get => GetValue<bool>(); set => SetValue(value); }
-
+        
+        //public bool IsVisibleDeleteButton { get => GetValue<bool>(); set => SetValue(value); }
+        //public bool IsThisAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }
+        //public bool IsVisibleAddContractInfoButton { get => GetValue<bool>(); set => SetValue(value); }
+        //public bool IsVisibleAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }  
+        //public bool IsVisibleAddDetailOfNegotiatorButton { get => GetValue<bool>(); set => SetValue(value); }
+        
         public bool IsVisibleButton { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsVisibleAddButton { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsContractServiceDetailsButton { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsContractInfoButton { get => GetValue<bool>(); set => SetValue(value); }
 
         public string ButtonText { get => GetValue<string>(); set => SetValue(value); }
         public string ButtonDeleteText { get => GetValue<string>(); set => SetValue(value); }
@@ -41,13 +42,14 @@ namespace Contract.Model
         {
             Editable = false;
             IsVisibleItemClause = true;
-            IsVisibleDelete = false;
-            IsThisAddClauseButton = false;
-            IsVisibleAddContractInfoButton = false;
-            IsVisibleAddClauseButton = false;
-            IsVisibleAddDetailOfNegotiatorButton = false;
+            IsVisibleItemClauseDelete = false;
+            //IsThisAddClauseButton = false;
+            //IsVisibleAddContractInfoButton = false;
+            //IsVisibleAddClauseButton = false;
+            //IsVisibleAddDetailOfNegotiatorButton = false;
 
             Title = "";
+            Description = "";
             IsVisibleButton = false;
             ButtonColor = Color.FromHex("#5BAB42");
 
@@ -68,14 +70,14 @@ namespace Contract.Model
             IsBeingDraggedOver = other.IsBeingDraggedOver;
 
             IsVisibleItemClause = other.IsVisibleItemClause;
-            IsVisibleDeleteButton = other.IsVisibleDeleteButton;
+            //IsVisibleDeleteButton = other.IsVisibleDeleteButton;
             IsVisibleAddButton = other.IsVisibleAddButton;
 
-            IsThisAddClauseButton = other.IsThisAddClauseButton;
+            //IsThisAddClauseButton = other.IsThisAddClauseButton;
 
-            IsVisibleAddContractInfoButton = other.IsVisibleAddContractInfoButton;
-            IsVisibleAddClauseButton = other.IsVisibleAddClauseButton;
-            IsVisibleAddDetailOfNegotiatorButton = other.IsVisibleAddDetailOfNegotiatorButton;
+            //IsVisibleAddContractInfoButton = other.IsVisibleAddContractInfoButton;
+            //IsVisibleAddClauseButton = other.IsVisibleAddClauseButton;
+            //IsVisibleAddDetailOfNegotiatorButton = other.IsVisibleAddDetailOfNegotiatorButton;
 
             IsVisibleButton = other.IsVisibleButton;
 
@@ -95,22 +97,22 @@ namespace Contract.Model
 
         public bool Equals(EditTemplate other)
         {
-            bool res1 = (Editable == other.Editable &&
-                         IsBeingDragged == other.IsBeingDragged &&
-                         IsBeingDraggedOver == other.IsBeingDraggedOver &&
-                         IsVisibleItemClause == other.IsVisibleItemClause &&
-                         IsVisibleDeleteButton == other.IsVisibleDeleteButton &&
-                         IsVisibleAddButton == other.IsVisibleAddButton &&
-                         IsThisAddClauseButton == other.IsThisAddClauseButton &&
-                         IsVisibleAddContractInfoButton == other.IsVisibleAddContractInfoButton &&
-                         IsVisibleAddClauseButton == other.IsVisibleAddClauseButton &&
-                         IsVisibleAddDetailOfNegotiatorButton == other.IsVisibleAddDetailOfNegotiatorButton &&
-                         IsVisibleButton == other.IsVisibleButton &&
-                         ButtonText == other.ButtonText &&
-                         ButtonDeleteText == other.ButtonDeleteText &&
-                         ButtonColor == other.ButtonColor &&
-                         Title == other.Title &&
-                         Description == other.Description);
+            bool res1 = Editable == other.Editable &&
+                        IsBeingDragged == other.IsBeingDragged &&
+                        IsBeingDraggedOver == other.IsBeingDraggedOver &&
+                        IsVisibleItemClause == other.IsVisibleItemClause &&
+                        //IsVisibleDeleteButton == other.IsVisibleDeleteButton &&
+                        IsVisibleAddButton == other.IsVisibleAddButton &&
+                        //IsThisAddClauseButton == other.IsThisAddClauseButton &&
+                        //IsVisibleAddContractInfoButton == other.IsVisibleAddContractInfoButton &&
+                        //IsVisibleAddClauseButton == other.IsVisibleAddClauseButton &&
+                        //IsVisibleAddDetailOfNegotiatorButton == other.IsVisibleAddDetailOfNegotiatorButton &&
+                        IsVisibleButton == other.IsVisibleButton &&
+                        ButtonText == other.ButtonText &&
+                        ButtonDeleteText == other.ButtonDeleteText &&
+                        ButtonColor == other.ButtonColor &&
+                        Title == other.Title &&
+                        Description == other.Description;
 
             bool res2 = true;
             if (Child.Count != other.Child.Count)

@@ -1,4 +1,5 @@
 ﻿using Contract.Interfaces;
+using Contract.Model;
 using Contract.ViewModel.Pages.TemplateContract;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,7 @@ namespace Contract.Pages.TemplateContract
             InitializeComponent();
 
             SetModel(new PageContractTemplateTableViewModel());
-            (Model as PageContractTemplateTableViewModel).Init();
-
+              
             for (int i = 0; i < grHeader.ColumnDefinitions.Count; i++)
             {
                 listView.WidthRequest += grHeader.ColumnDefinitions[i].Width.Value;
@@ -31,6 +31,7 @@ namespace Contract.Pages.TemplateContract
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            PModel.RequestInfo();
 
             DependencyService.Get<IRotationService>().EnableRotation();
         }
@@ -54,16 +55,29 @@ namespace Contract.Pages.TemplateContract
             ControlApp.Vibrate();
         }
 
-        private void Edit_Tapped(object sender, EventArgs e)
+        private async void Edit_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            ContractTemplate item = (ContractTemplate)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            await Navigation.PushAsync(new PageEditTemplateContract(item.TemplateInfo));
         }
 
         private void Cancel_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+        }
+
+        PageContractTemplateTableViewModel PModel
+        {
+            get
+            {
+                return Model as PageContractTemplateTableViewModel;
+            }
         }
     }
 }

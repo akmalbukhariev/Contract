@@ -58,7 +58,7 @@ namespace Contract.Pages.TemplateContract
 
         private void EditDone_Clicked(object sender, EventArgs e)
         {
-            PModel.DataList.ForEach(item => item.IsVisibleDelete = PModel.Editable);
+            PModel.DataList.ForEach(item => item.IsVisibleItemClauseDelete = PModel.Editable);
 
             Thread thread = new Thread(new ThreadStart(ShakeItems));
             thread.IsBackground = true;

@@ -2,6 +2,7 @@
 using Contract.HttpResponse;
 using Contract.Model;
 using Contract.Pages.TemplateContract;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,22 +18,27 @@ namespace Contract.ViewModel.Pages.TemplateContract
 { 
     public class PageEditTemplateContractViewModel : BaseModel
     {
-        public bool ShowClauseBox { get => GetValue<bool>(); set => SetValue(value); }
+        ///public bool ShowClauseBox { get => GetValue<bool>(); set => SetValue(value); }
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
+        public bool EnableAddUpdate { get => GetValue<bool>(); set => SetValue(value); }
 
         public string ContractNumberFormat { get => GetValue<string>(); set => SetValue(value); }
         public string AddressOfCompany { get => GetValue<string>(); set => SetValue(value); }
         public string NameOfTemplate { get => GetValue<string>(); set => SetValue(value); }
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
-
         public Model.ContractNumber SelectedContractNumberTemplate { get => GetValue<Model.ContractNumber>(); set => SetValue(value); }
-        //public EditTemplate SelectedEditTemplate = null;
-        public ObservableCollection<EditTemplate> DataList { get; set; }
+
+        public HttpModels.ContractTemplate TemplateInfo { get; set; } = null;
+        public PageEditTemplateContractViewModel OldModel { get; set; } = null;
+        public ObservableCollection<EditTemplate> ContractClausesList { get; set; }
         public ObservableCollection<Model.ContractNumber> ContractNumberTemplateList { get; set; }
         
-        public PageEditTemplateContractViewModel(INavigation navigation) : base(navigation)
+        public PageEditTemplateContractViewModel(HttpModels.ContractTemplate templateInfo, INavigation navigation) : base(navigation)
         {
-            DataList = new ObservableCollection<EditTemplate>();
+            TemplateInfo = templateInfo;
+            EnableAddUpdate = true;
+
+            ContractClausesList = new ObservableCollection<EditTemplate>();
             ContractNumberTemplateList = new ObservableCollection<Model.ContractNumber>();
 
             ContractNumberFormat = RSC.SelectFormat;
@@ -47,83 +53,166 @@ namespace Contract.ViewModel.Pages.TemplateContract
             Editable = false;
             BtnEditDoneText = RSC.Edit;
 
-              
-            EditTemplate item1 = new EditTemplate()
-            {
-                Title = "1",
-                Description = "1  Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun",
-            };
-            item1.Child.Add(new EditTemplate()
-            {
-                Title = "1.1",
-                Description = "1.1  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item1.Child.Add(new EditTemplate()
-            {
-                Title = "1.2",
-                Description = "1.2  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
+            #region  
+            //EditTemplate item1 = new EditTemplate()
+            //{
+            //    Title = "1",
+            //    Description = "1  Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun",
+            //};
+            //item1.Child.Add(new EditTemplate()
+            //{
+            //    Title = "1.1",
+            //    Description = "1.1  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            //});
+            //item1.Child.Add(new EditTemplate()
+            //{
+            //    Title = "1.2",
+            //    Description = "1.2  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            //});
 
-            EditTemplate item2 = new EditTemplate()
-            {
-                Title = "3",
-                Description = "3 Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
-            };
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.1",
-                Description = "3.1 DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.2",
-                Description = "3.2 ASXSXSX XMMZNBHXBHVX SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.3",
-                Description = "3.3 DDDDDD WWWWWWW52225c5dc2 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.4",
-                Description = "3.4 EEEEEEEEDD AAAAAXXXX 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            });
-            item2.Child.Add(new EditTemplate()
-            {
-                Title = "3.5",
-                Description = "3.5 XXXX FFFFFFFFFFFFFFFF 555 \n PPPPP \n WWWWWW"
-            });
+            //EditTemplate item2 = new EditTemplate()
+            //{
+            //    Title = "2",
+            //    Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+            //};
 
-            EditTemplate item3 = new EditTemplate()
-            {
-                ButtonText = RSC.Info4,
-                ButtonDeleteText = RSC.Info6,
-                IsVisibleItemClause = false,
-                IsVisibleButton = true,
-                IsVisibleAddButton = true,
-                IsVisibleAddContractInfoButton = true
-            };
-            EditTemplate item5 = new EditTemplate()
-            {
-                Title = "2",
-                Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
-            };
-            EditTemplate item6 = new EditTemplate()
-            {
-                ButtonText = RSC.Info5,
-                ButtonDeleteText = RSC.Info7,
-                IsVisibleItemClause = false,
-                IsVisibleButton = true,
-                IsVisibleAddButton = true,
-                IsVisibleAddDetailOfNegotiatorButton = true
-            };
+            //EditTemplate item3 = new EditTemplate()
+            //{
+            //    Title = "3",
+            //    Description = "3 Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
+            //};
+            //item3.Child.Add(new EditTemplate()
+            //{
+            //    Title = "3.1",
+            //    Description = "3.1 DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            //});
+            //item3.Child.Add(new EditTemplate()
+            //{
+            //    Title = "3.2",
+            //    Description = "3.2 ASXSXSX XMMZNBHXBHVX SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            //});
+            //item3.Child.Add(new EditTemplate()
+            //{
+            //    Title = "3.3",
+            //    Description = "3.3 DDDDDD WWWWWWW52225c5dc2 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            //});
+            //item3.Child.Add(new EditTemplate()
+            //{
+            //    Title = "3.4",
+            //    Description = "3.4 EEEEEEEEDD AAAAAXXXX 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
+            //});
+            //item3.Child.Add(new EditTemplate()
+            //{
+            //    Title = "3.5",
+            //    Description = "3.5 XXXX FFFFFFFFFFFFFFFF 555 \n PPPPP \n WWWWWW"
+            //});
 
-            DataList.Add(item1);
-            DataList.Add(item3);
-            DataList.Add(item5);
-            DataList.Add(item6);
-            DataList.Add(item2);
+            //EditTemplate item4 = new EditTemplate()
+            //{
+            //    ButtonText = RSC.Info4,
+            //    ButtonDeleteText = RSC.Info6,
+            //    IsVisibleItemClause = false,
+            //    IsVisibleButton = true,
+            //    IsVisibleAddButton = true,
+            //    IsContractServiceDetailsButton = true,
+            //    IsContractInfoButton = false
+            //};
+
+            //EditTemplate item5 = new EditTemplate()
+            //{
+            //    ButtonText = RSC.Info5,
+            //    ButtonDeleteText = RSC.Info7,
+            //    IsVisibleItemClause = false,
+            //    IsVisibleButton = true,
+            //    IsVisibleAddButton = true,
+            //    IsContractServiceDetailsButton = false,
+            //    IsContractInfoButton = true
+            //};
+
+            //DataList.Add(item1);
+            //DataList.Add(item2);
+            //DataList.Add(item3);
+            //DataList.Add(item4);
+            //DataList.Add(item5);
+            #endregion 
+        }
+
+        public PageEditTemplateContractViewModel()
+        {
+            TemplateInfo = null;
+            EnableAddUpdate = true;
+
+            ContractClausesList = new ObservableCollection<EditTemplate>();
+            ContractNumberTemplateList = new ObservableCollection<Model.ContractNumber>();
+
+            ContractNumberFormat = RSC.SelectFormat;
+
+            ItemDragged = new Command<EditTemplate>(OnItemDragged);
+            ItemDraggedOver = new Command<EditTemplate>(OnItemDraggedOver);
+            ItemDragLeave = new Command<EditTemplate>(OnItemDragLeave);
+            ItemDropped = new Command<EditTemplate>(OnItemDropped);
+            ItemDelete = new Command<EditTemplate>(DeleteItem);
+            ItemEditText = new Command<EditTemplate>(EditItemText);
+
+            Editable = false;
+            BtnEditDoneText = RSC.Edit;
+        }
+
+        public PageEditTemplateContractViewModel(PageEditTemplateContractViewModel other)
+        {
+            Copy(other);
+        }
+
+        public void Copy(PageEditTemplateContractViewModel other)
+        {
+            Editable = other.Editable;
+            EnableAddUpdate = other.EnableAddUpdate;
+            ContractNumberFormat = other.ContractNumberFormat;
+            AddressOfCompany = other.AddressOfCompany;
+            NameOfTemplate = other.NameOfTemplate;
+            SelectedContractNumberTemplate = new Model.ContractNumber(other.SelectedContractNumberTemplate);
+            TemplateInfo = new HttpModels.ContractTemplate(other.TemplateInfo);
+
+            foreach (EditTemplate item in other.ContractClausesList)
+            {
+                ContractClausesList.Add(new EditTemplate(item));
+            }
+
+            foreach (Model.ContractNumber item in other.ContractNumberTemplateList)
+            {
+                ContractNumberTemplateList.Add(new Model.ContractNumber(item));
+            }
+        }
+
+        public bool Equals(PageEditTemplateContractViewModel other)
+        {
+            bool res1 = SelectedContractNumberTemplate.Id == other.SelectedContractNumberTemplate.Id &&
+                        NameOfTemplate.Equals(other.NameOfTemplate) &&
+                        AddressOfCompany.Equals(other.AddressOfCompany);
+            
+            bool res2 = true;
+            if (ContractClausesList.Count != other.ContractClausesList.Count)
+            {
+                res2 = false;
+            }
+            else
+            {
+                for (int i = 0; i < ContractClausesList.Count; i++)
+                {
+                    if (!ContractClausesList[i].Equals(other.ContractClausesList[i]))
+                    {
+                        res2 = false;
+                        break;
+                    }
+                }
+            }
+
+            return res1 && res2;
+        }
+
+        private void DefaultTemplate()
+        {
+            
         }
 
         public async void RequestInfo()
@@ -132,8 +221,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber("12");
-            ControlApp.CloseLoadingView();
-
+              
             if (response.result)
             {
                 foreach (ContractNumberTemplate item in response.data)
@@ -155,9 +243,9 @@ namespace Contract.ViewModel.Pages.TemplateContract
                         default:
                             break;
                     }
-                     
+
+                    newItem.Id = item.id;
                     newItem.ContractNumberText = strTemplate;
-                     
                     newItem.Format = item.format;
                     newItem.CreatedDate = item.created_date;
                     newItem.IsDeleted = item.is_deleted;
@@ -165,6 +253,11 @@ namespace Contract.ViewModel.Pages.TemplateContract
                     ContractNumberTemplateList.Add(newItem);
                 }
             }
+
+            if (TemplateInfo == null)
+                DefaultTemplate();
+            else
+                JsonToTemplate(); 
         }
 
         #region Commands
@@ -185,9 +278,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public ICommand CommandEditDone => new Command(EditDone);
         public ICommand CommandAdd => new Command(Add);
         #endregion
-
-        bool isDragged = false;
-
+         
         private void EditDone()
         {
             if (Editable)
@@ -201,19 +292,22 @@ namespace Contract.ViewModel.Pages.TemplateContract
                 BtnEditDoneText = RSC.Done;
             }
 
-            DataList.ForEach(item => item.Editable = Editable);
+            ContractClausesList.ForEach(item => item.Editable = Editable);
+            EnableAddUpdate = !Editable;
         }
 
         private void Add()
         {
             EditTemplate newItem = new EditTemplate();
-            newItem.Title = $"{DataList.Where(item => item.Title.Trim() != "").Count() + 1}";
-            DataList.Add(newItem);
+            newItem.Title = $"{ContractClausesList.Where(item => item.Title.Trim() != "").Count() + 1}";
+            ContractClausesList.Add(newItem);
         }
 
+        #region Grag and drop
+        bool isDragged = false;
         private void OnItemDragged(EditTemplate item)
         { 
-            DataList.ForEach(i => i.IsBeingDragged = item == i);
+            ContractClausesList.ForEach(i => i.IsBeingDragged = item == i);
             if (!isDragged)
             {
                 isDragged = true;
@@ -222,14 +316,15 @@ namespace Contract.ViewModel.Pages.TemplateContract
         }
 
         private void OnItemDraggedOver(EditTemplate item)
-        { 
-            var itemBeingDragged = DataList.FirstOrDefault(i => i.IsBeingDragged);
-            DataList.ForEach(i => i.IsBeingDraggedOver = item == i && item != itemBeingDragged);
+        {
+            isDragged = false;
+            var itemBeingDragged = ContractClausesList.FirstOrDefault(i => i.IsBeingDragged);
+            ContractClausesList.ForEach(i => i.IsBeingDraggedOver = item == i && item != itemBeingDragged);
         }
 
         private void OnItemDragLeave(EditTemplate item)
         { 
-            DataList.ForEach(i => i.IsBeingDraggedOver = false);
+            ContractClausesList.ForEach(i => i.IsBeingDraggedOver = false);
             ControlApp.Vibrate();
         }
 
@@ -237,7 +332,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         {
             if (!Editable) return;
 
-            var itemToMove = DataList.First(i => i.IsBeingDragged);
+            var itemToMove = ContractClausesList.First(i => i.IsBeingDragged);
             var itemToInsertBefore = item;
 
             isDragged = false;
@@ -245,9 +340,9 @@ namespace Contract.ViewModel.Pages.TemplateContract
             if (itemToMove == null || itemToInsertBefore == null || itemToMove == itemToInsertBefore)
                 return;
 
-            DataList.Remove(itemToMove);
-            var insertAtIndex = DataList.IndexOf(itemToInsertBefore);
-            DataList.Insert(insertAtIndex, itemToMove);
+            ContractClausesList.Remove(itemToMove);
+            var insertAtIndex = ContractClausesList.IndexOf(itemToInsertBefore);
+            ContractClausesList.Insert(insertAtIndex, itemToMove);
             itemToMove.IsBeingDragged = false;
             itemToInsertBefore.IsBeingDraggedOver = false;
 
@@ -255,12 +350,12 @@ namespace Contract.ViewModel.Pages.TemplateContract
             thread.IsBackground = true;
             thread.Start();
         }
+        #endregion
 
         private async void EditItemText(EditTemplate item)
         {
             if (!Editable)
-            {
-                //SelectedEditTemplate = item;
+            { 
                 await Navigation.PushAsync(new PageClausesChild(item));
             }
         }
@@ -269,7 +364,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         {
             if (await Application.Current.MainPage.DisplayAlert(RSC.ContractTemplates, $"{RSC.DeleteMessage} {item.Title}", RSC.Ok, RSC.Cancel, FlowDirection.LeftToRight))
             {
-                DataList.Remove(item);
+                ContractClausesList.Remove(item);
                 OrderItems();
             }
         }
@@ -277,49 +372,157 @@ namespace Contract.ViewModel.Pages.TemplateContract
         private void OrderItems()
         {
             int count = 0;
-            foreach (EditTemplate item in DataList)
+            foreach (EditTemplate item in ContractClausesList)
             {
                 if (item.Title.Trim() != "")
                 {
                     count++;
                     item.Title = $"{count}";
+
+                    int chCount = 0;
+                    foreach (EditTemplate childItem in item.Child)
+                    {
+                        chCount++;
+                        childItem.Title = $"{count}.{chCount}"; 
+                    }
                 }
             }
         }
         
         void ClickEditItem(EditTemplate item)
         {
-            ShowClauseBox = true;
+            //ShowClauseBox = true;
         }
 
         void ClickBoxViewBack()
         {
-            ShowClauseBox = false;
+            //ShowClauseBox = false;
         }
 
         public void Update(EditTemplate item)
-        {
-            for (int i = 0; i < DataList.Count; i++)
+        { 
+            for (int i = 0; i < ContractClausesList.Count; i++)
             {
-                if (DataList[i].Title.Trim().Equals(item.Title.Trim()))
+                if (ContractClausesList[i].Title.Trim().Equals(item.Title.Trim()))
                 {
                     if (item.IsDeleted)
                     {
-                        DataList.RemoveAt(i);
+                        ContractClausesList.RemoveAt(i);
                         break;
                     }
                     else
                     {
-                        DataList[i] = new EditTemplate(item);
+                        ContractClausesList[i] = new EditTemplate(item);
                         break;
                     }
                 }
             }
         }
 
-        async void SaveUpdate()
+        public async void SaveUpdate()
         {
+            if (!ControlApp.InternetOk()) return;
             
+            if (SelectedContractNumberTemplate == null || string.IsNullOrEmpty(NameOfTemplate))
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.Templates, RSC.FieldEmpty, RSC.Ok);
+                return;
+            }
+            
+            string strJson = JsonConvert.SerializeObject(TemplateToJson());
+            HttpModels.ContractTemplate data = new HttpModels.ContractTemplate()
+            {
+                user_phone_number = "12",//ControlApp.UserInfo.phone_number,
+                contract_number_format_id = SelectedContractNumberTemplate.Id,
+                company_address = AddressOfCompany,
+                template_name = NameOfTemplate,
+                clauses = strJson,
+                id = TemplateInfo.id,
+                created_date = TemplateInfo.created_date
+            };
+
+            string strMessage = "";
+            if (TemplateInfo == null)
+            {
+                ControlApp.ShowLoadingView(RSC.PleaseWait);
+                ResponseContractTemplate response = await Net.HttpService.SetContractTemplate(data);
+                strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
+                ControlApp.CloseLoadingView();
+
+                await Application.Current.MainPage.DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
+                await Navigation.PopAsync();
+            }
+            else if (!OldModel.Equals(this))
+            {
+                ControlApp.ShowLoadingView(RSC.PleaseWait);
+                ResponseContractTemplate response = await Net.HttpService.UpdateContractTemplate(data);
+                strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed;
+                ControlApp.CloseLoadingView();
+
+                await Application.Current.MainPage.DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
+                await Navigation.PopAsync();
+            }
+        }
+
+        private void JsonToTemplate()
+        {     
+            SelectedContractNumberTemplate = ContractNumberTemplateList.Where(item => item.Id == TemplateInfo.contract_number_format_id).FirstOrDefault();
+            AddressOfCompany = TemplateInfo.company_address;
+            NameOfTemplate = TemplateInfo.template_name;
+
+            ContractClausesList.Clear();
+            List<ContractTemplateJson> rList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(TemplateInfo.clauses);
+            foreach (ContractTemplateJson item in rList)
+            {
+                EditTemplate newItem = new EditTemplate();
+                newItem.IsVisibleButton = item.IsButton;
+                newItem.IsVisibleAddButton = item.IsVisibleAddButton;
+                newItem.IsContractInfoButton = item.IsContractInfoButton;
+                newItem.IsContractServiceDetailsButton = item.IsContractServiceDetailsButton;
+                newItem.Title = item.Title;
+                newItem.Description = item.Description;
+                newItem.IsVisibleItemClause = !item.IsButton;
+                newItem.IsVisibleItemClauseDelete = false;
+                 
+                if (item.IsContractServiceDetailsButton)
+                {
+                    newItem.ButtonText = RSC.Info4;
+                    newItem.ButtonDeleteText = RSC.Info6;
+                }
+                else if (item.IsContractInfoButton)
+                {
+                    newItem.ButtonText = RSC.Info5;
+                    newItem.ButtonDeleteText = RSC.Info7;
+                }
+
+                foreach (ContractTemplateJson chItem in item.Child)
+                {
+                    EditTemplate newChItem = new EditTemplate();
+                    newChItem.Title = chItem.Title;
+                    newChItem.Description = chItem.Description;
+                    
+                    newItem.Child.Add(newChItem);
+                }
+
+                ContractClausesList.Add(newItem);
+            }
+
+            OldModel = new PageEditTemplateContractViewModel();
+            OldModel.Copy(this);
+
+            ControlApp.CloseLoadingView();
+        }
+
+        private List<ContractTemplateJson> TemplateToJson()
+        {
+            List<ContractTemplateJson> rList = new List<ContractTemplateJson>();
+
+            foreach (EditTemplate item in ContractClausesList)
+            {
+                rList.Add(new ContractTemplateJson(item));
+            }
+             
+            return rList;
         }
     }
 }

@@ -14,17 +14,19 @@ namespace Contract.ViewModel.Pages.TemplateContract
     public class PageClausesChildViewModel : BaseModel
     {
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
+        public bool EnableAddUpdate { get => GetValue<bool>(); set => SetValue(value); }
         public bool ShowTextEdit { get => GetValue<bool>(); set => SetValue(value); }
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
         public string EditItemText { get => GetValue<string>(); set => SetValue(value); }
 
-        private  EditTemplate SelectedItem;
+        private EditTemplate SelectedItem;
         private EditTemplate EditSelectedItem;
         public ObservableCollection<EditTemplate> DataList { get; set; }
 
         public PageClausesChildViewModel(EditTemplate selectedItem, INavigation navigation) : base(navigation)
         {
             SelectedItem = selectedItem;
+            EnableAddUpdate = true;
             DataList = new ObservableCollection<EditTemplate>();
 
             ItemDragged = new Command<EditTemplate>(OnItemDragged);
@@ -44,7 +46,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             foreach (EditTemplate item in selectedItem.Child)
             {
                 DataList.Add(new EditTemplate(item));
-            }
+            } 
         }
 
         #region Commands
@@ -93,6 +95,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             }
 
             DataList.ForEach(item => item.Editable = Editable);
+            EnableAddUpdate = !Editable;
         }
 
         private void OnItemDragged(EditTemplate item)
@@ -107,6 +110,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         private void OnItemDraggedOver(EditTemplate item)
         {
+            isDragged = false;
             var itemBeingDragged = DataList.FirstOrDefault(i => i.IsBeingDragged);
             DataList.ForEach(i => i.IsBeingDraggedOver = item == i && item != itemBeingDragged);
         }

@@ -1,0 +1,16 @@
+﻿using Contract.HttpModels;
+using Contract.HttpResponse;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ContractAPI.ContractTemplateInfo.service
+{
+    public interface IContractTemplateService
+    {
+        Task<ResponseContractTemplate> getContractTemplate(string userPhoneNumber);
+        Task<ResponseContractTemplate> setContractTemplate(ContractTemplate info);
+        Task<ResponseContractTemplate> updateContractTemplate(ContractTemplate info);
+    }
+}

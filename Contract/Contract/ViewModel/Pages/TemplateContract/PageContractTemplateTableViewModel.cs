@@ -1,4 +1,5 @@
-﻿using Contract.Model;
+﻿using Contract.HttpResponse;
+using Contract.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,34 +15,44 @@ namespace Contract.ViewModel.Pages.TemplateContract
         {
             DataList = new ObservableCollection<ContractTemplate>();
         }
-
-        public void Init()
+         
+        public async void RequestInfo()
         {
-            ContractTemplate item1 = new ContractTemplate()
-            {
-                No = "1",
-                ContractTempName = "Xizmat ko'rsatish bo'yicha \n dasturningodatiy shabloni",
-                ContractPurpose = "Xizmat",
-                ItemColor = Color.FromHex("#DEEAF6")
-            };
-            ContractTemplate item2 = new ContractTemplate()
-            {
-                No = "2",
-                ContractTempName = "Xizmat ko'rsatish Samarqand",
-                ContractPurpose = "Xizmat",
-                ItemColor = Color.White
-            };
-            ContractTemplate item3 = new ContractTemplate()
-            {
-                No = "3",
-                ContractTempName = "Tovarlar bo'yicha dasturning \n odatiy shabloni",
-                ContractPurpose = "Tovar",
-                ItemColor = Color.FromHex("#DEEAF6")
-            };
+            if (!ControlApp.InternetOk()) return;
 
-            Add(item1);
-            Add(item2);
-            Add(item3);
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseContractTemplate response = await Net.HttpService.GetContractTemplate("12");
+            ControlApp.CloseLoadingView();
+
+            DataList.Clear();
+            if (response.result)
+            {
+                int count = 1;
+                Color rowColor = Color.White;
+                foreach (HttpModels.ContractTemplate item in response.data)
+                {
+                    if (count % 2 == 0)
+                    {
+                        rowColor = Color.FromHex("#DEEAF6");
+                    }
+                    else
+                    {
+                        rowColor = Color.White;
+                    }
+
+                    ContractTemplate newItem = new ContractTemplate()
+                    {
+                        No = $"{count}",
+                        ContractTempName = item.template_name,
+                        ContractPurpose = RSC.Goods,
+                        ItemColor = rowColor,
+                        TemplateInfo = new HttpModels.ContractTemplate(item)
+                    };
+
+                    Add(newItem);
+                    count++;
+                }
+            }
         }
 
         public void Add(ContractTemplate item)

@@ -11,6 +11,7 @@ namespace Contract.Model
         public string No { get => GetValue<string>(); set => SetValue(value); }
         public string ContractTempName { get => GetValue<string>(); set => SetValue(value); }
         public string ContractPurpose { get => GetValue<string>(); set => SetValue(value); } 
-        public Color ItemColor { get => GetValue<Color>(); set => SetValue(value); } 
+        public Color ItemColor { get => GetValue<Color>(); set => SetValue(value); }
+        public HttpModels.ContractTemplate TemplateInfo { get; set; }
     }
 }

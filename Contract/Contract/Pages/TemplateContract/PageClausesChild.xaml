@@ -57,17 +57,17 @@
                                           HeightRequest="100"
                                           IsVisible="{Binding IsBeingDraggedOver}" />
                                         <view:ViewEditTemplateContract Title="{Binding Title}" 
-                                                                   Description="{Binding Description}"
-                                                                   HorizontalOptions="CenterAndExpand"
-                                                                   BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
-                                                                   IsVisible="{Binding IsVisibleItemClause}"
-                                                                   IsVisibleDelete="{Binding IsVisibleDelete}"
-                                                                   CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
-                                                                   CommandClickText="{Binding Path=BindingContext.ItemClickEditText, Source={x:Reference MyItems}}"
-                                                                   CommandClickTextParameter="{Binding}"
-                                                                   CommandDelete="{Binding Path=BindingContext.ItemDelete, Source={x:Reference MyItems}}"
-                                                                   CommandDeleteParameter="{Binding}"
-                                                                   Margin="5">
+                                                                       Description="{Binding Description}"
+                                                                       HorizontalOptions="CenterAndExpand"
+                                                                       BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
+                                                                       IsVisible="{Binding IsVisibleItemClause}"
+                                                                       IsVisibleDelete="{Binding IsVisibleItemClauseDelete}"
+                                                                       CommandClickTitle="{Binding Path=BindingContext.CommandShowClauseBox, Source={x:Reference MyItems}}"
+                                                                       CommandClickText="{Binding Path=BindingContext.ItemClickEditText, Source={x:Reference MyItems}}"
+                                                                       CommandClickTextParameter="{Binding}"
+                                                                       CommandDelete="{Binding Path=BindingContext.ItemDelete, Source={x:Reference MyItems}}"
+                                                                       CommandDeleteParameter="{Binding}"
+                                                                       Margin="5">
                                             <view:ViewEditTemplateContract.GestureRecognizers>
                                                 <DragGestureRecognizer CanDrag="{Binding Editable}"
                                                                    DragStartingCommand="{Binding BindingContext.ItemDragged, Source={x:Reference MyItems}}"
@@ -83,6 +83,7 @@
                                 TextColor="{StaticResource AppColor}"
                                 BorderColor="{StaticResource AppColor}"
                                 BackgroundColor="White"
+                                IsEnabled="{Binding EnableAddUpdate}"
                                 BorderWidth="1"
                                 Margin="10,0,10,0"
                                 Command="{Binding CommandAdd}"
@@ -91,6 +92,7 @@
                                 Style="{StaticResource btnNext}"
                                 Text="{x:Static resource:AppResource.Save}"
                                 Command="{Binding CommandSave}"
+                                IsEnabled="{Binding EnableAddUpdate}"
                                 Margin="10,0,10,0"
                                 Grid.Row="2"/>
                     </Grid>

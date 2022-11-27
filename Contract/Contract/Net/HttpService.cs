@@ -57,6 +57,12 @@ namespace Contract.Net
         public static string URL_UPDATE_CONTRACT_NUMBER = SERVER_URL + "ContractNumber/updateContractNumber";
         #endregion
 
+        #region Contract template
+        public static string URL_GET_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/getContractTemplate/"; //phoneNumber
+        public static string URL_SET_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/setContractTemplate";
+        public static string URL_UPDATE_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/updateContractTemplate";
+        #endregion
+
         public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
         public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
         public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
@@ -321,6 +327,50 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseContractNumberTemplate>(); }
+
+            return response;
+        }
+        #endregion
+
+        #region Contract template
+        public async static Task<ResponseContractTemplate> GetContractTemplate(string phoneNumbera)
+        {
+            ResponseContractTemplate response = new ResponseContractTemplate();
+            try
+            {
+                var receivedData = await RequestGetMethod($"{URL_GET_CONTRACT_TEMPLATE}{phoneNumbera}");
+                response = JsonConvert.DeserializeObject<ResponseContractTemplate>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractTemplate>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseContractTemplate> SetContractTemplate(ContractTemplate data)
+        {
+            ResponseContractTemplate response = new ResponseContractTemplate();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SET_CONTRACT_TEMPLATE, data);
+                response = JsonConvert.DeserializeObject<ResponseContractTemplate>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractTemplate>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseContractTemplate> UpdateContractTemplate(ContractTemplate data)
+        {
+            ResponseContractTemplate response = new ResponseContractTemplate();
+            try
+            {
+                var receivedData = await RequestPutMethod(URL_UPDATE_CONTRACT_TEMPLATE, data);
+                response = JsonConvert.DeserializeObject<ResponseContractTemplate>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractTemplate>(); }
 
             return response;
         }

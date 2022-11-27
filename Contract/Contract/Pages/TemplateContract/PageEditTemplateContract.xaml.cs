@@ -16,11 +16,16 @@ namespace Contract.Pages.TemplateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEditTemplateContract : IPage
     {  
-        public PageEditTemplateContract()
+        public PageEditTemplateContract(HttpModels.ContractTemplate templateInfo = null)
         {
             InitializeComponent();
 
-            SetModel(new PageEditTemplateContractViewModel(Navigation)); 
+            SetModel(new PageEditTemplateContractViewModel(templateInfo, Navigation));
+            btnSaveUpdate.Text = templateInfo == null ? RSC.Save : RSC.Update;
+
+            PModel.RequestInfo();
+            backNavigation.UseBackNavigation = true;
+            backNavigation.EventClickBackButton += EventClickBackButton;
         }
 
         protected override void OnAppearing()
@@ -30,32 +35,39 @@ namespace Contract.Pages.TemplateContract
             if (ControlApp.SelectedEditTemplate != null)
             {
                 PModel.Update(ControlApp.SelectedEditTemplate);
+            } 
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            EventClickBackButton();
+            return true;
+        }
+
+        private async void EventClickBackButton()
+        {
+            if (!PModel.OldModel.Equals(PModel))
+            {
+                if (await DisplayAlert(RSC.ContractTemplates, RSC.WouldYouLikeToSave, RSC.Yes, RSC.No))
+                {
+                    PModel.SaveUpdate();
+                }
             }
-        }   
-         
+            else
+            {
+                await Navigation.PopAsync();
+            }
+        }
+
         private async void Button_Tapped(object sender, EventArgs e)
         { 
             Views.ViewEditContractButton vButton = (Views.ViewEditContractButton)sender;
             EditTemplate item = (EditTemplate)vButton.BindingContext;
 
             await vButton.ScaleTo(0.8, 200);
-            if (item.IsVisibleAddButton)
-            {
-                if (item.IsThisAddClauseButton)
-                {
-                    PModel.ShowClauseBox = true;
-                }
-                else
-                {
-                    item.IsVisibleDeleteButton = true;
-                    item.IsVisibleAddButton = false;
-                }
-            }
-            else
-            {
-                item.IsVisibleDeleteButton = false;
-                item.IsVisibleAddButton = true;
-            }
+              
+            item.IsVisibleAddButton = !item.IsVisibleAddButton;
+            
             await vButton.ScaleTo(1, 200, Easing.SpringOut);
         }
 
@@ -69,7 +81,7 @@ namespace Contract.Pages.TemplateContract
             box.BackgroundColor = Color.Transparent;
             await Task.Delay(100);
 
-            PModel.ShowClauseBox = false;
+            //PModel.ShowClauseBox = false;
         }
 
         private async void SelectFormat_Tapped(object sender, EventArgs e)
@@ -84,7 +96,7 @@ namespace Contract.Pages.TemplateContract
          
         private void EditDone_Clicked(object sender, EventArgs e)
         {
-            PModel.DataList.ForEach(item => item.IsVisibleDelete = PModel.Editable);
+            PModel.ContractClausesList.ForEach(item => item.IsVisibleItemClauseDelete = PModel.Editable);
 
             Thread thread = new Thread(new ThreadStart(ShakeItems));
             thread.IsBackground = true;
