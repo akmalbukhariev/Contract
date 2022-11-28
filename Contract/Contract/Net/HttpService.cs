@@ -61,6 +61,7 @@ namespace Contract.Net
         public static string URL_GET_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/getContractTemplate/"; //phoneNumber
         public static string URL_SET_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/setContractTemplate";
         public static string URL_UPDATE_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/updateContractTemplate";
+        public static string URL_DELETE_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/deleteContractTemplate";
         #endregion
 
         public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
@@ -367,6 +368,20 @@ namespace Contract.Net
             try
             {
                 var receivedData = await RequestPutMethod(URL_UPDATE_CONTRACT_TEMPLATE, data);
+                response = JsonConvert.DeserializeObject<ResponseContractTemplate>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseContractTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseContractTemplate>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseContractTemplate> DeleteContractTemplate(ContractTemplate data)
+        {
+            ResponseContractTemplate response = new ResponseContractTemplate();
+            try
+            {
+                var receivedData = await RequestDeleteMethod(URL_DELETE_CONTRACT_TEMPLATE, data);
                 response = JsonConvert.DeserializeObject<ResponseContractTemplate>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseContractTemplate>(); }

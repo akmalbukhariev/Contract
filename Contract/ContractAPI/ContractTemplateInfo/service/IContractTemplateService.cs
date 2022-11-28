@@ -12,5 +12,6 @@ namespace ContractAPI.ContractTemplateInfo.service
         Task<ResponseContractTemplate> getContractTemplate(string userPhoneNumber);
         Task<ResponseContractTemplate> setContractTemplate(ContractTemplate info);
         Task<ResponseContractTemplate> updateContractTemplate(ContractTemplate info);
+        Task<ResponseContractTemplate> deleteContractTemplate(ContractTemplate info);
     }
 }

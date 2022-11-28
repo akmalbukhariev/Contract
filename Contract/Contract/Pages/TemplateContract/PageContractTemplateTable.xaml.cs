@@ -1,4 +1,5 @@
-﻿using Contract.Interfaces;
+﻿using Contract.HttpResponse;
+using Contract.Interfaces;
 using Contract.Model;
 using Contract.ViewModel.Pages.TemplateContract;
 using System;
@@ -66,10 +67,25 @@ namespace Contract.Pages.TemplateContract
             await Navigation.PushAsync(new PageEditTemplateContract(item.TemplateInfo));
         }
 
-        private void Cancel_Tapped(object sender, EventArgs e)
+        private async void Delete_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            ContractTemplate item = (ContractTemplate)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            if (!await DisplayAlert(RSC.ContractTemplates, RSC.DeleteMessage, RSC.Yes, RSC.No)) return;
+
+            ControlApp.ShowLoadingView(RSC.Please);
+            ResponseContractTemplate response = await Net.HttpService.DeleteContractTemplate(item.TemplateInfo);
+            ControlApp.CloseLoadingView();
+
+            string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
+            await DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
+
+            if (response.result)
+                PModel.RequestInfo();
         }
 
         PageContractTemplateTableViewModel PModel

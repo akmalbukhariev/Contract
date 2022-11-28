@@ -16,13 +16,13 @@ namespace Contract.Model
 
         public bool IsVisibleItemClauseDelete { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsVisibleItemClause { get => GetValue<bool>(); set => SetValue(value); }
-        
-        //public bool IsVisibleDeleteButton { get => GetValue<bool>(); set => SetValue(value); }
+
+        public bool IsVisibleDeleteButton { get => GetValue<bool>(); set => SetValue(value); }
         //public bool IsThisAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }
         //public bool IsVisibleAddContractInfoButton { get => GetValue<bool>(); set => SetValue(value); }
         //public bool IsVisibleAddClauseButton { get => GetValue<bool>(); set => SetValue(value); }  
         //public bool IsVisibleAddDetailOfNegotiatorButton { get => GetValue<bool>(); set => SetValue(value); }
-        
+
         public bool IsVisibleButton { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsVisibleAddButton { get => GetValue<bool>(); set => SetValue(value); }
         public bool IsContractServiceDetailsButton { get => GetValue<bool>(); set => SetValue(value); }

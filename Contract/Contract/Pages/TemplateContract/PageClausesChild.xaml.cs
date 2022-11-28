@@ -24,14 +24,14 @@ namespace Contract.Pages.TemplateContract
             SetModel(new PageClausesChildViewModel(selectedItem, Navigation));
             OldItem = new EditTemplate(selectedItem);
 
+            PModel.CustomEditor = itemEditor;
             backNavigation.UseBackNavigation = true;
             backNavigation.EventClickBackButton += EventClickBackButton;
         }
          
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-
+            base.OnAppearing(); 
             ControlApp.SelectedEditTemplate = null;
         }
          

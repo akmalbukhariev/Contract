@@ -114,7 +114,8 @@
               Grid.ColumnSpan="3">
             <BoxView BackgroundColor="Black" 
                      Grid.ColumnSpan="2"/>
-            <control:CustomEditor Text="{Binding EditItemText}" 
+            <control:CustomEditor x:Name="itemEditor" 
+                                  Text="{Binding EditItemText}" 
                                   BackgroundColor="White" 
                                   Margin="1"
                                   Grid.ColumnSpan="2"/>

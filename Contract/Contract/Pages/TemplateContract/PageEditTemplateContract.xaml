@@ -165,6 +165,7 @@
                                                                      BackgroundColor="{Binding IsBeingDragged, Converter={StaticResource DragColorConverter}}" 
                                                                      IsVisible="{Binding IsVisibleButton}" 
                                                                      IsVisibleAdd="{Binding IsVisibleAddButton}"
+                                                                     IsVisibleDelete="{Binding IsVisibleDeleteButton}"
                                                                      Margin="5">
                                             <view:ViewEditContractButton.GestureRecognizers>
                                                 <DragGestureRecognizer CanDrag="{Binding Editable}"

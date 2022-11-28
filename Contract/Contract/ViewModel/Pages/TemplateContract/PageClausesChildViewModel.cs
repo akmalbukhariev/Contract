@@ -13,12 +13,13 @@ namespace Contract.ViewModel.Pages.TemplateContract
 {
     public class PageClausesChildViewModel : BaseModel
     {
-        public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
+        public bool Editable { get => GetValue<bool>(); set => SetValue(value); } 
         public bool EnableAddUpdate { get => GetValue<bool>(); set => SetValue(value); }
         public bool ShowTextEdit { get => GetValue<bool>(); set => SetValue(value); }
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
         public string EditItemText { get => GetValue<string>(); set => SetValue(value); }
 
+        public Control.CustomEditor CustomEditor;
         private EditTemplate SelectedItem;
         private EditTemplate EditSelectedItem;
         public ObservableCollection<EditTemplate> DataList { get; set; }
@@ -26,7 +27,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public PageClausesChildViewModel(EditTemplate selectedItem, INavigation navigation) : base(navigation)
         {
             SelectedItem = selectedItem;
-            EnableAddUpdate = true;
+            EnableAddUpdate = true; 
             DataList = new ObservableCollection<EditTemplate>();
 
             ItemDragged = new Command<EditTemplate>(OnItemDragged);
@@ -168,6 +169,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             if (Editable) return;
 
             ShowTextEdit = true;
+            CustomEditor.Focus();
             EditItemText = item.Description;
             EditSelectedItem = item;
         }

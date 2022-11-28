@@ -52,6 +52,10 @@ namespace Contract.Pages.TemplateContract
                 {
                     PModel.SaveUpdate();
                 }
+                else
+                {
+                    await Navigation.PopAsync();
+                }
             }
             else
             {
@@ -65,9 +69,18 @@ namespace Contract.Pages.TemplateContract
             EditTemplate item = (EditTemplate)vButton.BindingContext;
 
             await vButton.ScaleTo(0.8, 200);
+
+            if (item.IsVisibleAddButton)
+            {
+                item.IsVisibleDeleteButton = true;
+                item.IsVisibleAddButton = false;
+            }
+            else
+            {
+                item.IsVisibleDeleteButton = false;
+                item.IsVisibleAddButton = true; 
+            }
               
-            item.IsVisibleAddButton = !item.IsVisibleAddButton;
-            
             await vButton.ScaleTo(1, 200, Easing.SpringOut);
         }
 

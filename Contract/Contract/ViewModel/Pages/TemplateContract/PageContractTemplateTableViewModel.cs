@@ -4,24 +4,34 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Contract.ViewModel.Pages.TemplateContract
 {
     public class PageContractTemplateTableViewModel : BaseModel
     {
+        public bool IsRefreshing { get => GetValue<bool>(); set => SetValue(value); }
+         
         public ObservableCollection<ContractTemplate> DataList { get; set; }
         public PageContractTemplateTableViewModel()
         {
             DataList = new ObservableCollection<ContractTemplate>();
         }
-         
+
+        public ICommand RefreshCommand => new Command(Refresh);
+
+        private void Refresh()
+        {
+            RequestInfo();
+        }
+
         public async void RequestInfo()
         {
             if (!ControlApp.InternetOk()) return;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractTemplate response = await Net.HttpService.GetContractTemplate("12");
+            ResponseContractTemplate response = await Net.HttpService.GetContractTemplate(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
             DataList.Clear();
@@ -53,6 +63,8 @@ namespace Contract.ViewModel.Pages.TemplateContract
                     count++;
                 }
             }
+
+            IsRefreshing = false;
         }
 
         public void Add(ContractTemplate item)

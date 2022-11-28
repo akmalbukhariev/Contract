@@ -97,5 +97,31 @@ namespace ContractAPI.ContractTemplateInfo.service.impl
 
             return response;
         }
+
+        public async Task<ResponseContractTemplate> deleteContractTemplate(ContractTemplate info)
+        {
+            ResponseContractTemplate response = new ResponseContractTemplate();
+
+            ContractTemplate newItem = new ContractTemplate(info);
+            dataBase.ContractTemplate.Remove(newItem);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.data = null;
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return response;
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return response;
+        }
     }
 }

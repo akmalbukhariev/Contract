@@ -220,7 +220,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             if (!ControlApp.InternetOk()) return;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber("12");
+            ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
               
             if (response.result)
             {
@@ -423,7 +423,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         {
             if (!ControlApp.InternetOk()) return;
             
-            if (SelectedContractNumberTemplate == null || string.IsNullOrEmpty(NameOfTemplate))
+            if (SelectedContractNumberTemplate == null || string.IsNullOrEmpty(NameOfTemplate) || ContractClausesList.Count == 0)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.Templates, RSC.FieldEmpty, RSC.Ok);
                 return;
@@ -432,13 +432,13 @@ namespace Contract.ViewModel.Pages.TemplateContract
             string strJson = JsonConvert.SerializeObject(TemplateToJson());
             HttpModels.ContractTemplate data = new HttpModels.ContractTemplate()
             {
-                user_phone_number = "12",//ControlApp.UserInfo.phone_number,
+                user_phone_number = ControlApp.UserInfo.phone_number,
                 contract_number_format_id = SelectedContractNumberTemplate.Id,
                 company_address = AddressOfCompany,
                 template_name = NameOfTemplate,
                 clauses = strJson,
-                id = TemplateInfo.id,
-                created_date = TemplateInfo.created_date
+                id = TemplateInfo != null? TemplateInfo.id : 0,
+                created_date = TemplateInfo != null ? TemplateInfo.created_date : ""
             };
 
             string strMessage = "";
@@ -477,6 +477,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                 EditTemplate newItem = new EditTemplate();
                 newItem.IsVisibleButton = item.IsButton;
                 newItem.IsVisibleAddButton = item.IsVisibleAddButton;
+                newItem.IsVisibleDeleteButton = !item.IsVisibleAddButton;
                 newItem.IsContractInfoButton = item.IsContractInfoButton;
                 newItem.IsContractServiceDetailsButton = item.IsContractServiceDetailsButton;
                 newItem.Title = item.Title;

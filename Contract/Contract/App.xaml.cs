@@ -26,8 +26,8 @@ namespace Contract
 
         protected override void OnStart()
         {
-            MainPage = new TransitionNavigationPage(new Pages.TemplateContract.PageContractTemplateTable());
-            return;
+            //MainPage = new TransitionNavigationPage(new Pages.TemplateContract.PageContractTemplateTable());
+            //return;
             ControlApp.Instance.AppStarting = true;
             ControlApp.Instance.AppOnResume = false;
             ControlApp.Instance.AppOnSleep = false;
