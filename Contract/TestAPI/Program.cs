@@ -10,7 +10,10 @@ namespace TestAPI
     {
         static void Main(string[] args)
         {
-            SendMessage();
+            //SendMessage();
+
+            CreateClauses clause = new CreateClauses();
+            clause.Create();
 
             Console.ReadLine();
         }

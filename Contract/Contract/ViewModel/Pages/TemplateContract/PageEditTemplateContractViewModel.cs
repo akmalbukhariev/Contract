@@ -303,7 +303,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             ContractClausesList.Add(newItem);
         }
 
-        #region Grag and drop
+        #region Drag and drop
         bool isDragged = false;
         private void OnItemDragged(EditTemplate item)
         { 

@@ -97,20 +97,20 @@ namespace Contract.Model
 
         public bool Equals(EditTemplate other)
         {
-            bool res1 = Editable == other.Editable &&
-                        IsBeingDragged == other.IsBeingDragged &&
-                        IsBeingDraggedOver == other.IsBeingDraggedOver &&
-                        IsVisibleItemClause == other.IsVisibleItemClause &&
+            bool res1 = //Editable == other.Editable &&
+                        //IsBeingDragged == other.IsBeingDragged &&
+                        //IsBeingDraggedOver == other.IsBeingDraggedOver &&
+                        //IsVisibleItemClause == other.IsVisibleItemClause &&
                         //IsVisibleDeleteButton == other.IsVisibleDeleteButton &&
                         IsVisibleAddButton == other.IsVisibleAddButton &&
                         //IsThisAddClauseButton == other.IsThisAddClauseButton &&
                         //IsVisibleAddContractInfoButton == other.IsVisibleAddContractInfoButton &&
                         //IsVisibleAddClauseButton == other.IsVisibleAddClauseButton &&
                         //IsVisibleAddDetailOfNegotiatorButton == other.IsVisibleAddDetailOfNegotiatorButton &&
-                        IsVisibleButton == other.IsVisibleButton &&
+                        //IsVisibleButton == other.IsVisibleButton &&
                         ButtonText == other.ButtonText &&
                         ButtonDeleteText == other.ButtonDeleteText &&
-                        ButtonColor == other.ButtonColor &&
+                        //ButtonColor == other.ButtonColor &&
                         Title == other.Title &&
                         Description == other.Description;
 

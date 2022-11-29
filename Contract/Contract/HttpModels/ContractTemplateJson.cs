@@ -16,7 +16,13 @@ namespace Contract.HttpModels
 
         public ContractTemplateJson()
         {
-            
+            IsButton = false;
+            IsVisibleAddButton = false;
+            IsContractInfoButton = false;
+            IsContractServiceDetailsButton = false;
+            Title = "";
+            Description = "";
+            Child = new List<ContractTemplateJson>();
         }
 
         public ContractTemplateJson(Model.EditTemplate template)
