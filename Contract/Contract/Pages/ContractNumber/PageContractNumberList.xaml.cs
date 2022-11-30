@@ -15,8 +15,7 @@ namespace Contract.Pages.ContractNumber
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageContractNumberList : IPage
-    {
-        private PageContractNumberListViewModel model;
+    { 
         public PageContractNumberList()
         {
             InitializeComponent();
@@ -74,6 +73,7 @@ namespace Contract.Pages.ContractNumber
 
             HttpModels.ContractNumberTemplate data = new HttpModels.ContractNumberTemplate()
             {
+                id = item.Id,
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 option = item.ContractNumberText.Replace(Constants.ContractSequenceNumber, "").Replace("-", ""),
                 format = item.Format,

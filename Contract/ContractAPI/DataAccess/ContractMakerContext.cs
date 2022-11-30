@@ -16,6 +16,7 @@ namespace ContractAPI.DataAccess
         public DbSet<ClientCompanyInfo> ClientCompanyInfo { get; set; }
         public DbSet<CreateContractInfo> CreateContractInfo { get; set; }
         public DbSet<ContractNumberTemplate> ContractNumberTemplate { get; set; }
+        public DbSet<ReadyTemplate> ReadyTemplates { get; set; }
         public DbSet<ContractTemplate> ContractTemplate { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
         public DbSet<PurposeOfContract> PurposeOfContracts { get; set; } 
@@ -52,6 +53,9 @@ namespace ContractAPI.DataAccess
 
             modelBuilder.Entity<ContractNumberTemplate>().ToTable("ContractNumberTemplate");
             modelBuilder.Entity<ContractNumberTemplate>().HasKey(r => r.id);
+
+            modelBuilder.Entity<ReadyTemplate>().ToTable("Templates");
+            modelBuilder.Entity<ReadyTemplate>().HasKey(r => r.id);
 
             modelBuilder.Entity<ContractTemplate>().ToTable("ContractTemplate");
             modelBuilder.Entity<ContractTemplate>().HasKey(r => r.id);

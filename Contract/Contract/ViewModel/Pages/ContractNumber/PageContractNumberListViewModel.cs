@@ -88,6 +88,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
                             break;
                     }
 
+                    newItem.Id = item.id;
                     newItem.No = count.ToString();
                     newItem.ContractNumberText = strTemplate;
                     newItem.ItemColor = rowColor;

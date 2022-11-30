@@ -123,5 +123,16 @@ namespace ContractAPI.ContractTemplateInfo.service.impl
 
             return response;
         }
+
+        public async Task<ResponseReadyTemplate> getAllReadyTemplate()
+        {
+            ResponseReadyTemplate response = new ResponseReadyTemplate();
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = "";
+            response.data = await dataBase.ReadyTemplates.ToListAsync();
+
+            return response;
+        }
     }
 }

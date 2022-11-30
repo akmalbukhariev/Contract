@@ -17,8 +17,7 @@ using Xamarin.Forms.Internals;
 namespace Contract.ViewModel.Pages.TemplateContract
 { 
     public class PageEditTemplateContractViewModel : BaseModel
-    {
-        ///public bool ShowClauseBox { get => GetValue<bool>(); set => SetValue(value); }
+    { 
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
         public bool EnableAddUpdate { get => GetValue<bool>(); set => SetValue(value); }
 
@@ -209,12 +208,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
             return res1 && res2;
         }
-
-        private void DefaultTemplate()
-        {
-            
-        }
-
+         
         public async void RequestInfo()
         {
             if (!ControlApp.InternetOk()) return;
@@ -257,9 +251,9 @@ namespace Contract.ViewModel.Pages.TemplateContract
             if (TemplateInfo == null)
                 DefaultTemplate();
             else
-                JsonToTemplate(); 
+                EditTemplate(); 
         }
-
+         
         #region Commands
         public ICommand ItemDragged { get; }
 
@@ -452,7 +446,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                 await Application.Current.MainPage.DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
                 await Navigation.PopAsync();
             }
-            else if (!OldModel.Equals(this))
+            else if (OldModel !=null && !OldModel.Equals(this))
             {
                 ControlApp.ShowLoadingView(RSC.PleaseWait);
                 ResponseContractTemplate response = await Net.HttpService.UpdateContractTemplate(data);
@@ -464,14 +458,35 @@ namespace Contract.ViewModel.Pages.TemplateContract
             }
         }
 
-        private void JsonToTemplate()
-        {     
+        private async void DefaultTemplate()
+        {
+            ResponseReadyTemplate response = await Net.HttpService.GetAllReadyTemplate();
+            if (response.result)
+            {
+                ReadyTemplate found = response.data.Where(item => item.id.Equals(ControlApp.UserInfo.default_template_id)).FirstOrDefault();
+                if (found != null)
+                    JsonToTemplate(found.clauses);
+            }
+        }
+
+        private void EditTemplate()
+        {
             SelectedContractNumberTemplate = ContractNumberTemplateList.Where(item => item.Id == TemplateInfo.contract_number_format_id).FirstOrDefault();
             AddressOfCompany = TemplateInfo.company_address;
             NameOfTemplate = TemplateInfo.template_name;
 
             ContractClausesList.Clear();
-            List<ContractTemplateJson> rList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(TemplateInfo.clauses);
+            JsonToTemplate(TemplateInfo.clauses);
+
+            OldModel = new PageEditTemplateContractViewModel();
+            OldModel.Copy(this);
+
+            ControlApp.CloseLoadingView();
+        }
+
+        private void JsonToTemplate(string clausesJson)
+        {     
+            List<ContractTemplateJson> rList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(clausesJson);
             foreach (ContractTemplateJson item in rList)
             {
                 EditTemplate newItem = new EditTemplate();
@@ -506,12 +521,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                 }
 
                 ContractClausesList.Add(newItem);
-            }
-
-            OldModel = new PageEditTemplateContractViewModel();
-            OldModel.Copy(this);
-
-            ControlApp.CloseLoadingView();
+            } 
         }
 
         private List<ContractTemplateJson> TemplateToJson()

@@ -11,12 +11,24 @@ namespace Contract.HttpModels
         public string phone_number { get; set; }
         public string password { get; set; }
         public string reg_date { get; set; }
+        public int default_template_id { get; set; }
+
+        public User()
+        {
+            
+        }
+
+        public User(User other)
+        {
+            Copy(other);
+        }
 
         public void Copy(User other)
         { 
-            this.phone_number = other.phone_number;
-            this.password = other.password;
-            this.reg_date = other.reg_date;
+            phone_number = other.phone_number;
+            password = other.password;
+            reg_date = other.reg_date;
+            default_template_id = other.default_template_id;
         }
     }
 }

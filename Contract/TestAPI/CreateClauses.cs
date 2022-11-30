@@ -12,6 +12,13 @@ namespace TestAPI
     {
         public void Create()
         {
+            Normal();
+            //Popular();
+            Simple();
+        }
+
+        private void Normal()
+        {
             List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
 
             ContractTemplateJson item1 = new ContractTemplateJson();
@@ -27,7 +34,44 @@ namespace TestAPI
             ContractTemplateJson itemButton1 = new ContractTemplateJson();
             itemButton1.IsButton = true;
             itemButton1.IsContractInfoButton = false;
-            itemButton1.IsContractServiceDetailsButton = true; 
+            itemButton1.IsContractServiceDetailsButton = true;
+            itemButton1.IsVisibleAddButton = true;
+            jList.Add(itemButton1);
+
+            ContractTemplateJson item2 = new ContractTemplateJson();
+            item2.Title = "2";
+            item2.Description = "ТОМОНЛАРНИНГ ХУҚУҚИЙ МАНЗИЛЛАРИ";
+            jList.Add(item2);
+
+            ContractTemplateJson itemButton2 = new ContractTemplateJson();
+            itemButton2.IsButton = true;
+            itemButton2.IsContractInfoButton = true;
+            itemButton2.IsContractServiceDetailsButton = false;
+            itemButton2.IsVisibleAddButton = true;
+            jList.Add(itemButton2);
+
+            string strJson = JsonConvert.SerializeObject(jList);
+        }
+
+        private void Popular()
+        {
+            List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
+
+            ContractTemplateJson item1 = new ContractTemplateJson();
+            item1.Title = "1";
+            item1.Description = "ШАРТНОМАНИНГ МАЗМУНИ ВА ИШЛАРНИНГ НАРХИ";
+
+            ContractTemplateJson item1_1 = new ContractTemplateJson();
+            item1_1.Title = "1.1";
+            item1_1.Description = "“Буюртмачи” топшириғига кўра “Бажарувчи” ушбу шартномада белгиланган тартиб ва шартлар асосида қуйидаги таснифда кўрсатилган ишларни бажариш мажбуриятларини ўз зиммасига олади.";
+            item1.Child.Add(item1_1);
+            jList.Add(item1);
+
+            ContractTemplateJson itemButton1 = new ContractTemplateJson();
+            itemButton1.IsButton = true;
+            itemButton1.IsContractInfoButton = false;
+            itemButton1.IsContractServiceDetailsButton = true;
+            itemButton1.IsVisibleAddButton = true;
             jList.Add(itemButton1);
 
 
@@ -53,8 +97,8 @@ namespace TestAPI
 
             ContractTemplateJson item3_2 = new ContractTemplateJson();
             item3_2.Title = "3.2";
-            item3_2.Description = "3.2.	Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
-            item3.Child.Add(item3_2); 
+            item3_2.Description = "Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
+            item3.Child.Add(item3_2);
             jList.Add(item3);
 
 
@@ -81,8 +125,8 @@ namespace TestAPI
 
 
             ContractTemplateJson item6 = new ContractTemplateJson();
-            item5.Title = "6";
-            item5.Description = "БОШҚА ШАРТЛАР";
+            item6.Title = "6";
+            item6.Description = "БОШҚА ШАРТЛАР";
 
             ContractTemplateJson item6_1 = new ContractTemplateJson();
             item6_1.Title = "6.1";
@@ -156,7 +200,6 @@ namespace TestAPI
             item9_2.Description = "Томонлар коррупцияга қарши қоидалар бузулганда ёки асосли гумонлар юзага келганида дархол ёзма равишда бир-бирини хабардор қилиш мажбуриятини олади. Бунда томонлар юзага келган холатга ойдинлик киритиш мақсадида ёзма изоҳ талаб қилиш хуқуқига эга ва мурожаатини олган томон 10 (ўн) иш куни мобайнида тушинтириш бериши ёки ўз фикрини билдириши мумкин.";
             item9.Child.Add(item9_2);
 
-             
             ContractTemplateJson item9_3 = new ContractTemplateJson();
             item9_3.Title = "9.3";
             item9_3.Description = "Мазкур бобнинг талаблари бажарилмаганда, шу жумладан белгиланган муддатда коррупцион хавф-хатар бартараф этилмаса, томонлар амалга оширган чоралар коррупцион холатни пасайишига олиб келмаса, бошқа томон шартномани бекор қилиш хуқуқига эга ёки унинг ижросини тўхтатиб қўйиши мумкин.";
@@ -168,7 +211,6 @@ namespace TestAPI
             item9.Child.Add(item9_4);
             jList.Add(item9);
 
-
             ContractTemplateJson item10 = new ContractTemplateJson();
             item10.Title = "10";
             item10.Description = "ТОМОНЛАРНИНГ ХУҚУҚИЙ МАНЗИЛЛАРИ";
@@ -178,11 +220,86 @@ namespace TestAPI
             itemButton2.IsButton = true;
             itemButton2.IsContractInfoButton = true;
             itemButton2.IsContractServiceDetailsButton = false;
-            
+            itemButton2.IsVisibleAddButton = true;
             jList.Add(itemButton2);
 
             string strJson = JsonConvert.SerializeObject(jList);
+        }
 
+        private void Simple()
+        {
+            List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
+
+            ContractTemplateJson item1 = new ContractTemplateJson();
+            item1.Title = "1";
+            item1.Description = "ШАРТНОМАНИНГ МАЗМУНИ ВА ИШЛАРНИНГ НАРХИ";
+
+            ContractTemplateJson item1_1 = new ContractTemplateJson();
+            item1_1.Title = "1.1";
+            item1_1.Description = "“Буюртмачи” топшириғига кўра “Бажарувчи” ушбу шартномада белгиланган тартиб ва шартлар асосида қуйидаги таснифда кўрсатилган ишларни бажариш мажбуриятларини ўз зиммасига олади.";
+            item1.Child.Add(item1_1);
+            jList.Add(item1);
+
+            ContractTemplateJson itemButton1 = new ContractTemplateJson();
+            itemButton1.IsButton = true;
+            itemButton1.IsContractInfoButton = false;
+            itemButton1.IsContractServiceDetailsButton = true;
+            itemButton1.IsVisibleAddButton = true;
+            jList.Add(itemButton1);
+
+            ContractTemplateJson item2 = new ContractTemplateJson();
+            item2.Title = "2";
+            item2.Description = "ҲИСОБ-КИТОБ ТАРТИБИ"; 
+
+            ContractTemplateJson item2_1 = new ContractTemplateJson();
+            item2_1.Title = "2.1";
+            item2_1.Description = "Ушбу шартнома кучга киргач, “Буюртмачи” шартнома баҳоси тўловни “Бажарувчи”нинг ҳисоб-рақамига пул ўтказиш мажбуриятини олади.";
+            item2.Child.Add(item2_1);
+            jList.Add(item2);
+
+            ContractTemplateJson item3 = new ContractTemplateJson();
+            item3.Title = "3";
+            item3.Description = "ИШЛАРНИ БАЖАРИШ, ТОПШИРИШ ВА ҚАБУЛ ҚИЛИШ ТАРТИБИ"; 
+
+            ContractTemplateJson item3_1 = new ContractTemplateJson();
+            item3_1.Title = "3.1";
+            item3_1.Description = "Шартноманинг 2.1. банди бажарилгандан сўнг, “Буюртмачи” “Бажарувчи”га шартноманинг 1.1. бандига мувофиқ кўрсатилган хизмат ҳулосаларини “Буюртмачи”га топширади.";
+            item3.Child.Add(item3_1);
+            jList.Add(item3);
+
+            ContractTemplateJson item4 = new ContractTemplateJson();
+            item4.Title = "4";
+            item4.Description = "БОШҚА ШАРТЛАР";
+
+            ContractTemplateJson item4_1 = new ContractTemplateJson();
+            item4_1.Title = "4.1";
+            item4_1.Description = "Ушбу шартнома электрон рақамли имзо ёрдамида QR-код билан ёки дастурдий таъминотнинг имзо чекиш функцияси орқали ёки чоп этилган асл нусҳаларига ёзма имзо ва муҳр қўйиш йўллари билан имзоланиши мумкин.";
+            item4.Child.Add(item4_1);
+            jList.Add(item4);
+             
+            ContractTemplateJson item5 = new ContractTemplateJson();
+            item5.Title = "5";
+            item5.Description = "ШАРТНОМАНИНГ АМАЛ ҚИЛИШ МУДДАТИ ВА ТАРТИБИ";
+
+            ContractTemplateJson item5_1 = new ContractTemplateJson();
+            item5_1.Title = "5.1";
+            item5_1.Description = "Шартнома унга томонларнинг имзо қўйган вақтдан (имзо қуйилган сана) кучга киради ҳамда ушбу шартнома бандлари тўлиқ бажарилгунга қадар амал қилади.";
+            item5.Child.Add(item5_1);
+            jList.Add(item5);
+
+            ContractTemplateJson item6 = new ContractTemplateJson();
+            item6.Title = "6";
+            item6.Description = "ТОМОНЛАРНИНГ ХУҚУҚИЙ МАНЗИЛЛАРИ";
+            jList.Add(item6);
+
+            ContractTemplateJson itemButton2 = new ContractTemplateJson();
+            itemButton2.IsButton = true;
+            itemButton2.IsContractInfoButton = true;
+            itemButton2.IsContractServiceDetailsButton = false;
+            itemButton2.IsVisibleAddButton = true;
+            jList.Add(itemButton2);
+
+            string strJson = JsonConvert.SerializeObject(jList);
         }
     }
 }

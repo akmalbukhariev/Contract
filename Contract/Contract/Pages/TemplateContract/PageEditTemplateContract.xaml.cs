@@ -35,18 +35,18 @@ namespace Contract.Pages.TemplateContract
             if (ControlApp.SelectedEditTemplate != null)
             {
                 PModel.Update(ControlApp.SelectedEditTemplate);
-            } 
+            }
         }
 
         protected override bool OnBackButtonPressed()
         {
             EventClickBackButton();
             return true;
-        }
+        } 
 
         private async void EventClickBackButton()
         {
-            if (!PModel.OldModel.Equals(PModel))
+            if (PModel.OldModel != null && !PModel.OldModel.Equals(PModel))
             {
                 if (await DisplayAlert(RSC.ContractTemplates, RSC.WouldYouLikeToSave, RSC.Yes, RSC.No))
                 {
