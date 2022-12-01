@@ -113,7 +113,7 @@ namespace Contract.ViewModel
             };
 
             MenuList.Add(menu1);
-            MenuList.Add(menu2);
+            //MenuList.Add(menu2);
             MenuList.Add(menu3);
             MenuList.Add(menu4);
             MenuList.Add(menu5);

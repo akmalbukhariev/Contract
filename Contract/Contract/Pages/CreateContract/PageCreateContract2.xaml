@@ -76,14 +76,15 @@
                         <Label Text="{x:Static resource:AppResource.SelectServiceType}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.SelectServiceTypeTitle}"
-                                              ItemsSource="{Binding ServiceTypeList}"
-                                              SelectedItem="{Binding SelectedServiceType}"
-                                              SelectedIndex="{Binding SelectedServiceType_index}"
+                                              ItemsSource="{Binding TemplateList}"
+                                              ItemDisplayBinding="{Binding template_name}"
+                                              SelectedItem="{Binding SelectedTemplate}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
                                               ChartSyle="True"
                                               TitleColor="Gray"
-                                              BackgroundColor="White"/>
+                                              BackgroundColor="White"
+                                              SelectedIndexChanged="Template_SelectedIndexChanged"/>
                     </StackLayout>
                     <Label Text="{x:Static resource:AppResource.PleaseEnterServiceInfo}"
                            Style="{StaticResource lbBlackStyle}"

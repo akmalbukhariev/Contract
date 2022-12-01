@@ -165,5 +165,10 @@ namespace Contract.Pages.CreateContract
             PModel.UpdateServiceList();
             UpdateTotalCost();
         }
+
+        private void Template_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -72,7 +72,7 @@
                                    Aspect="AspectFit"
                                    WidthRequest="30"
                                    Margin="0,0,20,0"
-                                   IsVisible="{Binding IsThisSelectable}"
+                                   IsVisible="{Binding IsThisEditClient}"
                                    VerticalOptions="CenterAndExpand"
                                    HorizontalOptions="CenterAndExpand"
                                    Grid.Column="2"/>

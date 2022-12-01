@@ -14,8 +14,8 @@ namespace Contract.ViewModel.Pages.CreateContract
     public class PageCreateContract2ViewModel : BaseModel
     {
         #region Properties
-        public string SelectedServiceType { get => GetValue<string>(); set => SetValue(value); }
-        public int SelectedServiceType_index { get => GetValue<int>(); set => SetValue(value); }
+        //public string SelectedServiceType { get => GetValue<string>(); set => SetValue(value); }
+        //public int SelectedServiceType_index { get => GetValue<int>(); set => SetValue(value); }
         public string ContractNumber { get => GetValue<string>(); set => SetValue(value); }
         public string SelectedCurrency { get => GetValue<string>(); set => SetValue(value); }
         public int SelectedCurrency_index { get => GetValue<int>(); set => SetValue(value); }
@@ -26,95 +26,111 @@ namespace Contract.ViewModel.Pages.CreateContract
         public string TotalCostText { get => GetValue<string>(); set => SetValue(value); }
         public bool Agree { get => GetValue<bool>(); set => SetValue(value); }
 
-        public List<string> ServiceTypeList { get => GetValue<List<string>>(); set => SetValue(value); }
+
+        //public List<string> ServiceTypeList { get => GetValue<List<string>>(); set => SetValue(value); }
         public List<string> CurrencyList { get => GetValue<List<string>>(); set => SetValue(value); }
         public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); }
+
+        public HttpModels.ContractTemplate SelectedTemplate { get => GetValue<HttpModels.ContractTemplate>(); set => SetValue(value); }
         #endregion
 
         private ResponseContractNumberTemplate ResponseContractNumberInfo;
         private HttpModels.CompanyInfo ClientCompanyInfo = null;
 
         public ObservableCollection<ServicesInfo> ServicesList { get; set; }
+        public ObservableCollection<HttpModels.ContractTemplate> TemplateList { get; set; }
 
         public PageCreateContract2ViewModel(INavigation navigation, HttpModels.CompanyInfo companyInfo): base(navigation)
         {
-            this.ServicesList = new ObservableCollection<ServicesInfo>();
-            InitServiceList();
-             
-            ServiceTypeList = new List<string>();
+            ServicesList = new ObservableCollection<ServicesInfo>();
+            ServicesList.Add(new ServicesInfo());
+
+            TemplateList = new ObservableCollection<HttpModels.ContractTemplate>();
             CurrencyList = new List<string>();
             QQSList = new List<string>();
 
             ClientCompanyInfo = new HttpModels.ClientCompanyInfo(companyInfo);
 
-#if DEBUG
-            TotalCostText = "000 sum";
-            SelectedServiceType = "";
-            SelectedServiceType_index = 0;
-            ContractNumber = "890701";
-            SelectedCurrency = "RUB";
-            SelectedCurrency_index = 1;
-            SelectedQQS = "15%";
-            SelectedQQS_index = 0;
-            IsExeciseTax = false;
-            InterestText = "13%";
+            SelectedTemplate = null;
+            #region 
+            //TotalCostText = "000 sum";
+            //SelectedServiceType = "";
+            //SelectedServiceType_index = 0;
+            //ContractNumber = "890701";
+            //SelectedCurrency = "RUB";
+            //SelectedCurrency_index = 1;
+            //SelectedQQS = "15%";
+            //SelectedQQS_index = 0;
+            //IsExeciseTax = false;
+            //InterestText = "13%";
 
-            ServicesInfo item1 = new ServicesInfo()
-            {
-                NameOfService = "Test1",
-                SelectedMeasure = "Liter",
-                SelectedMeasure_index = 2,
-                AmountText = "7",
-                AmountOfPrice = "13",
-            };
-            ServicesInfo item2 = new ServicesInfo()
-            {
-                NameOfService = "Test2",
-                SelectedMeasure = "Liter",
-                SelectedMeasure_index = 2,
-                AmountText = "2",
-                AmountOfPrice = "10",
-            };
-            ServicesInfo item3 = new ServicesInfo()
-            {
-                NameOfService = "Test3",
-                SelectedMeasure = "Liter",
-                SelectedMeasure_index = 2,
-                AmountText = "70",
-                AmountOfPrice = "3",
-            };
+            //ServicesInfo item1 = new ServicesInfo()
+            //{
+            //    NameOfService = "Test1",
+            //    SelectedMeasure = "Liter",
+            //    SelectedMeasure_index = 2,
+            //    AmountText = "7",
+            //    AmountOfPrice = "13",
+            //};
+            //ServicesInfo item2 = new ServicesInfo()
+            //{
+            //    NameOfService = "Test2",
+            //    SelectedMeasure = "Liter",
+            //    SelectedMeasure_index = 2,
+            //    AmountText = "2",
+            //    AmountOfPrice = "10",
+            //};
+            //ServicesInfo item3 = new ServicesInfo()
+            //{
+            //    NameOfService = "Test3",
+            //    SelectedMeasure = "Liter",
+            //    SelectedMeasure_index = 2,
+            //    AmountText = "70",
+            //    AmountOfPrice = "3",
+            //};
 
-            ServicesList.Add(item1);
-            ServicesList.Add(item2);
-            ServicesList.Add(item3);
-#endif
+            //ServicesList.Add(item1);
+            //ServicesList.Add(item2);
+            //ServicesList.Add(item3);
+            #endregion
         }
 
         public async void RequestContractNumber()
         { 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractNumberInfo = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
-            ControlApp.CloseLoadingView();
-
-            if (ResponseContractNumberInfo.result)
+            ResponseContractTemplate response1 = await Net.HttpService.GetContractTemplate(ControlApp.UserInfo.phone_number);
+            if (response1.result)
             {
-                //switch (ResponseContractNumberInfo.data.format)
-                //{
-                //    case 1:
-                //        //ContractNumber = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number);
-                //        break;
-                //    case 2:
-                //        //ContractNumber = $"{ResponseContractNumberInfo.data.option} - {ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)}";
-                //        break;
-                //    case 3:
-                //        //ContractNumber = $"{ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)} - {ResponseContractNumberInfo.data.option}";
-                //        break;
-                //}
+                foreach (HttpModels.ContractTemplate item in response1.data)
+                {
+                    TemplateList.Add(new HttpModels.ContractTemplate(item));
+                }
+
+                //ResponseContractNumberTemplate response2 = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
+                 
+                //if (response2.result)
+                {
+                    //foreach (HttpModels.ContractNumberTemplate item in response2.data)
+                    {
+
+                    }
+
+                    //switch (ResponseContractNumberInfo.data.format)
+                    //{
+                    //    case 1:
+                    //        //ContractNumber = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number);
+                    //        break;
+                    //    case 2:
+                    //        //ContractNumber = $"{ResponseContractNumberInfo.data.option} - {ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)}";
+                    //        break;
+                    //    case 3:
+                    //        //ContractNumber = $"{ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number)} - {ResponseContractNumberInfo.data.option}";
+                    //        break;
+                    //}
+                }
             }
-            else
-            { 
-                ContractNumber = "";
-            }
+
+            ControlApp.CloseLoadingView();
         }
 
         #region Command
@@ -157,8 +173,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 client_stir = ClientCompanyInfo.stir_of_company,
                 client_company_name = ClientCompanyInfo.company_name,
                 user_company_name = ControlApp.UserCompanyInfo.company_name,
-                service_type = SelectedServiceType,
-                service_type_index = SelectedServiceType_index,
+                template_id = SelectedTemplate.id,
                 contract_number = $"{ControlApp.UserInfo.phone_number}_{strNumber.Replace("-","_")}",
                 contract_currency = SelectedCurrency,
                 contract_currency_index = SelectedCurrency_index,
@@ -222,13 +237,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
         }
         #endregion
-
-        public void InitServiceList()
-        {
-            ServicesInfo service = new ServicesInfo();
-            AddService(service);
-        }
-
+  
         public void AddService(ServicesInfo service)
         {
             service.SelectedCurrency = SelectedCurrency;
