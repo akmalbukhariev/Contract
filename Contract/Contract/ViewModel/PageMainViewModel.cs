@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using Contract.Model;
 using Contract.Net;
 using System;
@@ -43,7 +43,7 @@ namespace Contract.ViewModel
         {
             if (!ControlApp.InternetOk()) return;
 
-            HttpModels.ApprovedUnapprovedContract request = new HttpModels.ApprovedUnapprovedContract()
+            LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 user_stir = "111122",

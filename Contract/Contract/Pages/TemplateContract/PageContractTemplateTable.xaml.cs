@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using Contract.Interfaces;
 using Contract.Model;
 using Contract.ViewModel.Pages.TemplateContract;

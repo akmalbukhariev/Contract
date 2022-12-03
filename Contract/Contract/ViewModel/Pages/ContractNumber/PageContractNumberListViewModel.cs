@@ -1,6 +1,6 @@
 ﻿
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

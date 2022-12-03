@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using Contract.Interfaces;
 using Contract.ViewModel.Pages.ContractNumber;
 using Contract.ViewModel.Pages.Customers;
@@ -71,7 +71,7 @@ namespace Contract.Pages.ContractNumber
             Model.ContractNumber item = (Model.ContractNumber)((Image)sender).BindingContext;
             if (item == null) return;
 
-            HttpModels.ContractNumberTemplate data = new HttpModels.ContractNumberTemplate()
+            LibContract.HttpModels.ContractNumberTemplate data = new LibContract.HttpModels.ContractNumberTemplate()
             {
                 id = item.Id,
                 user_phone_number = ControlApp.UserInfo.phone_number,

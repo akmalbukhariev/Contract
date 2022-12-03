@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using Contract.Model;
 using System;
 using System.Collections.Generic;
@@ -39,7 +39,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             {
                 int count = 1;
                 Color rowColor = Color.White;
-                foreach (HttpModels.ContractTemplate item in response.data)
+                foreach (LibContract.HttpModels.ContractTemplate item in response.data)
                 {
                     if (count % 2 == 0)
                     {
@@ -56,7 +56,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                         ContractTempName = item.template_name,
                         ContractPurpose = RSC.Goods,
                         ItemColor = rowColor,
-                        TemplateInfo = new HttpModels.ContractTemplate(item)
+                        TemplateInfo = new LibContract.HttpModels.ContractTemplate(item)
                     };
 
                     Add(newItem);

@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -76,7 +76,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
                 return;
             }
               
-            HttpModels.ContractNumberTemplate data = new HttpModels.ContractNumberTemplate()
+            LibContract.HttpModels.ContractNumberTemplate data = new LibContract.HttpModels.ContractNumberTemplate()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 option = Option,

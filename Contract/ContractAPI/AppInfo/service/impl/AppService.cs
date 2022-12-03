@@ -1,7 +1,7 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

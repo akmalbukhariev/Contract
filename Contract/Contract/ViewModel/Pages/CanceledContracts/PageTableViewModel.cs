@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Contract.HttpResponse;
+using LibContract.HttpResponse;
 using Contract.Model;
 using Xamarin.Forms;
 
@@ -37,7 +37,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
         { 
             this.DataList.Clear();
 
-            HttpModels.CreateContractInfo request = new HttpModels.CreateContractInfo();
+            LibContract.HttpModels.CreateContractInfo request = new LibContract.HttpModels.CreateContractInfo();
             request.user_stir = "111122";
             request.user_phone_number = "12";
             request.is_canceled = 1;
@@ -49,7 +49,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             if (response.result)
             {
                 int no = 0;
-                foreach (HttpModels.CreateContractInfo info in response.data)
+                foreach (LibContract.HttpModels.CreateContractInfo info in response.data)
                 { 
                     no++;
                     CanceledContract item = new CanceledContract()

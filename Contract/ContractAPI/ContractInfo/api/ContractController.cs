@@ -1,8 +1,8 @@
 ﻿using ContractAPI.ContractInfo.service;
 using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,6 +20,13 @@ namespace ContractAPI.ContractInfo.api
         public ContractController(IContractService service) : base(service)
         {
             
+        }
+
+        [HttpGet("getNewContractNumber/{phoneNumber}")]
+        public async Task<IActionResult> getNewContractNumber(string phoneNumber)
+        {
+            ResponseCreateContract response = await Service.getNewContractNumber(phoneNumber);
+            return MakeResponse(response, response.error_code);
         }
 
         [HttpGet("getPurposeOfContract/{phoneNumber}")]

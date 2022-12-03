@@ -228,4 +228,8 @@
   <ItemGroup>
     <Folder Include="ViewModel\SignUp\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\LibContract\LibContract.csproj" />
+  </ItemGroup>
 </Project>

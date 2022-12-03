@@ -1,6 +1,6 @@
 ﻿using ContractAPI.DataAccess;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ namespace ContractAPI.ContractInfo.service
 {
     public interface IContractService
     {
+        Task<ResponseCreateContract> getNewContractNumber(string phoneNumber);
         Task<ResponsePurposeOfContract> getPurposeOfContract(string phoneNumber);
         Task<ResponsePurposeOfContract> setPurposeOfContract(PurposeOfContract info);
         Task<ResponseCreateContract> createContract(CreateContractInfo info);

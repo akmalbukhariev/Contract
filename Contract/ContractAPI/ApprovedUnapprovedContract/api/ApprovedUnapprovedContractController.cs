@@ -1,8 +1,8 @@
 ﻿using ContractAPI.ApprovedUnapprovedContract.service;
 using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -36,7 +36,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.api
         }
 
         [HttpPost("getApprovedOrUnapprovedContract")]
-        public async Task<IActionResult> getApprovedOrUnapprovedContract([FromBody] Contract.HttpModels.ApprovedUnapprovedContract info)
+        public async Task<IActionResult> getApprovedOrUnapprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
         {
             ResponseApprovedUnapprovedContract response = await Service.getApprovedOrUnapprovedContract(info);
             return MakeResponse(response, response.error_code);

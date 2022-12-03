@@ -12,17 +12,17 @@ namespace Contract.Model
         public string ContractTempName { get => GetValue<string>(); set => SetValue(value); }
         public string ContractPurpose { get => GetValue<string>(); set => SetValue(value); } 
         public Color ItemColor { get => GetValue<Color>(); set => SetValue(value); }
-        public HttpModels.ContractTemplate TemplateInfo { get; set; }
+        public LibContract.HttpModels.ContractTemplate TemplateInfo { get; set; }
 
         public ContractTemplate()
         {
             
         }
 
-        public ContractTemplate(HttpModels.ContractTemplate other)
+        public ContractTemplate(LibContract.HttpModels.ContractTemplate other)
         {
             ContractTempName = other.template_name;
-            TemplateInfo = new HttpModels.ContractTemplate(other);
+            TemplateInfo = new LibContract.HttpModels.ContractTemplate(other);
         }
 
         public ContractTemplate(ContractTemplate other)
@@ -36,7 +36,7 @@ namespace Contract.Model
             ContractTempName = other.ContractTempName;
             ContractPurpose = other.ContractPurpose;
             ItemColor = other.ItemColor;
-            TemplateInfo = new HttpModels.ContractTemplate(other.TemplateInfo);
+            TemplateInfo = new LibContract.HttpModels.ContractTemplate(other.TemplateInfo);
         }
     }
 }

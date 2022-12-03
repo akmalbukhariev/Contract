@@ -1,5 +1,5 @@
-﻿using Contract.HttpModels;
-using Contract.HttpResponse;
+﻿using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using ContractAPI.Helper;
 using ContractAPI.OfferObjection.service;
 using Microsoft.AspNetCore.Http;

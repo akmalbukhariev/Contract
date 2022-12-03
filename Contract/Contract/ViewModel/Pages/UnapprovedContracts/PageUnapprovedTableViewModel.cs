@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Contract.HttpResponse;
+using LibContract.HttpResponse;
 using Contract.Model;
 using Contract.Pages.UnapprovedContracts;
 using Xamarin.Forms;
@@ -56,7 +56,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
         { 
             this.DataList.Clear();
 
-            HttpModels.ApprovedUnapprovedContract request = new HttpModels.ApprovedUnapprovedContract()
+            LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 user_stir = "111122",
@@ -70,7 +70,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
             if (response.result)
             {
                 int no = 0;
-                foreach (HttpModels.CreateContractInfo info in response.data)
+                foreach (LibContract.HttpModels.CreateContractInfo info in response.data)
                 {
                     no++;
                     UnapprovedContract item = new UnapprovedContract()

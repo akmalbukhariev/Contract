@@ -1,7 +1,7 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -66,7 +66,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
             return response;
         }
 
-        public async Task<ResponseApprovedUnapprovedContract> getApprovedOrUnapprovedContract(Contract.HttpModels.ApprovedUnapprovedContract info)
+        public async Task<ResponseApprovedUnapprovedContract> getApprovedOrUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info)
         {
             ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
 

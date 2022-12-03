@@ -1,5 +1,5 @@
 ﻿using Contract.Control;
-using Contract.HttpResponse;
+using LibContract.HttpResponse;
 using Contract.Pages.Login;
 using System;
 using System.Collections.Generic;
@@ -38,7 +38,7 @@ namespace Contract.ViewModel.Pages.ChangePassword
                 return;
             }
 
-            HttpModels.ChnagePassword user = new HttpModels.ChnagePassword()
+            LibContract.HttpModels.ChnagePassword user = new LibContract.HttpModels.ChnagePassword()
             {
                 phone_number = ControlApp.UserInfo.phone_number,
                 password = EnterCurrentPassword,

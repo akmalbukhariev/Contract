@@ -1,5 +1,5 @@
 ﻿using Contract.Control;
-using Contract.HttpResponse;
+using LibContract.HttpResponse;
 using Contract.Net;
 using Contract.Pages;
 using Contract.Pages.SignUp;
@@ -31,7 +31,7 @@ namespace Contract.ViewModel.Pages.Login
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
 
-            var data = new HttpModels.Login()
+            var data = new LibContract.HttpModels.Login()
             {
                 phone_number = PhoneNumber,
                 password = Password
@@ -45,7 +45,7 @@ namespace Contract.ViewModel.Pages.Login
                 return;
             }
 
-            ControlApp.UserInfo = new HttpModels.User(response.data);
+            ControlApp.UserInfo = new LibContract.HttpModels.User(response.data);
             Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail());
 
             if (CheckAutoLogin)

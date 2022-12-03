@@ -84,7 +84,7 @@
                                               ChartSyle="True"
                                               TitleColor="Gray"
                                               BackgroundColor="White"
-                                              SelectedIndexChanged="Template_SelectedIndexChanged"/>
+                                              SelectedIndexChanged="ContractTemplate_SelectedIndexChanged"/>
                     </StackLayout>
                     <Label Text="{x:Static resource:AppResource.PleaseEnterServiceInfo}"
                            Style="{StaticResource lbBlackStyle}"

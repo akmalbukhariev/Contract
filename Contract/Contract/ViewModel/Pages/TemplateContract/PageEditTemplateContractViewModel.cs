@@ -1,5 +1,5 @@
-﻿using Contract.HttpModels;
-using Contract.HttpResponse;
+﻿using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Contract.Model;
 using Contract.Pages.TemplateContract;
 using Newtonsoft.Json;
@@ -27,12 +27,12 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
         public Model.ContractNumber SelectedContractNumberTemplate { get => GetValue<Model.ContractNumber>(); set => SetValue(value); }
 
-        public HttpModels.ContractTemplate TemplateInfo { get; set; } = null;
+        public LibContract.HttpModels.ContractTemplate TemplateInfo { get; set; } = null;
         public PageEditTemplateContractViewModel OldModel { get; set; } = null;
         public ObservableCollection<EditTemplate> ContractClausesList { get; set; }
         public ObservableCollection<Model.ContractNumber> ContractNumberTemplateList { get; set; }
         
-        public PageEditTemplateContractViewModel(HttpModels.ContractTemplate templateInfo, INavigation navigation) : base(navigation)
+        public PageEditTemplateContractViewModel(LibContract.HttpModels.ContractTemplate templateInfo, INavigation navigation) : base(navigation)
         {
             TemplateInfo = templateInfo;
             EnableAddUpdate = true;
@@ -170,7 +170,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             AddressOfCompany = other.AddressOfCompany;
             NameOfTemplate = other.NameOfTemplate;
             SelectedContractNumberTemplate = new Model.ContractNumber(other.SelectedContractNumberTemplate);
-            TemplateInfo = new HttpModels.ContractTemplate(other.TemplateInfo);
+            TemplateInfo = new LibContract.HttpModels.ContractTemplate(other.TemplateInfo);
 
             foreach (EditTemplate item in other.ContractClausesList)
             {
@@ -424,10 +424,11 @@ namespace Contract.ViewModel.Pages.TemplateContract
             }
             
             string strJson = JsonConvert.SerializeObject(TemplateToJson());
-            HttpModels.ContractTemplate data = new HttpModels.ContractTemplate()
+            LibContract.HttpModels.ContractTemplate data = new LibContract.HttpModels.ContractTemplate()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 contract_number_format_id = SelectedContractNumberTemplate.Id,
+                contract_number_option = SelectedContractNumberTemplate.ContractNumberText.Replace(Constants.ContractSequenceNumber,"").Replace("-",""),
                 company_address = AddressOfCompany,
                 template_name = NameOfTemplate,
                 clauses = strJson,
@@ -530,7 +531,14 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
             foreach (EditTemplate item in ContractClausesList)
             {
-                rList.Add(new ContractTemplateJson(item));
+                ContractTemplateJson newItem = item.Convert2ContractTemplateJson();
+
+                foreach (EditTemplate chItem in item.Child)
+                {
+                    newItem.Child.Add(chItem.Convert2ContractTemplateJson());
+                }
+
+                rList.Add(new ContractTemplateJson(newItem));
             }
              
             return rList;

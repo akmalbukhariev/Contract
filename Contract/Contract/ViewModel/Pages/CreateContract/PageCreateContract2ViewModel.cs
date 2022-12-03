@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using Contract.Model;
 using Contract.Pages.CreateContract;
 using System;
@@ -31,25 +31,25 @@ namespace Contract.ViewModel.Pages.CreateContract
         public List<string> CurrencyList { get => GetValue<List<string>>(); set => SetValue(value); }
         public List<string> QQSList { get => GetValue<List<string>>(); set => SetValue(value); }
 
-        public HttpModels.ContractTemplate SelectedTemplate { get => GetValue<HttpModels.ContractTemplate>(); set => SetValue(value); }
+        public LibContract.HttpModels.ContractTemplate SelectedTemplate { get => GetValue<LibContract.HttpModels.ContractTemplate>(); set => SetValue(value); }
         #endregion
 
         private ResponseContractNumberTemplate ResponseContractNumberInfo;
-        private HttpModels.CompanyInfo ClientCompanyInfo = null;
+        private LibContract.HttpModels.CompanyInfo ClientCompanyInfo = null;
 
         public ObservableCollection<ServicesInfo> ServicesList { get; set; }
-        public ObservableCollection<HttpModels.ContractTemplate> TemplateList { get; set; }
+        public ObservableCollection<LibContract.HttpModels.ContractTemplate> TemplateList { get; set; }
 
-        public PageCreateContract2ViewModel(INavigation navigation, HttpModels.CompanyInfo companyInfo): base(navigation)
+        public PageCreateContract2ViewModel(INavigation navigation, LibContract.HttpModels.CompanyInfo companyInfo): base(navigation)
         {
             ServicesList = new ObservableCollection<ServicesInfo>();
             ServicesList.Add(new ServicesInfo());
 
-            TemplateList = new ObservableCollection<HttpModels.ContractTemplate>();
+            TemplateList = new ObservableCollection<LibContract.HttpModels.ContractTemplate>();
             CurrencyList = new List<string>();
             QQSList = new List<string>();
 
-            ClientCompanyInfo = new HttpModels.ClientCompanyInfo(companyInfo);
+            ClientCompanyInfo = new LibContract.HttpModels.ClientCompanyInfo(companyInfo);
 
             SelectedTemplate = null;
             #region 
@@ -101,16 +101,16 @@ namespace Contract.ViewModel.Pages.CreateContract
             ResponseContractTemplate response1 = await Net.HttpService.GetContractTemplate(ControlApp.UserInfo.phone_number);
             if (response1.result)
             {
-                foreach (HttpModels.ContractTemplate item in response1.data)
+                foreach (LibContract.HttpModels.ContractTemplate item in response1.data)
                 {
-                    TemplateList.Add(new HttpModels.ContractTemplate(item));
+                    TemplateList.Add(new LibContract.HttpModels.ContractTemplate(item));
                 }
 
                 //ResponseContractNumberTemplate response2 = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
                  
                 //if (response2.result)
                 {
-                    //foreach (HttpModels.ContractNumberTemplate item in response2.data)
+                    //foreach (LibContract.HttpModels.ContractNumberTemplate item in response2.data)
                     {
 
                     }
@@ -130,6 +130,11 @@ namespace Contract.ViewModel.Pages.CreateContract
                 }
             }
 
+            ResponseCreateContract response2 = await Net.HttpService.GetNewContractNumber(ControlApp.UserInfo.phone_number);
+            if (response2.result)
+            {
+                
+            }
             ControlApp.CloseLoadingView();
         }
 
@@ -146,7 +151,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 return;
             }
 
-            HttpModels.ContractNumberTemplate data = new HttpModels.ContractNumberTemplate()
+            LibContract.HttpModels.ContractNumberTemplate data = new LibContract.HttpModels.ContractNumberTemplate()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 //sequence_number = ControlApp.MakeSequenceNumber(ResponseContractNumberInfo.data.sequence_number),
@@ -165,7 +170,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
 
             string strNumber = Regex.Replace(ContractNumber, @"\s", "");
-            HttpModels.CreateContractInfo contractinfo = new HttpModels.CreateContractInfo()
+            LibContract.HttpModels.CreateContractInfo contractinfo = new LibContract.HttpModels.CreateContractInfo()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 open_client_info = ControlApp.OpenClientInfo ? 1 : 0,
@@ -186,10 +191,10 @@ namespace Contract.ViewModel.Pages.CreateContract
                 created_date = ""
             };
              
-            List<HttpModels.ServicesInfo> serviceList = new List<HttpModels.ServicesInfo>();
+            List<LibContract.HttpModels.ServicesInfo> serviceList = new List<LibContract.HttpModels.ServicesInfo>();
             foreach (ServicesInfo item in ServicesList)
             {
-                HttpModels.ServicesInfo newItem = new HttpModels.ServicesInfo()
+                LibContract.HttpModels.ServicesInfo newItem = new LibContract.HttpModels.ServicesInfo()
                 {
                     contract_number = ContractNumber,
                     name_of_service = item.NameOfService,
@@ -200,7 +205,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                     currency = item.SelectedCurrency,
                     created_date = ""
                 };
-                serviceList.Add(new HttpModels.ServicesInfo(newItem));
+                serviceList.Add(new LibContract.HttpModels.ServicesInfo(newItem));
             }
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);

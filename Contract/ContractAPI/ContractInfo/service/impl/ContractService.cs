@@ -1,7 +1,7 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,25 @@ namespace ContractAPI.ContractInfo.service.impl
         public ContractService(ContractMakerContext db)
         {
             dataBase = db;
+        }
+
+        public async Task<ResponseCreateContract> getNewContractNumber(string phoneNumber)
+        {
+            ResponseCreateContract response = new ResponseCreateContract();
+
+            CreateContractInfo lastContractNumber = await dataBase.CreateContractInfo
+                .Where(item => item.user_phone_number.Equals(phoneNumber))
+                .OrderBy(item => item.created_date)
+                .LastOrDefaultAsync();
+
+            if (lastContractNumber == null)
+            {
+                //response.message = Constants.NotFound;
+                //response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+             
+            return response;
         }
 
         public async Task<ResponsePurposeOfContract> getPurposeOfContract(string phoneNumber)

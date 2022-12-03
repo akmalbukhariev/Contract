@@ -16,7 +16,7 @@ namespace Contract.Pages.CreateContract
     {
         private bool yes1 = true;
         
-        public PageCreateContract2(HttpModels.CompanyInfo companyInfo)
+        public PageCreateContract2(LibContract.HttpModels.CompanyInfo companyInfo)
         {
             InitializeComponent();
 
@@ -166,7 +166,7 @@ namespace Contract.Pages.CreateContract
             UpdateTotalCost();
         }
 
-        private void Template_SelectedIndexChanged(object sender, EventArgs e)
+        private void ContractTemplate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

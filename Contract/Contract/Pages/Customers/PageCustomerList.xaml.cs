@@ -47,12 +47,12 @@ namespace Contract.Pages.Customers
             var tListView = sender as ListView;
             Customer item = (Customer)tListView.SelectedItem;
 
-            foreach (HttpModels.CompanyInfo info in model.ResponseClientCompanyInfo.data)
+            foreach (LibContract.HttpModels.CompanyInfo info in model.ResponseClientCompanyInfo.data)
             {
                 string strStir = item.UserStir.Replace($"{RSC.STIR} :", "").Trim();
                 if (info.stir_of_company.Trim().Equals(strStir))
                 {
-                    ControlApp.SelectedClientCompanyInfo = new HttpModels.CompanyInfo();
+                    ControlApp.SelectedClientCompanyInfo = new LibContract.HttpModels.CompanyInfo();
                     ControlApp.SelectedClientCompanyInfo.Copy(info);
                      
                     break;

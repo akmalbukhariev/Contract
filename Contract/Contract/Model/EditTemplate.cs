@@ -1,4 +1,5 @@
 ﻿using Contract.ViewModel;
+using LibContract.HttpModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -61,6 +62,19 @@ namespace Contract.Model
         public EditTemplate(EditTemplate other)
         {
             Copy(other);
+        }
+
+        public ContractTemplateJson Convert2ContractTemplateJson()
+        {
+            return new ContractTemplateJson()
+            {
+                IsButton = IsVisibleButton,
+                IsVisibleAddButton = IsVisibleAddButton,
+                IsContractServiceDetailsButton = IsContractServiceDetailsButton,
+                IsContractInfoButton = IsContractInfoButton,
+                Title = Title,
+                Description = Description
+            };
         }
 
         public void Copy(EditTemplate other)

@@ -1,6 +1,6 @@
 ﻿using Contract.Control;
-using Contract.HttpModels;
-using Contract.HttpResponse;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Contract.Pages.CanceledContracts;
 using System;
 using System.Collections.Generic;

@@ -16,7 +16,7 @@ namespace Contract.Pages.TemplateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEditTemplateContract : IPage
     {  
-        public PageEditTemplateContract(HttpModels.ContractTemplate templateInfo = null)
+        public PageEditTemplateContract(LibContract.HttpModels.ContractTemplate templateInfo = null)
         {
             InitializeComponent();
 

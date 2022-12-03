@@ -1,4 +1,4 @@
-﻿using Contract.HttpModels;
+﻿using LibContract.HttpModels;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -65,7 +65,7 @@ namespace Contract.Pages.ApprovedContracts
             ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
-            HttpModels.CreateContractInfo canceledContract = new HttpModels.CreateContractInfo()
+            LibContract.HttpModels.CreateContractInfo canceledContract = new LibContract.HttpModels.CreateContractInfo()
             { 
                 contract_number = item.ContractNnumber,
                 comment = ""

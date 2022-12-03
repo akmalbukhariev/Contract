@@ -1,5 +1,5 @@
-﻿using Contract.HttpModels;
-using Contract.HttpResponse;
+﻿using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Contract.Net
 {
-   public  class HttpService
+   public class HttpService
     {
         #region Url 
         public static string DATA_URL = "http://192.168.219.102:5000/";
@@ -65,11 +65,15 @@ namespace Contract.Net
         public static string URL_GET_ALLREADY_TEMPLATE = SERVER_URL + "ContractTemplate/getAllReadyTemplate";
         #endregion
 
+        #region Contract
         public static string URL_GET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/getPurposeOfContract/"; //phoneNumber
         public static string URL_SET_PURPOSE_OF_CONTRACT = SERVER_URL + "Contract/setPurposeOfContract";
+
+        public static string URL_GET_NEW_CONTRACT_NUMBER = SERVER_URL + "Contract/getNewContractNumber/"; //phoneNumber
         public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
         public static string URL_CANCEL_CONTRACT = SERVER_URL + "Contract/cancelContract";
         public static string URL_DELETE_CONTRACT = SERVER_URL + "Contract/deleteContract"; //contract_number
+        #endregion
 
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract"; 
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
@@ -407,6 +411,19 @@ namespace Contract.Net
         #endregion
 
         #region Contract
+        public async static Task<ResponseCreateContract> GetNewContractNumber(string phoneNumber)
+        {
+            ResponseCreateContract response = new ResponseCreateContract();
+            try
+            {
+                var receivedData = await RequestGetMethod($"{URL_GET_NEW_CONTRACT_NUMBER}{phoneNumber}");
+                response = JsonConvert.DeserializeObject<ResponseCreateContract>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
+            
+            return response;
+        }
         public async static Task<ResponseCreateContract> CreateContract(CreateContractInfo data)
         {
             Response response = new Response();
@@ -455,7 +472,6 @@ namespace Contract.Net
             return responseLogin;
         }
         #endregion
-
 
         public async static Task<ResponseLogin> UpdateUserPassword(ChnagePassword data)
         {

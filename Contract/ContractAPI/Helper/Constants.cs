@@ -13,7 +13,7 @@ namespace ContractAPI
         public const string DoNotExist = "Do not exist!";
         public const string Exist = "Exist!";
 
-        public const string TimeFormat = "yyyymmdd_hhmmss.fff";
+        public const string TimeFormat = "yyyyMMdd_hhmmss.fff";
 
         public const string SaveImagePath = "\\Upload\\images\\";
     }

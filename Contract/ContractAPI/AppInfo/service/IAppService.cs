@@ -1,4 +1,4 @@
-﻿using Contract.HttpResponse;
+﻿using LibContract.HttpResponse;
 using ContractAPI.DataAccess; 
 using System;
 using System.Collections.Generic;

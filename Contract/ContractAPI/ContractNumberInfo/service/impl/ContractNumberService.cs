@@ -1,5 +1,5 @@
-﻿using Contract.HttpModels;
-using Contract.HttpResponse;
+﻿using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using ContractAPI.AppInfo.service.impl;
 using ContractAPI.DataAccess;
 using Microsoft.EntityFrameworkCore;
