@@ -46,7 +46,7 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<OfferAndObjection>().HasKey(r => r.created_date);
 
             modelBuilder.Entity<ClientCompanyInfo>().ToTable("ClientCompanyInfo");
-            modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.stir_of_company);
+            modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.id);
 
             modelBuilder.Entity<CreateContractInfo>().ToTable("CreateContractInfo");
             modelBuilder.Entity<CreateContractInfo>().HasKey(r => r.created_date);

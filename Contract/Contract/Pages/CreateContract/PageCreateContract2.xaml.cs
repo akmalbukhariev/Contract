@@ -1,5 +1,6 @@
 ﻿using Contract.Model;
 using Contract.ViewModel.Pages.CreateContract;
+ 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using LibContract;
 
 namespace Contract.Pages.CreateContract
 {
@@ -32,7 +35,7 @@ namespace Contract.Pages.CreateContract
             base.OnAppearing();
             Model.Parent = Parent;
 
-            PModel.RequestContractNumber();
+            PModel.RrequestInfo();
 
             lbStep.Text = RSC.Step + " #2";
             PModel.CurrencyList = GetCurrentList;
@@ -167,8 +170,24 @@ namespace Contract.Pages.CreateContract
         }
 
         private void ContractTemplate_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        { 
+            if (PModel.ResponseContractNumberTemplateInfo != null&& PModel.ResponseContractNumberTemplateInfo.result)
+            {
+                var numTemplate = PModel.ResponseContractNumberTemplateInfo.data.Where(item => item.id == PModel.SelectedTemplate.contract_number_format_id).FirstOrDefault();
 
+                switch (numTemplate.id)
+                {
+                    case 1:
+                        PModel.ContractNumber = PModel.ContractSequenceNumber;
+                        break;
+                    case 2:
+                        PModel.ContractNumber = $"{PModel.SelectedTemplate.contract_number_option} - {PModel.ContractSequenceNumber}";
+                        break;
+                    case 3:
+                        PModel.ContractNumber = $"{PModel.ContractSequenceNumber} - {PModel.SelectedTemplate.contract_number_option}";
+                        break;
+                }
+            }
         }
     }
 }

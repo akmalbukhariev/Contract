@@ -17,6 +17,7 @@ namespace LibContract.HttpModels
         public string user_company_name { get; set; }
         //public string service_type { get; set; }
         public int template_id { get; set; }
+        public string contract_sequence_number { get; set; }
         public string contract_number { get; set; }
         public string contract_currency { get; set; }
         public int contract_currency_index { get; set; }
@@ -60,6 +61,7 @@ namespace LibContract.HttpModels
             user_company_name = other.user_company_name; 
             //service_type = other.service_type;
             template_id = other.template_id;
+            contract_sequence_number = other.contract_sequence_number;
             contract_number = other.contract_number;
             contract_currency = other.contract_currency;
             contract_currency_index = other.contract_currency_index;

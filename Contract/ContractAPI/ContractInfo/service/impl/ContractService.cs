@@ -1,5 +1,6 @@
 ﻿using ContractAPI.DataAccess;
 using ContractAPI.Helper;
+using LibContract;
 using LibContract.HttpModels;
 using LibContract.HttpResponse;
 using Microsoft.EntityFrameworkCore;
@@ -24,16 +25,17 @@ namespace ContractAPI.ContractInfo.service.impl
 
             CreateContractInfo lastContractNumber = await dataBase.CreateContractInfo
                 .Where(item => item.user_phone_number.Equals(phoneNumber))
-                .OrderBy(item => item.created_date)
+                .OrderBy(item => item.contract_sequence_number)
                 .LastOrDefaultAsync();
+              
+            response.result = true;
+            response.message = Constants.Found;
+            response.error_code = (int)HttpStatusCode.OK;
 
-            if (lastContractNumber == null)
-            {
-                //response.message = Constants.NotFound;
-                //response.error_code = (int)HttpStatusCode.BadRequest;
-                return response;
-            }
-             
+            response.new_contract_sequence_number = lastContractNumber == null ? 
+                                           ContractNumberWorker.MakeSequenceNumber("00000") :
+                                           ContractNumberWorker.MakeSequenceNumber(lastContractNumber.contract_sequence_number);
+
             return response;
         }
 

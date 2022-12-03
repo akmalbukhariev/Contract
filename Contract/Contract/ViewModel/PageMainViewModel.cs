@@ -57,7 +57,7 @@ namespace Contract.ViewModel
             ControlApp.CloseLoadingView();
 
             if (response.result)
-            {
+            { 
                 TextValue1 = response.data != null ? response.data.Where(item => item.is_approved == 1).ToList().Count.ToString() : "0";
                 TextValue2 = response.data != null ? response.data.Where(item => item.is_approved == 0).ToList().Count.ToString() : "0";
             }

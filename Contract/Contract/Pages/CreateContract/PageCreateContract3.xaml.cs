@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using LibContract;
 
 namespace Contract.Pages.CreateContract
 {
@@ -23,7 +24,7 @@ namespace Contract.Pages.CreateContract
 
             ContractInfo = new CreateContractInfo(createContract);
 
-            lbContractNumber.Text = ControlApp.ExtractContractNumber(createContract.contract_number);
+            lbContractNumber.Text = ContractNumberWorker.ExtractContractNumber(createContract.contract_number);
             lbContractPrice.Text = createContract.total_cost_text;
         }
 

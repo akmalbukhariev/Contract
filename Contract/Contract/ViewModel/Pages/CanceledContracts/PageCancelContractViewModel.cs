@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using LibContract;
 
 namespace Contract.ViewModel.Pages.CanceledContracts
 {
@@ -21,7 +22,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             : base(navigation)
         {
             CanceledContractInfo = contractInfo;
-            ContractNumber = $" {ControlApp.ExtractContractNumber(contractInfo.contract_number)} ";
+            ContractNumber = $" {ContractNumberWorker.ExtractContractNumber(contractInfo.contract_number)} ";
             MoveToMainPage = moveToMainPage;
         }
 

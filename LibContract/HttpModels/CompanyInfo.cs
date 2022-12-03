@@ -7,6 +7,7 @@ namespace LibContract.HttpModels
 {
     public class BaseCompanyInfo
     {
+        public int id { get; set; }
         public string user_phone_number { get; set; } = "";
         /// <summary>
         /// 1 = yes, 0 = no
@@ -55,6 +56,7 @@ namespace LibContract.HttpModels
 
         public void Copy(CompanyInfo other)
         {
+            base.id = other.id;
             base.user_phone_number = other.user_phone_number;
             base.company_name = other.company_name;
             base.address_of_company = other.address_of_company;

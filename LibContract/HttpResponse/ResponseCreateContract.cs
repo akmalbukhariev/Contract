@@ -8,6 +8,6 @@ namespace LibContract.HttpResponse
 {
     public class ResponseCreateContract : Response, IResponse
     {
-         public string new_contract_number { get; set; }
+         public string new_contract_sequence_number { get; set; }
     }
 }
