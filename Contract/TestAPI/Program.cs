@@ -12,8 +12,11 @@ namespace TestAPI
         {
             //SendMessage();
 
-            CreateClauses clause = new CreateClauses();
-            clause.Create();
+            //CreateClauses clause = new CreateClauses();
+            //clause.Create();
+
+            CreatePDF pdf = new CreatePDF();
+            pdf.Run();
 
             Console.ReadLine();
         }

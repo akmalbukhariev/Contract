@@ -12,12 +12,13 @@ namespace TestAPI
     {
         public void Create()
         {
-            Normal();
-            //Popular();
-            Simple();
+            string strJson = "";
+            strJson = Normal();
+            //strJson = Popular();
+            //strJson = Simple();
         }
 
-        private void Normal()
+        private string Normal()
         {
             List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
 
@@ -50,10 +51,10 @@ namespace TestAPI
             itemButton2.IsVisibleAddButton = true;
             jList.Add(itemButton2);
 
-            string strJson = JsonConvert.SerializeObject(jList);
+            return JsonConvert.SerializeObject(jList);
         }
 
-        private void Popular()
+        private string Popular()
         {
             List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
 
@@ -223,10 +224,10 @@ namespace TestAPI
             itemButton2.IsVisibleAddButton = true;
             jList.Add(itemButton2);
 
-            string strJson = JsonConvert.SerializeObject(jList);
+            return JsonConvert.SerializeObject(jList);
         }
 
-        private void Simple()
+        private string Simple()
         {
             List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
 
@@ -299,7 +300,7 @@ namespace TestAPI
             itemButton2.IsVisibleAddButton = true;
             jList.Add(itemButton2);
 
-            string strJson = JsonConvert.SerializeObject(jList);
+            return JsonConvert.SerializeObject(jList);
         }
     }
 }

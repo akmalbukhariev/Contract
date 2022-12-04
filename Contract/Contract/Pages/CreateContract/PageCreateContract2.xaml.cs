@@ -133,7 +133,7 @@ namespace Contract.Pages.CreateContract
                 cost += item.CalcTotalCost();
             }
 
-            PModel.TotalCostText = $"{cost.ToString()} {PModel.SelectedCurrency}";
+            PModel.TotalCostText = $"{cost} {PModel.SelectedCurrency}";
         }
 
         async void ChangeBoxColor(BoxView boxView)
