@@ -1,4 +1,6 @@
-﻿using PdfSharpCore.Drawing;
+﻿using LibContract.HttpModels;
+using Newtonsoft.Json;
+using PdfSharpCore.Drawing;
 using PdfSharpCore.Drawing.Layout;
 using PdfSharpCore.Fonts;
 using PdfSharpCore.Pdf;
@@ -16,6 +18,7 @@ namespace TestAPI
     public class CreatePDF
     {
         //http://www.pdfsharp.net/wiki/PDFsharpSamples.ashx
+        //http://developer.th-soft.com/developer/2015/07/17/pdfsharp-improving-the-xtextformatter-class-measuring-the-height-of-the-text/
         public void Run()
         {
             //GlobalFontSettings.FontResolver = new FontResolver();
@@ -35,7 +38,8 @@ namespace TestAPI
             //
             //document.Save("helloworld.pdf");
 
-            CreateContract();
+            //CreateContract();
+            CreateNormalContract();
         }
 
         private void CreateContract()
@@ -62,34 +66,22 @@ namespace TestAPI
             //
             //var layout4 = new XRect(20, 100, page.Width, page.Height);
             //gr.DrawString(Constans.str4, fontText, XBrushes.Black, layout4, XStringFormats.TopLeft);
-
-
+             
             XTextFormatter tf = new XTextFormatter(gr);
-            tf.DrawString(Constans.str2, fontText, XBrushes.Black, new XRect(20, 250, page.Width - 10, page.Height - 10));
+            
+            XRect layout1 = new XRect(20, 100, page.Width - 10, double.MaxValue);
+            //tf.DrawString(Constans.str2, fontText, XBrushes.Black, layout1);
+              
+            int lastFittingChar = 0;
+            double neededHeight = 0.0;
+            XTextFormatterEx nFr = new XTextFormatterEx(gr);
+            nFr.PrepareDrawString(Constans.str2, fontText, layout1, out lastFittingChar, out neededHeight);
 
+            XRect layout2 = new XRect(20, 100 + neededHeight + 10, page.Width - 10, double.MaxValue);
+            //tf.DrawString(Constans.str4, fontText, XBrushes.Black, layout2);
 
-            //const XFontStyle style = XFontStyle.Regular; 
-            //XFont font = new XFont("Times New Roman", 20, style);  
-            //const string text = Constans.str4; 
-            //const double x = 20, y = 230; 
-            //XSize size = gr.MeasureString(text, font);  
-            //double lineSpace = font.GetHeight(); 
-            //int cellSpace = font.FontFamily.GetLineSpacing(style); 
-            //int cellAscent = font.FontFamily.GetCellAscent(style); 
-            //int cellDescent = font.FontFamily.GetCellDescent(style); 
-            //int cellLeading = cellSpace - cellAscent - cellDescent;  
-            //double ascent = lineSpace * cellAscent / cellSpace;
-            //gr.DrawRectangle(XBrushes.Bisque, x, y - ascent, size.Width, ascent);  
-            //double descent = lineSpace * cellDescent / cellSpace;
-            //gr.DrawRectangle(XBrushes.LightGreen, x, y, size.Width, descent);  
-            //double leading = lineSpace * cellLeading / cellSpace;
-            //gr.DrawRectangle(XBrushes.Yellow, x, y + descent, size.Width, leading);  
-            //XColor color = XColors.DarkSlateBlue; 
-            //color.A = 0.6;
-            //gr.DrawString(text, font, new XSolidBrush(color), x, y);
-
-
-
+            //XSize ss = gr.MeasureString(tf.Text, fontText);
+            //XSize sss = gr.MeasureString(Constans.str2, fontText);
 
             TableColumn1 tableCol = new TableColumn1()
             {
@@ -158,7 +150,7 @@ namespace TestAPI
             rows.Add(row4);
             rows.Add(row5);
 
-            //DrawTable1(page, gr, tableCol, rows);
+            DrawTable1(page, gr, tableCol, rows);
 
             SellerBuyer rowInfo = new SellerBuyer()
             {
@@ -217,11 +209,159 @@ namespace TestAPI
             Environment.Exit(0);
         }
 
+        private void CreateNormalContract()
+        {
+            GlobalFontSettings.FontResolver = new FontResolver();
+            var pdf = new PdfDocument();
+
+            #region
+            //var page = pdf.AddPage();
+            //var gr = XGraphics.FromPdfPage(page);
+
+            //var fontTitle = new XFont("Times New Roman", 11, XFontStyle.Bold);
+            //var fontText = new XFont("Times New Roman", 11, XFontStyle.Regular);
+
+            //XRect layoutText = new XRect(20, 50, page.Width - 20, page.Height - 20);
+            //XRect layoutNextText = layoutText; 
+
+            //XSolidBrush textColor = XBrushes.Black;
+            //XTextFormatterEx calcHegihtOfText = new XTextFormatterEx(gr);
+            //XTextFormatter drawText = new XTextFormatter(gr);
+
+            ////ServicesInfo
+            //List<ContractTemplateJson> jsonList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(CreateClauses.Popular());
+            //foreach (ContractTemplateJson item in jsonList)
+            //{
+            //    if (item.IsContractServiceDetailsButton)
+            //    {
+
+            //    }
+            //    else if (item.IsContractInfoButton)
+            //    {
+
+            //    }
+            //    else
+            //    {
+            //        string strTitle = $"{item.Title}. {item.Description}";
+
+            //        drawText.Alignment = XParagraphAlignment.Center;
+            //        drawText.DrawString(strTitle, fontTitle, textColor, layoutNextText);
+
+            //        //double chSpace = 5;
+            //        double lineHeight = 12.181640625;
+
+            //        layoutNextText.Y += calcHegihtOfText.ClacHeightOfText(fontText, layoutNextText, strTitle);
+            //        foreach (ContractTemplateJson chItem in item.Child)
+            //        {
+            //            string strChild = $"{chItem.Title}  {chItem.Description}";
+            //            drawText.Alignment = XParagraphAlignment.Left;
+            //            drawText.DrawString(strChild, fontText, textColor, layoutNextText);
+
+            //            layoutNextText.Y += calcHegihtOfText.ClacHeightOfText(fontText, layoutNextText, strChild);
+            //        }
+
+            //        layoutNextText.Y += lineHeight * 2;
+            //    }
+            //}
+            #endregion
+
+            List<ContractTemplateJson> jsonList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(CreateClauses.Popular());
+            CreatePage(jsonList, 0, 0, pdf);
+
+            string filename = "Contract.pdf";
+            pdf.Save(filename);
+            Console.WriteLine("Done........");
+
+            Process proc = new Process();
+            proc.StartInfo.UseShellExecute = true;
+            proc.StartInfo.FileName = filename;
+            proc.Start();
+
+            Environment.Exit(0);
+        }
+
+        private void CreatePage(List<ContractTemplateJson> jsonList, int index, int chIndex, PdfDocument pdf, bool drawedTitle = false)
+        {
+            var page = pdf.AddPage();
+            var gr = XGraphics.FromPdfPage(page);
+
+            var fontTitle = new XFont("Times New Roman", 11, XFontStyle.Bold);
+            var fontText = new XFont("Times New Roman", 11, XFontStyle.Regular);
+
+            XRect layoutText = new XRect(20, 50, page.Width - 20, page.Height - 20);
+            XRect layoutNextText = layoutText;
+
+            XSolidBrush textColor = XBrushes.Black;
+            XTextFormatterEx calcHegihtOfText = new XTextFormatterEx(gr);
+            XTextFormatter drawText = new XTextFormatter(gr);
+
+            double lineHeight = 12.181640625;
+
+            for (int i = index; i < jsonList.Count; i++)
+            { 
+                ContractTemplateJson item = jsonList[i];
+                if (item.IsContractServiceDetailsButton)
+                {
+
+                }
+                else if (item.IsContractInfoButton)
+                {
+
+                }
+                else
+                {    
+                    if (chIndex == 0 && !drawedTitle)
+                    {
+                        string strTitle = $"{item.Title}. {item.Description}";
+                        double textHeight = calcHegihtOfText.ClacHeightOfText(fontText, layoutNextText, strTitle);
+                        double lastY = layoutNextText.Y + textHeight;
+
+                        if (lastY >= page.Height - lineHeight * 4)
+                        {
+                            CreatePage(jsonList, i, 0, pdf);
+                            break;
+                        }
+                        
+                        drawText.Alignment = XParagraphAlignment.Center;
+                        drawText.DrawString(strTitle, fontTitle, textColor, layoutNextText);
+
+                        layoutNextText.Y += textHeight;
+                    }
+
+                    for (int j = chIndex; j < item.Child.Count; j++)
+                    { 
+                        ContractTemplateJson chItem = item.Child[j];
+                        string strChild = $"{chItem.Title}  {chItem.Description}";
+                        double textHeight = calcHegihtOfText.ClacHeightOfText(fontText, layoutNextText, strChild);
+                        double lastY = layoutNextText.Y + textHeight;
+
+                        if (lastY >= page.Height - lineHeight * 4)
+                        {
+                            if (j == 0)
+                                CreatePage(jsonList, i, j, pdf, true);
+                            else
+                                CreatePage(jsonList, i, j, pdf);
+                            return;
+                        }
+
+                        drawText.Alignment = XParagraphAlignment.Left;
+                        drawText.DrawString(strChild, fontText, textColor, layoutNextText);
+
+                        layoutNextText.Y += textHeight;
+                    }
+
+                    chIndex = 0;
+                    drawedTitle = false;
+                    layoutNextText.Y += lineHeight * 2;
+                }
+            }
+        }
+
         private void DrawTable1(PdfPage page, XGraphics gr, TableColumn1 tableCol, List<TableRow1> rows)
         {
             var color = XPens.Black;
             int height = 50;
-            XPoint topLeft = new XPoint(40, 50);
+            XPoint topLeft = new XPoint(40, 250);
             XPoint topRight = new XPoint(page.Width - 20, topLeft.Y);
             XPoint bottomRight = new XPoint(page.Width - 20, topLeft.Y + height);
             XPoint bottomLeft = new XPoint(topLeft.X, topLeft.Y + height);
