@@ -20,24 +20,7 @@ namespace TestAPI
         //http://www.pdfsharp.net/wiki/PDFsharpSamples.ashx
         //http://developer.th-soft.com/developer/2015/07/17/pdfsharp-improving-the-xtextformatter-class-measuring-the-height-of-the-text/
         public void Run()
-        {
-            //GlobalFontSettings.FontResolver = new FontResolver();
-            //
-            //var document = new PdfDocument();
-            //var page = document.AddPage();
-            //
-            //var gfx = XGraphics.FromPdfPage(page);
-            //var font = new XFont("Arial", 20, XFontStyle.Bold);
-            //
-            //var textColor = XBrushes.Black;
-            //var layout = new XRect(20, 20, page.Width, page.Height);
-            //var format = XStringFormats.Center;
-            //
-            //gfx.DrawString("Hello World!", font, textColor, layout, format);
-            //gfx.DrawLine(new XPen(XColors.Red, 2), new XPoint(10, 10), new XPoint(60, 60));
-            //
-            //document.Save("helloworld.pdf");
-
+        { 
             //CreateContract();
             CreateNormalContract();
         }
@@ -113,16 +96,10 @@ namespace TestAPI
             rows.Add(row2);
             rows.Add(row3);
             rows.Add(row4);
-            rows.Add(row5);
-            rows.Add(row5);
-            rows.Add(row5);
-            rows.Add(row5);
-            rows.Add(row5);
-            rows.Add(row5);
-            rows.Add(row5);
-            rows.Add(row5);
+            rows.Add(row5); 
 
-            DrawTable1(pdf, null, tableCol, rows, 510);
+            double lastYOfTable = 0.0;
+            DrawTable1(pdf, null, null, tableCol, rows, 600, ref lastYOfTable);
 
             SellerBuyer rowInfo = new SellerBuyer()
             {
@@ -209,9 +186,16 @@ namespace TestAPI
                 amount_value = 20,
                 amount_value_price = "50"
             };
+            ServicesInfo item4 = new ServicesInfo()
+            {
+                name_of_service = "Service 4",
+                amount_value = 6,
+                amount_value_price = "4"
+            };
             serviceList.Add(item1);
             serviceList.Add(item2);
             serviceList.Add(item3);
+            //serviceList.Add(item4);
 
             TableColumn tableCols = new TableColumn()
             {
@@ -268,18 +252,21 @@ namespace TestAPI
             double lineHeight = 12.181640625;
 
             for (int i = index; i < jsonList.Count; i++)
-            { 
+            {
+                double lastYOfTable = layoutNextText.Y;
+
                 ContractTemplateJson item = jsonList[i];
                 if (item.IsContractServiceDetailsButton)
                 {
                     if (layoutNextText.Y >= page.Height - lineHeight * 4)
                     {
-                        DrawTable1(pdf, null, tableCols, tableRows, layoutNextText.Y, 0);
+                        DrawTable1(pdf, null, gr, tableCols, tableRows, layoutNextText.Y, ref lastYOfTable);
                     }
                     else
                     {
-                        DrawTable1(pdf, page, tableCols, tableRows, layoutNextText.Y, 0);
+                        DrawTable1(pdf, page, gr, tableCols, tableRows, layoutNextText.Y, ref lastYOfTable);
                     }
+                    layoutNextText.Y += lastYOfTable;
                 }
                 else if (item.IsContractInfoButton)
                 {
@@ -334,16 +321,18 @@ namespace TestAPI
             }
         }
 
-        private void DrawTable1(PdfDocument pdf, PdfPage oldPage, TableColumn tableCols, List<TableRow> tableRows, double startY, int rowIndex = 0, bool drawedHeader = false)
+        private void DrawTable1(PdfDocument pdf, PdfPage oldPage, XGraphics oldGr, TableColumn tableCols, List<TableRow> tableRows, double startY, ref double endYOfTable, int rowIndex = 0, bool drawedHeader = false)
         {
             var page = oldPage == null? pdf.AddPage() : oldPage;
-            var gr = XGraphics.FromPdfPage(page);
+            var gr = oldPage == null ? XGraphics.FromPdfPage(page) : oldGr;
 
             double lineHeight = 12.181640625;
 
+            endYOfTable = startY;
             if (startY >= page.Height - lineHeight * 4)
             {
-                DrawTable1(pdf, null, tableCols, tableRows, 20);
+                double lastY = 0.0;
+                DrawTable1(pdf, null, gr, tableCols, tableRows, 20, ref lastY);
                 return;
             }
 
@@ -452,44 +441,54 @@ namespace TestAPI
             int heightOfRow = 20;
             double leftYLine = topLeft.Y + heightHeader;
 
+            double priceForAll = 0.0;
+            double qqs = 0.0;
+            double priceWithQQS = 0.0;
+            foreach (TableRow row in tableRows)
+            {
+                priceForAll += double.Parse(row.PriceForAll);
+                qqs += double.Parse(row.QQS.Replace("%",""));
+                priceWithQQS += double.Parse(row.PriceWithQQS);
+            }
+
             for (int i = rowIndex; i < tableRows.Count; i++)
             {
                 double lastY = leftYLine + heightOfRow;
 
                 if (lastY >= page.Height - lineHeight * 4)
                 {
-                    DrawTable1(pdf, null, tableCols, tableRows, 20, i, true);
+                    DrawTable1(pdf, null, gr, tableCols, tableRows, 20, ref lastY, i, true);
 
                     gr.DrawLine(color, new XPoint(X1, topLeft.Y + heightHeader), new XPoint(X1, leftYLine));    //No up to bottom
                     gr.DrawLine(color, new XPoint(X2, topLeft.Y + heightHeader), new XPoint(X2, leftYLine));    //Xizmat turi up to bottom
                     gr.DrawLine(color, new XPoint(X3, topLeft.Y + heightHeader), new XPoint(X3, leftYLine));    //Soni, dona up to bottom
                     break;
                 }
-                
+
                 leftYLine += heightOfRow;
                 gr.DrawLine(color, new XPoint(topLeft.X, leftYLine), new XPoint(topRight.X, leftYLine));
+                 
+                int No = i + 1;
+                gr.DrawString($"{No}", fontColumn, colorColumnText, new XPoint(topLeft.X + 15, leftYLine - 7));
+                gr.DrawString($"{tableRows[i].ServiceType}", fontColumn, colorColumnText, new XPoint(X1 + 10, leftYLine - 7));
+                gr.DrawString($"{tableRows[i].Count}", fontColumn, colorColumnText, new XPoint(X2 + (widthOfCountValue / 2) - 10, leftYLine - 7));
+                gr.DrawString($"{tableRows[i].PriceForOne}", fontColumn, colorColumnText, new XPoint(X3 + (widthOfServicePrice / 2) - 50, leftYLine - 7));
+                gr.DrawString($"{tableRows[i].PriceForAll}", fontColumn, colorColumnText, new XPoint(X3 + widthOfOnePiece + (widthOfOnePiece / 2) - 10, leftYLine - 7));
+                gr.DrawString($"{tableRows[i].QQS}", fontColumn, colorColumnText, new XPoint(X4 + widthOfQQS / 2 - 18, leftYLine - 7));
+                gr.DrawString($"{tableRows[i].PriceWithQQS}", fontColumn, colorColumnText, new XPoint(X5 + 45, leftYLine - 7));
 
                 if (i == tableRows.Count - 1)
                 {
+                    leftYLine += heightOfRow;
+                    gr.DrawLine(color, new XPoint(topLeft.X, leftYLine), new XPoint(topRight.X, leftYLine));
                     gr.DrawString(tableCols.Col_ServicePriceForAll, fontColumn, colorColumnText, new XPoint(topLeft.X + 80, leftYLine - 7));
-                    gr.DrawString("500,00", fontColumn, colorColumnText, new XPoint(X3 + widthOfOnePiece + (widthOfOnePiece / 2) - 10, leftYLine - 7));
-                    gr.DrawString("250,000", fontColumn, colorColumnText, new XPoint(X4 + widthOfQQS / 2 - 18, leftYLine - 7));
-                    gr.DrawString("1000,00", fontColumn, colorColumnText, new XPoint(X5 + 45, leftYLine - 7));
+                    gr.DrawString(String.Format("{0:0.00}", priceForAll), fontColumn, colorColumnText, new XPoint(X3 + widthOfOnePiece + (widthOfOnePiece / 2) - 10, leftYLine - 7));
+                    gr.DrawString(String.Format("{0:0.00}", qqs), fontColumn, colorColumnText, new XPoint(X4 + widthOfQQS / 2 - 18, leftYLine - 7));
+                    gr.DrawString(String.Format("{0:0.00}", priceWithQQS), fontColumn, colorColumnText, new XPoint(X5 + 45, leftYLine - 7));
                 }
-                else
-                {
-                    int No = i + 1;
-                    gr.DrawString($"{No}", fontColumn, colorColumnText, new XPoint(topLeft.X + 15, leftYLine - 7));
-                    gr.DrawString($"{tableRows[i].ServiceType}", fontColumn, colorColumnText, new XPoint(X1 + 10, leftYLine - 7));
-                    gr.DrawString($"{tableRows[i].Count}", fontColumn, colorColumnText, new XPoint(X2 + (widthOfCountValue / 2) - 10, leftYLine - 7));
-                    gr.DrawString($"{tableRows[i].PriceForOne}", fontColumn, colorColumnText, new XPoint(X3 + (widthOfServicePrice / 2) - 50, leftYLine - 7));
-                    gr.DrawString($"{tableRows[i].PriceForAll}", fontColumn, colorColumnText, new XPoint(X3 + widthOfOnePiece + (widthOfOnePiece / 2) - 10, leftYLine - 7));
-                    gr.DrawString($"{tableRows[i].QQS}", fontColumn, colorColumnText, new XPoint(X4 + widthOfQQS / 2 - 18, leftYLine - 7));
-                    gr.DrawString($"{tableRows[i].PriceWithQQS}", fontColumn, colorColumnText, new XPoint(X5 + 45, leftYLine - 7));
-                }
+
             }
-
-
+              
             gr.DrawLine(color, new XPoint(topLeft.X, topLeft.Y + heightHeader), new XPoint(topLeft.X, leftYLine));              //Left up to bottom
             gr.DrawLine(color, new XPoint(topRight.X, topLeft.Y + heightHeader), new XPoint(topRight.X, leftYLine));            //Right up to bottom
 
@@ -501,13 +500,9 @@ namespace TestAPI
 
             gr.DrawLine(color, new XPoint(X4, topLeft.Y + heightHeader), new XPoint(X4, leftYLine));                            //Xizmat narxi up to bottom
              
-            gr.DrawLine(color, new XPoint(X3 + widthOfOnePiece, topLeft.Y + heightHeader), new XPoint(X3 + widthOfOnePiece, leftYLine));           //Inner xizmat narxi up to bottom
+            gr.DrawLine(color, new XPoint(X3 + widthOfOnePiece, topLeft.Y + heightHeader), new XPoint(X3 + widthOfOnePiece, leftYLine));    //Inner xizmat narxi up to bottom
 
-            gr.DrawLine(color, new XPoint(X5, topLeft.Y + heightHeader), new XPoint(X5, leftYLine));                             //QQS up to bottom
-
-            //gr.DrawLine(color, new XPoint(X6, topLeft.Y + height),
-            //                   new XPoint(X6, leftYLine));                             // Xizmat qiymati QQS bilan up to bottom
-
+            gr.DrawLine(color, new XPoint(X5, topLeft.Y + heightHeader), new XPoint(X5, leftYLine));                             //QQS up to bottom 
             #endregion
         }
 
@@ -668,9 +663,9 @@ namespace TestAPI
                 double qqs = (priceForAll * calcQQS) / 100;
                 double priceWithQSS = priceForAll + qqs;
 
-                PriceForAll = priceForAll.ToString();
-                QQS = qqs.ToString();
-                PriceWithQQS = priceWithQSS.ToString();
+                PriceForAll = String.Format("{0:0.00}", priceForAll);
+                QQS = String.Format("{0:0.00}", qqs);
+                PriceWithQQS = String.Format("{0:0.00}", priceWithQSS);
             }
         }
 
