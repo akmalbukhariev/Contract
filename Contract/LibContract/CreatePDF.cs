@@ -42,17 +42,17 @@ namespace LibContract
             TableColumn tableCols = new TableColumn()
             {
                 Col_No = "№",
-                Col_Service = "Xizmat",
-                Col_ServiceType = "Xizmat turi",
-                Col_Number = "Soni,",
-                Col_Piece = "dona",
-                Col_ServicePrice = "Xizmat narxi",
-                Col_ServicePriceForOne = "Bir donasi",
-                Col_For = "uchun",
-                Col_ServicePriceForAll = "Jami: ",
-                Col_QQS = $"QQS {qqs}%",
-                Col_Value_QQS = "qiymati (QQS",
-                Col_With = "bilan)"
+                Col_Service = "Хизмат",
+                Col_ServiceType = "Хизмат тури",
+                Col_Number = "Сони,",
+                Col_Piece = "дона",
+                Col_ServicePrice = "Хизмат нархи",
+                Col_ServicePriceForOne = "Бир донаси",
+                Col_For = "учун",
+                Col_ServicePriceForAll = "Жами: ",
+                Col_QQS = $"ҚҚС {qqs}%",
+                Col_Value_QQS = "қиймати (ҚҚС",
+                Col_With = "билан)"
             };
 
             List<TableRow> table1Rows = new List<TableRow>();

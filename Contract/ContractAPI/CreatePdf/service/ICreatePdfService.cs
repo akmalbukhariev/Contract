@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ContractAPI.service.Convert2Document
+namespace ContractAPI.CreatePdf.service
 {
-    public interface IConvertDocumentService
+    public interface ICreatePdfService
     {
     }
 }

@@ -40,6 +40,8 @@ using ContractAPI.ContractNumberInfo.service;
 using ContractAPI.ContractNumberInfo.service.impl;
 using ContractAPI.ContractTemplateInfo.service;
 using ContractAPI.ContractTemplateInfo.service.impl;
+using ContractAPI.CreatePdf.service;
+using ContractAPI.CreatePdf.service.impl;
 
 namespace ContractAPI
 {
@@ -67,6 +69,7 @@ namespace ContractAPI
             services.AddScoped<IContractNumberService, ContractNumberService>();
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
+            services.AddScoped<ICreatePdfService, CreatePdfService>();
             services.AddScoped<IUserInfoService, UserInfoService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAppService, AppService>();
