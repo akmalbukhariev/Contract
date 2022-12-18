@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestAPI
+namespace LibContract
 {
     public static class HelperClacHeightOfText
     {

@@ -105,7 +105,6 @@ namespace TestAPI
             itemButton1.IsVisibleAddButton = true;
             jList.Add(itemButton1);
 
-
             ContractTemplateJson item2 = new ContractTemplateJson();
             item2.Title = "2";
             item2.Description = "ҲИСОБ-КИТОБ ТАРТИБИ";
@@ -130,9 +129,28 @@ namespace TestAPI
             item3_2.Title = "3.2";
             item3_2.Description = "Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
             item3.Child.Add(item3_2);
+
+            ContractTemplateJson item3_3 = new ContractTemplateJson();
+            item3_3.Title = "3.3";
+            item3_3.Description = "Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
+            item3.Child.Add(item3_3);
+
+            ContractTemplateJson item3_4 = new ContractTemplateJson();
+            item3_4.Title = "3.4";
+            item3_4.Description = "Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
+            item3.Child.Add(item3_4);
+
+            ContractTemplateJson item3_5 = new ContractTemplateJson();
+            item3_5.Title = "3.5";
+            item3_5.Description = "Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
+            item3.Child.Add(item3_5);
+
+            ContractTemplateJson item3_6 = new ContractTemplateJson();
+            item3_6.Title = "3.6";
+            item3_6.Description = "Шартнома бўйича ишлар якунлангач, “Бажарувчи” бажарилган ишлар ҳулосаларини “Буюртмачи”га топширади.";
+            item3.Child.Add(item3_6);
             jList.Add(item3);
-
-
+               
             ContractTemplateJson item4 = new ContractTemplateJson();
             item4.Title = "4";
             item4.Description = "ТОМОНЛАРНИНГ ЖАВОБГАРЛИГИ";
@@ -142,25 +160,25 @@ namespace TestAPI
             item4_1.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
             item4.Child.Add(item4_1);
 
-            //ContractTemplateJson item4_2 = new ContractTemplateJson();
-            //item4_2.Title = "4.2";
-            //item4_2.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
-            //item4.Child.Add(item4_2);
+            ContractTemplateJson item4_2 = new ContractTemplateJson();
+            item4_2.Title = "4.2";
+            item4_2.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
+            item4.Child.Add(item4_2);
 
-            //ContractTemplateJson item4_3 = new ContractTemplateJson();
-            //item4_3.Title = "4.3";
-            //item4_3.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
-            //item4.Child.Add(item4_3);
+            ContractTemplateJson item4_3 = new ContractTemplateJson();
+            item4_3.Title = "4.3";
+            item4_3.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
+            item4.Child.Add(item4_3);
 
-            //ContractTemplateJson item4_4 = new ContractTemplateJson();
-            //item4_4.Title = "4.4";
-            //item4_4.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
-            //item4.Child.Add(item4_4);
+            ContractTemplateJson item4_4 = new ContractTemplateJson();
+            item4_4.Title = "4.4";
+            item4_4.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
+            item4.Child.Add(item4_4);
 
-            //ContractTemplateJson item4_5 = new ContractTemplateJson();
-            //item4_5.Title = "4.5";
-            //item4_5.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
-            //item4.Child.Add(item4_5);
+            ContractTemplateJson item4_5 = new ContractTemplateJson();
+            item4_5.Title = "4.5";
+            item4_5.Description = "Ушбу шартнома шартларини бажармаганлиги ёки тўлиқ бажармаганлиги учун томонлар Ўзбекистон Республикасининг 1998 йил 29 августдаги 670-1-сонли “Хўжалик юритувчи субъектлар фаолиятининг шартномавий-ҳуқуқий базаси тўғрисида”ги Қонуни ва Ўзбекистон Республикаси қонунчилигининг бошқа амалдаги ҳужжатларида кўзда тутилган жавобгарликка тортилади.";
+            item4.Child.Add(item4_5);
             jList.Add(item4);
 
 
@@ -173,22 +191,23 @@ namespace TestAPI
             item5_1.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
             item5.Child.Add(item5_1);
 
-            //ContractTemplateJson item5_2 = new ContractTemplateJson();
-            //item5_2.Title = "5.2";
-            //item5_2.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
-            //item5.Child.Add(item5_2);
+            ContractTemplateJson item5_2 = new ContractTemplateJson();
+            item5_2.Title = "5.2";
+            item5_2.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
+            item5.Child.Add(item5_2);
 
-            //ContractTemplateJson item5_3 = new ContractTemplateJson();
-            //item5_3.Title = "5.3";
-            //item5_3.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
-            //item5.Child.Add(item5_3);
+            ContractTemplateJson item5_3 = new ContractTemplateJson();
+            item5_3.Title = "5.3";
+            item5_3.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
+            item5.Child.Add(item5_3);
 
-            //ContractTemplateJson item5_4 = new ContractTemplateJson();
-            //item5_4.Title = "5.4";
-            //item5_4.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
-            //item5.Child.Add(item5_4);
+            ContractTemplateJson item5_4 = new ContractTemplateJson();
+            item5_4.Title = "5.4";
+            item5_4.Description = "Тарафлар ўртасида мазкур шартнома юзасидан келиб чиқадиган низолар тарафлар келишуви билан ҳал қилинади. Келишувга эришилмаган низолар туманлараро Иқтисодий судида ҳал қилинади.";
+            item5.Child.Add(item5_4);
             jList.Add(item5);
 
+           
 
             ContractTemplateJson item6 = new ContractTemplateJson();
             item6.Title = "6";
@@ -219,21 +238,23 @@ namespace TestAPI
             item6_5.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
             item6.Child.Add(item6_5);
 
-            //ContractTemplateJson item6_6 = new ContractTemplateJson();
-            //item6_6.Title = "6.6";
-            //item6_6.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
-            //item6.Child.Add(item6_6);
+            ContractTemplateJson item6_6 = new ContractTemplateJson();
+            item6_6.Title = "6.6";
+            item6_6.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
+            item6.Child.Add(item6_6);
 
-            //ContractTemplateJson item6_7 = new ContractTemplateJson();
-            //item6_7.Title = "6.7";
-            //item6_7.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
-            //item6.Child.Add(item6_7);
+            ContractTemplateJson item6_7 = new ContractTemplateJson();
+            item6_7.Title = "6.7";
+            item6_7.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
+            item6.Child.Add(item6_7);
 
-            //ContractTemplateJson item6_8 = new ContractTemplateJson();
-            //item6_8.Title = "6.8";
-            //item6_8.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
-            //item6.Child.Add(item6_8);
+            ContractTemplateJson item6_8 = new ContractTemplateJson();
+            item6_8.Title = "6.8";
+            item6_8.Description = "Ушбу шартномада кўзда тутилмаган, қолган барча ҳолатлар юзасидан томонлар Ўзбекистон Республикасининг амалдаги қонунчилигини қўллайдилар.";
+            item6.Child.Add(item6_8);
             jList.Add(item6);
+
+            
 
             ContractTemplateJson item7 = new ContractTemplateJson();
             item7.Title = "7";
@@ -249,27 +270,27 @@ namespace TestAPI
             item7_2.Description = "Форс-мажор ҳолати мавжуд бўлган томон 5(беш) кун ичида бошқа томонларни форс-мажор ҳолати бошланиши ва тугаши муддатларини кўрсатган ҳолда ёзма равшда огоҳлантирилиши лозим.";
             item7.Child.Add(item7_2);
             
-            //ContractTemplateJson item7_3 = new ContractTemplateJson();
-            //item7_3.Title = "7.3";
-            //item7_3.Description = "Форс-мажор ҳолати мавжуд бўлган томон 5(беш) кун ичида бошқа томонларни форс-мажор ҳолати бошланиши ва тугаши муддатларини кўрсатган ҳолда ёзма равшда огоҳлантирилиши лозим.";
-            //item7.Child.Add(item7_3);
+            ContractTemplateJson item7_3 = new ContractTemplateJson();
+            item7_3.Title = "7.3";
+            item7_3.Description = "Форс-мажор ҳолати мавжуд бўлган томон 5(беш) кун ичида бошқа томонларни форс-мажор ҳолати бошланиши ва тугаши муддатларини кўрсатган ҳолда ёзма равшда огоҳлантирилиши лозим.";
+            item7.Child.Add(item7_3);
 
-            //ContractTemplateJson item7_4 = new ContractTemplateJson();
-            //item7_4.Title = "7.4";
-            //item7_4.Description = "Форс-мажор ҳолати мавжуд бўлган томон 5(беш) кун ичида бошқа томонларни форс-мажор ҳолати бошланиши ва тугаши муддатларини кўрсатган ҳолда ёзма равшда огоҳлантирилиши лозим.";
-            //item7.Child.Add(item7_4);
+            ContractTemplateJson item7_4 = new ContractTemplateJson();
+            item7_4.Title = "7.4";
+            item7_4.Description = "Форс-мажор ҳолати мавжуд бўлган томон 5(беш) кун ичида бошқа томонларни форс-мажор ҳолати бошланиши ва тугаши муддатларини кўрсатган ҳолда ёзма равшда огоҳлантирилиши лозим.";
+            item7.Child.Add(item7_4);
 
-            //ContractTemplateJson item7_5 = new ContractTemplateJson();
-            //item7_5.Title = "7.5";
-            //item7_5.Description = "ADCcscsdcsdcscsd.";
-            //item7.Child.Add(item7_5);
+            ContractTemplateJson item7_5 = new ContractTemplateJson();
+            item7_5.Title = "7.5";
+            item7_5.Description = "ADCcscsdcsdcscsd.";
+            item7.Child.Add(item7_5);
 
-            //ContractTemplateJson item7_6 = new ContractTemplateJson();
-            //item7_6.Title = "7.6";
-            //item7_6.Description = "Polsfkskdfjksfjdf.";
-            //item7.Child.Add(item7_6);
+            ContractTemplateJson item7_6 = new ContractTemplateJson();
+            item7_6.Title = "7.6";
+            item7_6.Description = "Polsfkskdfjksfjdf.";
+            item7.Child.Add(item7_6);
             jList.Add(item7);
-
+             
 
             ContractTemplateJson item8 = new ContractTemplateJson();
             item8.Title = "8";
@@ -285,20 +306,20 @@ namespace TestAPI
             item8_2.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
             item8.Child.Add(item8_2);
 
-            //ContractTemplateJson item8_3 = new ContractTemplateJson();
-            //item8_3.Title = "8.3";
-            //item8_3.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
-            //item8.Child.Add(item8_3);
+            ContractTemplateJson item8_3 = new ContractTemplateJson();
+            item8_3.Title = "8.3";
+            item8_3.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
+            item8.Child.Add(item8_3);
 
-            //ContractTemplateJson item8_4 = new ContractTemplateJson();
-            //item8_4.Title = "8.4";
-            //item8_4.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
-            //item8.Child.Add(item8_4);
+            ContractTemplateJson item8_4 = new ContractTemplateJson();
+            item8_4.Title = "8.4";
+            item8_4.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
+            item8.Child.Add(item8_4);
 
-            //ContractTemplateJson item8_5 = new ContractTemplateJson();
-            //item8_5.Title = "8.5";
-            //item8_5.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
-            //item8.Child.Add(item8_5);
+            ContractTemplateJson item8_5 = new ContractTemplateJson();
+            item8_5.Title = "8.5";
+            item8_5.Description = "Шартнома икки нусхада - ҳар бир томон учун тузилиб, иккала томон ҳам бир ҳил юридик кучга эга.";
+            item8.Child.Add(item8_5);
             jList.Add(item8);
 
 
