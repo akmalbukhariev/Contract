@@ -1,5 +1,6 @@
 ﻿using ContractAPI.CreatePdf.service;
 using ContractAPI.Helper;
+using LibContract.HttpResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,6 +17,13 @@ namespace ContractAPI.CreatePdf.api
         public CreatePdfController(ICreatePdfService service) : base(service)
         {
 
+        }
+
+        [HttpPost("createPdf/{contractNumber}")]
+        public async Task<IActionResult> createPdf(string contractNumber)
+        {
+            ResponseCreatePdf response = await Service.createPdf(contractNumber);
+            return MakeResponse(response, response.error_code);
         }
     }
 }

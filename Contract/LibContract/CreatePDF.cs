@@ -32,9 +32,9 @@ namespace LibContract
             JsonList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(strJson);
         }
          
-        public void CreateContract()
+        public void CreateContract(string savePath)
         {
-            GlobalFontSettings.FontResolver = new FontResolver();
+            //GlobalFontSettings.FontResolver = new FontResolver();
             var pdf = new PdfDocument();
              
             double qqs = double.Parse(ContractInfo.amount_of_qqs.Replace("%","").Trim());
@@ -78,16 +78,16 @@ namespace LibContract
              
             CreatePage(JsonList, 0, 0, pdf, tableCols, table1Rows, table2Rows, false, false);
 
-            string filename = "Contract.pdf";
-            pdf.Save(filename);
+            //string filename = "Contract.pdf";
+            pdf.Save(savePath);
             Console.WriteLine("Done........");
 
-            Process proc = new Process();
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.FileName = filename;
-            proc.Start();
+            //Process proc = new Process();
+            //proc.StartInfo.UseShellExecute = true;
+            //proc.StartInfo.FileName = filename;
+            //proc.Start();
 
-            Environment.Exit(0);
+            //Environment.Exit(0);
         }
 
         private void CreatePage(List<ContractTemplateJson> jsonList, int index, int chIndex, PdfDocument pdf, TableColumn tableCols = null, List<TableRow> table1Rows = null,List<List<string>> table2Rows = null, bool drawedTitle = false, bool drawedMainText = true)

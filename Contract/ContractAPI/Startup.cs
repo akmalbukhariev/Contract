@@ -103,11 +103,11 @@ namespace ContractAPI
             //    RequestPath = new PathString("/images")
             //});
 
-            //app.UseDirectoryBrowser(new DirectoryBrowserOptions()
-            //{
-            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload")),
-            //    RequestPath = new PathString("/Upload")
-            //});
+            app.UseDirectoryBrowser(new DirectoryBrowserOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload")),
+                RequestPath = new PathString("/Upload")
+            });
 
             app.UseAuthorization();
 

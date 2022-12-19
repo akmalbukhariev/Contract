@@ -132,6 +132,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
              
             string strNumber = Regex.Replace(ContractNumber, @"\s", "");
+            string strContractNumber = $"{ControlApp.UserInfo.phone_number}_{strNumber.Replace("-", "_")}";
+
             var contractinfo = new LibContract.HttpModels.CreateContractInfo()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
@@ -142,7 +144,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 user_company_name = ControlApp.UserCompanyInfo.company_name,
                 template_id = SelectedTemplate.id,
                 contract_sequence_number = ContractSequenceNumber,
-                contract_number = $"{ControlApp.UserInfo.phone_number}_{strNumber.Replace("-","_")}",
+                contract_number = strContractNumber,
                 contract_currency = SelectedCurrency,
                 contract_currency_index = SelectedCurrency_index,
                 amount_of_qqs = SelectedQQS,
@@ -159,7 +161,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             {
                 LibContract.HttpModels.ServicesInfo newItem = new LibContract.HttpModels.ServicesInfo()
                 {
-                    contract_number = ContractNumber,
+                    contract_number = strContractNumber,
                     name_of_service = item.NameOfService,
                     unit_of_measure = item.SelectedMeasure,
                     unit_of_measure_index = item.SelectedMeasure_index,

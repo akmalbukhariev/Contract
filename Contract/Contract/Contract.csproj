@@ -230,6 +230,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LibContract\LibContract.csproj" />
+    <ProjectReference Include="..\LibContract\LibContract.csproj" />
   </ItemGroup>
 </Project>
