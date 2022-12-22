@@ -62,6 +62,17 @@ namespace Contract.ViewModel.Pages.TemplateContract
                     Add(newItem);
                     count++;
                 }
+
+                if (DataList.Count > 0)
+                {
+                    ShowEmptyMessage = false;
+                    CloseEmptyMessage = true;
+                }
+                else
+                {
+                    ShowEmptyMessage = true;
+                    CloseEmptyMessage = false;
+                }
             }
 
             IsRefreshing = false;

@@ -13,6 +13,7 @@ namespace Contract.Net
 {
    public class HttpService
     {
+        //http://192.168.219.102:5000/api/CreatePdf/createPdf/12_00002_Kukmin
         #region Url 
         public static string DATA_URL = "http://192.168.219.102:5000/";
         public static string SERVER_URL = "http://192.168.219.102:5000/api/";
@@ -73,6 +74,7 @@ namespace Contract.Net
         public static string URL_CREATE_CONTRACT = SERVER_URL + "Contract/createContract";
         public static string URL_CANCEL_CONTRACT = SERVER_URL + "Contract/cancelContract";
         public static string URL_DELETE_CONTRACT = SERVER_URL + "Contract/deleteContract"; //contract_number
+        public static string URL_CREATE_CONTRACT_PDF = SERVER_URL + "CreatePdf/createPdf/"; //contract_number
         #endregion
 
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract"; 
@@ -468,6 +470,22 @@ namespace Contract.Net
             catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
 
             ResponseCreateContract responseLogin = ConvertResponseObj<ResponseCreateContract>(response);
+
+            return responseLogin;
+        }
+
+        public async static Task<ResponseCreatePdf> CreateContractPdf(string contract_number)
+        {
+            Response response = new Response();
+            try
+            {
+                var receivedData = await RequestPostMethod($"{URL_CREATE_CONTRACT_PDF}{contract_number}");
+                response = JsonConvert.DeserializeObject<ResponseCreatePdf>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseCreatePdf>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseCreatePdf>(); }
+
+            ResponseCreatePdf responseLogin = ConvertResponseObj<ResponseCreatePdf>(response);
 
             return responseLogin;
         }

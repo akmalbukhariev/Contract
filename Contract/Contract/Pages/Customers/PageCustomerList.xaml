@@ -19,7 +19,23 @@
                                     Title="{x:Static resource:AppResource.Customers}"
                                     UseWhite="True"
                                     Grid.Column="1"/>
+            <StackLayout Margin="20,0,20,0"
+                         Spacing="20"
+                         IsVisible="{Binding ShowEmptyMessage}"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Grid.Row="1"
+                         Grid.Column="1">
+                <Image Source="error"
+                       WidthRequest="140"
+                       Aspect="AspectFit"/>
+                <Label Text="{x:Static resource:AppResource.InformMessage7}"
+                       TextColor="Black"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
             <ListView ItemsSource="{Binding DataList}"
+                      IsVisible="{Binding CloseEmptyMessage}"
                       ItemSelected="ListView_ItemSelected"
                       SelectedItem="{Binding SelectedCustomer}" 
                       HasUnevenRows="True"

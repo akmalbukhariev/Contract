@@ -628,6 +628,34 @@ shartnomalar</value>
     <value>Iltimos, o'zingizga qulay bo'lgan murakkab parol kiriting va uni unutmang. Bu parol, siz tizimga kirishingiz vaqtida kerak bo'ladi.</value>
     <comment>Change password</comment>
   </data>
+  <data name="InformMessage1" xml:space="preserve">
+    <value>Ayni damda bekor qilingan shartnomalar mavjud emas.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage2" xml:space="preserve">
+    <value>Siz kutish vaqtini o'tkazib yubordingiz. Iltimos, kodni qayta yuborish tugmasini bosing.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage3" xml:space="preserve">
+    <value>Ayni damda tasdiqlanmagan shartnomalar mavjud emas.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage4" xml:space="preserve">
+    <value>Ayni damda amaldagi shartnomalar mavjud emas.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage5" xml:space="preserve">
+    <value>Ayni damda shartnoma shablonlari ro'yxati mavjud emas.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage6" xml:space="preserve">
+    <value>Ayni damda shartnoma raqami ketma-ketligi ro'yxati mavjud emas.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage7" xml:space="preserve">
+    <value>Ayni damda mijozlar ro'yxati mavjud emas.</value>
+    <comment>Inform</comment>
+  </data>
   <data name="Internet" xml:space="preserve">
     <value>Internet</value>
   </data>

@@ -42,6 +42,7 @@ using ContractAPI.ContractTemplateInfo.service;
 using ContractAPI.ContractTemplateInfo.service.impl;
 using ContractAPI.CreatePdf.service;
 using ContractAPI.CreatePdf.service.impl;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContractAPI
 {
@@ -73,12 +74,19 @@ namespace ContractAPI
             services.AddScoped<IUserInfoService, UserInfoService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAppService, AppService>();
-
+             
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContractAPI", Version = "v1" });
             });
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+            //        .RequireAuthenticatedUser()
+            //        .Build();
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,24 +98,28 @@ namespace ContractAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ContractAPI v1"));
             }
-
+             
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseStaticFiles();
 
+            //Console.WriteLine($"ContentRootPath: {env.WebRootPath}");
+            //var cacheMaxAgeOneWeek = (60 * 60 * 24 * 7).ToString();
             //app.UseStaticFiles(new StaticFileOptions()
             //{
-            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload\images")),
-            //    RequestPath = new PathString("/images")
+            //    //FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload")),
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(env.WebRootPath, "\\Upload")),
+            //    RequestPath = new PathString("/Files"),
+            //     
             //});
 
-            app.UseDirectoryBrowser(new DirectoryBrowserOptions()
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload")),
-                RequestPath = new PathString("/Upload")
-            });
+            //app.UseDirectoryBrowser(new DirectoryBrowserOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Upload")),
+            //    RequestPath = new PathString("/Upload")
+            //});
 
             app.UseAuthorization();
 

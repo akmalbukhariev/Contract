@@ -1196,6 +1196,69 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no canceled contracts at this time..
+        /// </summary>
+        internal static string InformMessage1 {
+            get {
+                return ResourceManager.GetString("InformMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You missed the waiting time. Please click the Resend Code button..
+        /// </summary>
+        internal static string InformMessage2 {
+            get {
+                return ResourceManager.GetString("InformMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no unconfirmed contracts at this time..
+        /// </summary>
+        internal static string InformMessage3 {
+            get {
+                return ResourceManager.GetString("InformMessage3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no current contracts..
+        /// </summary>
+        internal static string InformMessage4 {
+            get {
+                return ResourceManager.GetString("InformMessage4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no list of contract templates available at this time..
+        /// </summary>
+        internal static string InformMessage5 {
+            get {
+                return ResourceManager.GetString("InformMessage5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is currently no contract number sequence listing available..
+        /// </summary>
+        internal static string InformMessage6 {
+            get {
+                return ResourceManager.GetString("InformMessage6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No customer list available at this time..
+        /// </summary>
+        internal static string InformMessage7 {
+            get {
+                return ResourceManager.GetString("InformMessage7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Internet.
         /// </summary>
         internal static string Internet {

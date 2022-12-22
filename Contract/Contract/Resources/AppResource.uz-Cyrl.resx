@@ -623,6 +623,34 @@
     <value>Илтимос, ўзингизга қулай бўлган мураккаб паролни киритинг ва уни унутманг. Бу парол, сиз тизимга киришингиз вақтида керак бўлади.</value>
     <comment>Change password</comment>
   </data>
+  <data name="InformMessage1" xml:space="preserve">
+    <value>Aйни дамда бекор қилинган шартномалар мавжуд емас.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage2" xml:space="preserve">
+    <value>Сиз кутиш вақтини ўтказиб юбордингиз. Илтимос, кодни қайта юбориш тугмасини босинг.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage3" xml:space="preserve">
+    <value>Aйни дамда тасдиқланмаган шартномалар мавжуд емас.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage4" xml:space="preserve">
+    <value>Aйни дамда амалдаги шартномалар мавжуд емас.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage5" xml:space="preserve">
+    <value>Aйни дамда шартнома шаблонлари рўйхати мавжуд емас.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage6" xml:space="preserve">
+    <value>Aйни дамда шартнома рақами кетма-кетлиги рўйхати мавжуд емас.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage7" xml:space="preserve">
+    <value>Aйни дамда мижозлар рўйхати мавжуд емас.</value>
+    <comment>Inform</comment>
+  </data>
   <data name="Internet" xml:space="preserve">
     <value>Интернет</value>
   </data>

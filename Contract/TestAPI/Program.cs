@@ -121,7 +121,7 @@ namespace TestAPI
             pdf.Template = contractTemplate;
             pdf.Services = serviceList;
 
-            pdf.CreateContract();
+            pdf.CreateContract("");
 
             Console.ReadLine();
         }

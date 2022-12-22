@@ -87,6 +87,17 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
 
                     Add(item);
                 }
+
+                if (DataList.Count > 0)
+                {
+                    ShowEmptyMessage = false;
+                    CloseEmptyMessage = true;
+                }
+                else
+                {
+                    ShowEmptyMessage = true;
+                    CloseEmptyMessage = false;
+                }
             }
         }
          

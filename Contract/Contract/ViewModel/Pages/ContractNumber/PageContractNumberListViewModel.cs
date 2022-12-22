@@ -18,31 +18,31 @@ namespace Contract.ViewModel.Pages.ContractNumber
             DataList = new ObservableCollection<Model.ContractNumber>();
         }
 
-        public void Init()
-        {
-            Model.ContractNumber item1 = new Model.ContractNumber()
-            {
-                No = "1",
-                ContractNumberText = "YY-OO-XXXXXX",
-                ItemColor = Color.FromHex("#DEEAF6")
-            };
-            Model.ContractNumber item2 = new Model.ContractNumber()
-            {
-                No = "2",
-                ContractNumberText = "XXXXX",
-                ItemColor = Color.White
-            };
-            Model.ContractNumber item3 = new Model.ContractNumber()
-            {
-                No = "3",
-                ContractNumberText = "Sh-XXXXXX/YYS",
-                ItemColor = Color.FromHex("#DEEAF6")
-            };
+        //public void Init()
+        //{
+        //    Model.ContractNumber item1 = new Model.ContractNumber()
+        //    {
+        //        No = "1",
+        //        ContractNumberText = "YY-OO-XXXXXX",
+        //        ItemColor = Color.FromHex("#DEEAF6")
+        //    };
+        //    Model.ContractNumber item2 = new Model.ContractNumber()
+        //    {
+        //        No = "2",
+        //        ContractNumberText = "XXXXX",
+        //        ItemColor = Color.White
+        //    };
+        //    Model.ContractNumber item3 = new Model.ContractNumber()
+        //    {
+        //        No = "3",
+        //        ContractNumberText = "Sh-XXXXXX/YYS",
+        //        ItemColor = Color.FromHex("#DEEAF6")
+        //    };
 
-            Add(item1);
-            Add(item2);
-            Add(item3);
-        }
+        //    Add(item1);
+        //    Add(item2);
+        //    Add(item3);
+        //}
 
         public async void RequestInfo()
         {
@@ -63,15 +63,8 @@ namespace Contract.ViewModel.Pages.ContractNumber
                     count++;
                     Model.ContractNumber newItem = new Model.ContractNumber();
 
-                    if (count % 2 == 0)
-                    {
-                        rowColor = Color.FromHex("#DEEAF6");
-                    }
-                    else
-                    {
-                        rowColor = Color.White;
-                    }
-
+                    rowColor = count % 2 == 0 ? Color.FromHex("#DEEAF6") : Color.White;
+                      
                     string strTemplate = "";
                     switch (item.format)
                     {
@@ -97,6 +90,17 @@ namespace Contract.ViewModel.Pages.ContractNumber
                     newItem.IsDeleted = item.is_deleted;
 
                     Add(newItem);
+                }
+
+                if (DataList.Count > 0)
+                {
+                    ShowEmptyMessage = false;
+                    CloseEmptyMessage = true;
+                }
+                else
+                {
+                    ShowEmptyMessage = true;
+                    CloseEmptyMessage = false;
                 }
             }
         }

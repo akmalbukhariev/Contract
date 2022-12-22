@@ -623,6 +623,34 @@
     <value>Пожалуйста, введите сложный пароль, который вам удобен, и запомните его. Этот пароль требуется при входе в систему.</value>
     <comment>Change password</comment>
   </data>
+  <data name="InformMessage1" xml:space="preserve">
+    <value>На данный момент расторгнутых договоров нет.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage2" xml:space="preserve">
+    <value>Вы пропустили время ожидания. Пожалуйста, нажмите кнопку Отправить код повторно.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage3" xml:space="preserve">
+    <value>На данный момент неподтвержденных контрактов нет.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage4" xml:space="preserve">
+    <value>Действующих договоров нет.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage5" xml:space="preserve">
+    <value>В настоящее время нет списка доступных шаблонов договоров.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage6" xml:space="preserve">
+    <value>В настоящее время список порядковых номеров контрактов отсутствует.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage7" xml:space="preserve">
+    <value>В настоящее время список клиентов недоступен.</value>
+    <comment>Inform</comment>
+  </data>
   <data name="Internet" xml:space="preserve">
     <value>Интернет</value>
   </data>

@@ -11,6 +11,8 @@ namespace Contract.ViewModel
 {
     public class BaseModel : INotifyPropertyChanged
     {
+        public bool ShowEmptyMessage { get => GetValue<bool>(); set => SetValue(value); }
+        public bool CloseEmptyMessage { get => GetValue<bool>(); set => SetValue(value); }
         public Element Parent { get; set; }
 
         protected INavigation Navigation { get; set; }
@@ -22,12 +24,15 @@ namespace Contract.ViewModel
 
         public BaseModel(INavigation navigation)
         {
+            ShowEmptyMessage = false;
+            CloseEmptyMessage = true;
             Navigation = navigation;
         }
 
         public BaseModel()
         {
-            
+            ShowEmptyMessage = false;
+            CloseEmptyMessage = true;
         }
 
         protected T GetValue<T>([CallerMemberName] string propertyName = "")
@@ -73,7 +78,7 @@ namespace Contract.ViewModel
             if (transitionNavigationPage != null)
                 transitionNavigationPage.TransitionType = transitionType;
         }
-
+          
         public async void Back()
         {
             await Navigation.PopAsync();

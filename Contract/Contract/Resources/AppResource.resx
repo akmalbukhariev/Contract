@@ -622,6 +622,34 @@ Contracts</value>
     <value>Please enter a complex password that is comfortable for you and remember it. This password is required when logging in</value>
     <comment>Change password</comment>
   </data>
+  <data name="InformMessage1" xml:space="preserve">
+    <value>There are no canceled contracts at this time.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage2" xml:space="preserve">
+    <value>You missed the waiting time. Please click the Resend Code button.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage3" xml:space="preserve">
+    <value>There are no unconfirmed contracts at this time.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage4" xml:space="preserve">
+    <value>There are no current contracts.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage5" xml:space="preserve">
+    <value>There is no list of contract templates available at this time.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage6" xml:space="preserve">
+    <value>There is currently no contract number sequence listing available.</value>
+    <comment>Inform</comment>
+  </data>
+  <data name="InformMessage7" xml:space="preserve">
+    <value>No customer list available at this time.</value>
+    <comment>Inform</comment>
+  </data>
   <data name="Internet" xml:space="preserve">
     <value>Internet</value>
   </data>

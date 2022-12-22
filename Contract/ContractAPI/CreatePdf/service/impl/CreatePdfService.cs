@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -86,13 +87,15 @@ namespace ContractAPI.CreatePdf.service.impl
             pdf.Template = contractTemplate;
             pdf.Services = serviceList;
 
-            string savePath = $"{_environment.WebRootPath}{Constants.SaveContractPdfPath}{contractInfo.contract_number}.pdf";
+            //Console.WriteLine($"WebRootPath: {_environment.WebRootPath}");
+            string strPath = Path.Combine(Directory.GetCurrentDirectory(), Constants.SaveContractPdfPath);
+            string savePathFile = $"{strPath}{contractInfo.contract_number}.pdf";
             await Task.Run(() =>
             {
-                pdf.CreateContract(savePath);
+                pdf.CreateContract(savePathFile);
             });
 
-            response.pdf_url = $"{Constants.SaveContractPdfPath}{contractInfo.contract_number}.pdf";
+            response.pdf_url = savePathFile;
             response.result = true;
             response.message = Constants.Success;
 

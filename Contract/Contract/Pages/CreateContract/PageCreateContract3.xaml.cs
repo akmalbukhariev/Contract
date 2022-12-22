@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using LibContract;
+using Contract.Net;
 
 namespace Contract.Pages.CreateContract
 {
@@ -34,10 +35,22 @@ namespace Contract.Pages.CreateContract
             return true;
         }
 
-        private void View_Tapped(object sender, EventArgs e)
+        private async void View_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxView);
             ClickAnimationView(stackView);
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseCreatePdf response = await HttpService.CreateContractPdf(ContractInfo.contract_number);
+            if (response.result)
+            {
+                await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+            }
+            else
+            {
+                await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
+            }
+            ControlApp.CloseLoadingView();
         }
 
         private void Send_Tapped(object sender, EventArgs e)

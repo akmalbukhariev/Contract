@@ -182,7 +182,7 @@
                     <StackLayout Grid.Row="15">
                         <Label Text="{x:Static resource:AppResource.Logotip}"
                                Style="{StaticResource lbBlackStyle}"/>
-                        <Image Source="plus"
+                        <Image Source="{Binding LogoImage}"
                                Aspect="AspectFit"
                                WidthRequest="80" 
                                HorizontalOptions="CenterAndExpand"

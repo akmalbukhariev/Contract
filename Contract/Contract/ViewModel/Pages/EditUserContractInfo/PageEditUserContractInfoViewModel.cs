@@ -14,22 +14,22 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
         public PageEditUserContractInfoViewModel(INavigation navigation) : base(navigation)
         {
-            CompanyName = "Kontrakt Maker";
-            AddressOfCompany = "Uzbekistan";
-            AccountNumber = "126741";
-            CompanyStir = "111122";
-            NameOfBank = "ASAKA";
-            BankCode = "99115544";
-            AreYouQQSPayer = true;
-            QQSCode = "7744261";
-            PhoneNnumberOfCompany = "9989756321";
-            //PositionOfSignatory = "Akmal";
-            //PositionOfSignatory_index = 1;
-            FullNameOfSignatory = "Akmal Bukhariev";
-            IsAccountProvided = true;
-            AccountantName = "Rashid Vohidov";
-            IsCounselProvided = false;
-            CounselName = "Ikrom";
+            //CompanyName = "Kontrakt Maker";
+            //AddressOfCompany = "Uzbekistan";
+            //AccountNumber = "126741";
+            //CompanyStir = "111122";
+            //NameOfBank = "ASAKA";
+            //BankCode = "99115544";
+            //AreYouQQSPayer = true;
+            //QQSCode = "7744261";
+            //PhoneNnumberOfCompany = "9989756321";
+            ////PositionOfSignatory = "Akmal";
+            ////PositionOfSignatory_index = 1;
+            //FullNameOfSignatory = "Akmal Bukhariev";
+            //IsAccountProvided = true;
+            //AccountantName = "Rashid Vohidov";
+            //IsCounselProvided = false;
+            //CounselName = "Ikrom";
         }
 
         BaseCompanyInfoModel oldModel = null;//new BaseCompanyInfoModel();
