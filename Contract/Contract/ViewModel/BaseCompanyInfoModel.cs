@@ -9,7 +9,10 @@ namespace Contract.ViewModel
     public class BaseCompanyInfoModel : BaseModel
     {
         #region Properties
+        public int Id { get; set; }
         public string CompanyName { get => GetValue<string>(); set => SetValue(value); }
+        public string SelectedDocument { get => GetValue<string>(); set => SetValue(value); }
+        public int SelectedDocument_index { get => GetValue<int>(); set => SetValue(value); }
         public string AddressOfCompany { get => GetValue<string>(); set => SetValue(value); }
         public string AccountNumber { get => GetValue<string>(); set => SetValue(value); }
         public string CompanyStir { get => GetValue<string>(); set => SetValue(value); }
@@ -29,6 +32,7 @@ namespace Contract.ViewModel
         public ImageSource LogoImage { get => GetValue<ImageSource>(); set => SetValue(value); }
         public string CreatedDate { get => GetValue<string>(); set => SetValue(value); }
 
+        public List<string> DocumentList { get => GetValue<List<string>>(); set => SetValue(value); }
         public List<string> PositionList { get => GetValue<List<string>>(); set => SetValue(value); }
         #endregion
 
@@ -42,14 +46,17 @@ namespace Contract.ViewModel
             PositionList = new List<string>();
         }
 
-        public BaseCompanyInfoModel Copy(BaseCompanyInfoModel other)
+        public BaseCompanyInfoModel Copy()
         {
             BaseCompanyInfoModel newModel = new BaseCompanyInfoModel();
+            newModel.Id = this.Id;
             newModel.CompanyName = this.CompanyName;
+            newModel.SelectedDocument = this.SelectedDocument;
+            newModel.SelectedDocument_index = this.SelectedDocument_index;
             newModel.AddressOfCompany = this.AddressOfCompany;
             newModel.AccountNumber = this.AccountNumber;
             newModel.CompanyStir = this.CompanyStir;
-            newModel.NameOfBank = newModel.NameOfBank;
+            newModel.NameOfBank = this.NameOfBank;
             newModel.BankCode = this.BankCode;
             newModel.AreYouQQSPayer = this.AreYouQQSPayer;
             newModel.QQSCode = this.QQSCode;
@@ -70,6 +77,8 @@ namespace Contract.ViewModel
             //bool rr = CompanyName.Equals(other.CompanyName);
 
             bool res = CompanyName.Equals(other.CompanyName) &&
+                       SelectedDocument.Equals(other.SelectedDocument) &&
+                       SelectedDocument_index.Equals(other.SelectedDocument_index) &&
                        AddressOfCompany.Equals(other.AddressOfCompany) &&
                        AccountNumber.Equals(other.AccountNumber) &&
                        CompanyStir.Equals(other.CompanyStir) &&
@@ -78,7 +87,7 @@ namespace Contract.ViewModel
                        AreYouQQSPayer.Equals(other.AreYouQQSPayer) &&
                        QQSCode.Equals(other.QQSCode) &&
                        PhoneNnumberOfCompany.Equals(PhoneNnumberOfCompany) &&
-                       PositionOfSignatory.Equals(other) &&
+                       PositionOfSignatory.Equals(other.PositionOfSignatory) && 
                        PositionOfSignatory_index.Equals(other.PositionOfSignatory_index) &&
                        FullNameOfSignatory.Equals(FullNameOfSignatory) &&
                        IsAccountProvided.Equals(other.IsAccountProvided) &&
@@ -99,14 +108,15 @@ namespace Contract.ViewModel
                         string.IsNullOrEmpty(BankCode) ||
                         string.IsNullOrEmpty(PhoneNnumberOfCompany) ||
                         string.IsNullOrEmpty(PositionOfSignatory) ||
+                        string.IsNullOrEmpty(SelectedDocument) ||
                         string.IsNullOrEmpty(FullNameOfSignatory);
 
-            //bool res2 = AreYouQQSPayer;
+            bool res2 = AreYouQQSPayer;
             //bool res3 = IsAccountProvided;
             //bool res4 = IsCounselProvided;
             //
-            //if (AreYouQQSPayer)
-            //    res2 = string.IsNullOrEmpty(QQSCode?.Trim());
+            if (AreYouQQSPayer)
+                res2 = string.IsNullOrEmpty(QQSCode?.Trim());
             //
             //if (IsAccountProvided)
             //    res3 = string.IsNullOrEmpty(AccountantName?.Trim());
@@ -121,8 +131,11 @@ namespace Contract.ViewModel
         {
             return new CompanyInfo()
             {
+                id = Id,
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 company_name = CompanyName,
+                document = SelectedDocument,
+                document_index = SelectedDocument_index,
                 address_of_company = AddressOfCompany,
                 account_number = AccountNumber,
                 stir_of_company = CompanyStir,

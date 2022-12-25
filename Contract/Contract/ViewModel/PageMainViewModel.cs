@@ -46,7 +46,7 @@ namespace Contract.ViewModel
             LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
-                user_stir = "111122",
+                user_stir = ControlApp.UserCompanyInfo.stir_of_company,
                 use_is_approved = 0
             };
 

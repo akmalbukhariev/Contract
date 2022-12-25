@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 namespace LibContract.HttpModels
 {
     public class UserCompanyInfo : CompanyInfo
-    {
+    {  
         public UserCompanyInfo()
         {
             
         }
 
-        public UserCompanyInfo(CompanyInfo other)
-        {
+        public UserCompanyInfo(UserCompanyInfo other)
+        { 
             Copy(other);
         }
     }

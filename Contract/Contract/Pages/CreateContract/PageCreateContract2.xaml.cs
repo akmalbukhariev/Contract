@@ -175,7 +175,7 @@ namespace Contract.Pages.CreateContract
             {
                 var numTemplate = PModel.ResponseContractNumberTemplateInfo.data.Where(item => item.id == PModel.SelectedTemplate.contract_number_format_id).FirstOrDefault();
 
-                switch (numTemplate.id)
+                switch (numTemplate.format)
                 {
                     case 1:
                         PModel.ContractNumber = PModel.ContractSequenceNumber;

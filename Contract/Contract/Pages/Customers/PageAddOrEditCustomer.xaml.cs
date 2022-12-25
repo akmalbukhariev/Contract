@@ -43,7 +43,7 @@ namespace Contract.Pages.Customers
             base.OnAppearing();
 
             PModel.PositionList = GetPositionList;
-
+            PModel.DocumentList = GetDocumentList;
 
             if (IsThisEditClient)
             {

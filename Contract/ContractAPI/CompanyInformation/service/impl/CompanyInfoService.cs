@@ -158,7 +158,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.UserCompanyInfo
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
@@ -266,7 +266,7 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             if (found != null)
             {
-                response.result = true;
+                response.result = false;
                 response.message = "User stir number is exist!";
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
@@ -362,7 +362,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.UserCompanyInfo
-                .Where(item => item.user_phone_number.Equals(info.user_phone_number))
+                .Where(item => item.id.Equals(info.id))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
@@ -403,21 +403,24 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.UserCompanyInfo
-                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
+                .Where(item => item.id.Equals(info.id))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the stir number!";
+                response.message = "Not found the id number!";
 
                 return response;
             }
 
             var newInfo = new UserCompanyInfo();
+            newInfo.id = info.id;
             newInfo.user_phone_number = info.user_phone_number;
             newInfo.company_name = info.company_name;
+            newInfo.document = info.document;
+            newInfo.document_index = info.document_index;
             newInfo.address_of_company = info.address_of_company;
             newInfo.account_number = info.account_number;
             newInfo.stir_of_company = info.stir_of_company;
@@ -465,14 +468,14 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.ClientCompanyInfo
-                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
+                .Where(item => item.id.Equals(info.id))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the user phone number!";
+                response.message = "Not found the user id number!";
 
                 return response;
             }
@@ -508,21 +511,24 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.data = null;
 
             CompanyInfo found = await dataBase.ClientCompanyInfo
-                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
+                .Where(item => item.id.Equals(info.id))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the stir number!";
+                response.message = "Not found the id number!";
 
                 return response;
             }
 
             var newInfo = new ClientCompanyInfo();
+            newInfo.id = info.id;
             newInfo.user_phone_number = info.user_phone_number;
             newInfo.company_name = info.company_name;
+            newInfo.document = info.document;
+            newInfo.document_index = info.document_index;
             newInfo.address_of_company = info.address_of_company;
             newInfo.account_number = info.account_number;
             newInfo.stir_of_company = info.stir_of_company;

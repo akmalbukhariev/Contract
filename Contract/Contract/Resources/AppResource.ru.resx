@@ -171,6 +171,10 @@
     <value>Адрес компании</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AddressOfContract" xml:space="preserve">
+    <value>Адрес контракта</value>
+    <comment>Fillinfo</comment>
+  </data>
   <data name="AddSmallBottomClause" xml:space="preserve">
     <value>Добавить маленький нижний пункт</value>
     <comment>Template Contract</comment>
@@ -438,6 +442,9 @@
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Забыли пароль?</value>
     <comment>Login</comment>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Документы, определяющие право</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Готово</value>
@@ -955,6 +962,10 @@
   <data name="SaveIDAndPassword" xml:space="preserve">
     <value>Сохранить ID и пароль</value>
     <comment>Login</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Выбирать</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="SelectClientCompany" xml:space="preserve">
     <value>Выберите компанию</value>

@@ -10,7 +10,7 @@ namespace LibContract.HttpModels
         public string user_phone_number { get; set; }
         public int contract_number_format_id { get; set; }
         public string contract_number_option { get; set; }
-        public string company_address { get; set; }
+        public string contract_address { get; set; }
         public string template_name { get; set; }
         public string clauses { get; set; }
         public string created_date { get; set; }
@@ -31,7 +31,7 @@ namespace LibContract.HttpModels
             user_phone_number = other.user_phone_number;
             contract_number_format_id = other.contract_number_format_id;
             contract_number_option = other.contract_number_option;
-            company_address = other.company_address;
+            contract_address = other.contract_address;
             template_name = other.template_name;
             clauses = other.clauses;
             created_date = other.created_date;

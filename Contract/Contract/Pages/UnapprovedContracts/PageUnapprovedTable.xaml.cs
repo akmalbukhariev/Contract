@@ -34,7 +34,9 @@ namespace Contract.Pages.UnapprovedContracts
         {
             base.OnAppearing();
             Model.Parent = Parent;
-            PModel.RequestInfo();
+
+            //if (ControlApp.CheckUserCompany())
+                PModel.RequestInfo();
 
             DependencyService.Get<IRotationService>().EnableRotation();
         }

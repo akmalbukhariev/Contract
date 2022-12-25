@@ -84,10 +84,10 @@
                     </StackLayout>
                     <StackLayout Margin="15,0,15,0" 
                                  Grid.Row="3">
-                        <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
+                        <Label Text="{x:Static resource:AppResource.AddressOfContract}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry Text="{Binding AddressOfCompany}" 
-                                        PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}" 
+                        <view:ViewEntry Text="{Binding AddressOfContract}" 
+                                        PlaceHoldingText="{x:Static resource:AppResource.AddressOfContract}" 
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Margin="15,0,15,0" 

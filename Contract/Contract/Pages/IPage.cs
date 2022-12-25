@@ -166,5 +166,31 @@ namespace Contract.Pages
                 return result;
             }
         }
+
+        protected List<string> GetDocumentList
+        {
+            get
+            {
+                List<string> result = new List<string>();
+
+                switch (AppSettings.GetLanguage())
+                {
+                    case Constants.LanUz:
+                        result = ((string[])Application.Current.Resources[Constants.DocumentList_uz]).ToList();
+                        break;
+                    case Constants.LanUzCyrl:
+                        result = ((string[])Application.Current.Resources[Constants.DocumentList_uz_cyrl]).ToList();
+                        break;
+                    case Constants.LanEn:
+                        result = ((string[])Application.Current.Resources[Constants.DocumentList_en]).ToList();
+                        break;
+                    case Constants.LanRu:
+                        result = ((string[])Application.Current.Resources[Constants.DocumentList_ru]).ToList();
+                        break;
+                }
+
+                return result;
+            }
+        }
     }
 }

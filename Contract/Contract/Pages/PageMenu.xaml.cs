@@ -1,4 +1,5 @@
 ﻿using Contract.Control;
+using Contract.Pages.EditUserContractInfo;
 using Contract.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,7 @@ namespace Contract.Pages
             }
         }
 
-        private void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var tListView = sender as ListView;
             tListView.SelectedItem = null;
@@ -80,16 +81,34 @@ namespace Contract.Pages
 
             switch (item.ID)
             { 
-                case Constants.Menu1_1: 
+                case Constants.Menu1_1:
+                    if (ControlApp.UserCompanyInfo == null)
+                    {
+                        await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);
+                        await Navigation.PushAsync(new PageEditUserContractInfo());
+                        return;
+                    }
                     OnNavigatePage(new UnapprovedContracts.PageUnapprovedTable());
                     break;
                 case Constants.Menu1_2:
+                    if (ControlApp.UserCompanyInfo == null)
+                    {
+                        await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);
+                        await Navigation.PushAsync(new PageEditUserContractInfo());
+                        return;
+                    }
                     OnNavigatePage(new ApprovedContracts.PageApprovedTable());
                     break;
                 case Constants.Menu1_3:
                     OnNavigatePage(new CanceledContracts.PageCanceledTable());
                     break;
                 case Constants.Menu1_4:
+                    if (ControlApp.UserCompanyInfo == null)
+                    {
+                        await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);
+                        await Navigation.PushAsync(new PageEditUserContractInfo());
+                        return;
+                    }
                     OnNavigatePage(new CreateContract.PageCreateContract1());
                     break;
                 case Constants.Menu4_1:

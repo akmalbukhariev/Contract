@@ -45,7 +45,10 @@ namespace Contract.ViewModel.Pages.Login
                 return;
             }
 
+            if (response.companyInfo != null)
+                ControlApp.UserCompanyInfo = new LibContract.HttpModels.CompanyInfo(response.companyInfo);
             ControlApp.UserInfo = new LibContract.HttpModels.User(response.data);
+
             Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail());
 
             if (CheckAutoLogin)

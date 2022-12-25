@@ -169,6 +169,10 @@
     <value>Address Of Company</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AddressOfContract" xml:space="preserve">
+    <value>Address Of Contract</value>
+    <comment>Fillinfo</comment>
+  </data>
   <data name="AddSmallBottomClause" xml:space="preserve">
     <value>Add Small Bottom Clause</value>
     <comment>Template Contract</comment>
@@ -437,6 +441,9 @@ Contracts</value>
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Have you forgot password?</value>
     <comment>Login</comment>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Legal documents</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Done</value>
@@ -954,6 +961,10 @@ Contracts</value>
   <data name="SaveIDAndPassword" xml:space="preserve">
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="SelectClientCompany" xml:space="preserve">
     <value>Select company</value>

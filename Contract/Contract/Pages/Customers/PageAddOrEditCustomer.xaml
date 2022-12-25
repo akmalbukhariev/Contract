@@ -27,7 +27,7 @@
                      Grid.RowSpan="2"/>
             <ScrollView VerticalOptions="FillAndExpand" 
                         Margin="0,0,0,20">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
                       RowSpacing="15"
                       Margin="10,10,10,0">
                     <Grid.Resources>
@@ -56,35 +56,49 @@
                                         Text="{Binding CompanyName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="1">
+                    <StackLayout Spacing="10"
+                                 Grid.Row="1">
+                        <Label Text="{x:Static resource:AppResource.Document}"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="{x:Static resource:AppResource.Select}"
+                                              ItemsSource="{Binding DocumentList}"
+                                              SelectedItem="{Binding SelectedDocument}"
+                                              SelectedIndex="{Binding SelectedDocument_index}"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2">
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.AddressOfCompany}"
                                         Text="{Binding AddressOfCompany}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="2">
+                    <StackLayout Grid.Row="3">
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Text="{Binding AccountNumber}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="3">
+                    <StackLayout Grid.Row="4">
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ----"
                                         Text="{Binding CompanyStir}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="4">
+                    <StackLayout Grid.Row="5">
                         <Label Text="{x:Static resource:AppResource.NameOfBank}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.NameOfBank}"
                                         Text="{Binding NameOfBank}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="5">
+                    <StackLayout Grid.Row="6">
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
@@ -92,7 +106,7 @@
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
-                                 Grid.Row="6">
+                                 Grid.Row="7">
                         <Label Text="{x:Static resource:AppResource.AreYou_QQS_Payer}"
                                Style="{StaticResource lbBlackStyle}"
                                HorizontalOptions="StartAndExpand"/>
@@ -104,14 +118,15 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout x:Name="stackYesNo1" Grid.Row="7">
+                    <StackLayout x:Name="stackYesNo1" 
+                                 Grid.Row="8">
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Text="{Binding QQSCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="8">
+                    <StackLayout Grid.Row="9">
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
@@ -119,7 +134,7 @@
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
-                                 Grid.Row="9">
+                                 Grid.Row="10">
                         <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <control:CustomPicker Title="{x:Static resource:AppResource.Position}"
@@ -132,7 +147,7 @@
                                               TitleColor="Gray"
                                               BackgroundColor="White"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="10">
+                    <StackLayout Grid.Row="11">
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
@@ -140,7 +155,7 @@
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
-                                 Grid.Row="11">
+                                 Grid.Row="12">
                         <Label Text="{x:Static resource:AppResource.Question4}"
                                Style="{StaticResource lbBlackStyle}"
                                HorizontalOptions="StartAndExpand"/>
@@ -152,7 +167,8 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout x:Name="stackYesNo2" Grid.Row="12">
+                    <StackLayout x:Name="stackYesNo2" 
+                                 Grid.Row="13">
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
@@ -160,7 +176,7 @@
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
-                                 Grid.Row="13">
+                                 Grid.Row="14">
                         <Label Text="{x:Static resource:AppResource.Question5}"
                                Style="{StaticResource lbBlackStyle}"
                                HorizontalOptions="StartAndExpand"/>
@@ -172,14 +188,15 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <StackLayout x:Name="stackYesNo3" Grid.Row="14">
+                    <StackLayout x:Name="stackYesNo3" 
+                                 Grid.Row="15">
                         <Label Text="{x:Static resource:AppResource.CounselName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Text="{Binding CounselName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="15">
+                    <StackLayout Grid.Row="16">
                         <Label Text="{x:Static resource:AppResource.Logotip}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <Image Source="{Binding LogoImage}"
@@ -193,7 +210,7 @@
                         </Image>
                     </StackLayout>
                     <view:ViewExplanation Text="{x:Static resource:AppResource.Info1}" 
-                                          Grid.Row="16"/>
+                                          Grid.Row="17"/>
                 </Grid>
             </ScrollView>
             <Button Style="{StaticResource btnNext}"

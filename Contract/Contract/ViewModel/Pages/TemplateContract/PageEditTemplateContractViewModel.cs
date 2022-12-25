@@ -22,7 +22,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         public bool EnableAddUpdate { get => GetValue<bool>(); set => SetValue(value); }
 
         public string ContractNumberFormat { get => GetValue<string>(); set => SetValue(value); }
-        public string AddressOfCompany { get => GetValue<string>(); set => SetValue(value); }
+        public string AddressOfContract { get => GetValue<string>(); set => SetValue(value); }
         public string NameOfTemplate { get => GetValue<string>(); set => SetValue(value); }
         public string BtnEditDoneText { get => GetValue<string>(); set => SetValue(value); }
         public Model.ContractNumber SelectedContractNumberTemplate { get => GetValue<Model.ContractNumber>(); set => SetValue(value); }
@@ -167,7 +167,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             Editable = other.Editable;
             EnableAddUpdate = other.EnableAddUpdate;
             ContractNumberFormat = other.ContractNumberFormat;
-            AddressOfCompany = other.AddressOfCompany;
+            AddressOfContract = other.AddressOfContract;
             NameOfTemplate = other.NameOfTemplate;
             SelectedContractNumberTemplate = new Model.ContractNumber(other.SelectedContractNumberTemplate);
             TemplateInfo = new LibContract.HttpModels.ContractTemplate(other.TemplateInfo);
@@ -187,7 +187,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         {
             bool res1 = SelectedContractNumberTemplate.Id == other.SelectedContractNumberTemplate.Id &&
                         NameOfTemplate.Equals(other.NameOfTemplate) &&
-                        AddressOfCompany.Equals(other.AddressOfCompany);
+                        AddressOfContract.Equals(other.AddressOfContract);
             
             bool res2 = true;
             if (ContractClausesList.Count != other.ContractClausesList.Count)
@@ -429,7 +429,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 contract_number_format_id = SelectedContractNumberTemplate.Id,
                 contract_number_option = SelectedContractNumberTemplate.ContractNumberText.Replace(Constants.ContractSequenceNumber,"").Replace("-",""),
-                company_address = AddressOfCompany,
+                contract_address = AddressOfContract,
                 template_name = NameOfTemplate,
                 clauses = strJson,
                 id = TemplateInfo != null? TemplateInfo.id : 0,
@@ -473,7 +473,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
         private void EditTemplate()
         {
             SelectedContractNumberTemplate = ContractNumberTemplateList.Where(item => item.Id == TemplateInfo.contract_number_format_id).FirstOrDefault();
-            AddressOfCompany = TemplateInfo.company_address;
+            AddressOfContract = TemplateInfo.contract_address;
             NameOfTemplate = TemplateInfo.template_name;
 
             ContractClausesList.Clear();

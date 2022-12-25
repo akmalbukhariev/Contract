@@ -13,6 +13,8 @@ namespace LibContract.HttpModels
         /// 1 = yes, 0 = no
         /// </summary>
         public string company_name { get; set; } = "";
+        public int document_index { get; set; } = 0;
+        public string document { get; set; } = "";
         public string address_of_company { get; set; } = "";
         public string account_number { get; set; } = "";
         public string stir_of_company { get; set; } = "";
@@ -56,26 +58,28 @@ namespace LibContract.HttpModels
 
         public void Copy(CompanyInfo other)
         {
-            base.id = other.id;
-            base.user_phone_number = other.user_phone_number;
-            base.company_name = other.company_name;
-            base.address_of_company = other.address_of_company;
-            base.account_number = other.account_number;
-            base.stir_of_company = other.stir_of_company;
-            base.name_of_bank = other.name_of_bank;
-            base.bank_code = other.bank_code;
-            base.are_you_qqs_payer = other.are_you_qqs_payer;
-            base.qqs_number = other.qqs_number;
-            base.company_phone_number = other.company_phone_number;
-            base.position_of_signer = other.position_of_signer;
-            base.position_of_signer_index = other.position_of_signer_index;
-            base.name_of_signer = other.name_of_signer;
-            base.is_accountant_provided = other.is_accountant_provided;
-            base.accountant_name = other.accountant_name;
-            base.is_legal_counsel_provided = other.is_legal_counsel_provided;
-            base.counsel_name = other.counsel_name;
-            this.company_logo_url = other.company_logo_url;
-            this.created_date = other.created_date;
+            id = other.id;
+            user_phone_number = other.user_phone_number;
+            company_name = other.company_name;
+            document = other.document;
+            document_index = other.document_index;
+            address_of_company = other.address_of_company;
+            account_number = other.account_number;
+            stir_of_company = other.stir_of_company;
+            name_of_bank = other.name_of_bank;
+            bank_code = other.bank_code;
+            are_you_qqs_payer = other.are_you_qqs_payer;
+            qqs_number = other.qqs_number;
+            company_phone_number = other.company_phone_number;
+            position_of_signer = other.position_of_signer;
+            position_of_signer_index = other.position_of_signer_index;
+            name_of_signer = other.name_of_signer;
+            is_accountant_provided = other.is_accountant_provided;
+            accountant_name = other.accountant_name;
+            is_legal_counsel_provided = other.is_legal_counsel_provided;
+            counsel_name = other.counsel_name;
+            company_logo_url = other.company_logo_url;
+            created_date = other.created_date;
         }
     }
 }

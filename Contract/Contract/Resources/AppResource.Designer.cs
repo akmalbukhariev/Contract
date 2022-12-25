@@ -178,6 +178,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address Of Contract.
+        /// </summary>
+        internal static string AddressOfContract {
+            get {
+                return ResourceManager.GetString("AddressOfContract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Small Bottom Clause.
         /// </summary>
         internal static string AddSmallBottomClause {
@@ -778,6 +787,15 @@ namespace Contract.Resources {
         internal static string DidYouForgotPassword {
             get {
                 return ResourceManager.GetString("DidYouForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legal documents.
+        /// </summary>
+        internal static string Document {
+            get {
+                return ResourceManager.GetString("Document", resourceCulture);
             }
         }
         
@@ -1948,6 +1966,15 @@ namespace Contract.Resources {
         internal static string SaveIDAndPassword {
             get {
                 return ResourceManager.GetString("SaveIDAndPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        internal static string Select {
+            get {
+                return ResourceManager.GetString("Select", resourceCulture);
             }
         }
         

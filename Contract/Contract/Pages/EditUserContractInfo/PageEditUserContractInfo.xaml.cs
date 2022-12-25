@@ -33,6 +33,7 @@ namespace Contract.Pages.EditUserContractInfo
         {
             base.OnAppearing();
             PModel.PositionList = GetPositionList;
+            PModel.DocumentList = GetDocumentList;
             PModel.RequestInfo(); 
         }
 

@@ -171,6 +171,10 @@
     <value>Korxona manzili</value>
     <comment>Fillinfo</comment>
   </data>
+  <data name="AddressOfContract" xml:space="preserve">
+    <value>Shartnoma manzili</value>
+    <comment>Fillinfo</comment>
+  </data>
   <data name="AddSmallBottomClause" xml:space="preserve">
     <value>Pastga kichik band qo'shish</value>
     <comment>Template Contract</comment>
@@ -439,6 +443,9 @@ shartnomalar</value>
   <data name="DidYouForgotPassword" xml:space="preserve">
     <value>Parolni unutdingizmi?</value>
     <comment>Login</comment>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Xquqni belgilovchi xudjatlar</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Tayyor</value>
@@ -982,6 +989,10 @@ rekvizitlari ochiq qolsinmi?</value>
   <data name="SaveIDAndPassword" xml:space="preserve">
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Tanlang</value>
+    <comment>Template Contract</comment>
   </data>
   <data name="SelectClientCompany" xml:space="preserve">
     <value>Kompaniyani tanlang</value>

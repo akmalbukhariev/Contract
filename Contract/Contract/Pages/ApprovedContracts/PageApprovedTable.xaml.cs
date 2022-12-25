@@ -33,11 +33,21 @@ namespace Contract.Pages.ApprovedContracts
         {
             base.OnAppearing();
             Model.Parent = Parent;
-            PModel.RequestInfo();
+
+            //if (ControlApp.CheckUserCompany())
+            if (ControlApp.UserCompanyInfo == null)
+            {
+
+            }
+            else
+            {
+                PModel.RequestInfo();
+            }
 
             DependencyService.Get<IRotationService>().EnableRotation();
         }
 
+         
         protected override void OnDisappearing()
         {
             base.OnDisappearing();

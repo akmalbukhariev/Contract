@@ -62,6 +62,11 @@ namespace Contract
         public const string PositionList_ru = "positionList_ru";
         public const string PositionList_en = "positionList_en";
 
+        public const string DocumentList_uz_cyrl = "documentList_uz_cyrl";
+        public const string DocumentList_uz = "documentList_uz";
+        public const string DocumentList_ru = "documentList_ru";
+        public const string DocumentList_en = "documentList_en";
+
         public const string Success = "Success";
         public const string NotFound = "Not Found!";
         public const string BadRequest = "Bad Request!";

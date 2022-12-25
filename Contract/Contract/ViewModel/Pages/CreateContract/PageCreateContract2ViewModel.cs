@@ -48,48 +48,7 @@ namespace Contract.ViewModel.Pages.CreateContract
 
             ClientCompanyInfo = new LibContract.HttpModels.ClientCompanyInfo(companyInfo);
 
-            SelectedTemplate = null;
-            #region 
-            //TotalCostText = "000 sum";
-            //SelectedServiceType = "";
-            //SelectedServiceType_index = 0;
-            //ContractNumber = "890701";
-            //SelectedCurrency = "RUB";
-            //SelectedCurrency_index = 1;
-            //SelectedQQS = "15%";
-            //SelectedQQS_index = 0;
-            //IsExeciseTax = false;
-            //InterestText = "13%";
-
-            //ServicesInfo item1 = new ServicesInfo()
-            //{
-            //    NameOfService = "Test1",
-            //    SelectedMeasure = "Liter",
-            //    SelectedMeasure_index = 2,
-            //    AmountText = "7",
-            //    AmountOfPrice = "13",
-            //};
-            //ServicesInfo item2 = new ServicesInfo()
-            //{
-            //    NameOfService = "Test2",
-            //    SelectedMeasure = "Liter",
-            //    SelectedMeasure_index = 2,
-            //    AmountText = "2",
-            //    AmountOfPrice = "10",
-            //};
-            //ServicesInfo item3 = new ServicesInfo()
-            //{
-            //    NameOfService = "Test3",
-            //    SelectedMeasure = "Liter",
-            //    SelectedMeasure_index = 2,
-            //    AmountText = "70",
-            //    AmountOfPrice = "3",
-            //};
-
-            //ServicesList.Add(item1);
-            //ServicesList.Add(item2);
-            //ServicesList.Add(item3);
-            #endregion
+            SelectedTemplate = null; 
         }
 
         public async void RrequestInfo()
@@ -130,7 +89,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.AgreeMessage, RSC.Ok);
                 return;
             }
-             
+
             string strNumber = Regex.Replace(ContractNumber, @"\s", "");
             string strContractNumber = $"{ControlApp.UserInfo.phone_number}_{strNumber.Replace("-", "_")}";
 
@@ -155,7 +114,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 agree = Agree ? 1 : 0,
                 created_date = "",
             };
-             
+
             var serviceList = new List<LibContract.HttpModels.ServicesInfo>();
             foreach (ServicesInfo item in ServicesList)
             {
@@ -192,19 +151,26 @@ namespace Contract.ViewModel.Pages.CreateContract
                 return;
             }
 
-            var responseClient = await Net.HttpService.SetClientCompanyInfo(ClientCompanyInfo);
-            ControlApp.CloseLoadingView();
+            var responseGetClients = await Net.HttpService.GetClientCompanyInfo(ControlApp.UserInfo.phone_number);
+            if (responseGetClients.result)
+            {
+                var found = responseGetClients.data.Find(item => item.stir_of_company.Equals(ClientCompanyInfo.stir_of_company));
+                if (found == null)
+                {
+                    await Net.HttpService.SetClientCompanyInfo(ClientCompanyInfo);
+                }
+                else
+                {
+                    await Net.HttpService.UpdateClientCompanyInfo(ClientCompanyInfo);
+                }
+            }
 
-            if (responseClient.result)
-            {
-                SetTransitionType();
-                await Navigation.PushAsync(new PageCreateContract3(contractinfo));
-            }
-            else
-            {
-                responseService = await Net.HttpService.DeleteServiceinfo(ContractNumber);
-                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Failed} : {responseClient.message}", RSC.Ok);
-            }
+            ControlApp.CloseLoadingView();
+            SetTransitionType();
+            await Navigation.PushAsync(new PageCreateContract3(contractinfo));
+            
+            //responseService = await Net.HttpService.DeleteServiceinfo(ContractNumber);
+            //await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Failed} : {responseClient.message}", RSC.Ok);
         }
         #endregion
   

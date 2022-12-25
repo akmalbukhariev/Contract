@@ -121,7 +121,7 @@ namespace LibContract
                 drawText.DrawString(strDate, fontText, textColor, layoutNextText);
 
                 drawText.Alignment = XParagraphAlignment.Right;
-                drawText.DrawString(Template.company_address, fontText, textColor, layoutNextText);
+                drawText.DrawString(Template.contract_address, fontText, textColor, layoutNextText);
 
                 layoutNextText.Y += lineHeight + lineHeight;
                 drawText.Alignment = XParagraphAlignment.Justify;

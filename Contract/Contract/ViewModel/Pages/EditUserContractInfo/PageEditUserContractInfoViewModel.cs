@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Contract.ViewModel.Pages.EditUserContractInfo
 {
-    public class PageEditUserContractInfoViewModel: BaseCompanyInfoModel
+    public class PageEditUserContractInfoViewModel : BaseCompanyInfoModel
     {   
         public delegate void RequestInfoFinished();
         public event RequestInfoFinished EventRequestInfoFinished;
@@ -43,7 +43,10 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
             if (response.result)
             {
+                Id = response.data.id;
                 CompanyName = response.data.company_name;
+                SelectedDocument = response.data.document;
+                SelectedDocument_index = response.data.document_index;
                 AddressOfCompany = response.data.address_of_company;
                 AccountNumber = response.data.account_number;
                 CompanyStir = response.data.stir_of_company;
@@ -60,7 +63,7 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
                 IsCounselProvided = response.data.is_legal_counsel_provided == 1 ? true : false;
                 CounselName = response.data.counsel_name;
 
-                oldModel = Copy(this);
+                oldModel = Copy();
 
                 EventRequestInfoFinished?.Invoke();
             }
@@ -90,8 +93,9 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
             if (response != null && response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.MyCompany, RSC.SuccessfullyUpdated, RSC.Ok);
+                ControlApp.UserCompanyInfo = new LibContract.HttpModels.CompanyInfo(GetCompanyInfo());
             }
-            else
+            else if (response != null && !response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.MyCompany, $"{RSC.Failed} : {response.message}", RSC.Ok);
             }

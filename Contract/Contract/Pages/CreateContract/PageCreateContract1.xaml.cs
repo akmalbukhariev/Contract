@@ -41,9 +41,13 @@ namespace Contract.Pages.CreateContract
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             Model.Parent = Parent;
             lbStep.Text = RSC.Step + " #1";
             PModel.ClientCompanyStir = $"{RSC.STIR} :";
+
+            PModel.PositionList = GetPositionList;
+            PModel.DocumentList = GetDocumentList;
 
             if (ControlApp.SelectedClientCompanyInfo != null)
             {
@@ -180,6 +184,7 @@ namespace Contract.Pages.CreateContract
         {
             lbTitleBold.IsVisible = show;
             stack1.IsVisible = show;
+            stackDoc.IsVisible = show;
             stack2.IsVisible = show;
             stack3.IsVisible = show;
             stack4.IsVisible = show;

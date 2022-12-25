@@ -12,10 +12,13 @@ namespace LibContract.HttpModels
         public string password { get; set; }
         public string reg_date { get; set; }
         public int default_template_id { get; set; }
-
+         
         public User()
         {
-            
+            //phone_number = "";
+            //password = "";
+            //reg_date = "";
+            //default_template_id = 0;
         }
 
         public User(User other)
@@ -28,7 +31,7 @@ namespace LibContract.HttpModels
             phone_number = other.phone_number;
             password = other.password;
             reg_date = other.reg_date;
-            default_template_id = other.default_template_id;
+            default_template_id = other.default_template_id; 
         }
     }
 }

@@ -21,9 +21,12 @@ namespace ContractAPI.LoginSignUp.service.impl
         public async Task<ResponseLogin> login(Login user)
         {
             ResponseLogin response = new ResponseLogin();
+            //List<User> tList = await dataBase.Users.ToListAsync();
+
             User foundUser = await dataBase.Users
+                .Where(item => item.phone_number.Equals(user.phone_number))
                 .AsNoTracking()
-                .FirstOrDefaultAsync(item => item.phone_number.Equals(user.phone_number));
+                .FirstOrDefaultAsync();
 
             if (foundUser == null)
             {
@@ -39,6 +42,16 @@ namespace ContractAPI.LoginSignUp.service.impl
                 response.message = "Wrong password.";
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
+            }
+                             
+            UserCompanyInfo companyInfo = await dataBase.UserCompanyInfo
+                            .Where(item => item.user_phone_number.Equals(user.phone_number))
+                            .AsNoTracking()
+                            .FirstOrDefaultAsync();
+            
+            if (companyInfo != null)
+            {
+                response.companyInfo = new UserCompanyInfo(companyInfo);
             }
 
             response.data.Copy(foundUser);

@@ -14,6 +14,7 @@ namespace Contract.ViewModel.Pages.Customers
             LogoImage = "plus";
 
             CompanyName = "";
+            SelectedDocument = "";
             AddressOfCompany = "";
             AccountNumber = "";
             CompanyStir = "";
@@ -34,6 +35,8 @@ namespace Contract.ViewModel.Pages.Customers
         public PageAddOrEditCustomerViewModel(PageAddOrEditCustomerViewModel other)
         {
             CompanyName = other.CompanyName;
+            SelectedDocument = other.SelectedDocument;
+            SelectedDocument_index = other.SelectedDocument_index;
             AddressOfCompany = other.AddressOfCompany;
             AccountNumber = other.AccountNumber;
             CompanyStir = other.CompanyStir;
@@ -56,6 +59,8 @@ namespace Contract.ViewModel.Pages.Customers
         public static bool operator ==(PageAddOrEditCustomerViewModel m1, PageAddOrEditCustomerViewModel m2)
         {
             return (m1.CompanyName == m2.CompanyName &&
+                    m1.SelectedDocument == m2.SelectedDocument &&
+                    m1.SelectedDocument_index == m2.SelectedDocument_index &&
                     m1.AddressOfCompany == m2.AddressOfCompany &&
                     m1.AccountNumber == m2.AccountNumber &&
                     m1.CompanyStir == m2.CompanyStir &&
@@ -77,6 +82,8 @@ namespace Contract.ViewModel.Pages.Customers
         public static bool operator !=(PageAddOrEditCustomerViewModel m1, PageAddOrEditCustomerViewModel m2)
         {
             return (m1.CompanyName != m2.CompanyName ||
+                    m1.SelectedDocument != m2.SelectedDocument ||
+                    m1.SelectedDocument_index != m2.SelectedDocument_index ||
                     m1.AddressOfCompany != m2.AddressOfCompany ||
                     m1.AccountNumber != m2.AccountNumber ||
                     m1.CompanyStir != m2.CompanyStir ||
@@ -109,8 +116,11 @@ namespace Contract.ViewModel.Pages.Customers
         {
             if (ControlApp.SelectedClientCompanyInfo == null) return;
 
+            Id = ControlApp.SelectedClientCompanyInfo.id;
             CompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
             AddressOfCompany = ControlApp.SelectedClientCompanyInfo.address_of_company;
+            SelectedDocument = ControlApp.SelectedClientCompanyInfo.document;
+            SelectedDocument_index = ControlApp.SelectedClientCompanyInfo.document_index;
             AccountNumber = ControlApp.SelectedClientCompanyInfo.account_number;
             CompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
             NameOfBank = ControlApp.SelectedClientCompanyInfo.name_of_bank;
@@ -131,31 +141,7 @@ namespace Contract.ViewModel.Pages.Customers
         public async void RequestAddInfo()
         {
             if (!ControlApp.InternetOk()) return;
-
-            #region For test
-            //CompanyInfo infoTest = new CompanyInfo()
-            //{
-            //    user_phone_number = "12",
-            //    company_name = "Daved",
-            //    address_of_company = "XXXXXX",
-            //    account_number = "844444",
-            //    stir_of_company = "33333555500011",
-            //    name_of_bank = "ZZZZZ",
-            //    bank_code = "9994421100",
-            //    are_you_qqs_payer = 1,
-            //    qqs_number = "33322200000",
-            //    company_phone_number = "9201254",
-            //    position_of_signer = "PPPPPP",
-            //    name_of_signer = "Shag'zod",
-            //    is_accountant_provided = 0,
-            //    accountant_name = "YYYYYYY",
-            //    is_legal_counsel_provided = 0,
-            //    counsel_name = "GGGGGGGGGGG",
-            //    company_logo_url = LogoImageStr,
-            //    created_date = ""
-            //};
-            #endregion
-
+             
             bool hasFile = string.IsNullOrEmpty(LogoImageStr) ? false : true;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);

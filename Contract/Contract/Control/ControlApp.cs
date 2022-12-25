@@ -28,7 +28,7 @@ namespace Contract.Control
 
         //public ContractNumberTemplate SelectedContractNumberFormat { get; set; } = null;
         public CompanyInfo SelectedClientCompanyInfo { get; set; } = null;
-        public CompanyInfo UserCompanyInfo { get; set; } = new CompanyInfo();
+        public CompanyInfo UserCompanyInfo { get; set; } = null;
         public EditTemplate SelectedEditTemplate { get; set; }
         public Login LoginInfo { get; set; } = new Login();
         public User UserInfo { get; set; }
@@ -79,7 +79,7 @@ namespace Contract.Control
 
             return true;
         }
-
+          
         public async void ShowLoadingView(string msg = "Please wait...", int closeAfter = 10)
         {
             _closeLoadingView = false;

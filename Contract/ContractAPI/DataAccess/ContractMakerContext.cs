@@ -33,21 +33,23 @@ namespace ContractAPI.DataAccess
         {
             return new ContractMakerContext(this._options);
         }
-
+         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<User>().Property(p => p.default_template_id).IsRequired(required: false);
+
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<User>().HasKey(r => r.phone_number);
-
-            modelBuilder.Entity<UserCompanyInfo>().ToTable("UserCompanyInfo");
-            modelBuilder.Entity<UserCompanyInfo>().HasKey(r => r.user_phone_number);
-
-            modelBuilder.Entity<OfferAndObjection>().ToTable("OfferAndObjection");
-            modelBuilder.Entity<OfferAndObjection>().HasKey(r => r.created_date);
-
+             
             modelBuilder.Entity<ClientCompanyInfo>().ToTable("ClientCompanyInfo");
             modelBuilder.Entity<ClientCompanyInfo>().HasKey(r => r.id);
 
+            modelBuilder.Entity<UserCompanyInfo>().ToTable("UserCompanyInfo");
+            modelBuilder.Entity<UserCompanyInfo>().HasKey(r => r.id);
+
+            modelBuilder.Entity<OfferAndObjection>().ToTable("OfferAndObjection");
+            modelBuilder.Entity<OfferAndObjection>().HasKey(r => r.created_date);
+             
             modelBuilder.Entity<CreateContractInfo>().ToTable("CreateContractInfo");
             modelBuilder.Entity<CreateContractInfo>().HasKey(r => r.created_date);
 

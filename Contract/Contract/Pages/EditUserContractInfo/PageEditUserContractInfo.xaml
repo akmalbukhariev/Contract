@@ -26,7 +26,7 @@
             <ScrollView VerticalOptions="FillAndExpand" 
                         Margin="0,0,0,-20"
                         Grid.Row="1">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
                       RowSpacing="15"
                       Margin="10,10,10,0">
                     <Grid.Resources>
@@ -48,12 +48,26 @@
                             </Style>
                         </ResourceDictionary>
                     </Grid.Resources> 
-                    <StackLayout Grid.Row="1">
+                    <StackLayout>
                         <Label Text="{x:Static resource:AppResource.CompanyName}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.CompanyName}" 
                                         Text="{Binding CompanyName}"
                                         Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout Spacing="10"
+                                 Grid.Row="1">
+                        <Label Text="{x:Static resource:AppResource.Document}"
+                               Style="{StaticResource lbBlackStyle}"/>
+                        <control:CustomPicker Title="{x:Static resource:AppResource.Select}"
+                                              ItemsSource="{Binding DocumentList}"
+                                              SelectedItem="{Binding SelectedDocument}"
+                                              SelectedIndex="{Binding SelectedDocument_index}"
+                                              HorizontalTextAlignment="Start"
+                                              Image="show"
+                                              ChartSyle="True"
+                                              TitleColor="Gray"
+                                              BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
                         <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 

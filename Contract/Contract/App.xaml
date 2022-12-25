@@ -231,6 +231,27 @@
                 <x:String>Шикоят</x:String>
             </x:Array>
 
+            <x:Array x:Key="documentList_en" Type="{x:Type x:String}">
+                <x:String>Regulation</x:String>
+                <x:String>Affidavit</x:String>
+                <x:String>Testimony</x:String>
+            </x:Array>
+            <x:Array x:Key="documentList_ru" Type="{x:Type x:String}">
+                <x:String>Регулирование</x:String>
+                <x:String>Доверенность</x:String>
+                <x:String>Свидетельство</x:String>
+            </x:Array>
+            <x:Array x:Key="documentList_uz" Type="{x:Type x:String}">
+                <x:String>Nizom</x:String>
+                <x:String>Ishonchnoma</x:String>
+                <x:String>Guvoxnoma</x:String>
+            </x:Array>
+            <x:Array x:Key="documentList_uz_cyrl" Type="{x:Type x:String}">
+                <x:String>Низом</x:String>
+                <x:String>Ишончнома</x:String>
+                <x:String>Гувоҳнома</x:String>
+            </x:Array>
+            
             <Style x:Key="lbStar" TargetType="Label">
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="TextColor" Value="Black"/>

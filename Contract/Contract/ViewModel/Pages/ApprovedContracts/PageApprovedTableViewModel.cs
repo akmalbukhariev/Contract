@@ -87,12 +87,12 @@ namespace Contract.ViewModel.Pages.CurrentContracts
             //Add(item3);
             #endregion
 
-            this.DataList.Clear();
+            DataList.Clear();
 
             LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,
-                user_stir = "111122",
+                user_stir = ControlApp.UserCompanyInfo.stir_of_company,
                 is_approved = 1
             };
 

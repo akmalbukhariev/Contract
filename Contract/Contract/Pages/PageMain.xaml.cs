@@ -1,4 +1,5 @@
 ﻿using Contract.Model;
+using Contract.Pages.EditUserContractInfo;
 using Contract.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,9 @@ namespace Contract.Pages
             SetModel(new PageMainViewModel());
             PModel.Init();
         }
-
+            
         protected override void OnAppearing()
-        {
+        {   
             base.OnAppearing();
             Model.Parent = Parent;
 
@@ -34,11 +35,20 @@ namespace Contract.Pages
 
             PModel.Clean();
             PModel.Init();
-            PModel.RequestInfo();
+
+            if (ControlApp.UserCompanyInfo != null)
+                PModel.RequestInfo();
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (ControlApp.UserCompanyInfo == null)
+            {
+                await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);
+                await Navigation.PushAsync(new PageEditUserContractInfo());
+                return;
+            }
+
             var listView = sender as ListView;
             ChildMenuItem item = listView.SelectedItem as ChildMenuItem;
              
@@ -64,9 +74,17 @@ namespace Contract.Pages
             OnShowMenu(true);
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void CreateContract_Clicked(object sender, EventArgs e)
         {
-            OnNavigatePage(new CreateContract.PageCreateContract1()); 
+            if (ControlApp.UserCompanyInfo == null)
+            {
+                await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);
+                await Navigation.PushAsync(new PageEditUserContractInfo());
+            }
+            else
+            {
+                OnNavigatePage(new CreateContract.PageCreateContract1());
+            }
         }
 
         private PageMainViewModel PModel
