@@ -36,5 +36,15 @@ namespace LibContract.HttpModels
             clauses = other.clauses;
             created_date = other.created_date;
         }
+
+        public void CheckNull()
+        {
+            user_phone_number = user_phone_number.CheckNull();
+            contract_number_option = contract_number_option.CheckNull();
+            contract_address = contract_address.CheckNull();
+            template_name = template_name.CheckNull();
+            clauses = clauses.CheckNull();
+            created_date = created_date.CheckNull();
+        }
     }
 }

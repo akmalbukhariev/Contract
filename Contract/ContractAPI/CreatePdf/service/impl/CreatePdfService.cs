@@ -38,6 +38,7 @@ namespace ContractAPI.CreatePdf.service.impl
                 response.error_code = (int)HttpStatusCode.NotFound;
                 return response;
             }
+            contractInfo.CheckNull();
 
             UserCompanyInfo userInfo = await dataBase.UserCompanyInfo
                 .Where(item => item.user_phone_number.Equals(contractInfo.user_phone_number))
@@ -50,6 +51,7 @@ namespace ContractAPI.CreatePdf.service.impl
                 response.error_code = (int)HttpStatusCode.NotFound;
                 return response;
             }
+            userInfo.CheckNull();
 
             ClientCompanyInfo clientInfo = await dataBase.ClientCompanyInfo
                 .Where(item => item.stir_of_company.Equals(contractInfo.client_stir))
@@ -62,6 +64,7 @@ namespace ContractAPI.CreatePdf.service.impl
                 response.error_code = (int)HttpStatusCode.NotFound;
                 return response;
             }
+            clientInfo.CheckNull();
 
             ContractTemplate contractTemplate = await dataBase.ContractTemplate
                 .Where(item => item.id == contractInfo.template_id)
@@ -74,6 +77,7 @@ namespace ContractAPI.CreatePdf.service.impl
                 response.error_code = (int)HttpStatusCode.NotFound;
                 return response;
             }
+            contractInfo.CheckNull();
 
             List<ServicesInfo> serviceList = await dataBase.ServicesInfo
                 .Where(item => item.contract_number.Equals(contractInfo.contract_number))

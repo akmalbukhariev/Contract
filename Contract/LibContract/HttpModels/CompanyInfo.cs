@@ -5,10 +5,18 @@ using System.Threading.Tasks;
 
 namespace LibContract.HttpModels
 {
+    public static class CheckBaseCompanyInfo
+    {
+        public static string CheckNull(this string str)
+        {
+            return str == null ? "" : str;
+        }
+    }
     public class BaseCompanyInfo
     {
         public int id { get; set; }
         public string user_phone_number { get; set; } = "";
+       
         /// <summary>
         /// 1 = yes, 0 = no
         /// </summary>
@@ -48,7 +56,7 @@ namespace LibContract.HttpModels
 
         public CompanyInfo()
         {
-            
+             
         }
 
         public CompanyInfo(CompanyInfo other)
@@ -80,6 +88,24 @@ namespace LibContract.HttpModels
             counsel_name = other.counsel_name;
             company_logo_url = other.company_logo_url;
             created_date = other.created_date;
+        }
+
+        public void CheckNull()
+        {
+            user_phone_number = user_phone_number.CheckNull();
+            company_name = company_name.CheckNull();
+            document = document.CheckNull();
+            address_of_company = address_of_company.CheckNull();
+            account_number = account_number.CheckNull();
+            stir_of_company = stir_of_company.CheckNull();
+            name_of_bank = name_of_bank.CheckNull();
+            bank_code = bank_code.CheckNull();
+            qqs_number = qqs_number.CheckNull();
+            company_phone_number = company_phone_number.CheckNull();
+            position_of_signer = position_of_signer.CheckNull();
+            name_of_signer = name_of_signer.CheckNull();
+            accountant_name = accountant_name.CheckNull();
+            counsel_name = counsel_name.CheckNull();
         }
     }
 }

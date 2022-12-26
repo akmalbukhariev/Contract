@@ -77,5 +77,23 @@ namespace LibContract.HttpModels
             deleted_date = other.deleted_date;
             is_canceled = other.is_canceled;
         }
+
+        public void CheckNull()
+        {
+            user_phone_number = user_phone_number.CheckNull();
+            user_stir = user_stir.CheckNull();
+            client_stir = client_stir.CheckNull();
+            client_company_name = client_company_name.CheckNull();
+            user_company_name = user_company_name.CheckNull();
+            contract_sequence_number = contract_sequence_number.CheckNull();
+            contract_number = contract_number.CheckNull();
+            contract_currency = contract_currency.CheckNull();
+            amount_of_qqs = amount_of_qqs.CheckNull();
+            interest_text = interest_text.CheckNull();
+            total_cost_text = total_cost_text.CheckNull();
+            created_date = created_date.CheckNull();
+            comment = comment.CheckNull();
+            deleted_date = deleted_date.CheckNull();
+        }
     }
 }

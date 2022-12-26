@@ -69,7 +69,7 @@ namespace LibContract
             table2Rows.Add(new List<string>() { $"{ClientCompany.name_of_bank}", $"{UserCompany.name_of_bank}" });
             table2Rows.Add(new List<string>() { $"Банк коди: {ClientCompany.bank_code}", $"Банк коди: {UserCompany.bank_code}" });
             table2Rows.Add(new List<string>() { $"СТИР: {ClientCompany.stir_of_company}", $"СТИР: {UserCompany.stir_of_company}" });
-            table2Rows.Add(new List<string>() { "ОКЭД: 00000", "ОКЭД: 00000" });
+            table2Rows.Add(new List<string>() { "ОКЭД: ", "ОКЭД: " });
             table2Rows.Add(new List<string>() { $"Телефон: {ClientCompany.company_phone_number}", $"Телефон: {UserCompany.company_phone_number}" });
             table2Rows.Add(new List<string>() { "", "" });
             table2Rows.Add(new List<string>() { $"{ClientCompany.position_of_signer} _____________ {ClientCompany.name_of_signer}.", 
