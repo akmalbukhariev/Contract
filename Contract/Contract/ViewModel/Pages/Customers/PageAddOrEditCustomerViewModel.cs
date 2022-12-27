@@ -135,7 +135,11 @@ namespace Contract.ViewModel.Pages.Customers
             IsCounselProvided = ControlApp.SelectedClientCompanyInfo.is_legal_counsel_provided == 1 ? true : false;
             CounselName = ControlApp.SelectedClientCompanyInfo.counsel_name;
             CreatedDate = ControlApp.SelectedClientCompanyInfo.created_date;
-            LogoImage = $"{HttpService.DATA_URL}{ControlApp.SelectedClientCompanyInfo.company_logo_url}";
+
+            if (string.IsNullOrEmpty(ControlApp.SelectedClientCompanyInfo.company_logo_url))
+                LogoImage = "plus.png";
+            else
+                LogoImage = $"{HttpService.DATA_URL}{ControlApp.SelectedClientCompanyInfo.company_logo_url}";
         }
 
         public async void RequestAddInfo()

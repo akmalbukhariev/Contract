@@ -54,7 +54,7 @@ namespace Contract.Pages.CreateContract
                 PModel.ShowClientCompanyImage = true;
                 PModel.ShowLetter = false;
                 PModel.FirstLetter = "";
-                PModel.ClientCompanyImage = ControlApp.SelectedClientCompanyInfo.company_logo_url;
+                PModel.ClientCompanyImage = $"{Net.HttpService.DATA_URL}{ControlApp.SelectedClientCompanyInfo.company_logo_url}";
                 PModel.ClientCompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
                 PModel.ClientCompanyStir = $"{RSC.STIR} : {ControlApp.SelectedClientCompanyInfo.stir_of_company}";
 

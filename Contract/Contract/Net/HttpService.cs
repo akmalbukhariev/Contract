@@ -669,9 +669,12 @@ namespace Contract.Net
             client.Timeout = -1;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             var request = new RestRequest(method);
-             
+
+            request.AddParameter("id", obj.id);
             request.AddParameter("user_phone_number", obj.user_phone_number);
             request.AddParameter("company_name", obj.company_name);
+            request.AddParameter("document", obj.document);
+            request.AddParameter("document_index", obj.document_index);
             request.AddParameter("address_of_company", obj.address_of_company);
             request.AddParameter("account_number", obj.account_number);
             request.AddParameter("stir_of_company", obj.stir_of_company);
@@ -681,6 +684,7 @@ namespace Contract.Net
             request.AddParameter("qqs_number", obj.qqs_number);
             request.AddParameter("company_phone_number", obj.company_phone_number);
             request.AddParameter("position_of_signer", obj.position_of_signer);
+            request.AddParameter("position_of_signer_index", obj.position_of_signer_index);
             request.AddParameter("name_of_signer", obj.name_of_signer);
             request.AddParameter("is_accountant_provided", obj.is_accountant_provided);
             request.AddParameter("accountant_name", obj.accountant_name);

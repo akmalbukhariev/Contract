@@ -18,5 +18,6 @@ namespace ContractAPI
 
         public const string SaveImagePath = "\\Upload\\images\\";
         public const string SaveContractPdfPath = "wwwroot\\Upload\\contracts_pdf\\";
+        public const string SaveContractPdfUrl = "Upload\\contracts_pdf\\";
     }
 }

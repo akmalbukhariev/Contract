@@ -21,8 +21,8 @@ namespace LibContract.HttpModels
         /// 1 = yes, 0 = no
         /// </summary>
         public string company_name { get; set; } = "";
-        public int document_index { get; set; } = 0;
         public string document { get; set; } = "";
+        public int document_index { get; set; } = 0;
         public string address_of_company { get; set; } = "";
         public string account_number { get; set; } = "";
         public string stir_of_company { get; set; } = "";
@@ -106,6 +106,8 @@ namespace LibContract.HttpModels
             name_of_signer = name_of_signer.CheckNull();
             accountant_name = accountant_name.CheckNull();
             counsel_name = counsel_name.CheckNull();
+            company_logo_url = company_logo_url.CheckNull();
+            created_date = created_date.CheckNull();
         }
     }
 }

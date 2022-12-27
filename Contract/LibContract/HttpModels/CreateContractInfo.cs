@@ -14,8 +14,7 @@ namespace LibContract.HttpModels
         public string user_stir { get; set; }
         public string client_stir { get; set; }
         public string client_company_name { get; set; }
-        public string user_company_name { get; set; }
-        //public string service_type { get; set; }
+        public string user_company_name { get; set; } 
         public int template_id { get; set; }
         public string contract_sequence_number { get; set; }
         public string contract_number { get; set; }
@@ -38,6 +37,7 @@ namespace LibContract.HttpModels
         /// 1: yes, 0: no
         /// </summary>
         public int is_canceled { get; set; }
+        public string pdf_url { get; set; }
         #endregion
 
         public CreateContractInfo()
@@ -58,8 +58,7 @@ namespace LibContract.HttpModels
             user_stir = other.user_stir;
             client_stir = other.client_stir; 
             client_company_name = other.client_company_name;
-            user_company_name = other.user_company_name; 
-            //service_type = other.service_type;
+            user_company_name = other.user_company_name;  
             template_id = other.template_id;
             contract_sequence_number = other.contract_sequence_number;
             contract_number = other.contract_number;
@@ -76,6 +75,7 @@ namespace LibContract.HttpModels
             comment = other.comment;
             deleted_date = other.deleted_date;
             is_canceled = other.is_canceled;
+            pdf_url = other.pdf_url;
         }
 
         public void CheckNull()
@@ -94,6 +94,7 @@ namespace LibContract.HttpModels
             created_date = created_date.CheckNull();
             comment = comment.CheckNull();
             deleted_date = deleted_date.CheckNull();
+            pdf_url = pdf_url.CheckNull();
         }
     }
 }

@@ -98,6 +98,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 open_client_info = ControlApp.OpenClientInfo ? 1 : 0,
                 open_search_client = ControlApp.OpenSearchClient ? 1 : 0,
+                user_stir = ControlApp.UserCompanyInfo.stir_of_company,
                 client_stir = ClientCompanyInfo.stir_of_company,
                 client_company_name = ClientCompanyInfo.company_name,
                 user_company_name = ControlApp.UserCompanyInfo.company_name,
@@ -161,6 +162,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 }
                 else
                 {
+                    ClientCompanyInfo.id = found.id;
                     await Net.HttpService.UpdateClientCompanyInfo(ClientCompanyInfo);
                 }
             }

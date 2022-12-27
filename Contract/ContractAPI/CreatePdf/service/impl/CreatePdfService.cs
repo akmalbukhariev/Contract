@@ -40,66 +40,75 @@ namespace ContractAPI.CreatePdf.service.impl
             }
             contractInfo.CheckNull();
 
-            UserCompanyInfo userInfo = await dataBase.UserCompanyInfo
-                .Where(item => item.user_phone_number.Equals(contractInfo.user_phone_number))
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
-
-            if (userInfo == null)
+            string strUrl = $"{Constants.SaveContractPdfUrl}{contractInfo.contract_number}.pdf";
+            if (!contractInfo.pdf_url.Equals(strUrl))
             {
-                response.message = "Cannot find user info.";
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return response;
+                UserCompanyInfo userInfo = await dataBase.UserCompanyInfo
+                    .Where(item => item.user_phone_number.Equals(contractInfo.user_phone_number))
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
+                if (userInfo == null)
+                {
+                    response.message = "Cannot find user info.";
+                    response.error_code = (int)HttpStatusCode.NotFound;
+                    return response;
+                }
+                userInfo.CheckNull();
+
+                ClientCompanyInfo clientInfo = await dataBase.ClientCompanyInfo
+                    .Where(item => item.stir_of_company.Equals(contractInfo.client_stir))
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
+                if (clientInfo == null)
+                {
+                    response.message = "Cannot find client info.";
+                    response.error_code = (int)HttpStatusCode.NotFound;
+                    return response;
+                }
+                clientInfo.CheckNull();
+
+                ContractTemplate contractTemplate = await dataBase.ContractTemplate
+                    .Where(item => item.id == contractInfo.template_id)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
+                if (contractTemplate == null)
+                {
+                    response.message = "Cannot find template info.";
+                    response.error_code = (int)HttpStatusCode.NotFound;
+                    return response;
+                }
+                contractInfo.CheckNull();
+
+                List<ServicesInfo> serviceList = await dataBase.ServicesInfo
+                    .Where(item => item.contract_number.Equals(contractInfo.contract_number))
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                CreatePDF pdf = new(contractTemplate.clauses);
+                pdf.ContractInfo = contractInfo;
+                pdf.UserCompany = userInfo;
+                pdf.ClientCompany = clientInfo;
+                pdf.Template = contractTemplate;
+                pdf.Services = serviceList;
+
+                //Console.WriteLine($"WebRootPath: {_environment.WebRootPath}");
+                string strPath = Path.Combine(Directory.GetCurrentDirectory(), Constants.SaveContractPdfPath);
+                string savePathFile = $"{strPath}{contractInfo.contract_number}.pdf";
+                await Task.Run(() =>
+                {
+                    pdf.CreateContract(savePathFile);
+                });
+
+                CreateContractInfo editCreateContractInfo = new CreateContractInfo(contractInfo);
+                editCreateContractInfo.pdf_url = strUrl;
+                dataBase.CreateContractInfo.Update(editCreateContractInfo);
+                await dataBase.SaveChangesAsync();
             }
-            userInfo.CheckNull();
 
-            ClientCompanyInfo clientInfo = await dataBase.ClientCompanyInfo
-                .Where(item => item.stir_of_company.Equals(contractInfo.client_stir))
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
-
-            if (clientInfo == null)
-            {
-                response.message = "Cannot find client info.";
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return response;
-            }
-            clientInfo.CheckNull();
-
-            ContractTemplate contractTemplate = await dataBase.ContractTemplate
-                .Where(item => item.id == contractInfo.template_id)
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
-
-            if (contractTemplate == null)
-            {
-                response.message = "Cannot find template info.";
-                response.error_code = (int)HttpStatusCode.NotFound;
-                return response;
-            }
-            contractInfo.CheckNull();
-
-            List<ServicesInfo> serviceList = await dataBase.ServicesInfo
-                .Where(item => item.contract_number.Equals(contractInfo.contract_number))
-                .AsNoTracking()
-                .ToListAsync();
-
-            CreatePDF pdf = new(contractTemplate.clauses);
-            pdf.ContractInfo = contractInfo;
-            pdf.UserCompany = userInfo;
-            pdf.ClientCompany = clientInfo;
-            pdf.Template = contractTemplate;
-            pdf.Services = serviceList;
-
-            //Console.WriteLine($"WebRootPath: {_environment.WebRootPath}");
-            string strPath = Path.Combine(Directory.GetCurrentDirectory(), Constants.SaveContractPdfPath);
-            string savePathFile = $"{strPath}{contractInfo.contract_number}.pdf";
-            await Task.Run(() =>
-            {
-                pdf.CreateContract(savePathFile);
-            });
-
-            response.pdf_url = savePathFile;
+            response.pdf_url = strUrl;
             response.result = true;
             response.message = Constants.Success;
 
