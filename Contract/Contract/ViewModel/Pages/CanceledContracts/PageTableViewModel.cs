@@ -8,6 +8,7 @@ using System.Windows.Input;
 using LibContract.HttpResponse;
 using Contract.Model;
 using Xamarin.Forms;
+using LibContract;
 
 namespace Contract.ViewModel.Pages.CanceledContracts
 { 
@@ -38,8 +39,8 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             this.DataList.Clear();
 
             LibContract.HttpModels.CreateContractInfo request = new LibContract.HttpModels.CreateContractInfo();
-            request.user_stir = "111122";
-            request.user_phone_number = "12";
+            request.user_stir = ControlApp.UserCompanyInfo.stir_of_company;
+            request.user_phone_number = ControlApp.UserInfo.phone_number;
             request.is_canceled = 1;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
@@ -56,7 +57,8 @@ namespace Contract.ViewModel.Pages.CanceledContracts
                     {
                         No = $"{no}.",
                         Preparer = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number)? RSC.Me : RSC.Contragent,
-                        ContractNnumber = info.contract_number,
+                        ContractNnumber = ContractNumberWorker.ExtractContractNumber(info.contract_number),
+                        ContractNnumberReal = info.contract_number,
                         CompanyName = info.user_company_name,
                         ContractDate = info.created_date,
                         ContractPrice = info.total_cost_text,

@@ -61,12 +61,15 @@ namespace ContractAPI.CreatePdf.service.impl
                     .AsNoTracking()
                     .FirstOrDefaultAsync();
 
-                if (clientInfo == null)
+                if (clientInfo == null && contractInfo.open_client_info == 0)
                 {
                     response.message = "Cannot find client info.";
                     response.error_code = (int)HttpStatusCode.NotFound;
                     return response;
                 }
+
+                if (clientInfo == null) clientInfo = new ClientCompanyInfo();
+
                 clientInfo.CheckNull();
 
                 ContractTemplate contractTemplate = await dataBase.ContractTemplate

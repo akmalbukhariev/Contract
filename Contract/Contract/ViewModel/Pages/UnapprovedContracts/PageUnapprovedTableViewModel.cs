@@ -9,6 +9,7 @@ using LibContract.HttpResponse;
 using Contract.Model;
 using Contract.Pages.UnapprovedContracts;
 using Xamarin.Forms;
+using LibContract;
 
 namespace Contract.ViewModel.Pages.UnapprovedContracts
 { 
@@ -54,7 +55,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
 
         public async void RequestInfo()
         { 
-            this.DataList.Clear();
+            DataList.Clear();
 
             LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
             {
@@ -77,7 +78,8 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                     {
                         No = $"{no}.",
                         Preparer = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? RSC.Me : RSC.Contragent,
-                        ContractNnumber = info.contract_number,
+                        ContractNnumber = ContractNumberWorker.ExtractContractNumber(info.contract_number),
+                        ContractNnumberReal = info.contract_number,
                         CompanyName = info.user_company_name,
                         ContractDate = info.created_date,
                         ContractPrice = info.total_cost_text,

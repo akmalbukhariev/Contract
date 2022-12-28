@@ -1,6 +1,7 @@
 ﻿using Contract.Interfaces;
 using Contract.Model;
 using Contract.ViewModel.Pages.CanceledContracts;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,10 +45,25 @@ namespace Contract.Pages.CanceledContracts
             DependencyService.Get<IRotationService>().DisableRotation();
         }
 
-        private void Eye_Tapped(object sender, EventArgs e)
+        private async void Eye_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            CanceledContract item = (CanceledContract)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
+            if (response.result)
+            {
+                await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+            }
+            else
+            {
+                await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
+            }
+            ControlApp.CloseLoadingView();
         }
 
         private void Send_Tapped(object sender, EventArgs e)

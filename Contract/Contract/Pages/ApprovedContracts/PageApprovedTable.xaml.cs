@@ -2,6 +2,7 @@
 using Contract.Model;
 using Contract.Pages.CanceledContracts;
 using Contract.ViewModel.Pages.CurrentContracts;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,6 @@ namespace Contract.Pages.ApprovedContracts
             DependencyService.Get<IRotationService>().EnableRotation();
         }
 
-         
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -55,10 +55,25 @@ namespace Contract.Pages.ApprovedContracts
             DependencyService.Get<IRotationService>().DisableRotation();
         }
 
-        private void Eye_Tapped(object sender, EventArgs e)
+        private async void Eye_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
+            if (response.result)
+            {
+                await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+            }
+            else
+            {
+                await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
+            }
+            ControlApp.CloseLoadingView();
         }
          
         private void Send_Tapped(object sender, EventArgs e)
@@ -77,7 +92,7 @@ namespace Contract.Pages.ApprovedContracts
 
             LibContract.HttpModels.CreateContractInfo canceledContract = new LibContract.HttpModels.CreateContractInfo()
             { 
-                contract_number = item.ContractNnumber,
+                contract_number = item.ContractNnumberReal,
                 comment = ""
             };
 

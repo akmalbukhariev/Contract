@@ -8,6 +8,7 @@ using System.Windows.Input;
 using LibContract.HttpResponse;
 using Contract.Model;
 using Xamarin.Forms;
+using LibContract;
 
 namespace Contract.ViewModel.Pages.CurrentContracts
 { 
@@ -110,7 +111,8 @@ namespace Contract.ViewModel.Pages.CurrentContracts
                     {
                         No = $"{no}.",
                         Preparer = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? RSC.Me : RSC.Contragent,
-                        ContractNnumber = info.contract_number,
+                        ContractNnumber = ContractNumberWorker.ExtractContractNumber(info.contract_number),
+                        ContractNnumberReal = info.contract_number,
                         CompanyName = info.user_company_name,
                         ContractDate = info.created_date,
                         ContractPrice = info.total_cost_text,
