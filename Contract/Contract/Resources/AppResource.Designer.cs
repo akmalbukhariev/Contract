@@ -2006,6 +2006,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select default template.
+        /// </summary>
+        internal static string SelectDefaultTemplate {
+            get {
+                return ResourceManager.GetString("SelectDefaultTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select format.
         /// </summary>
         internal static string SelectFormat {

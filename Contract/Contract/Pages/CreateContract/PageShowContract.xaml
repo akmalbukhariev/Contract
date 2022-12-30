@@ -1,16 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:control="clr-namespace:Contract.Control"
-             xmlns:page="clr-namespace:Contract.Pages"
-             x:Class="Contract.Pages.CreateContract.PageShowContract">
-        <StackLayout>
-        <!--<WebView x:Name="webView" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:control="clr-namespace:Contract.Control"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:resource="clr-namespace:Contract.Resources" 
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.CreateContract.PageShowContract">
+
+    <Grid RowDefinitions="70,*"
+          ColumnDefinitions="20,*,20"
+          RowSpacing="20">
+        <BoxView BackgroundColor="{StaticResource AppColor}"
+                 Grid.ColumnSpan="3"/>
+        <view:ViewNavigationBar x:Name="navigationBar" 
+                                BackImage="back_left_white"  
+                                Style="{StaticResource naviBarSignUp}"
+                                Title="{x:Static resource:AppResource.Templates}"
+                                UseWhite="True"
+                                Grid.Column="1"/> 
+        <BoxView BackgroundColor="White" 
+                 CornerRadius="10"
+                 Margin="0,0,0,20"
+                 Grid.Row="1"
+                 Grid.Column="1"/>
+        <WebView x:Name="webView"
+                 Margin="10,10,10,25"
                  HorizontalOptions="FillAndExpand"
-                 VerticalOptions="FillAndExpand"/>-->
-        <Image Source="http://192.168.219.102:5000//Upload//images/IMG_20190902_185834_809.jpg"
-                       
-               VerticalOptions="FillAndExpand"
-               Aspect="AspectFit"/>
-    </StackLayout>
+                 VerticalOptions="FillAndExpand"
+                 Grid.Row="1"
+                 Grid.Column="1"/>
+
+    </Grid>
 </page:IPage>

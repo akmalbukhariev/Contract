@@ -33,6 +33,13 @@ namespace ContractAPI.Users.api
         {
             ResponseLogin response = await Service.updateUserPassword(user);
             return MakeResponse(response, response.error_code);
-        } 
+        }
+
+        [HttpPut("updateDefaultTemplate")]
+        public async Task<IActionResult> updateDefaultTemplate([FromBody] User user)
+        {
+            ResponseLogin response = await Service.updateDefaultTemplate(user);
+            return MakeResponse(response, response.error_code);
+        }
     }
 }

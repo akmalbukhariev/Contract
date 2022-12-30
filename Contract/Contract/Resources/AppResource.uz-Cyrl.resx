@@ -975,6 +975,10 @@
     <value>Валютани танланг</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SelectDefaultTemplate" xml:space="preserve">
+    <value>Стандарт шаблонни танланг</value>
+    <comment>Setting</comment>
+  </data>
   <data name="SelectFormat" xml:space="preserve">
     <value>Форматни танланг</value>
     <comment>Contract template</comment>

@@ -975,6 +975,10 @@
     <value>Выберите валюту</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SelectDefaultTemplate" xml:space="preserve">
+    <value>Выбрать шаблон по умолчанию</value>
+    <comment>Setting</comment>
+  </data>
   <data name="SelectFormat" xml:space="preserve">
     <value>Выберите формат</value>
     <comment>Contract template</comment>

@@ -29,45 +29,46 @@ namespace Contract.Pages.Setting
 
             navigationBar.Title = RSC.Settings;
             lbLanguage.Text = RSC.Language;
-            lbVoice.Text = RSC.Voice;
-            lbNight.Text = RSC.NightView;
+            lbTemplate.Text = RSC.SelectDefaultTemplate;
+            //lbVoice.Text = RSC.Voice;
+            //lbNight.Text = RSC.NightView;
             lbAbout.Text = RSC.About;
 
-            imYesNo1.Source = GetYesNoIcon(true);
-            imYesNo2.Source = GetYesNoIcon(true);
+            //imYesNo1.Source = GetYesNoIcon(true);
+            //imYesNo2.Source = GetYesNoIcon(true);
         }
 
-        private void YesNo1_Tapped(object sender, EventArgs e)
-        {
-            if (yes1)
-            {
-                imYesNo1.Source = GetYesNoIcon(false);
-                yes1 = false;
-            }
-            else
-            {
-                imYesNo1.Source = GetYesNoIcon(true);
-                yes1 = true;
-            }
+        //private void YesNo1_Tapped(object sender, EventArgs e)
+        //{
+        //    if (yes1)
+        //    {
+        //        imYesNo1.Source = GetYesNoIcon(false);
+        //        yes1 = false;
+        //    }
+        //    else
+        //    {
+        //        imYesNo1.Source = GetYesNoIcon(true);
+        //        yes1 = true;
+        //    }
 
-            ControlApp.Vibrate();
-        }
+        //    ControlApp.Vibrate();
+        //}
 
-        private void YesNo2_Tapped(object sender, EventArgs e)
-        {
-            if (yes2)
-            {
-                imYesNo2.Source = GetYesNoIcon(false);
-                yes2 = false;
-            }
-            else
-            {
-                imYesNo2.Source = GetYesNoIcon(true);
-                yes2 = true;
-            }
+        //private void YesNo2_Tapped(object sender, EventArgs e)
+        //{
+        //    if (yes2)
+        //    {
+        //        imYesNo2.Source = GetYesNoIcon(false);
+        //        yes2 = false;
+        //    }
+        //    else
+        //    {
+        //        imYesNo2.Source = GetYesNoIcon(true);
+        //        yes2 = true;
+        //    }
 
-            ControlApp.Vibrate();
-        }
+        //    ControlApp.Vibrate();
+        //}
 
         private async void TableCell_Tapped(object sender, EventArgs e)
         {
@@ -75,6 +76,10 @@ namespace Contract.Pages.Setting
             if (sender == cellLanguage)
             {
                 await Navigation.PushAsync(new PageLanguage(true));
+            }
+            else if (sender == cellTemplate)
+            {
+                await Navigation.PushAsync(new PageDefaultContractList());
             }
             else if (sender == cellAbout)
             {

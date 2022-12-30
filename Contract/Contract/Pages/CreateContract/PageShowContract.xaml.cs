@@ -12,10 +12,11 @@ namespace Contract.Pages.CreateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageShowContract : IPage
     {
-        public PageShowContract()
+        public PageShowContract(string contractUrl)
         {
             InitializeComponent();
 
+            webView.Source = contractUrl;
             //http://192.168.219.102:5000//Upload//images/2.jpg
 
             //webView.Uri = "https://icseindia.org/document/sample.pdf";

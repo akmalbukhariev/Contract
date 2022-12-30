@@ -22,6 +22,7 @@ namespace Contract.Net
         
         public static string URL_GET_USER = SERVER_URL + "UserInfo/getUser/"; //phoneNumber
         public static string URL_UPDATE_USER_PASSWORD = SERVER_URL + "UserInfo/updateUserPassword";
+        public static string URL_UPDATE_DEFAULT_TMEPLATE = SERVER_URL + "UserInfo/updateDefaultTemplate";
 
         #region User info
         public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/getUserCompanyInfo/"; //phoneNumber
@@ -64,6 +65,7 @@ namespace Contract.Net
         public static string URL_UPDATE_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/updateContractTemplate";
         public static string URL_DELETE_CONTRACT_TEMPLATE = SERVER_URL + "ContractTemplate/deleteContractTemplate";
         public static string URL_GET_ALLREADY_TEMPLATE = SERVER_URL + "ContractTemplate/getAllReadyTemplate";
+        public static string URL_GET_ALLREADY_TEMPLATE_URL = SERVER_URL + "ContractTemplate/getAllReadyTemplateUrl";
         #endregion
 
         #region Contract
@@ -410,6 +412,20 @@ namespace Contract.Net
 
             return response;
         }
+
+        public async static Task<ResponseReadyTemplate> GetAllReadyTemplateUrl()
+        {
+            ResponseReadyTemplate response = new ResponseReadyTemplate();
+            try
+            {
+                var receivedData = await RequestGetMethod($"{URL_GET_ALLREADY_TEMPLATE_URL}");
+                response = JsonConvert.DeserializeObject<ResponseReadyTemplate>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseReadyTemplate>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseReadyTemplate>(); }
+
+            return response;
+        }
         #endregion
 
         #region Contract
@@ -502,6 +518,20 @@ namespace Contract.Net
             catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
              
+            return response;
+        }
+
+        public async static Task<ResponseLogin> UpdateDefaultTemplate(User data)
+        {
+            ResponseLogin response = new ResponseLogin();
+            try
+            {
+                var receivedData = await RequestPutMethod(URL_UPDATE_DEFAULT_TMEPLATE, data);
+                response = JsonConvert.DeserializeObject<ResponseLogin>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
+
             return response;
         }
 

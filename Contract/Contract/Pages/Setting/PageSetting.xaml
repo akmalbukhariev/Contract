@@ -48,6 +48,24 @@
                     </ViewCell>
                 </TableSection>
                 <TableSection>
+                    <ViewCell x:Name="cellTemplate" 
+                              Tapped="TableCell_Tapped">
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="lbTemplate" 
+                                   Text="{x:Static resource:AppResource.SelectDefaultTemplate}"
+                                   FontSize="Body" 
+                                   TextColor="Black" 
+                                   HorizontalOptions="StartAndExpand" 
+                                   Margin="10"/>
+                            <Image Source="right" 
+                                   WidthRequest="20"
+                                   Margin="0,0,10,0"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <!--<TableSection>
                     <ViewCell x:Name="cellVoice" 
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
@@ -90,7 +108,7 @@
                             </Image>
                         </StackLayout>
                     </ViewCell>
-                </TableSection> 
+                </TableSection>--> 
                 <TableSection>
                     <ViewCell x:Name="cellAbout" 
                               Tapped="TableCell_Tapped">

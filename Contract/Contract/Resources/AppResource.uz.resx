@@ -1002,6 +1002,10 @@ rekvizitlari ochiq qolsinmi?</value>
     <value>Valyutani tanlang</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="SelectDefaultTemplate" xml:space="preserve">
+    <value>Standart shablonni tanlang</value>
+    <comment>Setting</comment>
+  </data>
   <data name="SelectFormat" xml:space="preserve">
     <value>Formatni tanlang</value>
     <comment>Contract template</comment>

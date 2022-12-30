@@ -134,5 +134,31 @@ namespace ContractAPI.ContractTemplateInfo.service.impl
 
             return response;
         }
+
+        public async Task<ResponseReadyTemplate> getAllReadyTemplateUrl()
+        {
+            ResponseReadyTemplate response = new ResponseReadyTemplate();
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = "";
+            
+            List<ReadyTemplate> list = await dataBase.ReadyTemplates.ToListAsync();
+            foreach (ReadyTemplate item in list)
+            {
+                ReadyTemplate newItem = new ReadyTemplate()
+                {
+                    id = item.id,
+                    file_url = item.file_url,
+                    template_name_en = item.template_name_en,
+                    template_name_ru = item.template_name_ru,
+                    template_name_uz = item.template_name_uz,
+                    template_name_uz_cyrl = item.template_name_uz_cyrl
+                };
+
+                response.data.Add(new ReadyTemplate(newItem));    
+            }
+
+            return response;
+        }
     }
 }

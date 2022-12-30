@@ -54,5 +54,12 @@ namespace ContractAPI.ContractTemplateInfo.api
             ResponseReadyTemplate response = await Service.getAllReadyTemplate();
             return MakeResponse(response, response.error_code);
         }
+
+        [HttpGet("getAllReadyTemplateUrl")]
+        public async Task<IActionResult> getAllReadyTemplateUrl()
+        {
+            ResponseReadyTemplate response = await Service.getAllReadyTemplateUrl();
+            return MakeResponse(response, response.error_code);
+        }
     }
 }

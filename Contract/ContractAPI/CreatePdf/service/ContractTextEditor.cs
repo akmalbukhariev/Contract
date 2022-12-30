@@ -1,12 +1,12 @@
-﻿using LibContract.HttpModels;
+﻿using LibContract;
+using LibContract.HttpModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using static LibContract.CreatePDF;
+using System.Threading.Tasks; 
 
-namespace LibContract
+namespace ContractAPI.CreatePdf.service
 {
     public static class ContractTextEditor
     {
@@ -31,13 +31,13 @@ namespace LibContract
                    $"иккинчи томондан, мазкур шартномани туздилар:";
         }
 
-        public static string CalcAllService(List<TableRow> tableRows, string contractCurrency)
+        public static string CalcAllService(List<CreatePDF.TableRow> tableRows, string contractCurrency)
         {
             double priceForAll = 0.0;
             double qqs = 0.0;
             double priceWithQQS = 0.0;
 
-            foreach (TableRow row in tableRows)
+            foreach (CreatePDF.TableRow row in tableRows)
             {
                 priceForAll += double.Parse(row.PriceForAll);
                 qqs += double.Parse(row.QQS.Replace("%", ""));

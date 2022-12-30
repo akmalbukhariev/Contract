@@ -91,9 +91,51 @@ namespace ContractAPI.Users.service.impl
             return response;
         }
 
+        public async Task<ResponseLogin> updateDefaultTemplate(User user)
+        {
+            ResponseLogin response = new ResponseLogin();
+            User foundUser = await dataBase.Users
+                .Where(item => item.phone_number.Equals(user.phone_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (foundUser == null)
+            {
+                response.data = null;
+                response.message = Constants.DoNotExist;
+                return response;
+            }
+
+            User newUser = new User(foundUser);
+            newUser.default_template_id = user.default_template_id;
+
+            dataBase.Users.Update(newUser);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.result = false;
+                response.data = null;
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return response;
+            }
+
+            response.result = true;
+            response.data = null;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return response;
+        }
+
         public async Task<IList<User>> getAllUsers()
         {
             return await dataBase.Users.ToListAsync();
-        }
+        } 
     }
 }

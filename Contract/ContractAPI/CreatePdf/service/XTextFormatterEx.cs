@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibContract
+namespace ContractAPI.CreatePdf.service
 {
     public static class HelperClacHeightOfText
     {

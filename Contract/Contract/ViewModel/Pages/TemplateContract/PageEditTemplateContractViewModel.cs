@@ -20,7 +20,6 @@ namespace Contract.ViewModel.Pages.TemplateContract
     { 
         public bool Editable { get => GetValue<bool>(); set => SetValue(value); }
         public bool EnableAddUpdate { get => GetValue<bool>(); set => SetValue(value); }
-
         public string ContractNumberFormat { get => GetValue<string>(); set => SetValue(value); }
         public string AddressOfContract { get => GetValue<string>(); set => SetValue(value); }
         public string NameOfTemplate { get => GetValue<string>(); set => SetValue(value); }
@@ -50,90 +49,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
             ItemEditText = new Command<EditTemplate>(EditItemText);
 
             Editable = false;
-            BtnEditDoneText = RSC.Edit;
-
-            #region  
-            //EditTemplate item1 = new EditTemplate()
-            //{
-            //    Title = "1",
-            //    Description = "1  Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun",
-            //};
-            //item1.Child.Add(new EditTemplate()
-            //{
-            //    Title = "1.1",
-            //    Description = "1.1  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            //});
-            //item1.Child.Add(new EditTemplate()
-            //{
-            //    Title = "1.2",
-            //    Description = "1.2  DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            //});
-
-            //EditTemplate item2 = new EditTemplate()
-            //{
-            //    Title = "2",
-            //    Description = "Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
-            //};
-
-            //EditTemplate item3 = new EditTemplate()
-            //{
-            //    Title = "3",
-            //    Description = "3 Misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun, misol uchun, \n misol uchun"
-            //};
-            //item3.Child.Add(new EditTemplate()
-            //{
-            //    Title = "3.1",
-            //    Description = "3.1 DDDDDD XXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAA SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            //});
-            //item3.Child.Add(new EditTemplate()
-            //{
-            //    Title = "3.2",
-            //    Description = "3.2 ASXSXSX XMMZNBHXBHVX SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            //});
-            //item3.Child.Add(new EditTemplate()
-            //{
-            //    Title = "3.3",
-            //    Description = "3.3 DDDDDD WWWWWWW52225c5dc2 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            //});
-            //item3.Child.Add(new EditTemplate()
-            //{
-            //    Title = "3.4",
-            //    Description = "3.4 EEEEEEEEDD AAAAAXXXX 555 \n SSSSSSSSSA \n ZZZZZZZZZZZZZZ"
-            //});
-            //item3.Child.Add(new EditTemplate()
-            //{
-            //    Title = "3.5",
-            //    Description = "3.5 XXXX FFFFFFFFFFFFFFFF 555 \n PPPPP \n WWWWWW"
-            //});
-
-            //EditTemplate item4 = new EditTemplate()
-            //{
-            //    ButtonText = RSC.Info4,
-            //    ButtonDeleteText = RSC.Info6,
-            //    IsVisibleItemClause = false,
-            //    IsVisibleButton = true,
-            //    IsVisibleAddButton = true,
-            //    IsContractServiceDetailsButton = true,
-            //    IsContractInfoButton = false
-            //};
-
-            //EditTemplate item5 = new EditTemplate()
-            //{
-            //    ButtonText = RSC.Info5,
-            //    ButtonDeleteText = RSC.Info7,
-            //    IsVisibleItemClause = false,
-            //    IsVisibleButton = true,
-            //    IsVisibleAddButton = true,
-            //    IsContractServiceDetailsButton = false,
-            //    IsContractInfoButton = true
-            //};
-
-            //DataList.Add(item1);
-            //DataList.Add(item2);
-            //DataList.Add(item3);
-            //DataList.Add(item4);
-            //DataList.Add(item5);
-            #endregion 
+            BtnEditDoneText = RSC.Edit; 
         }
 
         public PageEditTemplateContractViewModel()

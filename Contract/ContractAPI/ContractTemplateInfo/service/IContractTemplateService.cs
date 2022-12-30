@@ -14,5 +14,6 @@ namespace ContractAPI.ContractTemplateInfo.service
         Task<ResponseContractTemplate> updateContractTemplate(ContractTemplate info);
         Task<ResponseContractTemplate> deleteContractTemplate(ContractTemplate info);
         Task<ResponseReadyTemplate> getAllReadyTemplate();
+        Task<ResponseReadyTemplate> getAllReadyTemplateUrl();
     }
 }
