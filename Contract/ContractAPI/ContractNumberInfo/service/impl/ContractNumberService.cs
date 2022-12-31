@@ -92,6 +92,19 @@ namespace ContractAPI.ContractNumberInfo.service.impl
             ContractNumberTemplate newItem = new ContractNumberTemplate(info);
             dataBase.ContractNumberTemplate.Update(newItem);
 
+            List<ContractTemplate> templateList = await dataBase.ContractTemplate
+                                                        .Where(item => item.contract_number_format_id == info.id)
+                                                        .AsNoTracking()
+                                                        .ToListAsync();
+
+            foreach (ContractTemplate i in templateList)
+            {
+                ContractTemplate newTemplate = new ContractTemplate(i);
+                newTemplate.contract_number_option = info.option;
+
+                dataBase.ContractTemplate.Update(newTemplate);
+            }
+
             try
             {
                 await dataBase.SaveChangesAsync();

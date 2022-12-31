@@ -172,13 +172,9 @@ namespace Contract.ViewModel.Pages.TemplateContract
          
         #region Commands
         public ICommand ItemDragged { get; }
-
         public ICommand ItemDraggedOver { get; }
-
         public ICommand ItemDragLeave { get; }
-
         public ICommand ItemDropped { get; }
-
         public ICommand ItemEditText { get; }
         public ICommand ItemDelete { get; }
 

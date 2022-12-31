@@ -49,7 +49,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
                 await Application.Current.MainPage.DisplayAlert(RSC.Cancel, RSC.Cancel_Message_3, RSC.Ok);
 
                 if (MoveToMainPage)
-                    Application.Current.MainPage = new TransitionNavigationPage(new Contract.Pages.PageMain());
+                    Application.Current.MainPage = new TransitionNavigationPage(new Contract.Pages.PageMasterDetail());
                 else
                     await Navigation.PopModalAsync();
             }

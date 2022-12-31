@@ -1,4 +1,5 @@
-﻿using LibContract.HttpModels;
+﻿using LibContract;
+using LibContract.HttpModels;
 using Newtonsoft.Json;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Drawing.Layout;
@@ -80,7 +81,7 @@ namespace ContractAPI.CreatePdf.service
 
             //string filename = "Contract.pdf";
             pdf.Save(savePath);
-            Console.WriteLine("Done........");
+            //Console.WriteLine("Done........");
 
             //Process proc = new Process();
             //proc.StartInfo.UseShellExecute = true;
@@ -109,7 +110,7 @@ namespace ContractAPI.CreatePdf.service
 
             if (!drawedMainText)
             {
-                string strContractNumber = ContractTextEditor.ContractWidthNumber(ContractInfo.contract_number);
+                string strContractNumber = ContractTextEditor.ContractWidthNumber(ContractNumberWorker.ExtractContractNumber(ContractInfo.contract_number));
                 string strDate = ContractTextEditor.TodaysDate();
                 string strMainText = ContractTextEditor.MainText(UserCompany, ClientCompany);
 
@@ -136,7 +137,7 @@ namespace ContractAPI.CreatePdf.service
                 double lastYOfTable = layoutNextText.Y;
 
                 ContractTemplateJson item = jsonList[i];
-                if (item.IsContractServiceDetailsButton)
+                if (item.IsContractServiceDetailsButton && !item.IsVisibleAddButton)
                 {
                     if (layoutNextText.Y >= page.Height - lineHeight * 4)
                     {
@@ -153,7 +154,7 @@ namespace ContractAPI.CreatePdf.service
 
                     layoutNextText.Y += lineHeight * 2;
                 }
-                else if (item.IsContractInfoButton)
+                else if (item.IsContractInfoButton && !item.IsVisibleAddButton)
                 {
                     if (layoutNextText.Y >= page.Height - lineHeight * 4)
                     {

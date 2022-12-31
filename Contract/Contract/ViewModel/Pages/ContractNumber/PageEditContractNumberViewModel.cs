@@ -77,12 +77,15 @@ namespace Contract.ViewModel.Pages.ContractNumber
             }
               
             LibContract.HttpModels.ContractNumberTemplate data = new LibContract.HttpModels.ContractNumberTemplate()
-            {
+            { 
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 option = Option,
                 format = contractFormat,
                 created_date = ContractNumber == null ? "" : ContractNumber.CreatedDate
             };
+
+            if (ContractNumber != null)
+                data.id = ContractNumber.Id;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseContractNumberTemplate response = ContractNumber == null ? await Net.HttpService.SetContractNumber(data) :

@@ -44,10 +44,15 @@ namespace Contract.Pages.TemplateContract
             DependencyService.Get<IRotationService>().DisableRotation();
         }
 
-        private void Eye_Tapped(object sender, EventArgs e)
+        private async void Eye_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            ContractTemplate item = (ContractTemplate)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            await Navigation.PushAsync(new PageEditTemplateContract(item.TemplateInfo));
         }
 
         private void Send_Tapped(object sender, EventArgs e)

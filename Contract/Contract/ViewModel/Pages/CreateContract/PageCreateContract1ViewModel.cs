@@ -21,7 +21,6 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         public PageCreateContract1ViewModel(INavigation navigation) : base(navigation)
         {
-
             ShowClientCompanyImage = true;
             ClientCompanyName = RSC.SelectClientCompany;
             ClientCompanyImage = "no_image";
@@ -38,13 +37,13 @@ namespace Contract.ViewModel.Pages.CreateContract
                 return;
             }
 
-            if (ControlApp.OpenSearchClient && ControlApp.SelectedClientCompanyInfo == null)
+            if (!ControlApp.OpenClientInfo && ControlApp.OpenSearchClient && ControlApp.SelectedClientCompanyInfo == null)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.SelectClientCompany, RSC.Ok);
                 return;
             }
 
-            LibContract.HttpModels.CompanyInfo companyInfo = ControlApp.OpenSearchClient ? ControlApp.SelectedClientCompanyInfo : GetCompanyInfo();
+            LibContract.HttpModels.CompanyInfo companyInfo = (!ControlApp.OpenClientInfo && ControlApp.OpenSearchClient) ? ControlApp.SelectedClientCompanyInfo : GetCompanyInfo();
             SetTransitionType();
             await Navigation.PushAsync(new PageCreateContract2(companyInfo));
         }
