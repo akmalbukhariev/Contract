@@ -23,6 +23,20 @@ namespace ContractAPI.Helper
             }
         }
 
+        public async static void CreateFile(string savePath, string fileName, IFormFile formFile)
+        {
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+
+            using (FileStream filestream = File.Create($"{savePath}{fileName}"))
+            { 
+                await formFile.CopyToAsync(filestream);
+                filestream.Flush();
+            }
+        }
+
         public static void DeleteFile(string filePath)
         {
             if (File.Exists(filePath))

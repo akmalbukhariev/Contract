@@ -35,7 +35,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
             ShowConfirmBox = false;
 
             SetTransitionType(TransitionType.SlideFromBottom);
-            await Navigation.PushModalAsync(new PageContractSpecialCode());
+            await Navigation.PushModalAsync(new PageSign());
         }
 
         private async void ClickERI()

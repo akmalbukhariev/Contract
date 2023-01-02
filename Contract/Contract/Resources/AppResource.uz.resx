@@ -300,6 +300,14 @@ shartnomalar</value>
     <value>Bandlar</value>
     <comment>Template Contract</comment>
   </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Tozalash</value>
+    <comment>PageSign</comment>
+  </data>
+  <data name="CleanMessage" xml:space="preserve">
+    <value>Oynani tozalashni xohlaysizmi?</value>
+    <comment>PageSign</comment>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Izox</value>
     <comment>UnapprovedContracts</comment>
@@ -1095,6 +1103,10 @@ yuborilgan maxsus kodni kiriting.</value>
     <value>Siz roʻyxatdan muvaffaqiyatli oʻtdingiz</value>
     <comment>Sign Up</comment>
   </data>
+  <data name="SignWindow" xml:space="preserve">
+    <value>Imzo oynasi</value>
+    <comment>SignPage</comment>
+  </data>
   <data name="Skip" xml:space="preserve">
     <value>O'tkazib yuborish</value>
     <comment>Introduction</comment>
@@ -1255,5 +1267,9 @@ shartnomalar</value>
   <data name="YourIdNumber" xml:space="preserve">
     <value>Sizning ID raqamingiz</value>
     <comment>Finished FillInfo</comment>
+  </data>
+  <data name="YourSignature" xml:space="preserve">
+    <value>Sizning imzoingiz</value>
+    <comment>PageSign</comment>
   </data>
 </root>

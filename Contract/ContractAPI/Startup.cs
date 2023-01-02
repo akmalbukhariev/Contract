@@ -43,6 +43,8 @@ using ContractAPI.ContractTemplateInfo.service.impl;
 using ContractAPI.CreatePdf.service;
 using ContractAPI.CreatePdf.service.impl;
 using Microsoft.AspNetCore.Authorization;
+using ContractAPI.Signature.service;
+using ContractAPI.Signature.service.impl;
 
 namespace ContractAPI
 {
@@ -71,10 +73,11 @@ namespace ContractAPI
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
             services.AddScoped<ICreatePdfService, CreatePdfService>();
+            services.AddScoped<ISignatureService, SignatureService>();
             services.AddScoped<IUserInfoService, UserInfoService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAppService, AppService>();
-             
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

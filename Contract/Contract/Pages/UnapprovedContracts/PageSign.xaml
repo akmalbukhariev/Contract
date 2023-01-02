@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:view="clr-namespace:Contract.Views"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+            xmlns:tt="clr-namespace:Contract.TouchTracking" 
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.UnapprovedContracts.PageSign">
+
+    <Grid ColumnDefinitions="20,*,20">
+        <Image Style="{StaticResource imBackground2}"
+               Grid.ColumnSpan="3"/>
+        <Grid RowDefinitions="Auto,*"
+              RowSpacing="20"
+              Grid.Column="1">
+            <view:ViewNavigationBar BackImage="back_left_white"  
+                                    Style="{StaticResource naviBarSignUp}"
+                                    Title="{x:Static resource:AppResource.SignWindow}"
+                                    UseWhite="True"/>
+            <BoxView BackgroundColor="White"
+                     CornerRadius="10"
+                     Margin="0,0,0,20"
+                     Grid.Row="1"/>
+            <Grid RowDefinitions="300,2,40"
+                  Margin="10,10,10,0"
+                  Grid.Row="1">
+                <Grid BackgroundColor="Transparent">
+                    <skia:SKCanvasView x:Name="canvasView"
+                                       PaintSurface="OnCanvasViewPaintSurface" />
+                    <Grid.Effects>
+                        <tt:TouchEffect Capture="True"
+                                        TouchAction="OnTouchEffectAction" />
+                    </Grid.Effects>
+                </Grid>
+                <Label x:Name="lbYourSign"
+                       Text="{x:Static resource:AppResource.YourSignature}"
+                       TextColor="LightGray"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Line BackgroundColor="{StaticResource AppColor}" 
+                      Grid.Row="1"/>
+                <Image Source="Delete_2"
+                       Aspect="AspectFit"
+                       HorizontalOptions="End"
+                       Grid.Row="2">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <Button Style="{StaticResource btnNext}"
+                    Text="{x:Static resource:AppResource.Save}"
+                    VerticalOptions="EndAndExpand"
+                    Margin="10,0,10,30"
+                    Clicked="Save_Clicked"
+                    Grid.Row="1"/>
+        </Grid> 
+    </Grid> 
+</page:IPage>

@@ -299,6 +299,14 @@
     <value>Бандлар</value>
     <comment>Template Contract</comment>
   </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Тозалаш</value>
+    <comment>PageSign</comment>
+  </data>
+  <data name="CleanMessage" xml:space="preserve">
+    <value>Ойнани тозалашни хоҳлайсизми?</value>
+    <comment>PageSign</comment>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Изоҳ</value>
     <comment>UnapprovedContracts</comment>
@@ -1067,6 +1075,10 @@
     <value>Сиз рўйхатдан муваффақиятли ўтдингиз.</value>
     <comment>Sign Up</comment>
   </data>
+  <data name="SignWindow" xml:space="preserve">
+    <value>Имзо ойнаси</value>
+    <comment>SignPage</comment>
+  </data>
   <data name="Skip" xml:space="preserve">
     <value>Ўтказиб юбориш</value>
     <comment>Introduction</comment>
@@ -1226,5 +1238,9 @@
   <data name="YourIdNumber" xml:space="preserve">
     <value>Сизнинг ID рақамингиз</value>
     <comment>Finished FillInfo</comment>
+  </data>
+  <data name="YourSignature" xml:space="preserve">
+    <value>Сизнинг имзоингиз</value>
+    <comment>PageSign</comment>
   </data>
 </root>

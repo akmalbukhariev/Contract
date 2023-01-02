@@ -1,0 +1,159 @@
+﻿using Contract.TouchTracking;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Contract.Pages.UnapprovedContracts
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PageSign : IPage
+    {
+        Dictionary<long, SKPath> inProgressPaths = new Dictionary<long, SKPath>();
+        List<SKPath> completedPaths = new List<SKPath>();
+        
+        SKSurface surface;
+
+        SKPaint paint = new SKPaint
+        {
+            Style = SKPaintStyle.Stroke,
+            Color = SKColors.Black,
+            StrokeWidth = 10,
+            StrokeCap = SKStrokeCap.Round,
+            StrokeJoin = SKStrokeJoin.Round
+        };
+
+        public PageSign()
+        {
+            InitializeComponent();
+        }
+
+        void OnTouchEffectAction(object sender, TouchActionEventArgs args)
+        {
+            lbYourSign.IsVisible = false;
+            switch (args.Type)
+            {
+                case TouchActionType.Pressed:
+                    if (!inProgressPaths.ContainsKey(args.Id))
+                    {
+                        SKPath path = new SKPath();
+                        path.MoveTo(ConvertToPixel(args.Location));
+                        inProgressPaths.Add(args.Id, path);
+                        canvasView.InvalidateSurface();
+                    }
+                    break;
+
+                case TouchActionType.Moved:
+                    if (inProgressPaths.ContainsKey(args.Id))
+                    {
+                        SKPath path = inProgressPaths[args.Id];
+                        path.LineTo(ConvertToPixel(args.Location));
+                        canvasView.InvalidateSurface();
+                    }
+                    break;
+
+                case TouchActionType.Released:
+                    if (inProgressPaths.ContainsKey(args.Id))
+                    {
+                        completedPaths.Add(inProgressPaths[args.Id]);
+                        inProgressPaths.Remove(args.Id);
+                        canvasView.InvalidateSurface();
+                    }
+                    break;
+
+                case TouchActionType.Cancelled:
+                    if (inProgressPaths.ContainsKey(args.Id))
+                    {
+                        inProgressPaths.Remove(args.Id);
+                        canvasView.InvalidateSurface();
+                    }
+                    break;
+            }
+        }
+
+        void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        {
+            surface = args.Surface;
+            SKCanvas canvas = surface.Canvas;
+            canvas.Clear();
+
+            foreach (SKPath path in completedPaths)
+            { 
+                canvas.DrawPath(path, paint);
+            }
+
+            foreach (SKPath path in inProgressPaths.Values)
+            {
+                canvas.DrawPath(path, paint);
+            }
+
+            
+            //canvas.DrawBitmap(signBitmap, 
+        }
+
+        SKPoint ConvertToPixel(Point pt)
+        {
+            return new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
+                               (float)(canvasView.CanvasSize.Height * pt.Y / canvasView.Height));
+        }
+
+        private async void Delete_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((Image)sender);
+            bool res = await Application.Current.MainPage.DisplayAlert(RSC.Clean, RSC.CleanMessage, RSC.Ok, RSC.Cancel);
+            if (res)
+            {
+                completedPaths.Clear();
+                inProgressPaths.Clear();
+                canvasView.InvalidateSurface();
+                lbYourSign.IsVisible = true;
+            }
+        }
+
+        private async void Save_Clicked(object sender, EventArgs e)
+        {
+            var mainDir = FileSystem.AppDataDirectory;
+            var strFilePath = Path.Combine(mainDir, $"12_{DateTime.Now.ToString("yyyyMMdd_hhmmss.fff")}_.png");
+
+            SKBitmap signBitmap = new SKBitmap(80, 80);
+            SKCanvas canvas = new SKCanvas(signBitmap);
+
+            foreach (SKPath path in completedPaths)
+            {
+                canvas.DrawPath(path, paint);
+            }
+
+            SKImage image = SKImage.FromBitmap(signBitmap);
+            SKData data = image.Encode();
+
+            SignatureInfo info = new SignatureInfo();
+            info.fileName = "test.png";
+            info.dataStream = data.AsStream();
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseSignatureInfo response = await Net.HttpService.SetSignature(info);
+            ControlApp.CloseLoadingView();
+
+            string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
+            await DisplayAlert(RSC.SignWindow, strMessage, RSC.Ok);
+
+            //signBitmap.Bytes;
+            //var image = surface.Snapshot();
+            //var data = image.Encode(SKEncodedImageFormat.Png, 80);
+            //var stream = File.OpenWrite(strFilePath);
+            // 
+            //data.SaveTo(stream);
+        }
+    }
+}

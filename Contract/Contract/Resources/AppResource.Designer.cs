@@ -467,6 +467,24 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clean.
+        /// </summary>
+        internal static string Clean {
+            get {
+                return ResourceManager.GetString("Clean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to clean the window?.
+        /// </summary>
+        internal static string CleanMessage {
+            get {
+                return ResourceManager.GetString("CleanMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comment.
         /// </summary>
         internal static string Comment {
@@ -2204,6 +2222,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sign window.
+        /// </summary>
+        internal static string SignWindow {
+            get {
+                return ResourceManager.GetString("SignWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skip.
         /// </summary>
         internal static string Skip {
@@ -2561,6 +2588,15 @@ namespace Contract.Resources {
         internal static string YourIdNumber {
             get {
                 return ResourceManager.GetString("YourIdNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your signature.
+        /// </summary>
+        internal static string YourSignature {
+            get {
+                return ResourceManager.GetString("YourSignature", resourceCulture);
             }
         }
     }

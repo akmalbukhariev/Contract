@@ -298,6 +298,14 @@ Contracts</value>
     <value>Clauses</value>
     <comment>Template Contract</comment>
   </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Clean</value>
+    <comment>PageSign</comment>
+  </data>
+  <data name="CleanMessage" xml:space="preserve">
+    <value>Do you want to clean the window?</value>
+    <comment>PageSign</comment>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Comment</value>
     <comment>UnapprovedContracts</comment>
@@ -1066,6 +1074,10 @@ Contracts</value>
     <value>You have successfully registered</value>
     <comment>Sign Up</comment>
   </data>
+  <data name="SignWindow" xml:space="preserve">
+    <value>Sign window</value>
+    <comment>SignPage</comment>
+  </data>
   <data name="Skip" xml:space="preserve">
     <value>Skip</value>
     <comment>Introduction</comment>
@@ -1226,5 +1238,9 @@ Contracts</value>
   <data name="YourIdNumber" xml:space="preserve">
     <value>Your ID number</value>
     <comment>Finished FillInfo</comment>
+  </data>
+  <data name="YourSignature" xml:space="preserve">
+    <value>Your signature</value>
+    <comment>PageSign</comment>
   </data>
 </root>

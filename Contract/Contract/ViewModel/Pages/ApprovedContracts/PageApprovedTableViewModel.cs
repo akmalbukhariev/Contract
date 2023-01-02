@@ -41,53 +41,7 @@ namespace Contract.ViewModel.Pages.CurrentContracts
         #endregion
 
         public async void RequestInfo()
-        {
-            #region
-            //CurrentContract item1 = new CurrentContract()
-            //{
-            //    No = "1.",
-            //    Preparer = "Men",
-            //    ContractNnumber = "22-001-12345",
-            //    CompanyName = "Korxona nomi",
-            //    ContractDate = "06.04.2022",
-            //    ContractPrice = "100,000 sum",
-            //    ContractPayment = "100 %",
-            //    ContractPaymentColor = Color.FromHex("#C5E0B3"),
-            //    ItemColor = Color.FromHex("#DEEAF6"),
-            //    PreparerColor = Color.FromHex("#BDD6EE")
-            //};
-            //CurrentContract item2 = new CurrentContract()
-            //{
-            //    No = "2.",
-            //    Preparer = "Kontragent",
-            //    ContractNnumber = "22-001-12345",
-            //    CompanyName = "Korxona nomi",
-            //    ContractDate = "06.04.2022",
-            //    ContractPrice = "100 $",
-            //    ContractPayment = "90 %",
-            //    ContractPaymentColor = Color.FromHex("#F7CAAC"),
-            //    ItemColor = Color.FromHex("#FFFFFF"),
-            //    PreparerColor = Color.FromHex("#FFF2CC")
-            //};
-            //CurrentContract item3 = new CurrentContract()
-            //{
-            //    No = "3.",
-            //    Preparer = "Kontragent",
-            //    ContractNnumber = "22-001-12345",
-            //    CompanyName = "Korxona nomi",
-            //    ContractDate = "06.04.2022",
-            //    ContractPrice = "100 $",
-            //    ContractPayment = "100 %",
-            //    ContractPaymentColor = Color.FromHex("#538135"),
-            //    ItemColor = Color.FromHex("#DEEAF6"),
-            //    PreparerColor = Color.FromHex("#FFF2CC")
-            //};
-
-            //Add(item1);
-            //Add(item2);
-            //Add(item3);
-            #endregion
-
+        { 
             DataList.Clear();
 
             LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()

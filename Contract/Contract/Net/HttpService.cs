@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -11,7 +12,19 @@ using System.Threading.Tasks;
 
 namespace Contract.Net
 {
-   public class HttpService
+    public static class StreamHelpers
+    {
+        public static byte[] ReadFully(this Stream input)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                input.CopyTo(ms);
+                return ms.ToArray();
+            }
+        }
+    }
+
+    public class HttpService
     {
         //http://192.168.219.102:5000/api/CreatePdf/createPdf/12_00002_Kukmin
         #region Url 
@@ -83,6 +96,7 @@ namespace Contract.Net
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
         public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
         public static string URL_SAVE_OFFER_OBJECTION = SERVER_URL + "OfferObjection/Save";
+        public static string URL_SAVE_SIGNATURE = SERVER_URL + "Signature/setSignature";
         public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
         #endregion
 
@@ -507,6 +521,20 @@ namespace Contract.Net
         }
         #endregion
 
+        public async static Task<ResponseSignatureInfo> SetSignature(SignatureInfo data)
+        {
+            ResponseSignatureInfo response = new ResponseSignatureInfo();
+            try
+            {
+                var receivedData = await RequestPostSignature(URL_SAVE_SIGNATURE, data);
+                response = JsonConvert.DeserializeObject<ResponseSignatureInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseSignatureInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseSignatureInfo>(); }
+
+            return response;
+        }
+
         public async static Task<ResponseLogin> UpdateUserPassword(ChnagePassword data)
         {
             ResponseLogin response = new ResponseLogin();
@@ -723,6 +751,20 @@ namespace Contract.Net
             request.AddFile("company_logo_url", obj.company_logo_url);
             request.AddParameter("created_date", "");
               
+            IRestResponse response = await client.ExecuteAsync(request);
+            return response.Content;
+        }
+
+        private static async Task<string> RequestPostSignature(string url, SignatureInfo obj)
+        {
+            var client = new RestClient(url);
+            client.Timeout = -1;
+            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            var request = new RestRequest(Method.POST);
+
+            request.AddParameter("fileName", obj.fileName); 
+            request.AddFile("dataStream", obj.dataStream.ReadFully(), obj.fileName);
+
             IRestResponse response = await client.ExecuteAsync(request);
             return response.Content;
         }

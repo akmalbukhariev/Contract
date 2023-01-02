@@ -10,5 +10,5 @@ namespace ContractAPI.Models
     public class CompanyInfoWithFile : BaseCompanyInfo
     {
         public IFormFile company_logo_url { get; set; }
-    }
+    } 
 }
