@@ -211,7 +211,7 @@ namespace ContractAPI.CompanyInformation.service.impl
                 return response;
             }
 
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveImagePath}", info.company_logo_url);
+            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
 
             var newInfo = new UserCompanyInfo();
             newInfo.user_phone_number = info.user_phone_number;
@@ -230,7 +230,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.accountant_name = info.accountant_name;
             newInfo.is_legal_counsel_provided = 0;
             newInfo.counsel_name = info.counsel_name;
-            newInfo.company_logo_url = Constants.SaveImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
+            newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
             newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.UserCompanyInfo.Add(newInfo);
@@ -313,7 +313,7 @@ namespace ContractAPI.CompanyInformation.service.impl
                 return response;
             }
              
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveImagePath}", info.company_logo_url);
+            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
 
             var newInfo = new ClientCompanyInfo();
             newInfo.user_phone_number = info.user_phone_number;
@@ -332,7 +332,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.accountant_name = info.accountant_name;
             newInfo.is_legal_counsel_provided = 0;
             newInfo.counsel_name = info.counsel_name;
-            newInfo.company_logo_url = Constants.SaveImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
+            newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
             newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
             
             dataBase.ClientCompanyInfo.Add(newInfo);
@@ -437,8 +437,8 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.counsel_name = info.counsel_name;
 
             FileSystemControl.DeleteFile($"{_environment.WebRootPath}{found.company_logo_url}");
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveImagePath}", info.company_logo_url);
-            newInfo.company_logo_url = Constants.SaveImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
+            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
+            newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
             
             dataBase.UserCompanyInfo.Update(newInfo);
 
@@ -545,8 +545,8 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.counsel_name = info.counsel_name;
 
             FileSystemControl.DeleteFile($"{_environment.WebRootPath}{found.company_logo_url}");
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveImagePath}", info.company_logo_url);
-            newInfo.company_logo_url = Constants.SaveImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
+            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
+            newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
              
             dataBase.ClientCompanyInfo.Update(newInfo);
 

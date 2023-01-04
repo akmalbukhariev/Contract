@@ -19,6 +19,7 @@ namespace ContractAPI.DataAccess
         public DbSet<ReadyTemplate> ReadyTemplates { get; set; }
         public DbSet<ContractTemplate> ContractTemplate { get; set; }
         public DbSet<ServicesInfo> ServicesInfo { get; set; }
+        public DbSet<SignatureInfo> SignatureInfo { get; set; }
         public DbSet<PurposeOfContract> PurposeOfContracts { get; set; } 
         public DbSet<CanceledContract> CanceledContracts { get; set; }
         public DbSet<AboutApp> AboutApp { get; set; }
@@ -64,6 +65,9 @@ namespace ContractAPI.DataAccess
 
             modelBuilder.Entity<ServicesInfo>().ToTable("ServicesInfo");
             modelBuilder.Entity<ServicesInfo>().HasKey(r => r.created_date);
+
+            modelBuilder.Entity<SignatureInfo>().ToTable("SignatureInfo");
+            modelBuilder.Entity<SignatureInfo>().HasKey(r => r.phone_number);
 
             modelBuilder.Entity<PurposeOfContract>().ToTable("PurposeOfContracts");
             modelBuilder.Entity<PurposeOfContract>().HasKey(r => r.user_phone_number);

@@ -521,7 +521,7 @@ namespace Contract.Net
         }
         #endregion
 
-        public async static Task<ResponseSignatureInfo> SetSignature(SignatureInfo data)
+        public async static Task<ResponseSignatureInfo> SetSignature(Model.SignatureData data)
         {
             ResponseSignatureInfo response = new ResponseSignatureInfo();
             try
@@ -755,15 +755,15 @@ namespace Contract.Net
             return response.Content;
         }
 
-        private static async Task<string> RequestPostSignature(string url, SignatureInfo obj)
+        private static async Task<string> RequestPostSignature(string url, Model.SignatureData obj)
         {
             var client = new RestClient(url);
             client.Timeout = -1;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             var request = new RestRequest(Method.POST);
 
-            request.AddParameter("fileName", obj.fileName); 
-            request.AddFile("dataStream", obj.dataStream.ReadFully(), obj.fileName);
+            request.AddParameter("phone_number", obj.phone_number); 
+            request.AddFile("dataStream", obj.dataStream.ReadFully(), "phone_number");
 
             IRestResponse response = await client.ExecuteAsync(request);
             return response.Content;

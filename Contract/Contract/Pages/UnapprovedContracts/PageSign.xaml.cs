@@ -1,4 +1,5 @@
-﻿using Contract.TouchTracking;
+﻿using Contract.Model;
+using Contract.TouchTracking;
 using LibContract.HttpModels;
 using LibContract.HttpResponse;
 using Plugin.Media;
@@ -97,9 +98,6 @@ namespace Contract.Pages.UnapprovedContracts
             {
                 canvas.DrawPath(path, paint);
             }
-
-            
-            //canvas.DrawBitmap(signBitmap, 
         }
 
         SKPoint ConvertToPixel(Point pt)
@@ -123,22 +121,38 @@ namespace Contract.Pages.UnapprovedContracts
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
-            var mainDir = FileSystem.AppDataDirectory;
-            var strFilePath = Path.Combine(mainDir, $"12_{DateTime.Now.ToString("yyyyMMdd_hhmmss.fff")}_.png");
+            //var mainDir = FileSystem.AppDataDirectory;
+            //var strFilePath = Path.Combine(mainDir, $"12_{DateTime.Now.ToString("yyyyMMdd_hhmmss.fff")}_.png");
 
-            SKBitmap signBitmap = new SKBitmap(80, 80);
+            float x = float.MaxValue;
+            float y = float.MaxValue;
+            float width = 0.0f;
+            float height = 0.0f;
+            CalcSize(ref x, ref y, ref width, ref height);
+
+            SKBitmap signBitmap = new SKBitmap((int)(width - x) + 20, (int)(height - y) + 20);
             SKCanvas canvas = new SKCanvas(signBitmap);
-
+             
+            x -= 15;
+            y -= 15;
+            
             foreach (SKPath path in completedPaths)
             {
-                canvas.DrawPath(path, paint);
-            }
+                SKPath temp = new SKPath();
+                temp.MoveTo(new SKPoint(path.Points[0].X - x, path.Points[0].Y - y));
 
+                for (int i = 1; i < path.Points.Length; i++)
+                {
+                    temp.LineTo(new SKPoint(path.Points[i].X - x, path.Points[i].Y - y));
+                }
+                canvas.DrawPath(temp, paint);
+            }
+             
             SKImage image = SKImage.FromBitmap(signBitmap);
             SKData data = image.Encode();
 
-            SignatureInfo info = new SignatureInfo();
-            info.fileName = "test.png";
+            SignatureData info = new SignatureData();
+            info.phone_number = "12";// ControlApp.UserInfo.phone_number;
             info.dataStream = data.AsStream();
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
@@ -146,14 +160,25 @@ namespace Contract.Pages.UnapprovedContracts
             ControlApp.CloseLoadingView();
 
             string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
-            await DisplayAlert(RSC.SignWindow, strMessage, RSC.Ok);
+            await DisplayAlert(RSC.SignWindow, strMessage, RSC.Ok); 
+        }
 
-            //signBitmap.Bytes;
-            //var image = surface.Snapshot();
-            //var data = image.Encode(SKEncodedImageFormat.Png, 80);
-            //var stream = File.OpenWrite(strFilePath);
-            // 
-            //data.SaveTo(stream);
+        void CalcSize(ref float x, ref float y, ref float width, ref float height)
+        {
+            foreach (SKPath path in completedPaths)
+            {
+                float maxX = path.Points.Max(item => item.X);
+                float maxY = path.Points.Max(item => item.Y);
+
+                float minX = path.Points.Min(item => item.X);
+                float minY = path.Points.Min(item => item.Y);
+
+                if (width <= maxX) width = maxX;
+                if (height <= maxY) height = maxY;
+
+                if (x >= minX) x = minX;
+                if (y >= minY) y = minY;
+            }
         }
     }
 }

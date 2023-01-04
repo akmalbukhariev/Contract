@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace LibContract.HttpModels
+namespace Contract.Model
 {
-    public class SignatureInfo
+    public class SignatureData
     {
         public string phone_number { get; set; }
-        public string sign_url { get; set; }
+        public Stream dataStream { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace ContractAPI.Models
 {
     public class SignatureWithFile
     {
-        public string fileName { get; set; }
+        public string phone_number { get; set; }
         public IFormFile dataStream { get; set; }
     }
 }

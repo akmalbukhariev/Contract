@@ -15,7 +15,7 @@
   <ItemGroup>
     <Folder Include="CanceledContractInfo\service\impl\" />
     <Folder Include="wwwroot\Upload\contracts_pdf\" />
-    <Folder Include="wwwroot\Upload\images\" />
+    <Folder Include="wwwroot\Upload\images\signature\" />
   </ItemGroup>
 
   <ItemGroup>
