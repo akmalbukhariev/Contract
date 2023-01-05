@@ -98,11 +98,11 @@ namespace ContractAPI.CreatePdf.service.impl
                 pdf.Services = serviceList;
 
                 //Console.WriteLine($"WebRootPath: {_environment.WebRootPath}");
-                string strPath = Path.Combine(Directory.GetCurrentDirectory(), Constants.SaveContractPdfPath);
+                string strPath = _environment.WebRootPath + Constants.SaveContractPdfPath;
                 string savePathFile = $"{strPath}{contractInfo.contract_number}.pdf";
                 await Task.Run(() =>
                 {
-                    pdf.CreateContract(savePathFile);
+                    pdf.CreateContract(savePathFile, _environment.WebRootPath);
                 });
 
                 CreateContractInfo editCreateContractInfo = new CreateContractInfo(contractInfo);

@@ -28,13 +28,18 @@ namespace ContractAPI.CreatePdf.service
         public List<ServicesInfo> Services { get; set; }
 
         private List<ContractTemplateJson> JsonList;
+
+        string SaveSignaturePath = string.Empty;
+        XSize SizeOfClientPositionOfSignaer;
+        XSize SizeOfUserPositionOfSignaer;
         public CreatePDF(string strJson)
         {
             JsonList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(strJson);
         }
          
-        public void CreateContract(string savePath)
+        public void CreateContract(string saveFilePath, string rootPath)
         {
+            SaveSignaturePath = rootPath + Constants.SaveSignImagePath;
             //GlobalFontSettings.FontResolver = new FontResolver();
             var pdf = new PdfDocument();
              
@@ -80,7 +85,7 @@ namespace ContractAPI.CreatePdf.service
             CreatePage(JsonList, 0, 0, pdf, tableCols, table1Rows, table2Rows, false, false);
 
             //string filename = "Contract.pdf";
-            pdf.Save(savePath);
+            pdf.Save(saveFilePath);
             //Console.WriteLine("Done........");
 
             //Process proc = new Process();
@@ -105,6 +110,9 @@ namespace ContractAPI.CreatePdf.service
             XSolidBrush textColor = XBrushes.Black;
             XTextFormatterEx calcHegihtOfText = new XTextFormatterEx(gr);
             XTextFormatter drawText = new XTextFormatter(gr);
+
+            SizeOfClientPositionOfSignaer = gr.MeasureString(ClientCompany.position_of_signer, fontText);
+            SizeOfUserPositionOfSignaer = gr.MeasureString(UserCompany.position_of_signer, fontText);
 
             double lineHeight = 12.181640625;
 
@@ -465,8 +473,21 @@ namespace ContractAPI.CreatePdf.service
                 }
                 
                 if (i == list.Count - 1)
-                { 
-                    gr.DrawLine(color, new XPoint(topLeft.X, leftYLine + heightOfRow), new XPoint(topRight.X, leftYLine + heightOfRow));                 //Top Left to Top right
+                {
+                    XPoint point1 = new XPoint(topLeft.X, leftYLine + heightOfRow);
+                    XPoint point2 = new XPoint(topRight.X, leftYLine + heightOfRow);
+                     
+                    string saveUserSignFile = $"{SaveSignaturePath}{UserCompany.user_phone_number}_sign.png";
+                    XImage image = XImage.FromFile(saveUserSignFile);
+                    double width = 30; 
+                    double height = 30; 
+
+                    double xSign1 = point1.X + SizeOfClientPositionOfSignaer.Width + 20;
+                    double xSign2 = mX + SizeOfUserPositionOfSignaer.Width + 25;
+                    gr.DrawImage(image, xSign1, point1.Y - 50, width, height);
+                    gr.DrawString(item[0], font2, textColor, new XPoint(xSign1, point1.Y - 10));   //imzo
+                    gr.DrawString(item[1], font2, textColor, new XPoint(xSign2, point1.Y - 10));   //imzo 
+                    gr.DrawLine(color, point1, point2);                                            //Top Left to Top right
                 }
 
                 leftYLine += heightOfRow;

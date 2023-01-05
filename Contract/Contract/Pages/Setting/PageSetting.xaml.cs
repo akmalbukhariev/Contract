@@ -81,6 +81,10 @@ namespace Contract.Pages.Setting
             {
                 await Navigation.PushAsync(new PageDefaultContractList());
             }
+            else if (sender == cellSignature)
+            {
+                await Navigation.PushAsync(new UnapprovedContracts.PageSign());
+            }
             else if (sender == cellAbout)
             {
                 await Navigation.PushAsync(new PageAbout());

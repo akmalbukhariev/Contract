@@ -14,7 +14,11 @@ namespace ContractAPI
     public class Program
     {
         public static void Main(string[] args)
-        { 
+        {
+            //string sss = System.IO.Directory.GetCurrentDirectory();
+            //string strPath = $"{System.IO.Directory.GetCurrentDirectory()}{Constants.SaveSignImagePath}";
+            //string saveSignFile = $"{strPath}{12}_sign.png";
+
             CreateHostBuilder(args).Build().Run();
         }
 
