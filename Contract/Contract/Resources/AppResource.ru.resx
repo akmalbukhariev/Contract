@@ -546,6 +546,10 @@
     <value>Повторно введите свой личный пароль</value>
     <comment>NewPassword</comment>
   </data>
+  <data name="EnterSignature" xml:space="preserve">
+    <value>Пожалуйста, введите свою подпись.</value>
+    <comment>PageMain</comment>
+  </data>
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Введите специальный код</value>
     <comment>SpecialCode</comment>
@@ -1026,6 +1030,10 @@
   <data name="SendCodeByTelegram" xml:space="preserve">
     <value>Введите специальный код, отправленный на указанный вами номер телефона через сеть Telegram.</value>
     <comment>UnapprovedContracts</comment>
+  </data>
+  <data name="SendContract" xml:space="preserve">
+    <value>Отправить контракт</value>
+    <comment>Create contract 3</comment>
   </data>
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Отправить код повторно</value>

@@ -19,6 +19,7 @@ namespace Contract.Pages.CreateContract
     public partial class PageCreateContract3 : IPage
     {
         private CreateContractInfo ContractInfo;
+        string contractUrl = string.Empty;
         public PageCreateContract3(CreateContractInfo createContract)
         {
             InitializeComponent();
@@ -40,10 +41,12 @@ namespace Contract.Pages.CreateContract
             ClickAnimationView(boxView);
             ClickAnimationView(stackView);
 
+            contractUrl = "";
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response = await HttpService.CreateContractPdf(ContractInfo.contract_number);
             if (response.result)
             {
+                contractUrl = response.pdf_url;
                 await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
             }
             else
@@ -53,19 +56,28 @@ namespace Contract.Pages.CreateContract
             ControlApp.CloseLoadingView();
         }
 
-        private void Send_Tapped(object sender, EventArgs e)
+        private async void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxSend);
             ClickAnimationView(stackSend);
+             
+            if (contractUrl == "")
+            {
+                ResponseCreatePdf response2 = await HttpService.CreateContractPdf(ContractInfo.contract_number);
+                if (response2.result)
+                {
+                    contractUrl = response2.pdf_url;
+                    await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+                }
+                else
+                {
+                    await DisplayAlert(RSC.CreateContract, response2.message, RSC.Ok);
+                }
+            }
 
-            //ControlApp.ShowLoadingView(RSC.PleaseWait);
-            //ResponseApprovedUnapprovedContract response = await Net.HttpService.SetUnapprovedContract(ContractInfo.contract_number);
-            //ControlApp.CloseLoadingView();
-            //
+            await ControlApp.ShareUri($"{HttpService.DATA_URL}{contractUrl}");
             //string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
             //await DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);
-            //
-            //Application.Current.MainPage = new TransitionNavigationPage(new PageMain());
         }
 
         private async void Cancel_Tapped(object sender, EventArgs e)

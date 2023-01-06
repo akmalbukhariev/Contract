@@ -24,9 +24,14 @@ namespace ContractAPI.Signature.api
         [HttpPost("setSignature")]
         public async Task<IActionResult> setSignature([FromForm] SignatureWithFile info)
         {
-            //IFormFile file = Request.Form.Files.FirstOrDefault();
-
             ResponseSignatureInfo response = await Service.setSignature(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+        [HttpPost("checkSignature/{phone_number}")]
+        public async Task<IActionResult> checkSignature(string phone_number)
+        {
+            ResponseSignatureInfo response = await Service.checkSignature(phone_number);
             return MakeResponse(response, response.error_code);
         }
     }

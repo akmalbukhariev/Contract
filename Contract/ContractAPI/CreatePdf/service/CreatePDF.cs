@@ -476,15 +476,11 @@ namespace ContractAPI.CreatePdf.service
                 {
                     XPoint point1 = new XPoint(topLeft.X, leftYLine + heightOfRow);
                     XPoint point2 = new XPoint(topRight.X, leftYLine + heightOfRow);
-                     
-                    string saveUserSignFile = $"{SaveSignaturePath}{UserCompany.user_phone_number}_sign.png";
-                    XImage image = XImage.FromFile(saveUserSignFile);
-                    double width = 30; 
-                    double height = 30; 
-
+                      
                     double xSign1 = point1.X + SizeOfClientPositionOfSignaer.Width + 20;
                     double xSign2 = mX + SizeOfUserPositionOfSignaer.Width + 25;
-                    gr.DrawImage(image, xSign1, point1.Y - 50, width, height);
+
+                    DrawSignature(xSign1, xSign2, point1.Y - 50, gr);
                     gr.DrawString(item[0], font2, textColor, new XPoint(xSign1, point1.Y - 10));   //imzo
                     gr.DrawString(item[1], font2, textColor, new XPoint(xSign2, point1.Y - 10));   //imzo 
                     gr.DrawLine(color, point1, point2);                                            //Top Left to Top right
@@ -496,7 +492,27 @@ namespace ContractAPI.CreatePdf.service
 
             return gr;
         }
-         
+
+        private void DrawSignature(double x1, double x2, double y, XGraphics gr)
+        {
+            double width = 30;
+            double height = 30;
+            string saveUserSignFile = $"{SaveSignaturePath}{UserCompany.user_phone_number}_sign.png";
+            string saveClientSignFile = $"{SaveSignaturePath}{ClientCompany.company_phone_number}_sign.png";
+
+            if (File.Exists(saveUserSignFile))
+            {
+                XImage image = XImage.FromFile(saveUserSignFile);
+                gr.DrawImage(image, x1, y, width, height);
+            }
+
+            if (File.Exists(saveClientSignFile))
+            {
+                XImage image = XImage.FromFile(saveClientSignFile);
+                gr.DrawImage(image, x2, y, width, height);
+            }
+        }
+
         public class TableColumn
         {
             public string Col_No { get; set; }

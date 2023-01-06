@@ -141,7 +141,16 @@ namespace Contract.Control
 
             //NotificationCenter.Current.Show(notification);
         }
-         
+
+        public async Task ShareUri(string uri)
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Uri = uri,
+                Title = RSC.SendContract
+            });
+        }
+
         public void Vibrate()
         {
             try

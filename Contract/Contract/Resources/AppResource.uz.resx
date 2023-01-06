@@ -547,6 +547,10 @@ shartnomalar</value>
     <value>Shaxsiy parolni qayta kiriting</value>
     <comment>NewPassword</comment>
   </data>
+  <data name="EnterSignature" xml:space="preserve">
+    <value>Iltimos, imzoingizni kiriting.</value>
+    <comment>PageMain</comment>
+  </data>
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Maxsus kodni kiriting</value>
     <comment>SpecialCode</comment>
@@ -1054,6 +1058,10 @@ rekvizitlari ochiq qolsinmi?</value>
     <value>Telegram tarmog'i orqali siz ko'rsatgan telfon raqamiga 
 yuborilgan maxsus kodni kiriting.</value>
     <comment>UnapprovedContracts</comment>
+  </data>
+  <data name="SendContract" xml:space="preserve">
+    <value>Shartnomani yuborish</value>
+    <comment>Create contract 3</comment>
   </data>
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Kodni qayta yuborish</value>

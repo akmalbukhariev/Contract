@@ -24,6 +24,6 @@ namespace ContractAPI.CreatePdf.api
         {
             ResponseCreatePdf response = await Service.createPdf(contractNumber);
             return MakeResponse(response, response.error_code);
-        }
+        } 
     }
 }

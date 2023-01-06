@@ -546,6 +546,10 @@
     <value>Шахсий паролни қайта киритинг</value>
     <comment>NewPassword</comment>
   </data>
+  <data name="EnterSignature" xml:space="preserve">
+    <value>Илтимос, имзоингизни киритинг.</value>
+    <comment>PageMain</comment>
+  </data>
   <data name="EnterSpecialCode" xml:space="preserve">
     <value>Махсус кодни киритинг</value>
     <comment>SpecialCode</comment>
@@ -1026,6 +1030,10 @@
   <data name="SendCodeByTelegram" xml:space="preserve">
     <value>Telegram тармоғи орқали сиз кўрсатган телефон рақамига юборилган махсус кодни киритинг.</value>
     <comment>UnapprovedContracts</comment>
+  </data>
+  <data name="SendContract" xml:space="preserve">
+    <value>Шартномани юбориш</value>
+    <comment>Create contract 3</comment>
   </data>
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Кодни қайта юбориш</value>

@@ -23,7 +23,7 @@ namespace Contract.Pages
             PModel.Init();
         }
             
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {   
             base.OnAppearing();
             Model.Parent = Parent;
@@ -38,6 +38,16 @@ namespace Contract.Pages
 
             if (ControlApp.UserCompanyInfo != null)
                 PModel.RequestInfo();
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            LibContract.HttpResponse.ResponseSignatureInfo response1 = await Net.HttpService.CheckSignature(ControlApp.UserInfo.phone_number);
+            ControlApp.CloseLoadingView();
+
+            if (!response1.result)
+            {
+                await DisplayAlert(RSC.YourSignature, RSC.EnterSignature, RSC.Ok);
+                await Navigation.PushAsync(new UnapprovedContracts.PageSign());
+            }
         }
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

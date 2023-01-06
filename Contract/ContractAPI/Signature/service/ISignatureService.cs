@@ -11,5 +11,6 @@ namespace ContractAPI.Signature.service
     public interface ISignatureService
     {
         Task<ResponseSignatureInfo> setSignature(SignatureWithFile info);
+        Task<ResponseSignatureInfo> checkSignature(string phone_number);
     }
 }

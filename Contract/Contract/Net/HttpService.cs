@@ -97,6 +97,7 @@ namespace Contract.Net
         public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
         public static string URL_SAVE_OFFER_OBJECTION = SERVER_URL + "OfferObjection/Save";
         public static string URL_SAVE_SIGNATURE = SERVER_URL + "Signature/setSignature";
+        public static string URL_CHECK_SIGNATURE = SERVER_URL + "Signature/checkSignature/"; //phoneNumber
         public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
         #endregion
 
@@ -217,12 +218,12 @@ namespace Contract.Net
         #endregion
 
         #region Client company info
-        public async static Task<ResponseClientCompanyInfo> GetClientCompanyInfo(string phoneNumbera)
+        public async static Task<ResponseClientCompanyInfo> GetClientCompanyInfo(string phoneNumber)
         {
             ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
             try
             {
-                var receivedData = await RequestGetMethod($"{URL_GET_CLIENT_COMPANY_INFO}{phoneNumbera}");
+                var receivedData = await RequestGetMethod($"{URL_GET_CLIENT_COMPANY_INFO}{phoneNumber}");
                 response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
@@ -527,6 +528,20 @@ namespace Contract.Net
             try
             {
                 var receivedData = await RequestPostSignature(URL_SAVE_SIGNATURE, data);
+                response = JsonConvert.DeserializeObject<ResponseSignatureInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseSignatureInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseSignatureInfo>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseSignatureInfo> CheckSignature(string phoneNumber)
+        {
+            ResponseSignatureInfo response = new ResponseSignatureInfo();
+            try
+            {
+                var receivedData = await RequestPostMethod($"{URL_CHECK_SIGNATURE}{phoneNumber}");
                 response = JsonConvert.DeserializeObject<ResponseSignatureInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseSignatureInfo>(); }

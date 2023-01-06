@@ -1025,6 +1025,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter your signature..
+        /// </summary>
+        internal static string EnterSignature {
+            get {
+                return ResourceManager.GetString("EnterSignature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Special Code.
         /// </summary>
         internal static string EnterSpecialCode {
@@ -2110,6 +2119,15 @@ namespace Contract.Resources {
         internal static string SendCodeByTelegram {
             get {
                 return ResourceManager.GetString("SendCodeByTelegram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send contract.
+        /// </summary>
+        internal static string SendContract {
+            get {
+                return ResourceManager.GetString("SendContract", resourceCulture);
             }
         }
         

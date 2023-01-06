@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -57,6 +58,23 @@ namespace ContractAPI.Signature.service.impl
             response.result = true;
             response.message = "Success";
 
+            return response;
+        }
+
+        public async Task<ResponseSignatureInfo> checkSignature(string phone_number)
+        {
+            ResponseSignatureInfo response = new ResponseSignatureInfo();
+
+            await Task.Run(() =>
+            {
+                string strFile = $"{_environment.WebRootPath}{Constants.SaveSignImagePath}{phone_number}_sign.png";
+                if (File.Exists(strFile))
+                {
+                    response.result = true;
+                    response.message = Constants.Exist;
+                }
+            });
+             
             return response;
         }
     }
