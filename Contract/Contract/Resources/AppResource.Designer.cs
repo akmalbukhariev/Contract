@@ -250,6 +250,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approve.
+        /// </summary>
+        internal static string Approve {
+            get {
+                return ResourceManager.GetString("Approve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Approved.
         /// </summary>
         internal static string Approved {
@@ -274,6 +283,15 @@ namespace Contract.Resources {
         internal static string ApprovedContracts2 {
             get {
                 return ResourceManager.GetString("ApprovedContracts2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to approve the contract?.
+        /// </summary>
+        internal static string ApproveMessage {
+            get {
+                return ResourceManager.GetString("ApproveMessage", resourceCulture);
             }
         }
         
@@ -625,6 +643,15 @@ namespace Contract.Resources {
         internal static string Contragent {
             get {
                 return ResourceManager.GetString("Contragent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not create the contract..
+        /// </summary>
+        internal static string CouldNotCreateContract {
+            get {
+                return ResourceManager.GetString("CouldNotCreateContract", resourceCulture);
             }
         }
         
@@ -2155,6 +2182,15 @@ namespace Contract.Resources {
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Share.
+        /// </summary>
+        internal static string Share {
+            get {
+                return ResourceManager.GetString("Share", resourceCulture);
             }
         }
         

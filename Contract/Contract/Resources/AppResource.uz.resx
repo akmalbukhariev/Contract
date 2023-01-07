@@ -203,6 +203,10 @@
     <value>QQS miqdori</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Tasdiqlash</value>
+    <comment>PageUnApproved</comment>
+  </data>
   <data name="Approved" xml:space="preserve">
     <value>Tasdiqlangan</value>
     <comment>Main</comment>
@@ -215,6 +219,10 @@
     <value>Amaldagi 
 shartnomalar</value>
     <comment>Main</comment>
+  </data>
+  <data name="ApproveMessage" xml:space="preserve">
+    <value>Siz haqiqatan ham shartnomani tasdiqlamoqchimisiz?</value>
+    <comment>PageUnApproved</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>Shartnoma meker</value>
@@ -371,6 +379,10 @@ shartnomalar</value>
   <data name="Contragent" xml:space="preserve">
     <value>Kontragent</value>
     <comment>Table</comment>
+  </data>
+  <data name="CouldNotCreateContract" xml:space="preserve">
+    <value>Shartnoma tuzib bo'lmadi.</value>
+    <comment>PageContract3</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Yuriskonsultant F.I.O</value>
@@ -1074,6 +1086,10 @@ yuborilgan maxsus kodni kiriting.</value>
   <data name="Settings" xml:space="preserve">
     <value>Sozlamalar</value>
     <comment>Menu</comment>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Ulashish</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Tizimdan chiqish</value>

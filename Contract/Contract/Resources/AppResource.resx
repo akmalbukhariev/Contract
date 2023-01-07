@@ -201,6 +201,10 @@
     <value>Amount Of  VAT</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+    <comment>PageUnApproved</comment>
+  </data>
   <data name="Approved" xml:space="preserve">
     <value>Approved</value>
     <comment>Main</comment>
@@ -213,6 +217,10 @@
     <value>Approved
 Contracts</value>
     <comment>Main</comment>
+  </data>
+  <data name="ApproveMessage" xml:space="preserve">
+    <value>Do you really want to approve the contract?</value>
+    <comment>PageUnApproved</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>Contract Maker</value>
@@ -369,6 +377,10 @@ Contracts</value>
   <data name="Contragent" xml:space="preserve">
     <value>Contragent</value>
     <comment>Table</comment>
+  </data>
+  <data name="CouldNotCreateContract" xml:space="preserve">
+    <value>Could not create the contract.</value>
+    <comment>PageContract3</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Counsel Name</value>
@@ -1045,6 +1057,10 @@ Contracts</value>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
     <comment>Menu</comment>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Share</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Sign Out</value>

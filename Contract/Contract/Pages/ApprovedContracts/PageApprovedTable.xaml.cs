@@ -1,5 +1,6 @@
 ﻿using Contract.Interfaces;
 using Contract.Model;
+using Contract.Net;
 using Contract.Pages.CanceledContracts;
 using Contract.ViewModel.Pages.CurrentContracts;
 using LibContract.HttpResponse;
@@ -76,10 +77,23 @@ namespace Contract.Pages.ApprovedContracts
             ControlApp.CloseLoadingView();
         }
          
-        private void Send_Tapped(object sender, EventArgs e)
+        private async void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            ResponseCreatePdf response2 = await HttpService.CreateContractPdf(item.ContractNnumberReal);
+            if (response2.result)
+            {
+                await ControlApp.ShareUri($"{HttpService.DATA_URL}{response2.pdf_url}");
+            }
+            else
+            {
+                await DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
+            }
         }
 
         private async void Cancel_Tapped(object sender, EventArgs e)

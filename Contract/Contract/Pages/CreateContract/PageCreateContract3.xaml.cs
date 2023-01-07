@@ -12,14 +12,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using LibContract;
 using Contract.Net;
+using System.Threading;
 
 namespace Contract.Pages.CreateContract
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCreateContract3 : IPage
     {
-        private CreateContractInfo ContractInfo;
-        string contractUrl = string.Empty;
+        bool appeared = false;
+        string contractUrl = "";
+
+        private CreateContractInfo ContractInfo = null;
         public PageCreateContract3(CreateContractInfo createContract)
         {
             InitializeComponent();
@@ -30,6 +33,27 @@ namespace Contract.Pages.CreateContract
             lbContractPrice.Text = createContract.total_cost_text;
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (appeared) return;
+            
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseCreatePdf response = await HttpService.CreateContractPdf(ContractInfo.contract_number);
+            if (response.result)
+            {
+                contractUrl = response.pdf_url;
+                //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+            }
+            else
+            {
+                await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
+            }
+            ControlApp.CloseLoadingView();
+            appeared = true;
+        }
+  
         protected override bool OnBackButtonPressed()
         {
             Navigation.PopToRootAsync();
@@ -41,43 +65,27 @@ namespace Contract.Pages.CreateContract
             ClickAnimationView(boxView);
             ClickAnimationView(stackView);
 
-            contractUrl = "";
-            ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseCreatePdf response = await HttpService.CreateContractPdf(ContractInfo.contract_number);
-            if (response.result)
+            if (string.IsNullOrEmpty(contractUrl))
             {
-                contractUrl = response.pdf_url;
-                await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+                await DisplayAlert(RSC.CreateContract, RSC.CouldNotCreateContract, RSC.Ok);
+                return;
             }
-            else
-            {
-                await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
-            }
-            ControlApp.CloseLoadingView();
+
+            await Navigation.PushAsync(new PageShowContract($"{HttpService.DATA_URL}{contractUrl}"));
         }
 
         private async void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxSend);
             ClickAnimationView(stackSend);
-             
-            if (contractUrl == "")
+
+            if (string.IsNullOrEmpty(contractUrl))
             {
-                ResponseCreatePdf response2 = await HttpService.CreateContractPdf(ContractInfo.contract_number);
-                if (response2.result)
-                {
-                    contractUrl = response2.pdf_url;
-                    await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
-                }
-                else
-                {
-                    await DisplayAlert(RSC.CreateContract, response2.message, RSC.Ok);
-                }
+                await DisplayAlert(RSC.CreateContract, RSC.CouldNotCreateContract, RSC.Ok);
+                return;
             }
 
             await ControlApp.ShareUri($"{HttpService.DATA_URL}{contractUrl}");
-            //string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
-            //await DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);
         }
 
         private async void Cancel_Tapped(object sender, EventArgs e)

@@ -97,7 +97,7 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="send_2" Style="{StaticResource imEdStyle}"/>
-                    <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbEdStyle}"/>
+                    <Label Text="{x:Static resource:AppResource.Share}" Style="{StaticResource lbEdStyle}"/>
                 </StackLayout>
                 <BoxView x:Name="boxCancel" BackgroundColor="#D75555" CornerRadius="10" Grid.Column="4"/>
                 <StackLayout x:Name="stackCancel" Spacing="-5" Grid.Column="4">

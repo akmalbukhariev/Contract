@@ -41,7 +41,7 @@ namespace ContractAPI.CreatePdf.service.impl
             contractInfo.CheckNull();
 
             string strUrl = $"{Constants.SaveContractPdfUrl}{contractInfo.contract_number}.pdf";
-            if (!contractInfo.pdf_url.Equals(strUrl))
+            //if (!contractInfo.pdf_url.Equals(strUrl))
             {
                 UserCompanyInfo userInfo = await dataBase.UserCompanyInfo
                     .Where(item => item.user_phone_number.Equals(contractInfo.user_phone_number))

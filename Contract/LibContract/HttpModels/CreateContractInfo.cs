@@ -31,6 +31,7 @@ namespace LibContract.HttpModels
         /// 1: yes, 0: no
         /// </summary>
         public int is_approved { get; set; }
+        public string contragent_phone_number { get; set; }
         public string comment { get; set; }
         public string deleted_date { get; set; }
         /// <summary>
@@ -72,6 +73,7 @@ namespace LibContract.HttpModels
             agree = other.agree;
             created_date = other.created_date;
             is_approved = other.is_approved;
+            contragent_phone_number = other.contragent_phone_number;
             comment = other.comment;
             deleted_date = other.deleted_date;
             is_canceled = other.is_canceled;
@@ -92,6 +94,7 @@ namespace LibContract.HttpModels
             interest_text = interest_text.CheckNull();
             total_cost_text = total_cost_text.CheckNull();
             created_date = created_date.CheckNull();
+            contragent_phone_number = contragent_phone_number.CheckNull();
             comment = comment.CheckNull();
             deleted_date = deleted_date.CheckNull();
             pdf_url = pdf_url.CheckNull();

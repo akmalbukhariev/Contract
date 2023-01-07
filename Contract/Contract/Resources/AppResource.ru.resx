@@ -203,6 +203,10 @@
     <value>Количество НДС</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Утвердить</value>
+    <comment>PageUnApproved</comment>
+  </data>
   <data name="Approved" xml:space="preserve">
     <value>Одобренный</value>
     <comment>Main</comment>
@@ -214,6 +218,10 @@
   <data name="ApprovedContracts2" xml:space="preserve">
     <value>Применимые контракты</value>
     <comment>Main</comment>
+  </data>
+  <data name="ApproveMessage" xml:space="preserve">
+    <value>Вы действительно хотите утвердить контракт?</value>
+    <comment>PageUnApproved</comment>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>Версия приложения</value>
@@ -370,6 +378,10 @@
   <data name="Contragent" xml:space="preserve">
     <value>Контраагент</value>
     <comment>Table</comment>
+  </data>
+  <data name="CouldNotCreateContract" xml:space="preserve">
+    <value>Не удалось создать контракт.</value>
+    <comment>PageContract3</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>ФИО юрисконсульта</value>
@@ -1046,6 +1058,10 @@
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>
     <comment>Menu</comment>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Поделиться</value>
+    <comment>CreateContract</comment>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Выход из сиситемы</value>
