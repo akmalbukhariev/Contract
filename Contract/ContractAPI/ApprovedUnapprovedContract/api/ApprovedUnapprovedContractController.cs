@@ -21,24 +21,38 @@ namespace ContractAPI.ApprovedUnapprovedContract.api
         {
         }
          
-        [HttpPost("setApprovedContract/{contract_number}")]
-        public async Task<IActionResult> setApprovedContract(string contract_number)
+        [HttpPost("setApprovedContract")]
+        public async Task<IActionResult> setApprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
         {
-            ResponseApprovedUnapprovedContract response = await Service.setApprovedContract(contract_number);
+            ResponseApprovedUnapprovedContract response = await Service.setApprovedContract(info);
             return MakeResponse(response, response.error_code);
         }
 
-        [HttpPost("setUnapprovedContract/{contract_number}")]
-        public async Task<IActionResult> setUnapprovedContract(string contract_number)
+        [HttpPost("setUnapprovedContract")]
+        public async Task<IActionResult> setUnapprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
         {
-            ResponseApprovedUnapprovedContract response = await Service.setUnapprovedContract(contract_number);
+            ResponseApprovedUnapprovedContract response = await Service.setUnapprovedContract(info);
             return MakeResponse(response, response.error_code);
         }
 
-        [HttpPost("getApprovedOrUnapprovedContract")]
-        public async Task<IActionResult> getApprovedOrUnapprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
+        [HttpPost("getUnapprovedContract")]
+        public async Task<IActionResult> getUnapprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
         {
-            ResponseApprovedUnapprovedContract response = await Service.getApprovedOrUnapprovedContract(info);
+            ResponseApprovedUnapprovedContract response = await Service.getUnapprovedContract(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+        [HttpPost("getApprovedContract")]
+        public async Task<IActionResult> getApprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
+        {
+            ResponseApprovedUnapprovedContract response = await Service.getApprovedContract(info);
+            return MakeResponse(response, response.error_code);
+        }
+
+        [HttpPost("getApprovedAndUnapprovedContract")]
+        public async Task<IActionResult> getApprovedAndUnapprovedContract([FromBody] LibContract.HttpModels.ApprovedUnapprovedContract info)
+        {
+            ResponseApprovedUnapprovedContract response = await Service.getApprovedAndUnapprovedContract(info);
             return MakeResponse(response, response.error_code);
         } 
     }

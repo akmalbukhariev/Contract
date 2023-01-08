@@ -52,7 +52,7 @@ namespace Contract.ViewModel.Pages.CurrentContracts
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseApprovedUnapprovedContract response = await Net.HttpService.GetApprovedOrUnapprovedContract(request);
+            ResponseApprovedUnapprovedContract response = await Net.HttpService.GetApprovedContract(request);
             ControlApp.CloseLoadingView();
 
             if (response.result)

@@ -52,7 +52,7 @@
                             <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbHeader}" Grid.Column="5"/>
                             <Label Text="{x:Static resource:AppResource.Payment}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
                             <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
-                            <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
+                            <Label Text="{x:Static resource:AppResource.Share}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
                             <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="9"/>
                         </Grid>
                     </ListView.Header>

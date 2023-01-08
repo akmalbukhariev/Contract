@@ -380,9 +380,17 @@ shartnomalar</value>
     <value>Kontragent</value>
     <comment>Table</comment>
   </data>
+  <data name="ContragentPhoneNumber" xml:space="preserve">
+    <value>Kontragent telefon raqami</value>
+    <comment>PageUnapproved</comment>
+  </data>
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Shartnoma tuzib bo'lmadi.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFindContragent" xml:space="preserve">
+    <value>Kontragent telefon raqami topilmadi!</value>
+    <comment>PageUnapproved</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Yuriskonsultant F.I.O</value>

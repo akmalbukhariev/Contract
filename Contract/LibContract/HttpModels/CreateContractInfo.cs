@@ -31,6 +31,10 @@ namespace LibContract.HttpModels
         /// 1: yes, 0: no
         /// </summary>
         public int is_approved { get; set; }
+        /// <summary>
+        /// 1: yes, 0: no
+        /// </summary>
+        public int is_approved_contragent { get; set; }
         public string contragent_phone_number { get; set; }
         public string comment { get; set; }
         public string deleted_date { get; set; }
@@ -73,6 +77,7 @@ namespace LibContract.HttpModels
             agree = other.agree;
             created_date = other.created_date;
             is_approved = other.is_approved;
+            is_approved_contragent = other.is_approved_contragent;
             contragent_phone_number = other.contragent_phone_number;
             comment = other.comment;
             deleted_date = other.deleted_date;

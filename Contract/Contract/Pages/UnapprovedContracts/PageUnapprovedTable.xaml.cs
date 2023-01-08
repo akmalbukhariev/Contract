@@ -18,7 +18,8 @@ namespace Contract.Pages.UnapprovedContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageUnapprovedTable : IPage
-    { 
+    {
+        string contractNumberReal = "";
         public PageUnapprovedTable()
         {
             InitializeComponent();
@@ -82,10 +83,9 @@ namespace Contract.Pages.UnapprovedContracts
             bool res = await Application.Current.MainPage.DisplayAlert(RSC.Approve, RSC.ApproveMessage, RSC.Ok, RSC.Cancel);
             if (res)
             {
-                
+                contractNumberReal = item.ContractNnumberReal;
+                PModel.ShowConfirmBox = true;
             }
-
-            //PModel.ShowConfirmBox = true;
         }
 
         private async void Send_Tapped(object sender, EventArgs e)
@@ -124,6 +124,52 @@ namespace Contract.Pages.UnapprovedContracts
 
             Model.SetTransitionType(TransitionType.SlideFromBottom);
             await Navigation.PushModalAsync(new PageCancelContract(canceledContract, RSC.UnapprovedContracts1));
+        }
+         
+        private async void Button_Clicked(object sender, EventArgs e)
+        { 
+            if (btnYes == sender)
+            {
+                if (string.IsNullOrEmpty(entText.Text.Trim()))
+                {
+                    await DisplayAlert(RSC.PhoneNumber, RSC.FieldEmpty, RSC.Ok);
+                    return;
+                }
+
+                PModel.ShowConfirmBox = false;
+
+                ControlApp.ShowLoadingView(RSC.PleaseWait);
+                ResponseUser response1 = await HttpService.GetUser(entText.Text);
+                if (!response1.result)
+                {
+                    ControlApp.CloseLoadingView();
+                    await DisplayAlert(RSC.ContractNumber, RSC.CouldNotFindContragent, RSC.Ok);
+                    return;
+                }
+
+                LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
+                {
+                    contract_number = contractNumberReal,
+                    user_phone_number = ControlApp.UserInfo.phone_number,
+                    contragent_phone_number = entText.Text.Trim(),
+                    user_stir = ControlApp.UserCompanyInfo.stir_of_company,
+                    is_approved = 1
+                };
+
+                ResponseApprovedUnapprovedContract response2 = await HttpService.SetApprovedContract(request);
+                
+                string strMessage = response2.result ? RSC.SuccessfullyCompleted : RSC.Failed;
+                await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
+
+                if(response2.result)
+                    PModel.RequestInfo();
+
+                ControlApp.CloseLoadingView();
+            }
+            else if (btnNo == sender)
+            {
+                PModel.ShowConfirmBox = false;
+            }
         }
 
         private PageUnapprovedTableViewModel PModel

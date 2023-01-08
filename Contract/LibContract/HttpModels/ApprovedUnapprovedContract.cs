@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace LibContract.HttpModels
 {
-    public class ApprovedUnapprovedContract  
+    public class ApprovedUnapprovedContract
     {
+        public string contract_number { get; set; }
         /// <summary>
         /// yes: 1; no: 0;
         /// </summary>
@@ -16,6 +17,7 @@ namespace LibContract.HttpModels
         /// </summary>
         public int use_is_approved { get; set; } = 1;
         public string user_phone_number { get; set; }
+        public string contragent_phone_number { get; set; }
         public string user_stir { get; set; }
 
         public ApprovedUnapprovedContract()
@@ -30,10 +32,12 @@ namespace LibContract.HttpModels
 
         public void Copy(ApprovedUnapprovedContract other)
         {
-            this.is_approved = other.is_approved;
-            this.use_is_approved = other.use_is_approved;
-            this.user_phone_number = other.user_phone_number;
-            this.user_stir = other.user_stir; 
+            contract_number = other.contract_number;
+            is_approved = other.is_approved;
+            use_is_approved = other.use_is_approved;
+            user_phone_number = other.user_phone_number;
+            contragent_phone_number = other.contragent_phone_number;
+            user_stir = other.user_stir; 
         }
     }
 }

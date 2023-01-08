@@ -379,9 +379,17 @@
     <value>Контрагент</value>
     <comment>Table</comment>
   </data>
+  <data name="ContragentPhoneNumber" xml:space="preserve">
+    <value>Контрагент телефон рақами</value>
+    <comment>PageUnapproved</comment>
+  </data>
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Шартнома тузиб бўлмади.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFindContragent" xml:space="preserve">
+    <value>Контрагент телефон рақами топилмади</value>
+    <comment>PageUnapproved</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Юрисконсульт Ф.И.О.</value>

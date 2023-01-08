@@ -647,11 +647,29 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contragent phone number.
+        /// </summary>
+        internal static string ContragentPhoneNumber {
+            get {
+                return ResourceManager.GetString("ContragentPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not create the contract..
         /// </summary>
         internal static string CouldNotCreateContract {
             get {
                 return ResourceManager.GetString("CouldNotCreateContract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find the contragent phone number!.
+        /// </summary>
+        internal static string CouldNotFindContragent {
+            get {
+                return ResourceManager.GetString("CouldNotFindContragent", resourceCulture);
             }
         }
         

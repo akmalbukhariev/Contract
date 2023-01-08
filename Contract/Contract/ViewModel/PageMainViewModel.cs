@@ -51,15 +51,15 @@ namespace Contract.ViewModel
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseApprovedUnapprovedContract response = await HttpService.GetApprovedOrUnapprovedContract(request);
+            ResponseApprovedUnapprovedContract response = await HttpService.GetApprovedAndUnapprovedContract(request);
             ResponseUserCompanyInfo responseCompany = await HttpService.GetUserCompanyInfo(ControlApp.UserInfo.phone_number);
 
             ControlApp.CloseLoadingView();
 
             if (response.result)
             { 
-                TextValue1 = response.data != null ? response.data.Where(item => item.is_approved == 1).ToList().Count.ToString() : "0";
-                TextValue2 = response.data != null ? response.data.Where(item => item.is_approved == 0).ToList().Count.ToString() : "0";
+                TextValue1 = response.data != null ? response.data.Where(item => item.is_approved == 1 && item.is_approved_contragent == 1).ToList().Count.ToString() : "0";
+                TextValue2 = response.data != null ? response.data.Where(item => item.is_approved == 0 || item.is_approved_contragent == 0).ToList().Count.ToString() : "0";
             }
 
             if (responseCompany.result)

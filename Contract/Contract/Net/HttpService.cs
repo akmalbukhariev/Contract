@@ -56,11 +56,13 @@ namespace Contract.Net
         #endregion
 
         #region Approved and Unapproved contract
-        public static string URL_GET_APPROVED_OR_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/getApprovedOrUnapprovedContract"; 
-        public static string URL_SET_APPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/setApprovedContract/";   //contract_number
-        public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/setUnapprovedContract/"; //contract_number
+        public static string URL_SET_APPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/setApprovedContract";   
+        public static string URL_SET_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/setUnapprovedContract";
+        public static string URL_GET_APPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/getApprovedContract";
+        public static string URL_GET_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/getUnapprovedContract";
+        public static string URL_GET_APPROVED_AND_UNAPPROVED_CONTRACT = SERVER_URL + "ApprovedUnapprovedContract/getApprovedAndUnapprovedContract";
         #endregion
-          
+
         #region Service Info
         public static string URL_SET_SERVICE_INFO = SERVER_URL + "ServiceInfo/setContractServiceInfo";
         public static string URL_DELETE_SERVICE_INFO = SERVER_URL + "ServiceInfo/deleteContractServiceInfo"; //contract_number
@@ -522,6 +524,7 @@ namespace Contract.Net
         }
         #endregion
 
+        #region User
         public async static Task<ResponseSignatureInfo> SetSignature(Model.SignatureData data)
         {
             ResponseSignatureInfo response = new ResponseSignatureInfo();
@@ -621,14 +624,15 @@ namespace Contract.Net
              
             return response;
         }
+        #endregion
 
         #region #region Approved and Unapproved contract
-        public async static Task<ResponseApprovedUnapprovedContract> GetApprovedOrUnapprovedContract(ApprovedUnapprovedContract data)
+        public async static Task<ResponseApprovedUnapprovedContract> GetApprovedAndUnapprovedContract(ApprovedUnapprovedContract data)
         {
             ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
             try
             {
-                var receivedData = await RequestPostMethod(URL_GET_APPROVED_OR_UNAPPROVED_CONTRACT, data);
+                var receivedData = await RequestPostMethod(URL_GET_APPROVED_AND_UNAPPROVED_CONTRACT, data);
                 response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
@@ -637,12 +641,12 @@ namespace Contract.Net
             return response;
         }
 
-        public async static Task<ResponseApprovedUnapprovedContract> SetApprovedContract(string contract_number)
+        public async static Task<ResponseApprovedUnapprovedContract> SetApprovedContract(ApprovedUnapprovedContract info)
         {
             ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
             try
             {
-                var receivedData = await RequestPostMethod($"{URL_SET_APPROVED_CONTRACT}{contract_number}");
+                var receivedData = await RequestPostMethod(URL_SET_APPROVED_CONTRACT, info);
                 response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
@@ -651,21 +655,49 @@ namespace Contract.Net
             return response;
         }
 
-        public async static Task<ResponseApprovedUnapprovedContract> SetUnapprovedContract(string contract_number)
+        public async static Task<ResponseApprovedUnapprovedContract> SetUnapprovedContract(ApprovedUnapprovedContract info)
         {
             ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
             try
             {
-                var receivedData = await RequestPostMethod($"{URL_SET_UNAPPROVED_CONTRACT}{contract_number}");
+                var receivedData = await RequestPostMethod(URL_SET_UNAPPROVED_CONTRACT, info);
                 response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
              
+            return response;
+        }
+
+        public async static Task<ResponseApprovedUnapprovedContract> GetApprovedContract(ApprovedUnapprovedContract info)
+        {
+            ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_GET_APPROVED_CONTRACT, info);
+                response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseApprovedUnapprovedContract> GetUnapprovedContract(ApprovedUnapprovedContract info)
+        {
+            ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_GET_UNAPPROVED_CONTRACT, info);
+                response = JsonConvert.DeserializeObject<ResponseApprovedUnapprovedContract>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseApprovedUnapprovedContract>(); }
+
             return response;
         }
         #endregion
-          
+
         public async static Task<ResponseCanceledContract> GetCanceledContract(CreateContractInfo data)
         {
             ResponseCanceledContract response = new ResponseCanceledContract();

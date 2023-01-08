@@ -10,8 +10,10 @@ namespace ContractAPI.ApprovedUnapprovedContract.service
 {
     public interface IApprovedUnapprovedContractService
     {  
-        Task<ResponseApprovedUnapprovedContract> setApprovedContract(string contract_number);
-        Task<ResponseApprovedUnapprovedContract> setUnapprovedContract(string contract_number);
-        Task<ResponseApprovedUnapprovedContract> getApprovedOrUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info); 
+        Task<ResponseApprovedUnapprovedContract> setApprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info);
+        Task<ResponseApprovedUnapprovedContract> setUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info);
+        Task<ResponseApprovedUnapprovedContract> getUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info);
+        Task<ResponseApprovedUnapprovedContract> getApprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info);
+        Task<ResponseApprovedUnapprovedContract> getApprovedAndUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info);
     }
 }

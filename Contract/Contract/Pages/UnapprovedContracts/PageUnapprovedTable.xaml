@@ -52,7 +52,7 @@
                             <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbHeader}" Grid.Column="5"/>
                             <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
                             <Label Text="{x:Static resource:AppResource.Confirmation}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
-                            <Label Text="{x:Static resource:AppResource.Send}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
+                            <Label Text="{x:Static resource:AppResource.Share}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
                             <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="9"/>
                         </Grid>
                     </ListView.Header>
@@ -104,11 +104,55 @@
                  BackgroundColor="Black"
                  Opacity="0.5"
                  Grid.ColumnSpan="3">
-            <BoxView.GestureRecognizers>
+            <!--<BoxView.GestureRecognizers>
                 <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandBoxView}"/>
-            </BoxView.GestureRecognizers>
+            </BoxView.GestureRecognizers>-->
         </BoxView>
-        <view:ViewConfirm IsVisible="{Binding ShowConfirmBox}"
+        <Grid IsVisible="{Binding ShowConfirmBox}"
+              RowDefinitions="Auto,50,*"
+              ColumnDefinitions="*,*"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand" 
+              Padding="15"
+              WidthRequest="250"
+              BackgroundColor="White"
+              Grid.ColumnSpan="3">
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="entryStyle" TargetType="view:ViewEntry">
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="BorderColor" Value="Gray"/>
+                        <Setter Property="BorderWidth" Value="1"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                        <Setter Property="HeightEntryView" Value="60"/>
+                        <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                    </Style>
+                </ResourceDictionary>
+            </Grid.Resources>
+            <Label Text="{x:Static resource:AppResource.ContragentPhoneNumber}"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"
+                   FontSize="17"
+                   Grid.ColumnSpan="2"/>
+            <view:ViewEntry x:Name="entText" 
+                            PlaceHoldingText="998"
+                            Style="{StaticResource entryStyle}"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"/>
+            <Button x:Name="btnYes"
+                    Text="{x:Static resource:AppResource.Yes}" 
+                    BackgroundColor="{StaticResource AppColor}"
+                    Clicked="Button_Clicked"
+                    Margin="0,0,0,0"
+                    Grid.Row="2"/>
+            <Button x:Name="btnNo"
+                    Text="{x:Static resource:AppResource.No}"
+                    BackgroundColor="{StaticResource AppColor}"
+                    Clicked="Button_Clicked"
+                    Grid.Row="2"
+                    Grid.Column="1"/> 
+        </Grid>
+        <view:ViewConfirm IsVisible="False"
                           Grid.ColumnSpan="3"
                           VerticalOptions="CenterAndExpand"
                           HorizontalOptions="CenterAndExpand"

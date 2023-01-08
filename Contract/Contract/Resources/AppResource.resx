@@ -378,9 +378,17 @@ Contracts</value>
     <value>Contragent</value>
     <comment>Table</comment>
   </data>
+  <data name="ContragentPhoneNumber" xml:space="preserve">
+    <value>Contragent phone number</value>
+    <comment>PageUnapproved</comment>
+  </data>
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Could not create the contract.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFindContragent" xml:space="preserve">
+    <value>Could not find the contragent phone number!</value>
+    <comment>PageUnapproved</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>Counsel Name</value>

@@ -152,7 +152,7 @@ namespace Contract.Pages.UnapprovedContracts
             SKData data = image.Encode();
 
             SignatureData info = new SignatureData();
-            info.phone_number = "12";// ControlApp.UserInfo.phone_number;
+            info.phone_number = ControlApp.UserInfo.phone_number;
             info.dataStream = data.AsStream();
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
@@ -160,7 +160,8 @@ namespace Contract.Pages.UnapprovedContracts
             ControlApp.CloseLoadingView();
 
             string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
-            await DisplayAlert(RSC.SignWindow, strMessage, RSC.Ok); 
+            await DisplayAlert(RSC.SignWindow, strMessage, RSC.Ok);
+            await Navigation.PopAsync();
         }
 
         void CalcSize(ref float x, ref float y, ref float width, ref float height)

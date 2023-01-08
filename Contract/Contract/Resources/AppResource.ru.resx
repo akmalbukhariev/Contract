@@ -379,9 +379,17 @@
     <value>Контраагент</value>
     <comment>Table</comment>
   </data>
+  <data name="ContragentPhoneNumber" xml:space="preserve">
+    <value>Контрагентный номер телефона</value>
+    <comment>PageUnapproved</comment>
+  </data>
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Не удалось создать контракт.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFindContragent" xml:space="preserve">
+    <value>Не удалось найти номер телефона контрагента!</value>
+    <comment>PageUnapproved</comment>
   </data>
   <data name="CounselName" xml:space="preserve">
     <value>ФИО юрисконсульта</value>
