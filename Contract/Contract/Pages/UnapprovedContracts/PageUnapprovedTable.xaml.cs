@@ -84,7 +84,29 @@ namespace Contract.Pages.UnapprovedContracts
             if (res)
             {
                 contractNumberReal = item.ContractNnumberReal;
-                PModel.ShowConfirmBox = true;
+                if (item.Preparer.Equals(RSC.Contragent))
+                {
+                    LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
+                    {
+                        contract_number = contractNumberReal,
+                        user_phone_number = ControlApp.UserInfo.phone_number,  
+                        is_approved = 1
+                    };
+
+                    ControlApp.ShowLoadingView(RSC.PleaseWait);
+                    ResponseApprovedUnapprovedContract response = await HttpService.SetApprovedContract(request);
+                    ControlApp.CloseLoadingView();
+
+                    string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
+                    await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
+
+                    if (response.result)
+                        PModel.RequestInfo();
+                }
+                else
+                {
+                    PModel.ShowConfirmBox = true;
+                }
             }
         }
 
@@ -129,7 +151,7 @@ namespace Contract.Pages.UnapprovedContracts
         private async void Button_Clicked(object sender, EventArgs e)
         { 
             if (btnYes == sender)
-            {
+            { 
                 if (string.IsNullOrEmpty(entText.Text.Trim()))
                 {
                     await DisplayAlert(RSC.PhoneNumber, RSC.FieldEmpty, RSC.Ok);

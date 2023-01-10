@@ -20,7 +20,49 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
           
         public async Task<ResponseApprovedUnapprovedContract> setApprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info)
         {
-            return await updateContract(info.contract_number, info.contragent_phone_number, 1);
+            ResponseApprovedUnapprovedContract response = new ResponseApprovedUnapprovedContract();
+            response.data = null;
+
+            CreateContractInfo found = await dataBase.CreateContractInfo
+                .Where(item => item.contract_number.Equals(info.contract_number))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+            if (found == null)
+            {
+                return response;
+            }
+
+            if (found.user_phone_number.Equals(info.user_phone_number))
+            {
+                found.is_approved = 1;
+                found.contragent_phone_number = info.contragent_phone_number;
+            }
+            else if (found.contragent_phone_number.Equals(info.user_phone_number))
+            {
+                found.is_approved_contragent = 1;
+            }
+
+            dataBase.CreateContractInfo.Update(found);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+
+                return response;
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return response;
+
+            //return await updateContract(info.contract_number, info.contragent_phone_number, 1);
         }
 
         public async Task<ResponseApprovedUnapprovedContract> setUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info)

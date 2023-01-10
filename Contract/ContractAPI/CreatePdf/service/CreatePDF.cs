@@ -500,13 +500,16 @@ namespace ContractAPI.CreatePdf.service
             string saveUserSignFile = $"{SaveSignaturePath}{UserCompany.user_phone_number}_sign.png";
             string saveClientSignFile = $"{SaveSignaturePath}{ClientCompany.company_phone_number}_sign.png";
 
-            if (File.Exists(saveUserSignFile))
+            bool is_approved = ContractInfo.is_approved == 1 ? true : false;
+            bool is_approved_contragent = ContractInfo.is_approved_contragent == 1 ? true : false;
+
+            if (File.Exists(saveUserSignFile) && is_approved)
             {
                 XImage image = XImage.FromFile(saveUserSignFile);
                 gr.DrawImage(image, x1, y, width, height);
             }
 
-            if (File.Exists(saveClientSignFile))
+            if (File.Exists(saveClientSignFile) && is_approved_contragent)
             {
                 XImage image = XImage.FromFile(saveClientSignFile);
                 gr.DrawImage(image, x2, y, width, height);
