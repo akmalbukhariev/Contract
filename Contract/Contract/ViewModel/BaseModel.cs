@@ -13,6 +13,7 @@ namespace Contract.ViewModel
     {
         public bool ShowEmptyMessage { get => GetValue<bool>(); set => SetValue(value); }
         public bool CloseEmptyMessage { get => GetValue<bool>(); set => SetValue(value); }
+        public bool IsRefreshing { get => GetValue<bool>(); set => SetValue(value); }
         public Element Parent { get; set; }
 
         protected INavigation Navigation { get; set; }

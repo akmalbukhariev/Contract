@@ -6,6 +6,10 @@ namespace Contract.Model
 {
     public class UnapprovedContract : BaseContract
     {
-
+        public UnapprovedContract()
+        {
+            ShowBusy = false;
+            ShowCheck = true;
+        }
     }
 }

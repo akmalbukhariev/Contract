@@ -79,10 +79,10 @@ namespace ContractAPI
             services.AddScoped<IAppService, AppService>();
 
             services.AddControllers();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContractAPI", Version = "v1" });
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContractAPI", Version = "v1" });
+            });
 
             //services.AddAuthorization(options =>
             //{

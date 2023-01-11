@@ -158,6 +158,12 @@ namespace Contract.Pages.UnapprovedContracts
                     return;
                 }
 
+                if (entText.Text.Trim().Equals(ControlApp.UserInfo.phone_number))
+                {
+                    await DisplayAlert(RSC.PhoneNumber, RSC.Failed, RSC.Ok);
+                    return;
+                }
+
                 PModel.ShowConfirmBox = false;
 
                 ControlApp.ShowLoadingView(RSC.PleaseWait);

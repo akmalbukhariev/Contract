@@ -10,9 +10,7 @@ using Xamarin.Forms;
 namespace Contract.ViewModel.Pages.TemplateContract
 {
     public class PageContractTemplateTableViewModel : BaseModel
-    {
-        public bool IsRefreshing { get => GetValue<bool>(); set => SetValue(value); }
-         
+    {     
         public ObservableCollection<ContractTemplate> DataList { get; set; }
         public PageContractTemplateTableViewModel()
         {
@@ -23,6 +21,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         private void Refresh()
         {
+            ControlApp.Vibrate();
             RequestInfo();
         }
 

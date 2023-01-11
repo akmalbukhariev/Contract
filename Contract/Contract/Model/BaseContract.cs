@@ -9,6 +9,8 @@ namespace Contract.Model
     public class BaseContract : BaseModel
     {
         public string No { get => GetValue<string>(); set => SetValue(value); }
+        public bool ShowBusy { get => GetValue<bool>(); set => SetValue(value); }
+        public bool ShowCheck { get => GetValue<bool>(); set => SetValue(value); }
         public string Preparer { get => GetValue<string>(); set => SetValue(value); }
         public string ContractNnumber { get => GetValue<string>(); set => SetValue(value); }
         public string ContractNnumberReal { get => GetValue<string>(); set => SetValue(value); }

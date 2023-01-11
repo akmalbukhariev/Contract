@@ -122,7 +122,8 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
              
             found = await dataBase.CreateContractInfo
                 .Where(item => ((item.is_approved == 0) || (item.is_approved_contragent == 0)) &&
-                               item.user_phone_number.Equals(info.user_phone_number) &&
+                               (item.user_phone_number.Equals(info.user_phone_number) ||
+                                item.contragent_phone_number.Equals(info.user_phone_number)) &&
                                (item.is_canceled == 0))
                 .AsNoTracking()
                 .ToListAsync();
@@ -132,18 +133,18 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                 response.data.Add(new CreateContractInfo(item));
             }
 
-            found.Clear();
-            found = await dataBase.CreateContractInfo
-                .Where(item => ((item.is_approved == 0) || (item.is_approved_contragent == 0)) &&
-                               item.contragent_phone_number.Equals(info.user_phone_number) &&
-                               (item.is_canceled == 0))
-                .AsNoTracking()
-                .ToListAsync();
-
-            foreach (CreateContractInfo item in found)
-            {
-                response.data.Add(new CreateContractInfo(item));
-            }
+            //found.Clear();
+            //found = await dataBase.CreateContractInfo
+            //    .Where(item => ((item.is_approved == 0) || (item.is_approved_contragent == 0)) &&
+            //                   item.contragent_phone_number.Equals(info.user_phone_number) &&
+            //                   (item.is_canceled == 0))
+            //    .AsNoTracking()
+            //    .ToListAsync();
+            //
+            //foreach (CreateContractInfo item in found)
+            //{
+            //    response.data.Add(new CreateContractInfo(item));
+            //}
 
             response.result = true;
             response.message = Constants.Success;

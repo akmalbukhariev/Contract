@@ -53,6 +53,14 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
         }
         #endregion
 
+        public ICommand RefreshCommand => new Command(Refresh);
+
+        private void Refresh()
+        {
+            ControlApp.Vibrate();
+            RequestInfo();
+        }
+
         public async void RequestInfo()
         { 
             DataList.Clear();
@@ -86,6 +94,12 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                         PreparerColor = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? Color.FromHex("#BDD6EE") : Color.FromHex("#FFF2CC")
                     };
 
+                    if (item.Preparer.Equals(RSC.Me) && info.is_approved == 1)
+                    {
+                        item.ShowBusy = true;
+                        item.ShowCheck = false;
+                    }
+
                     Add(item);
                 }
 
@@ -100,6 +114,8 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                     CloseEmptyMessage = false;
                 }
             }
+
+            IsRefreshing = false;
         }
          
         public void Add(UnapprovedContract item)
