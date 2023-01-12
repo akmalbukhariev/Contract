@@ -14,6 +14,7 @@ namespace Contract.Model
         public string Preparer { get => GetValue<string>(); set => SetValue(value); }
         public string ContractNnumber { get => GetValue<string>(); set => SetValue(value); }
         public string ContractNnumberReal { get => GetValue<string>(); set => SetValue(value); }
+        public string ClientStir { get => GetValue<string>(); set => SetValue(value); }
         public string CompanyName { get => GetValue<string>(); set => SetValue(value); }
         public string ContractDate { get => GetValue<string>(); set => SetValue(value); }
         public string ContractPrice { get => GetValue<string>(); set => SetValue(value); }

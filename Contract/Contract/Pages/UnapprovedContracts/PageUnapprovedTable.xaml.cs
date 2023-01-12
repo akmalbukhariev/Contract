@@ -84,29 +84,24 @@ namespace Contract.Pages.UnapprovedContracts
             if (res)
             {
                 contractNumberReal = item.ContractNnumberReal;
-                if (item.Preparer.Equals(RSC.Contragent))
+
+                LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
                 {
-                    LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
-                    {
-                        contract_number = contractNumberReal,
-                        user_phone_number = ControlApp.UserInfo.phone_number,  
-                        is_approved = 1
-                    };
+                    contract_number = contractNumberReal,
+                    user_phone_number = ControlApp.UserInfo.phone_number,
+                    client_stir = item.ClientStir,
+                    is_approved = 1
+                };
 
-                    ControlApp.ShowLoadingView(RSC.PleaseWait);
-                    ResponseApprovedUnapprovedContract response = await HttpService.SetApprovedContract(request);
-                    ControlApp.CloseLoadingView();
+                ControlApp.ShowLoadingView(RSC.PleaseWait);
+                ResponseApprovedUnapprovedContract response = await HttpService.SetApprovedContract(request);
+                ControlApp.CloseLoadingView();
 
-                    string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
-                    await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
+                string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
+                await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
 
-                    if (response.result)
-                        PModel.RequestInfo();
-                }
-                else
-                {
-                    PModel.ShowConfirmBox = true;
-                }
+                if (response.result)
+                    PModel.RequestInfo();
             }
         }
 

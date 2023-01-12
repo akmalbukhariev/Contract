@@ -87,6 +87,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                         Preparer = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? RSC.Me : RSC.Contragent,
                         ContractNnumber = ContractNumberWorker.ExtractContractNumber(info.contract_number),
                         ContractNnumberReal = info.contract_number,
+                        ClientStir = info.client_stir,
                         CompanyName = info.client_company_name,
                         ContractDate = info.created_date,
                         ContractPrice = info.total_cost_text,

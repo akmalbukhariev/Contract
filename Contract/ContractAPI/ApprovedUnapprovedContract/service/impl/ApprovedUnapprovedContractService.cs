@@ -27,15 +27,21 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                 .Where(item => item.contract_number.Equals(info.contract_number))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
+
             if (found == null)
             {
                 return response;
             }
 
+            ClientCompanyInfo clientInfo = await dataBase.ClientCompanyInfo
+                .Where(item => item.stir_of_company.Equals(info.client_stir))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+             
             if (found.user_phone_number.Equals(info.user_phone_number))
             {
                 found.is_approved = 1;
-                found.contragent_phone_number = info.contragent_phone_number;
+                found.contragent_phone_number = clientInfo == null ? "" : clientInfo.user_phone_number;
             }
             else if (found.contragent_phone_number.Equals(info.user_phone_number))
             {
@@ -60,9 +66,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;
 
-            return response;
-
-            //return await updateContract(info.contract_number, info.contragent_phone_number, 1);
+            return response; 
         }
 
         public async Task<ResponseApprovedUnapprovedContract> setUnapprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info)
@@ -160,8 +164,9 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
             List<CreateContractInfo> found = new List<CreateContractInfo>();
 
             found = await dataBase.CreateContractInfo
-               .Where(item => ((item.is_approved == 1) && (item.is_approved_contragent == 1)) &&
-                              item.user_phone_number.Equals(info.user_phone_number) &&
+               .Where(item => (item.is_approved == 1) && (item.is_approved_contragent == 1) &&
+                              (item.user_phone_number.Equals(info.user_phone_number) ||
+                                item.contragent_phone_number.Equals(info.user_phone_number)) &&
                               (item.is_canceled == 0))
                .AsNoTracking()
                .ToListAsync();
@@ -171,18 +176,18 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                 response.data.Add(new CreateContractInfo(item));
             }
 
-            found.Clear();
-            found = await dataBase.CreateContractInfo
-                .Where(item => ((item.is_approved == 1) && (item.is_approved_contragent == 1)) &&
-                               item.contragent_phone_number.Equals(info.user_phone_number) &&
-                               (item.is_canceled == 0))
-                .AsNoTracking()
-                .ToListAsync();
-
-            foreach (CreateContractInfo item in found)
-            {
-                response.data.Add(new CreateContractInfo(item));
-            }
+            //found.Clear();
+            //found = await dataBase.CreateContractInfo
+            //    .Where(item => (item.is_approved == 1) && (item.is_approved_contragent == 1) &&
+            //                   item.contragent_phone_number.Equals(info.user_phone_number) &&
+            //                   (item.is_canceled == 0))
+            //    .AsNoTracking()
+            //    .ToListAsync();
+            //
+            //foreach (CreateContractInfo item in found)
+            //{
+            //    response.data.Add(new CreateContractInfo(item));
+            //}
 
             response.result = true;
             response.message = Constants.Success;

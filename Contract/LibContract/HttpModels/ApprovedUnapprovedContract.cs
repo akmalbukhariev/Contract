@@ -19,6 +19,7 @@ namespace LibContract.HttpModels
         public string user_phone_number { get; set; }
         public string contragent_phone_number { get; set; }
         public string user_stir { get; set; }
+        public string client_stir { get; set; }
 
         public ApprovedUnapprovedContract()
         {
@@ -37,7 +38,8 @@ namespace LibContract.HttpModels
             use_is_approved = other.use_is_approved;
             user_phone_number = other.user_phone_number;
             contragent_phone_number = other.contragent_phone_number;
-            user_stir = other.user_stir; 
+            user_stir = other.user_stir;
+            client_stir = other.client_stir;
         }
     }
 }
