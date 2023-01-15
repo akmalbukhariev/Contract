@@ -5,6 +5,8 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Acr.UserDialogs;
+using Plugin.FirebasePushNotification;
+using System.Collections.Generic;
 
 namespace Contract.Droid
 {
@@ -12,6 +14,7 @@ namespace Contract.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static Activity Instance { get; private set; }
+        private FirebaseService firebaseService;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -21,6 +24,9 @@ namespace Contract.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+             
+            FirebasePushNotificationManager.ProcessIntent(this, Intent);
+            firebaseService = new FirebaseService(this);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -36,6 +36,16 @@ namespace Contract.Net
         public static string URL_GET_USER = SERVER_URL + "UserInfo/getUser/"; //phoneNumber
         public static string URL_UPDATE_USER_PASSWORD = SERVER_URL + "UserInfo/updateUserPassword";
         public static string URL_UPDATE_DEFAULT_TMEPLATE = SERVER_URL + "UserInfo/updateDefaultTemplate";
+        public static string URL_UPDATE_NOTIFICATION_TOKEN = SERVER_URL + "UserInfo/setNotificationToken";
+        public static string URL_SEND_NOTIFICATION_TO_CONTRAGENT = SERVER_URL + "Notification/sendNotification";
+
+        public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract";
+        public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
+        public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
+        public static string URL_SAVE_OFFER_OBJECTION = SERVER_URL + "OfferObjection/Save";
+        public static string URL_SAVE_SIGNATURE = SERVER_URL + "Signature/setSignature";
+        public static string URL_CHECK_SIGNATURE = SERVER_URL + "Signature/checkSignature/"; //phoneNumber
+        public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
 
         #region User info
         public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/getUserCompanyInfo/"; //phoneNumber
@@ -94,13 +104,6 @@ namespace Contract.Net
         public static string URL_CREATE_CONTRACT_PDF = SERVER_URL + "CreatePdf/createPdf/"; //contract_number
         #endregion
 
-        public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract"; 
-        public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
-        public static string URL_DELETE_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/deleteCanceledContract";
-        public static string URL_SAVE_OFFER_OBJECTION = SERVER_URL + "OfferObjection/Save";
-        public static string URL_SAVE_SIGNATURE = SERVER_URL + "Signature/setSignature";
-        public static string URL_CHECK_SIGNATURE = SERVER_URL + "Signature/checkSignature/"; //phoneNumber
-        public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
         #endregion
 
         private static HttpStatusCode StatusCode;
@@ -577,6 +580,34 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseLogin> UpdateNotificationToken(User data)
+        {
+            ResponseLogin response = new ResponseLogin();
+            try
+            {
+                var receivedData = await RequestPutMethod(URL_UPDATE_NOTIFICATION_TOKEN, data);
+                response = JsonConvert.DeserializeObject<ResponseLogin>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseNotification> SendNotificationToContragent(NotificationInfo data)
+        {
+            ResponseNotification response = new ResponseNotification();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SEND_NOTIFICATION_TO_CONTRAGENT, data);
+                response = JsonConvert.DeserializeObject<ResponseNotification>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseNotification>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseNotification>(); }
 
             return response;
         }

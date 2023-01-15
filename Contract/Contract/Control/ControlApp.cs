@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Plugin.LocalNotification;
 
 namespace Contract.Control
 {
@@ -14,7 +15,8 @@ namespace Contract.Control
         public delegate void CurrencyCostChanged();
         public event CurrencyCostChanged EventCurrencyCostChanged;
 
-        private bool _closeLoadingView = false; 
+        private bool _closeLoadingView = false;
+        public bool UnapprovedPageClosed = false;
         public bool AppStarting { get; set; }
         public bool AppOnResume { get; set; }
         public bool AppOnSleep { get; set; }
@@ -129,17 +131,17 @@ namespace Contract.Control
 
         public void ShowNotification(string desctirption, string title)
         {
-            //var notification = new NotificationRequest
-            //{
-            //    BadgeNumber = 1,
-            //    Description = desctirption,
-            //    Title = title,
-            //    ReturningData = "Dummy",
-            //    NotificationId = 113,
-            //    Schedule = new NotificationRequestSchedule() { NotifyTime = DateTime.Now.AddSeconds(3) }
-            //};
+            var notification = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = desctirption,
+                Title = title,
+                ReturningData = "Dummy",
+                NotificationId = 113,
+                Schedule = new NotificationRequestSchedule() { NotifyTime = DateTime.Now.AddSeconds(3) }
+            };
 
-            //NotificationCenter.Current.Show(notification);
+            NotificationCenter.Current.Show(notification);
         }
 
         public async Task ShareUri(string uri)

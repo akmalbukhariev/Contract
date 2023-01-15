@@ -34,7 +34,7 @@ namespace Contract.ViewModel.Pages.Login
             var data = new LibContract.HttpModels.Login()
             {
                 phone_number = PhoneNumber,
-                password = Password
+                password = Password,
             };
             ResponseLogin response = await HttpService.Login(data);
             ControlApp.CloseLoadingView();
@@ -44,10 +44,12 @@ namespace Contract.ViewModel.Pages.Login
                 await Application.Current.MainPage.DisplayAlert(RSC.Login, RSC.Login_Message_1, RSC.Ok);
                 return;
             }
-
+             
             if (response.companyInfo != null)
                 ControlApp.UserCompanyInfo = new LibContract.HttpModels.CompanyInfo(response.companyInfo);
+            
             ControlApp.UserInfo = new LibContract.HttpModels.User(response.data);
+            Notification.PushNotification.Instance.SetToken(PhoneNumber);
 
             Application.Current.MainPage = new TransitionNavigationPage(new PageMasterDetail());
 

@@ -6,6 +6,7 @@ namespace LibContract
 {
     public class Constants
     {
+        public const string All = "all";
         public const string Success = "Success";
         public const string NotFound = "Not Found!";
         public const string BadRequest = "Bad Request!";

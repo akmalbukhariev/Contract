@@ -1,4 +1,5 @@
 ﻿using Contract.Control;
+using Contract.Notification;
 using Contract.Pages.CreateContract;
 using Contract.Pages.Customers;
 using Contract.Pages.Login;
@@ -28,6 +29,7 @@ namespace Contract
         {
             //MainPage = new TransitionNavigationPage(new Pages.UnapprovedContracts.PageSign());
             //return;
+            PushNotification.Instance.Init();
             ControlApp.Instance.AppStarting = true;
             ControlApp.Instance.AppOnResume = false;
             ControlApp.Instance.AppOnSleep = false;

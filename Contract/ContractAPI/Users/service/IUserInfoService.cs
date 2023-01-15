@@ -13,6 +13,7 @@ namespace ContractAPI.Users.service
         Task<ResponseUser> getUser(string phoneNumber);
         Task<ResponseLogin> updateUserPassword(ChnagePassword user);
         Task<ResponseLogin> updateDefaultTemplate(User user);
+        Task<ResponseLogin> setNotificationToken(User user);
         Task<IList<User>> getAllUsers();
     }
 }

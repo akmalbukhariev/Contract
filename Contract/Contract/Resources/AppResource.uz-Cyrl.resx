@@ -868,6 +868,18 @@
   <data name="NoInternet" xml:space="preserve">
     <value>Интернет йўқ</value>
   </data>
+  <data name="NotificationMessage" xml:space="preserve">
+    <value>Янги шартнома</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="NotificationMessage1" xml:space="preserve">
+    <value>Шартнома тасдиқланди</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="NotificationTitle" xml:space="preserve">
+    <value>Шартнома</value>
+    <comment>Notification</comment>
+  </data>
   <data name="NotSupported" xml:space="preserve">
     <value>Қўллаб-қувватланмайди</value>
     <comment>CreateContract</comment>

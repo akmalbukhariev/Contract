@@ -48,6 +48,12 @@ namespace Contract.Pages
                 await DisplayAlert(RSC.YourSignature, RSC.EnterSignature, RSC.Ok);
                 await Navigation.PushAsync(new UnapprovedContracts.PageSign());
             }
+
+            //if (Notification.PushNotification.Instance.ClickedNotification)
+            //{
+            //    await Navigation.PushAsync(new UnapprovedContracts.PageUnapprovedTable());
+            //    Notification.PushNotification.Instance.ClickedNotification = false;
+            //}
         }
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

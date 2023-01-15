@@ -12,6 +12,7 @@ namespace LibContract.HttpModels
         public string password { get; set; }
         public string reg_date { get; set; }
         public int default_template_id { get; set; }
+        public string token { get; set; }
          
         public User()
         {

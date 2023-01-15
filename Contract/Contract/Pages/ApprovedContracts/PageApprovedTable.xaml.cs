@@ -85,7 +85,9 @@ namespace Contract.Pages.ApprovedContracts
             ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response2 = await HttpService.CreateContractPdf(item.ContractNnumberReal);
+            ControlApp.CloseLoadingView();
             if (response2.result)
             {
                 await ControlApp.ShareUri($"{HttpService.DATA_URL}{response2.pdf_url}");

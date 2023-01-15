@@ -62,6 +62,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                 return response;
             }
 
+            response.contragent_phone_number = info.user_phone_number.Equals(found.contragent_phone_number)? found.user_phone_number : found.contragent_phone_number;
             response.result = true;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;

@@ -497,8 +497,8 @@ namespace ContractAPI.CreatePdf.service
         {
             double width = 30;
             double height = 30;
-            string saveUserSignFile = $"{SaveSignaturePath}{UserCompany.user_phone_number}_sign.png";
-            string saveClientSignFile = $"{SaveSignaturePath}{ClientCompany.company_phone_number}_sign.png";
+            string saveUserSignFile = $"{SaveSignaturePath}{ContractInfo.user_phone_number}_sign.png";
+            string saveClientSignFile = $"{SaveSignaturePath}{ContractInfo.contragent_phone_number}_sign.png";
 
             bool is_approved = ContractInfo.is_approved == 1 ? true : false;
             bool is_approved_contragent = ContractInfo.is_approved_contragent == 1 ? true : false;

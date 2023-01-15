@@ -892,6 +892,18 @@ shartnomalar mavjud emas.</value>
   <data name="NoInternet" xml:space="preserve">
     <value>Internet yo'q</value>
   </data>
+  <data name="NotificationMessage" xml:space="preserve">
+    <value>Yangi shartnoma</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="NotificationMessage1" xml:space="preserve">
+    <value>Shartnoma tasdiqlandi</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="NotificationTitle" xml:space="preserve">
+    <value>Shartnoma</value>
+    <comment>Notification</comment>
+  </data>
   <data name="NotSupported" xml:space="preserve">
     <value>Qo'llab-quvvatlanmaydi</value>
     <comment>CreateContract</comment>

@@ -20,5 +20,6 @@ namespace ContractAPI
         public const string SaveSignImagePath = "\\Upload\\images\\signature\\";
         public const string SaveContractPdfPath = "\\Upload\\contracts_pdf\\";
         public const string SaveContractPdfUrl = "Upload\\contracts_pdf\\";
+        public const string NotificationKey = "\\Notification\\contract_private_key.json";
     }
 }

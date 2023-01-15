@@ -45,6 +45,10 @@ using ContractAPI.CreatePdf.service.impl;
 using Microsoft.AspNetCore.Authorization;
 using ContractAPI.Signature.service;
 using ContractAPI.Signature.service.impl;
+using ContractAPI.Notification.service;
+using ContractAPI.Notification.service.impl;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 
 namespace ContractAPI
 {
@@ -70,6 +74,7 @@ namespace ContractAPI
             services.AddScoped<IContractTemplateService, ContractTemplateService>();
             services.AddScoped<IOfferObjectionService, OfferObjectionService>();
             services.AddScoped<IContractNumberService, ContractNumberService>();
+            services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<ICompanyInfoService, CompanyInfoService>();
             services.AddScoped<ILoginSignUpService, LoginSignUpService>();
             services.AddScoped<ICreatePdfService, CreatePdfService>();
@@ -107,6 +112,20 @@ namespace ContractAPI
             app.UseRouting();
 
             app.UseStaticFiles();
+
+            string strPath = $"{env.ContentRootPath}{Constants.NotificationKey}";
+            //string strPath = $"{env.ContentRootPath}\\bin\\Debug{Constants.NotificationKey}";
+            if (!File.Exists(strPath))
+            {
+                Console.WriteLine($"Does not exist :{Constants.NotificationKey}");
+            }
+            else
+            {
+                FirebaseApp.Create(new AppOptions()
+                {
+                    Credential = GoogleCredential.FromFile(strPath)
+                });
+            } 
 
             //Console.WriteLine($"ContentRootPath: {env.WebRootPath}");
             //var cacheMaxAgeOneWeek = (60 * 60 * 24 * 7).ToString();

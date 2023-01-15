@@ -8,5 +8,6 @@ namespace LibContract.HttpResponse
 {
     public class ResponseApprovedUnapprovedContract : Response<List<CreateContractInfo>>, IResponse
     {
+        public string contragent_phone_number { get; set; }
     }
 }

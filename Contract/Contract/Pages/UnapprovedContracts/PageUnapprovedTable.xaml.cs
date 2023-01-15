@@ -42,6 +42,7 @@ namespace Contract.Pages.UnapprovedContracts
                 PModel.RequestInfo();
 
             DependencyService.Get<IRotationService>().EnableRotation();
+            ControlApp.UnapprovedPageClosed = false;
         }
 
         protected override void OnDisappearing()
@@ -49,6 +50,7 @@ namespace Contract.Pages.UnapprovedContracts
             base.OnDisappearing();
 
             DependencyService.Get<IRotationService>().DisableRotation();
+            ControlApp.UnapprovedPageClosed = true;
         }
 
         private async void Eye_Tapped(object sender, EventArgs e)
@@ -101,7 +103,19 @@ namespace Contract.Pages.UnapprovedContracts
                 await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
 
                 if (response.result)
+                {
                     PModel.RequestInfo();
+                    if (!string.IsNullOrEmpty(response.contragent_phone_number))
+                    {
+                        LibContract.HttpModels.NotificationInfo request1 = new LibContract.HttpModels.NotificationInfo()
+                        {
+                            title = RSC.NotificationTitle,
+                            message = item.Preparer.Equals(RSC.Contragent)? RSC.NotificationMessage1 : RSC.NotificationMessage,
+                            phone_number = response.contragent_phone_number
+                        };
+                        ResponseNotification response1 = await HttpService.SendNotificationToContragent(request1);
+                    }
+                }
             }
         }
 
@@ -113,7 +127,9 @@ namespace Contract.Pages.UnapprovedContracts
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response2 = await HttpService.CreateContractPdf(item.ContractNnumberReal);
+            ControlApp.CloseLoadingView();
             if (response2.result)
             { 
                 //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);

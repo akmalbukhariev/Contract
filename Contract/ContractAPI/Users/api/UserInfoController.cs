@@ -41,5 +41,12 @@ namespace ContractAPI.Users.api
             ResponseLogin response = await Service.updateDefaultTemplate(user);
             return MakeResponse(response, response.error_code);
         }
+
+        [HttpPut("setNotificationToken")]
+        public async Task<IActionResult> setNotificationToken([FromBody] User user)
+        {
+            ResponseLogin response = await Service.setNotificationToken(user);
+            return MakeResponse(response, response.error_code);
+        }
     }
 }
