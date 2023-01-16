@@ -53,7 +53,7 @@ namespace ContractAPI.LoginSignUp.service.impl
             {
                 response.companyInfo = new UserCompanyInfo(companyInfo);
             }
-
+             
             response.data.Copy(foundUser);
             response.result = true;
             response.message = Constants.Exist;
@@ -94,6 +94,74 @@ namespace ContractAPI.LoginSignUp.service.impl
                 response.result = false;
                 response.message = ex.Message;
                 return response;
+            }
+
+            ContractNumberTemplate numberTemplate = new ContractNumberTemplate()
+            {
+                user_phone_number = newUser.phone_number,
+                option = "",
+                format = 1,
+                created_date = newUser.reg_date
+            };
+
+            var numberService = new ContractNumberInfo.service.impl.ContractNumberService(dataBase);
+            var responseNumberService = await numberService.setContractNumber(numberTemplate);
+
+            if (responseNumberService.result)
+            {
+                var responseNumberList = await numberService.getContractNumber(newUser.phone_number);
+                int formatId = 1;
+                
+                if (responseNumberList.result)
+                {
+                    formatId = responseNumberList.data[0].id;
+                }
+                var contractService = new ContractTemplateInfo.service.impl.ContractTemplateService(dataBase);
+
+                var clausesList = await contractService.getAllReadyTemplate();
+                string clauseNormal = "";
+                string clausePopular = "";
+                string clauseSimple = "";
+                if (clausesList.result)
+                {
+                    clauseNormal = clausesList.data.Where(item => item.template_name_en.Equals("Normal")).FirstOrDefault().clauses;
+                    clausePopular = clausesList.data.Where(item => item.template_name_en.Equals("Popular")).FirstOrDefault().clauses;
+                    clauseSimple = clausesList.data.Where(item => item.template_name_en.Equals("Simple")).FirstOrDefault().clauses;
+                }
+                ContractTemplate contractTemplateNormal = new ContractTemplate()
+                {
+                    user_phone_number = newUser.phone_number,
+                    contract_number_format_id = formatId,
+                    contract_number_option = "",
+                    contract_address = "",
+                    template_name = "Ўртача",
+                    clauses = clauseNormal,
+                    created_date = newUser.reg_date
+                };
+                ContractTemplate contractTemplatePopular = new ContractTemplate()
+                {
+                    user_phone_number = newUser.phone_number,
+                    contract_number_format_id = formatId,
+                    contract_number_option = "",
+                    contract_address = "",
+                    template_name = "Оммабоп",
+                    clauses = clausePopular,
+                    created_date = newUser.reg_date
+                };
+                ContractTemplate contractTemplateSimple = new ContractTemplate()
+                {
+                    user_phone_number = newUser.phone_number,
+                    contract_number_format_id = formatId,
+                    contract_number_option = "",
+                    contract_address = "",
+                    template_name = "Оддий",
+                    clauses = clauseSimple,
+                    created_date = newUser.reg_date
+                };
+
+                await contractService.setContractTemplate(contractTemplateNormal);
+                await contractService.setContractTemplate(contractTemplatePopular);
+                await contractService.setContractTemplate(contractTemplateSimple);
             }
 
             response.result = true;

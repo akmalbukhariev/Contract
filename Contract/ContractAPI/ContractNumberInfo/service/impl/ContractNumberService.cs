@@ -50,7 +50,9 @@ namespace ContractAPI.ContractNumberInfo.service.impl
             ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
 
             ContractNumberTemplate found = await dataBase.ContractNumberTemplate
-                 .Where(item => item.option.Equals(info.option) && item.format == info.format)
+                 .Where(item => item.user_phone_number.Equals(info.user_phone_number) && 
+                        item.option.Equals(info.option) && 
+                        item.format == info.format)
                  .AsNoTracking()
                  .FirstOrDefaultAsync();
             
