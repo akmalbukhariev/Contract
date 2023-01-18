@@ -37,6 +37,13 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
+        [HttpGet("getUserCompanyInfoToCreateContract/{stirNumber}")]
+        public async Task<IActionResult> getUserCompanyInfoToCreateContract(string stirNumber)
+        {
+            ResponseUserCompanyInfo response = await Service.getUserCompanyInfoToCreateContract(stirNumber);
+            return MakeResponse(response, response.error_code);
+        }
+
 
         [HttpDelete("deleteUserCompanyInfo")]
         public async Task<IActionResult> deleteUserCompanyInfo([FromBody] DeleteCompanyInfo info)
@@ -67,6 +74,13 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
+
+        [HttpPost("setClientCompanyInfoToCreateContract")]
+        public async Task<IActionResult> setClientCompanyInfoToCreateContract([FromBody] CompanyInfo info)
+        {
+            ResponseClientCompanyInfo response = await Service.setClientCompanyInfoToCreateContract(info);
+            return MakeResponse(response, response.error_code);
+        }
 
         [HttpPost("setClientCompanyInfo")]
         public async Task<IActionResult> setClientCompanyInfo([FromBody] CompanyInfo info)

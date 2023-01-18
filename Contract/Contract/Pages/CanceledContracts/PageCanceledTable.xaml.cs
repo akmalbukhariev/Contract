@@ -1,5 +1,6 @@
 ﻿using Contract.Interfaces;
 using Contract.Model;
+using Contract.Net;
 using Contract.ViewModel.Pages.CanceledContracts;
 using LibContract.HttpResponse;
 using System;
@@ -57,7 +58,8 @@ namespace Contract.Pages.CanceledContracts
             ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
             if (response.result)
             {
-                await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+                await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
+                //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
             }
             else
             {
@@ -66,10 +68,25 @@ namespace Contract.Pages.CanceledContracts
             ControlApp.CloseLoadingView();
         }
 
-        private void Send_Tapped(object sender, EventArgs e)
+        private async void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            CanceledContract item = (CanceledContract)((Image)sender).BindingContext;
+            if (item == null) return;
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseCreatePdf response2 = await HttpService.CreateContractPdf(item.ContractNnumberReal);
+            ControlApp.CloseLoadingView();
+            if (response2.result)
+            {
+                await ControlApp.ShareUri($"{HttpService.DATA_URL}{response2.pdf_url}");
+            }
+            else
+            {
+                await DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
+            }
         }
 
         private void Commit_Tapped(object sender, EventArgs e)

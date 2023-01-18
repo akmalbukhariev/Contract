@@ -278,6 +278,10 @@ Contracts</value>
     <value>Contract has been canceled.</value>
     <comment>Cancel</comment>
   </data>
+  <data name="CannotUseYourStirNumber" xml:space="preserve">
+    <value>You cannot use your tin number.</value>
+    <comment>PageCretaeContract1</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change account password</value>
     <comment>Change password</comment>
@@ -385,6 +389,10 @@ Contracts</value>
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Could not create the contract.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFind" xml:space="preserve">
+    <value>Could not find.</value>
+    <comment>PageCreateContract1</comment>
   </data>
   <data name="CouldNotFindContragent" xml:space="preserve">
     <value>Could not find the contragent phone number!</value>
@@ -1006,6 +1014,10 @@ Contracts</value>
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>PageCreateContract1</comment>
+  </data>
   <data name="Select" xml:space="preserve">
     <value>Select</value>
     <comment>Template Contract</comment>
@@ -1234,6 +1246,10 @@ Contracts</value>
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Wrong current password.</value>
     <comment>Change password</comment>
+  </data>
+  <data name="WrongServicePrice" xml:space="preserve">
+    <value>Wrong service price.</value>
+    <comment>PageContract2</comment>
   </data>
   <data name="X" xml:space="preserve">
     <value>X</value>

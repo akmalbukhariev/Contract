@@ -52,7 +52,7 @@ namespace Contract.ViewModel
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseApprovedUnapprovedContract response = await HttpService.GetApprovedAndUnapprovedContract(request);
-            ResponseUserCompanyInfo responseCompany = await HttpService.GetUserCompanyInfo(ControlApp.UserInfo.phone_number);
+            //ResponseUserCompanyInfo responseCompany = await HttpService.GetUserCompanyInfo(ControlApp.UserInfo.phone_number);
 
             ControlApp.CloseLoadingView();
 
@@ -62,9 +62,10 @@ namespace Contract.ViewModel
                 TextValue2 = response.data != null ? response.data.Where(item => item.is_approved == 0 || item.is_approved_contragent == 0).ToList().Count.ToString() : "0";
             }
 
-            if (responseCompany.result)
+            //if (responseCompany.result)
             {
-                CompanyName = $"{RSC.CompanyName}: {responseCompany.data.company_name}";
+                string strName = ControlApp.UserCompanyInfo != null ? ControlApp.UserCompanyInfo.company_name : "";
+                CompanyName = $"{RSC.CompanyName}: {strName}";
             }
         }
 

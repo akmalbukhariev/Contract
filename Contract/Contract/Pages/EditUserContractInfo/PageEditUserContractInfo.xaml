@@ -80,6 +80,7 @@
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
+                                        KeyboardSetting="Numeric"
                                         Text="{Binding AccountNumber}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
@@ -87,6 +88,7 @@
                         <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ----"
+                                        KeyboardSetting="Numeric"
                                         Text="{Binding CompanyStir}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
@@ -101,6 +103,7 @@
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                                        KeyboardSetting="Numeric"
                                         Text="{Binding BankCode}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
@@ -122,13 +125,15 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Text="{Binding QQSCode}"
+                                         KeyboardSetting="Numeric"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="9">
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="+998 ---- ---- ----"
+                        <view:ViewEntry PlaceHoldingText="998 ---- ---- ----"
                                         Text="{Binding PhoneNnumberOfCompany}"
+                                        KeyboardSetting="Numeric"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"

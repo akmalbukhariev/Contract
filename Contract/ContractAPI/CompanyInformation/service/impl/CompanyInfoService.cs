@@ -67,6 +67,27 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
+        public async Task<ResponseUserCompanyInfo> getUserCompanyInfoToCreateContract(string stirNumber)
+        {
+            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            CompanyInfo info = await dataBase.UserCompanyInfo
+                .Where(item => item.stir_of_company.Equals(stirNumber))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (info == null)
+            {
+                response.data = null;
+                return response;
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.data.Copy(info);
+
+            return response;
+        }
+
 
         public async Task<ResponseUserCompanyInfo> deleteUserCompanyInfo(DeleteCompanyInfo info)
         {
@@ -253,6 +274,40 @@ namespace ContractAPI.CompanyInformation.service.impl
             return response;
         }
 
+
+        public async Task<ResponseClientCompanyInfo> setClientCompanyInfoToCreateContract(CompanyInfo info)
+        {
+            ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
+            response.data = null;
+
+            CompanyInfo found = await dataBase.ClientCompanyInfo
+                .Where(item => item.stir_of_company.Equals(info.stir_of_company))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+             
+            var newInfo = new ClientCompanyInfo();
+            newInfo.Copy(info);
+            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+
+            dataBase.ClientCompanyInfo.Add(newInfo);
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.BadRequest;
+                return response;
+            }
+
+            response.result = true;
+            response.error_code = (int)HttpStatusCode.OK;
+            response.message = Constants.Success;
+
+            return response;
+        }
 
         public async Task<ResponseClientCompanyInfo> setClientCompanyInfo(CompanyInfo info)
         {

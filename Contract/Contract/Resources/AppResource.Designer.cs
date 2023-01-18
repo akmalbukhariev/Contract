@@ -422,6 +422,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You cannot use your tin number..
+        /// </summary>
+        internal static string CannotUseYourStirNumber {
+            get {
+                return ResourceManager.GetString("CannotUseYourStirNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change account password.
         /// </summary>
         internal static string ChangePassword {
@@ -661,6 +670,15 @@ namespace Contract.Resources {
         internal static string CouldNotCreateContract {
             get {
                 return ResourceManager.GetString("CouldNotCreateContract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find..
+        /// </summary>
+        internal static string CouldNotFind {
+            get {
+                return ResourceManager.GetString("CouldNotFind", resourceCulture);
             }
         }
         
@@ -2069,6 +2087,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
         internal static string Select {
@@ -2579,6 +2606,15 @@ namespace Contract.Resources {
         internal static string WrongCurrentPassword {
             get {
                 return ResourceManager.GetString("WrongCurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong service price..
+        /// </summary>
+        internal static string WrongServicePrice {
+            get {
+                return ResourceManager.GetString("WrongServicePrice", resourceCulture);
             }
         }
         

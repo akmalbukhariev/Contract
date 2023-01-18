@@ -279,6 +279,10 @@
     <value>Контракт отменен.</value>
     <comment>Cancel</comment>
   </data>
+  <data name="CannotUseYourStirNumber" xml:space="preserve">
+    <value>Вы не можете использовать свой ИНН номер!</value>
+    <comment>PageCretaeContract1</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Изменить пароль аккаунта</value>
     <comment>Change password</comment>
@@ -386,6 +390,10 @@
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Не удалось создать контракт.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFind" xml:space="preserve">
+    <value>Не удалось найти.</value>
+    <comment>PageCreateContract1</comment>
   </data>
   <data name="CouldNotFindContragent" xml:space="preserve">
     <value>Не удалось найти номер телефона контрагента!</value>
@@ -1007,6 +1015,10 @@
     <value>Сохранить ID и пароль</value>
     <comment>Login</comment>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+    <comment>PageCreateContract1</comment>
+  </data>
   <data name="Select" xml:space="preserve">
     <value>Выбирать</value>
     <comment>Template Contract</comment>
@@ -1234,6 +1246,10 @@
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Неверный текущий пароль.</value>
     <comment>Change password</comment>
+  </data>
+  <data name="WrongServicePrice" xml:space="preserve">
+    <value>Неверная цена услуги.</value>
+    <comment>PageContract2</comment>
   </data>
   <data name="X" xml:space="preserve">
     <value>X</value>

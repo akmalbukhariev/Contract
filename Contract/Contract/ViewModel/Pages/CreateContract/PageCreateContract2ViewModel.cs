@@ -166,13 +166,14 @@ namespace Contract.ViewModel.Pages.CreateContract
                     await Net.HttpService.UpdateClientCompanyInfo(ClientCompanyInfo);
                 }
             }
+            else
+            {
+                await Net.HttpService.SetClientCompanyInfo(ClientCompanyInfo);
+            }
 
             ControlApp.CloseLoadingView();
             SetTransitionType();
-            await Navigation.PushAsync(new PageCreateContract3(contractinfo));
-            
-            //responseService = await Net.HttpService.DeleteServiceinfo(ContractNumber);
-            //await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Failed} : {responseClient.message}", RSC.Ok);
+            await Navigation.PushAsync(new PageCreateContract3(contractinfo)); 
         }
         #endregion
   

@@ -125,11 +125,17 @@ namespace Contract.Pages.CreateContract
             UpdateTotalCost();
         }
 
-        private void UpdateTotalCost()
+        private async void UpdateTotalCost()
         {
-            int cost = 0;
+            double cost = 0;
             foreach (ServicesInfo item in PModel.ServicesList)
             {
+                double tempCost = item.CalcTotalCost();
+                if (tempCost == -1)
+                {
+                    await DisplayAlert(RSC.Service, RSC.WrongServicePrice, RSC.Ok);
+                    return;
+                }
                 cost += item.CalcTotalCost();
             }
 

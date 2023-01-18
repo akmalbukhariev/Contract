@@ -65,7 +65,8 @@ namespace Contract.Pages.UnapprovedContracts
             ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
             if (response.result)
             {
-                await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
+                await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
+                //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
             }
             else
             {

@@ -1,5 +1,6 @@
 ﻿using Contract.Net;
 using Contract.Pages.CreateContract;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +29,34 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         #region Command
         public ICommand CommandSave => new Command(Save);
+        public ICommand CommandSearchStir => new Command(SearchStir);
+
+        private async void SearchStir()
+        {
+            if (string.IsNullOrEmpty(CompanyStir))
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.EnterCompanyStir, RSC.Ok);
+                return;
+            }
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir);
+            ControlApp.CloseLoadingView();
+
+            if (!response.result)
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.CouldNotFind, RSC.Ok);
+                return;
+            }
+
+            if (response.data.user_phone_number.Equals(ControlApp.UserInfo.phone_number))
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.CannotUseYourStirNumber, RSC.Ok);
+                return;
+            }
+
+            SetCompanyInfo(response.data);
+        }
 
         private async void Save()
         { 

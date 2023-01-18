@@ -15,7 +15,8 @@ namespace Contract.ViewModel
 
         public PageMenuViewModel()
         {
-            CompanyName = "\"Korxona nomi\" MCHJ";
+            string strName = ControlApp.UserCompanyInfo != null ? ControlApp.UserCompanyInfo.company_name : "";
+            CompanyName = $"{RSC.CompanyName}: {strName}";
             MenuList = new ObservableCollection<Menu>();
         }
 

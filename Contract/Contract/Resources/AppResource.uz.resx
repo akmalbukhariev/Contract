@@ -280,6 +280,10 @@ shartnomalar</value>
     <value>Shartnoma bekor qilindi.</value>
     <comment>Cancel</comment>
   </data>
+  <data name="CannotUseYourStirNumber" xml:space="preserve">
+    <value>O'zingizni stir raqamingizdan foydalana olmaysiz.</value>
+    <comment>PageCretaeContract1</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Account parolini tahrirlash</value>
     <comment>Change password</comment>
@@ -387,6 +391,10 @@ shartnomalar</value>
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Shartnoma tuzib bo'lmadi.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFind" xml:space="preserve">
+    <value>Topilmadi.</value>
+    <comment>PageCreateContract1</comment>
   </data>
   <data name="CouldNotFindContragent" xml:space="preserve">
     <value>Kontragent telefon raqami topilmadi!</value>
@@ -1034,6 +1042,10 @@ rekvizitlari ochiq qolsinmi?</value>
     <value>ID va Parolni saqlash</value>
     <comment>Login</comment>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Qidirish</value>
+    <comment>PageCreateContract1</comment>
+  </data>
   <data name="Select" xml:space="preserve">
     <value>Tanlang</value>
     <comment>Template Contract</comment>
@@ -1263,6 +1275,10 @@ shartnomalar</value>
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Amaldagi parol noto‘g‘ri.</value>
     <comment>Change password</comment>
+  </data>
+  <data name="WrongServicePrice" xml:space="preserve">
+    <value>Xizmat narxi noto'g'ri.</value>
+    <comment>PageContract2</comment>
   </data>
   <data name="X" xml:space="preserve">
     <value>X</value>

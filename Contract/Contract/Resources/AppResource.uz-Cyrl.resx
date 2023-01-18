@@ -279,6 +279,10 @@
     <value>Шартнома бекор қилинди.</value>
     <comment>Cancel</comment>
   </data>
+  <data name="CannotUseYourStirNumber" xml:space="preserve">
+    <value>Ўзингизни стир рақамингиздан фойдалана олмайсиз.</value>
+    <comment>PageCretaeContract1</comment>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Аккаунт паролини таҳрирлаш</value>
     <comment>Change password</comment>
@@ -386,6 +390,10 @@
   <data name="CouldNotCreateContract" xml:space="preserve">
     <value>Шартнома тузиб бўлмади.</value>
     <comment>PageContract3</comment>
+  </data>
+  <data name="CouldNotFind" xml:space="preserve">
+    <value>Топилмади</value>
+    <comment>PageCreateContract1</comment>
   </data>
   <data name="CouldNotFindContragent" xml:space="preserve">
     <value>Контрагент телефон рақами топилмади</value>
@@ -1007,6 +1015,10 @@
     <value>ID ва Паролни сақлаш</value>
     <comment>Login</comment>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Қидириш</value>
+    <comment>PageCreateContract1</comment>
+  </data>
   <data name="Select" xml:space="preserve">
     <value>Танланг</value>
     <comment>Template Contract</comment>
@@ -1234,6 +1246,10 @@
   <data name="WrongCurrentPassword" xml:space="preserve">
     <value>Aмалдаги, парол нотўғри.</value>
     <comment>Change password</comment>
+  </data>
+  <data name="WrongServicePrice" xml:space="preserve">
+    <value>Хизмат нархи нотўғри.</value>
+    <comment>PageContract2</comment>
   </data>
   <data name="X" xml:space="preserve">
     <value>X</value>

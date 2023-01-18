@@ -49,6 +49,7 @@ namespace Contract.Net
 
         #region User info
         public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/getUserCompanyInfo/"; //phoneNumber
+        public static string URL_GET_USER_COMPANY_TO_CREATE_CONTRACT = SERVER_URL + "CompanyInfo/getUserCompanyInfoToCreateContract/"; //stirNumber
         public static string URL_SET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/setUserCompanyInfo";
         public static string URL_SET_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setUserCompanyInfoWithFile";
         public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateUserCompanyInfo";
@@ -170,6 +171,20 @@ namespace Contract.Net
             catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
              
+            return response;
+        }
+
+        public async static Task<ResponseUserCompanyInfo> GetUserCompanyInfoToCreateContract(string stirNumber)
+        {
+            ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
+            try
+            {
+                var receivedData = await RequestGetMethod($"{URL_GET_USER_COMPANY_TO_CREATE_CONTRACT}{stirNumber}");
+                response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseUserCompanyInfo>(); }
+
             return response;
         }
 

@@ -50,12 +50,21 @@ namespace Contract.Model
             this.SelectedMeasure_index = other.SelectedMeasure_index;
         }
 
-        public int CalcTotalCost()
+        public double CalcTotalCost()
         {
-            int int_AmountText = string.IsNullOrEmpty(AmountText) ? 0 : int.Parse(AmountText);
-            int int_AmountOfPrice = string.IsNullOrEmpty(AmountOfPrice) ? 0 : int.Parse(AmountOfPrice);
+            double int_AmountText = 0.0;
+            double int_AmountOfPrice = 0.0;
 
-            return  (int_AmountText * int_AmountOfPrice);
+            try
+            {
+                int_AmountText = string.IsNullOrEmpty(AmountText) ? 0 : double.Parse(AmountText);
+                int_AmountOfPrice = string.IsNullOrEmpty(AmountOfPrice) ? 0 : double.Parse(AmountOfPrice);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            return int_AmountText * int_AmountOfPrice;
         }
 
         public List<string> GetMeasureList

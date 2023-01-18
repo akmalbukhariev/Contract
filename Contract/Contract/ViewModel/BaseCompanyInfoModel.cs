@@ -155,5 +155,30 @@ namespace Contract.ViewModel
                 created_date = CreatedDate
             };
         }
+
+        public void SetCompanyInfo(CompanyInfo info)
+        {
+            Id = info.id;
+            CompanyName = info.company_name;
+            SelectedDocument = info.document;
+            SelectedDocument_index = info.document_index;
+            AddressOfCompany = info.address_of_company;
+            AccountNumber = info.account_number;
+            AccountantName = info.accountant_name;
+            CompanyStir = info.stir_of_company;
+            NameOfBank = info.name_of_bank;
+            BankCode = info.bank_code;
+            AreYouQQSPayer = info.are_you_qqs_payer == 1? true : false;
+            QQSCode = info.qqs_number;
+            PhoneNnumberOfCompany = info.company_phone_number;
+            PositionOfSignatory = info.position_of_signer;
+            PositionOfSignatory_index = info.position_of_signer_index;
+            FullNameOfSignatory = info.name_of_signer;
+            IsAccountProvided = info.is_accountant_provided == 1 ? true : false;
+            AccountantName = info.accountant_name;
+            IsCounselProvided = info.is_legal_counsel_provided == 1 ? true : false;
+            CounselName = info.counsel_name;
+            CreatedDate = info.created_date;
+        }
     }
 }
