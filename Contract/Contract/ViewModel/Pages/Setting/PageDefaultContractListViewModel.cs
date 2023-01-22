@@ -52,11 +52,11 @@ namespace Contract.ViewModel.Pages.Setting
                     };
                     newItem.Selected = false;
 
-                    if (item.id == ControlApp.UserInfo.default_template_id)
-                    {
-                        temp = new DefaultContract(newItem);
-                        newItem.Selected = true;
-                    }
+                    //if (item.id == ControlApp.UserInfo.default_template_id)
+                    //{
+                    //    temp = new DefaultContract(newItem);
+                    //    newItem.Selected = true;
+                    //}
 
                     DataList.Add(newItem); 
                 }

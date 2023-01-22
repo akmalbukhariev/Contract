@@ -900,6 +900,10 @@ shartnomalar mavjud emas.</value>
   <data name="NoInternet" xml:space="preserve">
     <value>Internet yo'q</value>
   </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Bildirishnoma</value>
+    <comment>Notification</comment>
+  </data>
   <data name="NotificationMessage" xml:space="preserve">
     <value>Yangi shartnoma</value>
     <comment>Notification</comment>

@@ -158,7 +158,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 var found = responseGetClients.data.Find(item => item.stir_of_company.Equals(ClientCompanyInfo.stir_of_company));
                 if (found == null)
                 {
-                    await Net.HttpService.SetClientCompanyInfo(ClientCompanyInfo);
+                    await Net.HttpService.SetClientCompanyInfoToCreateContract(ClientCompanyInfo);
                 }
                 else
                 {
@@ -168,7 +168,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
             else
             {
-                await Net.HttpService.SetClientCompanyInfo(ClientCompanyInfo);
+                await Net.HttpService.SetClientCompanyInfoToCreateContract(ClientCompanyInfo);
             }
 
             ControlApp.CloseLoadingView();

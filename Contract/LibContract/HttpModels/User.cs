@@ -11,8 +11,12 @@ namespace LibContract.HttpModels
         public string phone_number { get; set; }
         public string password { get; set; }
         public string reg_date { get; set; }
-        public int default_template_id { get; set; }
+        public string lan_id { get; set; }
         public string token { get; set; }
+        /// <summary>
+        /// 1 = yes, 2 = no
+        /// </summary>
+        public int on_notification { get; set; }
          
         public User()
         {
@@ -32,7 +36,8 @@ namespace LibContract.HttpModels
             phone_number = other.phone_number;
             password = other.password;
             reg_date = other.reg_date;
-            default_template_id = other.default_template_id; 
+            lan_id = other.lan_id;
+            on_notification = other.on_notification;
         }
     }
 }

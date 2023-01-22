@@ -33,7 +33,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                 return response;
             }
 
-            ClientCompanyInfo clientInfo = await dataBase.ClientCompanyInfo
+            CompanyInfo clientInfo = await dataBase.UserCompanyInfo
                 .Where(item => item.stir_of_company.Equals(info.client_stir))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -41,6 +41,8 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
             if (found.user_phone_number.Equals(info.user_phone_number))
             {
                 found.is_approved = 1;
+                if (clientInfo == null)
+                    found.is_approved_contragent = 1;
                 found.contragent_phone_number = clientInfo == null ? "" : clientInfo.user_phone_number;
             }
             else if (found.contragent_phone_number.Equals(info.user_phone_number))

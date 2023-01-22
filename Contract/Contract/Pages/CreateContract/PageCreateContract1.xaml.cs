@@ -58,7 +58,7 @@ namespace Contract.Pages.CreateContract
                 PModel.ClientCompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
                 PModel.ClientCompanyStir = $"{RSC.STIR} : {ControlApp.SelectedClientCompanyInfo.stir_of_company}";
 
-                if (string.IsNullOrEmpty(PModel.ClientCompanyImage))
+                if (string.IsNullOrEmpty(ControlApp.SelectedClientCompanyInfo.company_logo_url))
                 {
                     PModel.ShowClientCompanyImage = false;
                     PModel.ShowLetter = true;

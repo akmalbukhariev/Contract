@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibContract.HttpModels;
+using LibContract.HttpResponse;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,30 +31,58 @@ namespace Contract.Pages.Setting
 
             navigationBar.Title = RSC.Settings;
             lbLanguage.Text = RSC.Language;
-            lbTemplate.Text = RSC.SelectDefaultTemplate;
-            //lbVoice.Text = RSC.Voice;
+            lbSignature.Text = RSC.YourSignature;
+            lbNotification.Text = RSC.Notification;
+
+            //lbTemplate.Text = RSC.SelectDefaultTemplate;
             //lbNight.Text = RSC.NightView;
             lbAbout.Text = RSC.About;
 
             //imYesNo1.Source = GetYesNoIcon(true);
             //imYesNo2.Source = GetYesNoIcon(true);
+
+            if (ControlApp.UserInfo.on_notification == 0)
+            {
+                imYesNo1.Source = GetYesNoIcon(false);
+                yes1 = false;
+            }
+            else
+            {
+                imYesNo1.Source = GetYesNoIcon(true);
+                yes1 = true;
+            }
         }
 
-        //private void YesNo1_Tapped(object sender, EventArgs e)
-        //{
-        //    if (yes1)
-        //    {
-        //        imYesNo1.Source = GetYesNoIcon(false);
-        //        yes1 = false;
-        //    }
-        //    else
-        //    {
-        //        imYesNo1.Source = GetYesNoIcon(true);
-        //        yes1 = true;
-        //    }
+        private async void YesNo1_Tapped(object sender, EventArgs e)
+        {
+            if (yes1)
+            {
+                imYesNo1.Source = GetYesNoIcon(false);
+                yes1 = false;
+            }
+            else
+            {
+                imYesNo1.Source = GetYesNoIcon(true);
+                yes1 = true;
+            }
 
-        //    ControlApp.Vibrate();
-        //}
+            ControlApp.Vibrate();
+
+            User data = new User()
+            {
+                phone_number = ControlApp.UserInfo.phone_number,
+                on_notification = yes1 ? 1 : 0
+            };
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseLogin response = await Net.HttpService.SetNotificationOnOff(data);
+            ControlApp.CloseLoadingView();
+
+            if (response.result)
+                ControlApp.UserInfo.on_notification = data.on_notification;
+            else
+                await DisplayAlert(RSC.Notification, RSC.Failed, RSC.Ok);
+        }
 
         //private void YesNo2_Tapped(object sender, EventArgs e)
         //{
@@ -76,11 +106,7 @@ namespace Contract.Pages.Setting
             if (sender == cellLanguage)
             {
                 await Navigation.PushAsync(new PageLanguage(true));
-            }
-            else if (sender == cellTemplate)
-            {
-                await Navigation.PushAsync(new PageDefaultContractList());
-            }
+            } 
             else if (sender == cellSignature)
             {
                 await Navigation.PushAsync(new UnapprovedContracts.PageSign());
@@ -88,7 +114,7 @@ namespace Contract.Pages.Setting
             else if (sender == cellAbout)
             {
                 await Navigation.PushAsync(new PageAbout());
-            }
+            } 
         }
     }
 }

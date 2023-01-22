@@ -1,5 +1,7 @@
 ﻿using Contract.Resources;
 using Contract.Views;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -66,10 +68,20 @@ namespace Contract.Pages.Setting
             }
         }
 
-        private void Setlanguage(object sender)
+        private async void Setlanguage(object sender)
         { 
             string strLanguage = GetLatinLanguageName(sender);
             AppSettings.SetLanguage(strLanguage);
+
+            User user = new User()
+            {
+                phone_number = ControlApp.UserInfo.phone_number,
+                lan_id = strLanguage
+            };
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseLogin response = await Net.HttpService.UpdateLanguageCode(user);
+            ControlApp.CloseLoadingView();
 
             navigationBar.Title = RSC.Language;
             lbAppVersion.Text = RSC.AppVersion + " " + ControlApp.AppVersion;

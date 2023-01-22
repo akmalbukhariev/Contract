@@ -876,6 +876,10 @@
   <data name="NoInternet" xml:space="preserve">
     <value>Интернет йўқ</value>
   </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Билдиришнома</value>
+    <comment>Notification</comment>
+  </data>
   <data name="NotificationMessage" xml:space="preserve">
     <value>Янги шартнома</value>
     <comment>Notification</comment>

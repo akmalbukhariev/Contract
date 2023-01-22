@@ -875,6 +875,10 @@ Contracts</value>
   <data name="NoInternet" xml:space="preserve">
     <value>No internet</value>
   </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+    <comment>Notification</comment>
+  </data>
   <data name="NotificationMessage" xml:space="preserve">
     <value>New Contract</value>
     <comment>Notification</comment>

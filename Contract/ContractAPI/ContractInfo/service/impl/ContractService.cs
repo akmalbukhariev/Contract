@@ -1,4 +1,5 @@
-﻿using ContractAPI.DataAccess;
+﻿using ContractAPI.ApprovedUnapprovedContract.service.impl;
+using ContractAPI.DataAccess;
 using ContractAPI.Helper;
 using LibContract;
 using LibContract.HttpModels;
@@ -117,10 +118,27 @@ namespace ContractAPI.ContractInfo.service.impl
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
-              
+
+            CompanyInfo clientInfo = await dataBase.UserCompanyInfo
+                .Where(item => item.stir_of_company.Equals(info.client_stir))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+             
             CreateContractInfo newInfo = new CreateContractInfo(info);
             newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
-             
+
+            if (newInfo.user_phone_number.Equals(info.user_phone_number))
+            {
+                newInfo.is_approved = 1;
+                if (clientInfo == null)
+                    newInfo.is_approved_contragent = 1;
+                newInfo.contragent_phone_number = clientInfo == null ? "" : clientInfo.user_phone_number;
+            }
+            else if (newInfo.contragent_phone_number.Equals(info.user_phone_number))
+            {
+                newInfo.is_approved_contragent = 1;
+            }
+
             dataBase.CreateContractInfo.Add(newInfo);
 
             try
@@ -134,6 +152,22 @@ namespace ContractAPI.ContractInfo.service.impl
                 return response;
             }
 
+            if (!string.IsNullOrEmpty(newInfo.contragent_phone_number))
+            {
+                var responseUser = await new Users.service.impl.UserInfoService(dataBase).getUser(newInfo.contragent_phone_number);
+                if (responseUser.result && responseUser.data != null && responseUser.data.on_notification == 1)
+                {
+                    string strLan = responseUser.result ? responseUser.data.lan_id : "";
+
+                    NotificationInfo notData = new NotificationInfo()
+                    {
+                        title = LanguageConverter.GetNotificationTitle(strLan),
+                        message = LanguageConverter.MessageNewContract(strLan),
+                        phone_number = newInfo.contragent_phone_number
+                    };
+                    var responseNotification = await new Notification.service.impl.NotificationService(dataBase).sendNotification(notData);
+                }
+            }
             response.result = true;
             response.error_code = (int)HttpStatusCode.OK;
             response.message = Constants.Success;

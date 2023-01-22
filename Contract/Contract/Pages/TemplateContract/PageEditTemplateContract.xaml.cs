@@ -23,6 +23,9 @@ namespace Contract.Pages.TemplateContract
             SetModel(new PageEditTemplateContractViewModel(templateInfo, Navigation));
             btnSaveUpdate.Text = templateInfo == null ? RSC.Save : RSC.Update;
 
+            if (templateInfo == null)
+                backNavigation.Title = RSC.CreatingContractTemplate;
+
             PModel.RequestInfo();
             backNavigation.UseBackNavigation = true;
             backNavigation.EventClickBackButton += EventClickBackButton;

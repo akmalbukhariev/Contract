@@ -78,5 +78,27 @@ namespace Contract
         public const string Template_Normal = "Normal";
         public const string Template_Popular = "Popular";
         public const string Template_Simple = "Simple";
+
+        public const string Template_New = "[" +
+                                            "{"+
+                                              "\"IsButton\": true,"+
+                                              "\"IsVisibleAddButton\": true,"+
+                                              "\"IsContractServiceDetailsButton\": true,"+
+                                              "\"IsContractInfoButton\": false,"+
+                                              "\"Title\": \"\","+
+                                              "\"Description\": \"\","+
+                                              "\"Child\": ["+
+                                              "]"+
+                                              "},"+
+                                            "{"+
+                                              "\"IsButton\": true,"+
+                                              "\"IsVisibleAddButton\": true,"+
+                                              "\"IsContractServiceDetailsButton\": false,"+
+                                              "\"IsContractInfoButton\": true,"+
+                                              "\"Title\": \"\","+
+                                              "\"Description\": \"\","+
+                                              "\"Child\": ["+
+                                              "]}"+
+                                           "]";
     }
 }

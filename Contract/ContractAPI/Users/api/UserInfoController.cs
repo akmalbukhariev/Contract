@@ -42,10 +42,24 @@ namespace ContractAPI.Users.api
             return MakeResponse(response, response.error_code);
         }
 
+        [HttpPut("updateLanguageCode")]
+        public async Task<IActionResult> updateLanguageCode([FromBody] User user)
+        {
+            ResponseLogin response = await Service.updateLanguageCode(user);
+            return MakeResponse(response, response.error_code);
+        }
+
         [HttpPut("setNotificationToken")]
         public async Task<IActionResult> setNotificationToken([FromBody] User user)
         {
             ResponseLogin response = await Service.setNotificationToken(user);
+            return MakeResponse(response, response.error_code);
+        }
+
+        [HttpPost("setNotificationOnOff")]
+        public async Task<IActionResult> setNotificationOnOff([FromBody] User user)
+        {
+            ResponseLogin response = await Service.setNotificationOnOff(user);
             return MakeResponse(response, response.error_code);
         }
     }

@@ -76,7 +76,7 @@ namespace Contract.Pages.Setting
             User user = new User()
             {
                 phone_number = ControlApp.UserInfo.phone_number,
-                default_template_id = item.id
+                //default_template_id = item.id
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
@@ -86,7 +86,7 @@ namespace Contract.Pages.Setting
             string strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed;
             await DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
 
-            ControlApp.UserInfo.default_template_id = item.id;
+            //ControlApp.UserInfo.default_template_id = item.id;
             //await Navigation.PopAsync();
         }
 

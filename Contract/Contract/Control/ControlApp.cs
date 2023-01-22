@@ -24,7 +24,7 @@ namespace Contract.Control
         /// Remove the item If canceled had been successfully
         /// </summary>
         public bool CanIRemove { get; set; } = false;
-        public string UserId { get; set; }
+        //public string UserId { get; set; }
   
         private static ControlApp _instance = null;
 

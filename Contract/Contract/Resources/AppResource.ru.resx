@@ -876,6 +876,10 @@
   <data name="NoInternet" xml:space="preserve">
     <value>Нет интернета.</value>
   </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Уведомление</value>
+    <comment>Notification</comment>
+  </data>
   <data name="NotificationMessage" xml:space="preserve">
     <value>Новый контракт</value>
     <comment>Notification</comment>

@@ -16,7 +16,7 @@
         <view:ViewNavigationBar x:Name="navigationBar" 
                                 BackImage="back_left_white"  
                                 Style="{StaticResource naviBarSignUp}"
-                                Title="{x:Static resource:AppResource.Templates}"
+                                Title="{x:Static resource:AppResource.NotificationTitle}"
                                 UseWhite="True"
                                 Grid.Column="1"/> 
         <BoxView BackgroundColor="White" 

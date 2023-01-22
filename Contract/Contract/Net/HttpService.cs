@@ -36,8 +36,10 @@ namespace Contract.Net
         public static string URL_GET_USER = SERVER_URL + "UserInfo/getUser/"; //phoneNumber
         public static string URL_UPDATE_USER_PASSWORD = SERVER_URL + "UserInfo/updateUserPassword";
         public static string URL_UPDATE_DEFAULT_TMEPLATE = SERVER_URL + "UserInfo/updateDefaultTemplate";
+        public static string URL_UPDATE_LANGUAGE_CODE = SERVER_URL + "UserInfo/updateLanguageCode";
         public static string URL_UPDATE_NOTIFICATION_TOKEN = SERVER_URL + "UserInfo/setNotificationToken";
         public static string URL_SEND_NOTIFICATION_TO_CONTRAGENT = SERVER_URL + "Notification/sendNotification";
+        public static string URL_SET_NOTIFICATION_ON_OFF = SERVER_URL + "UserInfo/setNotificationOnOff";
 
         public static string URL_GET_CANCELED_CONTRACTS = SERVER_URL + "Contract/getCanceledContract";
         public static string URL_SET_CANCELED_CONTRACTS = SERVER_URL + "CanceledContract/setCanceledContract";
@@ -45,14 +47,14 @@ namespace Contract.Net
         public static string URL_SAVE_OFFER_OBJECTION = SERVER_URL + "OfferObjection/Save";
         public static string URL_SAVE_SIGNATURE = SERVER_URL + "Signature/setSignature";
         public static string URL_CHECK_SIGNATURE = SERVER_URL + "Signature/checkSignature/"; //phoneNumber
-        public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code
+        public static string URL_GET_ABOUT_APP = SERVER_URL + "App/getAboutApp/"; //lan_code 
 
         #region User info
         public static string URL_GET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/getUserCompanyInfo/"; //phoneNumber
         public static string URL_GET_USER_COMPANY_TO_CREATE_CONTRACT = SERVER_URL + "CompanyInfo/getUserCompanyInfoToCreateContract/"; //stirNumber
         public static string URL_SET_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/setUserCompanyInfo";
         public static string URL_SET_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setUserCompanyInfoWithFile";
-        public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateUserCompanyInfo";
+        public static string URL_UPDATE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateUserCompanyInfo";  
         public static string URL_UPDATE_USER_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/updateUserCompanyInfoWithFile";
         public static string URL_DELETE_USER_COMPANY_INFO = SERVER_URL + "CompanyInfo/deleteUserCompanyInfo";
         #endregion
@@ -61,6 +63,7 @@ namespace Contract.Net
         public static string URL_GET_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/getClientCompanyInfo/"; //phoneNumber
         public static string URL_SET_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/setClientCompanyInfo";
         public static string URL_SET_CLIENT_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/setClientCompanyInfoWithFile";
+        public static string URL_SET_CLIENT_COMPANY_INFO_TO_CREATE_CONTRACT = SERVER_URL + "CompanyInfo/setClientCompanyInfoToCreateContract";
         public static string URL_UPDATE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/updateClientCompanyInfo";
         public static string URL_UPDATE_CLIENT_COMPANY_INFO_WITH_FILE = SERVER_URL + "CompanyInfo/updateClientCompanyInfoWithFile";
         public static string URL_DELETE_CLIENT_COMPANY_INFO = SERVER_URL + "CompanyInfo/deleteClientCompanyInfo";
@@ -265,6 +268,20 @@ namespace Contract.Net
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
              
+            return response;
+        }
+
+        public async static Task<ResponseClientCompanyInfo> SetClientCompanyInfoToCreateContract(CompanyInfo data)
+        {
+            ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SET_CLIENT_COMPANY_INFO_TO_CREATE_CONTRACT, data);
+                response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }
+
             return response;
         }
 
@@ -613,6 +630,20 @@ namespace Contract.Net
             return response;
         }
 
+        public async static Task<ResponseLogin> UpdateLanguageCode(User data)
+        {
+            ResponseLogin response = new ResponseLogin();
+            try
+            {
+                var receivedData = await RequestPutMethod(URL_UPDATE_LANGUAGE_CODE, data);
+                response = JsonConvert.DeserializeObject<ResponseLogin>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
+
+            return response;
+        }
+
         public async static Task<ResponseNotification> SendNotificationToContragent(NotificationInfo data)
         {
             ResponseNotification response = new ResponseNotification();
@@ -623,6 +654,20 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseNotification>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseNotification>(); }
+
+            return response;
+        }
+
+        public async static Task<ResponseLogin> SetNotificationOnOff(User data)
+        {
+            ResponseLogin response = new ResponseLogin();
+            try
+            {
+                var receivedData = await RequestPostMethod(URL_SET_NOTIFICATION_ON_OFF, data);
+                response = JsonConvert.DeserializeObject<ResponseLogin>(receivedData, settings);
+            }
+            catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
+            catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
 
             return response;
         }

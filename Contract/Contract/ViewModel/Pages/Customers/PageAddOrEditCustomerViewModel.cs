@@ -116,25 +116,28 @@ namespace Contract.ViewModel.Pages.Customers
         {
             if (ControlApp.SelectedClientCompanyInfo == null) return;
 
-            Id = ControlApp.SelectedClientCompanyInfo.id;
-            CompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
-            AddressOfCompany = ControlApp.SelectedClientCompanyInfo.address_of_company;
-            SelectedDocument = ControlApp.SelectedClientCompanyInfo.document;
-            SelectedDocument_index = ControlApp.SelectedClientCompanyInfo.document_index;
-            AccountNumber = ControlApp.SelectedClientCompanyInfo.account_number;
-            CompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
-            NameOfBank = ControlApp.SelectedClientCompanyInfo.name_of_bank;
-            BankCode = ControlApp.SelectedClientCompanyInfo.bank_code;
-            AreYouQQSPayer = ControlApp.SelectedClientCompanyInfo.are_you_qqs_payer == 1? true : false;
-            QQSCode = ControlApp.SelectedClientCompanyInfo.qqs_number;
-            PhoneNnumberOfCompany = ControlApp.SelectedClientCompanyInfo.company_phone_number;
-            PositionOfSignatory = ControlApp.SelectedClientCompanyInfo.position_of_signer;
-            FullNameOfSignatory = ControlApp.SelectedClientCompanyInfo.name_of_signer;
-            IsAccountProvided = ControlApp.SelectedClientCompanyInfo.is_accountant_provided == 1? true : false;
-            AccountantName = ControlApp.SelectedClientCompanyInfo.accountant_name;
-            IsCounselProvided = ControlApp.SelectedClientCompanyInfo.is_legal_counsel_provided == 1 ? true : false;
-            CounselName = ControlApp.SelectedClientCompanyInfo.counsel_name;
-            CreatedDate = ControlApp.SelectedClientCompanyInfo.created_date;
+            //Id = ControlApp.SelectedClientCompanyInfo.id;
+            //CompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
+            //AddressOfCompany = ControlApp.SelectedClientCompanyInfo.address_of_company;
+            //SelectedDocument = ControlApp.SelectedClientCompanyInfo.document;
+            //SelectedDocument_index = ControlApp.SelectedClientCompanyInfo.document_index;
+            //AccountNumber = ControlApp.SelectedClientCompanyInfo.account_number;
+            //CompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
+            //NameOfBank = ControlApp.SelectedClientCompanyInfo.name_of_bank;
+            //BankCode = ControlApp.SelectedClientCompanyInfo.bank_code;
+            //AreYouQQSPayer = ControlApp.SelectedClientCompanyInfo.are_you_qqs_payer == 1? true : false;
+            //QQSCode = ControlApp.SelectedClientCompanyInfo.qqs_number;
+            //PhoneNnumberOfCompany = ControlApp.SelectedClientCompanyInfo.company_phone_number;
+            //PositionOfSignatory = ControlApp.SelectedClientCompanyInfo.position_of_signer;
+            //PositionOfSignatory_index = ControlApp.SelectedClientCompanyInfo.position_of_signer_index;
+            //FullNameOfSignatory = ControlApp.SelectedClientCompanyInfo.name_of_signer;
+            //IsAccountProvided = ControlApp.SelectedClientCompanyInfo.is_accountant_provided == 1? true : false;
+            //AccountantName = ControlApp.SelectedClientCompanyInfo.accountant_name;
+            //IsCounselProvided = ControlApp.SelectedClientCompanyInfo.is_legal_counsel_provided == 1 ? true : false;
+            //CounselName = ControlApp.SelectedClientCompanyInfo.counsel_name;
+            //CreatedDate = ControlApp.SelectedClientCompanyInfo.created_date;
+
+            SetCompanyInfo(ControlApp.SelectedClientCompanyInfo);
 
             if (string.IsNullOrEmpty(ControlApp.SelectedClientCompanyInfo.company_logo_url))
                 LogoImage = "plus.png";

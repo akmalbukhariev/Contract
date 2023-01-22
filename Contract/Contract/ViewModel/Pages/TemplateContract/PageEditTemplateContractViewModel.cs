@@ -371,15 +371,16 @@ namespace Contract.ViewModel.Pages.TemplateContract
             }
         }
 
-        private async void DefaultTemplate()
+        private void DefaultTemplate()
         {
-            ResponseReadyTemplate response = await Net.HttpService.GetAllReadyTemplate();
-            if (response.result)
-            {
-                ReadyTemplate found = response.data.Where(item => item.id.Equals(ControlApp.UserInfo.default_template_id)).FirstOrDefault();
-                if (found != null)
-                    JsonToTemplate(found.clauses);
-            }
+            //ResponseReadyTemplate response = await Net.HttpService.GetAllReadyTemplate();
+            //if (response.result)
+            //{
+            //ReadyTemplate found = response.data.Where(item => item.id.Equals(ControlApp.UserInfo.default_template_id)).FirstOrDefault();
+            //    if (found != null)
+            //        JsonToTemplate(found.clauses);
+            //}
+            JsonToTemplate(Constants.Template_New);
         }
 
         private void EditTemplate()

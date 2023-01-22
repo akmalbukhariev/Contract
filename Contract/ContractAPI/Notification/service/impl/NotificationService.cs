@@ -16,11 +16,9 @@ namespace ContractAPI.Notification.service.impl
 {
     public class NotificationService : AppBaseService, INotificationService
     {
-        public static IWebHostEnvironment _environment;
-        public NotificationService(ContractMakerContext db, IWebHostEnvironment environment)
+        public NotificationService(ContractMakerContext db)
         {
             dataBase = db;
-            _environment = environment;
         }
 
         public async Task<ResponseNotification> sendNotification(NotificationInfo info)
@@ -51,7 +49,8 @@ namespace ContractAPI.Notification.service.impl
             };
 
             response.result = true;
-            response.message = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+            if (FirebaseMessaging.DefaultInstance != null)
+                response.message = await FirebaseMessaging.DefaultInstance.SendAsync(message);
 
             return response;
         }
