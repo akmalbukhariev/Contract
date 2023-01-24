@@ -892,6 +892,10 @@
     <value>Контракт</value>
     <comment>Notification</comment>
   </data>
+  <data name="NotReadyYet" xml:space="preserve">
+    <value>Пока не готово это свойство!</value>
+    <comment>NotReadyYet</comment>
+  </data>
   <data name="NotSupported" xml:space="preserve">
     <value>Не поддерживается</value>
     <comment>CreateContract</comment>

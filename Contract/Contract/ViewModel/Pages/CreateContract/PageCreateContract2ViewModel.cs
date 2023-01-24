@@ -53,6 +53,8 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         public async void RrequestInfo()
         {
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             var response1 = await Net.HttpService.GetContractTemplate(ControlApp.UserInfo.phone_number);
             if (response1.result)

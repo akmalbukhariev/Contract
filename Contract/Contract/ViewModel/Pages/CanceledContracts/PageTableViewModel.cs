@@ -38,6 +38,8 @@ namespace Contract.ViewModel.Pages.CanceledContracts
         { 
             this.DataList.Clear();
 
+            if (!ControlApp.InternetOk()) return;
+
             LibContract.HttpModels.CreateContractInfo request = new LibContract.HttpModels.CreateContractInfo();
             request.user_stir = ControlApp.UserCompanyInfo.stir_of_company;
             request.user_phone_number = ControlApp.UserInfo.phone_number;

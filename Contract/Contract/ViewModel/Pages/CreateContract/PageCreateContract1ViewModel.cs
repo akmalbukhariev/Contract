@@ -33,6 +33,8 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         private async void SearchStir()
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (string.IsNullOrEmpty(CompanyStir))
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.EnterCompanyStir, RSC.Ok);
@@ -59,7 +61,9 @@ namespace Contract.ViewModel.Pages.CreateContract
         }
 
         private async void Save()
-        { 
+        {
+            if (!ControlApp.InternetOk()) return;
+
             if (!ControlApp.OpenClientInfo && !ControlApp.OpenSearchClient && (CompanyStir == "" || CompanyStir == null))
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.EnterCompanyStir}", RSC.Ok);

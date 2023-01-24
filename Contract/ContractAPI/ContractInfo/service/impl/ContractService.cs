@@ -168,10 +168,11 @@ namespace ContractAPI.ContractInfo.service.impl
                     var responseNotification = await new Notification.service.impl.NotificationService(dataBase).sendNotification(notData);
                 }
             }
+
             response.result = true;
             response.error_code = (int)HttpStatusCode.OK;
             response.message = Constants.Success;
-
+            
             return response;
         }
 

@@ -34,6 +34,7 @@ namespace ContractAPI.Helper
             { 
                 await formFile.CopyToAsync(filestream);
                 filestream.Flush();
+                //filestream.Close();
             }
         }
 

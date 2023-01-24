@@ -49,22 +49,28 @@ namespace Contract.Pages.TemplateContract
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
 
+            if (!ControlApp.InternetOk()) return;
+
             ContractTemplate item = (ContractTemplate)((Image)sender).BindingContext;
             if (item == null) return;
 
-            await Navigation.PushAsync(new PageEditTemplateContract(item.TemplateInfo));
+            await Navigation.PushAsync(new PageEditTemplateContract(item.TemplateInfo, true));
         }
 
-        private void Send_Tapped(object sender, EventArgs e)
+        private async void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            await DisplayAlert(RSC.Send, RSC.NotReadyYet, RSC.Ok);
         }
 
         private async void Edit_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             ContractTemplate item = (ContractTemplate)((Image)sender).BindingContext;
             if (item == null) return;

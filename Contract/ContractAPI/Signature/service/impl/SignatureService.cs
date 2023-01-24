@@ -30,6 +30,7 @@ namespace ContractAPI.Signature.service.impl
             {
                 string fileName = $"{info.phone_number}_sign.png";
                 FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveSignImagePath}", fileName, info.dataStream);
+                //Console.WriteLine($"PATH: {_environment.WebRootPath}{Constants.SaveSignImagePath}{fileName}");
 
                 SignatureInfo newInfo = new SignatureInfo()
                 {

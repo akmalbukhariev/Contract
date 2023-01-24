@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -61,6 +61,8 @@ namespace Contract.Pages.ApprovedContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
 
+            if (!ControlApp.InternetOk()) return;
+
             ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
@@ -68,7 +70,8 @@ namespace Contract.Pages.ApprovedContracts
             ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
             if (response.result)
             {
-                await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
+                await Browser.OpenAsync($"{HttpService.DATA_URL}{response.pdf_url}", BrowserLaunchMode.SystemPreferred);
+                //await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
                 //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
             }
             else
@@ -82,6 +85,8 @@ namespace Contract.Pages.ApprovedContracts
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
@@ -103,6 +108,8 @@ namespace Contract.Pages.ApprovedContracts
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             ApprovedContract item = (ApprovedContract)((Image)sender).BindingContext;
             if (item == null) return;

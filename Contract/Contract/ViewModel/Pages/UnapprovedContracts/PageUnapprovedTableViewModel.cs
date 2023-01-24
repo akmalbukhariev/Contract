@@ -65,6 +65,8 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
         { 
             DataList.Clear();
 
+            if (!ControlApp.InternetOk()) return;
+
             LibContract.HttpModels.ApprovedUnapprovedContract request = new LibContract.HttpModels.ApprovedUnapprovedContract()
             {
                 user_phone_number = ControlApp.UserInfo.phone_number,

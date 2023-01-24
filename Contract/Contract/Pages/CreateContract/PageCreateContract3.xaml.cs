@@ -13,6 +13,7 @@ using Xamarin.Forms.Xaml;
 using LibContract;
 using Contract.Net;
 using System.Threading;
+using Xamarin.Essentials;
 
 namespace Contract.Pages.CreateContract
 {
@@ -65,19 +66,24 @@ namespace Contract.Pages.CreateContract
             ClickAnimationView(boxView);
             ClickAnimationView(stackView);
 
+            if (!ControlApp.InternetOk()) return;
+
             if (string.IsNullOrEmpty(contractUrl))
             {
                 await DisplayAlert(RSC.CreateContract, RSC.CouldNotCreateContract, RSC.Ok);
                 return;
             }
 
-            await Navigation.PushAsync(new PageShowContract($"{HttpService.DATA_URL}{contractUrl}"));
+            //await Navigation.PushAsync(new PageShowContract($"{HttpService.DATA_URL}{contractUrl}"));
+            await Browser.OpenAsync($"{HttpService.DATA_URL}{contractUrl}", BrowserLaunchMode.SystemPreferred);
         }
 
         private async void Send_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxSend);
             ClickAnimationView(stackSend);
+
+            if (!ControlApp.InternetOk()) return;
 
             if (string.IsNullOrEmpty(contractUrl))
             {
@@ -91,7 +97,9 @@ namespace Contract.Pages.CreateContract
         private async void Cancel_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(boxCancel);
-            ClickAnimationView(stackCancel); 
+            ClickAnimationView(stackCancel);
+
+            if (!ControlApp.InternetOk()) return;
 
             await Navigation.PushModalAsync(new PageCancelContract(ContractInfo,RSC.CreateContract ,true));
         }

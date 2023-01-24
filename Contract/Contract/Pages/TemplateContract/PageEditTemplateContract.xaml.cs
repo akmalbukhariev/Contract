@@ -15,16 +15,25 @@ namespace Contract.Pages.TemplateContract
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEditTemplateContract : IPage
-    {  
-        public PageEditTemplateContract(LibContract.HttpModels.ContractTemplate templateInfo = null)
+    {
+        bool view = false;
+        public PageEditTemplateContract(LibContract.HttpModels.ContractTemplate templateInfo = null, bool clickView = false)
         {
             InitializeComponent();
+            view = clickView;
+
+            grMain.IsEnabled = !clickView;
+            btnEdit.IsVisible = !clickView;
+            btnAdd.IsVisible = !clickView;
+            btnSaveUpdate.IsVisible = !clickView;
 
             SetModel(new PageEditTemplateContractViewModel(templateInfo, Navigation));
             btnSaveUpdate.Text = templateInfo == null ? RSC.Save : RSC.Update;
 
-            if (templateInfo == null)
+            if (templateInfo == null && !clickView)
                 backNavigation.Title = RSC.CreatingContractTemplate;
+            else if(clickView)
+                backNavigation.Title = RSC.View;
 
             PModel.RequestInfo();
             backNavigation.UseBackNavigation = true;

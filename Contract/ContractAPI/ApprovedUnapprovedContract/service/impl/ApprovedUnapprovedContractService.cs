@@ -64,7 +64,25 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                 return response;
             }
 
-            response.contragent_phone_number = info.user_phone_number.Equals(found.contragent_phone_number)? found.user_phone_number : found.contragent_phone_number;
+            response.contragent_phone_number = info.user_phone_number.Equals(found.contragent_phone_number) ? found.user_phone_number : found.contragent_phone_number;
+
+            if (!string.IsNullOrEmpty(response.contragent_phone_number))
+            {
+                var responseUser = await new Users.service.impl.UserInfoService(dataBase).getUser(response.contragent_phone_number);
+                if (responseUser.result && responseUser.data != null && responseUser.data.on_notification == 1)
+                {
+                    string strLan = responseUser.result ? responseUser.data.lan_id : "";
+
+                    NotificationInfo notData = new NotificationInfo()
+                    {
+                        title = LanguageConverter.GetNotificationTitle(strLan),
+                        message = LanguageConverter.MessageContractApproved(strLan),
+                        phone_number = response.contragent_phone_number
+                    };
+                    var responseNotification = await new Notification.service.impl.NotificationService(dataBase).sendNotification(notData);
+                }
+            }
+
             response.result = true;
             response.message = Constants.Success;
             response.error_code = (int)HttpStatusCode.OK;

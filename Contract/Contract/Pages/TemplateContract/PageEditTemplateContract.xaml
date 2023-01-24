@@ -32,7 +32,8 @@
                                     Title="{x:Static resource:AppResource.EditContractTemplate}"
                                     UseWhite="True"/>
             <ScrollView Grid.Row="1">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,80,1,Auto,*,Auto,Auto"
+                <Grid x:Name="grMain" 
+                      RowDefinitions="Auto,Auto,Auto,Auto,80,1,Auto,*,Auto,Auto"
                       RowSpacing="15">
                     <BoxView BackgroundColor="White"
                              CornerRadius="10"
@@ -109,7 +110,8 @@
                            HorizontalOptions="StartAndExpand"
                            VerticalOptions="CenterAndExpand"
                            Grid.Row="6"/>
-                    <Button Text="{Binding BtnEditDoneText}" 
+                    <Button x:Name="btnEdit" 
+                            Text="{Binding BtnEditDoneText}" 
                             TextColor="White"
                             BackgroundColor="{StaticResource AppColor}"
                             FontSize="13"
@@ -178,7 +180,8 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-                    <Button Text="{x:Static resource:AppResource.Add}"
+                    <Button x:Name="btnAdd"
+                            Text="{x:Static resource:AppResource.Add}"
                             Style="{StaticResource btnNext}"
                             TextColor="{StaticResource AppColor}"
                             BorderColor="{StaticResource AppColor}"

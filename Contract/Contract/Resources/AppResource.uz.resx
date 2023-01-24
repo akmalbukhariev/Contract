@@ -916,6 +916,10 @@ shartnomalar mavjud emas.</value>
     <value>Shartnoma</value>
     <comment>Notification</comment>
   </data>
+  <data name="NotReadyYet" xml:space="preserve">
+    <value>Bu xususiyat hali tayyor emas!</value>
+    <comment>NotReadyYet</comment>
+  </data>
   <data name="NotSupported" xml:space="preserve">
     <value>Qo'llab-quvvatlanmaydi</value>
     <comment>CreateContract</comment>

@@ -44,6 +44,8 @@ namespace Contract.Pages.Customers
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             var tListView = sender as ListView;
             Customer item = (Customer)tListView.SelectedItem;
 
@@ -77,6 +79,8 @@ namespace Contract.Pages.Customers
 
         private async void Add_Clicked(object sender, EventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             model.SetTransitionType();
             await Navigation.PushAsync(new PageAddOrEditCustomer());
         }

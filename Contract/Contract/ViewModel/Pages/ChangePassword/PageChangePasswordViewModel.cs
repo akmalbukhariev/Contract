@@ -26,6 +26,8 @@ namespace Contract.ViewModel.Pages.ChangePassword
 
         async void Update()
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (string.IsNullOrEmpty(EnterNewPassword) || string.IsNullOrEmpty(EnterNewPassword) || string.IsNullOrEmpty(RepeatNewPassword))
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.Password, RSC.FieldEmpty, RSC.Ok);

@@ -48,12 +48,16 @@ namespace Contract.Pages.ContractNumber
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
         }
 
         private async void Edit_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             Model.ContractNumber item = (Model.ContractNumber)((Image)sender).BindingContext;
             if (item == null) return;
@@ -65,6 +69,8 @@ namespace Contract.Pages.ContractNumber
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             if (!await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.DeleteMessage, RSC.Ok, RSC.Cancel)) return;
             

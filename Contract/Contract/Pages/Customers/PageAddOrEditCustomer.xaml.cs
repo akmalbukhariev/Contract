@@ -164,6 +164,8 @@ namespace Contract.Pages.Customers
 
         private async void Finished_Clicked(object sender, EventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (PModel.IsFieildEmpty())
             {
                 await DisplayAlert(RSC.CreateContract, RSC.FieldEmpty, RSC.Ok);

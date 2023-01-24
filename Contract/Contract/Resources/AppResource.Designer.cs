@@ -1808,6 +1808,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not ready yet this feature!.
+        /// </summary>
+        internal static string NotReadyYet {
+            get {
+                return ResourceManager.GetString("NotReadyYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not supported.
         /// </summary>
         internal static string NotSupported {

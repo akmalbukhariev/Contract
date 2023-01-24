@@ -102,7 +102,7 @@ namespace ContractAPI.CreatePdf.service
             var gr = XGraphics.FromPdfPage(page);
 
             var fontTitle = new XFont("Times New Roman", 11, XFontStyle.Bold);
-            var fontText = new XFont("Times New Roman", 11, XFontStyle.Regular);
+            var fontText = new XFont("Times New Roman", 7, XFontStyle.Regular);
 
             XRect layoutText = new XRect(20, 50, page.Width - 35, page.Height - 20);
             XRect layoutNextText = layoutText;
@@ -258,7 +258,7 @@ namespace ContractAPI.CreatePdf.service
             }
 
             #region Column header
-            var fontColumn = new XFont("Times New Roman", 9, XFontStyle.Bold);
+            var fontColumn = new XFont("Times New Roman", 7, XFontStyle.Regular);
             var colorColumnText = XBrushes.Black;
 
             int widthOfNo = 30;
@@ -420,7 +420,7 @@ namespace ContractAPI.CreatePdf.service
             var color = XPens.Black;
             var textColor = XBrushes.Black;
             var font1 = new XFont("Times New Roman", 11, XFontStyle.Bold);
-            var font2 = new XFont("Times New Roman", 9, XFontStyle.Bold);
+            var font2 = new XFont("Times New Roman", 9, XFontStyle.Regular);
 
             int heightOfRow = 20;
 

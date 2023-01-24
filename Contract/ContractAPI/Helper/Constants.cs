@@ -23,10 +23,10 @@ namespace ContractAPI
 
         public const string TimeFormat = "yyyyMMdd_hhmmss.fff";
 
-        public const string SaveCompanyImagePath = "\\Upload\\images\\company\\";
-        public const string SaveSignImagePath = "\\Upload\\images\\signature\\";
-        public const string SaveContractPdfPath = "\\Upload\\contracts_pdf\\";
-        public const string SaveContractPdfUrl = "Upload\\contracts_pdf\\";
-        public const string NotificationKey = "\\Notification\\contract_private_key.json";
+        public const string SaveCompanyImagePath = "/Upload/images/company/";
+        public const string SaveSignImagePath = "/Upload/images/signature/";
+        public const string SaveContractPdfPath = "/Upload/contracts_pdf/";
+        public const string SaveContractPdfUrl = "Upload/contracts_pdf/";
+        public const string NotificationKey = "/Notification//contract_private_key.json";
     }
 }

@@ -25,6 +25,8 @@ namespace Contract.ViewModel.Pages.Setting
 
         async void Send()
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (string.IsNullOrEmpty(SelectedOffer) || string.IsNullOrEmpty(Description))
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.Password, RSC.FieldEmpty, RSC.Ok);

@@ -32,6 +32,8 @@ namespace Contract.Pages
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             var tListView = sender as ListView;
             tListView.SelectedItem = null;
 
@@ -74,6 +76,8 @@ namespace Contract.Pages
 
         private async void ChildMenu_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             var tListView = sender as ListView;
             tListView.SelectedItem = null;
 

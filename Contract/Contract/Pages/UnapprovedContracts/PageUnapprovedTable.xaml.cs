@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -58,6 +58,8 @@ namespace Contract.Pages.UnapprovedContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
 
+            if (!ControlApp.InternetOk()) return;
+
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
@@ -65,7 +67,8 @@ namespace Contract.Pages.UnapprovedContracts
             ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
             if (response.result)
             {
-                await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
+                await Browser.OpenAsync($"{HttpService.DATA_URL}{response.pdf_url}", BrowserLaunchMode.SystemPreferred );
+                //await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
                 //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
             }
             else
@@ -79,6 +82,8 @@ namespace Contract.Pages.UnapprovedContracts
         {
             ClickAnimationView((Image)sender); 
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
@@ -106,16 +111,16 @@ namespace Contract.Pages.UnapprovedContracts
                 if (response.result)
                 {
                     PModel.RequestInfo();
-                    if (!string.IsNullOrEmpty(response.contragent_phone_number))
-                    {
-                        LibContract.HttpModels.NotificationInfo request1 = new LibContract.HttpModels.NotificationInfo()
-                        {
-                            title = RSC.NotificationTitle,
-                            message = item.Preparer.Equals(RSC.Contragent)? RSC.NotificationMessage1 : RSC.NotificationMessage,
-                            phone_number = response.contragent_phone_number
-                        };
-                        ResponseNotification response1 = await HttpService.SendNotificationToContragent(request1);
-                    }
+                    //if (!string.IsNullOrEmpty(response.contragent_phone_number))
+                    //{
+                    //    LibContract.HttpModels.NotificationInfo request1 = new LibContract.HttpModels.NotificationInfo()
+                    //    {
+                    //        title = RSC.NotificationTitle,
+                    //        message = item.Preparer.Equals(RSC.Contragent)? RSC.NotificationMessage1 : RSC.NotificationMessage,
+                    //        phone_number = response.contragent_phone_number
+                    //    };
+                    //    ResponseNotification response1 = await HttpService.SendNotificationToContragent(request1);
+                    //}
                 }
             }
         }
@@ -124,6 +129,8 @@ namespace Contract.Pages.UnapprovedContracts
         {
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
+
+            if (!ControlApp.InternetOk()) return;
 
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
@@ -147,6 +154,8 @@ namespace Contract.Pages.UnapprovedContracts
             ClickAnimationView((Image)sender);
             ControlApp.Vibrate();
 
+            if (!ControlApp.InternetOk()) return;
+
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
@@ -161,7 +170,9 @@ namespace Contract.Pages.UnapprovedContracts
         }
          
         private async void Button_Clicked(object sender, EventArgs e)
-        { 
+        {
+            if (!ControlApp.InternetOk()) return;
+
             if (btnYes == sender)
             { 
                 if (string.IsNullOrEmpty(entText.Text.Trim()))

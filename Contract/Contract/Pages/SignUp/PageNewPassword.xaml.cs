@@ -32,6 +32,8 @@ namespace Contract.Pages.SignUp
 
         private async void Next_Clicked(object sender, EventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (string.IsNullOrEmpty(password1.Text) || string.IsNullOrEmpty(password2.Text))
             {
                 await DisplayAlert(RSC.Password, RSC.SignUp_Message_2, RSC.Ok);

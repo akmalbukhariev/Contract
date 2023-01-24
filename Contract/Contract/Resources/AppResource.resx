@@ -891,6 +891,10 @@ Contracts</value>
     <value>Contract</value>
     <comment>Notification</comment>
   </data>
+  <data name="NotReadyYet" xml:space="preserve">
+    <value>Not ready yet this feature!</value>
+    <comment>NotReadyYet</comment>
+  </data>
   <data name="NotSupported" xml:space="preserve">
     <value>Not supported</value>
     <comment>CreateContract</comment>

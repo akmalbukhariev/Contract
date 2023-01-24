@@ -124,6 +124,8 @@ namespace Contract.Pages.UnapprovedContracts
             //var mainDir = FileSystem.AppDataDirectory;
             //var strFilePath = Path.Combine(mainDir, $"12_{DateTime.Now.ToString("yyyyMMdd_hhmmss.fff")}_.png");
 
+            if (!ControlApp.InternetOk()) return;
+
             float x = float.MaxValue;
             float y = float.MaxValue;
             float width = 0.0f;

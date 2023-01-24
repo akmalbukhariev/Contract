@@ -37,6 +37,8 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
         public async void RequestInfo()
         {
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseUserCompanyInfo response = await Net.HttpService.GetUserCompanyInfo(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
@@ -71,6 +73,8 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
         private async void Save()
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (IsFieildEmpty())
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.MyCompany, RSC.FieldEmpty, RSC.Ok);

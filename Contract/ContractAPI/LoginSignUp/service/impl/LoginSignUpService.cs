@@ -20,6 +20,19 @@ namespace ContractAPI.LoginSignUp.service.impl
 
         public async Task<ResponseLogin> login(Login user)
         {
+            /*MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString;
+            myConnectionString = "server=65.20.68.60;uid=contract;pwd=Aa!0532531989;database=contractmaker";
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString);
+                conn.Open();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                 
+            }*/
+
             ResponseLogin response = new ResponseLogin();
             //List<User> tList = await dataBase.Users.ToListAsync();
 

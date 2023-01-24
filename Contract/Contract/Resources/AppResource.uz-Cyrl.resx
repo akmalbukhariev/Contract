@@ -892,6 +892,10 @@
     <value>Шартнома</value>
     <comment>Notification</comment>
   </data>
+  <data name="NotReadyYet" xml:space="preserve">
+    <value>Бу хусусият ҳали тайёр емас!</value>
+    <comment>NotReadyYet</comment>
+  </data>
   <data name="NotSupported" xml:space="preserve">
     <value>Қўллаб-қувватланмайди</value>
     <comment>CreateContract</comment>

@@ -82,7 +82,7 @@ namespace Contract
         public const string Template_New = "[" +
                                             "{"+
                                               "\"IsButton\": true,"+
-                                              "\"IsVisibleAddButton\": true,"+
+                                              "\"IsVisibleAddButton\": false,"+
                                               "\"IsContractServiceDetailsButton\": true,"+
                                               "\"IsContractInfoButton\": false,"+
                                               "\"Title\": \"\","+
@@ -92,7 +92,7 @@ namespace Contract
                                               "},"+
                                             "{"+
                                               "\"IsButton\": true,"+
-                                              "\"IsVisibleAddButton\": true,"+
+                                              "\"IsVisibleAddButton\": false,"+
                                               "\"IsContractServiceDetailsButton\": false,"+
                                               "\"IsContractInfoButton\": true,"+
                                               "\"Title\": \"\","+

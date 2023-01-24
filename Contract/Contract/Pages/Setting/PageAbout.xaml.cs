@@ -22,7 +22,9 @@ namespace Contract.Pages.Setting
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-             
+
+            if (!ControlApp.InternetOk()) return;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseAboutApp response = await Net.HttpService.GetAboutApp(AppSettings.GetLanguage());
             ControlApp.CloseLoadingView();

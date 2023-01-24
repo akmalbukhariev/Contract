@@ -58,6 +58,8 @@ namespace Contract.Pages
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (ControlApp.UserCompanyInfo == null)
             {
                 await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);
@@ -86,12 +88,16 @@ namespace Contract.Pages
 
         private void ShowMenu_Tapped(object sender, EventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             ClickAnimationView((Image)sender);
             OnShowMenu(true);
         }
 
         private async void CreateContract_Clicked(object sender, EventArgs e)
         {
+            if (!ControlApp.InternetOk()) return;
+
             if (ControlApp.UserCompanyInfo == null)
             {
                 await DisplayAlert(RSC.MyCompany, RSC.FillInfoTitle, RSC.Ok);

@@ -67,9 +67,9 @@ namespace Contract.Pages.Login
             }
         }
 
-        private void ClickFindPassword(object sender, EventArgs e)
+        private async void ClickFindPassword(object sender, EventArgs e)
         {
-            
+            await DisplayAlert(RSC.Password, RSC.NotReadyYet, RSC.Ok);
         }
 
         PageLoginViewModel PModel
