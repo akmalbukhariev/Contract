@@ -73,6 +73,8 @@ namespace Contract.Pages.Setting
             string strLanguage = GetLatinLanguageName(sender);
             AppSettings.SetLanguage(strLanguage);
 
+            if (ControlApp.UserInfo == null) return;
+
             User user = new User()
             {
                 phone_number = ControlApp.UserInfo.phone_number,

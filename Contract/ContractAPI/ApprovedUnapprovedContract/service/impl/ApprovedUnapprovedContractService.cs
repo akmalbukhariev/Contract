@@ -66,6 +66,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
 
             response.contragent_phone_number = info.user_phone_number.Equals(found.contragent_phone_number) ? found.user_phone_number : found.contragent_phone_number;
 
+            #region Send Notification
             if (!string.IsNullOrEmpty(response.contragent_phone_number))
             {
                 var responseUser = await new Users.service.impl.UserInfoService(dataBase).getUser(response.contragent_phone_number);
@@ -82,6 +83,7 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
                     var responseNotification = await new Notification.service.impl.NotificationService(dataBase).sendNotification(notData);
                 }
             }
+            #endregion
 
             response.result = true;
             response.message = Constants.Success;

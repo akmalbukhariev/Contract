@@ -29,6 +29,8 @@ namespace ContractAPI.CreatePdf.service
 
         private List<ContractTemplateJson> JsonList;
 
+        string fontTitleFamily = "Verdana";
+        string fontTextFamily = "Verdana";
         string SaveSignaturePath = string.Empty;
         XSize SizeOfClientPositionOfSignaer;
         XSize SizeOfUserPositionOfSignaer;
@@ -40,7 +42,10 @@ namespace ContractAPI.CreatePdf.service
         public void CreateContract(string saveFilePath, string rootPath)
         {
             SaveSignaturePath = rootPath + Constants.SaveSignImagePath;
-            //GlobalFontSettings.FontResolver = new FontResolver();
+
+            //GlobalFontSettings.FontResolver = new SegoeWpFontResolver();
+            //GlobalFontSettings.DefaultFontEncoding = PdfFontEncoding.WinAnsi;
+
             var pdf = new PdfDocument();
              
             double qqs = double.Parse(ContractInfo.amount_of_qqs.Replace("%","").Trim());
@@ -100,9 +105,9 @@ namespace ContractAPI.CreatePdf.service
         {
             var page = pdf.AddPage();
             var gr = XGraphics.FromPdfPage(page);
-
-            var fontTitle = new XFont("Times New Roman", 11, XFontStyle.Bold);
-            var fontText = new XFont("Times New Roman", 7, XFontStyle.Regular);
+             
+            var fontTitle = new XFont(fontTitleFamily, 11, XFontStyle.Bold);
+            var fontText = new XFont(fontTextFamily, 7, XFontStyle.Italic);
 
             XRect layoutText = new XRect(20, 50, page.Width - 35, page.Height - 20);
             XRect layoutNextText = layoutText;
@@ -193,7 +198,7 @@ namespace ContractAPI.CreatePdf.service
                         drawText.Alignment = XParagraphAlignment.Center;
                         drawText.DrawString(strTitle, fontTitle, textColor, layoutNextText);
 
-                        layoutNextText.Y += textHeight;
+                        layoutNextText.Y += textHeight + lineHeight;
                     }
 
                     for (int j = chIndex; j < item.Child.Count; j++)
@@ -258,7 +263,7 @@ namespace ContractAPI.CreatePdf.service
             }
 
             #region Column header
-            var fontColumn = new XFont("Times New Roman", 7, XFontStyle.Regular);
+            var fontColumn = new XFont(fontTitleFamily, 7, XFontStyle.Italic);
             var colorColumnText = XBrushes.Black;
 
             int widthOfNo = 30;
@@ -419,8 +424,8 @@ namespace ContractAPI.CreatePdf.service
 
             var color = XPens.Black;
             var textColor = XBrushes.Black;
-            var font1 = new XFont("Times New Roman", 11, XFontStyle.Bold);
-            var font2 = new XFont("Times New Roman", 9, XFontStyle.Regular);
+            var font1 = new XFont(fontTitleFamily, 11, XFontStyle.Bold);
+            var font2 = new XFont(fontTextFamily, 9, XFontStyle.Italic);
 
             int heightOfRow = 20;
 

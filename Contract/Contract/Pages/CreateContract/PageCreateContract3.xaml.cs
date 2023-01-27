@@ -101,7 +101,7 @@ namespace Contract.Pages.CreateContract
 
             if (!ControlApp.InternetOk()) return;
 
-            await Navigation.PushModalAsync(new PageCancelContract(ContractInfo,RSC.CreateContract ,true));
+            await Navigation.PushModalAsync(new PageCancelContract(ContractInfo, RSC.CreateContract ,true));
         }
     }
 }

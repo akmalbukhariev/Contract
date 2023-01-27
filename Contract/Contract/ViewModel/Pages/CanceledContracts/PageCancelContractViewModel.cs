@@ -36,7 +36,8 @@ namespace Contract.ViewModel.Pages.CanceledContracts
                 await Application.Current.MainPage.DisplayAlert(RSC.Cancel, RSC.Cancel_Message_2, RSC.Ok);
                 return;
             }
- 
+
+            CanceledContractInfo.user_phone_number = ControlApp.UserInfo.phone_number;
             CanceledContractInfo.comment = CommentText;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);

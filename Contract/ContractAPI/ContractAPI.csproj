@@ -6,6 +6,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Ubuntu-Bold.ttf" />
+    <None Remove="Fonts\Ubuntu-BoldItalic.ttf" />
+    <None Remove="Fonts\Ubuntu-Italic.ttf" />
+    <None Remove="Fonts\Ubuntu-Light.ttf" />
+    <None Remove="Fonts\Ubuntu-LightItalic.ttf" />
+    <None Remove="Fonts\Ubuntu-Medium.ttf" />
+    <None Remove="Fonts\Ubuntu-MediumItalic.ttf" />
+    <None Remove="Fonts\Ubuntu-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Ubuntu-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-BoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-Italic.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-LightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-MediumItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Ubuntu-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FirebaseAdmin" Version="2.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.16" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.16" />

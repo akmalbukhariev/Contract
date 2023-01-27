@@ -34,6 +34,13 @@ namespace Contract.ViewModel.Pages.CanceledContracts
         }
         #endregion
 
+        public ICommand RefreshCommand => new Command(Refresh);
+
+        private void Refresh()
+        {
+            ControlApp.Vibrate();
+            RequestInfo();
+        }
         public async void RequestInfo()
         { 
             this.DataList.Clear();
@@ -85,6 +92,8 @@ namespace Contract.ViewModel.Pages.CanceledContracts
                     CloseEmptyMessage = false;
                 }
             }
+
+            IsRefreshing = false;
         }
 
         public void Add(CanceledContract item)

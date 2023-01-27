@@ -40,6 +40,14 @@ namespace Contract.ViewModel.Pages.CurrentContracts
         }
         #endregion
 
+        public ICommand RefreshCommand => new Command(Refresh);
+
+        private void Refresh()
+        {
+            ControlApp.Vibrate();
+            RequestInfo();
+        }
+
         public async void RequestInfo()
         { 
             DataList.Clear();
@@ -92,6 +100,8 @@ namespace Contract.ViewModel.Pages.CurrentContracts
                     CloseEmptyMessage = false;
                 }
             }
+
+            IsRefreshing = false;
         }
 
         public void Add(ApprovedContract item)

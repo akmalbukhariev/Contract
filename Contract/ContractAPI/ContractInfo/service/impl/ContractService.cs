@@ -152,6 +152,7 @@ namespace ContractAPI.ContractInfo.service.impl
                 return response;
             }
 
+            #region Send Notification
             if (!string.IsNullOrEmpty(newInfo.contragent_phone_number))
             {
                 var responseUser = await new Users.service.impl.UserInfoService(dataBase).getUser(newInfo.contragent_phone_number);
@@ -168,6 +169,7 @@ namespace ContractAPI.ContractInfo.service.impl
                     var responseNotification = await new Notification.service.impl.NotificationService(dataBase).sendNotification(notData);
                 }
             }
+            #endregion
 
             response.result = true;
             response.error_code = (int)HttpStatusCode.OK;
@@ -244,6 +246,35 @@ namespace ContractAPI.ContractInfo.service.impl
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
+
+            string contrAgentPhoneNumber = "";
+            if (found.user_phone_number.Equals(info.user_phone_number))
+            {
+                contrAgentPhoneNumber = found.contragent_phone_number;
+            }
+            else if (found.contragent_phone_number.Equals(info.user_phone_number))
+            {
+                contrAgentPhoneNumber = found.user_phone_number;
+            }
+
+            #region Send Notification
+            if (!string.IsNullOrEmpty(contrAgentPhoneNumber))
+            {
+                var responseUser = await new Users.service.impl.UserInfoService(dataBase).getUser(contrAgentPhoneNumber);
+                if (responseUser.result && responseUser.data != null && responseUser.data.on_notification == 1)
+                {
+                    string strLan = responseUser.result ? responseUser.data.lan_id : "";
+
+                    NotificationInfo notData = new NotificationInfo()
+                    {
+                        title = LanguageConverter.GetNotificationTitle(strLan),
+                        message = LanguageConverter.MessageContractCanceled(strLan),
+                        phone_number = contrAgentPhoneNumber
+                    };
+                    var responseNotification = await new Notification.service.impl.NotificationService(dataBase).sendNotification(notData);
+                }
+            }
+            #endregion
 
             response.result = true;
             response.error_code = (int)HttpStatusCode.OK;

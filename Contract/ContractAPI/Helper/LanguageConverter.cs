@@ -75,5 +75,28 @@ namespace ContractAPI.Helper
 
             return strRes;
         }
+
+        public static string MessageContractCanceled(string lanCode)
+        {
+            string strRes = "";
+
+            switch (lanCode)
+            {
+                case Constants.LanUz:
+                    strRes = "Shartnoma tasdiqlandmadi";
+                    break;
+                case Constants.LanUzCyrl:
+                    strRes = "Шартнома тасдиқландмади";
+                    break;
+                case Constants.LanEn:
+                    strRes = "Contract has not been approved";
+                    break;
+                case Constants.LanRu:
+                    strRes = "Контракт не утвержден";
+                    break;
+            }
+
+            return strRes;
+        }
     }
 }

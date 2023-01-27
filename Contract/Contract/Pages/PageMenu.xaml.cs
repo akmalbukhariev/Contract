@@ -67,7 +67,9 @@ namespace Contract.Pages
                     bool res = await Application.Current.MainPage.DisplayAlert(RSC.SignOut, RSC.SignOutText, RSC.Ok, RSC.Cancel);
                     if (res)
                     {
-                        Preferences.Set("AutoLogin", ""); 
+                        Preferences.Set("AutoLogin", "");
+                        ControlApp.UserInfo = null;
+                        ControlApp.UserCompanyInfo = null;
                         Application.Current.MainPage = new TransitionNavigationPage(new Login.PageLogin());
                     }
                     break;
