@@ -29,13 +29,19 @@ namespace Contract.ViewModel.Pages.Login
         {
             if (!ControlApp.InternetOk()) return;
 
-            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            if (string.IsNullOrEmpty(PhoneNumber) || string.IsNullOrEmpty(Password))
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.Login, RSC.FieldEmpty, RSC.Ok);
+                return;
+            }
 
             var data = new LibContract.HttpModels.Login()
             {
                 phone_number = PhoneNumber,
                 password = Password,
             };
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseLogin response = await HttpService.Login(data);
             ControlApp.CloseLoadingView();
 

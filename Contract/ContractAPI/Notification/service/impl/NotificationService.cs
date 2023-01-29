@@ -50,8 +50,17 @@ namespace ContractAPI.Notification.service.impl
 
             response.result = true;
             if (FirebaseMessaging.DefaultInstance != null)
-                response.message = await FirebaseMessaging.DefaultInstance.SendAsync(message);
-
+            {
+                try
+                {
+                    response.message = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+                }
+                catch (FirebaseException ex)
+                {
+                    response.result = false;
+                    response.message = ex.Message;
+                }
+            }
             return response;
         }
     }

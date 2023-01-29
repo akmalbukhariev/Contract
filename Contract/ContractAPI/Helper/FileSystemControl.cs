@@ -24,18 +24,24 @@ namespace ContractAPI.Helper
         }
 
         public async static void CreateFile(string savePath, string fileName, IFormFile formFile)
-        {
+        { 
             if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
             }
 
             using (FileStream filestream = File.Create($"{savePath}{fileName}"))
-            { 
-                await formFile.CopyToAsync(filestream);
-                filestream.Flush();
-                //filestream.Close();
-            }
+            {
+                try
+                {
+                    await formFile.CopyToAsync(filestream);
+                    filestream.Flush();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            } 
         }
 
         public static void DeleteFile(string filePath)

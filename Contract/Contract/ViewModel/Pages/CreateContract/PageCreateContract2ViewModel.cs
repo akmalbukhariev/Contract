@@ -170,6 +170,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 var found = responseGetClients.data.Find(item => item.stir_of_company.Equals(ClientCompanyInfo.stir_of_company));
                 if (found == null)
                 {
+                    ClientCompanyInfo.id = 0;
                     await Net.HttpService.SetClientCompanyInfoToCreateContract(ClientCompanyInfo);
                 }
                 else
