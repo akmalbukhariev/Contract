@@ -91,6 +91,8 @@ namespace Contract.Pages.ContractNumber
             ResponseContractNumberTemplate response = await Net.HttpService.UpdateContractNumber(data);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
             await DisplayAlert(RSC.ContractNumber, strMessage, RSC.Ok);
 

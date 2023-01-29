@@ -73,6 +73,8 @@ namespace Contract.Pages.Setting
             string strLanguage = GetLatinLanguageName(sender);
             AppSettings.SetLanguage(strLanguage);
 
+            ControlApp.LanguageId = strLanguage;
+
             if (ControlApp.UserInfo == null) return;
 
             User user = new User()
@@ -84,6 +86,8 @@ namespace Contract.Pages.Setting
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseLogin response = await Net.HttpService.UpdateLanguageCode(user);
             ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
 
             navigationBar.Title = RSC.Language;
             lbAppVersion.Text = RSC.AppVersion + " " + ControlApp.AppVersion;

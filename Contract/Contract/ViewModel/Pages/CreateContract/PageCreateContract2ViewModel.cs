@@ -57,6 +57,8 @@ namespace Contract.ViewModel.Pages.CreateContract
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             var response1 = await Net.HttpService.GetContractTemplate(ControlApp.UserInfo.phone_number);
+            if (!ControlApp.CheckResponse(response1)) return;
+
             if (response1.result)
             {
                 foreach (LibContract.HttpModels.ContractTemplate item in response1.data)
@@ -66,6 +68,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
 
             var response2 = await Net.HttpService.GetNewContractNumber(ControlApp.UserInfo.phone_number);
+            if (!ControlApp.CheckResponse(response2)) return;
+
             ContractSequenceNumber = response2.result ? response2.new_contract_sequence_number : "";
 
             ResponseContractNumberTemplateInfo = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
@@ -138,6 +142,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             ControlApp.ShowLoadingView(RSC.PleaseWait);
 
             var responseCreate = await Net.HttpService.CreateContract(contractinfo);
+            if (!ControlApp.CheckResponse(responseCreate)) return;
+
             if (!responseCreate.result)
             {
                 ControlApp.CloseLoadingView();
@@ -146,6 +152,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
 
             var responseService = await Net.HttpService.SetServiceInfo(serviceList);
+            if (!ControlApp.CheckResponse(responseService)) return;
+
             if (!responseService.result)
             {
                 ControlApp.CloseLoadingView();
@@ -155,6 +163,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
 
             var responseGetClients = await Net.HttpService.GetClientCompanyInfo(ControlApp.UserInfo.phone_number);
+            if (!ControlApp.CheckResponse(responseGetClients)) return;
+
             if (responseGetClients.result)
             {
                 var found = responseGetClients.data.Find(item => item.stir_of_company.Equals(ClientCompanyInfo.stir_of_company));

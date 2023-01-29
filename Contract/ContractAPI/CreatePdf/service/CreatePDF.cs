@@ -29,8 +29,8 @@ namespace ContractAPI.CreatePdf.service
 
         private List<ContractTemplateJson> JsonList;
 
-        string fontTitleFamily = "Verdana";
-        string fontTextFamily = "Verdana";
+        string fontTitleFamily = "Times New Roman";
+        string fontTextFamily = "Times New Roman";
         string SaveSignaturePath = string.Empty;
         XSize SizeOfClientPositionOfSignaer;
         XSize SizeOfUserPositionOfSignaer;
@@ -107,7 +107,7 @@ namespace ContractAPI.CreatePdf.service
             var gr = XGraphics.FromPdfPage(page);
              
             var fontTitle = new XFont(fontTitleFamily, 11, XFontStyle.Bold);
-            var fontText = new XFont(fontTextFamily, 7, XFontStyle.Italic);
+            var fontText = new XFont(fontTextFamily, 7, XFontStyle.Regular);
 
             XRect layoutText = new XRect(20, 50, page.Width - 35, page.Height - 20);
             XRect layoutNextText = layoutText;
@@ -263,7 +263,7 @@ namespace ContractAPI.CreatePdf.service
             }
 
             #region Column header
-            var fontColumn = new XFont(fontTitleFamily, 7, XFontStyle.Italic);
+            var fontColumn = new XFont(fontTitleFamily, 7, XFontStyle.Regular);
             var colorColumnText = XBrushes.Black;
 
             int widthOfNo = 30;
@@ -425,7 +425,7 @@ namespace ContractAPI.CreatePdf.service
             var color = XPens.Black;
             var textColor = XBrushes.Black;
             var font1 = new XFont(fontTitleFamily, 11, XFontStyle.Bold);
-            var font2 = new XFont(fontTextFamily, 9, XFontStyle.Italic);
+            var font2 = new XFont(fontTextFamily, 9, XFontStyle.Regular);
 
             int heightOfRow = 20;
 

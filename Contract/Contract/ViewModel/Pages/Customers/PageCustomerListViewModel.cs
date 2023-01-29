@@ -44,6 +44,8 @@ namespace Contract.ViewModel.Pages.Customers
             ResponseClientCompanyInfo = await HttpService.GetClientCompanyInfo(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(ResponseClientCompanyInfo)) return;
+
             if (ResponseClientCompanyInfo.result)
             { 
                 foreach (LibContract.HttpModels.CompanyInfo info in ResponseClientCompanyInfo.data)

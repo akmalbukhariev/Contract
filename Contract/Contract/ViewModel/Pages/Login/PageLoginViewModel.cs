@@ -39,6 +39,8 @@ namespace Contract.ViewModel.Pages.Login
             ResponseLogin response = await HttpService.Login(data);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (!response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.Login, RSC.Login_Message_1, RSC.Ok);

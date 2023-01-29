@@ -161,6 +161,8 @@ namespace Contract.Pages.UnapprovedContracts
             ResponseSignatureInfo response = await Net.HttpService.SetSignature(info);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
             await DisplayAlert(RSC.SignWindow, strMessage, RSC.Ok);
             await Navigation.PopAsync();

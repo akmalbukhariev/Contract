@@ -77,6 +77,12 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
             ResponseApprovedUnapprovedContract response = await Net.HttpService.GetUnapprovedContract(request);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response))
+            {
+                IsRefreshing = false;
+                return;
+            }
+
             if (response.result)
             {
                 int no = 0;

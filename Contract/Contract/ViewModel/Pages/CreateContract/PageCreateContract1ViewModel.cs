@@ -45,6 +45,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (!response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.CouldNotFind, RSC.Ok);

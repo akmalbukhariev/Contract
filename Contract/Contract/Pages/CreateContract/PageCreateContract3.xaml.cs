@@ -39,9 +39,14 @@ namespace Contract.Pages.CreateContract
             base.OnAppearing();
 
             if (appeared) return;
-            
+            appeared = true;
+
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response = await HttpService.CreateContractPdf(ContractInfo.contract_number);
+            ControlApp.CloseLoadingView();
+             
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 contractUrl = response.pdf_url;
@@ -51,8 +56,6 @@ namespace Contract.Pages.CreateContract
             {
                 await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
             }
-            ControlApp.CloseLoadingView();
-            appeared = true;
         }
   
         protected override bool OnBackButtonPressed()

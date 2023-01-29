@@ -1106,6 +1106,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empty space: May be alphabet or digit..
         /// </summary>
         internal static string ExYourChoose {
@@ -2254,6 +2263,15 @@ namespace Contract.Resources {
         internal static string SendSpecialCode {
             get {
                 return ResourceManager.GetString("SendSpecialCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred on the server, please wait!.
+        /// </summary>
+        internal static string ServerMessage1 {
+            get {
+                return ResourceManager.GetString("ServerMessage1", resourceCulture);
             }
         }
         

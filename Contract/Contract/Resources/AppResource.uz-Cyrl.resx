@@ -582,6 +582,10 @@
     <value>Махсус кодни киритинг</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Хато</value>
+    <comment>Server</comment>
+  </data>
   <data name="ExYourChoose" xml:space="preserve">
     <value>Бўш жой: Алифбо ёки рақам бўлиши мумкин.</value>
     <comment>Editing Contract number</comment>
@@ -1090,6 +1094,10 @@
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Кодни қайта юбориш</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ServerMessage1" xml:space="preserve">
+    <value>Сервер да хатолик юз берди, илтимос кутиб туринг!</value>
+    <comment>Server</comment>
   </data>
   <data name="Service" xml:space="preserve">
     <value>Хизмат</value>

@@ -30,6 +30,10 @@ namespace Contract.ViewModel.Pages.Setting
             DataList.Clear();
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseReadyTemplate response = await Net.HttpService.GetAllReadyTemplateUrl();
+            ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 DefaultContract temp = null;
@@ -60,8 +64,7 @@ namespace Contract.ViewModel.Pages.Setting
 
                     DataList.Add(newItem); 
                 }
-            }
-            ControlApp.CloseLoadingView();
+            } 
         }
     }
 }

@@ -65,6 +65,10 @@ namespace Contract.Pages.UnapprovedContracts
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
+            ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 await Browser.OpenAsync($"{HttpService.DATA_URL}{response.pdf_url}", BrowserLaunchMode.SystemPreferred );
@@ -74,8 +78,7 @@ namespace Contract.Pages.UnapprovedContracts
             else
             {
                 await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
-            }
-            ControlApp.CloseLoadingView();
+            } 
         }
 
         private async void Check_Tapped(object sender, EventArgs e)
@@ -104,6 +107,8 @@ namespace Contract.Pages.UnapprovedContracts
                 ControlApp.ShowLoadingView(RSC.PleaseWait);
                 ResponseApprovedUnapprovedContract response = await HttpService.SetApprovedContract(request);
                 ControlApp.CloseLoadingView();
+
+                if (!ControlApp.CheckResponse(response)) return;
 
                 string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
                 await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
@@ -136,12 +141,15 @@ namespace Contract.Pages.UnapprovedContracts
             if (item == null) return;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseCreatePdf response2 = await HttpService.CreateContractPdf(item.ContractNnumberReal);
+            ResponseCreatePdf response = await HttpService.CreateContractPdf(item.ContractNnumberReal);
             ControlApp.CloseLoadingView();
-            if (response2.result)
+
+            if (!ControlApp.CheckResponse(response)) return;
+
+            if (response.result)
             { 
                 //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
-                await ControlApp.ShareUri($"{HttpService.DATA_URL}{response2.pdf_url}");
+                await ControlApp.ShareUri($"{HttpService.DATA_URL}{response.pdf_url}");
             }
             else
             {
@@ -191,6 +199,10 @@ namespace Contract.Pages.UnapprovedContracts
 
                 ControlApp.ShowLoadingView(RSC.PleaseWait);
                 ResponseUser response1 = await HttpService.GetUser(entText.Text);
+                ControlApp.CloseLoadingView();
+
+                if (!ControlApp.CheckResponse(response1)) return;
+
                 if (!response1.result)
                 {
                     ControlApp.CloseLoadingView();
@@ -207,15 +219,17 @@ namespace Contract.Pages.UnapprovedContracts
                     is_approved = 1
                 };
 
+                ControlApp.ShowLoadingView(RSC.PleaseWait);
                 ResponseApprovedUnapprovedContract response2 = await HttpService.SetApprovedContract(request);
-                
+                ControlApp.CloseLoadingView();
+
+                if (!ControlApp.CheckResponse(response2)) return;
+
                 string strMessage = response2.result ? RSC.SuccessfullyCompleted : RSC.Failed;
                 await DisplayAlert(RSC.Approve, strMessage, RSC.Ok);
 
                 if(response2.result)
                     PModel.RequestInfo();
-
-                ControlApp.CloseLoadingView();
             }
             else if (btnNo == sender)
             {

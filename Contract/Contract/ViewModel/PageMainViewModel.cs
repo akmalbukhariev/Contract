@@ -56,6 +56,8 @@ namespace Contract.ViewModel
 
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             { 
                 TextValue1 = response.data != null ? response.data.Where(item => item.is_approved == 1 && item.is_approved_contragent == 1).ToList().Count.ToString() : "0";

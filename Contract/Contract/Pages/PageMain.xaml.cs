@@ -40,10 +40,12 @@ namespace Contract.Pages
                 PModel.RequestInfo();
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            LibContract.HttpResponse.ResponseSignatureInfo response1 = await Net.HttpService.CheckSignature(ControlApp.UserInfo.phone_number);
+            LibContract.HttpResponse.ResponseSignatureInfo response = await Net.HttpService.CheckSignature(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
-            if (!response1.result)
+            if (!ControlApp.CheckResponse(response)) return;
+
+            if (!response.result)
             {
                 await DisplayAlert(RSC.YourSignature, RSC.EnterSignature, RSC.Ok);
                 await Navigation.PushAsync(new UnapprovedContracts.PageSign());

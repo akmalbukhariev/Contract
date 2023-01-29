@@ -50,12 +50,15 @@ namespace Contract.Pages.SignUp
             {
                 phone_number = ControlApp.LoginInfo.phone_number,
                 password = password1.Text,
+                lan_id = ControlApp.LanguageId,
                 reg_date = ""
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseSignUp response = await HttpService.SignUp(userInfo);
             ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
 
             if (!response.result)
             {

@@ -582,6 +582,10 @@
     <value>Введите специальный код</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+    <comment>Server</comment>
+  </data>
   <data name="ExYourChoose" xml:space="preserve">
     <value>Пустое место: Может быть алфавит или цифра.</value>
     <comment>Editing Contract number</comment>
@@ -1090,6 +1094,10 @@
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Отправить код повторно</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ServerMessage1" xml:space="preserve">
+    <value>Произошла ошибка на сервере, пожалуйста, подождите!</value>
+    <comment>Server</comment>
   </data>
   <data name="Service" xml:space="preserve">
     <value>Услуга</value>

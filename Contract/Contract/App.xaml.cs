@@ -36,14 +36,14 @@ namespace Contract
 
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InstalledUICulture;
 
-            string strLanguage = AppSettings.GetLanguage();
-            if (strLanguage == string.Empty)
+            ControlApp.Instance.LanguageId = AppSettings.GetLanguage();
+            if (ControlApp.Instance.LanguageId == string.Empty)
             {
                 MainPage = new TransitionNavigationPage(new PageLanguage());
             }
             else
             {
-                AppSettings.SetLanguage(strLanguage);
+                AppSettings.SetLanguage(ControlApp.Instance.LanguageId);
                 MainPage = new TransitionNavigationPage(new PageLogin());
             }
         }

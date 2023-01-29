@@ -44,6 +44,8 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             ResponseCreateContract response = await HttpService.CancelContract(CanceledContractInfo);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 ControlApp.CanIRemove = true;

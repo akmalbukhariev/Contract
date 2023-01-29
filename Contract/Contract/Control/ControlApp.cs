@@ -25,7 +25,8 @@ namespace Contract.Control
         /// </summary>
         public bool CanIRemove { get; set; } = false;
         //public string UserId { get; set; }
-  
+        public string LanguageId = "";
+
         private static ControlApp _instance = null;
 
         //public ContractNumberTemplate SelectedContractNumberFormat { get; set; } = null;
@@ -81,7 +82,18 @@ namespace Contract.Control
 
             return true;
         }
-          
+
+        public bool CheckResponse(object response)
+        {
+            if (response == null)
+            {
+                UserDialogs.Instance.Alert(RSC.ServerMessage1, RSC.Error, RSC.Ok);
+                return false;
+            }
+
+            return true;
+        }
+
         public async void ShowLoadingView(string msg = "Please wait...", int closeAfter = 10)
         {
             _closeLoadingView = false;

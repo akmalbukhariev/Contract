@@ -68,6 +68,10 @@ namespace Contract.Pages.ApprovedContracts
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response = await Net.HttpService.CreateContractPdf(item.ContractNnumberReal);
+            ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 await Browser.OpenAsync($"{HttpService.DATA_URL}{response.pdf_url}", BrowserLaunchMode.SystemPreferred);
@@ -78,7 +82,6 @@ namespace Contract.Pages.ApprovedContracts
             {
                 await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
             }
-            ControlApp.CloseLoadingView();
         }
          
         private async void Send_Tapped(object sender, EventArgs e)
@@ -94,6 +97,9 @@ namespace Contract.Pages.ApprovedContracts
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreatePdf response2 = await HttpService.CreateContractPdf(item.ContractNnumberReal);
             ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response2)) return;
+
             if (response2.result)
             {
                 await ControlApp.ShareUri($"{HttpService.DATA_URL}{response2.pdf_url}");

@@ -92,6 +92,8 @@ namespace Contract.ViewModel.Pages.ContractNumber
                                                                                await Net.HttpService.UpdateContractNumber(data);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, ContractNumber == null ? RSC.SuccessfullyAdded : RSC.SuccessfullyUpdated, RSC.Ok);

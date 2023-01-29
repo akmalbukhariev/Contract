@@ -29,6 +29,8 @@ namespace Contract.Pages.Setting
             ResponseAboutApp response = await Net.HttpService.GetAboutApp(AppSettings.GetLanguage());
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 var source = new HtmlWebViewSource();

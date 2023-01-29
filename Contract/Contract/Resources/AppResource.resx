@@ -581,6 +581,10 @@ Contracts</value>
     <value>Enter Special Code</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>Server</comment>
+  </data>
   <data name="ExYourChoose" xml:space="preserve">
     <value>Empty space: May be alphabet or digit.</value>
     <comment>Editing Contract number</comment>
@@ -1089,6 +1093,10 @@ Contracts</value>
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Send code again</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ServerMessage1" xml:space="preserve">
+    <value>An error occurred on the server, please wait!</value>
+    <comment>Server</comment>
   </data>
   <data name="Service" xml:space="preserve">
     <value>Service</value>

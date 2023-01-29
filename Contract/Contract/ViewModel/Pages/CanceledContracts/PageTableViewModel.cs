@@ -56,6 +56,12 @@ namespace Contract.ViewModel.Pages.CanceledContracts
             ResponseCanceledContract response = await Net.HttpService.GetCanceledContract(request);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response))
+            {
+                IsRefreshing = false;
+                return;
+            }
+
             if (response.result)
             {
                 int no = 0;

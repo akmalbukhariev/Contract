@@ -27,13 +27,20 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         public async void RequestInfo()
         {
+            DataList.Clear();
+
             if (!ControlApp.InternetOk()) return;
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseContractTemplate response = await Net.HttpService.GetContractTemplate(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
-            DataList.Clear();
+            if (!ControlApp.CheckResponse(response))
+            {
+                IsRefreshing = false;
+                return;
+            }
+             
             if (response.result)
             {
                 int count = 1;

@@ -155,6 +155,8 @@ namespace Contract.ViewModel.Pages.Customers
             ResponseClientCompanyInfo response = await HttpService.SetClientCompanyInfo(GetCompanyInfo(), hasFile);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed + ", " + response.message;
             await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);
 
@@ -171,6 +173,8 @@ namespace Contract.ViewModel.Pages.Customers
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseClientCompanyInfo response = await HttpService.UpdateClientCompanyInfo(GetCompanyInfo(), hasFile);
             ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
 
             string strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed + ", " + response.message;
             await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);

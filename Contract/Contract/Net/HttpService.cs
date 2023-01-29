@@ -132,13 +132,13 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseLogin>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseLogin>(); }
-              
+
             return response;
         }
 
         public async static Task<ResponseSignUp> SignUp(User data)
         {
-            Response response = new Response();
+            ResponseSignUp response = new ResponseSignUp();
             try
             {
                 var receivedData = await RequestPostMethod(URL_SIGN_UP, data);
@@ -146,10 +146,8 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseSignUp>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseSignUp>(); }
-
-            ResponseSignUp responseLogin = ConvertResponseObj<ResponseSignUp>(response);
-
-            return responseLogin;
+             
+            return response;
         }
 
         public async static Task<ResponseUser> GetUser(string phoneNumbera)
@@ -323,7 +321,7 @@ namespace Contract.Net
         #region Service Info
         public async static Task<ResponseServiceInfo> SetServiceInfo(List<ServicesInfo> data)
         {
-            Response response = new Response();
+            ResponseServiceInfo response = new ResponseServiceInfo();
             try
             {
                 var receivedData = await RequestPostMethod(URL_SET_SERVICE_INFO, data);
@@ -331,15 +329,13 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseServiceInfo>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseServiceInfo>(); }
-
-            ResponseServiceInfo responseLogin = ConvertResponseObj<ResponseServiceInfo>(response);
-
-            return responseLogin;
+             
+            return response;
         }
 
         public async static Task<ResponseServiceInfo> DeleteServiceinfo(string contract_number)
         {
-            Response response = new Response();
+            ResponseServiceInfo response = new ResponseServiceInfo();
             try
             {
                 var receivedData = await RequestDeleteMethod($"{URL_DELETE_SERVICE_INFO}{contract_number}");
@@ -347,10 +343,8 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseServiceInfo>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseServiceInfo>(); }
-
-            ResponseServiceInfo responseLogin = ConvertResponseObj<ResponseServiceInfo>(response);
-
-            return responseLogin;
+             
+            return response;
         }
         #endregion
 
@@ -500,7 +494,7 @@ namespace Contract.Net
         }
         public async static Task<ResponseCreateContract> CreateContract(CreateContractInfo data)
         {
-            Response response = new Response();
+            ResponseCreateContract response = new ResponseCreateContract();
             try
             {
                 var receivedData = await RequestPostMethod(URL_CREATE_CONTRACT, data);
@@ -508,15 +502,13 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
-
-            ResponseCreateContract responseLogin = ConvertResponseObj<ResponseCreateContract>(response);
-
-            return responseLogin;
+             
+            return response;
         }
 
         public async static Task<ResponseCreateContract> CancelContract(CreateContractInfo data)
         {
-            Response response = new Response();
+            ResponseCreateContract response = new ResponseCreateContract();
             try
             {
                 var receivedData = await RequestPutMethod(URL_CANCEL_CONTRACT, data);
@@ -524,15 +516,13 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
-
-            ResponseCreateContract responseLogin = ConvertResponseObj<ResponseCreateContract>(response);
-
-            return responseLogin;
+             
+            return response;
         }
 
         public async static Task<ResponseCreateContract> DeleteContract(string contract_number)
         {
-            Response response = new Response();
+            ResponseCreateContract response = new ResponseCreateContract();
             try
             {
                 var receivedData = await RequestDeleteMethod($"{URL_DELETE_CONTRACT}{contract_number}");
@@ -540,15 +530,13 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCreateContract>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseCreateContract>(); }
-
-            ResponseCreateContract responseLogin = ConvertResponseObj<ResponseCreateContract>(response);
-
-            return responseLogin;
+             
+            return response;
         }
 
         public async static Task<ResponseCreatePdf> CreateContractPdf(string contract_number)
         {
-            Response response = new Response();
+            ResponseCreatePdf response = new ResponseCreatePdf();
             try
             {
                 var receivedData = await RequestPostMethod($"{URL_CREATE_CONTRACT_PDF}{contract_number}");
@@ -556,10 +544,8 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseCreatePdf>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseCreatePdf>(); }
-
-            ResponseCreatePdf responseLogin = ConvertResponseObj<ResponseCreatePdf>(response);
-
-            return responseLogin;
+             
+            return response;
         }
         #endregion
 
@@ -678,7 +664,7 @@ namespace Contract.Net
 
         public async static Task<ResponseOfferObjection> SaveOfferObjection(OfferAndObjection data)
         {
-            Response response = new Response();
+            ResponseOfferObjection response = new ResponseOfferObjection();
             try
             {
                 var receivedData = await RequestPostMethod(URL_SAVE_OFFER_OBJECTION, data);
@@ -686,10 +672,8 @@ namespace Contract.Net
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseOfferObjection>(); }
             catch (HttpRequestException) { return CreateResponseObj<ResponseOfferObjection>(); }
-
-            ResponseOfferObjection responseLogin = ConvertResponseObj<ResponseOfferObjection>(response);
-
-            return responseLogin;
+             
+            return response;
         }
 
         public async static Task<ResponsePurposeOfContract> GetPurposeOfCompany(string phoneNumbera)
@@ -973,6 +957,14 @@ namespace Contract.Net
             IRestResponse response = await client.ExecuteAsync(request);
 
             return response.Content;
+        }
+
+        private static TResponse CheckObj<TResponse>(object response) where TResponse : new()
+        {
+            if (response == null)
+                return new TResponse();
+
+            return (TResponse)response;
         }
 
         private static T CreateResponseObj<T>() where T : IResponse, new()

@@ -93,6 +93,7 @@ namespace ContractAPI.LoginSignUp.service.impl
             {
                 password = AesOperation.EncryptString(user.password),
                 phone_number = user.phone_number,
+                lan_id = user.lan_id,
                 reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff")
             };
 

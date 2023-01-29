@@ -15,7 +15,6 @@ namespace Contract.Pages
 
         public delegate void ShowMenu(bool show);
         public event ShowMenu EventShowMenu;
-
         public Control.ControlApp ControlApp => Control.ControlApp.Instance;
 
         protected BaseModel Model;

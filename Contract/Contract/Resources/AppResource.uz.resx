@@ -583,6 +583,10 @@ shartnomalar</value>
     <value>Maxsus kodni kiriting</value>
     <comment>SpecialCode</comment>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Xato</value>
+    <comment>Server</comment>
+  </data>
   <data name="ExYourChoose" xml:space="preserve">
     <value>Bo'sh joy: Alifbo yoki raqam bo'lishi mumkin.</value>
     <comment>Editing Contract number</comment>
@@ -1118,6 +1122,10 @@ yuborilgan maxsus kodni kiriting.</value>
   <data name="SendSpecialCode" xml:space="preserve">
     <value>Kodni qayta yuborish</value>
     <comment>SpecialCode</comment>
+  </data>
+  <data name="ServerMessage1" xml:space="preserve">
+    <value>Server da xatolik yuz berdi, iltimos kutib turing!</value>
+    <comment>Server</comment>
   </data>
   <data name="Service" xml:space="preserve">
     <value>Xizmat</value>

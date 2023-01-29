@@ -43,6 +43,8 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
             ResponseUserCompanyInfo response = await Net.HttpService.GetUserCompanyInfo(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 Id = response.data.id;
@@ -93,6 +95,8 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
                 response = await Net.HttpService.UpdateUserCompanyInfo(GetCompanyInfo());
             }
             ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
 
             if (response != null && response.result)
             {

@@ -83,6 +83,8 @@ namespace Contract.Pages.Setting
             ResponseLogin response = await Net.HttpService.UpdateDefaultTemplate(user);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed;
             await DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
 

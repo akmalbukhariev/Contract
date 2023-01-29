@@ -48,7 +48,7 @@ using ContractAPI.Signature.service.impl;
 using ContractAPI.Notification.service;
 using ContractAPI.Notification.service.impl;
 using FirebaseAdmin;
-using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2; 
 
 namespace ContractAPI
 {
@@ -63,11 +63,20 @@ namespace ContractAPI
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        { 
+        {
             services.AddDbContext<ContractMakerContext>(options =>
             {
                 options.UseMySQL(Configuration.GetConnectionString("Default"));
             });
+
+            //services.AddDbContext<ContractMakerContext>(options =>
+            //{
+            //string connectionString = Configuration.GetConnectionString("Default");
+            //options.UseMySql(connectionString,
+            //    ServerVersion.AutoDetect(connectionString),
+            //    mySqlOptions => mySqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30),errorNumbersToAdd: null));
+            //});
+
             services.AddScoped<IApprovedUnapprovedContractService, ApprovedUnapprovedContractService>();
             services.AddScoped<IContractServiceInfoService, ContractServiceInfoService>(); 
             services.AddScoped<ICanceledContractService, CanceledContractService>();

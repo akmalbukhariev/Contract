@@ -92,6 +92,8 @@ namespace Contract.Pages.TemplateContract
             ResponseContractTemplate response = await Net.HttpService.DeleteContractTemplate(item.TemplateInfo);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
             await DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
 

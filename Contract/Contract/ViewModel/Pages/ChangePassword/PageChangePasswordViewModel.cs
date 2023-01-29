@@ -51,6 +51,8 @@ namespace Contract.ViewModel.Pages.ChangePassword
             ResponseLogin response = await Net.HttpService.UpdateUserPassword(user);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyUpdated : $"{RSC.Failed} : {RSC.WrongCurrentPassword}";
             
             await Application.Current.MainPage.DisplayAlert(RSC.Password, strMessage, RSC.Ok);

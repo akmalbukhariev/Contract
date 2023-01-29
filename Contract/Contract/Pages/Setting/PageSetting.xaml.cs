@@ -78,6 +78,8 @@ namespace Contract.Pages.Setting
             ResponseLogin response = await Net.HttpService.SetNotificationOnOff(data);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
                 ControlApp.UserInfo.on_notification = data.on_notification;
             else

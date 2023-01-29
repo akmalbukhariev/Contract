@@ -54,6 +54,8 @@ namespace Contract.ViewModel.Pages.ContractNumber
             ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 int count = 0;

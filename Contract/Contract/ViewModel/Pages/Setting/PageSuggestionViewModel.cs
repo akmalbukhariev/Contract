@@ -45,6 +45,8 @@ namespace Contract.ViewModel.Pages.Setting
             ResponseOfferObjection response = await Net.HttpService.SaveOfferObjection(request);
             ControlApp.CloseLoadingView();
 
+            if (!ControlApp.CheckResponse(response)) return;
+
             string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
             await Application.Current.MainPage.DisplayAlert(RSC.Settings, strMessage, RSC.Ok);
 

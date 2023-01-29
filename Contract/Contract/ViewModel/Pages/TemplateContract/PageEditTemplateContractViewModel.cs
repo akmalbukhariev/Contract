@@ -131,7 +131,10 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseContractNumberTemplate response = await Net.HttpService.GetContractNumber(ControlApp.UserInfo.phone_number);
-              
+            ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
+
             if (response.result)
             {
                 foreach (ContractNumberTemplate item in response.data)
@@ -353,8 +356,11 @@ namespace Contract.ViewModel.Pages.TemplateContract
             {
                 ControlApp.ShowLoadingView(RSC.PleaseWait);
                 ResponseContractTemplate response = await Net.HttpService.SetContractTemplate(data);
-                strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
                 ControlApp.CloseLoadingView();
+
+                if (!ControlApp.CheckResponse(response)) return;
+                
+                strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
 
                 await Application.Current.MainPage.DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
                 await Navigation.PopAsync();
@@ -363,8 +369,11 @@ namespace Contract.ViewModel.Pages.TemplateContract
             {
                 ControlApp.ShowLoadingView(RSC.PleaseWait);
                 ResponseContractTemplate response = await Net.HttpService.UpdateContractTemplate(data);
-                strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed;
                 ControlApp.CloseLoadingView();
+
+                if (!ControlApp.CheckResponse(response)) return;
+                
+                strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed;
 
                 await Application.Current.MainPage.DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
                 await Navigation.PopAsync();
