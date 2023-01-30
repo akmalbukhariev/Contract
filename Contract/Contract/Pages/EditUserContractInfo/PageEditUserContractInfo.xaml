@@ -65,8 +65,7 @@
                                               SelectedIndex="{Binding SelectedDocument_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
@@ -146,8 +145,7 @@
                                               SelectedIndex="{Binding PositionOfSignatory_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout Grid.Row="11">

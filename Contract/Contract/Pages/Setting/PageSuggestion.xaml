@@ -36,8 +36,7 @@
                                       SelectedItem="{Binding SelectedOffer}"
                                       HorizontalTextAlignment="Start"
                                       Image="show"
-                                      ChartSyle="True"
-                                      TitleColor="Gray"
+                                      ChartSyle="True" 
                                       BackgroundColor="White"/>
             </StackLayout>
             <Grid x:Name="grMain"

@@ -60,8 +60,7 @@
                                               SelectedItem="{Binding SelectedContractNumberTemplate}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                         <!--<Frame BorderColor="LightGray"
                                CornerRadius="7"

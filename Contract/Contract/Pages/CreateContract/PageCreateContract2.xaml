@@ -81,8 +81,7 @@
                                               SelectedItem="{Binding SelectedTemplate}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"
                                               SelectedIndexChanged="ContractTemplate_SelectedIndexChanged"/>
                     </StackLayout>
@@ -108,8 +107,7 @@
                                               SelectedIndexChanged="Currency_SelectedIndexChanged"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
@@ -122,8 +120,7 @@
                                               SelectedIndex="{Binding SelectedQQS_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" 
@@ -177,8 +174,7 @@
                                                               SelectedIndex="{Binding SelectedMeasure_index}"
                                                               HorizontalTextAlignment="Start"
                                                               Image="show"
-                                                              ChartSyle="True"
-                                                              TitleColor="Gray"
+                                                              ChartSyle="True" 
                                                               BackgroundColor="White"/>
                                     </StackLayout>
                                     <Grid ColumnDefinitions="*,Auto">

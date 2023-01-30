@@ -85,8 +85,7 @@
                                HorizontalTextAlignment="Start"/>
                         <control:CustomPicker Title="Lavozim"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                         <Label Text="{x:Static resource:AppResource.NameOfSignator}"
                                Style="{StaticResource lbBoldTitle}"

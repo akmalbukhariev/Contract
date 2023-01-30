@@ -55,6 +55,7 @@
                        CornerRadius="10">
                     <control:CustomEditor Placeholder="{x:Static resource:AppResource.Comment}"
                                           Text="{Binding CommentText}"
+                                          TextColor="Black"
                                           PlaceholderColor="Gray"
                                           BackgroundColor="White" 
                                           HeightRequest="150"

@@ -18,8 +18,15 @@ namespace ContractAPI.Helper
 
             using (FileStream filestream = File.Create($"{savePath}{formFile.FileName}"))
             {
-                await formFile.CopyToAsync(filestream);
-                filestream.Flush();
+                try
+                {
+                    await formFile.CopyToAsync(filestream);
+                    filestream.Flush();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 

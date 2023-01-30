@@ -13,6 +13,12 @@ namespace Contract.Control
         public static readonly BindableProperty ImageProperty =
             BindableProperty.Create(nameof(Image), typeof(string), typeof(CustomPicker), string.Empty);
 
+        public CustomPicker()
+        {
+            TitleColor = Color.Black;
+            TextColor = Color.Black;
+        }
+
         public bool ChartSyle
         {
             get { return (bool)GetValue(ChartSyleProperty); }

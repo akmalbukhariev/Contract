@@ -45,8 +45,7 @@
                            FontSize="17"
                            HorizontalTextAlignment="Start"/>
                     <control:CustomPicker Image="show"
-                                          ChartSyle="True"
-                                          TitleColor="Gray"
+                                          ChartSyle="True" 
                                           BackgroundColor="White"/>
                 </StackLayout>
                 <Grid Margin="30,10,10,0" 

@@ -217,8 +217,7 @@
                                               SelectedIndex="{Binding SelectedDocument_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout x:Name="stack2" 
@@ -235,7 +234,7 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Text="{Binding AccountNumber}"
-                                         KeyboardSetting="Numeric"
+                                        KeyboardSetting="Numeric"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <Grid x:Name="stack4"
@@ -295,7 +294,7 @@
                                Style="{StaticResource lbBlackStyle}"/>
                         <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
                                         Text="{Binding QQSCode}"
-                                         KeyboardSetting="Numeric"
+                                        KeyboardSetting="Numeric"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack9" 
@@ -318,8 +317,7 @@
                                               SelectedIndex="{Binding PositionOfSignatory_index}"
                                               HorizontalTextAlignment="Start"
                                               Image="show"
-                                              ChartSyle="True"
-                                              TitleColor="Gray"
+                                              ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
                     <StackLayout x:Name="stack11"
