@@ -27,8 +27,8 @@ namespace Contract
 
         protected override void OnStart()
         {
-            //MainPage = new TransitionNavigationPage(new Pages.UnapprovedContracts.PageSign());
-            //return;
+            MainPage = new TransitionNavigationPage(new Pages.CreateContract.PageShowContract("http://65.20.68.60:5000/Upload/contract.html"));
+            return;
             PushNotification.Instance.Init();
             ControlApp.Instance.AppStarting = true;
             ControlApp.Instance.AppOnResume = false;

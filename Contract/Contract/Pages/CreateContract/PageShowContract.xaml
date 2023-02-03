@@ -24,12 +24,12 @@
                  Margin="0,0,0,20"
                  Grid.Row="1"
                  Grid.Column="1"/>
-        <WebView x:Name="webView"
-                 Margin="10,10,10,25"
-                 HorizontalOptions="FillAndExpand"
-                 VerticalOptions="FillAndExpand"
-                 Grid.Row="1"
-                 Grid.Column="1"/>
+        <control:PdfWebView x:Name="webView"
+                            Margin="10,10,10,25"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Grid.Row="1"
+                            Grid.Column="1"/>
 
     </Grid>
 </page:IPage>

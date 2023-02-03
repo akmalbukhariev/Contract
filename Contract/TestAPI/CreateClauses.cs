@@ -9,15 +9,7 @@ using System.Threading.Tasks;
 namespace TestAPI
 {
     public class CreateClauses
-    {
-        public void Create()
-        {
-            string strJson = "";
-            strJson = Normal();
-            //strJson = Popular();
-            //strJson = Simple();
-        }
-
+    { 
         public static string Normal()
         {
             List<ContractTemplateJson> jList = new List<ContractTemplateJson>();
@@ -36,7 +28,7 @@ namespace TestAPI
             itemButton1.IsButton = true;
             itemButton1.IsContractInfoButton = false;
             itemButton1.IsContractServiceDetailsButton = true;
-            itemButton1.IsVisibleAddButton = true;
+            itemButton1.IsVisibleAddButton = false;
             jList.Add(itemButton1);
 
             ContractTemplateJson item2 = new ContractTemplateJson();
@@ -48,7 +40,7 @@ namespace TestAPI
             itemButton2.IsButton = true;
             itemButton2.IsContractInfoButton = true;
             itemButton2.IsContractServiceDetailsButton = false;
-            itemButton2.IsVisibleAddButton = true;
+            itemButton2.IsVisibleAddButton = false;
             jList.Add(itemButton2);
 
             return JsonConvert.SerializeObject(jList);

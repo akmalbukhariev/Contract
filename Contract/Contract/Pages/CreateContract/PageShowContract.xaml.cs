@@ -16,7 +16,7 @@ namespace Contract.Pages.CreateContract
         {
             InitializeComponent();
 
-            //webView.Source = contractUrl;
+            webView.Source = contractUrl;
             //webView.Source = $"https://drive.google.com/viewerng/viewer?embedded=true&url={contractUrl}";
             //http://192.168.219.102:5000//Upload//images/2.jpg
 

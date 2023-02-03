@@ -46,13 +46,13 @@ namespace TestAPI
 
             ContractTemplate contractTemplate = new ContractTemplate()
             {
-                company_address = "Toshkent shaxar"
+               contract_address  = ""
             };
 
             List<ServicesInfo> serviceList = new List<ServicesInfo>();
             ServicesInfo item1 = new ServicesInfo()
             {
-                name_of_service = "Service 1",
+                name_of_service = "AAAAAAAAAAAAA XXXXXXXXXXXXXXX VVVVVVVVVVVV DDDDDDDDDDDDD RRRRRRRRRR",
                 amount_value = 12,
                 amount_value_price = "10"
             };
@@ -114,14 +114,14 @@ namespace TestAPI
             serviceList.Add(item8);
             serviceList.Add(item9);
 
-            CreatePDF pdf = new CreatePDF(CreateClauses.Popular());
+            CreatePDF pdf = new CreatePDF(CreateClauses.Normal());
             pdf.ContractInfo = contractInfo;
             pdf.UserCompany = userCompany;
             pdf.ClientCompany = clientCompany;
             pdf.Template = contractTemplate;
             pdf.Services = serviceList;
 
-            pdf.CreateContract("");
+            pdf.CreateContract("Contract.pdf","");
 
             Console.ReadLine();
         }

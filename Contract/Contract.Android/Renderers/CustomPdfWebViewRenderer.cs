@@ -33,27 +33,10 @@ namespace Contract.Droid.Renderers
             {
                 customWebView = Element as PdfWebView;
                 Control.Settings.AllowUniversalAccessFromFileURLs = true;
-                Control.Settings.JavaScriptEnabled = true;
-                if (customWebView.Uri != null)
-                {
-                    Control.LoadUrl(string.Format("https://drive.google.com/viewerng/viewer?embedded=true&url={0}", WebUtility.UrlEncode(customWebView.Uri)));
-                }
+                Control.Settings.SetSupportZoom(true);
+                Control.Settings.BuiltInZoomControls = true;
+                Control.Settings.DisplayZoomControls = true;
             }
-        }
-
-        /*
-                var customWebView = Element as PdfWebView;
-                Control.Settings.AllowUniversalAccessFromFileURLs = true;
-                Control.LoadUrl(string.Format("file:///android_asset/pdfjs/web/viewer.html?file={0}", string.Format("file:///android_asset/Content/{0}", WebUtility.UrlEncode(customWebView.Uri))));
-         */
-
-        //protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
-        //{
-        //    base.OnElementPropertyChanged(sender, e);
-        //    if (customWebView.Uri != null)
-        //    {
-        //        Control.LoadUrl(customWebView.Uri.ToString());
-        //    }
-        //}
+        } 
     }
 }
