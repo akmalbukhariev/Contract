@@ -26,6 +26,13 @@ namespace ContractAPI.AppInfo.api
         {
             ResponseAboutApp response = await Service.getAboutApp(lan_code);
             return MakeResponse(response, response.error_code);
-        } 
+        }
+
+        [HttpGet("createPdf")]
+        public async Task<IActionResult> createPdf()
+        {
+            ResponseAboutApp response = await Service.createPdf();
+            return MakeResponse(response, response.error_code);
+        }
     }
 }

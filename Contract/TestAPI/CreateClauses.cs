@@ -94,7 +94,7 @@ namespace TestAPI
             itemButton1.IsButton = true;
             itemButton1.IsContractInfoButton = false;
             itemButton1.IsContractServiceDetailsButton = true;
-            itemButton1.IsVisibleAddButton = true;
+            itemButton1.IsVisibleAddButton = false;
             jList.Add(itemButton1);
 
             ContractTemplateJson item2 = new ContractTemplateJson();
@@ -349,7 +349,7 @@ namespace TestAPI
             itemButton2.IsButton = true;
             itemButton2.IsContractInfoButton = true;
             itemButton2.IsContractServiceDetailsButton = false;
-            itemButton2.IsVisibleAddButton = true;
+            itemButton2.IsVisibleAddButton = false;
             jList.Add(itemButton2);
 
             return JsonConvert.SerializeObject(jList);
@@ -373,7 +373,7 @@ namespace TestAPI
             itemButton1.IsButton = true;
             itemButton1.IsContractInfoButton = false;
             itemButton1.IsContractServiceDetailsButton = true;
-            itemButton1.IsVisibleAddButton = true;
+            itemButton1.IsVisibleAddButton = false;
             jList.Add(itemButton1);
 
             ContractTemplateJson item2 = new ContractTemplateJson();
@@ -425,7 +425,7 @@ namespace TestAPI
             itemButton2.IsButton = true;
             itemButton2.IsContractInfoButton = true;
             itemButton2.IsContractServiceDetailsButton = false;
-            itemButton2.IsVisibleAddButton = true;
+            itemButton2.IsVisibleAddButton = false;
             jList.Add(itemButton2);
 
             return JsonConvert.SerializeObject(jList);

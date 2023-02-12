@@ -31,13 +31,13 @@ namespace TestAPI
                    $"иккинчи томондан, мазкур шартномани туздилар:";
         }
 
-        public static string CalcAllService(List<CreatePDF.TableRow> tableRows, string contractCurrency)
+        public static string CalcAllService(List<TableRow> tableRows, string contractCurrency)
         {
             double priceForAll = 0.0;
             double qqs = 0.0;
             double priceWithQQS = 0.0;
 
-            foreach (CreatePDF.TableRow row in tableRows)
+            foreach (TableRow row in tableRows)
             {
                 priceForAll += double.Parse(row.PriceForAll);
                 qqs += double.Parse(row.QQS.Replace("%", ""));
@@ -48,9 +48,31 @@ namespace TestAPI
             string cent = dList.Length == 2 ? dList[1] : "00";
 
             string textDigits = FirstCharToUpper(DigitConverter.Digit2Text((long)priceWithQQS));
-            return $"Жами шартнома суммаси ҚҚС билан: {textDigits} {contractCurrency} {cent} тийин";
+            
+            return $"<div><span class=\"servicetext numtext\">Жами шартнома суммаси ҚҚС билан: <b>{textDigits} тийин</b>.</span></div>";
+            
+            //return $"Жами шартнома суммаси ҚҚС билан: {textDigits} {contractCurrency} {cent} тийин";
         }
 
+        public static string CreateTitle(string title)
+        {
+            string result = "<div class=\"head\">" +
+                                "<div class=\"headtext2\" style=\"text-align: center;\">" +
+                                    $"<h3 class=\"number\">{title}</h3>" +
+                                "</div>" +
+                            "</div>";
+            return result;
+        }
+
+        public static string CreateDescription(string number, string description)
+        {
+            string result = "<div class=\"block\">" +
+                                $"<div class=\"num\"><span class=\"numt\" style=\"padding: 10px;\">{number}</span></div>" +
+                                $"<div class=\"numtext\">{description}<span></span></div>" +
+                            "</div>";
+            return result;
+        }
+          
         public static string FirstCharToUpper(string input)
         {
             if (string.IsNullOrEmpty(input))
