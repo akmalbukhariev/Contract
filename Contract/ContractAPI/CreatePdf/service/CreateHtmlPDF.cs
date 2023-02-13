@@ -6,7 +6,7 @@ using System.IO;
 using System;
 using System.Diagnostics;
 
-namespace TestAPI
+namespace ContractAPI.CreatePdf.service
 {
     public class CreateHtmlPDF
     {
@@ -62,16 +62,7 @@ namespace TestAPI
             strHtml +=CreateSignature();
             strHtml += EndPoint();
 
-            File.WriteAllText(saveFilePath, strHtml);
-
-            Console.WriteLine("Done........");
-
-            Process proc = new Process();
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.FileName = saveFilePath;
-            proc.Start();
-
-            Environment.Exit(0);
+            File.WriteAllText(saveFilePath, strHtml); 
         }   
 
         private string StartPoint()
