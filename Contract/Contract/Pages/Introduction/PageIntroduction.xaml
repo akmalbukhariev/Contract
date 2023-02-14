@@ -12,12 +12,15 @@
                       IndicatorView="indicatorview">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="*,*">
+                    <Grid RowDefinitions="*,*"
+                          VerticalOptions="CenterAndExpand">
                         <Image Source="{Binding ImagePath}"  
-                               Aspect="AspectFit" 
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand" />
-                        <StackLayout Spacing="20" 
+                               Aspect="AspectFit"
+                               Margin="15"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand" />
+                        <StackLayout Spacing="20"
+                                     Margin="15,0,15,0"
                                      Grid.Row="1">
                             <Label Text="{Binding Text1}"
                                    FontSize="25"
@@ -25,15 +28,36 @@
                                    TextColor="Black"
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding Text2}"
-                                   FontSize="17"
-                                   FontFamily="Nunito_Regular"
-                                   TextColor="Gray"
-                                   Margin="10,0,10,0"
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="Center"/>
+                            <ScrollView>
+                                <Label Text="{Binding Text2}"
+                                       FontSize="17"
+                                       FontFamily="Nunito_Regular"
+                                       TextColor="Gray"
+                                       Margin="10,0,10,0"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"/>
+                            </ScrollView>
+                            <Grid VerticalOptions="End"
+                                  HeightRequest="80"
+                                  MinimumHeightRequest="80"
+                                  IsVisible="{Binding ShowButton}">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Enter_Tapped"/>
+                                </Grid.GestureRecognizers>
+                                <Image Source="intro_button" 
+                                       Aspect="AspectFit"
+                                       Margin="0,10,0,10"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="{x:Static resource:AppResource.LoginSystem}"
+                                       FontSize="18"
+                                       FontFamily="Nunito_Regular"
+                                       TextColor="White"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Margin="0,0,0,10"/>
+                            </Grid>
                         </StackLayout> 
-                        <Button Text="{x:Static resource:AppResource.Skip}"
+                        <!--<Button Text="{x:Static resource:AppResource.Skip}"
                                 BackgroundColor="Transparent"
                                 FontSize="18"
                                 FontFamily="Nunito_Regular"
@@ -42,7 +66,7 @@
                                 HorizontalOptions="EndAndExpand"
                                 VerticalOptions="StartAndExpand"
                                 Grid.RowSpan="2"
-                                Clicked="Skip_Tapped"/>
+                                Clicked="Skip_Tapped"/>-->
                     </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>

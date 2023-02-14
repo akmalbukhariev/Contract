@@ -11,7 +11,7 @@
         <Grid ColumnDefinitions="20,*,20">
         <Image Style="{StaticResource imBackground2}"
                Grid.ColumnSpan="3"/>
-        <Grid RowDefinitions="Auto,Auto,Auto,*,50,Auto,*,10"
+        <Grid RowDefinitions="Auto,Auto,Auto,*,50,*,10"
               Margin="0,20,0,0"
               RowSpacing="20"
               Grid.Column="1">
@@ -67,40 +67,41 @@
                     CornerRadius="5"
                     Clicked="CreateContract_Clicked"
                     Grid.Row="4"/>
-            <Label x:Name="lbAllContracts"
-                   Text="{x:Static resource:AppResource.AllContracts}"
-                   TextColor="Black"
-                   FontSize="20"
-                   FontFamily="Nunito_SemiBold"
-                   HorizontalOptions="StartAndExpand"
-                   Grid.Row="5"/> 
-            <ListView ItemsSource="{Binding MenuList}" 
-                      BackgroundColor="White"
-                      HeightRequest="150"
-                      ItemTapped="ListView_ItemTapped"
-                      VerticalOptions="CenterAndExpand"
-                      Grid.Row="6">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal"
-                                         Spacing="20"
-                                         VerticalOptions="CenterAndExpand"
-                                         HorizontalOptions="CenterAndExpand">
-                                <Label Text="{Binding Name}"
-                                       TextColor="#326262"
-                                       FontFamily="Nunito_Regular"
-                                       VerticalTextAlignment="Center"
-                                       HorizontalOptions="EndAndExpand"/>
-                                <Image Source="right"
-                                       Aspect="AspectFit"
-                                       WidthRequest="7"
-                                       HorizontalOptions="StartAndExpand"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackLayout Spacing="20" 
+                            Grid.Row="5">
+                <Label x:Name="lbAllContracts"
+                        Text="{x:Static resource:AppResource.AllContracts}"
+                        TextColor="Black"
+                        FontSize="20"
+                        FontFamily="Nunito_SemiBold"
+                        HorizontalOptions="StartAndExpand"/>
+                <ListView ItemsSource="{Binding MenuList}" 
+                            BackgroundColor="White"
+                            HeightRequest="150"
+                            ItemTapped="ListView_ItemTapped"
+                            VerticalOptions="StartAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal"
+                                                Spacing="20"
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}"
+                                            TextColor="#326262"
+                                            FontFamily="Nunito_Regular"
+                                            VerticalTextAlignment="Center"
+                                            HorizontalOptions="EndAndExpand"/>
+                                    <Image Source="right"
+                                            Aspect="AspectFit"
+                                            WidthRequest="7"
+                                            HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout> 
         </Grid>
     </Grid>
     </ScrollView>

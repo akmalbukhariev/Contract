@@ -315,6 +315,7 @@
                 </Grid>
             </ScrollView>
             <Button Style="{StaticResource btnNext}"
+                    VerticalOptions="EndAndExpand"
                     Text="{x:Static resource:AppResource.ButtonFinished}"
                     Margin="5,0,5,20"
                     Command="{Binding CommandFinished}"

@@ -9,7 +9,7 @@
                  Grid.RowSpan="2"/>
         <Image x:Name="image"
                Aspect="AspectFit"
-               WidthRequest="55"
+               WidthRequest="65"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand"/>
         <StackLayout Grid.Row="1">

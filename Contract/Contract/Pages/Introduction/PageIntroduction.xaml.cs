@@ -1,4 +1,5 @@
-﻿using Contract.Model;
+﻿using Contract.Control;
+using Contract.Model;
 using Contract.ViewModel.Introduction;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,13 @@ namespace Contract.Pages.Introduction
         { 
             Model.SetTransitionType();
             await Navigation.PushAsync(new PageLoginInfo()); 
+        }
+
+        private void Enter_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((Grid)sender);
+
+            Application.Current.MainPage = new TransitionNavigationPage(new Login.PageLogin()); 
         }
 
         //private async void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)

@@ -47,23 +47,23 @@
                           ItemsSource="{Binding DataList}" >
                         <ListView.Header>
                             <Grid x:Name="grHeader" 
-                              ColumnDefinitions="31,120,150,220,150,150,70,80,90,70">
+                              ColumnDefinitions="31,120,150,220,150,150,80,90,70">
                                 <Label Text="№" Style="{StaticResource lbHeader}"/>
                                 <Label Text="{x:Static resource:AppResource.Preparer}" Style="{StaticResource lbHeader}" Grid.Column="1"/>
                                 <Label Text="{x:Static resource:AppResource.ContractNumber}" Style="{StaticResource lbHeader}" Grid.Column="2"/>
                                 <Label Text="{x:Static resource:AppResource.CompanyContractorName}" Style="{StaticResource lbHeader}" Grid.Column="3"/>
                                 <Label Text="{x:Static resource:AppResource.DateOfContract}" Style="{StaticResource lbHeader}" Grid.Column="4"/>
                                 <Label Text="{x:Static resource:AppResource.ContractPrice}" Style="{StaticResource lbHeader}" Grid.Column="5"/>
-                                <Label Text="{x:Static resource:AppResource.Payment}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
-                                <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
-                                <Label Text="{x:Static resource:AppResource.Share}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
-                                <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="9"/>
+                                <!--<Label Text="{x:Static resource:AppResource.Payment}" Style="{StaticResource lbHeader}" Grid.Column="6"/>-->
+                                <Label Text="{x:Static resource:AppResource.View}" Style="{StaticResource lbHeader}" Grid.Column="6"/>
+                                <Label Text="{x:Static resource:AppResource.Share}" Style="{StaticResource lbHeader}" Grid.Column="7"/>
+                                <Label Text="{x:Static resource:AppResource.Cancel}" Style="{StaticResource lbHeader}" Grid.Column="8"/>
                             </Grid>
                         </ListView.Header>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid ColumnDefinitions="30,120,150,220,150,150,70,80,90,70"
+                                    <Grid ColumnDefinitions="30,120,150,220,150,150,80,90,70"
                                       RowDefinitions="*,1"
                                       RowSpacing="0"
                                       BackgroundColor="{Binding ItemColor}">
@@ -74,19 +74,19 @@
                                         <Label Text="{Binding CompanyName}" Style="{StaticResource lbItem}" Grid.Column="3"/>
                                         <Label Text="{Binding ContractDate}" Style="{StaticResource lbItem}" Grid.Column="4"/>
                                         <Label Text="{Binding ContractPrice}" Style="{StaticResource lbItem}" Grid.Column="5"/>
-                                        <BoxView BackgroundColor="{Binding ContractPaymentColor}" Grid.Column="6"/>
-                                        <Label Text="{Binding ContractPayment}" Style="{StaticResource lbItem}" Grid.Column="6"/>
-                                        <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="7">
+                                        <!--<BoxView BackgroundColor="{Binding ContractPaymentColor}" Grid.Column="6"/>
+                                        <Label Text="{Binding ContractPayment}" Style="{StaticResource lbItem}" Grid.Column="6"/>-->
+                                        <Image Source="eye" Style="{StaticResource imItem}" Grid.Column="6">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Eye_Tapped"/>
                                             </Image.GestureRecognizers>
                                         </Image>
-                                        <Image Source="send" Style="{StaticResource imItem}" Grid.Column="8">
+                                        <Image Source="send" Style="{StaticResource imItem}" Grid.Column="7">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Tapped"/>
                                             </Image.GestureRecognizers>
                                         </Image>
-                                        <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="9">
+                                        <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="8">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Cancel_Tapped"/>
                                             </Image.GestureRecognizers>

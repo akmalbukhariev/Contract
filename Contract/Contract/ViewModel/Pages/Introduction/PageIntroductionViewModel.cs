@@ -48,11 +48,19 @@ namespace Contract.ViewModel.Introduction
                 Text1 = RSC.Intro4_1,
                 Text2 = RSC.Intro4_2
             };
+            IntroductionInfo intro5 = new IntroductionInfo()
+            {
+                ImagePath = "intro_5",
+                Text1 = RSC.LoginInfo1_1,
+                Text2 = RSC.LoginInfo1_2,
+                ShowButton = true
+            };
 
             Images.Add(intro1);
             Images.Add(intro2);
             Images.Add(intro3);
             Images.Add(intro4);
+            Images.Add(intro5);
         }
          
         public ICommand CommandClickNext => new Command(ClickNext);

@@ -6,6 +6,7 @@ namespace Contract.Model
 {
     public class IntroductionInfo 
     {
+        public bool ShowButton { get; set; }
         public string ImagePath { get; set; }
         public string Text1 { get; set; }
         public string Text2 { get; set; }
