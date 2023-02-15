@@ -51,6 +51,15 @@
                                 <Setter Property="HeightEntryView" Value="60"/>
                                 <Setter Property="BackgroundColorOfEntry" Value="White"/>
                             </Style>
+                            <Style x:Key="entryNumberStyle" TargetType="view:ViewEntryNumber">
+                                <Setter Property="TextColor" Value="Black"/>
+                                <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                                <Setter Property="BorderColor" Value="Gray"/>
+                                <Setter Property="BorderWidth" Value="1"/>
+                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="HeightEntryView" Value="60"/>
+                                <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                            </Style>
                             <Style x:Key="imStyle" TargetType="Image">
                                 <Setter Property="WidthRequest" Value="60"/>
                                 <Setter Property="Aspect" Value="AspectFit"/>
@@ -233,10 +242,11 @@
                                  Grid.Row="6">
                         <Label Text="{x:Static resource:AppResource.AccountNumber}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
-                                        Text="{Binding AccountNumber}"
-                                        KeyboardSetting="Numeric"
-                                        Style="{StaticResource entryStyle}"/>
+                        <view:ViewEntryNumber PlaceHoldingText="----  ----  ----  ----  ----"
+                                              Mask="XXXX  XXXX  XXXX  XXXX  XXXX"
+                                              Text="{Binding AccountNumber}"
+                                              KeyboardSetting="Numeric"
+                                              Style="{StaticResource entryNumberStyle}"/>
                     </StackLayout>
                     <Grid x:Name="stack4"
                           ColumnDefinitions="*,Auto"
@@ -244,10 +254,11 @@
                         <StackLayout>
                             <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
                                    Style="{StaticResource lbBlackStyle}"/>
-                            <view:ViewEntry PlaceHoldingText="---- ---- ----"
-                                            Text="{Binding CompanyStir}"
-                                            KeyboardSetting="Numeric"
-                                            Style="{StaticResource entryStyle}"/>
+                            <view:ViewEntryNumber PlaceHoldingText="----  ----  ----"
+                                                  Mask="XXX  XXX  XXX"
+                                                  Text="{Binding CompanyStir}"
+                                                  KeyboardSetting="Numeric"
+                                                  Style="{StaticResource entryNumberStyle}"/>
                         </StackLayout>
                         <Button Text="{x:Static resource:AppResource.Search}"
                                 TextColor="White"
@@ -270,10 +281,11 @@
                                  Grid.Row="9">
                         <Label Text="{x:Static resource:AppResource.BankCode}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
-                                        Text="{Binding BankCode}"
-                                         KeyboardSetting="Numeric"
-                                        Style="{StaticResource entryStyle}"/>
+                        <view:ViewEntryNumber PlaceHoldingText="{x:Static resource:AppResource.BankCode}"
+                                              Mask="XXXXX"
+                                              Text="{Binding BankCode}"
+                                              KeyboardSetting="Numeric"
+                                              Style="{StaticResource entryNumberStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack7" 
                                  Orientation="Horizontal" 
@@ -293,19 +305,21 @@
                                  Grid.Row="11">
                         <Label Text="{x:Static resource:AppResource.QQS_Code}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="---- ---- ---- ----"
-                                        Text="{Binding QQSCode}"
-                                        KeyboardSetting="Numeric"
-                                        Style="{StaticResource entryStyle}"/>
+                        <view:ViewEntryNumber PlaceHoldingText="---  ---  ---  ---"
+                                              Mask="XXX  XXX  XXX  XXX"
+                                              Text="{Binding QQSCode}"
+                                              KeyboardSetting="Numeric"
+                                              Style="{StaticResource entryNumberStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack9" 
                                  Grid.Row="12">
                         <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="998 ---- ---- ----"
-                                        Text="{Binding PhoneNnumberOfCompany}"
-                                        KeyboardSetting="Numeric"
-                                        Style="{StaticResource entryStyle}"/>
+                        <view:ViewEntryNumber PlaceHoldingText="998  --  ---  --  --"
+                                              Mask="XXX XX XXX XX XX"
+                                              Text="{Binding PhoneNnumberOfCompany}"
+                                              KeyboardSetting="Numeric"
+                                              Style="{StaticResource entryNumberStyle}"/>
                     </StackLayout>
                     <StackLayout x:Name="stack10" 
                                  Spacing="10"
@@ -347,7 +361,7 @@
                                  Grid.Row="16">
                         <Label Text="{x:Static resource:AppResource.AccountantName}" 
                                Style="{StaticResource lbBlackStyle}"/>
-                        <view:ViewEntry PlaceHoldingText="F.I.O"
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.FirstAndLastName}"
                                         Text="{Binding AccountantName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>

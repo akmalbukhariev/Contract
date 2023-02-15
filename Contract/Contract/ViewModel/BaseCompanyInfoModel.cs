@@ -132,27 +132,27 @@ namespace Contract.ViewModel
             return new CompanyInfo()
             {
                 id = Id,
-                user_phone_number = ControlApp.UserInfo.phone_number,
-                company_name = CompanyName,
-                document = SelectedDocument,
+                user_phone_number = ControlApp.UserInfo.phone_number.Trim(),
+                company_name = CompanyName.Trim(),
+                document = SelectedDocument.Trim(),
                 document_index = SelectedDocument_index,
-                address_of_company = AddressOfCompany,
-                account_number = AccountNumber,
-                stir_of_company = CompanyStir,
-                name_of_bank = NameOfBank,
-                bank_code = BankCode,
+                address_of_company = AddressOfCompany.Trim(),
+                account_number = AccountNumber.Trim(),
+                stir_of_company = CompanyStir.Trim(),
+                name_of_bank = NameOfBank.Trim(),
+                bank_code = BankCode.Trim(),
                 are_you_qqs_payer = AreYouQQSPayer ? 1 : 0,
-                qqs_number = QQSCode,
-                company_phone_number = PhoneNnumberOfCompany,
-                position_of_signer = PositionOfSignatory,
+                qqs_number = QQSCode.Trim(),
+                company_phone_number = PhoneNnumberOfCompany.Trim(),
+                position_of_signer = PositionOfSignatory.Trim(),
                 position_of_signer_index = PositionOfSignatory_index,
-                name_of_signer = FullNameOfSignatory,
+                name_of_signer = FullNameOfSignatory.Trim(),
                 is_accountant_provided = IsAccountProvided ? 1 : 0,
-                accountant_name = AccountantName,
+                accountant_name = AccountantName.Trim(),
                 is_legal_counsel_provided = IsCounselProvided ? 1 : 0,
-                counsel_name = CounselName,
-                company_logo_url = LogoImageStr,
-                created_date = CreatedDate
+                counsel_name = CounselName.Trim(),
+                company_logo_url = LogoImageStr.Trim(),
+                created_date = CreatedDate.Trim()
             };
         }
 

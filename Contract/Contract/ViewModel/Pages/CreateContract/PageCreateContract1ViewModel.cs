@@ -42,7 +42,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir);
+            ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir.Trim());
             ControlApp.CloseLoadingView();
 
             if (!ControlApp.CheckResponse(response)) return;

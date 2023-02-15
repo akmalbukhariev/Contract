@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Contract.Control"
+             x:Class="Contract.Views.ViewEntryNumber">
+
+    <Grid x:Name="grMain" 
+          ColumnDefinitions="*">
+        <BoxView x:Name="backBoxView" BackgroundColor="White"/>
+        <BoxView x:Name="frontBoxView" Margin="2"/>
+
+        <control:CustomEntry x:Name="entry"
+                             PlaceholderColor="Gray"
+                             TextColor="Black"
+                             FontSize="15">
+            <Entry.Behaviors>
+                <control:MaskedBehavior x:Name="entryMask" Mask="XXX XXX XXX"/>
+            </Entry.Behaviors>
+        </control:CustomEntry>
+    </Grid>
+
+</ContentView>

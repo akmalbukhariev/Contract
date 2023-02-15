@@ -36,6 +36,12 @@ namespace Contract.Pages.CreateContract
             imYesNo5.Source = GetYesNoIcon(true);
 
             ControlApp.SelectedClientCompanyInfo = null;
+            ControlApp.EventCurrencyCostChanged += ControlApp_EventCurrencyCostChanged;
+        }
+
+        private void ControlApp_EventCurrencyCostChanged()
+        {
+            throw new NotImplementedException();
         }
 
         protected override void OnAppearing()

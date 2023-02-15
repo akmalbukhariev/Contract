@@ -12,7 +12,7 @@
                      CornerRadius="10"
                      HorizontalOptions="FillAndExpand"
                      Grid.ColumnSpan="3"/>
-            <Image Source="Add"
+            <Image Source="Add_1"
                    Aspect="AspectFit"
                    WidthRequest="30"
                    VerticalOptions="CenterAndExpand"
@@ -52,7 +52,7 @@
                          Margin="2,3,2,0"
                          Spacing="0"
                          Grid.Column="1">
-                <Image Source="Delete"
+                <Image Source="Delete_1"
                        Aspect="AspectFit"
                        WidthRequest="25"
                        VerticalOptions="EndAndExpand"
