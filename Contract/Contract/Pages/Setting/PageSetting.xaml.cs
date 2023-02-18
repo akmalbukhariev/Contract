@@ -36,7 +36,7 @@ namespace Contract.Pages.Setting
 
             //lbTemplate.Text = RSC.SelectDefaultTemplate;
             //lbNight.Text = RSC.NightView;
-            lbAbout.Text = RSC.About;
+            //lbAbout.Text = RSC.About;
 
             //imYesNo1.Source = GetYesNoIcon(true);
             //imYesNo2.Source = GetYesNoIcon(true);
@@ -113,10 +113,10 @@ namespace Contract.Pages.Setting
             {
                 await Navigation.PushAsync(new UnapprovedContracts.PageSign());
             }
-            else if (sender == cellAbout)
-            {
-                await Navigation.PushAsync(new PageAbout());
-            } 
+            //else if (sender == cellAbout)
+            //{
+            //    await Navigation.PushAsync(new PageAbout());
+            //} 
         }
     }
 }

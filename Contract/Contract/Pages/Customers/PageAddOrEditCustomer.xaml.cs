@@ -15,7 +15,7 @@ namespace Contract.Pages.Customers
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageAddOrEditCustomer : IPage
     {
-        private bool yes1 = true;
+        //private bool yes1 = true;
         private bool yes2 = true;
         private bool yes3 = true;
 
@@ -30,7 +30,7 @@ namespace Contract.Pages.Customers
 
             SetModel(new PageAddOrEditCustomerViewModel(Navigation));
 
-            imYesNo1.Source = GetYesNoIcon(true);
+            //imYesNo1.Source = GetYesNoIcon(true);
             imYesNo2.Source = GetYesNoIcon(true);
             imYesNo3.Source = GetYesNoIcon(true);
 
@@ -48,11 +48,11 @@ namespace Contract.Pages.Customers
             {
                 PModel.SetData();
 
-                yes1 = !PModel.AreYouQQSPayer;
+                //yes1 = !PModel.AreYouQQSPayer;
                 yes2 = !PModel.IsAccountProvided;
                 yes3 = !PModel.IsCounselProvided;
 
-                YesNo1_Tapped(null, null);
+                //YesNo1_Tapped(null, null);
                 YesNo2_Tapped(null, null);
                 YesNo3_Tapped(null, null);
 
@@ -60,25 +60,25 @@ namespace Contract.Pages.Customers
             }
         }
 
-        private void YesNo1_Tapped(object sender, EventArgs e)
-        {
-            if (yes1)
-            {
-                imYesNo1.Source = GetYesNoIcon(false);
-                yes1 = false;
-                stackYesNo1.IsVisible = false;
-            }
-            else
-            {
-                imYesNo1.Source = GetYesNoIcon(true);
-                yes1 = true;
-                stackYesNo1.IsVisible = true;
-            }
+        //private void YesNo1_Tapped(object sender, EventArgs e)
+        //{
+        //    if (yes1)
+        //    {
+        //        //imYesNo1.Source = GetYesNoIcon(false);
+        //        yes1 = false;
+        //        stackYesNo1.IsVisible = false;
+        //    }
+        //    else
+        //    {
+        //        //imYesNo1.Source = GetYesNoIcon(true);
+        //        yes1 = true;
+        //        stackYesNo1.IsVisible = true;
+        //    }
 
-            PModel.AreYouQQSPayer = yes1;
-            if (sender != null)
-                ControlApp.Vibrate();
-        }
+        //    PModel.AreYouQQSPayer = yes1;
+        //    if (sender != null)
+        //        ControlApp.Vibrate();
+        //}
 
         private void YesNo2_Tapped(object sender, EventArgs e)
         {

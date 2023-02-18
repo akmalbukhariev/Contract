@@ -11,6 +11,7 @@ namespace Contract.Control
 
         public CustomEntry()
         {
+            TextColor = Color.Black;
             TextColorForIOS = Color.Black;
         }
     }

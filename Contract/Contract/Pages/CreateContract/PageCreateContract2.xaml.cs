@@ -17,14 +17,14 @@ namespace Contract.Pages.CreateContract
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCreateContract2 : IPage
     {
-        private bool yes1 = true;
+        //private bool yes1 = true;
         
         public PageCreateContract2(LibContract.HttpModels.CompanyInfo companyInfo)
         {
             InitializeComponent();
 
             SetModel(new PageCreateContract2ViewModel(Navigation, companyInfo));
-            YesNo1_Tapped(null, null);
+            //YesNo1_Tapped(null, null);
 
             ControlApp.EventCurrencyCostChanged += UpdateTotalCost;
             entContractNumber.Entry.IsEnabled = false;
@@ -48,24 +48,24 @@ namespace Contract.Pages.CreateContract
                 PModel.SelectedQQS = PModel.QQSList[0];
         }
 
-        private void YesNo1_Tapped(object sender, EventArgs e)
-        {
-            if (yes1)
-            {
-                imYesNo1.Source = GetYesNoIcon(false);
-                yes1 = false;
-                entTax.IsVisible = false;
-            }
-            else
-            {
-                imYesNo1.Source = GetYesNoIcon(true);
-                yes1 = true;
-                entTax.IsVisible = true;
-            }
-
-            if (sender != null)
-                ControlApp.Vibrate();
-        }
+        //private void YesNo1_Tapped(object sender, EventArgs e)
+        //{
+        //    if (yes1)
+        //    {
+        //        imYesNo1.Source = GetYesNoIcon(false);
+        //        yes1 = false;
+        //        entTax.IsVisible = false;
+        //    }
+        //    else
+        //    {
+        //        imYesNo1.Source = GetYesNoIcon(true);
+        //        yes1 = true;
+        //        entTax.IsVisible = true;
+        //    }
+        //
+        //    if (sender != null)
+        //        ControlApp.Vibrate();
+        //}
          
         private void Minus_Clicked(object sender, EventArgs e)
         {  
@@ -86,7 +86,12 @@ namespace Contract.Pages.CreateContract
             item.AmountText = (int.Parse(item.AmountText) + 1).ToString();
             UpdateTotalCost();
         }
-         
+
+        private void Amount_Changed(object sender, TextChangedEventArgs e)
+        {
+            UpdateTotalCost();
+        }
+
         private void AddCopy_Stack_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((StackLayout)sender);
@@ -194,6 +199,6 @@ namespace Contract.Pages.CreateContract
                         break;
                 }
             }
-        }
+        } 
     }
 }

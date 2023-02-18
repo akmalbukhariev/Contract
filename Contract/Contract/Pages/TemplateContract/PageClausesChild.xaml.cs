@@ -85,7 +85,7 @@ namespace Contract.Pages.TemplateContract
                     });
                 });
 
-                Thread.Sleep(200);
+                Thread.Sleep(350);
             }
 
             Parallel.ForEach(MyItems.Children, view =>

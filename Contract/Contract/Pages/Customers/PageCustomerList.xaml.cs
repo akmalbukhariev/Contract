@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace Contract.Pages.Customers
@@ -15,31 +16,33 @@ namespace Contract.Pages.Customers
     public partial class PageCustomerList : IPage
     {
         private bool _isSelectable = false;
-        private PageCustomerListViewModel model;
+
+        List<SwipeView> swipeViews { set; get; }
 
         public PageCustomerList()
         {
             InitializeComponent();
+             
+            SetModel(new PageCustomerListViewModel());
 
-            model = new PageCustomerListViewModel();
-            BindingContext = model;
+            swipeViews = new List<SwipeView>();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            model.RequestClientCompany(); 
+            PModel.RequestClientCompany(); 
         }
 
         public void IsThisPageSelectable(bool yes)
         {
             _isSelectable = yes;
-            model.IsThisEditable = !yes;
+            PModel.IsThisEditable = !yes;
 
             if (yes)
             {
                 viewNavigationBar.IsThisModalPage = true;
-            }
+            } 
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -49,7 +52,7 @@ namespace Contract.Pages.Customers
             var tListView = sender as ListView;
             Customer item = (Customer)tListView.SelectedItem;
 
-            foreach (LibContract.HttpModels.CompanyInfo info in model.ResponseClientCompanyInfo.data)
+            foreach (LibContract.HttpModels.CompanyInfo info in PModel.ResponseClientCompanyInfo.data)
             {
                 string strStir = item.UserStir.Replace($"{RSC.STIR} :", "").Trim();
                 if (info.stir_of_company.Trim().Equals(strStir))
@@ -67,6 +70,34 @@ namespace Contract.Pages.Customers
                 await Navigation.PushAsync(new PageAddOrEditCustomer(true));
         }
 
+        private async void SwipeItem_Invoked(object sender, EventArgs e)
+        {
+            var swipeItem = sender as SwipeItem;
+            var item = swipeItem.BindingContext as Customer;
+
+            if (item == null) return;
+
+            bool res = await DisplayAlert(RSC.Customers, RSC.DeleteMessage, RSC.Yes, RSC.No);
+            if (!res)
+            {
+                
+            }
+        }
+
+        private void SwipeView_SwipeStarted(object sender, SwipeStartedEventArgs e)
+        {
+            if (swipeViews.Count == 1)
+            {
+                swipeViews[0].Close();
+                swipeViews.Remove(swipeViews[0]);
+            }
+        }
+
+        private void SwipeView_SwipeEnded(object sender, SwipeEndedEventArgs e)
+        {
+            swipeViews.Add((SwipeView)sender);
+        }
+
         //private async void Edit_Tapped(object sender, EventArgs e)
         //{
         //    ClickAnimationView((Image)sender);
@@ -81,8 +112,16 @@ namespace Contract.Pages.Customers
         {
             if (!ControlApp.InternetOk()) return;
 
-            model.SetTransitionType();
+            PModel.SetTransitionType();
             await Navigation.PushAsync(new PageAddOrEditCustomer());
+        }
+
+        private PageCustomerListViewModel PModel
+        {
+            get
+            {
+                return Model as PageCustomerListViewModel;
+            }
         }
     }
 }

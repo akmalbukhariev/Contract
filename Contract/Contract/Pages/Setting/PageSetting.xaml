@@ -105,7 +105,7 @@
                         </StackLayout>
                     </ViewCell>
                 </TableSection>--> 
-                <TableSection>
+                <!--<TableSection>
                     <ViewCell x:Name="cellAbout" 
                               Tapped="TableCell_Tapped">
                         <StackLayout Orientation="Horizontal">
@@ -122,7 +122,7 @@
                                    HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </ViewCell>
-                </TableSection>
+                </TableSection>-->
                 <TableSection>
                     <ViewCell x:Name="cellNotification" 
                               Tapped="TableCell_Tapped">

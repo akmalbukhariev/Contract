@@ -5,6 +5,7 @@
             xmlns:view="clr-namespace:Contract.Views"
             xmlns:resource="clr-namespace:Contract.Resources"
             xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
             BackgroundColor="{StaticResource BackColor}"
             x:Class="Contract.Pages.Customers.PageCustomerList">
 
@@ -31,7 +32,7 @@
                        Aspect="AspectFit"/>
                 <Label Text="{x:Static resource:AppResource.InformMessage7}"
                        TextColor="Black"
-                       FontSize="18"
+                       FontSize="18" 
                        HorizontalTextAlignment="Center"/>
             </StackLayout>
             <ListView ItemsSource="{Binding DataList}"
@@ -46,45 +47,113 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid ColumnDefinitions="Auto,*,Auto"
-                                      RowDefinitions="100"
-                                      Margin="0">
-                                    <BoxView BackgroundColor="White" 
-                                             CornerRadius="7"
-                                             Grid.ColumnSpan="3"
-                                             Margin="5"/>
-                                    <BoxView IsVisible="{Binding ShowLetter}" 
-                                             BackgroundColor="#99A2B3"
-                                             CornerRadius="30"
-                                             WidthRequest="60"
-                                             Margin="20"/>
-                                    <Label IsVisible="{Binding ShowLetter}"
-                                           Text="{Binding FirstLetter}"
-                                           TextColor="White"
-                                           FontSize="30"
-                                           VerticalTextAlignment="Center"
-                                           HorizontalTextAlignment="Center"/>
-                                    <control:CircleImage IsVisible="{Binding ShowCircleImage}" 
-                                                         Source="{Binding UserImage}" 
-                                                         Aspect="AspectFill"
-                                                         WidthRequest="55"
-                                                         HeightRequest="55"
-                                                         Margin="20">
-                                    </control:CircleImage> 
-                                    <StackLayout Spacing="10" 
+                                <SwipeView SwipeStarted="SwipeView_SwipeStarted" 
+                                           SwipeEnded="SwipeView_SwipeEnded">
+                                         <SwipeView.LeftItems>
+                                             <SwipeItems Mode="Reveal">
+                                                 <SwipeItem IsVisible="{Binding SwipeEnable}" 
+                                                            Text="{x:Static resource:AppResource.Delete}"
+                                                            BackgroundColor="Red"
+                                                            Invoked="SwipeItem_Invoked"/>
+                                             </SwipeItems>
+                                         </SwipeView.LeftItems>
+                                         <Grid ColumnDefinitions="Auto,*,Auto"
+                                               RowDefinitions="100"
+                                               Margin="0">
+                                            <BoxView BackgroundColor="White" 
+                                                     CornerRadius="7"
+                                                     Grid.ColumnSpan="3" 
+                                                     Margin="5"/>
+                                            <BoxView IsVisible="{Binding ShowLetter}" 
+                                                     BackgroundColor="#99A2B3"
+                                                     CornerRadius="30"
+                                                     WidthRequest="60"
+                                                     Margin="20"/>
+                                            <Label IsVisible="{Binding ShowLetter}"
+                                                   Text="{Binding FirstLetter}"
+                                                   TextColor="White"
+                                                   FontSize="30"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"/>
+                                            <control:CircleImage IsVisible="{Binding ShowCircleImage}" 
+                                                                 Source="{Binding UserImage}" 
+                                                                 Aspect="AspectFill"
+                                                                 WidthRequest="55"
+                                                                 HeightRequest="55"
+                                                                 Margin="20">
+                                            </control:CircleImage> 
+                                            <StackLayout Spacing="10" 
+                                                         VerticalOptions="CenterAndExpand"
+                                                         Grid.Column="1">
+                                                <Label Text="{Binding UserTitle}"
+                                                       LineBreakMode="TailTruncation"
+                                                       TextColor="Black"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
+                                                <Label Text="{Binding UserStir}"
+                                                       TextColor="#ACB4C1"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            <Image Source="edit"
+                                                   Aspect="AspectFit"
+                                                   WidthRequest="30"
+                                                   Margin="0,0,20,0"
+                                                   IsVisible="{Binding IsThisEditClient}"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Grid.Column="2"/>
+                                         </Grid>
+                                </SwipeView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+            </ListView>
+            <!--<StackLayout BindableLayout.ItemsSource="{Binding DataList}"
+                         IsVisible="{Binding CloseEmptyMessage}"
+                         Grid.Row="1"
+                         Grid.Column="1">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*,Auto"
+                              RowDefinitions="100"
+                              Margin="0">
+                            <BoxView BackgroundColor="White" 
+                                     CornerRadius="7"
+                                     Grid.ColumnSpan="3" xct:TouchEffect.LongPressCommand="{Binding ShowCustomerCommand}"
+                                     Margin="5"/>
+                            <BoxView IsVisible="{Binding ShowLetter}" 
+                                     BackgroundColor="#99A2B3"
+                                     CornerRadius="30"
+                                     WidthRequest="60"
+                                     Margin="20"/>
+                            <Label IsVisible="{Binding ShowLetter}"
+                                    Text="{Binding FirstLetter}"
+                                    TextColor="White"
+                                    FontSize="30" xct:TouchEffect.LongPressCommand="{Binding ShowCustomerCommand}"
+                                    VerticalTextAlignment="Center"
+                                    HorizontalTextAlignment="Center"/>
+                            <control:CircleImage IsVisible="{Binding ShowCircleImage}" 
+                                                 Source="{Binding UserImage}" 
+                                                 Aspect="AspectFill"
+                                                 WidthRequest="55"
+                                                 HeightRequest="55" 
+                                                 Margin="20">
+                            </control:CircleImage>
+                            <StackLayout Spacing="10" 
                                                  VerticalOptions="CenterAndExpand"
                                                  Grid.Column="1">
-                                        <Label Text="{Binding UserTitle}"
+                                <Label Text="{Binding UserTitle}"
                                                LineBreakMode="TailTruncation"
                                                TextColor="Black"
                                                HorizontalTextAlignment="Start"
                                                VerticalTextAlignment="Center"/>
-                                        <Label Text="{Binding UserStir}"
+                                <Label Text="{Binding UserStir}"
                                                TextColor="#ACB4C1"
                                                HorizontalTextAlignment="Start"
                                                VerticalTextAlignment="Center"/>
-                                    </StackLayout>
-                                    <Image Source="edit"
+                            </StackLayout>
+                            <Image Source="edit"
                                            Aspect="AspectFit"
                                            WidthRequest="30"
                                            Margin="0,0,20,0"
@@ -92,16 +161,15 @@
                                            VerticalOptions="CenterAndExpand"
                                            HorizontalOptions="CenterAndExpand"
                                            Grid.Column="2"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-            </ListView>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>-->
             <Button Style="{StaticResource btnNext}"
                     Text="{x:Static resource:AppResource.AddNewCustomer}"
                     IsVisible="{Binding IsThisEditable}"
                     VerticalOptions="End"
-                    Margin="0,30,0,30"
+                    Margin="0,30,0,30" 
                     Clicked="Add_Clicked"
                     Grid.Row="2"
                     Grid.Column="1"/>

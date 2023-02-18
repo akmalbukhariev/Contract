@@ -35,15 +35,9 @@ namespace Contract.Pages.CreateContract
             imYesNo4.Source = GetYesNoIcon(true);
             imYesNo5.Source = GetYesNoIcon(true);
 
-            ControlApp.SelectedClientCompanyInfo = null;
-            ControlApp.EventCurrencyCostChanged += ControlApp_EventCurrencyCostChanged;
+            ControlApp.SelectedClientCompanyInfo = null; 
         }
-
-        private void ControlApp_EventCurrencyCostChanged()
-        {
-            throw new NotImplementedException();
-        }
-
+          
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -51,6 +45,7 @@ namespace Contract.Pages.CreateContract
             Model.Parent = Parent;
             lbStep.Text = RSC.Step + " #1";
             PModel.ClientCompanyStir = $"{RSC.STIR} :";
+            PModel.ShowQQS = yes3;
 
             PModel.PositionList = GetPositionList;
             PModel.DocumentList = GetDocumentList;
@@ -138,6 +133,7 @@ namespace Contract.Pages.CreateContract
                 stack8.IsVisible = true;
             }
 
+            PModel.ShowQQS = yes3;
             ControlApp.Vibrate();
             PModel.AreYouQQSPayer = yes3;
         }

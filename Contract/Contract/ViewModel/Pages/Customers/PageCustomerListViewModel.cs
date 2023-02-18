@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace Contract.ViewModel.Pages.Customers
 {
@@ -23,7 +26,7 @@ namespace Contract.ViewModel.Pages.Customers
             DataList = new ObservableCollection<Customer>();
             IsThisEditable = true;
         }
-          
+         
         public void Add(Customer item)
         {
             DataList.Add(item);
@@ -72,6 +75,9 @@ namespace Contract.ViewModel.Pages.Customers
                 {
                     ShowEmptyMessage = false;
                     CloseEmptyMessage = true;
+
+                    if (!IsThisEditable)
+                        DataList.ForEach(item => item.SwipeEnable = false);
                 }
                 else
                 {

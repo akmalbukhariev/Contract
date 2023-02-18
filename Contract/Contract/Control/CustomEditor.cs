@@ -7,6 +7,9 @@ namespace Contract.Control
 {
     public class CustomEditor : Editor
     {
-
+        public CustomEditor()
+        {
+            TextColor = Color.Black;
+        }
     }
 }

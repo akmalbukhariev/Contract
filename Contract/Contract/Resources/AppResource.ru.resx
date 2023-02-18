@@ -287,6 +287,10 @@
     <value>Изменить пароль аккаунта</value>
     <comment>Change password</comment>
   </data>
+  <data name="Check" xml:space="preserve">
+    <value>Проверьте</value>
+    <comment>Create contract</comment>
+  </data>
   <data name="CheckID" xml:space="preserve">
     <value>Проверить ID</value>
     <comment>Check</comment>

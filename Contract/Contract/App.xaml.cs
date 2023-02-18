@@ -7,6 +7,7 @@ using Contract.Pages.Setting;
 using Contract.Resources;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +17,21 @@ namespace Contract
     internal class RSC : AppResource
     {
 
+    }
+
+    public static class StringHelper
+    {
+        public static string RemoveWhitespace(this string input)
+        {
+            if (input == null)
+                input = "";
+            else
+                input = input.Trim();
+
+            return new string(input.ToCharArray()
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
+        }
     }
 
     public partial class App : Application

@@ -58,7 +58,7 @@ namespace Contract.Pages.Login
 
             if (!PModel.CheckAutoLogin) return;
 
-            bool res = await DisplayAlert(RSC.AutoLogin, RSC.AutoLogMessage, RSC.Ok, RSC.Cancel);
+            bool res = await DisplayAlert(RSC.AutoLogin, RSC.AutoLogMessage, RSC.Yes, RSC.No);
             if (!res)
             {
                 PModel.CheckAutoLogin = false;

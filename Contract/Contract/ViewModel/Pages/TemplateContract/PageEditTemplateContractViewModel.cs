@@ -271,7 +271,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         private async void DeleteItem(EditTemplate item)
         {
-            if (await Application.Current.MainPage.DisplayAlert(RSC.ContractTemplates, $"{RSC.DeleteMessage} {item.Title}", RSC.Ok, RSC.Cancel, FlowDirection.LeftToRight))
+            if (await Application.Current.MainPage.DisplayAlert(RSC.ContractTemplates, $"{RSC.DeleteMessage} {item.Title}", RSC.Yes, RSC.No, FlowDirection.LeftToRight))
             {
                 ContractClausesList.Remove(item);
                 OrderItems();

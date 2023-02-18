@@ -109,7 +109,7 @@ namespace Contract.Pages.UnapprovedContracts
         private async void Delete_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView((Image)sender);
-            bool res = await Application.Current.MainPage.DisplayAlert(RSC.Clean, RSC.CleanMessage, RSC.Ok, RSC.Cancel);
+            bool res = await Application.Current.MainPage.DisplayAlert(RSC.Clean, RSC.CleanMessage, RSC.Yes, RSC.No);
             if (res)
             {
                 completedPaths.Clear();

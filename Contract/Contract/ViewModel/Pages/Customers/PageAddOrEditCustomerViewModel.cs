@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace Contract.ViewModel.Pages.Customers
 {
@@ -112,31 +113,43 @@ namespace Contract.ViewModel.Pages.Customers
             return 0;
         }
 
+        public ICommand CommandSearchStir => new Command(SearchStir);
+
+        private async void SearchStir()
+        {
+            if (!ControlApp.InternetOk()) return;
+
+            if (string.IsNullOrEmpty(CompanyStir))
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.EnterCompanyStir, RSC.Ok);
+                return;
+            }
+
+            ControlApp.ShowLoadingView(RSC.PleaseWait);
+            ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir.RemoveWhitespace().Trim());
+            ControlApp.CloseLoadingView();
+
+            if (!ControlApp.CheckResponse(response)) return;
+
+            if (!response.result)
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.CouldNotFind, RSC.Ok);
+                return;
+            }
+
+            if (response.data.user_phone_number.Equals(ControlApp.UserInfo.phone_number))
+            {
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.CannotUseYourStirNumber, RSC.Ok);
+                return;
+            }
+
+            SetCompanyInfo(response.data);
+        }
+
         public void SetData()
         {
             if (ControlApp.SelectedClientCompanyInfo == null) return;
-
-            //Id = ControlApp.SelectedClientCompanyInfo.id;
-            //CompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
-            //AddressOfCompany = ControlApp.SelectedClientCompanyInfo.address_of_company;
-            //SelectedDocument = ControlApp.SelectedClientCompanyInfo.document;
-            //SelectedDocument_index = ControlApp.SelectedClientCompanyInfo.document_index;
-            //AccountNumber = ControlApp.SelectedClientCompanyInfo.account_number;
-            //CompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
-            //NameOfBank = ControlApp.SelectedClientCompanyInfo.name_of_bank;
-            //BankCode = ControlApp.SelectedClientCompanyInfo.bank_code;
-            //AreYouQQSPayer = ControlApp.SelectedClientCompanyInfo.are_you_qqs_payer == 1? true : false;
-            //QQSCode = ControlApp.SelectedClientCompanyInfo.qqs_number;
-            //PhoneNnumberOfCompany = ControlApp.SelectedClientCompanyInfo.company_phone_number;
-            //PositionOfSignatory = ControlApp.SelectedClientCompanyInfo.position_of_signer;
-            //PositionOfSignatory_index = ControlApp.SelectedClientCompanyInfo.position_of_signer_index;
-            //FullNameOfSignatory = ControlApp.SelectedClientCompanyInfo.name_of_signer;
-            //IsAccountProvided = ControlApp.SelectedClientCompanyInfo.is_accountant_provided == 1? true : false;
-            //AccountantName = ControlApp.SelectedClientCompanyInfo.accountant_name;
-            //IsCounselProvided = ControlApp.SelectedClientCompanyInfo.is_legal_counsel_provided == 1 ? true : false;
-            //CounselName = ControlApp.SelectedClientCompanyInfo.counsel_name;
-            //CreatedDate = ControlApp.SelectedClientCompanyInfo.created_date;
-
+             
             SetCompanyInfo(ControlApp.SelectedClientCompanyInfo);
 
             if (string.IsNullOrEmpty(ControlApp.SelectedClientCompanyInfo.company_logo_url))

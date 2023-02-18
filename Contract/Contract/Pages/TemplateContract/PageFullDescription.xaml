@@ -44,6 +44,7 @@
                       Grid.Row="1"/>
                 <control:CustomEditor x:Name="edDescription" 
                                       FontSize="15"
+                                      TextColor="Black"
                                       PlaceholderColor="Gray"
                                       BackgroundColor="White"
                                       Margin="5,0,5,10"

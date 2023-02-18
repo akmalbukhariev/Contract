@@ -72,7 +72,7 @@ namespace Contract.Pages.ContractNumber
 
             if (!ControlApp.InternetOk()) return;
 
-            if (!await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.DeleteMessage, RSC.Ok, RSC.Cancel)) return;
+            if (!await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, RSC.DeleteMessage, RSC.Yes, RSC.No)) return;
             
             Model.ContractNumber item = (Model.ContractNumber)((Image)sender).BindingContext;
             if (item == null) return;

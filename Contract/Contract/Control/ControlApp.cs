@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Plugin.LocalNotification;
+using System.Linq;
 
 namespace Contract.Control
-{
+{ 
     public class ControlApp
     {
         public delegate void CurrencyCostChanged();

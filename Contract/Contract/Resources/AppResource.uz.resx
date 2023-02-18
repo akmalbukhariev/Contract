@@ -288,6 +288,10 @@ shartnomalar</value>
     <value>Account parolini tahrirlash</value>
     <comment>Change password</comment>
   </data>
+  <data name="Check" xml:space="preserve">
+    <value>Tekshiring</value>
+    <comment>Create contract</comment>
+  </data>
   <data name="CheckID" xml:space="preserve">
     <value>ID tekshiring</value>
     <comment>Check</comment>

@@ -123,7 +123,7 @@
                                               ChartSyle="True" 
                                               BackgroundColor="White"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" 
+                    <!--<StackLayout Orientation="Horizontal" 
                                  Grid.Row="6">
                         <Label Text="{x:Static resource:AppResource.Question6}"
                                Style="{StaticResource lbBlackStyle}"
@@ -137,8 +137,7 @@
                         </Image>
                     </StackLayout>
                     <Grid x:Name="entTax" Grid.Row="7">
-                        <view:ViewEntry KeyboardSetting="Numeric"
-                                        PlaceHoldingText="--"
+                        <view:ViewEntry KeyboardSetting="Numeric" 
                                         Text="{Binding InterestText}"
                                         Style="{StaticResource entryStyle}"/>
                         <Label Text="%"
@@ -147,7 +146,7 @@
                                HorizontalOptions="End"
                                VerticalOptions="Center"
                                Margin="0,0,15,0"/>
-                    </Grid>
+                    </Grid>-->
                     <Line BackgroundColor="Gray"
                           Grid.Row="8"/>
                     
@@ -199,13 +198,21 @@
                                                     TextColor="Black"
                                                     BackgroundColor="Transparent"
                                                     Clicked="Minus_Clicked"/>
-                                            <Label x:Name="lbAmount" 
+                                            <!--<Label x:Name="lbAmount" 
                                                    Text="{Binding AmountText}" 
                                                    Margin="0,0.5,0,0.5"
                                                    BackgroundColor="White"
                                                    VerticalTextAlignment="Center"
                                                    HorizontalTextAlignment="Center"
-                                                   Grid.Column="1"/>
+                                                   Grid.Column="1"/>-->
+                                            <control:CustomEntry Text="{Binding AmountText}"
+                                                                 Margin="0,0.5,0,0.5"
+                                                                 Keyboard="Numeric"
+                                                                 BackgroundColor="White"
+                                                                 VerticalTextAlignment="Center"
+                                                                 HorizontalTextAlignment="Center"
+                                                                 TextChanged="Amount_Changed"
+                                                                 Grid.Column="1"/>
                                             <BoxView x:Name="boxPlus" 
                                                      BackgroundColor="#E6E6E6"
                                                      CornerRadius="0,5,0,5"

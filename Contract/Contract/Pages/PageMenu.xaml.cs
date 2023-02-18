@@ -64,7 +64,7 @@ namespace Contract.Pages
                     break;
                 case Constants.Menu9:
                     OnShowMenu(false);
-                    bool res = await Application.Current.MainPage.DisplayAlert(RSC.SignOut, RSC.SignOutText, RSC.Ok, RSC.Cancel);
+                    bool res = await Application.Current.MainPage.DisplayAlert(RSC.SignOut, RSC.SignOutText, RSC.Yes, RSC.No);
                     if (res)
                     {
                         Preferences.Set("AutoLogin", "");

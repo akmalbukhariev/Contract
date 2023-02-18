@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Xamarin.Forms; 
 
 namespace Contract.ViewModel.Pages.CreateContract
 {
@@ -17,9 +17,10 @@ namespace Contract.ViewModel.Pages.CreateContract
         public string FirstLetter { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyImage { get => GetValue<string>(); set => SetValue(value); }
         public string ClientCompanyName { get => GetValue<string>(); set => SetValue(value); }
-        public string ClientCompanyStir { get => GetValue<string>(); set => SetValue(value); } 
+        public string ClientCompanyStir { get => GetValue<string>(); set => SetValue(value); }
         #endregion
 
+        public bool ShowQQS = false;
         public PageCreateContract1ViewModel(INavigation navigation) : base(navigation)
         {
             ShowClientCompanyImage = true;
@@ -40,9 +41,9 @@ namespace Contract.ViewModel.Pages.CreateContract
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.EnterCompanyStir, RSC.Ok);
                 return;
             }
-
+              
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir.Trim());
+            ResponseUserCompanyInfo response = await HttpService.GetUserCompanyInfoToCreateContract(CompanyStir.RemoveWhitespace().Trim());
             ControlApp.CloseLoadingView();
 
             if (!ControlApp.CheckResponse(response)) return;
@@ -76,6 +77,33 @@ namespace Contract.ViewModel.Pages.CreateContract
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.SelectClientCompany, RSC.Ok);
                 return;
+            }
+
+            if (!ControlApp.OpenClientInfo && !ControlApp.OpenSearchClient)
+            {
+                if (AccountNumber == null || AccountNumber.RemoveWhitespace().Length < 20)
+                {
+                    await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Check}: {RSC.AccountNumber}", RSC.Ok);
+                    return;
+                }
+
+                if (CompanyStir == null || CompanyStir.RemoveWhitespace().Length < 9)
+                {
+                    await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Check}: {RSC.CompanySTIRi}", RSC.Ok);
+                    return;
+                }
+
+                if (BankCode == null || BankCode.RemoveWhitespace().Length < 5)
+                {
+                    await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Check}: {RSC.BankCode}", RSC.Ok);
+                    return;
+                }
+
+                if (ShowQQS && (QQSCode == null || QQSCode.RemoveWhitespace().Length < 12))
+                {
+                    await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, $"{RSC.Check}: {RSC.QQS_Code}", RSC.Ok);
+                    return;
+                }
             }
 
             LibContract.HttpModels.CompanyInfo companyInfo = (!ControlApp.OpenClientInfo && ControlApp.OpenSearchClient) ? ControlApp.SelectedClientCompanyInfo : GetCompanyInfo();

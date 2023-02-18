@@ -91,7 +91,7 @@ namespace Contract.Pages.UnapprovedContracts
             UnapprovedContract item = (UnapprovedContract)((Image)sender).BindingContext;
             if (item == null) return;
 
-            bool res = await Application.Current.MainPage.DisplayAlert(RSC.Approve, RSC.ApproveMessage, RSC.Ok, RSC.Cancel);
+            bool res = await Application.Current.MainPage.DisplayAlert(RSC.Approve, RSC.ApproveMessage, RSC.Yes, RSC.No);
             if (res)
             {
                 contractNumberReal = item.ContractNnumberReal;

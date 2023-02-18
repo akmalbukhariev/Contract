@@ -38,12 +38,12 @@ namespace Contract.ViewModel
 
         public BaseCompanyInfoModel()
         {
-            PositionList = new List<string>();
+            Init();
         }
 
         public BaseCompanyInfoModel(INavigation navigation) : base(navigation)
         {
-            PositionList = new List<string>();
+            Init();
         }
 
         public BaseCompanyInfoModel Copy()
@@ -70,6 +70,27 @@ namespace Contract.ViewModel
             newModel.CounselName = this.CounselName;
 
             return newModel;
+        }
+
+        private void Init()
+        {
+            CompanyName = "";
+            SelectedDocument = "";
+            AddressOfCompany = "";
+            AccountNumber = "";
+            AccountantName = "";
+            CompanyStir = "";
+            NameOfBank = "";
+            BankCode = "";
+            QQSCode = "";
+            PhoneNnumberOfCompany = "";
+            PositionOfSignatory = "";
+            FullNameOfSignatory = "";
+            AccountantName = "";
+            CounselName = "";
+            CreatedDate = "";
+
+            PositionList = new List<string>();
         }
 
         public bool Equals(BaseCompanyInfoModel other)
@@ -132,27 +153,27 @@ namespace Contract.ViewModel
             return new CompanyInfo()
             {
                 id = Id,
-                user_phone_number = ControlApp.UserInfo.phone_number.Trim(),
-                company_name = CompanyName.Trim(),
-                document = SelectedDocument.Trim(),
+                user_phone_number = ControlApp.UserInfo.phone_number.RemoveWhitespace(),
+                company_name = CompanyName.RemoveWhitespace(),
+                document = SelectedDocument.RemoveWhitespace(),
                 document_index = SelectedDocument_index,
-                address_of_company = AddressOfCompany.Trim(),
-                account_number = AccountNumber.Trim(),
-                stir_of_company = CompanyStir.Trim(),
-                name_of_bank = NameOfBank.Trim(),
-                bank_code = BankCode.Trim(),
+                address_of_company = AddressOfCompany.RemoveWhitespace(),
+                account_number = AccountNumber.RemoveWhitespace(),
+                stir_of_company = CompanyStir.RemoveWhitespace(),
+                name_of_bank = NameOfBank.RemoveWhitespace(),
+                bank_code = BankCode.RemoveWhitespace(),
                 are_you_qqs_payer = AreYouQQSPayer ? 1 : 0,
-                qqs_number = QQSCode.Trim(),
-                company_phone_number = PhoneNnumberOfCompany.Trim(),
-                position_of_signer = PositionOfSignatory.Trim(),
+                qqs_number = QQSCode.RemoveWhitespace(),
+                company_phone_number = PhoneNnumberOfCompany.RemoveWhitespace(),
+                position_of_signer = PositionOfSignatory.RemoveWhitespace(),
                 position_of_signer_index = PositionOfSignatory_index,
-                name_of_signer = FullNameOfSignatory.Trim(),
+                name_of_signer = FullNameOfSignatory.RemoveWhitespace(),
                 is_accountant_provided = IsAccountProvided ? 1 : 0,
-                accountant_name = AccountantName.Trim(),
+                accountant_name = AccountantName.RemoveWhitespace(),
                 is_legal_counsel_provided = IsCounselProvided ? 1 : 0,
-                counsel_name = CounselName.Trim(),
-                company_logo_url = LogoImageStr.Trim(),
-                created_date = CreatedDate.Trim()
+                counsel_name = CounselName.RemoveWhitespace(),
+                company_logo_url = LogoImageStr.RemoveWhitespace(),
+                created_date = CreatedDate.RemoveWhitespace()
             };
         }
 

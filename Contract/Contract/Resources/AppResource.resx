@@ -286,6 +286,10 @@ Contracts</value>
     <value>Change account password</value>
     <comment>Change password</comment>
   </data>
+  <data name="Check" xml:space="preserve">
+    <value>Check</value>
+    <comment>Create contract</comment>
+  </data>
   <data name="CheckID" xml:space="preserve">
     <value>Check ID</value>
     <comment>Check</comment>
