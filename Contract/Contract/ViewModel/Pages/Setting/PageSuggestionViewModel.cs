@@ -47,7 +47,7 @@ namespace Contract.ViewModel.Pages.Setting
 
             if (!ControlApp.CheckResponse(response)) return;
 
-            string strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
+            string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
             await Application.Current.MainPage.DisplayAlert(RSC.Settings, strMessage, RSC.Ok);
 
             if (response.result)

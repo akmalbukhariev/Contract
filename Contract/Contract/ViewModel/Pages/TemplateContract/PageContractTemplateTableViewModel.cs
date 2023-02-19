@@ -62,7 +62,9 @@ namespace Contract.ViewModel.Pages.TemplateContract
                         ContractTempName = item.template_name,
                         ContractPurpose = RSC.Goods,
                         ItemColor = rowColor,
-                        TemplateInfo = new LibContract.HttpModels.ContractTemplate(item)
+                        TemplateInfo = new LibContract.HttpModels.ContractTemplate(item),
+                        CancelImage = response.data.Count == 1 ? "cancel_disable" : "cancel",
+                        IsEnabled = response.data.Count == 1 ? false : true
                     };
 
                     Add(newItem);

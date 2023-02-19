@@ -362,7 +362,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
                 if (!ControlApp.CheckResponse(response)) return;
                 
-                strMessage = response.result ? RSC.SuccessfullyAdded : RSC.Failed;
+                strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
 
                 await Application.Current.MainPage.DisplayAlert(RSC.Templates, strMessage, RSC.Ok);
                 await Navigation.PopAsync();

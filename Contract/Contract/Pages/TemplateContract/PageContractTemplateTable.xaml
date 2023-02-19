@@ -79,7 +79,10 @@
                                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Edit_Tapped"/>
                                             </Image.GestureRecognizers>
                                         </Image>
-                                        <Image Source="cancel" Style="{StaticResource imItem}" Grid.Column="6">
+                                        <Image Source="{Binding CancelImage}" 
+                                               Style="{StaticResource imItem}"
+                                               IsEnabled="{Binding IsEnabled}"
+                                               Grid.Column="6">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
                                             </Image.GestureRecognizers>

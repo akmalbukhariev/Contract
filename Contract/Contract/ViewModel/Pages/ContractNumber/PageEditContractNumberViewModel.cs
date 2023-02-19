@@ -96,7 +96,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
 
             if (response.result)
             {
-                await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, ContractNumber == null ? RSC.SuccessfullyAdded : RSC.SuccessfullyUpdated, RSC.Ok);
+                await Application.Current.MainPage.DisplayAlert(RSC.ContractNumber, ContractNumber == null ? RSC.SuccessfullyCompleted : RSC.SuccessfullyUpdated, RSC.Ok);
                 await Navigation.PopAsync();
             }
             else if (response.message.Equals("Exist"))

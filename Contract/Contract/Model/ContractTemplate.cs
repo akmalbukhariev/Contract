@@ -13,6 +13,8 @@ namespace Contract.Model
         public string ContractPurpose { get => GetValue<string>(); set => SetValue(value); } 
         public Color ItemColor { get => GetValue<Color>(); set => SetValue(value); }
         public LibContract.HttpModels.ContractTemplate TemplateInfo { get; set; }
+        public string CancelImage { get; set; } = "cancel.png";
+        public bool IsEnabled { get; set; } = true;
 
         public ContractTemplate()
         {
@@ -37,6 +39,8 @@ namespace Contract.Model
             ContractPurpose = other.ContractPurpose;
             ItemColor = other.ItemColor;
             TemplateInfo = new LibContract.HttpModels.ContractTemplate(other.TemplateInfo);
+            CancelImage = other.CancelImage;
+            IsEnabled = other.IsEnabled;
         }
     }
 }

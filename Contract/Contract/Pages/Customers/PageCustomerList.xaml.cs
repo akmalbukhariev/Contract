@@ -67,7 +67,7 @@ namespace Contract.Pages.Customers
             if (_isSelectable)
                 await Navigation.PopModalAsync();
             else
-                await Navigation.PushAsync(new PageAddOrEditCustomer(true));
+                await Navigation.PushAsync(new PageAddOrEditCustomer());
         }
 
         private async void SwipeItem_Invoked(object sender, EventArgs e)
@@ -98,15 +98,15 @@ namespace Contract.Pages.Customers
             swipeViews.Add((SwipeView)sender);
         }
 
-        //private async void Edit_Tapped(object sender, EventArgs e)
-        //{
-        //    ClickAnimationView((Image)sender);
-        //    ControlApp.Vibrate();
+        private async void Edit_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView((Image)sender);
+            ControlApp.Vibrate();
 
-        //    Customer item = (Customer)((Image)sender).BindingContext;
+            Customer item = (Customer)((Image)sender).BindingContext;
 
-        //    await Navigation.PushAsync(new PageAddOrEditCustomer(true));
-        //}
+            await Navigation.PushAsync(new PageAddOrEditCustomer(true));
+        }
 
         private async void Add_Clicked(object sender, EventArgs e)
         {
