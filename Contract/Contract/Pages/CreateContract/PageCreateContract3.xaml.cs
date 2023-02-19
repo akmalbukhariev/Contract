@@ -77,8 +77,8 @@ namespace Contract.Pages.CreateContract
                 return;
             }
 
-            //await Navigation.PushAsync(new PageShowContract($"{HttpService.DATA_URL}{contractUrl}"));
-            await Browser.OpenAsync($"{HttpService.DATA_URL}{contractUrl}", BrowserLaunchMode.SystemPreferred);
+            await Navigation.PushAsync(new PageShowContract($"{HttpService.DATA_URL}{contractUrl}"));
+            //await Browser.OpenAsync($"{HttpService.DATA_URL}{contractUrl}", BrowserLaunchMode.SystemPreferred);
         }
 
         private async void Send_Tapped(object sender, EventArgs e)
@@ -105,6 +105,12 @@ namespace Contract.Pages.CreateContract
             if (!ControlApp.InternetOk()) return;
 
             await Navigation.PushModalAsync(new PageCancelContract(ContractInfo, RSC.CreateContract ,true));
+        }
+
+        private async void Back_Tapped(object sender, EventArgs e)
+        {
+            ClickAnimationView(grBack);
+            await Navigation.PopToRootAsync();
         }
     }
 }

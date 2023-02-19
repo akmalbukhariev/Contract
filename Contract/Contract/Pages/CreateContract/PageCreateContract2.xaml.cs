@@ -186,17 +186,24 @@ namespace Contract.Pages.CreateContract
             {
                 var numTemplate = PModel.ResponseContractNumberTemplateInfo.data.Where(item => item.id == PModel.SelectedTemplate.contract_number_format_id).FirstOrDefault();
 
-                switch (numTemplate.format)
+                if (numTemplate == null)
                 {
-                    case 1:
-                        PModel.ContractNumber = PModel.ContractSequenceNumber;
-                        break;
-                    case 2:
-                        PModel.ContractNumber = $"{PModel.SelectedTemplate.contract_number_option} - {PModel.ContractSequenceNumber}";
-                        break;
-                    case 3:
-                        PModel.ContractNumber = $"{PModel.ContractSequenceNumber} - {PModel.SelectedTemplate.contract_number_option}";
-                        break;
+                    PModel.ContractNumber = PModel.ContractSequenceNumber;
+                }
+                else
+                {
+                    switch (numTemplate.format)
+                    {
+                        case 1:
+                            PModel.ContractNumber = PModel.ContractSequenceNumber;
+                            break;
+                        case 2:
+                            PModel.ContractNumber = $"{PModel.SelectedTemplate.contract_number_option} - {PModel.ContractSequenceNumber}";
+                            break;
+                        case 3:
+                            PModel.ContractNumber = $"{PModel.ContractSequenceNumber} - {PModel.SelectedTemplate.contract_number_option}";
+                            break;
+                    }
                 }
             }
         } 

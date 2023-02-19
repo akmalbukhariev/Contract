@@ -23,7 +23,7 @@ namespace ContractAPI.ContractNumberInfo.service.impl
             ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
 
             List<ContractNumberTemplate> found = await dataBase.ContractNumberTemplate
-                 .Where(item => item.user_phone_number.Equals(userPhoneNumber) && item.is_deleted == 0).ToListAsync(); 
+                 .Where(item => item.user_phone_number.Equals(userPhoneNumber)).ToListAsync(); 
 
             if (found == null)
             {
@@ -106,6 +106,32 @@ namespace ContractAPI.ContractNumberInfo.service.impl
 
                 dataBase.ContractTemplate.Update(newTemplate);
             }
+
+            try
+            {
+                await dataBase.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                response.data = null;
+                response.message = ex.Message;
+                response.error_code = (int)HttpStatusCode.NotFound;
+                return response;
+            }
+
+            response.result = true;
+            response.message = Constants.Success;
+            response.error_code = (int)HttpStatusCode.OK;
+
+            return response;
+        }
+
+        public async Task<ResponseContractNumberTemplate> deleteContractTemplate(ContractNumberTemplate info)
+        {
+            ResponseContractNumberTemplate response = new ResponseContractNumberTemplate();
+
+            ContractNumberTemplate newItem = new ContractNumberTemplate(info);
+            dataBase.ContractNumberTemplate.Remove(newItem);
 
             try
             {

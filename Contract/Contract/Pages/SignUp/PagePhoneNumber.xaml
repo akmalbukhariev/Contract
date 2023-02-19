@@ -21,14 +21,29 @@
                      Grid.RowSpan="2"/>
             <StackLayout Style="{StaticResource stackFrame}"
                          Grid.Row="1">
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="entryNumberStyle" TargetType="view:ViewEntryNumber">
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="PlaceHolderTextColor" Value="Gray"/>
+                            <Setter Property="BorderColor" Value="Gray"/>
+                            <Setter Property="BorderWidth" Value="1"/>
+                            <Setter Property="CornerRadius" Value="5"/>
+                            <Setter Property="HeightEntryView" Value="60"/>
+                            <Setter Property="BackgroundColorOfEntry" Value="White"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
                 <Label Text="{x:Static resource:AppResource.SignUpTitle}"
                        Style="{StaticResource lbBoldTitle}"/>
-                <view:ViewEntry x:Name="entry" 
-                                PlaceHoldingText="998"
-                                KeyboardSetting="Numeric"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource viewEntryStyle}"/>
-                <view:ViewExplanation Text="{x:Static resource:AppResource.SignUpDescription}"/>
+                <view:ViewEntryNumber x:Name="entry" 
+                                      PlaceHoldingText="998  --  ---  --  --"
+                                      Mask="XXX XX XXX XX XX"
+                                      Text="{Binding PhoneNnumberOfCompany}"
+                                      KeyboardSetting="Numeric"
+                                      Style="{StaticResource entryNumberStyle}"/>
+                <view:ViewExplanation Text="{x:Static 
+                                      resource:AppResource.SignUpDescription}"/>
             </StackLayout>
             <Button x:Name="btnNext" 
                     Style="{StaticResource btnNext}"

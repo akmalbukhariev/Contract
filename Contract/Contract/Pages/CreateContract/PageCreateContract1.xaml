@@ -34,7 +34,7 @@
                      Margin="0,0,0,20"
                      Grid.RowSpan="2"
                      Grid.Row="2"/>
-            <ScrollView Margin="0,0,0,-20"  
+            <ScrollView Margin="0,0,0,10"  
                         VerticalOptions="FillAndExpand"
                         Grid.Row="2">
                 <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,100"
@@ -395,7 +395,7 @@
             <Button Style="{StaticResource btnNext}" 
                     Text="{x:Static resource:AppResource.ButtonNext}"
                     VerticalOptions="End"
-                    Margin="10,0,10,20"
+                    Margin="10,0,10,30"
                     Command="{Binding CommandSave}"
                     Grid.Row="3"/>
         </Grid>

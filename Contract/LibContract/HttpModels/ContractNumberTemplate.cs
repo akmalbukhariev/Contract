@@ -11,7 +11,7 @@ namespace LibContract.HttpModels
         public string option { get; set; }
         public int format { get; set; }
         public string created_date { get; set; }
-        public int is_deleted { get; set; }
+        //public int is_deleted { get; set; }
 
         public ContractNumberTemplate()
         {
@@ -30,7 +30,7 @@ namespace LibContract.HttpModels
             this.option = other.option;
             this.format = other.format;
             this.created_date = other.created_date;
-            this.is_deleted = other.is_deleted;
+            //this.is_deleted = other.is_deleted;
         } 
     }
 }

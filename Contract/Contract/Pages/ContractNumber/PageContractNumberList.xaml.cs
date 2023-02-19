@@ -83,12 +83,11 @@ namespace Contract.Pages.ContractNumber
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 option = item.ContractNumberText.Replace(Constants.ContractSequenceNumber, "").Replace("-", ""),
                 format = item.Format,
-                created_date = item.CreatedDate,
-                is_deleted = 1
+                created_date = item.CreatedDate
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseContractNumberTemplate response = await Net.HttpService.UpdateContractNumber(data);
+            ResponseContractNumberTemplate response = await Net.HttpService.DeleteContractNumber(data);
             ControlApp.CloseLoadingView();
 
             if (!ControlApp.CheckResponse(response)) return;

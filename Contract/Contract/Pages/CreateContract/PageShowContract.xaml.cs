@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,14 @@ namespace Contract.Pages.CreateContract
         protected override void OnAppearing()
         {
             base.OnAppearing();
-             
+            DependencyService.Get<IRotationService>().EnableRotation();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            DependencyService.Get<IRotationService>().DisableRotation();
         }
     }
 }

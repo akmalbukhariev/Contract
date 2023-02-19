@@ -793,6 +793,10 @@
     <value>O - </value>
     <comment>Editing Contract number</comment>
   </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Главная</value>
+    <comment>PageMain</comment>
+  </data>
   <data name="Me" xml:space="preserve">
     <value>Я</value>
     <comment>Table</comment>

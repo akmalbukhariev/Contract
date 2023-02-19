@@ -1,134 +1,128 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	text-decoration: none;
 }
 
 .main{
-
-    width: 800px;
-    /*height: 4000px;*/
-    margin: auto;
+	width: 800px;
+	/*height: 4000px;*/
+	margin: auto;
 }
 
 .head{
-    width: 100%;
-    min-height: 30px;
-    
-    display: flex;
-    align-items: center;
-    
+	width: 100%;
+	min-height: 30px;
+	display: flex;
+	align-items: center;
 }
 
 .headtext{
-    margin-top: 40px;
-    text-align: center;
+	margin-top: 40px;
+	text-align: center;
 }
 
 .infomain{
-
-    width: 100%;
-    height: 30px;
-    
-    display: flex;
-    justify-content: space-between;
-
+	width: 100%;
+	height: 30px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .date{
-    padding: 5px;
+	padding: 5px;
 }
 
 .address{
-    padding: 5px;
+	padding: 5px;
 }
 
 .htext{
-    width: 100%;
-    
-    height: 100px;
-    padding: 5px;
-    font-size: middle;
+	width: 100%;
+	height: 100px;
+	padding: 5px;
+	font-size: larger;
 }
 .headtext2{
-
-    width: 100%;
-    
+	width: 100%;
 }
 
 .block{
-    width: 100%;
-    min-height: 44px;
-    margin-bottom: 10px;
-   
-    display: flex;
+	width: 100%;
+	min-height: 44px;
+	margin-bottom: 10px;
+	display: flex;
 }
 
 .num{
-    width: 60px;
-    height: 44px;
-    
+	width: 60px;
+	height: 44px;
 }
 
-table {
-    border-collapse: collapse;
-  }
+.imzo{
+	width: 110px;
+	height: 110px;
+	position: absolute;
+	margin-left: 200px;
+}
+
+.blackdot{
+	font-size: 18px;
+	border-bottom: 1px dotted black;
+}
+
+table{
+	border-collapse: collapse;
+}
   
-  td, th {
-    border: 1px solid #999;
-    padding: 0.5rem;
-    text-align: left;
-  }
+td, th{
+	border: 1px solid #999;
+	padding: 0.5rem;
+	text-align: left;
+}
 
-  table{
-      margin-top: 10px;
-  }
+table{
+	margin-top: 10px;
+}
 
-  .numtext{
-      width: 100%;
-      font-size: middle;
-  }
+.numtext{
+	width: 100%;
+	font-size: larger;
+}
 
-  .bl{
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-  }
+.bl{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
 
-  .bl1{
-      width: 49%;
-      padding: 5px;
-  }
+.bl1{
+	width: 49%;
+	padding: 5px;
+}
 
-  .bl2{
-    width: 49%;
-    padding: 5px;
-    
+.bl2{
+	width: 49%;
+	padding: 5px;
 }
 
 .ismend{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .ifsh{
-
-    width: 48%;
+	width: 48%;
 }
 
-.mu{
-    width: 48%;
-    height: 3px;
-    padding: 5px;
-}
-.pagebreak {
-    page-break-before: always !important;
+.pagebreak{
+	page-break-before: always !important;
 } /* page-break-after works, as well */
-@media print {
-    .pagebreak {
-        page-break-before: always !important;
-    } /* page-break-after works, as well */
+@media print{
+	.pagebreak{
+		page-break-before: always !important;
+	} /* page-break-after works, as well */
 }

@@ -46,6 +46,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Upload\contracts_html\styles\styles.css.bak" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibContract\LibContract.csproj" />
   </ItemGroup>
 

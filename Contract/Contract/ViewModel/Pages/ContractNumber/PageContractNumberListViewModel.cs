@@ -88,8 +88,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
                     newItem.ContractNumberText = strTemplate;
                     newItem.ItemColor = rowColor;
                     newItem.Format = item.format;
-                    newItem.CreatedDate = item.created_date;
-                    newItem.IsDeleted = item.is_deleted;
+                    newItem.CreatedDate = item.created_date; 
 
                     Add(newItem);
                 }

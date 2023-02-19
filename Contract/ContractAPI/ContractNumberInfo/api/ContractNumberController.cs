@@ -40,5 +40,12 @@ namespace ContractAPI.ContractNumberInfo.api
             ResponseContractNumberTemplate response = await Service.updateContractNumber(info);
             return MakeResponse(response, response.error_code);
         }
+
+        [HttpDelete("deleteContractNumber")]
+        public async Task<IActionResult> deleteContractNumber([FromBody] ContractNumberTemplate info)
+        {
+            ResponseContractNumberTemplate response = await Service.deleteContractTemplate(info);
+            return MakeResponse(response, response.error_code);
+        }
     }
 }

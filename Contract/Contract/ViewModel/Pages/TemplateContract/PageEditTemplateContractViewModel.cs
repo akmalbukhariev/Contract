@@ -85,7 +85,10 @@ namespace Contract.ViewModel.Pages.TemplateContract
             ContractNumberFormat = other.ContractNumberFormat;
             AddressOfContract = other.AddressOfContract;
             NameOfTemplate = other.NameOfTemplate;
-            SelectedContractNumberTemplate = new Model.ContractNumber(other.SelectedContractNumberTemplate);
+
+            if (other.SelectedContractNumberTemplate != null)
+                SelectedContractNumberTemplate = new Model.ContractNumber(other.SelectedContractNumberTemplate);
+            
             TemplateInfo = new LibContract.HttpModels.ContractTemplate(other.TemplateInfo);
 
             foreach (EditTemplate item in other.ContractClausesList)
@@ -101,7 +104,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
 
         public bool Equals(PageEditTemplateContractViewModel other)
         {
-            bool res1 = SelectedContractNumberTemplate.Id == other.SelectedContractNumberTemplate.Id &&
+            bool res1 = SelectedContractNumberTemplate?.Id == other.SelectedContractNumberTemplate?.Id &&
                         NameOfTemplate.Equals(other.NameOfTemplate) &&
                         AddressOfContract.Equals(other.AddressOfContract);
             
@@ -160,8 +163,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                     newItem.Id = item.id;
                     newItem.ContractNumberText = strTemplate;
                     newItem.Format = item.format;
-                    newItem.CreatedDate = item.created_date;
-                    newItem.IsDeleted = item.is_deleted;
+                    newItem.CreatedDate = item.created_date; 
 
                     ContractNumberTemplateList.Add(newItem);
                 }

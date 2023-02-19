@@ -14,7 +14,7 @@ namespace Contract.Model
         public Color ItemColor { get => GetValue<Color>(); set => SetValue(value); }
         public int Format { get; set; } = 1;
         public string CreatedDate { get; set; }
-        public int IsDeleted { get; set; } = 0;
+        //public int IsDeleted { get; set; } = 0;
 
         public ContractNumber()
         {
@@ -34,7 +34,7 @@ namespace Contract.Model
             ItemColor = other.ItemColor;
             Format = other.Format;
             CreatedDate = other.CreatedDate;
-            IsDeleted = other.IsDeleted;
+            //IsDeleted = other.IsDeleted;
         }
     }
 }

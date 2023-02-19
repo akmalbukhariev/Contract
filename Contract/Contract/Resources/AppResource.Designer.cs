@@ -1628,6 +1628,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main page.
+        /// </summary>
+        internal static string MainPage {
+            get {
+                return ResourceManager.GetString("MainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Me.
         /// </summary>
         internal static string Me {

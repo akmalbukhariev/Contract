@@ -101,7 +101,7 @@ namespace ContractAPI.CreatePdf.service.impl
             string savePathFile = $"{strPath}{contractInfo.contract_number}.html";
             await Task.Run(() =>
             {
-                pdf.CreateContract(savePathFile);
+                pdf.CreateContract(savePathFile, _environment.WebRootPath);
             });
 
             CreateContractInfo editCreateContractInfo = new CreateContractInfo(contractInfo);

@@ -18,13 +18,16 @@ namespace ContractAPI.CreatePdf.service
 
         private List<ContractTemplateJson> JsonList;
 
+        string SaveSignaturePath = string.Empty;
         public CreateHtmlPDF(string strJson)
         {
             JsonList = JsonConvert.DeserializeObject<List<ContractTemplateJson>>(strJson);
         }
 
-        public void CreateContract(string saveFilePath)
-        {   
+        public void CreateContract(string saveFilePath, string rootPath)
+        {
+            SaveSignaturePath = rootPath + Constants.SaveSignImagePath;
+
             double qqs = double.Parse(ContractInfo.amount_of_qqs.Replace("%", "").Trim());
 
             List<TableRow> tableRows = new List<TableRow>();
@@ -199,15 +202,30 @@ namespace ContractAPI.CreatePdf.service
 
         private string CreateSignature()
         {
-            string result = "<div style=\"width: 100 %\">" + Environment.NewLine +
-                                "<div style = \"float: left; width: 50%; margin-top: 50px; padding: 10px\">" + Environment.NewLine +
-                                     $"<div style = \"font-size: 18px;\" ><span style = \"float: left; margin-left: 30px\"> М.Ў.</span><span style = \"float: right;\"> {ClientCompany.position_of_signer} <span> _____________ </span><span> {ClientCompany.name_of_signer}.</span></span></div>" + Environment.NewLine +
-                                "</div>" + Environment.NewLine +
-                                "<div style = \"float: right; width: 50%; margin-top: 50px; padding: 10px\">" + Environment.NewLine +
-                                     $"<div style = \"font-size: 18px;\"><span style = \"float: left; margin-left: 30px\"> М.Ў.</span><span style = \"float: right;\"> {UserCompany.position_of_signer} <span> _____________ </span><span> {UserCompany.name_of_signer}.</span></span></div>" + Environment.NewLine +
-                                "</div>" + Environment.NewLine +
-                           "</div>" + Environment.NewLine +
-                           "<div style = \"margin-bottom: 140px;\"></div>" + Environment.NewLine;
+            string saveUserSignFile = $"{SaveSignaturePath}{ContractInfo.user_phone_number}_sign.png";
+            string saveClientSignFile = $"{SaveSignaturePath}{ContractInfo.contragent_phone_number}_sign.png";
+
+            bool is_approved = ContractInfo.is_approved == 1 ? true : false;
+            bool is_approved_contragent = ContractInfo.is_approved_contragent == 1 ? true : false;
+
+            if (!is_approved) saveUserSignFile = "";
+            if (!is_approved_contragent) saveClientSignFile = "";
+
+            string result = "<div style=\"width: 100%\">" + Environment.NewLine +
+                            $"<img class=\"imzo\" src=\"{saveUserSignFile}\"/>" + Environment.NewLine +
+                            "<div style=\"float: left; width: 50%; margin-top: 30px; padding: 5px\">" + Environment.NewLine +
+                                "<div style=\"font-size: 18px\">" + Environment.NewLine +
+                                    $"<span style=\"float: left; width: 50%\">{UserCompany.position_of_signer}<br/>{UserCompany.name_of_signer}.</span>" + Environment.NewLine +
+                               "</div>" + Environment.NewLine +
+                            "</div>" + Environment.NewLine +
+                            $"<img class=\"imzo\" src=\"{saveClientSignFile}\"/>" + Environment.NewLine +
+                            "<div style=\"float: right; width: 50%; margin-top: 20px; padding: 15px\">" + Environment.NewLine +
+                                "<div style=\"font-size: 18px\">" + Environment.NewLine +
+                                    $"<span style=\"float: left; width: 50%\">{ClientCompany.position_of_signer}<br/>{UserCompany.name_of_signer}.</span>" + Environment.NewLine +
+                                "</div> " + Environment.NewLine +
+                            "</div>" + Environment.NewLine +
+                        "</div>" + Environment.NewLine +
+                        "<div style=\"margin-bottom: 140px;\"></div>";
 
             return result;
         }
