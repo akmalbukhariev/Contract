@@ -17,6 +17,8 @@ namespace Contract.ViewModel.Pages.CreateContract
         public string ContractNumber { get => GetValue<string>(); set => SetValue(value); }
         public string ContractSequenceNumber { get; set; } = ""; 
         public string SelectedCurrency { get => GetValue<string>(); set => SetValue(value); }
+        public string TypedCurrency { get => GetValue<string>(); set => SetValue(value); }
+        public bool ShowTypeCurrency { get => GetValue<bool>(); set => SetValue(value); }
         public int SelectedCurrency_index { get => GetValue<int>(); set => SetValue(value); }
         public string SelectedQQS { get => GetValue<string>(); set => SetValue(value); }
         public int SelectedQQS_index { get => GetValue<int>(); set => SetValue(value); }
@@ -39,6 +41,7 @@ namespace Contract.ViewModel.Pages.CreateContract
 
         public PageCreateContract2ViewModel(INavigation navigation, LibContract.HttpModels.CompanyInfo companyInfo): base(navigation)
         {
+            ShowTypeCurrency = false;
             ServicesList = new ObservableCollection<ServicesInfo>();
             ServicesList.Add(new ServicesInfo());
 
@@ -95,7 +98,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.AgreeMessage, RSC.Ok);
                 return;
             }
-
+             
             string strNumber = Regex.Replace(ContractNumber, @"\s", "");
             string strContractNumber = $"{ControlApp.UserInfo.phone_number}_{strNumber.Replace("-", "_")}";
 
@@ -111,7 +114,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 template_id = SelectedTemplate.id,
                 contract_sequence_number = ContractSequenceNumber,
                 contract_number = strContractNumber,
-                contract_currency = SelectedCurrency,
+                contract_currency = ShowTypeCurrency? TypedCurrency : SelectedCurrency,
                 contract_currency_index = SelectedCurrency_index,
                 amount_of_qqs = SelectedQQS,
                 amount_of_qqs_index = SelectedQQS_index,
@@ -122,6 +125,9 @@ namespace Contract.ViewModel.Pages.CreateContract
                 created_date = "",
             };
 
+            contractinfo.contract_currency = contractinfo.contract_currency.Replace("(UZS)", "");
+            contractinfo.total_cost_text = contractinfo.total_cost_text.Replace("(UZS)", "");
+
             var serviceList = new List<LibContract.HttpModels.ServicesInfo>();
             foreach (ServicesInfo item in ServicesList)
             {
@@ -129,7 +135,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 {
                     contract_number = strContractNumber,
                     name_of_service = item.NameOfService,
-                    unit_of_measure = item.SelectedMeasure,
+                    unit_of_measure = item.ShowTypeMeasure? item.TypedMeasure : item.SelectedMeasure,
                     unit_of_measure_index = item.SelectedMeasure_index,
                     amount_value = int.Parse(item.AmountText),
                     amount_value_price = item.AmountOfPrice,
@@ -200,7 +206,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         {
             foreach (ServicesInfo item in ServicesList)
             {
-                item.SelectedCurrency = SelectedCurrency;
+                item.SelectedCurrency = ShowTypeCurrency? TypedCurrency : SelectedCurrency;
             }
         }
 

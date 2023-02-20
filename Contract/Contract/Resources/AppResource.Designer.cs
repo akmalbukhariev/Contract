@@ -2546,6 +2546,24 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type currency.
+        /// </summary>
+        internal static string TypeCurrency {
+            get {
+                return ResourceManager.GetString("TypeCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type measure.
+        /// </summary>
+        internal static string TypeMeasure {
+            get {
+                return ResourceManager.GetString("TypeMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unapproved.
         /// </summary>
         internal static string Unapproved {

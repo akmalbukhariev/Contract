@@ -1219,6 +1219,14 @@
     <value>Хизматнинг жами нархи:</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="TypeCurrency" xml:space="preserve">
+    <value>Валюта тури</value>
+    <comment>Page Contract 2</comment>
+  </data>
+  <data name="TypeMeasure" xml:space="preserve">
+    <value>Ўлчов тури</value>
+    <comment>Page Contract 2</comment>
+  </data>
   <data name="Unapproved" xml:space="preserve">
     <value>Тасдиқланмаган</value>
     <comment>UnapprovedContracts</comment>

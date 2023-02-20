@@ -12,6 +12,8 @@ namespace Contract.Model
         public int Index { get => GetValue<int>(); set => SetValue(value); }
         public string NameOfService { get => GetValue<string>(); set => SetValue(value); }
         public string SelectedMeasure { get => GetValue<string>(); set => SetValue(value); }
+        public string TypedMeasure { get => GetValue<string>(); set => SetValue(value); }
+        public bool ShowTypeMeasure { get => GetValue<bool>(); set => SetValue(value); }
         public int SelectedMeasure_index { get => GetValue<int>(); set => SetValue(value); }
         public string AmountText { get => GetValue<string>(); set => SetValue(value); }
         public string AmountOfPrice { get => GetValue<string>(); set => SetValue(value); }
@@ -28,6 +30,8 @@ namespace Contract.Model
             MeasureList = GetMeasureList;
             SelectedMeasure = "";
             SelectedMeasure_index = 0;
+            TypedMeasure = "";
+            ShowTypeMeasure = false;
 
             if (MeasureList.Count > 0)
                 SelectedMeasure = MeasureList[0];
@@ -40,14 +44,16 @@ namespace Contract.Model
 
         public void Copy(ServicesInfo other)
         {
-            this.Index = other.Index + 1;
-            this.NameOfService = other.NameOfService;
-            this.AmountText = other.AmountText;
-            this.AmountOfPrice = other.AmountOfPrice;
-            this.SelectedCurrency = other.SelectedCurrency;
-            this.MeasureList = other.MeasureList;
-            this.SelectedMeasure = other.SelectedMeasure;
-            this.SelectedMeasure_index = other.SelectedMeasure_index;
+            Index = other.Index + 1;
+            NameOfService = other.NameOfService;
+            AmountText = other.AmountText;
+            AmountOfPrice = other.AmountOfPrice;
+            SelectedCurrency = other.SelectedCurrency;
+            MeasureList = other.MeasureList;
+            SelectedMeasure = other.SelectedMeasure;
+            SelectedMeasure_index = other.SelectedMeasure_index;
+            TypedMeasure = other.TypedMeasure;
+            ShowTypeMeasure = other.ShowTypeMeasure;
         }
 
         public double CalcTotalCost()

@@ -44,12 +44,12 @@ namespace ContractAPI.CreatePdf.service
                 priceWithQQS += double.Parse(row.PriceWithQQS);
             }
 
-            string[] dList = string.Format("{0:0.00}", priceWithQQS).Split('.');
+            string[] dList = string.Format("{0:0.00}", priceWithQQS.ToString("G")).Split('.');
             string cent = dList.Length == 2 ? dList[1] : "00";
 
             string textDigits = FirstCharToUpper(DigitConverter.Digit2Text((long)priceWithQQS));
 
-            return $"<div><span class=\"servicetext numtext\">Жами шартнома суммаси ҚҚС билан: <b>{textDigits} тийин</b>.</span></div>";
+            return $"<div><span class=\"servicetext numtext\">Жами шартнома суммаси ҚҚС билан: <b>{textDigits} {contractCurrency} {cent} тийин</b>.</span></div>";
 
             //return $"Жами шартнома суммаси ҚҚС билан: {textDigits} {contractCurrency} {cent} тийин";
         }

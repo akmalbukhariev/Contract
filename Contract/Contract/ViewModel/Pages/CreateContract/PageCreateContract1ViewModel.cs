@@ -21,11 +21,17 @@ namespace Contract.ViewModel.Pages.CreateContract
         #endregion
 
         public bool ShowQQS = false;
+        public List<string> positionList = new List<string>();
         public PageCreateContract1ViewModel(INavigation navigation) : base(navigation)
         {
             ShowClientCompanyImage = true;
             ClientCompanyName = RSC.SelectClientCompany;
             ClientCompanyImage = "no_image";
+
+            positionList.Add("Очиқ қолдириш");
+            positionList.Add("Ochiq qoldirish");
+            positionList.Add("Оставьте его открытым");
+            positionList.Add("Leave it open");
         }
 
         #region Command
@@ -105,8 +111,11 @@ namespace Contract.ViewModel.Pages.CreateContract
                     return;
                 }
             }
-
+             
             LibContract.HttpModels.CompanyInfo companyInfo = (!ControlApp.OpenClientInfo && ControlApp.OpenSearchClient) ? ControlApp.SelectedClientCompanyInfo : GetCompanyInfo();
+            if (positionList.Contains(PositionOfSignatory))
+                companyInfo.position_of_signer = "________________";
+
             SetTransitionType();
             await Navigation.PushAsync(new PageCreateContract2(companyInfo));
         }

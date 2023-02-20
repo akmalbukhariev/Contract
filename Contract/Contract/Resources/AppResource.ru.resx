@@ -1219,6 +1219,14 @@
     <value>Общая стоимость услуги:</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="TypeCurrency" xml:space="preserve">
+    <value>Введите валюту</value>
+    <comment>Page Contract 2</comment>
+  </data>
+  <data name="TypeMeasure" xml:space="preserve">
+    <value>Введите меры</value>
+    <comment>Page Contract 2</comment>
+  </data>
   <data name="Unapproved" xml:space="preserve">
     <value>Не утвержден</value>
     <comment>UnapprovedContracts</comment>

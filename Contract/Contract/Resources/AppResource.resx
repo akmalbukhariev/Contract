@@ -1218,6 +1218,14 @@ Contracts</value>
     <value>Total Cost Of The Service:</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="TypeCurrency" xml:space="preserve">
+    <value>Type currency</value>
+    <comment>Page Contract 2</comment>
+  </data>
+  <data name="TypeMeasure" xml:space="preserve">
+    <value>Type measure</value>
+    <comment>Page Contract 2</comment>
+  </data>
   <data name="Unapproved" xml:space="preserve">
     <value>Unapproved</value>
     <comment>UnapprovedContracts</comment>

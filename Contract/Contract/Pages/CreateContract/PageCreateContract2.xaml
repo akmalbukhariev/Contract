@@ -109,6 +109,10 @@
                                               Image="show"
                                               ChartSyle="True" 
                                               BackgroundColor="White"/>
+                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.TypeCurrency}"
+                                        Text="{Binding TypedCurrency}"
+                                        IsVisible="{Binding ShowTypeCurrency}"
+                                        Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Spacing="10"
                                  Grid.Row="5">
@@ -171,10 +175,15 @@
                                                               ItemsSource="{Binding MeasureList}"
                                                               SelectedItem="{Binding SelectedMeasure}"
                                                               SelectedIndex="{Binding SelectedMeasure_index}"
+                                                              SelectedIndexChanged="Measure_SelectedIndexChanged"
                                                               HorizontalTextAlignment="Start"
                                                               Image="show"
                                                               ChartSyle="True" 
                                                               BackgroundColor="White"/>
+                                        <view:ViewEntry PlaceHoldingText="{x:Static resource:AppResource.TypeMeasure}"
+                                                        Text="{Binding TypedMeasure}"
+                                                        IsVisible="{Binding ShowTypeMeasure}"
+                                                        Style="{StaticResource entryStyle}"/>
                                     </StackLayout>
                                     <Grid ColumnDefinitions="*,Auto">
                                         <Label Text="{x:Static resource:AppResource.Amount}"

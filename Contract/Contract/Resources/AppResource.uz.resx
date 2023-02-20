@@ -1247,6 +1247,14 @@ yuborilgan maxsus kodni kiriting.</value>
     <value>Xizmatning jami narxi:</value>
     <comment>CreateContract</comment>
   </data>
+  <data name="TypeCurrency" xml:space="preserve">
+    <value>Valyuta turi</value>
+    <comment>Page Contract 2</comment>
+  </data>
+  <data name="TypeMeasure" xml:space="preserve">
+    <value>O'lchov turi</value>
+    <comment>Page Contract 2</comment>
+  </data>
   <data name="Unapproved" xml:space="preserve">
     <value>Tasdiqlanmagan</value>
     <comment>UnapprovedContracts</comment>

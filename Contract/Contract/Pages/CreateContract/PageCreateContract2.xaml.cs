@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using LibContract;
+using Contract.Control;
 
 namespace Contract.Pages.CreateContract
 {
@@ -18,7 +19,8 @@ namespace Contract.Pages.CreateContract
     public partial class PageCreateContract2 : IPage
     {
         //private bool yes1 = true;
-        
+        List<string> addNewList = new List<string>();
+
         public PageCreateContract2(LibContract.HttpModels.CompanyInfo companyInfo)
         {
             InitializeComponent();
@@ -28,6 +30,11 @@ namespace Contract.Pages.CreateContract
 
             ControlApp.EventCurrencyCostChanged += UpdateTotalCost;
             entContractNumber.Entry.IsEnabled = false;
+
+            addNewList.Add("Янги қўшиш");
+            addNewList.Add("Yangi qo'shish");
+            addNewList.Add("Add new");
+            addNewList.Add("Добавить новое");
         }
          
         protected override void OnAppearing()
@@ -132,6 +139,8 @@ namespace Contract.Pages.CreateContract
 
         private async void UpdateTotalCost()
         {
+            PModel.UpdateServiceList();
+
             double cost = 0;
             foreach (ServicesInfo item in PModel.ServicesList)
             {
@@ -144,7 +153,8 @@ namespace Contract.Pages.CreateContract
                 cost += item.CalcTotalCost();
             }
 
-            PModel.TotalCostText = $"{cost} {PModel.SelectedCurrency}";
+            string strCurrency = PModel.ShowTypeCurrency ? PModel.TypedCurrency : PModel.SelectedCurrency;
+            PModel.TotalCostText = $"{cost} {strCurrency}";
         }
 
         async void ChangeBoxColor(BoxView boxView)
@@ -175,9 +185,19 @@ namespace Contract.Pages.CreateContract
         }
 
         private void Currency_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        { 
+            PModel.ShowTypeCurrency = addNewList.Contains(PModel.SelectedCurrency);
+              
             PModel.UpdateServiceList();
             UpdateTotalCost();
+        }
+
+        private void Measure_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ServicesInfo item = (ServicesInfo)((CustomPicker)sender).BindingContext;
+            if (item == null) return;
+
+            item.ShowTypeMeasure = addNewList.Contains(item.SelectedMeasure);
         }
 
         private void ContractTemplate_SelectedIndexChanged(object sender, EventArgs e)
