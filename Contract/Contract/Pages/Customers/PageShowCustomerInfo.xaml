@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:resource="clr-namespace:Contract.Resources"
+            xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+            BackgroundColor="{StaticResource BackColor}"
+            x:Class="Contract.Pages.Customers.PageShowCustomerInfo">
+
+    <Grid>
+        <BoxView BackgroundColor="Black" Opacity="0.5"/>
+        <Grid RowDefinitions="*, Auto"
+              WidthRequest="300"
+              HeightRequest="450"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand">
+            <Frame CornerRadius="20"
+                   Padding="0">
+                <Grid RowDefinitions="50,*">
+                    <BoxView BackgroundColor="LightGray"
+                             CornerRadius="20,20,0,0"/>
+                    <StackLayout HorizontalOptions="CenterAndExpand"
+                                 Spacing="0">
+                        <Label Text="Company name"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="Stir number"
+                               TextColor="Gray"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    <Grid HorizontalOptions="End">
+                        <BoxView IsVisible="true" 
+                                 BackgroundColor="#99A2B3"
+                                 CornerRadius="30"
+                                 WidthRequest="45"
+                                 Margin="0,5,5,5"/>
+                        <Label IsVisible="true"
+                               Text="B"
+                               TextColor="White"
+                               FontSize="25"
+                               Margin="0,0,5,0"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <control:CircleImage IsVisible="false" 
+                                             Source="uzb_flag" 
+                                             Aspect="AspectFill"
+                                             WidthRequest="45"
+                                             Margin="0,5,5,5"/>
+                    </Grid>
+                    <ScrollView VerticalOptions="FillAndExpand" 
+                                Margin="0,0,0,20"
+                                Grid.Row="1">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                              RowSpacing="15"
+                              Margin="10,10,10,0">
+                            <Grid.Resources>
+                                <ResourceDictionary>
+                                    <Style x:Key="lbTitleStyle" TargetType="Label">
+                                        <Setter Property="TextColor" Value="Black"/>
+                                        <Setter Property="FontAttributes" Value="Bold"/>
+                                        <Setter Property="FontSize" Value="15"/>
+                                        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                                    </Style>
+                                    <Style x:Key="lbTextStyle" TargetType="Label">
+                                        <Setter Property="TextColor" Value="Gray"/>
+                                        <Setter Property="FontSize" Value="15"/>
+                                        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                                    </Style>
+                                </ResourceDictionary>
+                            </Grid.Resources>
+                            <StackLayout>
+                                <Label Text="{x:Static resource:AppResource.CompanyName}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding CompanyName}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Spacing="10"
+                                         Grid.Row="1">
+                                <Label Text="{x:Static resource:AppResource.Document}"
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding CompanyName}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2">
+                                <Label Text="{x:Static resource:AppResource.AddressOfCompany}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding AddressOfCompany}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="3">
+                                <Label Text="{x:Static resource:AppResource.AccountNumber}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding AccountNumber}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout x:Name="stack4"
+                                         Grid.Row="7">
+                                <Label Text="{x:Static resource:AppResource.CompanySTIRi}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding CompanyStir}"
+                                           Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="5">
+                                <Label Text="{x:Static resource:AppResource.NameOfBank}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding NameOfBank}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="6">
+                                <Label Text="{x:Static resource:AppResource.BankCode}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding BankCode}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout x:Name="stackYesNo1" 
+                                         Grid.Row="8">
+                                <Label Text="{x:Static resource:AppResource.QQS_Code}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding QQSCode}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="9">
+                                <Label Text="{x:Static resource:AppResource.PhoneNumberOfCompany}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding PhoneNnumberOfCompany}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Spacing="10"
+                                         Grid.Row="10">
+                                <Label Text="{x:Static resource:AppResource.PositionOfSignator}"
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding PositionOfSignatory}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="11">
+                                <Label Text="{x:Static resource:AppResource.NameOfSignator}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding FullNameOfSignatory}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout x:Name="stackYesNo2" 
+                                         Grid.Row="13">
+                                <Label Text="{x:Static resource:AppResource.AccountantName}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding AccountantName}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                            <StackLayout x:Name="stackYesNo3" 
+                                         Grid.Row="15">
+                                <Label Text="{x:Static resource:AppResource.CounselName}" 
+                                       Style="{StaticResource lbTitleStyle}"/>
+                                <Label Text="{Binding CounselName}"
+                                       Style="{StaticResource lbTextStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ScrollView>
+                </Grid>
+            </Frame>
+            <Button Text="{x:Static resource:AppResource.Delete}" 
+                    CornerRadius="20"
+                    Grid.Row="1"/>
+        </Grid>
+    </Grid>
+    
+</page:IPage>

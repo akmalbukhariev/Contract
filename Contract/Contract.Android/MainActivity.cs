@@ -24,7 +24,9 @@ namespace Contract.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
-             
+
+            //MR.Gestures.Android.Settings.LicenseKey = "";
+
             FirebasePushNotificationManager.ProcessIntent(this, Intent);
             firebaseService = new FirebaseService(this);
         }

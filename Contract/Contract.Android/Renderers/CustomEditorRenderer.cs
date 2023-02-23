@@ -23,6 +23,7 @@ namespace Contract.Droid.Renderers
     {
         public CustomEditorRenderer(Context context) : base(context)
         {
+             
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)

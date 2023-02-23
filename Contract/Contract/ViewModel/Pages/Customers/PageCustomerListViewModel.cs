@@ -10,18 +10,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 namespace Contract.ViewModel.Pages.Customers
-{
-    public class PageCustomerListViewModel : BaseModel
+{  
+    public class PageCustomerListViewModel : BaseCompanyInfoModel
     {
         public bool IsThisEditable { get => GetValue<bool>(); set => SetValue(value); } 
 
         public ObservableCollection<Customer> DataList { get; set; }
-
-        public Customer SelectedCustomer { get => GetValue<Customer>(); set => SetValue(value); }
-
+         
+        public ItemClicked SelectedCustomer;
         public ResponseClientCompanyInfo ResponseClientCompanyInfo { get; set; }
 
-        public PageCustomerListViewModel()
+        public PageCustomerListViewModel(INavigation navigation) : base(navigation)
         {
             DataList = new ObservableCollection<Customer>();
             IsThisEditable = true;
@@ -68,6 +67,7 @@ namespace Contract.ViewModel.Pages.Customers
                         item.FirstLetter = info.company_name?.Length > 0? info.company_name[0].ToString() : "";
                     }
 
+                    item.EventShowInfoPressed += Item_EventShowInfoPressed;
                     Add(item);
                 }
 
@@ -86,5 +86,10 @@ namespace Contract.ViewModel.Pages.Customers
                 }
             }
         }
+
+        public void Item_EventShowInfoPressed(object sender, bool longPressed)
+        {
+            SelectedCustomer(sender, longPressed); 
+        } 
     }
 }

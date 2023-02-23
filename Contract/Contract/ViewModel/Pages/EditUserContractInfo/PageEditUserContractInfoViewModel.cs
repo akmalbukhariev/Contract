@@ -1,4 +1,5 @@
-﻿using LibContract.HttpResponse;
+﻿using Contract.Net;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,22 +15,7 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
         public PageEditUserContractInfoViewModel(INavigation navigation) : base(navigation)
         {
-            //CompanyName = "Kontrakt Maker";
-            //AddressOfCompany = "Uzbekistan";
-            //AccountNumber = "126741";
-            //CompanyStir = "111122";
-            //NameOfBank = "ASAKA";
-            //BankCode = "99115544";
-            //AreYouQQSPayer = true;
-            //QQSCode = "7744261";
-            //PhoneNnumberOfCompany = "9989756321";
-            ////PositionOfSignatory = "Akmal";
-            ////PositionOfSignatory_index = 1;
-            //FullNameOfSignatory = "Akmal Bukhariev";
-            //IsAccountProvided = true;
-            //AccountantName = "Rashid Vohidov";
-            //IsCounselProvided = false;
-            //CounselName = "Ikrom";
+            LogoImage = "plus"; 
         }
 
         BaseCompanyInfoModel oldModel = null;//new BaseCompanyInfoModel();
@@ -69,6 +55,11 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
                 oldModel = Copy();
 
+                if (string.IsNullOrEmpty(response.data.company_logo_url))
+                    LogoImage = "plus.png";
+                else
+                    LogoImage = $"{HttpService.DATA_URL}{response.data.company_logo_url}";
+
                 EventRequestInfoFinished?.Invoke();
             }
         }
@@ -86,18 +77,22 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
             ResponseUserCompanyInfo response = null;
             ControlApp.ShowLoadingView(RSC.PleaseWait);
 
+            bool hasFile = string.IsNullOrEmpty(LogoImageStr) ? false : true;
+
             if (oldModel == null)
             {
                 response = await Net.HttpService.SetUserCompanyInfo(GetCompanyInfo());
+
+                if (!ControlApp.CheckResponse(response)) return;
             }
-            else if (!Equals(oldModel))
+            else if (!Equals(oldModel) || hasFile)
             {
-                response = await Net.HttpService.UpdateUserCompanyInfo(GetCompanyInfo());
+                response = await Net.HttpService.UpdateUserCompanyInfo(GetCompanyInfo(), hasFile);
+
+                if (!ControlApp.CheckResponse(response)) return;
             }
             ControlApp.CloseLoadingView();
-
-            if (!ControlApp.CheckResponse(response)) return;
-
+             
             if (response != null && response.result)
             {
                 await Application.Current.MainPage.DisplayAlert(RSC.MyCompany, RSC.SuccessfullyUpdated, RSC.Ok);

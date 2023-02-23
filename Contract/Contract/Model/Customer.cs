@@ -7,8 +7,12 @@ using Xamarin.Forms;
 
 namespace Contract.Model
 {
+    public delegate void ItemClicked(object sender, bool lonPressed);
+
     public class Customer : BaseModel
     {
+        public event ItemClicked EventShowInfoPressed;
+
         public bool IsThisEditClient { get => GetValue<bool>(); set => SetValue(value); }
         public bool ShowCircleImage { get => GetValue<bool>(); set => SetValue(value); }
         public bool ShowLetter { get => GetValue<bool>(); set => SetValue(value); }
@@ -28,11 +32,17 @@ namespace Contract.Model
             //UserImage = "rus_flag";
         }
 
-        public ICommand ShowCustomerCommand => new Command(ShowCustomer);
+        public ICommand CommandShowInfo => new Command(ShowInfo);
+        public ICommand CommandClickItem => new Command(ClickItem);
 
-        private void ShowCustomer()
+        private void ShowInfo(object sender)
         {
-            ControlApp.Vibrate();
+            EventShowInfoPressed?.Invoke(sender, true);     
+        }
+
+        private void ClickItem(object sender)
+        {
+            EventShowInfoPressed?.Invoke(sender, false);
         }
     }
 }

@@ -225,7 +225,8 @@
                                         Text="{Binding CounselName}"
                                         Style="{StaticResource entryStyle}"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="16">
+                    <StackLayout IsVisible="false" 
+                                 Grid.Row="16">
                         <Label Text="{x:Static resource:AppResource.Logotip}"
                                Style="{StaticResource lbBlackStyle}"/>
                         <Image Source="{Binding LogoImage}"

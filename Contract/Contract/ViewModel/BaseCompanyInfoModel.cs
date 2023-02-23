@@ -94,9 +94,7 @@ namespace Contract.ViewModel
         }
 
         public bool Equals(BaseCompanyInfoModel other)
-        {
-            //bool rr = CompanyName.Equals(other.CompanyName);
-
+        { 
             bool res = CompanyName.Equals(other.CompanyName) &&
                        SelectedDocument.Equals(other.SelectedDocument) &&
                        SelectedDocument_index.Equals(other.SelectedDocument_index) &&

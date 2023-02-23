@@ -11,7 +11,7 @@ using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace Contract.Pages.Customers
-{
+{ 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCustomerList : IPage
     {
@@ -23,7 +23,8 @@ namespace Contract.Pages.Customers
         {
             InitializeComponent();
              
-            SetModel(new PageCustomerListViewModel());
+            SetModel(new PageCustomerListViewModel(Navigation));
+            PModel.SelectedCustomer = PressedSelectedItem;
 
             swipeViews = new List<SwipeView>();
         }
@@ -44,33 +45,8 @@ namespace Contract.Pages.Customers
                 viewNavigationBar.IsThisModalPage = true;
             } 
         }
-
-        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (!ControlApp.InternetOk()) return;
-
-            var tListView = sender as ListView;
-            Customer item = (Customer)tListView.SelectedItem;
-
-            foreach (LibContract.HttpModels.CompanyInfo info in PModel.ResponseClientCompanyInfo.data)
-            {
-                string strStir = item.UserStir.Replace($"{RSC.STIR} :", "").Trim();
-                if (info.stir_of_company.Trim().Equals(strStir))
-                {
-                    ControlApp.SelectedClientCompanyInfo = new LibContract.HttpModels.CompanyInfo();
-                    ControlApp.SelectedClientCompanyInfo.Copy(info);
-                     
-                    break;
-                }
-            }
-
-            if (_isSelectable)
-                await Navigation.PopModalAsync();
-            else
-                await Navigation.PushAsync(new PageAddOrEditCustomer());
-        }
-
-        private async void SwipeItem_Invoked(object sender, EventArgs e)
+  
+        private async void Delete_Invoked(object sender, EventArgs e)
         {
             var swipeItem = sender as SwipeItem;
             var item = swipeItem.BindingContext as Customer;
@@ -97,23 +73,80 @@ namespace Contract.Pages.Customers
         {
             swipeViews.Add((SwipeView)sender);
         }
-
-        private async void Edit_Tapped(object sender, EventArgs e)
-        {
-            ClickAnimationView((Image)sender);
-            ControlApp.Vibrate();
-
-            Customer item = (Customer)((Image)sender).BindingContext;
-
-            await Navigation.PushAsync(new PageAddOrEditCustomer(true));
-        }
-
+         
         private async void Add_Clicked(object sender, EventArgs e)
         {
             if (!ControlApp.InternetOk()) return;
 
             PModel.SetTransitionType();
             await Navigation.PushAsync(new PageAddOrEditCustomer());
+        }
+
+        private async void BoxMainInfo_Tapped(object sender, EventArgs e)
+        {
+            grMainInfo.IsVisible = false;
+            await grInfo.ScaleTo(0.8, 200);
+        }
+
+        Customer _item;
+        private async void PressedSelectedItem(object sender, bool longPressed)
+        {
+            Grid grid = (Grid)sender;
+            _item = (Customer)(grid).BindingContext;
+
+            await grid.ScaleTo(0.95, 200);
+            await grid.ScaleTo(1, 200);
+
+            ControlApp.SelectedClientCompanyInfo = GetCompanyInfo(_item);
+            if (longPressed)
+            {
+                ControlApp.Vibrate();
+                grMainInfo.IsVisible = true;
+
+                lbInfoCompany.Text = _item.UserTitle;
+                lbInfoStir.Text = _item.UserStir;
+                boxInfoFirstLetter.IsVisible = _item.ShowLetter;
+                lbInfoFirstLetter.Text = _item.FirstLetter;
+                imInfoCompany.IsVisible = _item.ShowCircleImage;
+                imInfoCompany.Source = _item.UserImage;
+
+                PModel.CompanyName = ControlApp.SelectedClientCompanyInfo.company_name;
+                PModel.SelectedDocument = ControlApp.SelectedClientCompanyInfo.document;
+                PModel.AddressOfCompany = ControlApp.SelectedClientCompanyInfo.address_of_company;
+                PModel.AccountNumber = ControlApp.SelectedClientCompanyInfo.account_number;
+                PModel.CompanyStir = ControlApp.SelectedClientCompanyInfo.stir_of_company;
+                PModel.NameOfBank = ControlApp.SelectedClientCompanyInfo.name_of_bank;
+                PModel.BankCode = ControlApp.SelectedClientCompanyInfo.bank_code;
+                PModel.QQSCode = ControlApp.SelectedClientCompanyInfo.qqs_number;
+                PModel.PhoneNnumberOfCompany = ControlApp.SelectedClientCompanyInfo.company_phone_number;
+                PModel.PositionOfSignatory = ControlApp.SelectedClientCompanyInfo.position_of_signer;
+                PModel.FullNameOfSignatory = ControlApp.SelectedClientCompanyInfo.name_of_signer;
+                PModel.AccountantName = ControlApp.SelectedClientCompanyInfo.accountant_name;
+                PModel.CounselName = ControlApp.SelectedClientCompanyInfo.counsel_name;
+
+                await grInfo.ScaleTo(1, 200);
+            }
+            else
+            {
+                await Navigation.PushAsync(new PageAddOrEditCustomer(true));
+            }
+        }
+         
+        LibContract.HttpModels.CompanyInfo GetCompanyInfo(Customer item)
+        {
+            LibContract.HttpModels.CompanyInfo result = new LibContract.HttpModels.CompanyInfo();
+
+            foreach (LibContract.HttpModels.CompanyInfo info in PModel.ResponseClientCompanyInfo.data)
+            {
+                string strStir = item.UserStir.Replace($"{RSC.STIR} :", "").Trim();
+                if (info.stir_of_company.Trim().Equals(strStir))
+                {
+                    result.Copy(info);
+                    break;
+                }
+            }
+
+            return result;
         }
 
         private PageCustomerListViewModel PModel
@@ -123,5 +156,16 @@ namespace Contract.Pages.Customers
                 return Model as PageCustomerListViewModel;
             }
         }
-    }
+
+        private async void Delete_Clicked(object sender, EventArgs e)
+        {
+            if (_item == null) return;
+
+            bool res = await DisplayAlert(RSC.Customers, RSC.DeleteMessage, RSC.Yes, RSC.No);
+            if (!res)
+            {
+
+            }
+        }
+    } 
 }

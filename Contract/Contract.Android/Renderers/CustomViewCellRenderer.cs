@@ -30,11 +30,11 @@ namespace Contract.Droid.Renderers
             this.cellCoreView = base.GetCellCore(item, convertView, parent, context);
 
             this.isSelected = false;
-            this.unSelectedBackground = cellCoreView.Background;
+            this.unSelectedBackground = cellCoreView.Background; 
 
             return cellCoreView;
         }
-
+ 
         protected override void OnCellPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             base.OnCellPropertyChanged(sender, args);

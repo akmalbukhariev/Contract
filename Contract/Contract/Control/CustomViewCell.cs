@@ -17,6 +17,6 @@ namespace Contract.Control
         {
             get { return (Color)GetValue(SelectedBackgroundColorProperty); }
             set { SetValue(SelectedBackgroundColorProperty, value); }
-        }
+        } 
     }
 }
