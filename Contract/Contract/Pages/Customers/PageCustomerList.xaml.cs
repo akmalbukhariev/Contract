@@ -1,5 +1,7 @@
 ﻿using Contract.Model;
 using Contract.ViewModel.Pages.Customers;
+using LibContract.HttpModels;
+using LibContract.HttpResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,7 @@ namespace Contract.Pages.Customers
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            PModel.RequestClientCompany(); 
+            PModel.RequestInfo(); 
         }
 
         public void IsThisPageSelectable(bool yes)
@@ -46,18 +48,14 @@ namespace Contract.Pages.Customers
             } 
         }
   
-        private async void Delete_Invoked(object sender, EventArgs e)
+        private void Delete_Invoked(object sender, EventArgs e)
         {
             var swipeItem = sender as SwipeItem;
             var item = swipeItem.BindingContext as Customer;
 
             if (item == null) return;
 
-            bool res = await DisplayAlert(RSC.Customers, RSC.DeleteMessage, RSC.Yes, RSC.No);
-            if (!res)
-            {
-                
-            }
+            DeleteItem(item);
         }
 
         private void SwipeView_SwipeStarted(object sender, SwipeStartedEventArgs e)
@@ -157,14 +155,37 @@ namespace Contract.Pages.Customers
             }
         }
 
-        private async void Delete_Clicked(object sender, EventArgs e)
+        private void Delete_Clicked(object sender, EventArgs e)
         {
             if (_item == null) return;
 
-            bool res = await DisplayAlert(RSC.Customers, RSC.DeleteMessage, RSC.Yes, RSC.No);
-            if (!res)
-            {
+            DeleteItem(_item);
+        }
 
+        async void DeleteItem(Customer item)
+        {
+            bool res = await DisplayAlert(RSC.Customers, RSC.DeleteMessage, RSC.Yes, RSC.No);
+            if (res)
+            {
+                BoxMainInfo_Tapped(null, null);
+                DeleteCompanyInfo data = new DeleteCompanyInfo()
+                {
+                    stir_of_company = item.UserStir.Replace($"{RSC.STIR} :","").Trim(),
+                    user_phone_number = ControlApp.UserInfo.phone_number
+                };
+
+                ControlApp.ShowLoadingView(RSC.PleaseWait);
+                ResponseClientCompanyInfo response = await Net.HttpService.DeleteClientCompanyInfo(data);
+                ControlApp.CloseLoadingView();
+
+                if (!response.result)
+                {
+                    await DisplayAlert(RSC.Delete, RSC.Failed, RSC.Ok);
+                }
+                else
+                {
+                    PModel.RequestInfo();
+                }
             }
         }
     } 

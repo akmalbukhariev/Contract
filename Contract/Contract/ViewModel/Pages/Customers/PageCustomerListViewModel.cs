@@ -25,7 +25,15 @@ namespace Contract.ViewModel.Pages.Customers
             DataList = new ObservableCollection<Customer>();
             IsThisEditable = true;
         }
-         
+
+        public ICommand RefreshCommand => new Command(Refresh);
+
+        private void Refresh()
+        {
+            ControlApp.Vibrate();
+            RequestInfo();
+        }
+
         public void Add(Customer item)
         {
             DataList.Add(item);
@@ -36,7 +44,7 @@ namespace Contract.ViewModel.Pages.Customers
             DataList.Remove(item);
         }
 
-        public async void RequestClientCompany()
+        public async void RequestInfo()
         {
             DataList.Clear();
 
@@ -46,7 +54,11 @@ namespace Contract.ViewModel.Pages.Customers
             ResponseClientCompanyInfo = await HttpService.GetClientCompanyInfo(ControlApp.UserInfo.phone_number);
             ControlApp.CloseLoadingView();
 
-            if (!ControlApp.CheckResponse(ResponseClientCompanyInfo)) return;
+            if (!ControlApp.CheckResponse(ResponseClientCompanyInfo))
+            {
+                IsRefreshing = false;
+                return;
+            }
 
             if (ResponseClientCompanyInfo.result)
             { 
@@ -85,6 +97,8 @@ namespace Contract.ViewModel.Pages.Customers
                     CloseEmptyMessage = false;
                 }
             }
+
+            IsRefreshing = false;
         }
 
         public void Item_EventShowInfoPressed(object sender, bool longPressed)

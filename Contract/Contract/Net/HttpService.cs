@@ -309,7 +309,7 @@ namespace Contract.Net
             ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
             try
             {
-                var receivedData = await RequestPostMethod(URL_DELETE_CLIENT_COMPANY_INFO, data);
+                var receivedData = await RequestDeleteMethod(URL_DELETE_CLIENT_COMPANY_INFO, data);
                 response = JsonConvert.DeserializeObject<ResponseClientCompanyInfo>(receivedData, settings);
             }
             catch (JsonReaderException) { return CreateResponseObj<ResponseClientCompanyInfo>(); }

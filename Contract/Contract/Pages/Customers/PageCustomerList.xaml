@@ -34,80 +34,86 @@
                        TextColor="Black"
                        FontSize="18" 
                        HorizontalTextAlignment="Center"/>
-            </StackLayout> 
-        <StackLayout x:Name="myItems" 
-                      BindableLayout.ItemsSource="{Binding DataList}"
-                      IsVisible="{Binding CloseEmptyMessage}"
-                      Grid.Row="1"
-                      Grid.Column="1">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView SwipeStarted="SwipeView_SwipeStarted" 
-                               SwipeEnded="SwipeView_SwipeEnded">
-                        <SwipeView.LeftItems>
-                            <SwipeItems Mode="Reveal">
-                                <SwipeItem IsVisible="{Binding SwipeEnable}" 
-                                           Text="{x:Static resource:AppResource.Delete}"
-                                           BackgroundColor="Red"
-                                           Invoked="Delete_Invoked"/>
-                            </SwipeItems>
-                        </SwipeView.LeftItems>
-                        <Grid x:Name="grItem" 
-                              ColumnDefinitions="Auto,*,Auto"
-                              RowDefinitions="100"
-                              xct:TouchEffect.LongPressCommand="{Binding CommandShowInfo}"
-                              xct:TouchEffect.LongPressCommandParameter="{x:Reference grItem}"
-                              xct:TouchEffect.Command="{Binding CommandClickItem}"
-                              xct:TouchEffect.CommandParameter="{x:Reference grItem}"
-                              Margin="0"> 
-                            <BoxView BackgroundColor="White" 
-                                                     CornerRadius="7"
-                                                     Grid.ColumnSpan="3" 
-                                                     Margin="5"/>
-                            <BoxView IsVisible="{Binding ShowLetter}" 
-                                                     BackgroundColor="#99A2B3"
-                                                     CornerRadius="30"
-                                                     WidthRequest="60"
-                                                     Margin="20"/>
-                            <Label IsVisible="{Binding ShowLetter}"
-                                                   Text="{Binding FirstLetter}"
-                                                   TextColor="White"
-                                                   FontSize="30"
-                                                   VerticalTextAlignment="Center"
-                                                   HorizontalTextAlignment="Center"/>
-                            <control:CircleImage IsVisible="{Binding ShowCircleImage}" 
-                                                                 Source="{Binding UserImage}" 
-                                                                 Aspect="AspectFill"
-                                                                 WidthRequest="55"
-                                                                 HeightRequest="55"
-                                                                 Margin="20">
-                            </control:CircleImage>
-                            <StackLayout Spacing="10" 
-                                                         VerticalOptions="CenterAndExpand"
-                                                         Grid.Column="1">
-                                <Label Text="{Binding UserTitle}"
-                                                       LineBreakMode="TailTruncation"
-                                                       TextColor="Black"
-                                                       HorizontalTextAlignment="Start"
-                                                       VerticalTextAlignment="Center"/>
-                                <Label Text="{Binding UserStir}"
-                                                       TextColor="#ACB4C1"
-                                                       HorizontalTextAlignment="Start"
-                                                       VerticalTextAlignment="Center"/>
-                            </StackLayout>
-                            <Image Source="edit"
-                                   Aspect="AspectFit"
-                                   WidthRequest="30"
-                                   Margin="0,0,20,0"
-                                   IsVisible="{Binding IsThisEditClient}"
-                                   VerticalOptions="CenterAndExpand"
-                                   HorizontalOptions="CenterAndExpand"
-                                   Grid.Column="2"/>
-                        </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
-        </StackLayout>
+            </StackLayout>
+        <RefreshView RefreshColor="{StaticResource AppColor}" 
+                     IsRefreshing="{Binding IsRefreshing}"
+                     IsVisible="{Binding CloseEmptyMessage}"
+                     Command="{Binding RefreshCommand}"
+                     Grid.Row="1"
+                     Grid.Column="1">
+            <ScrollView>
+                <StackLayout x:Name="myItems" 
+                             BindableLayout.ItemsSource="{Binding DataList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView SwipeStarted="SwipeView_SwipeStarted" 
+                                       SwipeEnded="SwipeView_SwipeEnded">
+                                <SwipeView.LeftItems>
+                                    <SwipeItems Mode="Reveal">
+                                        <SwipeItem IsVisible="{Binding SwipeEnable}" 
+                                                   Text="{x:Static resource:AppResource.Delete}"
+                                                   BackgroundColor="Red"
+                                                   Invoked="Delete_Invoked"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <Grid x:Name="grItem" 
+                                      ColumnDefinitions="Auto,*,Auto"
+                                      RowDefinitions="100"
+                                      xct:TouchEffect.LongPressCommand="{Binding CommandShowInfo}"
+                                      xct:TouchEffect.LongPressCommandParameter="{x:Reference grItem}"
+                                      xct:TouchEffect.Command="{Binding CommandClickItem}"
+                                      xct:TouchEffect.CommandParameter="{x:Reference grItem}"
+                                      Margin="0">
+                                    <BoxView BackgroundColor="White" 
+                                                             CornerRadius="7"
+                                                             Grid.ColumnSpan="3" 
+                                                             Margin="5"/>
+                                    <BoxView IsVisible="{Binding ShowLetter}" 
+                                                             BackgroundColor="#99A2B3"
+                                                             CornerRadius="30"
+                                                             WidthRequest="60"
+                                                             Margin="20"/>
+                                    <Label IsVisible="{Binding ShowLetter}"
+                                                           Text="{Binding FirstLetter}"
+                                                           TextColor="White"
+                                                           FontSize="30"
+                                                           VerticalTextAlignment="Center"
+                                                           HorizontalTextAlignment="Center"/>
+                                    <control:CircleImage IsVisible="{Binding ShowCircleImage}" 
+                                                                         Source="{Binding UserImage}" 
+                                                                         Aspect="AspectFill"
+                                                                         WidthRequest="55"
+                                                                         HeightRequest="55"
+                                                                         Margin="20">
+                                    </control:CircleImage>
+                                    <StackLayout Spacing="10" 
+                                                                 VerticalOptions="CenterAndExpand"
+                                                                 Grid.Column="1">
+                                        <Label Text="{Binding UserTitle}"
+                                                               LineBreakMode="TailTruncation"
+                                                               TextColor="Black"
+                                                               HorizontalTextAlignment="Start"
+                                                               VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding UserStir}"
+                                                               TextColor="#ACB4C1"
+                                                               HorizontalTextAlignment="Start"
+                                                               VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <Image Source="edit"
+                                           Aspect="AspectFit"
+                                           WidthRequest="30"
+                                           Margin="0,0,20,0"
+                                           IsVisible="{Binding IsThisEditClient}"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Grid.Column="2"/>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+            </StackLayout>
+            </ScrollView>
+        </RefreshView>
         <Button Style="{StaticResource btnNext}"
                 Text="{x:Static resource:AppResource.AddNewCustomer}" 
                 IsVisible="{Binding IsThisEditable}"

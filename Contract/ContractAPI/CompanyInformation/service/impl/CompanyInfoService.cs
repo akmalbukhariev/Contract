@@ -94,7 +94,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             ResponseUserCompanyInfo response = new ResponseUserCompanyInfo();
             response.data = null;
 
-            CompanyInfo found = await dataBase.UserCompanyInfo
+            UserCompanyInfo found = await dataBase.UserCompanyInfo
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.stir_of_company.Equals(info.stir_of_company))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -102,16 +102,12 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found == null)
             {
                 response.result = false;
-                response.message = "User stir number does not exist!";
+                response.message = Constants.NotFound;
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
-
-            var deleteInfo = new UserCompanyInfo();
-            deleteInfo.user_phone_number = info.user_phone_number;
-            deleteInfo.stir_of_company = info.stir_of_company;
-
-            dataBase.UserCompanyInfo.Remove(deleteInfo);
+             
+            dataBase.UserCompanyInfo.Remove(found);
 
             try
             {
@@ -135,7 +131,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             ResponseClientCompanyInfo response = new ResponseClientCompanyInfo();
             response.data = null;
 
-            CompanyInfo found = await dataBase.ClientCompanyInfo
+            ClientCompanyInfo found = await dataBase.ClientCompanyInfo
                 .Where(item => item.user_phone_number.Equals(info.user_phone_number) && item.stir_of_company.Equals(info.stir_of_company))
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -143,16 +139,12 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found == null)
             {
                 response.result = false;
-                response.message = "User stir number does not exist!";
+                response.message = Constants.NotFound;
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
-
-            var deleteInfo = new ClientCompanyInfo();
-            deleteInfo.user_phone_number = info.user_phone_number;
-            deleteInfo.stir_of_company = info.stir_of_company;
-
-            dataBase.ClientCompanyInfo.Remove(deleteInfo);
+             
+            dataBase.ClientCompanyInfo.Remove(found);
 
             try
             {
@@ -186,7 +178,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found != null)
             {
                 response.result = false;
-                response.message = "User phone number is already exist!";
+                response.message = Constants.Exist;
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
@@ -227,7 +219,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found != null)
             {
                 response.result = false;
-                response.message = "Stir number is already exist!";
+                response.message = Constants.Exist;
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
@@ -322,7 +314,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found != null)
             {
                 response.result = false;
-                response.message = "User stir number is exist!";
+                response.message = Constants.Exist;
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
@@ -363,7 +355,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found != null)
             {
                 response.result = false;
-                response.message = "Stir number is already exist!";
+                response.message = Constants.Exist;
                 response.error_code = (int)HttpStatusCode.BadRequest;
                 return response;
             }
@@ -424,7 +416,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the user phone number!";
+                response.message = Constants.NotFound;
 
                 return response;
             }
@@ -465,7 +457,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the id number!";
+                response.message = Constants.NotFound;
 
                 return response;
             }
@@ -530,7 +522,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the user id number!";
+                response.message = Constants.NotFound;
 
                 return response;
             }
@@ -573,7 +565,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             if (found == null)
             {
                 response.result = false;
-                response.message = "Not found the id number!";
+                response.message = Constants.NotFound;
 
                 return response;
             }
