@@ -130,7 +130,7 @@ namespace Contract.Pages.Customers
             }
         }
          
-        LibContract.HttpModels.CompanyInfo GetCompanyInfo(Customer item)
+        private CompanyInfo GetCompanyInfo(Customer item)
         {
             LibContract.HttpModels.CompanyInfo result = new LibContract.HttpModels.CompanyInfo();
 
@@ -155,8 +155,14 @@ namespace Contract.Pages.Customers
             }
         }
 
-        private void Delete_Clicked(object sender, EventArgs e)
+        private async void Delete_Tapped(object sender, EventArgs e)
         {
+            boxDelete.BackgroundColor = Color.Black;
+            await Task.Delay(100);
+
+            boxDelete.BackgroundColor = (Color)App.Current.Resources["AppColor"];
+            await Task.Delay(200);
+
             if (_item == null) return;
 
             DeleteItem(_item);
@@ -187,6 +193,6 @@ namespace Contract.Pages.Customers
                     PModel.RequestInfo();
                 }
             }
-        }
+        } 
     } 
 }

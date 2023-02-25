@@ -502,5 +502,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cancel_disable.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Delete_3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
