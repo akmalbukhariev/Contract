@@ -15,10 +15,13 @@ namespace ContractAPI
     {
         public static void Main(string[] args)
         {
+            //string strDate = "20230218_094603.133";
+            //DateTime date = DateTime.ParseExact(strDate, "yyyyMMdd_hhmmss.fff", null);
+
             //string sss = System.IO.Directory.GetCurrentDirectory();
             //string strPath = $"{System.IO.Directory.GetCurrentDirectory()}{Constants.SaveSignImagePath}";
             //string saveSignFile = $"{strPath}{12}_sign.png";
-             
+
             CreateHostBuilder(args).Build().Run();
         }
 

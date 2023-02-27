@@ -31,27 +31,27 @@ namespace Contract.ViewModel
                 HImage = "contracts",
                 HText = RSC.AllContracts,
                 HShowImage = "showMenu",
-                ChildMenuList = new ObservableCollection<ChildMenuItem>()
-                {
-                    new ChildMenuItem(){ID = Constants.Menu1_1, Name = RSC.UnapprovedContracts1},
-                    new ChildMenuItem(){ID = Constants.Menu1_2, Name = RSC.ApprovedContracts1},
-                    new ChildMenuItem(){ID = Constants.Menu1_3, Name = RSC.CanceledContracts},
-                    new ChildMenuItem(){ID = Constants.Menu1_4, Name = RSC.CreateContract}
-                }
+                HText1 = RSC.UnapprovedContracts1,
+                HText2 = RSC.ApprovedContracts1,
+                HText3 = RSC.CanceledContracts,
+                HText4 = RSC.CreateContract,
+                ShowExpander = true
             };
 
             Menu menu2 = new Menu()
             {
                 ID = Constants.Menu2,
                 HImage = "statistics",
-                HText = RSC.ProfitAndLoss
+                HText = RSC.ProfitAndLoss,
+                ShowStack = true
             };
 
             Menu menu3 = new Menu()
             {
                 ID = Constants.Menu3,
                 HImage = "clients",
-                HText = RSC.Customers
+                HText = RSC.Customers,
+                ShowStack = true
             };
 
             Menu menu4 = new Menu() 
@@ -61,13 +61,11 @@ namespace Contract.ViewModel
                 HImage = "templates",
                 HText = RSC.Templates,
                 HShowImage = "showMenu",
-                ChildMenuList = new ObservableCollection<ChildMenuItem>()
-                {
-                    new ChildMenuItem(){ID = Constants.Menu4_1, Name = RSC.ContractTemplates},
-                    new ChildMenuItem(){ID = Constants.Menu4_2, Name = RSC.CreatingContractTemplate},
-                    new ChildMenuItem(){ID = Constants.Menu4_3, Name = RSC.ContractNumberSequence},
-                    new ChildMenuItem(){ID = Constants.Menu4_4, Name = RSC.CreateContractNumber}
-                }
+                HText1 = RSC.ContractTemplates,
+                HText2 = RSC.CreatingContractTemplate,
+                HText3 = RSC.ContractNumberSequence,
+                HText4 = RSC.CreateContractNumber,
+                ShowExpander = true 
             };
 
             Menu menu5 = new Menu() 
@@ -77,40 +75,44 @@ namespace Contract.ViewModel
                 HImage = "profile",
                 HText = RSC.PersonalCabinet,
                 HShowImage = "showMenu",
-                ChildMenuList = new ObservableCollection<ChildMenuItem>()
-                {
-                    new ChildMenuItem(){ID = Constants.Menu5_1, Name = RSC.EditRequisiteInformation},
-                    new ChildMenuItem(){ID = Constants.Menu5_2, Name = RSC.EditAccountPassword},
-                    new ChildMenuItem(){ID = Constants.Menu5_3, Name = RSC.CompanyLogo}
-                }
+                HText1 = RSC.EditRequisiteInformation,
+                HText2 = RSC.EditAccountPassword,
+                HText3 = RSC.CompanyLogo,
+                ShowExpander = true,
+                ShowGrid1 = false,
+                ShowGrid2 = true 
             };
 
             Menu menu6 = new Menu()
             {
                 ID = Constants.Menu6,
                 HImage = "settings",
-                HText = RSC.Settings
+                HText = RSC.Settings,
+                ShowStack = true
             };
 
             Menu menu7 = new Menu()
             {
                 ID = Constants.Menu7,
                 HImage = "info",
-                HText = RSC.AboutSoftware
+                HText = RSC.AboutSoftware,
+                ShowStack = true
             };
 
             Menu menu8 = new Menu()
             {
                 ID = Constants.Menu8,
                 HImage = "support",
-                HText = RSC.ProposalsAndObjections
+                HText = RSC.ProposalsAndObjections,
+                ShowStack = true
             };
 
             Menu menu9 = new Menu()
             {
                 ID = Constants.Menu9,
                 HImage = "exit",
-                HText = RSC.SignOut
+                HText = RSC.SignOut,
+                ShowStack = true
             };
 
             MenuList.Add(menu1);
@@ -127,16 +129,6 @@ namespace Contract.ViewModel
         public void Clean()
         {
             MenuList.Clear();
-        }
-
-        internal void HodeOrShowMenu(Menu item)
-        {
-            item.IsVisible = !item.IsVisible;
-            item.HShowImage = item.HShowImage == "hideMenu"? "showMenu" : "hideMenu";
-
-            var index = MenuList.IndexOf(item);
-            MenuList.Remove(item);
-            MenuList.Insert(index, item);
-        }
+        } 
     }
 }

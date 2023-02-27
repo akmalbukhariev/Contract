@@ -43,7 +43,7 @@ namespace Contract
 
         protected override void OnStart()
         {
-            //MainPage = new TransitionNavigationPage(new Pages.Customers.PageCustomerList());
+            //MainPage = new TransitionNavigationPage(new Pages.PageMenu());
             //MainPage = new TransitionNavigationPage(new Pages.CreateContract.PageShowContract("http://65.20.68.60:5000/Upload/contract.html"));
             //return;
             PushNotification.Instance.Init();

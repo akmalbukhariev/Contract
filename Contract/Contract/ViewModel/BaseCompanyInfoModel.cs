@@ -197,6 +197,7 @@ namespace Contract.ViewModel
             AccountantName = info.accountant_name;
             IsCounselProvided = info.is_legal_counsel_provided == 1 ? true : false;
             CounselName = info.counsel_name;
+            LogoImageStr = info.company_logo_url;
             CreatedDate = info.created_date;
         }
     }

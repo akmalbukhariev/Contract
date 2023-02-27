@@ -84,7 +84,7 @@ namespace Contract.ViewModel.Pages.CurrentContracts
                         ContractNnumber = ContractNumberWorker.ExtractContractNumber(info.contract_number),
                         ContractNnumberReal = info.contract_number,
                         CompanyName = info.client_company_name,
-                        ContractDate = info.created_date,
+                        ContractDate = ControlApp.GetDateFromStr(info.created_date),
                         ContractPrice = info.total_cost_text,
                         ContractPayment = "100 %",
                         ContractPaymentColor = Color.FromHex("#C5E0B3"),
@@ -109,6 +109,8 @@ namespace Contract.ViewModel.Pages.CurrentContracts
 
             IsRefreshing = false;
         }
+
+
 
         public void Add(ApprovedContract item)
         {

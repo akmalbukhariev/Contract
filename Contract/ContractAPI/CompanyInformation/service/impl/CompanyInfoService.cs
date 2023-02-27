@@ -529,7 +529,7 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             var newInfo = new ClientCompanyInfo();
             newInfo.Copy(info);
-            newInfo.company_logo_url = found.company_logo_url;
+            newInfo.company_logo_url = info.company_logo_url;
             newInfo.created_date = found.created_date;
 
             dataBase.ClientCompanyInfo.Update(newInfo);

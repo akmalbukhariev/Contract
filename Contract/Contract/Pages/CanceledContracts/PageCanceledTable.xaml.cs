@@ -63,8 +63,8 @@ namespace Contract.Pages.CanceledContracts
 
             if (response.result)
             {
-                await Browser.OpenAsync($"{HttpService.DATA_URL}{response.pdf_url}", BrowserLaunchMode.SystemPreferred);
-                //await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
+                //await Browser.OpenAsync($"{HttpService.DATA_URL}{response.pdf_url}", BrowserLaunchMode.SystemPreferred);
+                await Navigation.PushAsync(new CreateContract.PageShowContract($"{HttpService.DATA_URL}{response.pdf_url}"));
                 //await DisplayAlert(RSC.CreateContract, RSC.SuccessfullyCompleted, RSC.Ok);
             }
             else

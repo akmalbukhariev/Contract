@@ -178,13 +178,9 @@ namespace Contract.ViewModel.Pages.Customers
         }
 
         public async void RequestUpdateInfo()
-        {
-            if (!ControlApp.InternetOk()) return;
-
-            bool hasFile = string.IsNullOrEmpty(LogoImageStr) ? false : true;
-
+        {   
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-            ResponseClientCompanyInfo response = await HttpService.UpdateClientCompanyInfo(GetCompanyInfo(), hasFile);
+            ResponseClientCompanyInfo response = await HttpService.UpdateClientCompanyInfo(GetCompanyInfo());
             ControlApp.CloseLoadingView();
 
             if (!ControlApp.CheckResponse(response)) return;

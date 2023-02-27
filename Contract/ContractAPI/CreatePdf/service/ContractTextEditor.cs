@@ -24,6 +24,16 @@ namespace ContractAPI.CreatePdf.service
             return $"{year} йил {day} {month}";
         }
 
+        public static string ContractCreatedDate(string strDate)
+        {
+            DateTime date = DateTime.ParseExact(strDate, "yyyyMMdd_hhmmss.fff", null);
+            int year = date.Year;
+            string month = date.ToString("MMMM", new System.Globalization.CultureInfo("uz-Cyrl"));
+            int day = date.Day;
+
+            return $"{year} йил {day} {month}";
+        }
+
         public static string MainText(UserCompanyInfo user, ClientCompanyInfo client)
         {
             return $"{user.company_name} номидан {client.document} асосида иш олиб борувчи ва бундан сўнг матнда “Буюртмачи” деб аталувчи - унинг {user.position_of_signer} {user.name_of_signer}." +

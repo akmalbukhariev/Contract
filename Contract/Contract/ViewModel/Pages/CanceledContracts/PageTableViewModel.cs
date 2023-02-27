@@ -75,7 +75,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
                         ContractNnumber = ContractNumberWorker.ExtractContractNumber(info.contract_number),
                         ContractNnumberReal = info.contract_number,
                         CompanyName = info.user_company_name,
-                        ContractDate = info.created_date,
+                        ContractDate = ControlApp.GetDateFromStr(info.created_date),
                         ContractPrice = info.total_cost_text,
                         ContractPayment = "100 %",
                         CommentText = info.comment,

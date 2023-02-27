@@ -37,7 +37,7 @@ namespace Contract.Pages.Customers
             PModel.RequestInfo(); 
         }
 
-        public void IsThisPageSelectable(bool yes)
+        public void IsThisPageSelectable(bool yes)  
         {
             _isSelectable = yes;
             PModel.IsThisEditable = !yes;
@@ -96,8 +96,14 @@ namespace Contract.Pages.Customers
             await grid.ScaleTo(1, 200);
 
             ControlApp.SelectedClientCompanyInfo = GetCompanyInfo(_item);
-            if (longPressed)
+            
+            if (!longPressed && _isSelectable)
+                await Navigation.PopModalAsync();
+            
+           if (longPressed)
             {
+                if (_isSelectable) return;
+
                 ControlApp.Vibrate();
                 grMainInfo.IsVisible = true;
 
@@ -158,10 +164,10 @@ namespace Contract.Pages.Customers
         private async void Delete_Tapped(object sender, EventArgs e)
         {
             boxDelete.BackgroundColor = Color.Black;
-            await Task.Delay(100);
+            await Task.Delay(5);
 
             boxDelete.BackgroundColor = (Color)App.Current.Resources["AppColor"];
-            await Task.Delay(200);
+            await Task.Delay(5);
 
             if (_item == null) return;
 

@@ -97,7 +97,7 @@ namespace Contract.ViewModel.Pages.UnapprovedContracts
                         ContractNnumberReal = info.contract_number,
                         ClientStir = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? info.client_stir : info.user_stir,
                         CompanyName = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? info.client_company_name : info.user_company_name,
-                        ContractDate = info.created_date,
+                        ContractDate = ControlApp.GetDateFromStr(info.created_date),
                         ContractPrice = info.total_cost_text,
                         ItemColor = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? Color.FromHex("#DEEAF6") : Color.FromHex("#FFFFFF"),
                         PreparerColor = info.user_phone_number.Equals(ControlApp.UserInfo.phone_number) ? Color.FromHex("#BDD6EE") : Color.FromHex("#FFF2CC")

@@ -142,6 +142,12 @@ namespace Contract.Control
             EventCurrencyCostChanged?.Invoke();
         }
 
+        public string GetDateFromStr(string strDate)
+        {
+            DateTime date = DateTime.ParseExact(strDate, "yyyyMMdd_hhmmss.fff", null);
+            return date.ToString("yyyy-MM-dd hh:mm:ss");
+        }
+
         public void ShowNotification(string desctirption, string title)
         {
             var notification = new NotificationRequest

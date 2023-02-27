@@ -90,7 +90,7 @@ namespace ContractAPI.CreatePdf.service
         private string DateAndAddress()
         {
             string result = "<div class=\"infomain\">" + Environment.NewLine +
-                                 $"<div class=\"date\"><span><b>{ContractTextEditor.TodaysDate()}</b></span></div>" + Environment.NewLine +
+                                 $"<div class=\"date\"><span><b>{ContractTextEditor.ContractCreatedDate(ContractInfo.created_date)}</b></span></div>" + Environment.NewLine +
                                  $"<div class=\"address\"><span><b>{Template.contract_address}</b></span></div>" + Environment.NewLine +
                             "</div>" + Environment.NewLine;
             return result;

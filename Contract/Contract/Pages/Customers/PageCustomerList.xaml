@@ -135,13 +135,15 @@
             <Grid x:Name="grInfo" 
                   Scale="0.8"
                   RowDefinitions="*, Auto"
-                  WidthRequest="300"
+                  ColumnDefinitions="30,*,30"
                   HeightRequest="450"
                   VerticalOptions="CenterAndExpand"
                   HorizontalOptions="CenterAndExpand">
                 <BoxView CornerRadius="20"
-                         BackgroundColor="White"/>
-                <Grid RowDefinitions="50,*">
+                         BackgroundColor="White"
+                         Grid.Column="1"/>
+                <Grid RowDefinitions="50,*"
+                      Grid.Column="1">
                     <BoxView BackgroundColor="{StaticResource AppColor}"
                              CornerRadius="19.5,19.5,0,0"
                              Margin="0,-3,0,0"/>
@@ -288,7 +290,8 @@
                       ColumnDefinitions="*,Auto"
                       WidthRequest="160"
                       HorizontalOptions="Start"
-                      Grid.Row="1">
+                      Grid.Row="1"
+                      Grid.Column="1">
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Tapped"/>
                     </Grid.GestureRecognizers>

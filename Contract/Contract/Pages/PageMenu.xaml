@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <page:IPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:page="clr-namespace:Contract.Pages"
-             xmlns:resource="clr-namespace:Contract.Resources"
-             x:Class="Contract.Pages.PageMenu">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:page="clr-namespace:Contract.Pages"
+            xmlns:resource="clr-namespace:Contract.Resources" 
+            xmlns:exp="http://xamarin.com/schemas/2020/toolkit"
+            x:Class="Contract.Pages.PageMenu">
 
     <Grid RowDefinitions="130,*"
           RowSpacing="10">
@@ -20,7 +21,8 @@
                    Margin="20,0,0,0"
                    VerticalOptions="CenterAndExpand"/>
         </StackLayout>
-        <ListView x:Name="listView" 
+        
+        <!--<ListView x:Name="listView" 
                   HasUnevenRows="True"
                   SeparatorVisibility="None" 
                   ItemsSource="{Binding MenuList}"
@@ -73,6 +75,121 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
+
+        <CollectionView ItemsSource="{Binding MenuList}"
+                        Margin="15,5,0,0"  
+                        VerticalOptions="FillAndExpand"
+                        Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,5">
+                        <Grid.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="lbChildStyle" TargetType="Label">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="TextColor" Value="Black"/>
+                                    <Setter Property="FontFamily" Value="Nunito_Regular"/>
+                                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                                </Style>
+                            </ResourceDictionary>
+                        </Grid.Resources>
+                        <exp:Expander IsVisible="{Binding ShowExpander}">
+                            <exp:Expander.Header>
+                                <StackLayout Orientation="Horizontal"
+                                             HeightRequest="35">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Menu_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="{Binding HImage}"
+                                           Aspect="AspectFill"
+                                           WidthRequest="25"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding HText}"
+                                           TextColor="Black"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Image Source="{Binding HShowImage}"
+                                           Aspect="AspectFit"
+                                           WidthRequest="10"
+                                           HorizontalOptions="End"
+                                           Margin="0,0,10,0"
+                                           VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Source={RelativeSource AncestorType={x:Type exp:Expander}}, Path=IsExpanded}"
+                                                         Value="true">
+                                                <Setter Property="Source" Value="hideMenu"/>
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </StackLayout>
+                            </exp:Expander.Header>
+                            <Grid>
+                                <Grid RowDefinitions="35,35,45,35"
+                                      IsVisible="{Binding ShowGrid1}"
+                                      RowSpacing="0"
+                                      Margin="35,5,0,0">
+                                    <Label Text="{Binding HText1}" Style="{StaticResource lbChildStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChildMenu_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="{Binding HText2}" Style="{StaticResource lbChildStyle}" Grid.Row="1">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChildMenu_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="{Binding HText3}" Style="{StaticResource lbChildStyle}" Grid.Row="2">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChildMenu_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="{Binding HText4}" Style="{StaticResource lbChildStyle}" Grid.Row="3">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChildMenu_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                                <Grid RowDefinitions="45,35"
+                                      IsVisible="{Binding ShowGrid2}"
+                                      RowSpacing="0"
+                                      Margin="35,5,0,0">
+                                    <Label Text="{Binding HText1}" Style="{StaticResource lbChildStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChildMenu_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="{Binding HText2}" Style="{StaticResource lbChildStyle}" Grid.Row="1">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChildMenu_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label> 
+                                </Grid>
+                            </Grid> 
+                        </exp:Expander>
+                        <StackLayout IsVisible="{Binding ShowStack}" 
+                                     Orientation="Horizontal"
+                                     HeightRequest="35">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Menu_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{Binding HImage}"
+                                   Aspect="AspectFill"
+                                   WidthRequest="25"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding HText}"
+                                   TextColor="Black"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="StartAndExpand"/> 
+                        </StackLayout>
+                    </Grid> 
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView> 
     </Grid>
+ 
 </page:IPage>
