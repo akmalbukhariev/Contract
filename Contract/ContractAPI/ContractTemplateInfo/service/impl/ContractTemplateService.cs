@@ -51,7 +51,7 @@ namespace ContractAPI.ContractTemplateInfo.service.impl
             ResponseContractTemplate response = new ResponseContractTemplate();
 
             ContractTemplate newItem = new ContractTemplate(info);
-            newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
             dataBase.ContractTemplate.Add(newItem);
 
             try

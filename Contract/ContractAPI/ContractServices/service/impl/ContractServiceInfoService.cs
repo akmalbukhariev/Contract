@@ -25,7 +25,7 @@ namespace ContractAPI.ContractServices.service.impl
             foreach (ServicesInfo item in infoList)
             {
                 ServicesInfo newItem = new ServicesInfo(item);
-                newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+                //newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
                 dataBase.ServicesInfo.Add(newItem);
 

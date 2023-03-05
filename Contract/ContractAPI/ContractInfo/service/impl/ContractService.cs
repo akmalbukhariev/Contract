@@ -125,7 +125,7 @@ namespace ContractAPI.ContractInfo.service.impl
                 .FirstOrDefaultAsync();
              
             CreateContractInfo newInfo = new CreateContractInfo(info);
-            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             if (newInfo.user_phone_number.Equals(info.user_phone_number))
             {
@@ -232,7 +232,7 @@ namespace ContractAPI.ContractInfo.service.impl
 
             found.comment = info.comment;
             found.is_canceled = 1;
-            found.deleted_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //found.deleted_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.CreateContractInfo.Update(found);
 

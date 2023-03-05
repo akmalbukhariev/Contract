@@ -186,7 +186,7 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             var newInfo = new UserCompanyInfo();
             newInfo.Copy(info);
-            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.UserCompanyInfo.Add(newInfo);
 
@@ -247,7 +247,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.is_legal_counsel_provided = 0;
             newInfo.counsel_name = info.counsel_name;
             newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
-            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.UserCompanyInfo.Add(newInfo);
 
@@ -282,7 +282,7 @@ namespace ContractAPI.CompanyInformation.service.impl
              
             var newInfo = new ClientCompanyInfo();
             newInfo.Copy(info);
-            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.ClientCompanyInfo.Add(newInfo);
 
@@ -324,7 +324,7 @@ namespace ContractAPI.CompanyInformation.service.impl
 
             var newInfo = new ClientCompanyInfo();
             newInfo.Copy(info);
-            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             dataBase.ClientCompanyInfo.Add(newInfo);
 
@@ -383,7 +383,7 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.is_legal_counsel_provided = 0;
             newInfo.counsel_name = info.counsel_name;
             newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
-            newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
             
             dataBase.ClientCompanyInfo.Add(newInfo);
 

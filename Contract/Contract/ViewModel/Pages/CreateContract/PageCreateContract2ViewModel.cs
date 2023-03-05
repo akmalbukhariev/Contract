@@ -122,7 +122,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 interest_text = InterestText,
                 total_cost_text = TotalCostText,
                 agree = Agree ? 1 : 0,
-                created_date = "",
+                created_date = DateTime.Now.ToString(Constants.TimeFormat),
             };
 
             contractinfo.contract_currency = contractinfo.contract_currency.Replace("(UZS)", "");
@@ -140,13 +140,13 @@ namespace Contract.ViewModel.Pages.CreateContract
                     amount_value = int.Parse(item.AmountText),
                     amount_value_price = item.AmountOfPrice,
                     currency = item.SelectedCurrency,
-                    created_date = ""
+                    created_date = DateTime.Now.ToString(Constants.TimeFormat)
                 };
                 serviceList.Add(new LibContract.HttpModels.ServicesInfo(newItem));
             }
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
-
+             
             var responseCreate = await Net.HttpService.CreateContract(contractinfo);
             if (!ControlApp.CheckResponse(responseCreate)) return;
 
@@ -177,6 +177,7 @@ namespace Contract.ViewModel.Pages.CreateContract
                 if (found == null)
                 {
                     ClientCompanyInfo.id = 0;
+                    ClientCompanyInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
                     await Net.HttpService.SetClientCompanyInfoToCreateContract(ClientCompanyInfo);
                 }
                 else
@@ -187,6 +188,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
             else
             {
+                ClientCompanyInfo.created_date = DateTime.Now.ToString(Constants.TimeFormat);
                 await Net.HttpService.SetClientCompanyInfoToCreateContract(ClientCompanyInfo);
             }
 

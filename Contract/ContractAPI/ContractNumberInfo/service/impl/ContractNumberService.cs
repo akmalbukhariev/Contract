@@ -66,7 +66,7 @@ namespace ContractAPI.ContractNumberInfo.service.impl
             }
 
             ContractNumberTemplate newItem = new ContractNumberTemplate(info);
-            newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
+            //newItem.created_date = DateTime.Now.ToString(Constants.TimeFormat);
             dataBase.ContractNumberTemplate.Add(newItem);
 
             try

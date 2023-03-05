@@ -152,26 +152,26 @@ namespace Contract.ViewModel
             {
                 id = Id,
                 user_phone_number = ControlApp.UserInfo.phone_number.RemoveWhitespace(),
-                company_name = CompanyName.RemoveWhitespace(),
-                document = SelectedDocument.RemoveWhitespace(),
+                company_name = CompanyName.Trim(),
+                document = SelectedDocument.Trim(),
                 document_index = SelectedDocument_index,
-                address_of_company = AddressOfCompany.RemoveWhitespace(),
+                address_of_company = AddressOfCompany.Trim(),
                 account_number = AccountNumber.RemoveWhitespace(),
                 stir_of_company = CompanyStir.RemoveWhitespace(),
-                name_of_bank = NameOfBank.RemoveWhitespace(),
+                name_of_bank = NameOfBank.Trim(),
                 bank_code = BankCode.RemoveWhitespace(),
                 are_you_qqs_payer = AreYouQQSPayer ? 1 : 0,
                 qqs_number = QQSCode.RemoveWhitespace(),
                 company_phone_number = PhoneNnumberOfCompany.RemoveWhitespace(),
-                position_of_signer = PositionOfSignatory.RemoveWhitespace(),
+                position_of_signer = PositionOfSignatory.Trim(),
                 position_of_signer_index = PositionOfSignatory_index,
-                name_of_signer = FullNameOfSignatory.RemoveWhitespace(),
+                name_of_signer = FullNameOfSignatory.Trim(),
                 is_accountant_provided = IsAccountProvided ? 1 : 0,
-                accountant_name = AccountantName.RemoveWhitespace(),
+                accountant_name = AccountantName.Trim(),
                 is_legal_counsel_provided = IsCounselProvided ? 1 : 0,
-                counsel_name = CounselName.RemoveWhitespace(),
-                company_logo_url = LogoImageStr.RemoveWhitespace(),
-                created_date = CreatedDate.RemoveWhitespace()
+                counsel_name = CounselName.Trim(),
+                company_logo_url = LogoImageStr.Trim(),
+                created_date = CreatedDate.Trim()
             };
         }
 

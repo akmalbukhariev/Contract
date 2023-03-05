@@ -52,6 +52,7 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
                 AccountantName = response.data.accountant_name;
                 IsCounselProvided = response.data.is_legal_counsel_provided == 1 ? true : false;
                 CounselName = response.data.counsel_name;
+                CreatedDate = response.data.created_date;
 
                 oldModel = Copy();
 
@@ -81,6 +82,7 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
             if (oldModel == null)
             {
+                CreatedDate = DateTime.Now.ToString(Constants.TimeFormat);
                 response = await HttpService.SetUserCompanyInfo(GetCompanyInfo(), hasFile);
 
                 if (!ControlApp.CheckResponse(response)) return;

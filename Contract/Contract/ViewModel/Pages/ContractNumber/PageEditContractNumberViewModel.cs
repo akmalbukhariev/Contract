@@ -81,7 +81,7 @@ namespace Contract.ViewModel.Pages.ContractNumber
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 option = Option,
                 format = contractFormat,
-                created_date = ContractNumber == null ? "" : ContractNumber.CreatedDate
+                created_date = ContractNumber == null ? DateTime.Now.ToString(Constants.TimeFormat) : ContractNumber.CreatedDate
             };
 
             if (ContractNumber != null)

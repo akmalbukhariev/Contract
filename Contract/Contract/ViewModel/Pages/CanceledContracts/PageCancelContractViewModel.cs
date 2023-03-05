@@ -39,6 +39,7 @@ namespace Contract.ViewModel.Pages.CanceledContracts
 
             CanceledContractInfo.user_phone_number = ControlApp.UserInfo.phone_number;
             CanceledContractInfo.comment = CommentText;
+            CanceledContractInfo.deleted_date = DateTime.Now.ToString(Constants.TimeFormat);
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);
             ResponseCreateContract response = await HttpService.CancelContract(CanceledContractInfo);

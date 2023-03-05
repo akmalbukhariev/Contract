@@ -38,7 +38,7 @@ namespace Contract.ViewModel.Pages.Setting
                 user_phone_number = ControlApp.UserInfo.phone_number,
                 type = SelectedOffer,
                 description = Description,
-                created_date = ""
+                created_date = DateTime.Now.ToString(Constants.TimeFormat)
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);

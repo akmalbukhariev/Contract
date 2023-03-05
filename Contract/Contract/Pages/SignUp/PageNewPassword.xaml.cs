@@ -51,7 +51,7 @@ namespace Contract.Pages.SignUp
                 phone_number = ControlApp.LoginInfo.phone_number,
                 password = password1.Text,
                 lan_id = ControlApp.LanguageId,
-                reg_date = ""
+                reg_date = DateTime.Now.ToString(Constants.TimeFormat)
             };
 
             ControlApp.ShowLoadingView(RSC.PleaseWait);

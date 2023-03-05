@@ -109,9 +109,7 @@ namespace Contract.ViewModel.Pages.CurrentContracts
 
             IsRefreshing = false;
         }
-
-
-
+         
         public void Add(ApprovedContract item)
         {
             DataList.Add(item);

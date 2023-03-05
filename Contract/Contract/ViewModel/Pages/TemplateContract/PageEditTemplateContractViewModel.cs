@@ -350,7 +350,7 @@ namespace Contract.ViewModel.Pages.TemplateContract
                 template_name = NameOfTemplate,
                 clauses = strJson,
                 id = TemplateInfo != null? TemplateInfo.id : 0,
-                created_date = TemplateInfo != null ? TemplateInfo.created_date : ""
+                created_date = TemplateInfo != null ? TemplateInfo.created_date : DateTime.Now.ToString(Constants.TimeFormat)
             };
 
             string strMessage = "";

@@ -75,6 +75,8 @@ namespace Contract
 
         public const string ContractSequenceNumber = "XXXXX";
 
+        public const string TimeFormat = "yyyyMMdd_hhmmss.fff";
+
         public const string Template_Normal = "Normal";
         public const string Template_Popular = "Popular";
         public const string Template_Simple = "Simple";
