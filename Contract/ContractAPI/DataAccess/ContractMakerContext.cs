@@ -25,9 +25,10 @@ namespace ContractAPI.DataAccess
         public DbSet<AboutApp> AboutApp { get; set; }
 
         private DbContextOptions _options { get; set; }
-        public ContractMakerContext(DbContextOptions options) : base(options)
+        public ContractMakerContext(DbContextOptions options) 
+            : base(options)
         {
-            this._options = options;
+            _options = options;
         }
 
         public ContractMakerContext CreateNew()

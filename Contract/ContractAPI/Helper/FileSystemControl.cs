@@ -9,54 +9,58 @@ namespace ContractAPI.Helper
 {
     public class FileSystemControl
     {
-        public async static void CreateFile(string savePath, IFormFile formFile)
-        {
-            if (!Directory.Exists(savePath))
-            {
-                Directory.CreateDirectory(savePath);
-            }
+        //public async static void CreateFile(string savePath, IFormFile formFile)
+        //{
+        //    if (!Directory.Exists(savePath))
+        //    {
+        //        Directory.CreateDirectory(savePath);
+        //    }
 
-            using (FileStream filestream = File.Create($"{savePath}{formFile.FileName}"))
-            {
-                try
-                {
-                    await formFile.CopyToAsync(filestream);
-                    filestream.Flush();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-        }
+        //    if (formFile.Length <= 0) return;
 
-        public async static void CreateFile(string savePath, string fileName, IFormFile formFile)
-        { 
-            if (!Directory.Exists(savePath))
-            {
-                Directory.CreateDirectory(savePath);
-            }
+        //    using (var filestream = File.Create($"{savePath}{formFile.FileName}"))
+        //    {
+        //        try
+        //        {
+        //            await formFile.CopyToAsync(filestream);
+        //            //filestream.Flush();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine($"FileSystemControl: {ex.Message}");
+        //        }
+        //    }
+        //}
 
-            using (FileStream filestream = File.Create($"{savePath}{fileName}"))
-            {
-                try
-                {
-                    await formFile.CopyToAsync(filestream);
-                    filestream.Flush();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            } 
-        }
+        //public async static void CreateFile(string savePath, string fileName, IFormFile formFile)
+        //{ 
+        //    if (!Directory.Exists(savePath))
+        //    {
+        //        Directory.CreateDirectory(savePath);
+        //    }
 
-        public static void DeleteFile(string filePath)
-        {
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-        }
+        //    if (formFile.Length <= 0) return;
+
+        //    using (var filestream = File.Create($"{savePath}{fileName}"))
+        //    {
+        //        try
+        //        {
+        //            await formFile.CopyToAsync(filestream);
+        //            //filestream.Flush();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine($"FileSystemControl: {ex.Message}");
+        //        }
+        //    } 
+        //}
+
+        //public static void DeleteFile(string filePath)
+        //{
+        //    if (File.Exists(filePath))
+        //    {
+        //        File.Delete(filePath);
+        //    }
+        //}
     }
 }

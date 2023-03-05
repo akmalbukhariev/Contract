@@ -34,6 +34,9 @@ namespace Contract.Pages.EditUserContractInfo
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            
+            if (!imageProccessFinished) return;
+
             PModel.PositionList = GetPositionList;
             PModel.DocumentList = GetDocumentList;
             PModel.RequestInfo(); 
@@ -116,8 +119,10 @@ namespace Contract.Pages.EditUserContractInfo
             PModel.IsCounselProvided = yes3;
         }
 
+        private bool imageProccessFinished = true;
         private async void Logotip_Tapped(object sender, EventArgs e)
         {
+            imageProccessFinished = false;
             ClickAnimationView((Image)sender);
 
             string[] strButtons = new string[] { RSC.ChooseImage, RSC.TakePicture };
@@ -155,6 +160,7 @@ namespace Contract.Pages.EditUserContractInfo
                     PModel.LogoImageStr = photo.Path;
                 }
             }
+            imageProccessFinished = true;
         }
 
         private PageEditUserContractInfoViewModel PModel

@@ -19,6 +19,8 @@ namespace Contract.Pages.Introduction
         {
             InitializeComponent(); 
             SetModel(new PageIntroductionViewModel(Navigation));
+
+            grButton.IsVisible = false;
         }
 
         protected override void OnAppearing()
@@ -40,16 +42,37 @@ namespace Contract.Pages.Introduction
             Application.Current.MainPage = new TransitionNavigationPage(new Login.PageLogin()); 
         }
 
-        //private async void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
-        //{
-        //    IntroductionInfo previousItem = e.PreviousItem as IntroductionInfo;
-        //    IntroductionInfo currentItem = e.CurrentItem as IntroductionInfo;
+        private void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        {
+            IntroductionInfo previousItem = e.PreviousItem as IntroductionInfo;
+            IntroductionInfo currentItem = e.CurrentItem as IntroductionInfo;
 
-        //    if (previousItem != null && previousItem.ImagePath == PageIntroductionViewModel.Intro_4)
-        //    {
-        //        Model.SetTransitionType();
-        //        await Navigation.PushAsync(new PageLoginInfo());
-        //    }
-        //}
+            if (previousItem != null && previousItem.ImagePath == PageIntroductionViewModel.Intro_5)
+            {
+                grButton.IsVisible = true;
+                indicatorview.IsVisible = false;
+            }
+            else
+            {
+                grButton.IsVisible = false;
+                indicatorview.IsVisible = true;
+            }
+        }
+
+        private void CarouselView_PositionChanged(object sender, PositionChangedEventArgs e)
+        {
+            if (e.CurrentPosition == 4)
+            {
+                grButton.IsVisible = true;
+                indicatorview.IsVisible = false;
+            }
+            else
+            {
+                grButton.IsVisible = false;
+                indicatorview.IsVisible = true;
+            }
+
+            //Console.WriteLine($"Position:  {e.CurrentPosition}");
+        }
     }
 }

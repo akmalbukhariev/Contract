@@ -14,8 +14,8 @@ namespace ContractAPI.Users.service.impl
     public class UserInfoService : AppBaseService, IUserInfoService
     {
         public UserInfoService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
 
         public async Task<ResponseUser> getUser(string phoneNumber)

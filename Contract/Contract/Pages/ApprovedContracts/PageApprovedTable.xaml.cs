@@ -80,7 +80,7 @@ namespace Contract.Pages.ApprovedContracts
             }
             else
             {
-                await DisplayAlert(RSC.CreateContract, response.message, RSC.Ok);
+                await DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
             }
         }
          

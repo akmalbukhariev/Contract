@@ -81,13 +81,13 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
 
             if (oldModel == null)
             {
-                response = await Net.HttpService.SetUserCompanyInfo(GetCompanyInfo());
+                response = await HttpService.SetUserCompanyInfo(GetCompanyInfo(), hasFile);
 
                 if (!ControlApp.CheckResponse(response)) return;
             }
             else if (!Equals(oldModel) || hasFile)
             {
-                response = await Net.HttpService.UpdateUserCompanyInfo(GetCompanyInfo(), hasFile);
+                response = await HttpService.UpdateUserCompanyInfo(GetCompanyInfo(), hasFile);
 
                 if (!ControlApp.CheckResponse(response)) return;
             }
@@ -100,7 +100,7 @@ namespace Contract.ViewModel.Pages.EditUserContractInfo
             }
             else if (response != null && !response.result)
             {
-                await Application.Current.MainPage.DisplayAlert(RSC.MyCompany, $"{RSC.Failed} : {response.message}", RSC.Ok);
+                await Application.Current.MainPage.DisplayAlert(RSC.MyCompany, $"{RSC.Failed}", RSC.Ok);
             }
 
             await Navigation.PopAsync();

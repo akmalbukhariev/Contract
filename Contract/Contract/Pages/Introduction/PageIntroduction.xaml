@@ -5,78 +5,81 @@
             xmlns:resource="clr-namespace:Contract.Resources"   
             x:Class="Contract.Pages.Introduction.PageIntroduction">
 
-    <AbsoluteLayout>
-        <CarouselView ItemsSource="{Binding Images}" 
-                      AbsoluteLayout.LayoutBounds="0,0,1,1"
-                      AbsoluteLayout.LayoutFlags="All"
-                      IndicatorView="indicatorview">
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <Grid RowDefinitions="*,*"
-                          VerticalOptions="CenterAndExpand">
-                        <Image Source="{Binding ImagePath}"  
-                               Aspect="AspectFit"
-                               Margin="15"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand" />
-                        <StackLayout Spacing="20"
-                                     Margin="15,0,15,0"
-                                     Grid.Row="1">
-                            <Label Text="{Binding Text1}"
-                                   FontSize="25"
-                                   FontFamily="Nunito_SemiBold"
-                                   TextColor="Black"
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="Center"/>
-                            <ScrollView>
-                                <Label Text="{Binding Text2}"
-                                       FontSize="17"
-                                       FontFamily="Nunito_Regular"
-                                       TextColor="Gray"
-                                       Margin="10,0,10,0"
+    <ScrollView>
+        <AbsoluteLayout>
+            <CarouselView ItemsSource="{Binding Images}" 
+                          AbsoluteLayout.LayoutBounds="0,0,1,1"
+                          AbsoluteLayout.LayoutFlags="All"
+                          IndicatorView="indicatorview"
+                          PositionChanged="CarouselView_PositionChanged">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="*,*"
+                              VerticalOptions="CenterAndExpand">
+                            <Image Source="{Binding ImagePath}"  
+                                   Aspect="AspectFit"
+                                   Margin="15"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand" />
+                            <StackLayout Spacing="20"
+                                         Margin="15,0,15,0"
+                                         Grid.Row="1">
+                                <Label Text="{Binding Text1}"
+                                       FontSize="25"
+                                       FontFamily="Nunito_SemiBold"
+                                       TextColor="Black"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Center"/>
-                            </ScrollView>
-                            <Grid VerticalOptions="End"
-                                  HeightRequest="80"
-                                  MinimumHeightRequest="80"
-                                  IsVisible="{Binding ShowButton}">
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Enter_Tapped"/>
-                                </Grid.GestureRecognizers>
-                                <Image Source="intro_button" 
-                                       Aspect="AspectFit"
-                                       Margin="0,10,0,10"
-                                       VerticalOptions="CenterAndExpand"/>
-                                <Label Text="{x:Static resource:AppResource.LoginSystem}"
-                                       FontSize="18"
-                                       FontFamily="Nunito_Regular"
-                                       TextColor="White"
-                                       VerticalOptions="CenterAndExpand"
-                                       HorizontalOptions="CenterAndExpand"
-                                       Margin="0,0,0,10"/>
-                            </Grid>
-                        </StackLayout> 
-                        <!--<Button Text="{x:Static resource:AppResource.Skip}"
-                                BackgroundColor="Transparent"
-                                FontSize="18"
-                                FontFamily="Nunito_Regular"
-                                Margin="0,20,20,0"
-                                TextColor="#B3B3B3"
-                                HorizontalOptions="EndAndExpand"
-                                VerticalOptions="StartAndExpand"
-                                Grid.RowSpan="2"
-                                Clicked="Skip_Tapped"/>-->
-                    </Grid>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-        <IndicatorView x:Name="indicatorview" 
-                       AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
-                       AbsoluteLayout.LayoutFlags="PositionProportional"
-                       IndicatorColor="LightGray"
-                       IndicatorSize="10"
-                       SelectedIndicatorColor="{StaticResource AppColor}"/>
-    </AbsoluteLayout>
-
+                                <ScrollView>
+                                    <Label Text="{Binding Text2}"
+                                           FontSize="17"
+                                           FontFamily="Nunito_Regular"
+                                           TextColor="Gray"
+                                           Margin="10,0,10,0"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"/>
+                                </ScrollView> 
+                            </StackLayout>
+                            <!--<Button Text="{x:Static resource:AppResource.Skip}"
+                                    BackgroundColor="Transparent"
+                                    FontSize="18"
+                                    FontFamily="Nunito_Regular"
+                                    Margin="0,20,20,0"
+                                    TextColor="#B3B3B3"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="StartAndExpand"
+                                    Grid.RowSpan="2"
+                                    Clicked="Skip_Tapped"/>-->
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorview" 
+                           AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           IndicatorColor="LightGray"
+                           IndicatorSize="10"
+                           SelectedIndicatorColor="{StaticResource AppColor}"/>
+            <Grid x:Name="grButton" 
+                  VerticalOptions="End"
+                  HeightRequest="80"
+                  AbsoluteLayout.LayoutBounds="0.5,0.95,250,100"
+                  AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Enter_Tapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="intro_button" 
+                       Aspect="AspectFit"
+                       Margin="0,10,0,10"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label Text="{x:Static resource:AppResource.LoginSystem}"
+                       FontSize="18"
+                       FontFamily="Nunito_Regular"
+                       TextColor="White"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="0,0,0,10"/>
+            </Grid>
+        </AbsoluteLayout>
+    </ScrollView>
 </page:IPage>

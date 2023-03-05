@@ -13,7 +13,8 @@ namespace ContractAPI.ContractServices.service.impl
 {
     public class ContractServiceInfoService : AppBaseService, IContractServiceInfoService
     {
-        public ContractServiceInfoService(ContractMakerContext db) : base(db)
+        public ContractServiceInfoService(ContractMakerContext db) 
+            : base(db)
         {
         }
 

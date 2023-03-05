@@ -170,7 +170,7 @@ namespace Contract.ViewModel.Pages.Customers
 
             if (!ControlApp.CheckResponse(response)) return;
 
-            string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed + ", " + response.message;
+            string strMessage = response.result ? RSC.SuccessfullyCompleted : RSC.Failed;
             await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);
 
             if (response.result)
@@ -185,7 +185,7 @@ namespace Contract.ViewModel.Pages.Customers
 
             if (!ControlApp.CheckResponse(response)) return;
 
-            string strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed + ", " + response.message;
+            string strMessage = response.result ? RSC.SuccessfullyUpdated : RSC.Failed;
             await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, strMessage, RSC.Ok);
 
             if (response.result)

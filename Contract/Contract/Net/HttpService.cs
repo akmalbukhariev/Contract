@@ -28,11 +28,11 @@ namespace Contract.Net
     {
         //http://192.168.219.102:5000/api/CreatePdf/createPdf/12_00002_Kukmin
         #region Url 
-        public static string DATA_URL = "http://192.168.219.102:5000/";
-        public static string SERVER_URL = "http://192.168.219.102:5000/api/";
+        //public static string DATA_URL = "http://192.168.219.102:5000/";
+        //public static string SERVER_URL = "http://192.168.219.102:5000/api/";
         
-        //public static string DATA_URL = "http://65.20.68.60:5000/";
-        //public static string SERVER_URL = "http://65.20.68.60:5000/api/";
+        public static string DATA_URL = "http://65.20.68.60:5000/";
+        public static string SERVER_URL = "http://65.20.68.60:5000/api/";
         
         public static string URL_LOGIN = SERVER_URL + "LoginSignUp/login";
         public static string URL_SIGN_UP = SERVER_URL + "LoginSignUp/signUp";
@@ -218,7 +218,7 @@ namespace Contract.Net
             {
                 string url = hasFile ? URL_UPDATE_USER_COMPANY_INFO_WITH_FILE : URL_UPDATE_USER_COMPANY_INFO;
 
-                var receivedData = hasFile? await RequestMethodWithFile(url, data, Method.PUT) :  
+                var receivedData = hasFile? await RequestMethodWithFile(url, data, Method.POST) :  
                                             await RequestPutMethod(url, data);
                 response = JsonConvert.DeserializeObject<ResponseUserCompanyInfo>(receivedData, settings);
             }
@@ -866,7 +866,8 @@ namespace Contract.Net
         {
             var client = new RestClient(url);
             client.Timeout = -1;
-            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            client.AllowMultipleDefaultParametersWithSameName = true;
+            //client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             var request = new RestRequest(method);
 
             request.AddParameter("id", obj.id);

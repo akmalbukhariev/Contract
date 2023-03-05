@@ -36,9 +36,9 @@ namespace ContractAPI.CreatePdf.service
 
         public static string MainText(UserCompanyInfo user, ClientCompanyInfo client)
         {
-            return $"{user.company_name} номидан {client.document} асосида иш олиб борувчи ва бундан сўнг матнда “Буюртмачи” деб аталувчи - унинг {user.position_of_signer} {user.name_of_signer}." +
-                   $"бир томондан ва {client.company_name} номидан {client.document} асосида иш юритувчи, бундан сўнг “Бажарувчи” деб аталувчи - унинг {client.position_of_signer} {client.name_of_signer}." +
-                   $"иккинчи томондан, мазкур шартномани туздилар:";
+            return $"{client.company_name} номидан {client.document} асосида иш олиб борувчи ва бундан сўнг матнда “Буюртмачи” деб аталувчи - унинг {client.position_of_signer} {client.name_of_signer}" +
+                   $" бир томондан ва {user.company_name} номидан {user.document} асосида иш юритувчи, бундан сўнг “Бажарувчи” деб аталувчи - унинг {user.position_of_signer} {user.name_of_signer}" +
+                   $" иккинчи томондан, мазкур шартномани туздилар:";
         }
 
         public static string CalcAllService(List<TableRow> tableRows, string contractCurrency)

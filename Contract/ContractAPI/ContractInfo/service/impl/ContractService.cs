@@ -16,8 +16,8 @@ namespace ContractAPI.ContractInfo.service.impl
     public class ContractService : AppBaseService, IContractService
     {
         public ContractService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
 
         public async Task<ResponseCreateContract> getNewContractNumber(string phoneNumber)

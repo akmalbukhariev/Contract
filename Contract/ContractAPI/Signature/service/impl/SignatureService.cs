@@ -17,8 +17,8 @@ namespace ContractAPI.Signature.service.impl
     {
         public static IWebHostEnvironment _environment;
         public SignatureService(ContractMakerContext db, IWebHostEnvironment environment)
+            :base(db)
         {
-            dataBase = db;
             _environment = environment;
         }
 
@@ -29,7 +29,7 @@ namespace ContractAPI.Signature.service.impl
             try
             {
                 string fileName = $"{info.phone_number}_sign.png";
-                FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveSignImagePath}", fileName, info.dataStream);
+                await CreateFile($"{_environment.WebRootPath}{Constants.SaveSignImagePath}", fileName, info.dataStream);
                 //Console.WriteLine($"PATH: {_environment.WebRootPath}{Constants.SaveSignImagePath}{fileName}");
 
                 SignatureInfo newInfo = new SignatureInfo()

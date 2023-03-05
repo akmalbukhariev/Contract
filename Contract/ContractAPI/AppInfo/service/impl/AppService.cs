@@ -15,8 +15,8 @@ namespace ContractAPI.AppInfo.service.impl
     public class AppService : AppBaseService, IAppService
     {
         public AppService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
          
         public async Task<ResponseAboutApp> getAboutApp(string lan_code)

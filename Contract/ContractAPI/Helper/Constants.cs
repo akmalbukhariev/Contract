@@ -30,5 +30,7 @@ namespace ContractAPI
         public const string SaveContractPdfUrl = "Upload/contracts_pdf/";
         public const string SaveContractHtmlUrl = "Upload/contracts_html/";
         public const string NotificationKey = "/Notification//contract_private_key.json";
+
+        public static string DATA_URL = "http://65.20.68.60:5000/";
     }
 }

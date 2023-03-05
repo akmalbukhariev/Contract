@@ -13,7 +13,8 @@ namespace ContractAPI.ContractTemplateInfo.service.impl
 {
     public class ContractTemplateService : AppService, IContractTemplateService
     {
-        public ContractTemplateService(ContractMakerContext db) : base(db)
+        public ContractTemplateService(ContractMakerContext db) 
+            : base(db)
         {
 
         }

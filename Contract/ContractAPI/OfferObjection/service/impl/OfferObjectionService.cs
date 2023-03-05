@@ -13,8 +13,8 @@ namespace ContractAPI.OfferObjection.service.impl
     public class OfferObjectionService : AppBaseService, IOfferObjectionService
     {
         public OfferObjectionService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
 
         public async Task<ResponseOfferObjection> Save(OfferAndObjection info)

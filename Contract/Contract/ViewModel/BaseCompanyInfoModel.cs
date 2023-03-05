@@ -120,6 +120,7 @@ namespace Contract.ViewModel
         public bool IsFieildEmpty()
         {
             bool res1 = string.IsNullOrEmpty(CompanyName) ||
+                        string.IsNullOrEmpty(SelectedDocument) ||
                         string.IsNullOrEmpty(AddressOfCompany) ||
                         string.IsNullOrEmpty(AccountNumber) ||
                         string.IsNullOrEmpty(CompanyStir) ||
@@ -127,7 +128,6 @@ namespace Contract.ViewModel
                         string.IsNullOrEmpty(BankCode) ||
                         string.IsNullOrEmpty(PhoneNnumberOfCompany) ||
                         string.IsNullOrEmpty(PositionOfSignatory) ||
-                        string.IsNullOrEmpty(SelectedDocument) ||
                         string.IsNullOrEmpty(FullNameOfSignatory);
 
             bool res2 = AreYouQQSPayer;

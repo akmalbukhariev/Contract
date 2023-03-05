@@ -34,7 +34,7 @@ namespace Contract.Pages.SignUp
                 return;
             }
 
-            ControlApp.LoginInfo.phone_number = entry.Text; 
+            ControlApp.LoginInfo.phone_number = entry.Text.RemoveWhitespace(); 
 
             Model.SetTransitionType();
             await Navigation.PushAsync(new PageNewPassword());

@@ -14,8 +14,8 @@ namespace ContractAPI.ApprovedUnapprovedContract.service.impl
     public class ApprovedUnapprovedContractService : AppBaseService, IApprovedUnapprovedContractService
     {  
         public ApprovedUnapprovedContractService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
           
         public async Task<ResponseApprovedUnapprovedContract> setApprovedContract(LibContract.HttpModels.ApprovedUnapprovedContract info)

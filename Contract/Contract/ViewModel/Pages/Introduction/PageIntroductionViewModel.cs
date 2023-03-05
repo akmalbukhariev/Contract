@@ -1,11 +1,7 @@
 ﻿
 using Contract.Model;
 using Contract.Pages.Introduction;
-using Contract.Pages.SignUp;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -17,6 +13,7 @@ namespace Contract.ViewModel.Introduction
         public const string Intro_2 = "intro_2";
         public const string Intro_3 = "intro_3";
         public const string Intro_4 = "intro_4";
+        public const string Intro_5 = "intro_5";
         public ObservableCollection<IntroductionInfo> Images { get; set; }
          
         public IntroductionInfo CurrentItem { get; set; }
@@ -26,31 +23,31 @@ namespace Contract.ViewModel.Introduction
             
             IntroductionInfo intro1 = new IntroductionInfo()
             {
-                ImagePath = "intro_1",
+                ImagePath = Intro_1,
                 Text1 = RSC.Intro1_1,
                 Text2 = RSC.Intro1_2
             };
             IntroductionInfo intro2 = new IntroductionInfo()
             {
-                ImagePath = "intro_2",
+                ImagePath = Intro_2,
                 Text1 = RSC.Intro2_1,
                 Text2 = RSC.Intro2_2
             };
             IntroductionInfo intro3 = new IntroductionInfo()
             {
-                ImagePath = "intro_3",
+                ImagePath = Intro_3,
                 Text1 = RSC.Intro3_1,
                 Text2 = RSC.Intro3_2
             };
             IntroductionInfo intro4 = new IntroductionInfo()
             {
-                ImagePath = "intro_4",
+                ImagePath = Intro_4,
                 Text1 = RSC.Intro4_1,
                 Text2 = RSC.Intro4_2
             };
             IntroductionInfo intro5 = new IntroductionInfo()
             {
-                ImagePath = "intro_5",
+                ImagePath = Intro_5,
                 Text1 = RSC.LoginInfo1_1,
                 Text2 = RSC.LoginInfo1_2,
                 ShowButton = true

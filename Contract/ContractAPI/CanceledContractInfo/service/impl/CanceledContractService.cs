@@ -14,8 +14,8 @@ namespace ContractAPI.CanceledContractInfo.service.impl
     public class CanceledContractService : AppBaseService, ICanceledContractService
     {
         public CanceledContractService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
 
         public async Task<ResponseCanceledContract> getCanceledContract(string phoneNumber)

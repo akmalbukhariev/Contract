@@ -153,7 +153,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             if (!responseCreate.result)
             {
                 ControlApp.CloseLoadingView();
-                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed + ": " + responseCreate.message, RSC.Ok);
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
                 return;
             }
 
@@ -164,7 +164,7 @@ namespace Contract.ViewModel.Pages.CreateContract
             {
                 ControlApp.CloseLoadingView();
                 responseCreate = await Net.HttpService.DeleteContract(ContractNumber);
-                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed + ": " + responseService.message, RSC.Ok);
+                await Application.Current.MainPage.DisplayAlert(RSC.CreateContract, RSC.Failed, RSC.Ok);
                 return;
             }
 

@@ -172,19 +172,6 @@ namespace ContractAPI.CreatePdf.service
                                 "<div class=\"bl1\">" + Environment.NewLine +
                                     "<h3 style = \"text-align: center;\"> \"БАЖАРУВЧИ\" </h3><br>" + Environment.NewLine +
 
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {ClientCompany.company_name}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Манзил: {ClientCompany.address_of_company}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Ҳисоб рақами: {ClientCompany.account_number}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {ClientCompany.name_of_bank}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Банк коди: {ClientCompany.bank_code}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ҚҚС рақами: {ClientCompany.qqs_number}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> СТИР: {ClientCompany.stir_of_company}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ИФУТ  No </p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Телефон: {ClientCompany.company_phone_number}</p>" + Environment.NewLine +
-                                "</div>" + Environment.NewLine +
-                                "<div class=\"bl2\">" + Environment.NewLine +
-                                    "<h3 style = \"text-align: center;\"> \"БУЮРТМАЧИ\" </h3><br>" + Environment.NewLine +
-
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {UserCompany.company_name}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Манзил: {UserCompany.address_of_company}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Ҳисоб рақами: {UserCompany.account_number}</p><br>" + Environment.NewLine +
@@ -194,6 +181,19 @@ namespace ContractAPI.CreatePdf.service
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> СТИР: {UserCompany.stir_of_company}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ИФУТ  No </p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Телефон: {UserCompany.company_phone_number}</p>" + Environment.NewLine +
+                                "</div>" + Environment.NewLine +
+                                "<div class=\"bl2\">" + Environment.NewLine +
+                                    "<h3 style = \"text-align: center;\"> \"БУЮРТМАЧИ\" </h3><br>" + Environment.NewLine +
+
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {ClientCompany.company_name}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Манзил: {ClientCompany.address_of_company}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Ҳисоб рақами: {ClientCompany.account_number}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {ClientCompany.name_of_bank}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Банк коди: {ClientCompany.bank_code}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ҚҚС рақами: {ClientCompany.qqs_number}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> СТИР: {ClientCompany.stir_of_company}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ИФУТ  No </p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Телефон: {ClientCompany.company_phone_number}</p>" + Environment.NewLine +
                                 "</div>" + Environment.NewLine +
                               "</div>" + Environment.NewLine;
               
@@ -221,7 +221,7 @@ namespace ContractAPI.CreatePdf.service
                             $"<img class=\"imzo\" src=\"{saveClientSignFile}\"/>" + Environment.NewLine +
                             "<div style=\"float: right; width: 50%; margin-top: 20px; padding: 15px\">" + Environment.NewLine +
                                 "<div style=\"font-size: 18px\">" + Environment.NewLine +
-                                    $"<span style=\"float: left; width: 50%\">{ClientCompany.position_of_signer}<br/>{UserCompany.name_of_signer}.</span>" + Environment.NewLine +
+                                    $"<span style=\"float: left; width: 50%\">{ClientCompany.position_of_signer}<br/>{ClientCompany.name_of_signer}.</span>" + Environment.NewLine +
                                 "</div> " + Environment.NewLine +
                             "</div>" + Environment.NewLine +
                         "</div>" + Environment.NewLine +

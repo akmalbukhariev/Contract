@@ -96,8 +96,7 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
-
-
+         
         [HttpPut("updateUserCompanyInfo")]
         public async Task<IActionResult> updateUserCompanyInfo([FromBody] CompanyInfo info)
         {
@@ -105,9 +104,10 @@ namespace ContractAPI.CompanyInformation.api
             return MakeResponse(response, response.error_code);
         }
 
-        [HttpPut("updateUserCompanyInfoWithFile")]
+        [HttpPost("updateUserCompanyInfoWithFile")]
         public async Task<IActionResult> updateUserCompanyInfoWithFile([FromForm] CompanyInfoWithFile info)
         {
+            //Console.WriteLine("================updateUserCompanyInfoWithFile");
             ResponseUserCompanyInfo response = await Service.updateUserCompanyInfoWithFile(info);
             return MakeResponse(response, response.error_code);
         }

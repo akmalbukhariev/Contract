@@ -18,8 +18,8 @@ namespace ContractAPI.CreatePdf.service.impl
     {
         public static IWebHostEnvironment _environment;
         public CreatePdfService(ContractMakerContext db, IWebHostEnvironment environment)
+            :base(db)
         {
-            dataBase = db;
             _environment = environment;
         }
 
@@ -101,7 +101,7 @@ namespace ContractAPI.CreatePdf.service.impl
             string savePathFile = $"{strPath}{contractInfo.contract_number}.html";
             await Task.Run(() =>
             {
-                pdf.CreateContract(savePathFile, _environment.WebRootPath);
+                pdf.CreateContract(savePathFile, Constants.DATA_URL);//_environment.WebRootPath);
             });
 
             CreateContractInfo editCreateContractInfo = new CreateContractInfo(contractInfo);

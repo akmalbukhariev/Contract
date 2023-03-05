@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using ContractAPI.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ContractAPI.CompanyInformation.service.impl
 {
@@ -18,8 +19,8 @@ namespace ContractAPI.CompanyInformation.service.impl
     {
         public static IWebHostEnvironment _environment;
         public CompanyInfoService(ContractMakerContext db, IWebHostEnvironment environment)
+            :base(db)
         {
-            dataBase = db;
             _environment = environment;
         }
 
@@ -224,11 +225,13 @@ namespace ContractAPI.CompanyInformation.service.impl
                 return response;
             }
 
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
+            await CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
 
             var newInfo = new UserCompanyInfo();
             newInfo.user_phone_number = info.user_phone_number;
             newInfo.company_name = info.company_name;
+            newInfo.document = info.document;
+            newInfo.document_index = info.document_index;
             newInfo.address_of_company = info.address_of_company;
             newInfo.account_number = info.account_number;
             newInfo.stir_of_company = info.stir_of_company;
@@ -360,7 +363,7 @@ namespace ContractAPI.CompanyInformation.service.impl
                 return response;
             }
              
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
+            await CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
 
             var newInfo = new ClientCompanyInfo();
             newInfo.user_phone_number = info.user_phone_number;
@@ -422,8 +425,14 @@ namespace ContractAPI.CompanyInformation.service.impl
             }
 
             var newInfo = new UserCompanyInfo();
-            newInfo.Copy(info); 
-            
+            newInfo.Copy(info);
+
+            if (string.IsNullOrEmpty(info.company_logo_url))
+                newInfo.company_logo_url = found.company_logo_url;
+
+            if (string.IsNullOrEmpty(info.created_date))
+                newInfo.created_date = found.created_date;
+
             dataBase.UserCompanyInfo.Update(newInfo);
 
             try
@@ -483,8 +492,8 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.is_legal_counsel_provided = 0;
             newInfo.counsel_name = info.counsel_name;
 
-            FileSystemControl.DeleteFile($"{_environment.WebRootPath}{found.company_logo_url}");
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
+            DeleteFile($"{_environment.WebRootPath}{found.company_logo_url}");
+            await CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
             newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
             
             dataBase.UserCompanyInfo.Update(newInfo);
@@ -591,8 +600,8 @@ namespace ContractAPI.CompanyInformation.service.impl
             newInfo.is_legal_counsel_provided = 0;
             newInfo.counsel_name = info.counsel_name;
 
-            FileSystemControl.DeleteFile($"{_environment.WebRootPath}{found.company_logo_url}");
-            FileSystemControl.CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
+            DeleteFile($"{_environment.WebRootPath}{found.company_logo_url}");
+            await CreateFile($"{_environment.WebRootPath}{Constants.SaveCompanyImagePath}", info.company_logo_url);
             newInfo.company_logo_url = Constants.SaveCompanyImagePath.Replace("\\", "/") + info.company_logo_url.FileName;
              
             dataBase.ClientCompanyInfo.Update(newInfo);
@@ -614,6 +623,6 @@ namespace ContractAPI.CompanyInformation.service.impl
             response.error_code = (int)HttpStatusCode.OK;
 
             return response;
-        }
+        } 
     }
 }

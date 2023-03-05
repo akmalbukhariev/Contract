@@ -62,7 +62,7 @@ namespace Contract.Pages.SignUp
 
             if (!response.result)
             {
-                await DisplayAlert(RSC.SignUp, response.message, RSC.Ok);
+                await DisplayAlert(RSC.SignUp, RSC.Failed, RSC.Ok);
                 return;
             }
 

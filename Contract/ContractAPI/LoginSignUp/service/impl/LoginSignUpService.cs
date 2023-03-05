@@ -14,8 +14,8 @@ namespace ContractAPI.LoginSignUp.service.impl
     public class LoginSignUpService : AppBaseService, ILoginSignUpService
     {
         public LoginSignUpService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
 
         public async Task<ResponseLogin> login(Login user)

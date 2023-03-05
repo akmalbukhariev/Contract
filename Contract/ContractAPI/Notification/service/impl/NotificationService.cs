@@ -17,8 +17,8 @@ namespace ContractAPI.Notification.service.impl
     public class NotificationService : AppBaseService, INotificationService
     {
         public NotificationService(ContractMakerContext db)
+            :base(db)
         {
-            dataBase = db;
         }
 
         public async Task<ResponseNotification> sendNotification(NotificationInfo info)
