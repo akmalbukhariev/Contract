@@ -41,7 +41,8 @@ namespace Contract.ViewModel
             Init();
         }
 
-        public BaseCompanyInfoModel(INavigation navigation) : base(navigation)
+        public BaseCompanyInfoModel(INavigation navigation) 
+            : base(navigation)
         {
             Init();
         }
@@ -89,7 +90,7 @@ namespace Contract.ViewModel
             AccountantName = "";
             CounselName = "";
             CreatedDate = "";
-
+            LogoImageStr = "";
             PositionList = new List<string>();
         }
 

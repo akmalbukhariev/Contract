@@ -95,7 +95,7 @@ namespace ContractAPI.LoginSignUp.service.impl
                 phone_number = user.phone_number,
                 lan_id = user.lan_id,
                 on_notification = 1,
-                reg_date = DateTime.Now.ToString("yyyymmdd_hhmmss.fff")
+                reg_date = user.reg_date
             };
 
             dataBase.Users.Add(newUser);

@@ -7,6 +7,7 @@ using Android.OS;
 using Acr.UserDialogs;
 using Plugin.FirebasePushNotification;
 using System.Collections.Generic;
+using Plugin.LocalNotification;
 
 namespace Contract.Droid
 {
@@ -19,6 +20,7 @@ namespace Contract.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            NotificationCenter.CreateNotificationChannel();
             UserDialogs.Init(this);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

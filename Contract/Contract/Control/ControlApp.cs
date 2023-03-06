@@ -8,6 +8,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Plugin.LocalNotification;
 using System.Linq;
+using System.IO;
 
 namespace Contract.Control
 { 
@@ -148,8 +149,26 @@ namespace Contract.Control
             return date.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
-        public void ShowNotification(string desctirption, string title)
+        public async Task ShowNotification(string desctirption, string title)
         {
+            //https://github.com/thudugala/Plugin.LocalNotification/blob/master/Sample/Direct/LocalNotification.Sample/MainPage.xaml.cs
+            //https://www.nuget.org/packages/Plugin.LocalNotification/9.0.1
+
+            var imageStream = GetType().Assembly.GetManifestResourceStream("Contract.ic_launcher.png");
+            byte[] imageBytes = null;
+
+            if (imageStream != null)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    await imageStream.CopyToAsync(ms);
+                    imageBytes = ms.ToArray();
+                }
+            }
+
+            //NotificationImage image = new NotificationImage();
+            //image.FilePath = "ic_launcher";
+
             var notification = new NotificationRequest
             {
                 BadgeNumber = 1,
@@ -157,10 +176,36 @@ namespace Contract.Control
                 Title = title,
                 ReturningData = "Dummy",
                 NotificationId = 113,
+                
+                Android =
+                {
+                    IconSmallName =
+                    {
+                        ResourceName = "ic_launcher",
+                    },
+                    IconLargeName =
+                    {
+                        ResourceName = "ic_launcher",
+                    },
+                    Priority = Plugin.LocalNotification.AndroidOption.AndroidNotificationPriority.Max,
+                    AutoCancel = true,
+                    Ongoing = true,
+                    ChannelId = "General"
+                    //Color =
+                    //{
+                    //    ResourceName = "colorPrimary"
+                    //} 
+                },
+                iOS =
+                {
+                    HideForegroundAlert = true,
+                    PlayForegroundSound = true
+                },
+
                 Schedule = new NotificationRequestSchedule() { NotifyTime = DateTime.Now.AddSeconds(3) }
             };
-
-            NotificationCenter.Current.Show(notification);
+             
+            await NotificationCenter.Current.Show(notification);
         }
 
         public async Task ShareUri(string uri)

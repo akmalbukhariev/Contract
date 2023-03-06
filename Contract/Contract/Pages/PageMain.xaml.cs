@@ -98,6 +98,8 @@ namespace Contract.Pages
 
         private async void CreateContract_Clicked(object sender, EventArgs e)
         {
+            await ControlApp.ShowNotification("Test", "DDDDDD");
+            return;
             if (!ControlApp.InternetOk()) return;
 
             if (ControlApp.UserCompanyInfo == null)
