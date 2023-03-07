@@ -9,6 +9,7 @@ using Xamarin.Forms;
 
 namespace Contract.ViewModel.Pages.CreateContract
 {
+    public delegate void RefreshPage();
     public class PageCreateContract1ViewModel : BaseCompanyInfoModel
     {
         #region Properties
@@ -20,6 +21,7 @@ namespace Contract.ViewModel.Pages.CreateContract
         public string ClientCompanyStir { get => GetValue<string>(); set => SetValue(value); }
         #endregion
 
+        public RefreshPage refreshPage = null;
         public bool ShowQQS = false;
         public List<string> positionList = new List<string>();
         public PageCreateContract1ViewModel(INavigation navigation) : base(navigation)
@@ -67,6 +69,8 @@ namespace Contract.ViewModel.Pages.CreateContract
             }
 
             SetCompanyInfo(response.data);
+            refreshPage();
+            
         }
 
         private async void Save()

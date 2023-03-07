@@ -15,16 +15,12 @@
     <EmbeddedResource Remove="Resources\AppResource.uz.resx" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="ic_launcher.png" />
-    <None Remove="Resources\contract.png" />
+  <ItemGroup>  
     <None Remove="Resources\Fonts\Nunito_Regular.ttf" />
-    <None Remove="Resources\Fonts\Nunito_SemiBold.ttf" />
-    <None Remove="Resources\ic_launcher.png" />
+    <None Remove="Resources\Fonts\Nunito_SemiBold.ttf" /> 
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="ic_launcher.png" />
+  <ItemGroup> 
     <EmbeddedResource Include="Resources\Fonts\Nunito_Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Nunito_SemiBold.ttf" />
   </ItemGroup>
@@ -257,18 +253,10 @@
   <ItemGroup>
     <Folder Include="ViewModel\SignUp\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Resources\AppResource.uz.resx" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <ProjectReference Include="..\LibContract\LibContract.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Resources\AppResource.uz-Cyrl.resx" />
-    <Resource Include="Resources\contract.png" />
-    <Resource Include="Resources\ic_launcher.png" />
-  </ItemGroup>
+  
 </Project>

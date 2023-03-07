@@ -211,6 +211,12 @@ namespace ContractAPI.CreatePdf.service
             if (!is_approved) saveUserSignFile = "";
             if (!is_approved_contragent) saveClientSignFile = "";
 
+            string userAccountName = UserCompany.is_accountant_provided == 1? "Бухгалтер: " +UserCompany.accountant_name : "";
+            string clientAccountName = ClientCompany.is_accountant_provided == 1 ? "Бухгалтер: " + ClientCompany.accountant_name : "";
+
+            string userCounselName = UserCompany.is_legal_counsel_provided == 1 ? "Юрист: " + UserCompany.counsel_name : "";
+            string clientCounselName = ClientCompany.is_legal_counsel_provided == 1 ? "Юрист: " + ClientCompany.counsel_name : "";
+
             string result = "<div style=\"width: 100%\">" + Environment.NewLine +
                             $"<img class=\"imzo\" src=\"{saveUserSignFile}\"/>" + Environment.NewLine +
                             "<div style=\"float: left; width: 50%; margin-top: 30px; padding: 5px\">" + Environment.NewLine +
@@ -225,6 +231,30 @@ namespace ContractAPI.CreatePdf.service
                                 "</div> " + Environment.NewLine +
                             "</div>" + Environment.NewLine +
                         "</div>" + Environment.NewLine +
+                        "<div style=\"width: 100%\">"+ Environment.NewLine +
+			            	"<div style=\"float: left; width: 50%; margin-top: 30px; padding: 5px\">"+ Environment.NewLine +
+			            		"<div style=\"font-size: 18px\">"+ Environment.NewLine +
+			            			$"<span style=\"float: left; width: 50%\">{userAccountName}</span>"+ Environment.NewLine +
+			            		"</div>"+ Environment.NewLine +
+			            	"</div>"+ Environment.NewLine +
+			            	"<div style=\"float: right; width: 50%; margin-top: 30px; padding: 5px\">"+ Environment.NewLine +
+			            		"<div style=\"font-size: 18px; padding-left: 10px\">"+ Environment.NewLine +
+			            			$"<span style=\"float: left; width: 50%\">{clientAccountName}</span> "+ Environment.NewLine +
+                                "</div>"+ Environment.NewLine +
+                            "</div> "+ Environment.NewLine +
+                        "</div>" + Environment.NewLine +
+                        "<div style=\"width: 100%\">"+ Environment.NewLine +
+			            "<div style=\"float: left; width: 50%; margin-top: 30px; padding: 5px\">"+ Environment.NewLine +
+			            		"<div style=\"font-size: 18px\">" + Environment.NewLine +
+			            			$"<span style=\"float: left; width: 50%\">{userCounselName}</span>" + Environment.NewLine +
+			            		"</div>" + Environment.NewLine +
+			            	"</div>" + Environment.NewLine +
+			            	"<div style=\"float: right; width: 50%; margin-top: 30px; padding: 5px\">" + Environment.NewLine +
+			            		"<div style=\"font-size: 18px; padding-left: 10px\">" + Environment.NewLine +
+			            			$"<span style=\"float: left; width: 50%\">{clientCounselName}</span>"+ Environment.NewLine +
+			            		 "</div>" + Environment.NewLine +
+			            	"</div>" + Environment.NewLine +
+			            "</div>" + Environment.NewLine +
                         "<div style=\"margin-bottom: 140px;\"></div>";
 
             return result;

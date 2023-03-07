@@ -75,7 +75,7 @@ namespace Contract.Notification
 
         }
 
-        private void Current_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
+        private async void Current_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
         {
             string strTitle = string.Empty;
             string strBody = string.Empty; 
@@ -85,7 +85,7 @@ namespace Contract.Notification
                 strBody = e.Data.ElementAt(0).Key == "body" ? e.Data.ElementAt(0).Value as string : "";
                 strTitle = e.Data.ElementAt(1).Key == "title" ? e.Data.ElementAt(1).Value as string : "";
 
-                Control.ControlApp.Instance.ShowNotification(strBody, strTitle);
+                await Control.ControlApp.Instance.ShowNotification(strBody, strTitle);
             }
         }
     }

@@ -24,6 +24,8 @@ namespace Contract.Pages.CreateContract
             InitializeComponent();
             SetModel(new PageCreateContract1ViewModel(Navigation));
 
+            PModel.refreshPage = new RefreshPage(RefreshPage);
+
             lbYesNo1.Text = RSC.Question1;
             lbYesNo2.Text = RSC.Question2;
             lbTitleBold.Text = RSC.Question3;
@@ -153,7 +155,8 @@ namespace Contract.Pages.CreateContract
                 stack13.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            if (sender != null)
+                ControlApp.Vibrate();
             PModel.IsAccountProvided = yes4;
         }
 
@@ -172,7 +175,8 @@ namespace Contract.Pages.CreateContract
                 stack15.IsVisible = true;
             }
 
-            ControlApp.Vibrate();
+            if (sender != null)
+                ControlApp.Vibrate();
             PModel.IsCounselProvided = yes5;
         }
          
@@ -203,7 +207,15 @@ namespace Contract.Pages.CreateContract
             stack15.IsVisible = show;
             viewExplan.IsVisible = show;
         }
- 
+
+        void RefreshPage()
+        {
+            yes4 = !PModel.IsAccountProvided;
+            yes5 = !PModel.IsCounselProvided;
+            YesNo4_Tapped(null, null);
+            YesNo5_Tapped(null, null);
+        }
+
         private async void ShowClientCompany_Tapped(object sender, EventArgs e)
         {
             ClickAnimationView(grSelectClient);
