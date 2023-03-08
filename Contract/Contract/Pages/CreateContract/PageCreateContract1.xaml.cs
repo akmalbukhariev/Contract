@@ -210,8 +210,10 @@ namespace Contract.Pages.CreateContract
 
         void RefreshPage()
         {
+            yes3 = !PModel.AreYouQQSPayer;
             yes4 = !PModel.IsAccountProvided;
             yes5 = !PModel.IsCounselProvided;
+            YesNo3_Tapped(null, null);
             YesNo4_Tapped(null, null);
             YesNo5_Tapped(null, null);
         }

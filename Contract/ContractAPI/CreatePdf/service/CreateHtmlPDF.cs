@@ -168,6 +168,9 @@ namespace ContractAPI.CreatePdf.service
 
         private string Createtable2()
         {
+            string strUserQQS = UserCompany.are_you_qqs_payer == 0 ? "ҚҚС йўқ" : $"ҚҚС рақами: {UserCompany.qqs_number}";
+            string strClientQQS = ClientCompany.are_you_qqs_payer == 0 ? "ҚҚС йўқ" : $"ҚҚС рақами: {ClientCompany.qqs_number}";
+
             string result = "<div class=\"bl\">" + Environment.NewLine +
                                 "<div class=\"bl1\">" + Environment.NewLine +
                                     "<h3 style = \"text-align: center;\"> \"БАЖАРУВЧИ\" </h3><br>" + Environment.NewLine +
@@ -177,7 +180,7 @@ namespace ContractAPI.CreatePdf.service
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Ҳисоб рақами: {UserCompany.account_number}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {UserCompany.name_of_bank}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Банк коди: {UserCompany.bank_code}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ҚҚС рақами: {UserCompany.qqs_number}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {strUserQQS}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> СТИР: {UserCompany.stir_of_company}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ИФУТ  No </p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Телефон: {UserCompany.company_phone_number}</p>" + Environment.NewLine +
@@ -190,7 +193,7 @@ namespace ContractAPI.CreatePdf.service
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Ҳисоб рақами: {ClientCompany.account_number}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {ClientCompany.name_of_bank}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Банк коди: {ClientCompany.bank_code}</p><br>" + Environment.NewLine +
-                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ҚҚС рақами: {ClientCompany.qqs_number}</p><br>" + Environment.NewLine +
+                                    $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> {strClientQQS}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> СТИР: {ClientCompany.stir_of_company}</p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> ИФУТ  No </p><br>" + Environment.NewLine +
                                     $"<p style = \"font-size: 18px; border-bottom: 1px dotted black;\"> Телефон: {ClientCompany.company_phone_number}</p>" + Environment.NewLine +

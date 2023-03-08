@@ -14,6 +14,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Contract
 {
+    //https://easyappicon.com/
     internal class RSC : AppResource
     {
 
