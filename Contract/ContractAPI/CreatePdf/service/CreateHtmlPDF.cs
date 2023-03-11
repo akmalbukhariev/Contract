@@ -205,8 +205,11 @@ namespace ContractAPI.CreatePdf.service
 
         private string CreateSignature()
         {
-            string saveUserSignFile = $"{SaveSignaturePath}{ContractInfo.user_phone_number}_sign.png";
-            string saveClientSignFile = $"{SaveSignaturePath}{ContractInfo.contragent_phone_number}_sign.png";
+            string userEncPhone = AesOperation.EncryptString(ContractInfo.user_phone_number).Replace("/", "_").Replace("\\", "_");
+            string clientEncPhone = AesOperation.EncryptString(ContractInfo.contragent_phone_number).Replace("/", "_").Replace("\\", "_");
+
+            string saveUserSignFile = $"{SaveSignaturePath}{userEncPhone}_sign.png";
+            string saveClientSignFile = $"{SaveSignaturePath}{clientEncPhone}_sign.png";
 
             bool is_approved = ContractInfo.is_approved == 1 ? true : false;
             bool is_approved_contragent = ContractInfo.is_approved_contragent == 1 ? true : false;

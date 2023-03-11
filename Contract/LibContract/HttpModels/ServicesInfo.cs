@@ -7,6 +7,7 @@ namespace LibContract.HttpModels
 {
     public class ServicesInfo
     {
+        public int No { get; set; }
         public string contract_number { get; set; }
         public string name_of_service { get; set; }
         public string unit_of_measure { get; set; }
@@ -28,14 +29,15 @@ namespace LibContract.HttpModels
 
         public void Copy(ServicesInfo other)
         {
-            this.contract_number = other.contract_number;
-            this.name_of_service = other.name_of_service;
-            this.unit_of_measure = other.unit_of_measure;
-            this.unit_of_measure_index = other.unit_of_measure_index;
-            this.amount_value = other.amount_value;
-            this.amount_value_price = other.amount_value_price;
-            this.currency = other.currency;
-            this.created_date = other.created_date;
+            No = other.No;
+            contract_number = other.contract_number;
+            name_of_service = other.name_of_service;
+            unit_of_measure = other.unit_of_measure;
+            unit_of_measure_index = other.unit_of_measure_index;
+            amount_value = other.amount_value;
+            amount_value_price = other.amount_value_price;
+            currency = other.currency;
+            created_date = other.created_date;
         }
     }
 }

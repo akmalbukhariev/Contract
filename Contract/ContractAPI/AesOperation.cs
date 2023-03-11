@@ -23,11 +23,11 @@ namespace ContractAPI
         {
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
-                throw new ArgumentNullException("plainText");
+                Console.WriteLine("plainText");
             if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
+                Console.WriteLine("Key");
             if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
+                Console.WriteLine("IV");
             byte[] encrypted;
 
             // Create an AesManaged object
@@ -70,11 +70,11 @@ namespace ContractAPI
         {
             // Check arguments.
             if (cipherText == null || cipherText.Length <= 0)
-                throw new ArgumentNullException("cipherText");
+                Console.WriteLine("cipherText");
             if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
+                Console.WriteLine("Key");
             if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
+                Console.WriteLine("IV");
 
             // Declare the string used to hold
             // the decrypted text.

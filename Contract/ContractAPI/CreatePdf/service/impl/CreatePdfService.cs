@@ -40,7 +40,8 @@ namespace ContractAPI.CreatePdf.service.impl
             }
             contractInfo.CheckNull();
 
-            string strUrl = $"{Constants.SaveContractHtmlUrl}{contractInfo.contract_number}.html";
+            string encContractNumber = AesOperation.EncryptString(contractInfo.contract_number).Replace("/", "_").Replace("\\", "_");
+            string strUrl = $"{Constants.SaveContractHtmlUrl}{encContractNumber}.html";
 
             UserCompanyInfo userInfo = await dataBase.UserCompanyInfo
                 .Where(item => item.user_phone_number.Equals(contractInfo.user_phone_number))
@@ -98,7 +99,7 @@ namespace ContractAPI.CreatePdf.service.impl
 
             //Console.WriteLine($"WebRootPath: {_environment.WebRootPath}");
             string strPath = _environment.WebRootPath + Constants.SaveContractHtmlPath;
-            string savePathFile = $"{strPath}{contractInfo.contract_number}.html";
+            string savePathFile = $"{strPath}{encContractNumber}.html";
             await Task.Run(() =>
             {
                 pdf.CreateContract(savePathFile, Constants.DATA_URL);//_environment.WebRootPath);

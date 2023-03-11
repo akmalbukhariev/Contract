@@ -65,7 +65,7 @@ namespace ContractAPI.DataAccess
             modelBuilder.Entity<ContractTemplate>().HasKey(r => r.id);
 
             modelBuilder.Entity<ServicesInfo>().ToTable("ServicesInfo");
-            modelBuilder.Entity<ServicesInfo>().HasKey(r => r.created_date);
+            modelBuilder.Entity<ServicesInfo>().HasKey(r => r.No);
 
             modelBuilder.Entity<SignatureInfo>().ToTable("SignatureInfo");
             modelBuilder.Entity<SignatureInfo>().HasKey(r => r.phone_number);

@@ -28,7 +28,8 @@ namespace ContractAPI.Signature.service.impl
 
             try
             {
-                string fileName = $"{info.phone_number}_sign.png";
+                string encPhone = AesOperation.EncryptString(info.phone_number).Replace("/","_").Replace("\\","_");
+                string fileName = $"{encPhone}_sign.png";
                 await CreateFile($"{_environment.WebRootPath}{Constants.SaveSignImagePath}", fileName, info.dataStream);
                 //Console.WriteLine($"PATH: {_environment.WebRootPath}{Constants.SaveSignImagePath}{fileName}");
 
@@ -68,7 +69,8 @@ namespace ContractAPI.Signature.service.impl
 
             await Task.Run(() =>
             {
-                string strFile = $"{_environment.WebRootPath}{Constants.SaveSignImagePath}{phone_number}_sign.png";
+                string encPhone = AesOperation.EncryptString(phone_number).Replace("/", "_").Replace("\\", "_");
+                string strFile = $"{_environment.WebRootPath}{Constants.SaveSignImagePath}{encPhone}_sign.png";
                 if (File.Exists(strFile))
                 {
                     response.result = true;
