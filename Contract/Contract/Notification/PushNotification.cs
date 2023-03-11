@@ -77,13 +77,10 @@ namespace Contract.Notification
 
         private async void Current_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
         {
-            string strTitle = string.Empty;
-            string strBody = string.Empty; 
-
             if (e.Data != null && e.Data.Count >= 2)
             {
-                strBody = e.Data.ElementAt(0).Key == "body" ? e.Data.ElementAt(0).Value as string : "";
-                strTitle = e.Data.ElementAt(1).Key == "title" ? e.Data.ElementAt(1).Value as string : "";
+                string strBody = e.Data.ElementAt(0).Key == "body" ? e.Data.ElementAt(0).Value as string : "";
+                string strTitle = e.Data.ElementAt(1).Key == "title" ? e.Data.ElementAt(1).Value as string : "";
 
                 await Control.ControlApp.Instance.ShowNotification(strBody, strTitle);
             }

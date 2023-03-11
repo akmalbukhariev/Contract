@@ -1187,6 +1187,15 @@ namespace Contract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We will send you a temporary password and you can use it, but once you login then you should change your password based on the temporal password..
+        /// </summary>
+        internal static string FindPasswordDescription {
+            get {
+                return ResourceManager.GetString("FindPasswordDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First And Last Name.
         /// </summary>
         internal static string FirstAndLastName {

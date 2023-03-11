@@ -618,6 +618,10 @@
     <value>Парол топиш</value>
     <comment>Login</comment>
   </data>
+  <data name="FindPasswordDescription" xml:space="preserve">
+    <value>Биз сизга вақтинчалик парол юборамиз ва сиз ундан фойдаланишингиз мумкин, лекин тизимга кирганингиздан сўнг вақтинчалик парол асосида паролингизни ўзгартиришингиз керак.</value>
+    <comment>PageFindPassword</comment>
+  </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>Ф.И.О.</value>
     <comment>Fillinfo</comment>

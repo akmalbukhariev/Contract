@@ -20,6 +20,7 @@ namespace TestAPI
 
         static void SendMessage()
         {
+            //FITxJv1duZkbqdy48AaXx-_ovbvZIGTr95eGQYNL
             var accountSid = "ACaabae6218993aca7c7509cfdd1ee0654";
             var authToken = "a0b32fc81e2255eb2c8bafa17392348a";
             TwilioClient.Init(accountSid, authToken);

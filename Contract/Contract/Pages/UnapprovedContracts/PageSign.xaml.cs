@@ -20,7 +20,7 @@ namespace Contract.Pages.UnapprovedContracts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageSign : IPage
-    {
+    {   
         Dictionary<long, SKPath> inProgressPaths = new Dictionary<long, SKPath>();
         List<SKPath> completedPaths = new List<SKPath>();
         
@@ -82,7 +82,7 @@ namespace Contract.Pages.UnapprovedContracts
                     break;
             }
         }
-
+        
         void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
             surface = args.Surface;

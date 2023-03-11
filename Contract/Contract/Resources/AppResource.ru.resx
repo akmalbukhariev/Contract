@@ -618,6 +618,10 @@
     <value>Найдите пароль</value>
     <comment>Login</comment>
   </data>
+  <data name="FindPasswordDescription" xml:space="preserve">
+    <value>Мы вышлем вам временный пароль, и вы сможете его использовать, но как только вы войдете в систему, вы должны изменить свой пароль на основе временного пароля.</value>
+    <comment>PageFindPassword</comment>
+  </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>Ф.И.О.</value>
     <comment>Fillinfo</comment>

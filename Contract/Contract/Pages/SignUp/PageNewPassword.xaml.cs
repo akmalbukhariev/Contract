@@ -66,6 +66,7 @@ namespace Contract.Pages.SignUp
                 return;
             }
 
+            Notification.PushNotification.Instance.SetToken(userInfo.phone_number);
             await DisplayAlert(RSC.SignUp, RSC.SignUp_Message_4, RSC.Ok);
 
             Model.SetTransitionType();

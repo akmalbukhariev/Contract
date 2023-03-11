@@ -214,13 +214,17 @@ namespace ContractAPI.CreatePdf.service
             if (!is_approved) saveUserSignFile = "";
             if (!is_approved_contragent) saveClientSignFile = "";
 
-            string userAccountName = UserCompany.is_accountant_provided == 1? "Бухгалтер: " +UserCompany.accountant_name : "";
+            string userPosition = $"{UserCompany.position_of_signer}: {UserCompany.name_of_signer}";
+            string clientPosition = $"{ClientCompany.position_of_signer}: {ClientCompany.name_of_signer}";
+
+            string userAccountName = UserCompany.is_accountant_provided == 1? "Бухгалтер: " + UserCompany.accountant_name : "";
             string clientAccountName = ClientCompany.is_accountant_provided == 1 ? "Бухгалтер: " + ClientCompany.accountant_name : "";
 
             string userCounselName = UserCompany.is_legal_counsel_provided == 1 ? "Юрист: " + UserCompany.counsel_name : "";
             string clientCounselName = ClientCompany.is_legal_counsel_provided == 1 ? "Юрист: " + ClientCompany.counsel_name : "";
 
-            string result = "<div style=\"width: 100%\">" + Environment.NewLine +
+            #region
+            /*string result = "<div style=\"width: 100%\">" + Environment.NewLine +
                             $"<img class=\"imzo\" src=\"{saveUserSignFile}\"/>" + Environment.NewLine +
                             "<div style=\"float: left; width: 50%; margin-top: 30px; padding: 5px\">" + Environment.NewLine +
                                 "<div style=\"font-size: 18px\">" + Environment.NewLine +
@@ -258,7 +262,45 @@ namespace ContractAPI.CreatePdf.service
 			            		 "</div>" + Environment.NewLine +
 			            	"</div>" + Environment.NewLine +
 			            "</div>" + Environment.NewLine +
-                        "<div style=\"margin-bottom: 140px;\"></div>";
+                        "<div style=\"margin-bottom: 140px;\"></div>";*/
+
+            //string result = "<div style=\"width: 100%\">" + Environment.NewLine +
+            //                   "<table id=\"imzo\" style=\"width: 100%\">" + Environment.NewLine +
+            //                       "<tr>" + Environment.NewLine +
+            //                           $"<td style=\"width: 36%\"><div>{UserCompany.position_of_signer}: {UserCompany.name_of_signer}</div></td>" + Environment.NewLine +
+            //                           $"<td style=\"width: 15%; height: 110px; background: url({saveUserSignFile}); background-repeat: no-repeat; background-position: top right 25px;\" rowspan=\"3\"></td>" + Environment.NewLine +
+            //                           $"<td style=\"width: 35%\"><div>{ClientCompany.position_of_signer}: {ClientCompany.name_of_signer}</div></td>" + Environment.NewLine +
+            //                           $"<td style=\"width: 14%; height: 110px; background: url({saveClientSignFile}); background-repeat: no-repeat; background-position: top right 5px;\" rowspan=\"3\"></td>" + Environment.NewLine +
+            //                       "</tr>" + Environment.NewLine +
+            //                       "<tr>" + Environment.NewLine +
+            //                           $"<td colspan=\"2\"><div>{userAccountName}</div></td>" + Environment.NewLine +
+            //                           $"<td colspan=\"2\"><div>{clientAccountName}</div></td>" + Environment.NewLine +
+            //                       "</tr>" + Environment.NewLine +
+            //                       "<tr>" + Environment.NewLine +
+            //                           $"<td colspan=\"2\"><div>{userCounselName}</div></td>" + Environment.NewLine +
+            //                           $"<td colspan=\"2\"><div>{clientCounselName}</div></td>" + Environment.NewLine +
+            //                       "</tr>" + Environment.NewLine +
+            //                   "</table>" + Environment.NewLine +
+            //               "</div>" + Environment.NewLine +
+            //               "<div style=\"margin-bottom: 50px;\"></div>";
+            #endregion
+
+            string result = "<table id=\"imzo\" style=\"width: 100%\">" + Environment.NewLine +
+                                "<tr>" + Environment.NewLine +
+                                    $"<td style=\"width: 36%\"><div>{userPosition}</div></td>" + Environment.NewLine +
+                                    $"<td rowspan=\"3\"><img src={saveUserSignFile} width = 110 height = 110></td>" + Environment.NewLine +
+                                    $"<td style=\"width: 35%\"><div>{clientPosition}.</div></td> " + Environment.NewLine +
+                                "</tr>" + Environment.NewLine +
+                                "<tr>" + Environment.NewLine +
+                                    $"<td><div>{userAccountName}</div></td>" + Environment.NewLine +
+                                    $"<td><div>{clientAccountName}</div></td>" + Environment.NewLine +
+                                    $"<td rowspan=\"3\"><img src={saveClientSignFile} width = 110 height = 110></td>" + Environment.NewLine +
+                                "</tr>" + Environment.NewLine +
+                                "<tr>" + Environment.NewLine +
+                                    $"<td><div>{userCounselName}</div></td>" + Environment.NewLine +
+                                    $"<td><div>{clientCounselName}</div></td>" + Environment.NewLine +
+                                "</tr>" + Environment.NewLine +
+                            "</table>";
 
             return result;
         }

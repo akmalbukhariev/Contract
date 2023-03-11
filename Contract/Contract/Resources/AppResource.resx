@@ -617,6 +617,10 @@ Contracts</value>
     <value>Find Password</value>
     <comment>Login</comment>
   </data>
+  <data name="FindPasswordDescription" xml:space="preserve">
+    <value>We will send you a temporary password and you can use it, but once you login then you should change your password based on the temporal password.</value>
+    <comment>PageFindPassword</comment>
+  </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>First And Last Name</value>
     <comment>Fillinfo</comment>

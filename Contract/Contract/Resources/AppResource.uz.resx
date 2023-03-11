@@ -619,6 +619,10 @@ shartnomalar</value>
     <value>Parol topsih</value>
     <comment>Login</comment>
   </data>
+  <data name="FindPasswordDescription" xml:space="preserve">
+    <value>Biz sizga vaqtinchalik parol yuboramiz va siz undan foydalanishingiz mumkin, lekin tizimga kirganingizdan so'ng vaqtinchalik parol asosida parolingizni o'zgartirishingiz kerak.</value>
+    <comment>PageFindPassword</comment>
+  </data>
   <data name="FirstAndLastName" xml:space="preserve">
     <value>F.I.O</value>
     <comment>Fillinfo</comment>
